@@ -5987,9 +5987,8 @@ save_refln.F_squared_meas
 
 _definition.id                          '_refln.F_squared_meas'
 loop_
-  _alias.definition_id
-         '_refln.F_meas'     
-         '_refln_F_meas' 
+  _alias.definition_id  
+         '_refln_F_squared_meas' 
 _definition.update                      2017-03-22
 _description.text                       
 ;
@@ -6011,9 +6010,9 @@ loop_
   _method.expression
          Definition          
 ;
-         If (_diffrn_radiation.probe == "neutron")  _units.code =  "femtometres"
-    Else If (_diffrn_radiation.probe == "electron") _units.code =  "volts"
-    Else                                            _units.code =  "electrons"
+         If (_diffrn_radiation.probe == "neutron")  _units.code =  "femtometre_squared"
+    Else If (_diffrn_radiation.probe == "electron") _units.code =  "volt_squared"
+    Else                                            _units.code =  "electron_squared"
 ; 
 
 save_
