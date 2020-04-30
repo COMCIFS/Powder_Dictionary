@@ -42,7 +42,7 @@ save_PD_EXT_GROUP
 ;
     _name.category_id            CIF_POW_MULTIPHASE
     _name.object_id              PD_EXT_GROUP
-    _import.get                 [{"file":"cif_pow.dic" "save":"PD_GROUP" "mode":"Full"}]
+    _import.get                 [{"file":"cif_pow.dic" "save":"PD_GROUP" "mode":"Full" "dupl":"Ignore"}]
     
 save_
 
