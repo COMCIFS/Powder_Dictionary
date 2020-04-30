@@ -43,7 +43,7 @@ save_PD_GROUP
 ;
     _name.category_id            CIF_POW
     _name.object_id              PD_GROUP
-    _import.get                 [{"file":"cif_core.dic" "save":"CIF_CORE" "mode":"Full" "dupl":"Replace"}]
+    _import.get                 [{"file":"cif_core.dic" "save":"CIF_CORE" "mode":"Full" "dupl":"Ignore"}]
     
 save_
 
