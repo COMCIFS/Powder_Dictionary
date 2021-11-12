@@ -15,7 +15,7 @@ data_CIF_POW
     _dictionary.formalism        Powder
     _dictionary.class            Instance
     _dictionary.version          2.4.1
-    _dictionary.date             2019-09-25
+    _dictionary.date             2021-11-12
     _dictionary.uri              www.iucr.org/cif/dic/cif_pow.dic
     _dictionary.ddl_conformance  3.11.10
     _dictionary.namespace        CifPow
@@ -4394,7 +4394,7 @@ save_
 save__pd_proc.2theta_range_inc
 
     _definition.id               '_pd_proc.2theta_range_inc'
-    _definition.update           2014-06-20
+    _definition.update           2021-11-12
     loop_
       _alias.definition_id
           '_pd_proc_2theta_range_inc' 
@@ -4407,7 +4407,7 @@ save__pd_proc.2theta_range_inc
       experiments it will define the fixed 2\\q value.
 ;
     _name.category_id            pd_proc_overall
-    _name.object_id              2theta_range_min
+    _name.object_id              2theta_range_inc
     _type.purpose                Number
     _type.source                 Derived
     _type.container              Single
@@ -6126,9 +6126,11 @@ loop_
      Added definition for _refln.F_meas after consultation with
      PD DMG. (James Hester)
 ;
-         2.4.1    2019-09-25
+         2.4.1    2021-11-12
 ;
      Changed the content type of multiple data items from 'Count'
      to 'Integer' and assigned the appropriate enumeration range
      if needed.
+
+     Corrected the object id of the _pd_proc.2theta_range_inc data item.
 ;
