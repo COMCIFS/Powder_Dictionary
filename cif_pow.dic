@@ -6063,7 +6063,7 @@ save__pd_refln.peak_id
 
 save_
 
-save__pd_refln.wavelength_id
+save__refln.wavelength_id
 
     _definition.id               '_pd_refln.wavelength_id'
     _definition.update           2021-12-06
@@ -6071,10 +6071,9 @@ save__pd_refln.wavelength_id
       _alias.definition_id
           '_pd_refln_wavelength_id'
           '_refln.wavelength_id'
-    _definition_replaced.by      '_refln.wavelength_id'
     _description.text                   
 ;
-      This data name is DEPRECATED. _refln.wavelength_id should
+      _pd_refln.wavelength_id is DEPRECATED. _refln.wavelength_id should
       be used instead.
 ;
     _name.category_id            refln
