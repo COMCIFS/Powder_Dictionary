@@ -6069,6 +6069,7 @@ save_refln.wavelength_id
     _definition.update           2021-12-06
     loop_
       _alias.definition_id
+          '_refln_wavelength_id'
           '_pd_refln.wavelength_id'
           '_pd_refln_wavelength_id'
     _description.text                   
