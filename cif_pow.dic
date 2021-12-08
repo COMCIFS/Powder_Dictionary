@@ -15,7 +15,7 @@ data_CIF_POW
     _dictionary.formalism        Powder
     _dictionary.class            Instance
     _dictionary.version          2.4.1
-    _dictionary.date             2021-11-12
+    _dictionary.date             2021-12-06
     _dictionary.uri              www.iucr.org/cif/dic/cif_pow.dic
     _dictionary.ddl_conformance  3.11.10
     _dictionary.namespace        CifPow
@@ -6063,27 +6063,27 @@ save__pd_refln.peak_id
 
 save_
 
-save__pd_refln.wavelength_id
+save_refln.wavelength_id
 
-    _definition.id               '_pd_refln.wavelength_id'
-    _definition.update           2016-11-03
+    _definition.id               '_refln.wavelength_id'
+    _definition.update           2021-12-06
     loop_
       _alias.definition_id
-          '_pd_refln_wavelength_id' 
+          '_refln_wavelength_id'
+          '_pd_refln.wavelength_id'
+          '_pd_refln_wavelength_id'
     _description.text                   
 ;
-
-      Code which identifies the wavelength associated with the
-      reflection and the peak pointed to by _pd_refln.peak_id.
-      This code must match a _diffrn_radiation_wavelength.id code.
+      _pd_refln.wavelength_id is DEPRECATED. _refln.wavelength_id should
+      be used instead.
 ;
     _name.category_id            refln
     _name.object_id              wavelength_id
     _name.linked_item_id         '_diffrn_radiation_wavelength.id'
     _type.purpose                Link
-    _type.source                 Assigned
+    _type.source                 Related
     _type.container              Single
-    _type.contents               Code
+    _type.contents               Word
 
 save_
 
@@ -6126,11 +6126,13 @@ loop_
      Added definition for _refln.F_meas after consultation with
      PD DMG. (James Hester)
 ;
-         2.4.1    2021-11-12
+         2.4.1    2021-12-06
 ;
      Changed the content type of multiple data items from 'Count'
      to 'Integer' and assigned the appropriate enumeration range
      if needed.
 
      Corrected the object id of the _pd_proc.2theta_range_inc data item.
+
+     Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
