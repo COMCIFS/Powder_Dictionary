@@ -3107,7 +3107,7 @@ save__pd_meas.datetime_initiated
 
       The date and time of the data-set measurement. 
       Entries should follow the standard RFC 3339 ABNF format 
-      'yyyy-mm-ddThh:mm{:ss}{[+-]zz:zz}'. Use of seconds and 
+      'yyyy-mm-ddThh:mm{:ss}{Z|[+-]zz:zz}'. Use of seconds and 
       a time zone offset is optional, but use of hours and 
       minutes is strongly encouraged. Where possible, give the 
       time when the measurement was started, rather than when 
@@ -4518,7 +4518,7 @@ save__pd_proc.info_datetime
       May be looped if multiple processing steps were used.
  
       Entries should follow the standard RFC 3339 ABNF format 
-      'yyyy-mm-ddThh:mm{:ss}{[+-]zz:zz}'. Use of seconds and 
+      'yyyy-mm-ddThh:mm{:ss}{Z|[+-]zz:zz}'. Use of seconds and 
       a time zone offset is optional, but use of hours and 
       minutes is strongly encouraged.
 ;
