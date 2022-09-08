@@ -112,7 +112,7 @@ save__pd_block.id
       block later, a new ID may be assigned, but the original name
       should be retained.
  
-      The format for the ID code is:
+      The suggested format for the ID code is:
         <date-time>|<block_name>|<creator_name>|<instr_name>
  
        <date-time>    is the date and time the CIF was created
@@ -152,10 +152,10 @@ save__pd_block.id
       but should not be considered significant - searches for
       data-set ID names should be case-insensitive.
  
-      Date-time entries are in the standard CIF format
-      'yyyy-mm-ddThh:mm:ss+zz' Use of seconds and a time zone
-      is optional, but use of hours and minutes is strongly
-      encouraged as this will help ensure that the ID code is unique.
+      Date-time entries follow the standard RFC 3339 ABNF format
+      'yyyy-mm-ddThh:mm{:ss}{[+-]zz:zz}'. Use of seconds and a 
+      time zone is optional, but use of hours and minutes is strongly
+      encouraged, as this will help ensure that the ID code is unique.
  
       An archive site that wishes to make CIFs available via
       the web may substitute the URL for the file containing the
@@ -3105,11 +3105,12 @@ save__pd_meas.datetime_initiated
     _description.text                   
 ;
 
-      The date and time of the data-set measurement. Entries follow
-      the standard CIF format 'yyyy-mm-ddThh:mm:ss+zz'. Use
-      of seconds and a time zone is optional, but use of hours
-      and minutes is strongly encouraged. Where possible, give the
-      time when the measurement was started rather than when
+      The date and time of the data-set measurement. 
+      Entries should follow the standard RFC 3339 ABNF format 
+      'yyyy-mm-ddThh:mm{:ss}{Z|[+-]zz:zz}'. Use of seconds and 
+      a time zone offset is optional, but use of hours and 
+      minutes is strongly encouraged. Where possible, give the 
+      time when the measurement was started, rather than when 
       it was completed.
 ;
     _name.category_id            pd_meas_overall
@@ -3117,11 +3118,16 @@ save__pd_meas.datetime_initiated
     _type.purpose                Encode
     _type.source                 Assigned
     _type.container              Single
-    _type.contents               Text
+    _type.contents               DateTime
     loop_
     _description_example.case
             "1990-07-13T14:40" 
-
+            "2042-12-13T02:37:23Z" 
+            "2005-03-03T12:02:09.17+09:30" 
+            "2015-10-30T22:45-02:00" 
+            "1912-02-03T11:47Z" 
+            "1979-09-01" 
+            
 save_
 
 save__pd_meas.number_of_points
@@ -4505,26 +4511,31 @@ save__pd_proc.info_datetime
     loop_
       _alias.definition_id
           '_pd_proc_info_datetime' 
-    _description.text                   
+    _description.text                    
 ;
 
       Date(s) and time(s) when the data set was processed.
       May be looped if multiple processing steps were used.
  
-      Dates and times should be specified in the standard CIF
-      format 'yyyy-mm-ddThh:mm:ss+zz'. Use of seconds and a
-      time zone is optional, but use of hours and minutes is
-      strongly encouraged.
+      Entries should follow the standard RFC 3339 ABNF format 
+      'yyyy-mm-ddThh:mm{:ss}{Z|[+-]zz:zz}'. Use of seconds and 
+      a time zone offset is optional, but use of hours and 
+      minutes is strongly encouraged.
 ;
     _name.category_id            pd_proc_overall
     _name.object_id              info_datetime
     _type.purpose                Encode
     _type.source                 Assigned
     _type.container              Single
-    _type.contents               Code
+    _type.contents               DateTime
     loop_
     _description_example.case
             "1990-07-13T14:40" 
+            "2042-12-13T02:37:23Z" 
+            "2005-03-03T12:02:09.17+09:30" 
+            "2015-10-30T22:45-02:00" 
+            "1912-02-03T11:47Z" 
+            "1979-09-01" 
 
 save_
 
