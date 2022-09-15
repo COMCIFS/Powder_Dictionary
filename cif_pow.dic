@@ -932,7 +932,7 @@ save__pd_char.atten_coef_mu_obs
     _description.text                   
 ;
 
-      The calculated linear attenuation coefficient,
+      The observed linear attenuation coefficient,
       \\m, in units of inverse millimetres, also known as the
       linear absorption coefficient. The value is determined 
       by a transmission measurement.
