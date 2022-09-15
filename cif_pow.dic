@@ -901,9 +901,11 @@ save__pd_char.atten_coef_mu_calc
     _description.text                   
 ;
 
-      The calculated \\m will be obtained from the atomic content of
-      the cell, the average density (allowing for specimen packing)
-      and the radiation wavelength.
+      The calculated linear attenuation coefficient,
+      \\m, in units of inverse millimetres, also known as the
+      linear absorption coefficient. The value is obtained from the 
+      atomic content of the cell, the average density (allowing 
+      for specimen packing), and the radiation wavelength.
       Note that _pd_char.atten_coef_mu_calc will differ from
       _exptl_absorpt.coefficient_mu if the packing density is
       not unity.
@@ -930,15 +932,10 @@ save__pd_char.atten_coef_mu_obs
     _description.text                   
 ;
 
-      The observed linear attenuation coefficient,
-      \\m, in units of inverse millimetres. Note that this quantity
-      is sometimes referred to as the mass absorption coefficient;
-      however, this term accounts for other potentially significant
-      losses of incident radiation, for example incoherent
-      scattering of neutrons.
- 
-      The observed \\m will be determined by a transmission
-      measurement.
+      The calculated linear attenuation coefficient,
+      \\m, in units of inverse millimetres, also known as the
+      linear absorption coefficient. The value is determined 
+      by a transmission measurement.
 
 ;
     _name.category_id            pd_char
@@ -949,6 +946,65 @@ save__pd_char.atten_coef_mu_obs
     _type.contents               Real
     _enumeration.range           0.0:
     _units.code                             reciprocal_millimetres
+
+save_
+
+
+save__pd_char.mass_atten_coef_mu_calc
+
+    _definition.id               '_pd_char.mass_atten_coef_mu_calc'
+    _definition.update           2022-09-15
+    loop_
+      _alias.definition_id
+          '_pd_char_mass_atten_coef_mu_calc' 
+    _description.text                   
+;
+
+      The calculated mass attenuation coefficient, \\m, in 
+      units of square millimetres per gram, also known as the
+      mass absorption coefficient. The calculated \\m* will 
+      be obtained from the atomic content of the cell, and 
+      the radiation wavelength.
+      
+;
+    _name.category_id            pd_char
+    _name.object_id              mass_atten_coef_mu_calc
+    _type.purpose                Number
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.0:
+_units.code                             square_millimetres_per_gram
+
+save_
+
+
+save__pd_char.mass_atten_coef_mu_obs
+
+    _definition.id               '_pd_char.mass_atten_coef_mu_obs'
+    _definition.update           2022-09-15
+    loop_
+      _alias.definition_id
+          '_pd_char_mass_atten_coef_mu_obs' 
+    _description.text                   
+;
+
+      The observed mass attenuation coefficient, \\m*, in 
+      units of square millimetres per gram, also known as the
+      mass absorption coefficient. 
+ 
+      The observed \\m* will be determined by a transmission
+      measurement coupled with density measurement.
+
+;
+    _name.category_id            pd_char
+    _name.object_id              atten_coef_mu_obs
+    _type.purpose                Number
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.0:
+    _units.code                             square_millimetres_per_gram
 
 save_
 
