@@ -954,9 +954,6 @@ save__pd_char.mass_atten_coef_mu_calc
 
     _definition.id               '_pd_char.mass_atten_coef_mu_calc'
     _definition.update           2022-09-15
-    loop_
-      _alias.definition_id
-          '_pd_char_mass_atten_coef_mu_calc' 
     _description.text                   
 ;
 
@@ -983,9 +980,6 @@ save__pd_char.mass_atten_coef_mu_obs
 
     _definition.id               '_pd_char.mass_atten_coef_mu_obs'
     _definition.update           2022-09-15
-    loop_
-      _alias.definition_id
-          '_pd_char_mass_atten_coef_mu_obs' 
     _description.text                   
 ;
 
