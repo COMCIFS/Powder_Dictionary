@@ -904,8 +904,8 @@ save__pd_char.atten_coef_mu_calc
       The calculated linear attenuation coefficient,
       \\m, in units of inverse millimetres, also known as the
       linear absorption coefficient. The value is obtained from the 
-      atomic content of the cell, the average density (allowing 
-      for specimen packing), and the radiation wavelength.
+      atomic content of the cell (or specimen), the average density 
+      (allowing for specimen packing), and the radiation wavelength.
       Note that _pd_char.atten_coef_mu_calc will differ from
       _exptl_absorpt.coefficient_mu if the packing density is
       not unity.
@@ -960,8 +960,8 @@ save__pd_char.mass_atten_coef_mu_calc
       The calculated mass attenuation coefficient, \\m, in 
       units of square millimetres per gram, also known as the
       mass absorption coefficient. The calculated \\m* will 
-      be obtained from the atomic content of the cell, and 
-      the radiation wavelength.
+      be obtained from the atomic content of the cell (or 
+      specimen), and the radiation wavelength.
       
 ;
     _name.category_id            pd_char
