@@ -807,7 +807,7 @@ save_pd_char.mass_atten_coef_mu_calc
     units of square millimetres per gram, also known as the
     mass absorption coefficient. The calculated \\m* will
     be obtained from the atomic content of each phase and
-    the radiation wavelength.    
+    the radiation wavelength.
 ;
     _name.category_id            pd_char
     _name.object_id              mass_atten_coef_mu_calc
