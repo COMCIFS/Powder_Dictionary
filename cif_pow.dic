@@ -957,11 +957,11 @@ save__pd_char.mass_atten_coef_mu_calc
     _description.text                   
 ;
 
-      The calculated mass attenuation coefficient, \\m, in 
+      The calculated mass attenuation coefficient, \\m*, in 
       units of square millimetres per gram, also known as the
       mass absorption coefficient. The calculated \\m* will 
-      be obtained from the atomic content of the cell for each
-      phase and the radiation wavelength.
+      be obtained from the atomic content of each phase and 
+      the radiation wavelength.
       
 ;
     _name.category_id            pd_char
@@ -971,7 +971,7 @@ save__pd_char.mass_atten_coef_mu_calc
     _type.container              Single
     _type.contents               Real
     _enumeration.range           0.0:
-_units.code                             square_millimetres_per_gram
+_units.code                             millimetres_squared_per_gram
 
 save_
 
@@ -988,7 +988,7 @@ save__pd_char.mass_atten_coef_mu_obs
       mass absorption coefficient. 
  
       The observed \\m* will be determined by a transmission
-      measurement coupled with density measurement.
+      measurement coupled with a density measurement.
 
 ;
     _name.category_id            pd_char
@@ -998,7 +998,7 @@ save__pd_char.mass_atten_coef_mu_obs
     _type.container              Single
     _type.contents               Real
     _enumeration.range           0.0:
-    _units.code                             square_millimetres_per_gram
+    _units.code                             millimetres_squared_per_gram
 
 save_
 
