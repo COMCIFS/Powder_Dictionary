@@ -1,3 +1,4 @@
+[![CIF syntax check](https://github.com/COMCIFS/Powder_Dictionary/actions/workflows/main.yml/badge.svg)](https://github.com/COMCIFS/Powder_Dictionary/actions)
 # Powder Dictionary
 
 Definitions of CIF data names for powder diffraction.
