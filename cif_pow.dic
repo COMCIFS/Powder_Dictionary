@@ -12,10 +12,9 @@
 data_CIF_POW
 
     _dictionary.title             CIF_POW
-    _dictionary.formalism         Powder
     _dictionary.class             Instance
-    _dictionary.version           2.5.0-pre-1
-    _dictionary.date              2022-09-15
+    _dictionary.version           2.5.0-pre-2
+    _dictionary.date              2022-09-28
     _dictionary.uri               www.iucr.org/cif/dic/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
     _dictionary.namespace         CifPow
@@ -502,7 +501,7 @@ save_pd_calib_offset.detector_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
-    _enumeration.default          '.'
+    _enumeration.default          .
 
 save_
 
@@ -522,7 +521,7 @@ save_pd_calib_offset.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
-    _enumeration.default          '.'
+    _enumeration.default          .
 
 save_
 
@@ -571,7 +570,7 @@ save_pd_calib_std.detector_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
-    _enumeration.default          '.'
+    _enumeration.default          .
 
 save_
 
@@ -809,14 +808,14 @@ save_pd_char.mass_atten_coef_mu_calc
     be obtained from the atomic content of each phase and
     the radiation wavelength.
 ;
-    _name.category_id            pd_char
-    _name.object_id              mass_atten_coef_mu_calc
-    _type.purpose                Number
-    _type.source                 Derived
-    _type.container              Single
-    _type.contents               Real
-    _enumeration.range           0.0:
-    _units.code                  millimetres_squared_per_gram
+    _name.category_id             pd_char
+    _name.object_id               mass_atten_coef_mu_calc
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres_squared_per_gram
 
 save_
 
@@ -832,14 +831,14 @@ save_pd_char.mass_atten_coef_mu_obs
     determined by a transmission measurement coupled with
     a density measurement.
 ;
-    _name.category_id            pd_char
-    _name.object_id              mass_atten_coef_mu_obs
-    _type.purpose                Number
-    _type.source                 Derived
-    _type.container              Single
-    _type.contents               Real
-    _enumeration.range           0.0:
-    _units.code                  millimetres_squared_per_gram
+    _name.category_id             pd_char
+    _name.object_id               mass_atten_coef_mu_obs
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres_squared_per_gram
 
 save_
 
@@ -1337,6 +1336,22 @@ save_pd_meas.intensity_background
 
 save_
 
+save_pd_meas.intensity_background_su
+
+    _definition.id                '_pd_meas.intensity_background_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_meas.intensity_background.
+;
+    _name.category_id             pd_meas
+    _name.object_id               intensity_background_su
+    _name.linked_item_id          '_pd_meas.intensity_background'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_meas.intensity_container
 
     _definition.id                '_pd_meas.intensity_container'
@@ -1365,6 +1380,22 @@ save_pd_meas.intensity_container
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+
+save_
+
+save_pd_meas.intensity_container_su
+
+    _definition.id                '_pd_meas.intensity_container_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_meas.intensity_container.
+;
+    _name.category_id             pd_meas
+    _name.object_id               intensity_container_su
+    _name.linked_item_id          '_pd_meas.intensity_container'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1399,6 +1430,22 @@ save_pd_meas.intensity_monitor
 
 save_
 
+save_pd_meas.intensity_monitor_su
+
+    _definition.id                '_pd_meas.intensity_monitor_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_meas.intensity_monitor.
+;
+    _name.category_id             pd_meas
+    _name.object_id               intensity_monitor_su
+    _name.linked_item_id          '_pd_meas.intensity_monitor'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_meas.intensity_total
 
     _definition.id                '_pd_meas.intensity_total'
@@ -1428,6 +1475,22 @@ save_pd_meas.intensity_total
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+
+save_
+
+save_pd_meas.intensity_total_su
+
+    _definition.id                '_pd_meas.intensity_total_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_meas.intensity_total.
+;
+    _name.category_id             pd_meas
+    _name.object_id               intensity_total_su
+    _name.linked_item_id          '_pd_meas.intensity_total'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1667,6 +1730,22 @@ save_pd_proc.intensity_bkg_calc
 
 save_
 
+save_pd_proc.intensity_bkg_calc_su
+
+    _definition.id                '_pd_proc.intensity_bkg_calc_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_proc.intensity_bkg_calc.
+;
+    _name.category_id             pd_proc
+    _name.object_id               intensity_bkg_calc_su
+    _name.linked_item_id          '_pd_proc.intensity_bkg_calc'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.intensity_bkg_fix
 
     _definition.id                '_pd_proc.intensity_bkg_fix'
@@ -1706,6 +1785,22 @@ save_pd_proc.intensity_bkg_fix
 
 save_
 
+save_pd_proc.intensity_bkg_fix_su
+
+    _definition.id                '_pd_proc.intensity_bkg_fix_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_proc.intensity_bkg_fix.
+;
+    _name.category_id             pd_proc
+    _name.object_id               intensity_bkg_fix_su
+    _name.linked_item_id          '_pd_proc.intensity_bkg_fix'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.intensity_incident
 
     _definition.id                '_pd_proc.intensity_incident'
@@ -1737,6 +1832,22 @@ save_pd_proc.intensity_incident
 
 save_
 
+save_pd_proc.intensity_incident_su
+
+    _definition.id                '_pd_proc.intensity_incident_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_proc.intensity_incident.
+;
+    _name.category_id             pd_proc
+    _name.object_id               intensity_incident_su
+    _name.linked_item_id          '_pd_proc.intensity_incident'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.intensity_net
 
     _definition.id                '_pd_proc.intensity_net'
@@ -1758,6 +1869,22 @@ save_pd_proc.intensity_net
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+
+save_
+
+save_pd_proc.intensity_net_su
+
+    _definition.id                '_pd_proc.intensity_net_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_proc.intensity_net.
+;
+    _name.category_id             pd_proc
+    _name.object_id               intensity_net_su
+    _name.linked_item_id          '_pd_proc.intensity_net'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1796,6 +1923,22 @@ save_pd_proc.intensity_norm
 
 save_
 
+save_pd_proc.intensity_norm_su
+
+    _definition.id                '_pd_proc.intensity_norm_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_proc.intensity_norm.
+;
+    _name.category_id             pd_proc
+    _name.object_id               intensity_norm_su
+    _name.linked_item_id          '_pd_proc.intensity_norm'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.intensity_total
 
     _definition.id                '_pd_proc.intensity_total'
@@ -1817,6 +1960,22 @@ save_pd_proc.intensity_total
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+
+save_
+
+save_pd_proc.intensity_total_su
+
+    _definition.id                '_pd_proc.intensity_total_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_proc.intensity_total.
+;
+    _name.category_id             pd_proc
+    _name.object_id               intensity_total_su
+    _name.linked_item_id          '_pd_proc.intensity_total'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4024,6 +4183,22 @@ save_pd_peak.intensity
 
 save_
 
+save_pd_peak.intensity_su
+
+    _definition.id                '_pd_peak.intensity_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_peak.intensity.
+;
+    _name.category_id             pd_peak
+    _name.object_id               intensity_su
+    _name.linked_item_id          '_pd_peak.intensity'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_peak.pk_height
 
     _definition.id                '_pd_peak.pk_height'
@@ -4043,6 +4218,22 @@ save_pd_peak.pk_height
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+
+save_
+
+save_pd_peak.pk_height_su
+
+    _definition.id                '_pd_peak.pk_height_su'
+    _definition.update            2022-09-28
+    _description.text
+;
+    Standard uncertainty of _pd_peak.pk_height.
+;
+    _name.category_id             pd_peak
+    _name.object_id               pk_height_su
+    _name.linked_item_id          '_pd_peak.pk_height'
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4215,7 +4406,7 @@ save_pd_phase.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
-    _enumeration.default          '.'
+    _enumeration.default          .
 
 save_
 
@@ -5465,8 +5656,10 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-09-15
+         2.5.0-pre-2              2022-09-28
 ;
+       ## Update the above version number until final release
+
        Added mass absorption coefficient and improved absorption
-       definitions.
+       definitions. Added missing su definitions.
 ;
