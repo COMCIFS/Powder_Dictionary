@@ -316,6 +316,7 @@ save_pd_calib.detector_response
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0.0:
 
 save_
@@ -338,6 +339,7 @@ save_pd_calib.std_internal_mass_percent
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0.0:100.0
 
 save_
@@ -497,7 +499,7 @@ save_pd_calib_offset.detector_id
     _name.category_id             pd_calib_offset
     _name.object_id               detector_id
     _name.linked_item_id          '_pd_calib.detector_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -964,7 +966,7 @@ save_pd_calc.intensity_net
     Use _pd_calc.intensity_net if the computed diffractogram
     does not contain background or normalization corrections
     and thus is specified on the same scale as the
-    _pd_proc_intensity_net values.
+    _pd_proc.intensity_net values.
     If an observed pattern is included, _pd_calc.intensity_*
     should be looped with either _pd_proc.intensity_net,
     _pd_meas.counts_* or _pd_meas.intensity_*.
@@ -975,6 +977,7 @@ save_pd_calc.intensity_net
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   counts
     _enumeration.range            0.0:
 
 save_
@@ -1008,6 +1011,7 @@ save_pd_calc.intensity_total
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   counts
     _enumeration.range            0.0:
 
 save_
@@ -1028,7 +1032,7 @@ save_pd_calc.point_id
     _name.category_id             pd_calc
     _name.object_id               point_id
     _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -1170,6 +1174,7 @@ save_pd_meas.counts_background
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
+    _units.code                   counts
     _enumeration.range            0:
 
 save_
@@ -1204,6 +1209,7 @@ save_pd_meas.counts_container
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
+    _units.code                   counts
     _enumeration.range            0:
 
 save_
@@ -1238,6 +1244,7 @@ save_pd_meas.counts_monitor
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
+    _units.code                   counts
     _enumeration.range            0:
 
 save_
@@ -1273,6 +1280,7 @@ save_pd_meas.counts_total
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
+    _units.code                   counts
     _enumeration.range            0:
 
 save_
@@ -1510,7 +1518,7 @@ save_pd_meas.point_id
     _name.category_id             pd_meas
     _name.object_id               point_id
     _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Encode
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -1715,7 +1723,7 @@ save_pd_proc.intensity_bkg_calc
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
 
-    _pd_proc_intensity_bkg_calc is intended to contain the
+    _pd_proc.intensity_bkg_calc is intended to contain the
     background intensity for every data point where the
     background function has been fitted or estimated (for example, in
     all Rietveld and profile fits).
@@ -1764,7 +1772,7 @@ save_pd_proc.intensity_bkg_fix
     may be specified using _pd_proc_intensity_bkg_calc.
 
     Background values should be on the same scale as the
-    _pd_proc_intensity_net values. Thus normalization and
+    _pd_proc.intensity_net values. Thus normalization and
     correction factors should be applied before
     background subtraction (or should be applied to the
     background values equally).
@@ -1898,7 +1906,7 @@ save_pd_proc.intensity_norm
     Inclusion of s.u.'s for these values is strongly recommended.
 
     Background values should be on the same scale as the
-    _pd_proc_intensity_net values. Thus normalization and correction
+    _pd_proc.intensity_net values. Thus normalization and correction
     factors should be applied before background subtraction (or
     should be applied to the background values equally).
 
@@ -1911,7 +1919,7 @@ save_pd_proc.intensity_norm
     Note that if the intensities have been corrected for a variation
     of the incident intensity as a function of a data-collection
     variable, the correction function should be specified separately
-    as _pd_proc_intensity_incident.
+    as _pd_proc.intensity_incident.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_norm
@@ -1997,7 +2005,7 @@ save_pd_proc.point_id
     _name.category_id             pd_proc
     _name.object_id               point_id
     _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -3733,6 +3741,7 @@ save_pd_meas.2theta_fixed
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   degrees
     _enumeration.range            -180.0:360.0
 
 save_
@@ -3824,6 +3833,7 @@ save_pd_meas.angle_chi
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   degrees
     _enumeration.range            -180.0:360.0
 
 save_
@@ -3846,6 +3856,7 @@ save_pd_meas.angle_omega
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   degrees
     _enumeration.range            -180.0:360.0
 
 save_
@@ -3868,6 +3879,7 @@ save_pd_meas.angle_phi
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   degrees
     _enumeration.range            -180.0:360.0
 
 save_
@@ -3920,6 +3932,7 @@ save_pd_meas.number_of_points
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
+    _units.code                   none
     _enumeration.range            1:
 
 save_
@@ -4170,7 +4183,7 @@ save_pd_peak.intensity
     _description.text
 ;
     Integrated area for the peak, with the same scaling as
-    the _pd_proc_intensity_ values. It is good practice to
+    the _pd_proc.intensity_ values. It is good practice to
     include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -4208,7 +4221,7 @@ save_pd_peak.pk_height
 ;
     The maximum intensity of the peak, either extrapolated
     or the highest observed intensity value. The same
-    scaling is used for the _pd_proc_intensity_ values.
+    scaling is used for the _pd_proc.intensity_ values.
     It is good practice to include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -4260,7 +4273,7 @@ save_pd_peak.wavelength_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Word
 
 save_
 
@@ -4432,6 +4445,7 @@ save_pd_phase.mass_percent
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0.0:100.0
 
 save_
@@ -4831,6 +4845,7 @@ save_pd_proc_ls.prof_r_factor
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0.0:
 
 save_
@@ -4875,6 +4890,7 @@ save_pd_proc_ls.prof_wr_expected
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0.0:
 
 save_
@@ -4916,6 +4932,7 @@ save_pd_proc_ls.prof_wr_factor
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0.0:
 
 save_
@@ -4984,6 +5001,7 @@ save_pd_proc_ls.weight
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
     _enumeration.range            0:
 
 save_
@@ -5185,6 +5203,7 @@ save_pd_proc.number_of_points
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
+    _units.code                   none
     _enumeration.range            1:
 
 save_
