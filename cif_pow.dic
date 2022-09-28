@@ -833,7 +833,7 @@ save_pd_char.mass_atten_coef_mu_obs
     a density measurement.
 ;
     _name.category_id            pd_char
-    _name.object_id              atten_coef_mu_obs
+    _name.object_id              mass_atten_coef_mu_obs
     _type.purpose                Number
     _type.source                 Derived
     _type.container              Single
