@@ -1809,6 +1809,7 @@ save_pd_proc.intensity_incident
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
+
     If the intensities have been corrected for a variation of the
     incident intensity as a function of a data-collection
     variable (examples: source fluctuations in synchrotrons,
@@ -1946,12 +1947,12 @@ save_pd_proc.intensity_total
     _definition.update            2014-06-20
     _description.text
 ;
+    Inclusion of s.u.'s for these values is strongly recommended.
+
     _pd_proc.intensity_total contains intensity values for the
     processed diffractogram for each data point where
     background, normalization, and other corrections have not
     been applied.
-
-    Inclusion of s.u.'s for these values is strongly recommended.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_total
