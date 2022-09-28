@@ -14,8 +14,8 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.formalism         Powder
     _dictionary.class             Instance
-    _dictionary.version           2.4.1
-    _dictionary.date              2021-12-06
+    _dictionary.version           2.5.0-pre-1
+    _dictionary.date              2022-09-15
     _dictionary.uri               www.iucr.org/cif/dic/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
     _dictionary.namespace         CifPow
@@ -5434,23 +5434,23 @@ save_
        Removed pd_refln category and pd_refln.phase_id, remaining
        datanames assigned to core REFLN category (James Hester).
 ;
-         2.1                      2016-11-09
+         2.1.0                    2016-11-09
 ;
        Changed PD_PHASE to Set category. Multiple phases are now
        covered by an extension dictionary. (James Hester)
 ;
-         2.2                      2016-11-12
+         2.2.0                    2016-11-12
 ;
        Added _pd_calib_offset.detector_id to allow for per-detector
        2 theta offsets (James Hester)
 ;
-         2.3                      2017-01-26
+         2.3.0                    2017-01-26
 ;
        Returned pd_phase and pd_refln.phase_id to dictionary after
        acceptance of _dictionary.formalism mechanism. Set
        _dictionary.formalism to 'powder'.
 ;
-         2.4                      2017-04-05
+         2.4.0                    2017-04-05
 ;
        Added definition for _refln.F_meas after consultation with
        PD DMG. (James Hester)
@@ -5464,4 +5464,9 @@ save_
        Corrected the object id of the _pd_proc.2theta_range_inc data item.
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
+;
+         2.5.0                    2022-09-15
+;
+       Added mass absorption coefficient and improved absorption 
+       definitions.
 ;
