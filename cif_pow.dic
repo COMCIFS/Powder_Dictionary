@@ -319,7 +319,6 @@ save_pd_calib.detector_response
     _enumeration.range            0.0:
     _units.code                   none
 
-
 save_
 
 save_pd_calib.std_internal_mass_percent
@@ -568,7 +567,7 @@ save_pd_calib_std.detector_id
 ;
     _name.category_id             pd_calib_std
     _name.object_id               detector_id
-    _name.linked_object_id        '_pd_meas.detector_id'
+    _name.linked_item_id        '_pd_meas.detector_id'
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -3953,8 +3952,8 @@ save_pd_meas.number_of_points
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
-    _units.code                   none
     _enumeration.range            1:
+    _units.code                   none
 
 save_
 
