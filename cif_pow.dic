@@ -291,7 +291,7 @@ save_pd_calib.detector_id
     _name.category_id             pd_calib
     _name.object_id               detector_id
     _name.linked_item_id          '_pd_meas.detector_id'
-    _type.purpose                 Encode
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -567,8 +567,8 @@ save_pd_calib_std.detector_id
 ;
     _name.category_id             pd_calib_std
     _name.object_id               detector_id
-    _name.linked_item_id        '_pd_meas.detector_id'
-    _type.purpose                 Encode
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -3593,7 +3593,7 @@ save_pd_instr_detector.id
     _name.category_id             pd_instr_detector
     _name.object_id               id
     _name.linked_item_id          '_pd_meas.detector_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -5560,7 +5560,7 @@ save_pd_refln.phase_id
     _name.category_id             refln
     _name.object_id               phase_id
     _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Encode
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
