@@ -5584,7 +5584,7 @@ save_refln.f_complex
     _type.source                  Derived
     _type.container               Single
     _type.contents                Complex
-    _enumeration.default          "0.+0.j"
+    _enumeration.default          0.+0.j
     _method.purpose               Definition
     _method.expression
 ;
