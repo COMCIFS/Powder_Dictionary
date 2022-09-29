@@ -15,7 +15,8 @@ data_CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0-pre-2
     _dictionary.date              2022-09-28
-    _dictionary.uri               www.iucr.org/cif/dic/cif_pow.dic
+    _dictionary.uri
+        https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
     _dictionary.namespace         CifPow
     _description.text
@@ -5583,7 +5584,7 @@ save_refln.f_complex
     _type.source                  Derived
     _type.container               Single
     _type.contents                Complex
-    _enumeration.default          0.
+    _enumeration.default          '0.+0.j'
     _method.purpose               Definition
     _method.expression
 ;
