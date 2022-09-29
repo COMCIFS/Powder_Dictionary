@@ -15,7 +15,8 @@ data_CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0-pre-2
     _dictionary.date              2022-09-28
-    _dictionary.uri               www.iucr.org/cif/dic/cif_pow.dic
+    _dictionary.uri
+  https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
     _dictionary.namespace         CifPow
     _description.text
@@ -290,8 +291,8 @@ save_pd_calib.detector_id
 ;
     _name.category_id             pd_calib
     _name.object_id               detector_id
-    _name.linked_object_id        '_pd_meas.detector_id'
-    _type.purpose                 Encode
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -302,7 +303,7 @@ save_pd_calib.detector_response
 
     _definition.id                '_pd_calib.detector_response'
     _alias.definition_id          '_pd_calib_detector_response'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     A value that indicates the relative sensitivity of each
@@ -317,6 +318,7 @@ save_pd_calib.detector_response
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -324,7 +326,7 @@ save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
     _alias.definition_id          '_pd_calib_std_internal_mass_%'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Per cent presence of the internal standard specified by the
@@ -339,6 +341,7 @@ save_pd_calib.std_internal_mass_percent
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:100.0
+    _units.code                   none
 
 save_
 
@@ -497,7 +500,7 @@ save_pd_calib_offset.detector_id
     _name.category_id             pd_calib_offset
     _name.object_id               detector_id
     _name.linked_item_id          '_pd_calib.detector_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -565,8 +568,8 @@ save_pd_calib_std.detector_id
 ;
     _name.category_id             pd_calib_std
     _name.object_id               detector_id
-    _name.linked_object_id        '_pd_meas.detector_id'
-    _type.purpose                 Encode
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -950,7 +953,7 @@ save_pd_calc.intensity_net
 
     _definition.id                '_pd_calc.intensity_net'
     _alias.definition_id          '_pd_calc_intensity_net'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Intensity values for a computed diffractogram at
@@ -976,6 +979,7 @@ save_pd_calc.intensity_net
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -983,7 +987,7 @@ save_pd_calc.intensity_total
 
     _definition.id                '_pd_calc.intensity_total'
     _alias.definition_id          '_pd_calc_intensity_total'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Intensity values for a computed diffractogram at
@@ -1009,6 +1013,7 @@ save_pd_calc.intensity_total
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1028,7 +1033,7 @@ save_pd_calc.point_id
     _name.category_id             pd_calc
     _name.object_id               point_id
     _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -1143,7 +1148,7 @@ save_pd_meas.counts_background
 
     _definition.id                '_pd_meas.counts_background'
     _alias.definition_id          '_pd_meas_counts_background'
-    _definition.update            2019-09-25
+    _definition.update            2022-09-28
     _description.text
 ;
     Counts measured at the measurement point as a function of
@@ -1171,6 +1176,7 @@ save_pd_meas.counts_background
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
+    _units.code                   counts
 
 save_
 
@@ -1178,7 +1184,7 @@ save_pd_meas.counts_container
 
     _definition.id                '_pd_meas.counts_container'
     _alias.definition_id          '_pd_meas_counts_container'
-    _definition.update            2019-09-25
+    _definition.update            2022-09-28
     _description.text
 ;
     Counts measured at the measurement point as a function of
@@ -1205,6 +1211,7 @@ save_pd_meas.counts_container
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
+    _units.code                   counts
 
 save_
 
@@ -1212,7 +1219,7 @@ save_pd_meas.counts_monitor
 
     _definition.id                '_pd_meas.counts_monitor'
     _alias.definition_id          '_pd_meas_counts_monitor'
-    _definition.update            2019-09-25
+    _definition.update            2022-09-28
     _description.text
 ;
     Counts measured at the measurement point as a function of
@@ -1239,6 +1246,7 @@ save_pd_meas.counts_monitor
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
+    _units.code                   counts
 
 save_
 
@@ -1246,7 +1254,7 @@ save_pd_meas.counts_total
 
     _definition.id                '_pd_meas.counts_total'
     _alias.definition_id          '_pd_meas_counts_total'
-    _definition.update            2019-09-25
+    _definition.update            2022-09-28
     _description.text
 ;
     Counts measured at the measurement point as a function of
@@ -1274,6 +1282,7 @@ save_pd_meas.counts_total
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
+    _units.code                   counts
 
 save_
 
@@ -1308,7 +1317,7 @@ save_pd_meas.intensity_background
 
     _definition.id                '_pd_meas.intensity_background'
     _alias.definition_id          '_pd_meas_intensity_background'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Intensity measurements at the measurement point (see
@@ -1333,6 +1342,7 @@ save_pd_meas.intensity_background
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -1347,6 +1357,7 @@ save_pd_meas.intensity_background_su
     _name.category_id             pd_meas
     _name.object_id               intensity_background_su
     _name.linked_item_id          '_pd_meas.intensity_background'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1356,7 +1367,7 @@ save_pd_meas.intensity_container
 
     _definition.id                '_pd_meas.intensity_container'
     _alias.definition_id          '_pd_meas_intensity_container'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Intensity measurements at the measurement point (see
@@ -1380,6 +1391,7 @@ save_pd_meas.intensity_container
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -1394,6 +1406,7 @@ save_pd_meas.intensity_container_su
     _name.category_id             pd_meas
     _name.object_id               intensity_container_su
     _name.linked_item_id          '_pd_meas.intensity_container'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1403,7 +1416,7 @@ save_pd_meas.intensity_monitor
 
     _definition.id                '_pd_meas.intensity_monitor'
     _alias.definition_id          '_pd_meas_intensity_monitor'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Intensity measurements at the measurement point (see
@@ -1427,6 +1440,7 @@ save_pd_meas.intensity_monitor
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -1441,6 +1455,7 @@ save_pd_meas.intensity_monitor_su
     _name.category_id             pd_meas
     _name.object_id               intensity_monitor_su
     _name.linked_item_id          '_pd_meas.intensity_monitor'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1450,7 +1465,7 @@ save_pd_meas.intensity_total
 
     _definition.id                '_pd_meas.intensity_total'
     _alias.definition_id          '_pd_meas_intensity_total'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Intensity measurements at the measurement point (see
@@ -1475,6 +1490,7 @@ save_pd_meas.intensity_total
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -1489,6 +1505,7 @@ save_pd_meas.intensity_total_su
     _name.category_id             pd_meas
     _name.object_id               intensity_total_su
     _name.linked_item_id          '_pd_meas.intensity_total'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1510,7 +1527,7 @@ save_pd_meas.point_id
     _name.category_id             pd_meas
     _name.object_id               point_id
     _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Encode
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -1727,6 +1744,7 @@ save_pd_proc.intensity_bkg_calc
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1741,6 +1759,7 @@ save_pd_proc.intensity_bkg_calc_su
     _name.category_id             pd_proc
     _name.object_id               intensity_bkg_calc_su
     _name.linked_item_id          '_pd_proc.intensity_bkg_calc'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1782,6 +1801,7 @@ save_pd_proc.intensity_bkg_fix
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1796,6 +1816,7 @@ save_pd_proc.intensity_bkg_fix_su
     _name.category_id             pd_proc
     _name.object_id               intensity_bkg_fix_su
     _name.linked_item_id          '_pd_proc.intensity_bkg_fix'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1830,6 +1851,7 @@ save_pd_proc.intensity_incident
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1844,6 +1866,7 @@ save_pd_proc.intensity_incident_su
     _name.category_id             pd_proc
     _name.object_id               intensity_incident_su
     _name.linked_item_id          '_pd_proc.intensity_incident'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1870,6 +1893,7 @@ save_pd_proc.intensity_net
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1884,6 +1908,7 @@ save_pd_proc.intensity_net_su
     _name.category_id             pd_proc
     _name.object_id               intensity_net_su
     _name.linked_item_id          '_pd_proc.intensity_net'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1921,6 +1946,7 @@ save_pd_proc.intensity_norm
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1935,6 +1961,7 @@ save_pd_proc.intensity_norm_su
     _name.category_id             pd_proc
     _name.object_id               intensity_norm_su
     _name.linked_item_id          '_pd_proc.intensity_norm'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1961,6 +1988,7 @@ save_pd_proc.intensity_total
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -1975,6 +2003,7 @@ save_pd_proc.intensity_total_su
     _name.category_id             pd_proc
     _name.object_id               intensity_total_su
     _name.linked_item_id          '_pd_proc.intensity_total'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -1998,7 +2027,7 @@ save_pd_proc.point_id
     _name.category_id             pd_proc
     _name.object_id               point_id
     _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Key
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -3565,8 +3594,8 @@ save_pd_instr_detector.id
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               id
-    _name.linked_object_id        '_pd_meas.detector_id'
-    _type.purpose                 Key
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -3720,7 +3749,7 @@ save_pd_meas.2theta_fixed
 
     _definition.id                '_pd_meas.2theta_fixed'
     _alias.definition_id          '_pd_meas_2theta_fixed'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     The 2\\q diffraction angle in degrees for measurements\
@@ -3735,6 +3764,7 @@ save_pd_meas.2theta_fixed
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
+    _units.code                   degrees
 
 save_
 
@@ -3742,7 +3772,7 @@ save_pd_meas.2theta_range_inc
 
     _definition.id                '_pd_meas.2theta_range_inc'
     _alias.definition_id          '_pd_meas_2theta_range_inc'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     2\\q diffraction angle increment in degrees used for the
@@ -3811,7 +3841,7 @@ save_pd_meas.angle_chi
 
     _definition.id                '_pd_meas.angle_chi'
     _alias.definition_id          '_pd_meas_angle_chi'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -3826,6 +3856,7 @@ save_pd_meas.angle_chi
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
+    _units.code                   degrees
 
 save_
 
@@ -3833,7 +3864,7 @@ save_pd_meas.angle_omega
 
     _definition.id                '_pd_meas.angle_omega'
     _alias.definition_id          '_pd_meas_angle_omega'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -3848,6 +3879,7 @@ save_pd_meas.angle_omega
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
+    _units.code                   degrees
 
 save_
 
@@ -3855,7 +3887,7 @@ save_pd_meas.angle_phi
 
     _definition.id                '_pd_meas.angle_phi'
     _alias.definition_id          '_pd_meas_angle_phi'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -3870,6 +3902,7 @@ save_pd_meas.angle_phi
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
+    _units.code                   degrees
 
 save_
 
@@ -3922,6 +3955,7 @@ save_pd_meas.number_of_points
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            1:
+    _units.code                   none
 
 save_
 
@@ -4180,6 +4214,7 @@ save_pd_peak.intensity
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -4194,6 +4229,7 @@ save_pd_peak.intensity_su
     _name.category_id             pd_peak
     _name.object_id               intensity_su
     _name.linked_item_id          '_pd_peak.intensity'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -4218,6 +4254,7 @@ save_pd_peak.pk_height
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -4232,6 +4269,7 @@ save_pd_peak.pk_height_su
     _name.category_id             pd_peak
     _name.object_id               pk_height_su
     _name.linked_item_id          '_pd_peak.pk_height'
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -4260,7 +4298,7 @@ save_pd_peak.wavelength_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Word
 
 save_
 
@@ -4419,7 +4457,7 @@ save_pd_phase.mass_percent
          '_pd_phase_mass_percent'
          '_pd_phase_mass_%'
 
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Per cent composition of the specified crystal phase
@@ -4433,6 +4471,7 @@ save_pd_phase.mass_percent
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:100.0
+    _units.code                   none
 
 save_
 
@@ -4800,7 +4839,7 @@ save_pd_proc_ls.prof_r_factor
 
     _definition.id                '_pd_proc_ls.prof_R_factor'
     _alias.definition_id          '_pd_proc_ls_prof_R_factor'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     _pd_proc_ls.prof_R_factor, often called R~p~, is an
@@ -4832,6 +4871,7 @@ save_pd_proc_ls.prof_r_factor
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -4839,7 +4879,7 @@ save_pd_proc_ls.prof_wr_expected
 
     _definition.id                '_pd_proc_ls.prof_wR_expected'
     _alias.definition_id          '_pd_proc_ls_prof_wR_expected'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     _pd_proc_ls.prof_wR_expected, sometimes called the
@@ -4876,6 +4916,7 @@ save_pd_proc_ls.prof_wr_expected
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -4883,7 +4924,7 @@ save_pd_proc_ls.prof_wr_factor
 
     _definition.id                '_pd_proc_ls.prof_wR_factor'
     _alias.definition_id          '_pd_proc_ls_prof_wR_factor'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     _pd_proc_ls.prof_wR_factor, often called R~wp~, is a
@@ -4917,6 +4958,7 @@ save_pd_proc_ls.prof_wr_factor
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
+    _units.code                   none
 
 save_
 
@@ -4967,7 +5009,7 @@ save_pd_proc_ls.weight
 
     _definition.id                '_pd_proc_ls.weight'
     _alias.definition_id          '_pd_proc_ls_weight'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-28
     _description.text
 ;
     Weight applied to each profile point. These values
@@ -4985,6 +5027,7 @@ save_pd_proc_ls.weight
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0:
+    _units.code                   none
 
 save_
 
@@ -5186,6 +5229,7 @@ save_pd_proc.number_of_points
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            1:
+    _units.code                   none
 
 save_
 
@@ -5516,8 +5560,8 @@ save_pd_refln.phase_id
 ;
     _name.category_id             refln
     _name.object_id               phase_id
-    _name.linked_object_id        '_pd_phase.id'
-    _type.purpose                 Encode
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -5540,7 +5584,7 @@ save_refln.f_complex
     _type.source                  Derived
     _type.container               Single
     _type.contents                Complex
-    _enumeration.default          0.
+    _enumeration.default          0.+0.j
     _method.purpose               Definition
     _method.expression
 ;
