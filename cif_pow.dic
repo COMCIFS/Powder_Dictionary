@@ -131,7 +131,7 @@ save_pd_block.id
     (i.e. <block_name>) should be retained, but the <creator_name>
     may be changed and the <date-time> will always change.
     The <date-time> will usually match either the
-    _pd_meas_datetime_initiated or the _pd_proc_info_datetime
+    _pd_meas.datetime_initiated or the _pd_proc.info_datetime
     entry.
 
     Within each section of the code, the following characters
@@ -241,8 +241,8 @@ save_pd_calc.method
     intensities in _pd_calc.intensity_*. If the pattern was
     calculated from crystal structure data for a single phase, the
     atom coordinates and other crystallographic information should
-    be included in the datablock using the core CIF _atom_site_ and
-    _cell_ data items.  If multiple phases were used, these should
+    be included in the datablock using the core CIF ATOM_SITE and
+    CELL data items.  If multiple phases were used, these should
     be listed in the pd_phase category.
 ;
     _name.category_id             pd_calc_overall
@@ -286,7 +286,7 @@ save_pd_calib.detector_id
     A code which identifies the detector or channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
     instrument. Note that this code should match the code name used
-    for _pd_meas_detector_id.
+    for _pd_meas.detector_id.
 ;
     _name.category_id             pd_calib
     _name.object_id               detector_id
@@ -374,7 +374,7 @@ save_PD_CALIB_OFFSET
     _description.text
 ;
     Datanames in this category define an offset angle (in degrees)
-    used to calibrate 2\\q (as defined in _pd_meas_2theta_).
+    used to calibrate 2\\q (as defined in _pd_meas.2theta_).
     Calibration is done by adding the offset:
 
          2\\q~calibrated~ = 2\\q~measured~ + 2\\q~offset~
@@ -467,8 +467,8 @@ save_pd_calib.2theta_offset
     _definition.update            2014-06-20
     _description.text
 ;
-    _pd_calib_2theta_offset defines an offset angle (in degrees)
-    used to calibrate 2\\q (as defined in _pd_meas_2theta_).
+    _pd_calib.2theta_offset defines an offset angle (in degrees)
+    used to calibrate 2\\q (as defined in _pd_meas.2theta_).
     Calibration is done by adding the offset:
 
          2\\q~calibrated~ = 2\\q~measured~ + 2\\q~offset~
@@ -638,7 +638,7 @@ save_pd_calibration.conversion_eqn
     The calibration function for converting a channel number
     supplied in _pd_meas.detector_id for a position-sensitive
     or energy-dispersive detector or the distance supplied in
-    _pd_meas_position to Q, energy, angle etc.
+    _pd_meas.position to Q, energy, angle etc.
     Use _pd_calib_std.external_* to define a pointer
     to the file or data block containing the data used to
     determine the parameter values in this function.
@@ -669,8 +669,8 @@ save_pd_calibration.special_details
     calibration information is used to make hardware
     settings that would otherwise be invisible once data
     collection is completed. Do not use this item to specify
-    information that can be specified using other _pd_calib_
-    items.
+    information that can be specified using other
+    PD_CALIBRATION or PD_CALIB items.
 ;
     _name.category_id             pd_calibration
     _name.object_id               special_details
@@ -851,7 +851,7 @@ save_pd_char.particle_morphology
 ;
     A description of the sample morphology and estimates for
     particle sizes (before grinding/sieving, if noted by
-    _pd_spec_preparation). Include the method used for
+    _pd_spec.preparation). Include the method used for
     these estimates (SEM, visual estimate etc.).
 ;
     _name.category_id             pd_char
@@ -964,7 +964,7 @@ save_pd_calc.intensity_net
     Use _pd_calc.intensity_net if the computed diffractogram
     does not contain background or normalization corrections
     and thus is specified on the same scale as the
-    _pd_proc_intensity_net values.
+    _pd_proc.intensity_net values.
     If an observed pattern is included, _pd_calc.intensity_*
     should be looped with either _pd_proc.intensity_net,
     _pd_meas.counts_* or _pd_meas.intensity_*.
@@ -997,7 +997,7 @@ save_pd_calc.intensity_total
     Use _pd_calc.intensity_total if the computed diffraction
     pattern includes background or normalization corrections
     (or both) and thus is specified on the same scale as the
-    observed intensities (_pd_meas_counts_* or _pd_meas_intensity_*).
+    observed intensities (_pd_meas.counts_* or _pd_meas.intensity_*).
     If an observed pattern is included, _pd_calc.intensity_*
     should be looped with either _pd_proc.intensity_net,
     _pd_meas.counts_* or _pd_meas.intensity_*.
@@ -1022,7 +1022,7 @@ save_pd_calc.point_id
     Arbitrary label identifying a calculated data point. Used to
     identify a specific entry in a list of values forming the
     calculated diffractogram. The role of this identifier may
-    be adopted by _pd_data_point_id if measured, processed and
+    be adopted by _pd_data.point_id if measured, processed and
     calculated intensity values are combined in a single list.
 ;
     _name.category_id             pd_calc
@@ -1047,20 +1047,20 @@ save_PD_MEAS
     processing and application of correction terms. While additional
     information may be added to the CIF as data are processed and
     transported between laboratories (possibly with the addition of
-    a new _pd_block_id entry), the information in this section of
+    a new _pd_block.id entry), the information in this section of
     the CIF will rarely be changed once data collection is complete.
 
     Where possible, measurements in this section should have no
     post-collection processing applied (normalizations, corrections,
     smoothing, zero-offset corrections etc.). Such corrected
-    measurements should be recorded in the _pd_proc_ section.
+    measurements should be recorded in the PD_PROC section.
 
     Data sets that are measured as counts, where a standard
     uncertainty can be considered equivalent to the standard
     deviation and where the standard deviation can be estimated
     as the square root of the number of counts recorded, should
-    use the _pd_meas_counts_ fields. All other intensity values
-    should be recorded using _pd_meas_intensity_.
+    use the _pd_meas.counts_ fields. All other intensity values
+    should be recorded using _pd_meas.intensity_.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
@@ -1080,7 +1080,7 @@ save_pd_instr.var_illum_len
     the illumination length varies with 2\\q (fixed
     divergence slits). The _pd_instr.var_illum_len
     values should be included in the same loop as the
-    intensity measurements (_pd_meas_).
+    intensity measurements (_pd_meas.* items).
 
     See _pd_instr.cons_illum_len for instruments where
     the divergence slit is \q-compensated to yield a\
@@ -1124,7 +1124,7 @@ save_pd_meas.2theta_scan
 
     Note that for data sets collected with constant step size,
     _pd_meas.2theta_range_ (*_min, *_max and *_inc) may be used
-    instead of _pd_meas.2theta_scan. _pd_meas_2theta_angle was
+    instead of _pd_meas.2theta_scan. _pd_meas.2theta_angle was
     originally a distinct but cognate definition and should not be
     used in new files.
 ;
@@ -1148,7 +1148,7 @@ save_pd_meas.counts_background
 ;
     Counts measured at the measurement point as a function of
     angle, time, channel or some other variable (see
-    _pd_meas_2theta_ etc.).  Scattering measured without
+    _pd_meas.2theta_ etc.).  Scattering measured without
     a specimen, specimen mounting etc., often referred to
     as the instrument background.
     Corrections for background, detector dead time etc.
@@ -1183,7 +1183,7 @@ save_pd_meas.counts_container
 ;
     Counts measured at the measurement point as a function of
     angle, time, channel or some other variable (see
-    _pd_meas_2theta_ etc.). from specimen container or mounting
+    _pd_meas.2theta_* etc.). from specimen container or mounting
     without a specimen, includes background.
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead use
@@ -1217,7 +1217,7 @@ save_pd_meas.counts_monitor
 ;
     Counts measured at the measurement point as a function of
     angle, time, channel or some other variable (see
-    _pd_meas_2theta_ etc.). Counts measured by an incident-
+    _pd_meas.2theta_* etc.). Counts measured by an incident-
     beam monitor to calibrate the flux on the specimen.
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead use
@@ -1291,8 +1291,8 @@ save_pd_meas.detector_id
     Calibration information, such as angle offsets or
     a calibration function to convert channel numbers
     to Q, energy, wavelength, angle etc. should
-    be described with _pd_calib_ values. If
-    _pd_calibration_conversion_eqn is used, the detector ID's
+    be described with PD_CALIB values. If
+    _pd_calibration.conversion_eqn is used, the detector ID's
     should be the number to be used in the equation.
 ;
     _name.category_id             pd_meas
@@ -1504,7 +1504,7 @@ save_pd_meas.point_id
     Arbitrary label identifying a measured data point. Used to
     identify a specific entry in a list of measured intensities.
     The role of this identifier may be adopted by
-    _pd_data_point_id if measured, processed and calculated
+    _pd_data.point_id if measured, processed and calculated
     intensity values are combined in a single list.
 ;
     _name.category_id             pd_meas
@@ -1529,18 +1529,18 @@ save_pd_meas.position
     Used for detectors where a distance measurement is made
     as a direct observable, such as from a microdensitometer
     trace from film or a strip chart recorder. This is an
-    alternative to _pd_meas_2theta_scan, which should only be
+    alternative to _pd_meas.2theta_scan, which should only be
     used for instruments that record intensities directly
     against 2\\q. For instruments where the position scale\
-    is nonlinear, the data item _pd_meas_detector_id should
+    is nonlinear, the data item _pd_meas.detector_id should
     be used to record positions.
 
     Calibration information, such as angle offsets or a
     function to convert this distance to a 2\\q angle\
-    or d-space, should be supplied with the _pd_calib_ values.
+    or d-space, should be supplied with items from PD_CALIB.
 
     Do not confuse this with the instrument geometry
-    descriptions given by _pd_instr_dist_.
+    descriptions given by _pd_instr.dist_*.
 ;
     _name.category_id             pd_meas
     _name.object_id               position
@@ -1581,7 +1581,7 @@ save_pd_meas.time_of_flight
 ;
     Measured time in microseconds for time-of-flight neutron
     measurements. Note that the flight distance may be
-    specified using _pd_instr_dist_ values.
+    specified using _pd_instr.dist_ values.
 ;
     _name.category_id             pd_meas
     _name.object_id               time_of_flight
@@ -1715,7 +1715,7 @@ save_pd_proc.intensity_bkg_calc
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
 
-    _pd_proc_intensity_bkg_calc is intended to contain the
+    _pd_proc.intensity_bkg_calc is intended to contain the
     background intensity for every data point where the
     background function has been fitted or estimated (for example, in
     all Rietveld and profile fits).
@@ -1758,20 +1758,20 @@ save_pd_proc.intensity_bkg_fix
     If the background is estimated for a limited number of points
     and the calculated background is then extrapolated from
     these fixed points, indicate the background values for
-    these points with _pd_proc_intensity_bkg_fix. Use a value
+    these points with _pd_proc.intensity_bkg_fix. Use a value
     of '.' for data points where a fixed background has not
     been defined. The extrapolated background at every point
-    may be specified using _pd_proc_intensity_bkg_calc.
+    may be specified using _pd_proc.intensity_bkg_calc.
 
     Background values should be on the same scale as the
-    _pd_proc_intensity_net values. Thus normalization and
+    _pd_proc.intensity_net values. Thus normalization and
     correction factors should be applied before
     background subtraction (or should be applied to the
     background values equally).
 
     The other normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
-    counting time) may be specified in _pd_proc_intensity_norm.
+    counting time) may be specified in _pd_proc.intensity_norm.
     The function should be specified as the one used to divide the
     measured intensities.
 ;
@@ -1809,17 +1809,18 @@ save_pd_proc.intensity_incident
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
+
     If the intensities have been corrected for a variation of the
     incident intensity as a function of a data-collection
     variable (examples: source fluctuations in synchrotrons,
     \q-compensated slits in conventional diffractometers,
     spectral corrections for white-beam experiments), the
     correction function should be specified as
-    _pd_proc_intensity_incident. The normalization should be
-    specified in _pd_proc_intensity_incident as a value to be
+    _pd_proc.intensity_incident. The normalization should be
+    specified in _pd_proc.intensity_incident as a value to be
     used to divide the measured intensities to obtained the
     normalized diffractogram. Thus, the
-    _pd_proc_intensity_incident values should increase as the
+    _pd_proc.intensity_incident values should increase as the
     incident flux is increased.
 ;
     _name.category_id             pd_proc
@@ -1857,9 +1858,9 @@ save_pd_proc.intensity_net
 ;
     _pd_proc.intensity_net contains intensity values for the
     processed diffractogram for each data point (see
-    _pd_proc_2theta_, _pd_proc_wavelength etc.) after
+    _pd_proc.2theta_, _pd_proc.wavelength etc.) after
     correction and normalization factors have been applied
-    (in contrast to _pd_meas_counts_ values, which are
+    (in contrast to _pd_meas.counts_ values, which are
     uncorrected).
 ;
     _name.category_id             pd_proc
@@ -1898,20 +1899,20 @@ save_pd_proc.intensity_norm
     Inclusion of s.u.'s for these values is strongly recommended.
 
     Background values should be on the same scale as the
-    _pd_proc_intensity_net values. Thus normalization and correction
+    _pd_proc.intensity_net values. Thus normalization and correction
     factors should be applied before background subtraction (or
     should be applied to the background values equally).
 
     Normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
-    counting time) may be specified in _pd_proc_intensity_norm.
+    counting time) may be specified in _pd_proc.intensity_norm.
     The function should be specified as the one used to divide the
     measured intensities.
 
     Note that if the intensities have been corrected for a variation
     of the incident intensity as a function of a data-collection
     variable, the correction function should be specified separately
-    as _pd_proc_intensity_incident.
+    as _pd_proc.intensity_incident.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_norm
@@ -1946,12 +1947,12 @@ save_pd_proc.intensity_total
     _definition.update            2014-06-20
     _description.text
 ;
-    _pd_proc_intensity_total contains intensity values for the
-    processed diffractogram for each data point where
-    background, normalization and other corrections have not
-    been applied.
-
     Inclusion of s.u.'s for these values is strongly recommended.
+
+    _pd_proc.intensity_total contains intensity values for the
+    processed diffractogram for each data point where
+    background, normalization, and other corrections have not
+    been applied.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_total
@@ -1989,9 +1990,9 @@ save_pd_proc.point_id
     Arbitrary label identifying a processed data point. Used to
     identify a specific entry in a list of processed intensities.
     The role of this identifier may be adopted by
-    _pd_data_point_id if measured, processed and calculated
+    _pd_data.point_id if measured, processed and calculated
     intensity values are combined in a single list, or by
-    _pd_meas_point_id if measured and processed lists are
+    _pd_meas.point_id if measured and processed lists are
     combined.
 ;
     _name.category_id             pd_proc
@@ -2084,7 +2085,7 @@ save_PD_INSTR
     not resolved. Set _diffrn_radiation_wavelength_wt to be 0 for
     such a dummy ID.
 
-    In the _pd_instr_ definitions, the term monochromator refers
+    In the PD_INSTR definitions, the term monochromator refers
     to a primary beam (pre-specimen) monochromator and the term
     analyser refers to post-diffraction (post-specimen)
     monochromator.  The analyser may be fixed for specific
@@ -2202,7 +2203,7 @@ save_pd_instr.cons_illum_len
     _definition.update            2014-06-20
     _description.text
 ;
-    Use _pd_instr_cons_illum_len for instruments where the length of
+    Use _pd_instr.cons_illum_len for instruments where the length of
     sample illuminated does not vary with 2\\q, usually achieved by
     adjustment of the divergence slits (sometimes known as
     \q-compensated slits).
@@ -2427,7 +2428,7 @@ save_pd_instr.divg_eq_src_spec
     containing the incident and diffracted beams) between the
     radiation source and specimen.  Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr_soller_eq_).  Note
+    optics other than Soller slits (see _pd_instr.soller_eq_).  Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -2504,9 +2505,9 @@ save_pd_instr.monochr_pre_spec
     _description.text
 ;
     Indicates the method used to obtain monochromatic radiation.
-    Use _pd_instr_monochr_pre_spec to describe the primary beam
+    Use _pd_instr.monochr_pre_spec to describe the primary beam
     monochromator (pre-specimen monochromation). Use
-    _pd_instr_monochr_post_spec to specify the
+    _pd_instr.monochr_post_spec to specify the
     post-diffraction analyser (post-specimen monochromation).
 
     When a monochromator crystal is used, the material and the
@@ -2942,7 +2943,7 @@ save_PD_INSTR_DETECTOR
     For multiple-detector instruments it may be necessary to loop the
     *_anal_detc or *_spec_detc values (for  _pd_instr.dist_,
     _pd_instr.divg_, _pd_instr.slit_ and  _pd_instr.soller_) with
-    the detector ID's (_pd_instr_detector.id).
+    the detector ID's (_pd_instr.detector.id).
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
@@ -3156,7 +3157,7 @@ save_pd_instr.divg_eq_spec_anal
     containing the incident and diffracted beams) between the
     specimen and the analyser.  Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr_soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -3182,7 +3183,7 @@ save_pd_instr.divg_eq_spec_detc
     containing the incident and diffracted beams) between the
     specimen and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr_soller_eq_): *_spec_detc is
+    than Soller slits (see _pd_instr.soller_eq_): *_spec_detc is
     used in place of *_spec_anal and *_anal_detc if there is no
     analyser in use.
 ;
@@ -3205,9 +3206,9 @@ save_pd_instr.monochr_post_spec
     _description.text
 ;
     Indicates the method used to obtain monochromatic radiation.
-    Use _pd_instr_monochr_pre_spec to describe the primary beam
+    Use _pd_instr.monochr_pre_spec to describe the primary beam
     monochromator (pre-specimen monochromation). Use
-    _pd_instr_monochr_post_spec to specify the
+    _pd_instr.monochr_post_spec to specify the
     post-diffraction analyser (post-specimen monochromation).
 
     When a monochromator crystal is used, the material and the
@@ -3618,7 +3619,7 @@ save_pd_meas_info_author.email
 ;
     The e-mail address of the person who measured the data set. If
     there is more than one person, this will be looped with
-    _pd_meas_info_author_name.
+    _pd_meas_info_author.name.
 ;
     _name.category_id             pd_meas_info_author
     _name.object_id               email
@@ -3638,7 +3639,7 @@ save_pd_meas_info_author.fax
 ;
     The fax number of the person who measured the data set. If
     there is more than one person, this will be looped with
-    _pd_meas_info_author_name. The recommended style is
+    _pd_meas_info_author.name. The recommended style is
     the international dialing prefix, followed by the area code in
     parentheses, followed by the local number with no spaces.
 ;
@@ -3707,7 +3708,7 @@ save_PD_MEAS_OVERALL
     and application of correction terms. While additional
     information may be added to the CIF as data are processed and
     transported between laboratories (possibly with the addition of
-    a new _pd_block_id entry), the information in this section of
+    a new _pd_block.id entry), the information in this section of
     the CIF will rarely be changed once data collection is complete.
 ;
     _name.category_id             PD_GROUP
@@ -4062,10 +4063,9 @@ save_PD_PEAK
 ;
     This section contains peak information extracted from the
     measured or, if present, the processed diffractogram. Each
-    peak in this table will have a unique label (see _pd_peak_id).
+    peak in this table will have a unique label (see _pd_peak.id).
     The reflections and phases associated with each peak will be
-    specified in other sections (see the _pd_refln_ and
-    _pd_phase_ sections).
+    specified in other sections (see PD_REFLN and PD_PHASE).
 
     Note that peak positions are customarily determined from the
     processed diffractogram and thus corrections for position
@@ -4145,7 +4145,7 @@ save_pd_peak.id
     _description.text
 ;
     An arbitrary code is assigned to each peak. Used to link with
-    _pd_refln_peak_id so that multiple hkl and/or phase
+    _pd_refln.peak_id so that multiple hkl and/or phase
     identifications can be assigned to a single peak.
     Each peak will have a unique code. In cases
     where two peaks are severely overlapped, it may be
@@ -4170,7 +4170,7 @@ save_pd_peak.intensity
     _description.text
 ;
     Integrated area for the peak, with the same scaling as
-    the _pd_proc_intensity_ values. It is good practice to
+    the _pd_proc.intensity_ values. It is good practice to
     include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -4208,7 +4208,7 @@ save_pd_peak.pk_height
 ;
     The maximum intensity of the peak, either extrapolated
     or the highest observed intensity value. The same
-    scaling is used for the _pd_proc_intensity_ values.
+    scaling is used for the _pd_proc.intensity_ values.
     It is good practice to include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -4251,7 +4251,7 @@ save_pd_peak.wavelength_id
     where K\\a~1~ and K\\a~2~ peaks cannot be resolved. For
     complex peak tables with multiple superimposed peaks,
     specify wavelengths in the reflection table using
-    _pd_refln_wavelength_id rather than identifying peaks by
+    _refln.wavelength_id rather than identifying peaks by
     wavelength.
 ;
     _name.category_id             pd_peak
@@ -4358,7 +4358,7 @@ save_PD_PHASE
 
     The _pd_phase.block_id entry points to the CIF block with
     structural parameters for each crystalline phase. The
-    _pd_phase_id serves to link to _pd_refln.phase_id, which is
+    _pd_phase.id serves to link to _pd_refln.phase_id, which is
     used to label peaks by phase.
 ;
     _name.category_id             PD_GROUP
@@ -4500,7 +4500,7 @@ save_pd_prep.cool_rate
     Cooling rate in kelvins per minute for samples prepared
     at high temperatures. If the cooling rate is not linear
     or is unknown (e.g. quenched samples), it should be
-    described in _pd_prep_conditions instead.
+    described in _pd_prep.conditions instead.
 ;
     _name.category_id             pd_prep
     _name.object_id               cool_rate
@@ -4583,7 +4583,7 @@ save_pd_proc_info_author.address
 ;
     The address of the person who processed the data.
     If there is more than one person, this will be looped with
-    _pd_proc_info_author_name.
+    _pd_proc_info_author.name.
 ;
     _name.category_id             pd_proc_info_author
     _name.object_id               address
@@ -4602,8 +4602,8 @@ save_pd_proc_info_author.email
     _description.text
 ;
     The e-mail address of the person who processed the
-    data.  If there is more than one person, this will be looped
-    with _pd_proc_info_author_name.
+    data. If there is more than one person, this will be looped
+    with _pd_proc_info_author.name.
 ;
     _name.category_id             pd_proc_info_author
     _name.object_id               email
@@ -4623,7 +4623,7 @@ save_pd_proc_info_author.fax
 ;
     The fax number of the person who processed the data.
     If there is more than one person, this will be looped with
-    _pd_proc_info_author_name. The recommended style is
+    _pd_proc_info_author.name. The recommended style is
     the international dialing prefix, followed by the area code in
     parentheses, followed by the local number with no spaces.
 ;
@@ -4667,7 +4667,7 @@ save_pd_proc_info_author.phone
 ;
     The telephone number of the person who processed the data.
     If there is more than one person, this will be looped
-    with _pd_proc_info_author_name. The recommended style is
+    with _pd_proc_info_author.name. The recommended style is
     the international dialing prefix, followed by the area code in
     parentheses, followed by the local number with no spaces.
 ;
@@ -4725,19 +4725,19 @@ save_pd_proc_ls.background_function
     coefficients used in the background function with their
     s.u.'s. The background values for each data point
     computed from the function should be specified in
-    _pd_proc_intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc.
 
     If background correction is performed using extrapolation
     from a set of points at fixed locations, these points
-    should be defined using _pd_proc_intensity_bkg_fix, and
-    _pd_proc_ls_background_function should indicate the
+    should be defined using _pd_proc.intensity_bkg_fix, and
+    _pd_proc_ls.background_function should indicate the
     extrapolation method (linear extrapolation, spline etc.).
-    _pd_proc_ls_background_function should also indicate how the
+    _pd_proc_ls.background_function should also indicate how the
     points were determined (automatically, by visual estimation
     etc.) and whether the values were refined to improve the
     agreement. The extrapolated background intensity value for
     each data point should be specified in
-    _pd_proc_intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               background_function
@@ -4810,18 +4810,18 @@ save_pd_proc_ls.prof_r_factor
                 / sum~i~ ( I~obs~(i) )
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
-              _pd_proc_ls_weight).
+              _pd_proc_ls.weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
-              y~oi~. (See _pd_meas_counts_total,
-              _pd_meas_intensity_total or _pd_proc_intensity_total.)
+              y~oi~. (See _pd_meas.counts_total,
+              _pd_meas.intensity_total or _pd_proc.intensity_total.)
          I~calc~(i) is the computed intensity for the ith data
               point with background and other corrections
               applied to match the scale of the observed data set,
               sometimes referred to as y~i~(calc) or
-              y~ci~. (See _pd_calc_intensity_total.)
+              y~ci~. (See _pd_calc.intensity_total.)
          n is the total number of data points (see
-              _pd_proc_number_of_points) less the number of
+              _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
          p is the total number of refined parameters.
 ;
@@ -4854,18 +4854,18 @@ save_pd_proc_ls.prof_wr_expected
 
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
-              _pd_proc_ls_weight).
+              _pd_proc_ls.weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
-              y~oi~. (See _pd_meas_counts_total,
-              _pd_meas_intensity_total or _pd_proc_intensity_total.)
+              y~oi~. (See _pd_meas.counts_total,
+              _pd_meas.intensity_total or _pd_proc.intensity_total.)
          I~calc~(i) is the computed intensity for the ith data
               point with background and other corrections
               applied to match the scale of the observed data set,
               sometimes referred to as y~i~(calc) or
-              y~ci~. (See _pd_calc_intensity_total.)
+              y~ci~. (See _pd_calc.intensity_total.)
          n is the total number of data points (see
-              _pd_proc_number_of_points) less the number of
+              _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
          p is the total number of refined parameters.
 ;
@@ -4895,18 +4895,18 @@ save_pd_proc_ls.prof_wr_factor
 
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
-              _pd_proc_ls_weight).
+              _pd_proc_ls.weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
-              y~oi~. (See _pd_meas_counts_total,
-              _pd_meas_intensity_total or _pd_proc_intensity_total.)
+              y~oi~. (See _pd_meas.counts_total,
+              _pd_meas.intensity_total or _pd_proc.intensity_total.)
          I~calc~(i) is the computed intensity for the ith data
               point with background and other corrections
               applied to match the scale of the observed data set,
               sometimes referred to as y~i~(calc) or
-              y~ci~. (See _pd_calc_intensity_total.)
+              y~ci~. (See _pd_calc.intensity_total.)
          n is the total number of data points (see
-              _pd_proc_number_of_points) less the number of
+              _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
          p is the total number of refined parameters.
 ;
@@ -4972,11 +4972,11 @@ save_pd_proc_ls.weight
 ;
     Weight applied to each profile point. These values
     may be omitted if the weights are 1/u^2^, where
-    u is the s.u. for the _pd_proc_intensity_net values.
+    u is the s.u. for the _pd_proc.intensity_net values.
 
     A weight value of zero is used to indicate a data
     point not used for refinement (see
-    _pd_proc_info_excluded_regions).
+    _pd_proc.info_excluded_regions).
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               weight
@@ -5015,7 +5015,7 @@ save_pd_proc.2theta_range_inc
 ;
     The increment in 2\\q diffraction angles in degrees for the
     measurement of intensities. These may be used in place of the
-    _pd_proc_2theta_corrected values, or in the case of white-beam
+    _pd_proc.2theta_corrected values, or in the case of white-beam
     experiments it will define the fixed 2\\q value.
 ;
     _name.category_id             pd_proc_overall
@@ -5038,7 +5038,7 @@ save_pd_proc.2theta_range_max
 ;
     The maximum 2\\q diffraction angle in degrees for the
     measurement of intensities. This may be used in place of the
-    _pd_proc_2theta_corrected values, or in the case of white-beam
+    _pd_proc.2theta_corrected values, or in the case of white-beam
     experiments it will define the fixed 2\\q value together with
     _pd_proc.2theta_range_min.
 ;
@@ -5062,7 +5062,7 @@ save_pd_proc.2theta_range_min
 ;
     The minimum 2\\q diffraction angle in degrees for the
     measurement of intensities. This may be used in place of the
-    _pd_proc_2theta_corrected values, or in the case of white-beam
+    _pd_proc.2theta_corrected values, or in the case of white-beam
     experiments they will define the fixed 2\\q value together with
     _pd_proc.2theta_range_max.
 ;
@@ -5200,7 +5200,7 @@ save_PD_SPEC
     This section contains information about the specimen used
     for measurement of the diffraction data set. Note that
     information about the sample (the batch of material from which
-    the specimen was obtained) is specified in _pd_prep_.
+    the specimen was obtained) is specified in PD_PREP.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
@@ -5322,7 +5322,7 @@ save_pd_spec.preparation
     diffraction specimen from the sample. Include any procedures
     related to grinding, sieving, spray drying etc. For
     information relevant to how the sample is synthesized, use
-    the _pd_prep_ entries.
+    the PD_PREP entries.
 ;
     _name.category_id             pd_spec
     _name.object_id               preparation
