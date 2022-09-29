@@ -241,8 +241,8 @@ save_pd_calc.method
     intensities in _pd_calc.intensity_*. If the pattern was
     calculated from crystal structure data for a single phase, the
     atom coordinates and other crystallographic information should
-    be included in the datablock using the core CIF _atom_site. and
-    _cell. data items.  If multiple phases were used, these should
+    be included in the datablock using the core CIF ATOM_SITE and
+    CELL data items.  If multiple phases were used, these should
     be listed in the pd_phase category.
 ;
     _name.category_id             pd_calc_overall
@@ -669,8 +669,8 @@ save_pd_calibration.special_details
     calibration information is used to make hardware
     settings that would otherwise be invisible once data
     collection is completed. Do not use this item to specify
-    information that can be specified using other _pd_calib.
-    items.
+    information that can be specified using other
+    PD_CALIBRATION or PD_CALIB items.
 ;
     _name.category_id             pd_calibration
     _name.object_id               special_details
@@ -1053,7 +1053,7 @@ save_PD_MEAS
     Where possible, measurements in this section should have no
     post-collection processing applied (normalizations, corrections,
     smoothing, zero-offset corrections etc.). Such corrected
-    measurements should be recorded in the _pd_proc. section.
+    measurements should be recorded in the PD_PROC section.
 
     Data sets that are measured as counts, where a standard
     uncertainty can be considered equivalent to the standard
@@ -1080,7 +1080,7 @@ save_pd_instr.var_illum_len
     the illumination length varies with 2\\q (fixed
     divergence slits). The _pd_instr.var_illum_len
     values should be included in the same loop as the
-    intensity measurements (_pd_meas.).
+    intensity measurements (_pd_meas.* items).
 
     See _pd_instr.cons_illum_len for instruments where
     the divergence slit is \q-compensated to yield a\
@@ -1291,7 +1291,7 @@ save_pd_meas.detector_id
     Calibration information, such as angle offsets or
     a calibration function to convert channel numbers
     to Q, energy, wavelength, angle etc. should
-    be described with _pd_calib. values. If
+    be described with PD_CALIB values. If
     _pd_calibration.conversion_eqn is used, the detector ID's
     should be the number to be used in the equation.
 ;
@@ -1537,7 +1537,7 @@ save_pd_meas.position
 
     Calibration information, such as angle offsets or a
     function to convert this distance to a 2\\q angle\
-    or d-space, should be supplied with the _pd_calib. values.
+    or d-space, should be supplied with items from PD_CALIB.
 
     Do not confuse this with the instrument geometry
     descriptions given by _pd_instr.dist_*.
@@ -2085,7 +2085,7 @@ save_PD_INSTR
     not resolved. Set _diffrn_radiation_wavelength_wt to be 0 for
     such a dummy ID.
 
-    In the _pd_instr. definitions, the term monochromator refers
+    In the PD_INSTR definitions, the term monochromator refers
     to a primary beam (pre-specimen) monochromator and the term
     analyser refers to post-diffraction (post-specimen)
     monochromator.  The analyser may be fixed for specific
@@ -4065,8 +4065,7 @@ save_PD_PEAK
     measured or, if present, the processed diffractogram. Each
     peak in this table will have a unique label (see _pd_peak.id).
     The reflections and phases associated with each peak will be
-    specified in other sections (see the _pd_refln. and
-    _pd_phase. sections).
+    specified in other sections (see PD_REFLN and PD_PHASE).
 
     Note that peak positions are customarily determined from the
     processed diffractogram and thus corrections for position
@@ -5201,7 +5200,7 @@ save_PD_SPEC
     This section contains information about the specimen used
     for measurement of the diffraction data set. Note that
     information about the sample (the batch of material from which
-    the specimen was obtained) is specified in _pd_prep..
+    the specimen was obtained) is specified in PD_PREP.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
@@ -5323,7 +5322,7 @@ save_pd_spec.preparation
     diffraction specimen from the sample. Include any procedures
     related to grinding, sieving, spray drying etc. For
     information relevant to how the sample is synthesized, use
-    the _pd_prep. entries.
+    the PD_PREP entries.
 ;
     _name.category_id             pd_spec
     _name.object_id               preparation
