@@ -5051,6 +5051,225 @@ save_pd_proc_ls.pref_orient_March-Dollase_r_su
 
 save_
 
+save_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp'
+    _description.text
+;
+    The value of the coefficient scaling the spherical
+    harmonic, ijp, as given by
+    _pd_proc_ls.pref_orient_sphericalharmonics_y_ijp.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_c_ijp
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp_su
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp_su'
+    _description.text
+;
+    Standard uncertainty of _pd_proc_ls.pref_orient_sphericalharmonics_c_ijp_su.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_c_ijp_su
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_diffractogram_block_id
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_diffractogram_block_id'
+    _description.text
+;
+    A block ID code identifying the diffractogram to
+    which the preferred-orientation correction applies.
+    The data block containing the diffraction pattern
+    for this phase will be identified with a _pd_block.id
+    code matching the code in
+    _pd_proc_ls.pref_orient_sphericalharmonics_diffractogram_block_id.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_diffractogram_block_id
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_geom
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_geom'
+    _description.text
+;
+    Code identifying the geometry of the preferred-orientation
+    correction, as distinct from the geometry of data collection.
+
+    The functional form of thespherical harmonics correction depends
+    on whether the data were collected in symmetric or asymmetric
+    reflection or transmission, or capillary geometries. See
+    Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
+    50, 240–251, for further discussion.
+
+    In most Rietveld software, 'symmetric reflection' is the
+    default implementation.
+
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_geom
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         srefln                   'symmetric reflection'
+         arefln                   'asymmetric reflection'
+         strans                   'symmetric transmission'
+         atrans                   'asymmetric transmission'
+         cap                      'capillary (Debye-Scherrer)'
+    _enumeration.default          srefln
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_id
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_id'
+    _description.text
+;
+    A code to uniquely identify each preferred-orientation
+    correction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_id
+    _type.container               Single
+    _type.contents                Code
+    _enumeration.default          .
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_phase_block_id
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_phase_block_id'
+    _description.text
+;
+    A block ID code identifying the phase to which the
+    preferred-orientation correction applies. The data
+    block containing the crystallographic information
+    for this phase will be identified with a _pd_block.id
+    code matching the code in
+    _pd_proc_ls.pref_orient_sphericalharmonics_phase_block_id.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_phase_block_id
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_texture_index
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_texture_index'
+    _description.text
+;
+    The texture index, as described by equation 4.212
+    in Bunge, as T = \sum_{i,j,p} \frac{1}{2i+1} c_{i,j,p)^2.
+
+    It gives the value [1, infty), where 1 is a random powder
+    and infty is an ideal single crystal.
+
+    Bunge, H.J., (2015) "Texture Analysis in Materials Science:
+    Mathemical Methods", Helga and Hans-Peter Bunge,
+    Wolfratshausen.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_texture_index
+    _enumeration.range            1.0:
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_y_ijp
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_ijp'
+    _description.text
+;
+    The order (i), term (j), and parity (p) of the spherical
+    harmonic preferred-orientation correction. Spherical
+    harmonics are functions that obey the point-symmetry
+    operations of the phase, and can be used to model
+    deviations in peak intensity due to preferred-orientation
+    or texture.
+
+    In the application of spherical harmonics corrections,
+    only even orders are necessary, and the exact amount of
+    applicable combinations of i, j, & p are dependent on
+    the space-group of the phase.
+
+    Omitting _pd_proc_ls.pref_orient* implies that no preferred-
+    orientation correction has been used.
+
+    See Järvinen, M. (1993). J. Appl. Cryst. 26, 525–531 for
+    further information
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_y_ijp
+    _type.purpose                 Number
+    _type.container               Matrix
+    _type.dimension               '[3]'
+    _type.contents                Integer
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_y_i
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_i'
+    _description.text
+;
+    The order of the spherical harmonics preferred-orientation
+    correction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_y_i
+    _type.contents                Integer #must be even
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_y_j
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_j'
+    _description.text
+;
+    The term of the given order of the spherical harmonics
+    preferred-orientation correction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_y_j
+    _type.contents                Integer
+    _enumeration.range            0: #can you reference another data item here?
+                                 #0:_pd_proc_ls.pref_orient_sphericalharmonics_y_i
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_sphericalharmonics_y_p
+
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_p'
+    _description.text
+;
+    The parity of term of the given order of the spherical
+    harmonics preferred-orientation correction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_sphericalharmonics_y_p
+    _type.contents                Integer
+    _enumeration.range            -1:1 #also, must, and can only, be zero if y_j == 0.
+    _units.code                   none
+
+save_
+
 save_pd_proc_ls.prof_r_factor
 
     _definition.id                '_pd_proc_ls.prof_R_factor'
