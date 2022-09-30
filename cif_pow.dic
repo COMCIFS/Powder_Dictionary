@@ -4818,13 +4818,21 @@ save_pd_proc_ls.pref_orient_corr
     _description.text
 ;
     Description of the preferred-orientation correction if
-    such a correction is used. Omitting this entry
-    implies that no preferred-orientation correction
-    has been used. If a function form is used, it is
-    recommended that the actual equation in TeX, or a
-    programming language, is used to specify the function as
-    well as a giving a description. Include the value(s) used
-    for the correction with s.u.'s.
+    such a correction is used, and it cannot be described
+    as a March-Dollase or spherical harmonics correction.
+
+    If the correction can be described as a March-Dollase
+    or spherical harmonics correction, use
+    _pd_proc_ls.pref_orient_March-Dollase* or
+    _pd_proc_ls.pref_orient_sphericalharmonics*, as
+    appropriate.
+
+    Omitting _pd_proc_ls.pref_orient* implies that no preferred-
+    orientation correction has been used. If a function form
+    is used, it is recommended that the actual equation in TeX,
+    or a programming language, is used to specify the function
+    as well as a giving a description. Include the value(s)
+    used for the correction with s.u.'s.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               pref_orient_corr
