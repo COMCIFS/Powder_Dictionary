@@ -5059,30 +5059,30 @@ save_pd_proc_ls.pref_orient_March-Dollase_r_su
 
 save_
 
-save_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp
+save_pd_proc_ls.pref_orient_sphericalharmonics_c_ij
 
-    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp'
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_c_ij'
     _description.text
 ;
     The value of the coefficient scaling the spherical
-    harmonic, ijp, as given by
-    _pd_proc_ls.pref_orient_sphericalharmonics_y_ijp.
+    harmonic, ij, as given by
+    _pd_proc_ls.pref_orient_sphericalharmonics_y_ij.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pref_orient_sphericalharmonics_c_ijp
+    _name.object_id               pref_orient_sphericalharmonics_c_ij
     _units.code                   none
 
 save_
 
-save_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp_su
+save_pd_proc_ls.pref_orient_sphericalharmonics_c_ij_su
 
-    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_c_ijp_su'
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_c_ij_su'
     _description.text
 ;
-    Standard uncertainty of _pd_proc_ls.pref_orient_sphericalharmonics_c_ijp_su.
+    Standard uncertainty of _pd_proc_ls.pref_orient_sphericalharmonics_c_ij_su.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pref_orient_sphericalharmonics_c_ijp_su
+    _name.object_id               pref_orient_sphericalharmonics_c_ij_su
     _units.code                   none
 
 save_
@@ -5180,7 +5180,7 @@ save_pd_proc_ls.pref_orient_sphericalharmonics_texture_index
     _description.text
 ;
     The texture index, as described by equation 4.212
-    in Bunge, as T = \sum_{i,j,p} \frac{1}{2i+1} c_{i,j,p)^2.
+    in Bunge, as T = \sum_{i,j} \frac{1}{2i+1} c_{i,j)^2.
 
     It gives the value [1, infty), where 1 is a random powder
     and infty is an ideal single crystal.
@@ -5196,22 +5196,23 @@ save_pd_proc_ls.pref_orient_sphericalharmonics_texture_index
 
 save_
 
-save_pd_proc_ls.pref_orient_sphericalharmonics_y_ijp
+save_pd_proc_ls.pref_orient_sphericalharmonics_y_ij
 
-    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_ijp'
+    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_ij'
     _description.text
 ;
-    The order (i), term (j), and parity (p) of the spherical
-    harmonic preferred-orientation correction. Spherical
+    The order (i) and  term (j) of the spherical harmonic
+    preferred-orientation correction. Spherical
     harmonics are functions that obey the point-symmetry
     operations of the phase, and can be used to model
     deviations in peak intensity due to preferred-orientation
     or texture.
 
     In the application of spherical harmonics corrections,
-    only even orders are necessary, and the exact amount of
-    applicable combinations of i, j, & p are dependent on
-    the space-group of the phase.
+    valid orders are positive, even integers, and possible
+    terms are in the range -i:i. Valid terms are restricted
+    by space-group symmetry. The parity of the term is given
+    by it's sign; odd parity is negative, even is positive.
 
     Omitting _pd_proc_ls.pref_orient* implies that no preferred-
     orientation correction has been used.
@@ -5223,7 +5224,7 @@ save_pd_proc_ls.pref_orient_sphericalharmonics_y_ijp
     _name.object_id               pref_orient_sphericalharmonics_y_ijp
     _type.purpose                 Number
     _type.container               Matrix
-    _type.dimension               '[3]'
+    _type.dimension               '[2]'
     _type.contents                Integer
     _units.code                   none
 
@@ -5235,7 +5236,7 @@ save_pd_proc_ls.pref_orient_sphericalharmonics_y_i
     _description.text
 ;
     The order of the spherical harmonics preferred-orientation
-    correction.
+    correction. Valid values are positive, even integers.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               pref_orient_sphericalharmonics_y_i
@@ -5250,30 +5251,17 @@ save_pd_proc_ls.pref_orient_sphericalharmonics_y_j
     _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_j'
     _description.text
 ;
-    The term of the given order of the spherical harmonics
-    preferred-orientation correction.
+    The term (j) of the given order (i) of the spherical harmonics
+    preferred-orientation correction. The parity of the term
+    is given by it's sign; odd parity is negative, even is positive.
+
+    In general, possible values are in the range -i:i. Valid values
+    are dependent on the space-group of the phase.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               pref_orient_sphericalharmonics_y_j
     _type.contents                Integer
-    _enumeration.range            0: #can you reference another data item here?
-                                 #0:_pd_proc_ls.pref_orient_sphericalharmonics_y_i
-    _units.code                   none
-
-save_
-
-save_pd_proc_ls.pref_orient_sphericalharmonics_y_p
-
-    _definition.id                '_pd_proc_ls.pref_orient_sphericalharmonics_y_p'
-    _description.text
-;
-    The parity of term of the given order of the spherical
-    harmonics preferred-orientation correction.
-;
-    _name.category_id             pd_proc_ls
-    _name.object_id               pref_orient_sphericalharmonics_y_p
-    _type.contents                Integer
-    _enumeration.range            -1:1 #also, must, and can only, be zero if y_j == 0.
+    #_enumeration.range           -_y_i:_y_i
     _units.code                   none
 
 save_
