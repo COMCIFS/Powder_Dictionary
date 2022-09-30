@@ -4835,6 +4835,222 @@ save_pd_proc_ls.pref_orient_corr
 
 save_
 
+save_pd_proc_ls.pref_orient_March-Dollase_diffractogram_block_id
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_diffractogram_block_id'
+    _description.text
+;
+    A block ID code identifying the diffractogram to
+    which the preferred-orientation correction applies.
+    The data block containing the diffraction pattern
+    for this phase will be identified with a _pd_block.id
+    code matching the code in
+    _pd_proc_ls.pref_orient_March-Dollase_diffractogram_block_id.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_diffractogram_block_id
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_fract
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_fract'
+    _description.text
+;
+    In the case of multiple March-Dollase preferred-orientation
+    directions, this denotes the fractional amount of preferred
+    orientation in each direction.
+
+    The sum of all values for a given phase and diffractogram
+    should be 1.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_fract
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_fract_su
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_fract_su'
+    _description.text
+;
+    Standard uncertainty of _pd_proc_ls.pref_orient_March-Dollase_fract.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_fract
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_geom
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_geom'
+    _description.text
+;
+    Code identifying the geometry of the preferred-orientation
+    correction, as distinct from the geometry of data collection.
+
+    The functional form of the March-Dollase correction depends
+    on whether the data were collected in symmetric or asymmetric
+    reflection or transmission, or capillary geometries. See
+    Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
+    50, 240–251, for further discussion.
+
+    In most Rietveld software, 'symmetric reflection' is the
+    default implementation.
+
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_geom
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         srefln                   'symmetric reflection'
+         arefln                   'asymmetric reflection'
+         strans                   'symmetric transmission'
+         atrans                   'asymmetric transmission'
+         cap                      'capillary (Debye-Scherrer)'
+    _enumeration.default          srefln
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_hkl
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_hkl'
+    _description.text
+;
+    Miller indices of the March-Dollase preferred-orientation
+    direction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_hkl
+    _type.purpose                 Number
+    _type.container               Matrix
+    _type.dimension               '[3]'
+    _type.contents                Integer
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_id
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_id'
+    _description.text
+;
+    A code to uniquely identify each preferred-orientation
+    correction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_id
+    _type.container               Single
+    _type.contents                Code
+    _enumeration.default          .
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_index_h
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_index_h'
+    _description.text
+;
+    The h Miller index of the March-Dollase preferred-orientation
+    direction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_index_h
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_index_k
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_index_k'
+    _description.text
+;
+    The k Miller index of the March-Dollase preferred-orientation
+    direction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_index_k
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_index_l
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_index_l'
+    _description.text
+;
+    The l Miller index of the March-Dollase preferred-orientation
+    direction.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_index_l
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_phase_block_id
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_phase_block_id'
+    _description.text
+;
+    A block ID code identifying the phase to which the
+    preferred-orientation correction applies. The data
+    block containing the crystallographic information
+    for this phase will be identified with a _pd_block.id
+    code matching the code in
+    _pd_proc_ls.pref_orient_March-Dollase_phase_block_id.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_phase_block_id
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_r
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_r'
+    _description.text
+;
+    March distribution parameter describing the degree of
+    preferred-orientation in a given phase and diffractogram.
+    In general, a value of 1 describes an unoriented phase.
+    r in the range (1,\infty) describes orientation of disk-like
+    particles, and r in the range (0,1) describes orientation
+    of needle-like particles.
+
+    The direction of the correction must also be given using
+    _pd_proc_ls.pref_orient_March-Dollase_h, _k, and _l. If
+    more than one orientation direction is used, the fractional
+    contribution of each direction must be specified with
+    _pd_proc_ls.pref_orient_March-Dollase_fract.
+
+    Omitting _pd_proc_ls.pref_orient* implies that no preferred-
+    orientation correction has been used.
+
+    See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267–272 for
+    further information.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_r
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
+save_pd_proc_ls.pref_orient_March-Dollase_r_su
+
+    _definition.id                '_pd_proc_ls.pref_orient_March-Dollase_r_su'
+    _description.text
+;
+    Standard uncertainty of _pd_proc_ls.pref_orient_March-Dollase_r_su.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               pref_orient_March-Dollase_r_su
+
+save_
+
 save_pd_proc_ls.prof_r_factor
 
     _definition.id                '_pd_proc_ls.prof_R_factor'
