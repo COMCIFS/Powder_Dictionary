@@ -1073,35 +1073,6 @@ save_PD_MEAS
 
 save_
 
-save_pd_instr.var_illum_len
-
-    _definition.id                '_pd_instr.var_illum_len'
-    _alias.definition_id          '_pd_instr_var_illum_len'
-    _definition.update            2016-10-20
-    _description.text
-;
-    Length of the specimen that is illuminated by the radiation
-    source (in millimetres) for instruments where
-    the illumination length varies with 2\\q (fixed
-    divergence slits). The _pd_instr.var_illum_len
-    values should be included in the same loop as the
-    intensity measurements (_pd_meas.* items).
-
-    See _pd_instr.cons_illum_len for instruments where
-    the divergence slit is \q-compensated to yield a\
-    constant illumination length.
-;
-    _name.category_id             pd_meas
-    _name.object_id               var_illum_len
-    _type.purpose                 Number
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0.0:
-    _units.code                   millimetres
-
-save_
-
 save_pd_meas.2theta_scan
 
     _definition.id                '_pd_meas.2theta_scan'
@@ -2949,6 +2920,35 @@ save_pd_instr.special_details
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_instr.var_illum_len
+
+    _definition.id                '_pd_instr.var_illum_len'
+    _alias.definition_id          '_pd_instr_var_illum_len'
+    _definition.update            2016-10-20
+    _description.text
+;
+    Length of the specimen that is illuminated by the radiation
+    source (in millimetres) for instruments where
+    the illumination length varies with 2\\q (fixed
+    divergence slits). The _pd_instr.var_illum_len
+    values should be included in the same loop as the
+    intensity measurements (_pd_meas.* items).
+
+    See _pd_instr.cons_illum_len for instruments where
+    the divergence slit is \q-compensated to yield a\
+    constant illumination length.
+;
+    _name.category_id             pd_instr
+    _name.object_id               var_illum_len
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
 
 save_
 
