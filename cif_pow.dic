@@ -13,8 +13,8 @@ data_CIF_POW
 
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
-    _dictionary.version           2.5.0-pre-2
-    _dictionary.date              2022-09-28
+    _dictionary.version           2.5.0
+    _dictionary.date              2022-09-30
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -88,7 +88,7 @@ save_pd_block.id
 
     _definition.id                '_pd_block.id'
     _alias.definition_id          '_pd_block_id'
-    _definition.update            2016-10-17
+    _definition.update            2022-09-30
     _description.text
 ;
     Used to assign a unique character string to a block.
@@ -146,9 +146,7 @@ save_pd_block.id
     data-set ID names should be case-insensitive.
 
     Date-time entries follow the standard RFC 3339 ABNF format
-    'yyyy-mm-ddThh:mm{:ss}{[+-]zz:zz}'. Use of seconds and a
-    time zone is optional, but use of hours and minutes is strongly
-    encouraged, as this will help ensure that the ID code is unique.
+    'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'.
 
     An archive site that wishes to make CIFs available via
     the web may substitute the URL for the file containing the
@@ -166,8 +164,8 @@ save_pd_block.id
 
     loop_
       _description_example.case
-         1991-15-09T16:54|Si-std|B.Toby|D500#1234-987
-         1991-15-09T16:54|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV
+         1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987
+         1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV
 
 save_
 
@@ -3910,16 +3908,14 @@ save_pd_meas.datetime_initiated
 
     _definition.id                '_pd_meas.datetime_initiated'
     _alias.definition_id          '_pd_meas_datetime_initiated'
-    _definition.update            2014-06-20
+    _definition.update            2022-09-30
     _description.text
 ;
     The date and time of the data-set measurement.
     Entries should follow the standard RFC 3339 ABNF format
-    'yyyy-mm-ddThh:mm{:ss}{Z|[+-]zz:zz}'. Use of seconds and
-    a time zone offset is optional, but use of hours and
-    minutes is strongly encouraged. Where possible, give the
-    time when the measurement was started, rather than when
-    it was completed.
+    'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'. Where possible, give
+    the time when the measurement was started, rather than
+    when it was completed.
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               datetime_initiated
@@ -3930,12 +3926,12 @@ save_pd_meas.datetime_initiated
 
     loop_
       _description_example.case
-         1990-07-13T14:40
+         1990-07-13T14:40:00Z
          2042-12-13T02:37:23Z
          2005-03-03T12:02:09.17+09:30
-         2015-10-30T22:45-02:00
-         1912-02-03T11:47Z
-         1979-09-01
+         2015-10-30T22:45:00-02:00
+         1912-02-03T11:47:00Z
+         1979-09-01T12:00:00Z
 
 save_
 
@@ -5151,9 +5147,7 @@ save_pd_proc.info_datetime
     May be looped if multiple processing steps were used.
 
     Entries should follow the standard RFC 3339 ABNF format
-    'yyyy-mm-ddThh:mm{:ss}{Z|[+-]zz:zz}'. Use of seconds and
-    a time zone offset is optional, but use of hours and
-    minutes is strongly encouraged.
+    'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               info_datetime
@@ -5164,11 +5158,11 @@ save_pd_proc.info_datetime
 
     loop_
       _description_example.case
-         1990-07-13T14:40
+         1990-07-13T14:40:00Z
          2042-12-13T02:37:23Z
          2005-03-03T12:02:09.17+09:30
-         2015-10-30T22:45-02:00
-         1912-02-03T11:47Z
+         2015-10-30T22:45:00-02:00
+         1912-02-03T11:47:00Z
          1979-09-01
 
 save_
@@ -5700,10 +5694,13 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0-pre-2              2022-09-28
+         2.5.0                    2022-09-30
 ;
-       ## Update the above version number until final release
+       ## Retain above version number and update date until final
+       ##release
 
        Added mass absorption coefficient and improved absorption
        definitions. Added missing su definitions.
+
+       Corrected datetime examples to proper RFC3339 compliance.
 ;
