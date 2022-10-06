@@ -366,6 +366,89 @@ save_pd_calib.std_internal_name
 
 save_
 
+save_PD_CALIB_D_TO_TOF
+
+    _definition.id                PD_CALIB_D_TO_TOF
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-10-06
+    _description.text
+;
+    This section defines the parameters used for the calibration
+    of time-of-flight from d-spacing for neutron data.
+
+    The calibration equation is of the form:
+
+    TOF = sum_i [ c_i * d^p_i ]
+
+    where TOF is the time-of-flight in microseconds, d is the
+    d-spacing in Angstroms, c_i is the ith coefficient, and
+    p_i is the ith power.
+
+    A loop is used to specify all terms of the correction
+    per histogram.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               save_PD_CALIB_D_TO_TOF
+
+save_
+
+save_pd_calib_d_to_tof.coeff
+
+    _definition.id                '_pd_calib_d_to_tof.coeff'
+    _definition.update            2022-10-06
+    _description.text
+;
+    The value of the coefficient used in the equation to convert
+    d-spacing into time-of-flight.
+;
+    _name.category_id             _pd_calib_d_to_tof
+    _name.object_id               coeff
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   microseconds  #but its really microseconds per angstrom^power
+
+save_
+
+save_pd_calib_d_to_tof.id
+
+    _definition.id                '_pd_calib_d_to_tof.id'
+    _definition.update            2022-10-06
+    _description.text
+;
+    An arbitrary code which identifies a specific term of the
+    calibration equation.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calib_d_to_tof.power
+
+    _definition.id                '_pd_calib_d_to_tof.power'
+    _definition.update            2022-10-06
+    _description.text
+;
+    The value of the power used in the equation to convert
+    d-spacing into time-of-flight.
+;
+    _name.category_id             _pd_calib_d_to_tof
+    _name.object_id               power
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
 save_PD_CALIB_OFFSET
 
     _definition.id                PD_CALIB_OFFSET
