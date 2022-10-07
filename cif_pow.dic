@@ -329,8 +329,8 @@ save_pd_calib.std_internal_mass_percent
 ;
     Per cent presence of the internal standard specified by the
     data item _pd_calib.std_internal_name expressed as 100 times
-    the ratio of the amount of standard added to the original
-    sample mass.
+    the mass of standard added divided by the sum of the mass of
+    standard added and the original sample mass.
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_mass_percent
