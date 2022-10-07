@@ -391,6 +391,45 @@ save_PD_CALIB_D_TO_TOF
     _name.category_id             PD_GROUP
     _name.object_id               save_PD_CALIB_D_TO_TOF
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_calib_d_to_tof.power
+         _pd_calib_d_to_tof.coeff
+         0  -2.062
+         1  746.8
+         2  0.08099
+;
+;
+         Corresponds to the calibration equation:
+         time_of_flight =   -2.062
+                          + 746.8 * d_spacing
+                          + 0.08099 * d_spacing ^ 2
+;
+;
+         loop_
+         _pd_calib_d_to_tof.id
+         _pd_calib_d_to_tof.power
+         _pd_calib_d_to_tof.coeff
+         _pd_calib_d_to_tof.coeff_su
+         0     0   -2.062    2.09
+         DIFC  1   746.8     1.14
+         t2    2   0.08099   0.102
+         DIFB  -1  0.00232   0.0013
+;
+;
+         Corresponds to the calibration equation:
+         time_of_flight =   -2.062
+                          + 746.8 * d_spacing
+                          + 0.08099 * d_spacing ^ 2
+                          + 0.00232 / d_spacing
+
+         The coefficient with the value of -2.062, has a standard uncertainty of 2.09 and a label of "0".
+         The coefficient with the value of 746.8, has a standard uncertainty of 1.14 and a label of "DIFC".
+;
+
 save_
 
 save_pd_calib_d_to_tof.coeff
@@ -408,6 +447,21 @@ save_pd_calib_d_to_tof.coeff
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   microseconds  #but its really microseconds per angstrom^power
+
+save_
+
+save_pd_calib_d_to_tof.coeff_su
+
+    _definition.id                '_pd_calib_d_to_tof.coeff_su'
+    _definition.update            2022-10-06
+    _description.text
+;
+    Standard uncertainty of _pd_calib_d_to_tof.coeff.
+;
+    _name.category_id             _pd_calib_d_to_tof
+    _name.object_id               coeff_su
+    _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
     _units.code                   microseconds  #but its really microseconds per angstrom^power
 
 save_
