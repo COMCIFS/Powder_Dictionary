@@ -447,7 +447,7 @@ save_pd_calib_d_to_tof.coeff
 ;
     _name.category_id             pd_calib_d_to_tof
     _name.object_id               coeff
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
