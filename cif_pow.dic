@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-09-30
+    _dictionary.date              2022-10-09
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1244,7 +1244,7 @@ save_pd_calc_component.intensity_total_list
     _method.purpose               Evaluation
     _method.expression
 ;
-    #magic to go and find all of the separate _pd_calc_component.intensity_totals
+  #magic to go and find all of the separate _pd_calc_component.intensity_totals
 ;
 
 save_
@@ -1284,10 +1284,10 @@ save_pd_calc_component.presentation_order
 ;
     _name.category_id             pd_calc_component
     _name.object_id               presentation_order
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
+    _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Array
+    _type.dimension               '[]'
     _type.contents                Code
 
 save_
