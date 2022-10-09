@@ -13,7 +13,7 @@ data_CIF_POW
 
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
-    _dictionary.version           2.5.0-pre-2
+    _dictionary.version           2.5.0
     _dictionary.date              2022-09-28
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
@@ -4498,7 +4498,7 @@ save_PD_PREF_ORIENT
 
     _definition.id                PD_PREF_ORIENT
     _definition.scope             Category
-    _definition.cla   Loop
+    _definition.class             Loop
     _definition.update            2022-09-28
     _description.text
 ;
