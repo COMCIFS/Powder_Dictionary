@@ -390,6 +390,7 @@ save_PD_CALIB_D_TO_TOF
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_D_TO_TOF
+    _category_key.name            '_pd_calib_d_to_tof.id'
 
     loop_
       _description_example.case
@@ -426,8 +427,11 @@ save_PD_CALIB_D_TO_TOF
                           + 0.08099 * d_spacing ^ 2
                           + 0.00232 / d_spacing
 
-         The coefficient with the value of -2.062, has a standard uncertainty of 2.09 and a label of "0".
-         The coefficient with the value of 746.8, has a standard uncertainty of 1.14 and a label of "DIFC".
+         The coefficient with the value of -2.062, has a standard uncertainty
+         of 2.09 and a label of "0".
+
+         The coefficient with the value of 746.8, has a standard uncertainty
+         of 1.14 and a label of "DIFC".
 ;
 
 save_
@@ -447,7 +451,7 @@ save_pd_calib_d_to_tof.coeff
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _units.code                   microseconds  #but its really microseconds per angstrom^power
+    _units.code                   microseconds  # should be us/A^power
 
 save_
 
@@ -462,7 +466,9 @@ save_pd_calib_d_to_tof.coeff_su
     _name.category_id             pd_calib_d_to_tof
     _name.object_id               coeff_su
     _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
-    _units.code                   microseconds  #but its really microseconds per angstrom^power
+    _units.code                   microseconds  # should be us/A^power
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
