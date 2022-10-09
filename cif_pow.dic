@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-10-09
+    _dictionary.date              2022-09-30
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1062,7 +1062,7 @@ save_PD_CALC_COMPONENT
     _definition.id                PD_CALC_COMPONENT
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     This section is used for storing the phase-specific
@@ -1078,7 +1078,7 @@ save_
 save_pd_calc_component.block_id
 
     _definition.id                '_pd_calc_component.block_id'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     A block ID code (see _pd_block.id) that identifies
@@ -1100,7 +1100,7 @@ save_
 save_pd_calc_component.intensity_net
 
     _definition.id                '_pd_calc_component.intensity_net'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     Intensity values for a the contribution of a phase to a
@@ -1135,7 +1135,7 @@ save_
 save_pd_calc_component.intensity_net_list
 
     _definition.id                '_pd_calc_component.intensity_net_list'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     List of intensity values for the contributions of an
@@ -1176,7 +1176,7 @@ save_
 save_pd_calc_component.intensity_total
 
     _definition.id                '_pd_calc_component.intensity_total'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     Intensity values for a the contribution of a phase to a
@@ -1211,7 +1211,7 @@ save_
 save_pd_calc_component.intensity_total_list
 
     _definition.id                '_pd_calc_component.intensity_total_list'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     List of intensity values for the contributions of an
@@ -1244,7 +1244,7 @@ save_pd_calc_component.intensity_total_list
     _method.purpose               Evaluation
     _method.expression
 ;
-  #magic to go and find all of the separate _pd_calc_component.intensity_totals
+    #magic to find all of the separate _pd_calc_component.intensity_totals
 ;
 
 save_
@@ -1252,7 +1252,7 @@ save_
 save_pd_calc_component.point_id
 
     _definition.id                '_pd_calc_component.point_id'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     Arbitrary label identifying a calculated component data
@@ -1275,7 +1275,7 @@ save_
 save_pd_calc_component.presentation_order
 
     _definition.id                '_pd_calc_component.presentation_order'
-    _definition.update            2022-10-09
+    _definition.update            2022-09-30
     _description.text
 ;
     Ordered list of _pd_phase.ids giving the order in which
