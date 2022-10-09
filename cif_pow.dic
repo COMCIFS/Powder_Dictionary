@@ -4499,7 +4499,7 @@ save_PD_PREF_ORIENT
     _definition.id                PD_PREF_ORIENT
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     This section contains a description of preferred-orientation
@@ -4509,8 +4509,8 @@ save_PD_PREF_ORIENT
     March-Dollase and spherical harmonics corrections can be
     given explicitly. For other methods, use the special_details.
 
-    See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267–272 and
-    Järvinen, M. (1993). J. Appl. Cryst. 26, 525–531 for
+    See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
+    JÃ¤rvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             PD_GROUP
@@ -4521,7 +4521,7 @@ save_
 save_pd_pref_orient.March-Dollase_diffractogram_block_id
 
     _definition.id                '_pd_pref_orient.March-Dollase_diffractogram_block_id'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     A block ID code identifying the diffractogram to
@@ -4543,7 +4543,7 @@ save_
 save_pd_pref_orient.March-Dollase_fract
 
     _definition.id                '_pd_pref_orient.March-Dollase_fract'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     In the case of multiple March-Dollase preferred-orientation
@@ -4565,7 +4565,7 @@ save_
 save_pd_pref_orient.March-Dollase_fract_su
 
     _definition.id                '_pd_pref_orient.March-Dollase_fract_su'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Standard uncertainty of _pd_pref_orient.March-Dollase_fract.
@@ -4582,7 +4582,7 @@ save_
 save_pd_pref_orient.March-Dollase_geom
 
     _definition.id                '_pd_pref_orient.March-Dollase_geom'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Code identifying the geometry of the preferred-orientation
@@ -4620,7 +4620,7 @@ save_
 save_pd_pref_orient.March-Dollase_hkl
 
     _definition.id                '_pd_pref_orient.March-Dollase_hkl'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Miller indices of the March-Dollase preferred-orientation
@@ -4646,7 +4646,7 @@ save_
 save_pd_pref_orient.March-Dollase_id
 
     _definition.id                '_pd_pref_orient.March-Dollase_id'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     A code to uniquely identify each March-Dollase
@@ -4665,7 +4665,7 @@ save_
 save_pd_pref_orient.March-Dollase_index_h
 
     _definition.id                '_pd_pref_orient.March-Dollase_index_h'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The h Miller index of the March-Dollase preferred-orientation
@@ -4681,7 +4681,7 @@ save_
 save_pd_pref_orient.March-Dollase_index_k
 
     _definition.id                '_pd_pref_orient.March-Dollase_index_k'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The k Miller index of the March-Dollase preferred-orientation
@@ -4697,7 +4697,7 @@ save_
 save_pd_pref_orient.March-Dollase_index_l
 
     _definition.id                '_pd_pref_orient.March-Dollase_index_l'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The l Miller index of the March-Dollase preferred-orientation
@@ -4713,7 +4713,7 @@ save_
 save_pd_pref_orient.March-Dollase_phase_block_id
 
     _definition.id                '_pd_pref_orient.March-Dollase_phase_block_id'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     A block ID code identifying the phase to which the
@@ -4735,7 +4735,7 @@ save_
 save_pd_pref_orient.March-Dollase_r
 
     _definition.id                '_pd_pref_orient.March-Dollase_r'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     March distribution parameter describing the degree of
@@ -4754,7 +4754,7 @@ save_pd_pref_orient.March-Dollase_r
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
 
-    See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267–272 for
+    See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 for
     further information.
 ;
     _name.category_id             pd_pref_orient
@@ -4771,7 +4771,7 @@ save_
 save_pd_pref_orient.March-Dollase_r_su
 
     _definition.id                '_pd_pref_orient.March-Dollase_r_su'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Standard uncertainty of _pd_pref_orient.March-Dollase_r.
@@ -4788,7 +4788,7 @@ save_
 save_pd_pref_orient.special_details
 
     _definition.id                '_pd_pref_orient.special_details'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Description of the preferred-orientation correction if
@@ -4826,7 +4826,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_c_ij
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_c_ij'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The value of the coefficient scaling the spherical
@@ -4846,7 +4846,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_c_ij_su
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_c_ij_su'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Standard uncertainty of _pd_pref_orient.sphericalharmonics_c_ij_su.
@@ -4863,7 +4863,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_diffractogram_block_id
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_diffractogram_block_id'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     A block ID code identifying the diffractogram to
@@ -4885,7 +4885,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_geom
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_geom'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     Code identifying the geometry of the preferred-orientation
@@ -4923,7 +4923,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_id
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_id'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     A code to uniquely identify each spherical harmonic
@@ -4940,7 +4940,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_phase_block_id
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_phase_block_id'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     A block ID code identifying the phase to which the
@@ -4962,7 +4962,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_texture_index
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_texture_index'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The texture index, as described by equation 4.212
@@ -5002,7 +5002,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_y_ij
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_y_ij'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The order (i) and  term (j) of the spherical harmonic
@@ -5021,8 +5021,8 @@ save_pd_pref_orient.sphericalharmonics_y_ij
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
 
-    See Järvinen, M. (1993). J. Appl. Cryst. 26, 525–531 for
-    further information
+    See JÃ¤rvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
+    further information.
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_ijp
@@ -5044,7 +5044,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_y_i
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_y_i'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The order of the spherical harmonics preferred-orientation
@@ -5061,7 +5061,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_y_j
 
     _definition.id                '_pd_pref_orient.sphericalharmonics_y_j'
-    _definition.update            2022-10-06 #pref_orient_update
+    _definition.update            2022-10-09
     _description.text
 ;
     The term (j) of the given order (i) of the spherical harmonics
