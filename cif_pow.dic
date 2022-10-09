@@ -979,6 +979,15 @@ save_pd_calc.intensity_net
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    t = 0
+    loop pcc as pd_calc_component {
+        t += pcc.intensity_net
+    }
+    pd_calc.intensity_net = t
+;
 
 save_
 
@@ -1013,6 +1022,15 @@ save_pd_calc.intensity_total
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    t = pd_proc.intensity_bkg_calc
+    loop pcc as pd_calc_component {
+        t += pcc.intensity_total - pd_proc.intensity_bkg_calc
+    }
+    pd_calc.intensity_total = t
+;
 
 save_
 
