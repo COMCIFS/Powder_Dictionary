@@ -4553,7 +4553,7 @@ save_pd_pref_orient.March-Dollase_fract
     The sum of all values for a given phase and diffractogram
     should be 1.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_fract
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -4570,7 +4570,7 @@ save_pd_pref_orient.March-Dollase_fract_su
 ;
     Standard uncertainty of _pd_pref_orient.March-Dollase_fract.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_fract
     _name.linked_item_id          '_pd_pref_orient.March-Dollase_fract'
     _units.code                   none
@@ -4598,7 +4598,7 @@ save_pd_pref_orient.March-Dollase_geom
     default implementation.
 
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_geom
     _type.purpose                 State
     _type.source                  Assigned
@@ -4626,7 +4626,7 @@ save_pd_pref_orient.March-Dollase_hkl
     Miller indices of the March-Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_hkl
     _type.purpose                 Number
     _type.container               Matrix
@@ -4652,7 +4652,7 @@ save_pd_pref_orient.March-Dollase_id
     A code to uniquely identify each March-Dollase
     preferred-orientation correction.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -4671,7 +4671,7 @@ save_pd_pref_orient.March-Dollase_index_h
     The h Miller index of the March-Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_index_h
 
     _import.get                   [{'file':templ_attr.cif  'save':Miller_index}]
@@ -4687,7 +4687,7 @@ save_pd_pref_orient.March-Dollase_index_k
     The k Miller index of the March-Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_index_k
 
     _import.get                   [{'file':templ_attr.cif  'save':Miller_index}]
@@ -4703,7 +4703,7 @@ save_pd_pref_orient.March-Dollase_index_l
     The l Miller index of the March-Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_index_l
 
     _import.get                   [{'file':templ_attr.cif  'save':Miller_index}]
@@ -4723,7 +4723,7 @@ save_pd_pref_orient.March-Dollase_phase_block_id
     code matching the code in
     _pd_pref_orient.March-Dollase_phase_block_id.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -4757,7 +4757,7 @@ save_pd_pref_orient.March-Dollase_r
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267–272 for
     further information.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_r
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -4776,7 +4776,7 @@ save_pd_pref_orient.March-Dollase_r_su
 ;
     Standard uncertainty of _pd_pref_orient.March-Dollase_r.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_r_su
     _name.linked_item_id          '_pd_pref_orient.March-Dollase_r'
     _units.code                   none
@@ -4832,7 +4832,7 @@ save_pd_pref_orient.sphericalharmonics_c_ij
     The value of the coefficient scaling the spherical
     harmonic, ij, as given by _pd_pref_orient.sphericalharmonics_y_ij.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_c_ij
     _units.code                   none
     _type.purpose                 Measurand
@@ -4851,7 +4851,7 @@ save_pd_pref_orient.sphericalharmonics_c_ij_su
 ;
     Standard uncertainty of _pd_pref_orient.sphericalharmonics_c_ij_su.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_c_ij_su
     _name.linked_item_id          '_pd_pref_orient.sphericalharmonics_c_ij'
     _units.code                   none
@@ -4873,7 +4873,7 @@ save_pd_pref_orient.sphericalharmonics_diffractogram_block_id
     code matching the code in
     _pd_pref_orient.sphericalharmonics_diffractogram_block_id.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -4901,7 +4901,7 @@ save_pd_pref_orient.sphericalharmonics_geom
     default implementation.
 
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_geom
     _type.purpose                 State
     _type.source                  Assigned
@@ -4929,7 +4929,7 @@ save_pd_pref_orient.sphericalharmonics_id
     A code to uniquely identify each spherical harmonic
     preferred-orientation correction.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_id
     _type.container               Single
     _type.contents                Code
@@ -4950,7 +4950,7 @@ save_pd_pref_orient.sphericalharmonics_phase_block_id
     code matching the code in
     _pd_pref_orient.sphericalharmonics_phase_block_id.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -4975,7 +4975,7 @@ save_pd_pref_orient.sphericalharmonics_texture_index
     Mathemical Methods", Helga and Hans-Peter Bunge,
     Wolfratshausen.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_texture_index
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -5024,7 +5024,7 @@ save_pd_pref_orient.sphericalharmonics_y_ij
     See Järvinen, M. (1993). J. Appl. Cryst. 26, 525–531 for
     further information
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_ijp
     _type.purpose                 Number
     _type.container               Matrix
@@ -5050,7 +5050,7 @@ save_pd_pref_orient.sphericalharmonics_y_i
     The order of the spherical harmonics preferred-orientation
     correction. Valid values are positive, even integers.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_i
     _type.contents                Integer
     _enumeration.range            0:
@@ -5071,7 +5071,7 @@ save_pd_pref_orient.sphericalharmonics_y_j
     In general, possible values are in the range -i:i. Valid values
     are dependent on the space-group of the phase.
 ;
-    _name.category_id             _pd_pref_orient
+    _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_j
     _type.contents                Integer
     _enumeration.range            -_pd_pref_orient.sphericalharmonics_y_i:_pd_pref_orient.sphericalharmonics_y_i #probably not right
