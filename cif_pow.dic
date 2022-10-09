@@ -4834,7 +4834,6 @@ save_pd_pref_orient.sphericalharmonics_c_ij
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_c_ij
-    _units.code                   none
     _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
