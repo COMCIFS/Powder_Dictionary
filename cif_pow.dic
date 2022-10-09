@@ -893,10 +893,10 @@ save_PD_DATA
     _description.text
 ;
     The PD_DATA category is a "container" category
-    that is defined in order to allow raw, processed and calculated
+    that is defined in order to allow raw, processed, and calculated
     data points in a diffraction data set to be optionally
-    tabulated together. As PD_CALC, PD_MEAS and PD_PROC are
-    all subcategories of this category, the various
+    tabulated together. As PD_CALC, PD_CALC_COMPONENTS, PD_MEAS
+    and PD_PROC are all subcategories of this category, the various
     items belonging to those categories may be looped
     together or separately, as desired.
 ;
@@ -915,9 +915,10 @@ save_pd_data.point_id
 ;
     Arbitrary label identifying an entry in the table of
     diffractogram intensity values. This should be used in
-    preference to the pd_calc/pd_meas/pd_proc point_id datanames
-    whenever datanames from more than one of the pd_calc/
-    pd_proc/pd_meas categories are looped together.
+    preference to the pd_calc/pd_calc_component/pd_meas/pd_proc
+    point_id datanames whenever datanames from more than
+    one of the pd_calc/pd_calc_component/pd_proc/pd_meas
+    categories are looped together.
 ;
     _name.category_id             pd_data
     _name.object_id               point_id
@@ -1034,6 +1035,241 @@ save_pd_calc.point_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_PD_CALC_COMPONENT
+
+    _definition.id                PD_CALC_COMPONENT
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-10-09
+    _description.text
+;
+    This section is used for storing the phase-specific
+    components of a computed diffractogram trace, such as
+    intensities calculated from a Rietveld refinement.
+;
+    _name.category_id             PD_DATA
+    _name.object_id               PD_CALC_COMPONENT
+    _category_key.name            '_pd_calc_component.point_id'
+
+save_
+
+save_pd_calc_component.block_id
+
+    _definition.id                '_pd_calc_component.block_id'
+    _definition.update            2022-10-09
+    _description.text
+;
+    A block ID code (see _pd_block.id) that identifies
+    calculated component diffraction data contained in a
+    data block other than the current block. The data
+    block containing the crystallographic information
+    for this phase will be identified with a _pd_block.id
+    code matching the code in _pd_phase.block_id.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calc_component.intensity_net
+
+    _definition.id                '_pd_calc_component.intensity_net'
+    _definition.update            2022-10-09
+    _description.text
+;
+    Intensity values for a the contribution of a phase to a
+    computed diffractogram at each angle setting. Values
+    should be computed at the same locations as the processed
+    diffractogram, and thus the numbers of points will be
+    defined by _pd_proc.number_of_points and point positions
+    may be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    Use _pd_calc_component.intensity_net if the computed
+    component contribution diffraction pattern does not
+    include background or normalization corrections and thus
+    is specified on the same scale as the
+    _pd_proc.intensity_net values.
+
+    If an observed pattern is included, _pd_calc_component.intensity_*
+    should be looped with either _pd_proc.intensity_net,
+    _pd_meas.counts_* or _pd_meas.intensity_*.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               intensity_net
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
+save_pd_calc_component.intensity_net_list
+
+    _definition.id                '_pd_calc_component.intensity_net_list'
+    _definition.update            2022-10-09
+    _description.text
+;
+    List of intensity values for the contributions of an
+    arbitrary number of individual phases to a computed
+    diffractogram at each angle setting. Values should be
+    computed at the same locations as the processed
+    diffractogram, and thus the numbers of points will be
+    defined by _pd_proc.number_of_points and point positions
+    may be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    Use _pd_calc_component.intensity_net_list if the computed
+    component contribution diffraction patterns do not
+    include background or normalization corrections and thus
+    are specified on the same scale as the
+    _pd_proc.intensity_net values.
+
+    If an observed pattern is included, _pd_calc_component.intensity_*
+    should be looped with either _pd_proc.intensity_net,
+    _pd_meas.counts_* or _pd_meas.intensity_*.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               intensity_net_list
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Array
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    #magic to go and find all of the separate _pd_calc_component.intensity_nets
+;
+
+save_
+
+save_pd_calc_component.intensity_total
+
+    _definition.id                '_pd_calc_component.intensity_total'
+    _definition.update            2022-10-09
+    _description.text
+;
+    Intensity values for a the contribution of a phase to a
+    computed diffractogram at each angle setting. Values
+    should be computed at the same locations as the processed
+    diffractogram, and thus the numbers of points will be
+    defined by _pd_proc.number_of_points and point positions
+    may be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    Use _pd_calc_component.intensity_total if the computed
+    component contribution diffraction pattern includes background
+    or normalization corrections (or both) and thus is specified on
+    the same scale as the observed intensities (_pd_meas.counts_*
+    or _pd_meas.intensity_*).
+
+    If an observed pattern is included, _pd_calc_component.intensity_*
+    should be looped with _pd_proc.intensity_bkg_calc and either
+    _pd_proc.intensity_total, _pd_meas.counts_*, or _pd_meas.intensity_*.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               intensity_total
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
+save_pd_calc_component.intensity_total_list
+
+    _definition.id                '_pd_calc_component.intensity_total_list'
+    _definition.update            2022-10-09
+    _description.text
+;
+    List of intensity values for the contributions of an
+    arbitrary number of individual phases to a computed
+    diffractogram at each angle setting. Values should be
+    computed at the same locations as the processed
+    diffractogram, and thus the numbers of points will be
+    defined by _pd_proc.number_of_points and point positions
+    may be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    Use _pd_calc_component.intensity_total_list if the computed
+    component contribution diffraction patterns include background
+    or normalization corrections (or both), and thus are specified
+    on the same scale as the observed intensities (_pd_meas.counts_*
+    or _pd_meas.intensity_*).
+
+    If an observed pattern is included, _pd_calc_component.intensity_*
+    should be looped with _pd_proc.intensity_bkg_calc and either
+    _pd_proc.intensity_total, _pd_meas.counts_*, or _pd_meas.intensity_*.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               intensity_total
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Array
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    #magic to go and find all of the separate _pd_calc_component.intensity_totals
+;
+
+save_
+
+save_pd_calc_component.point_id
+
+    _definition.id                '_pd_calc_component.point_id'
+    _definition.update            2022-10-09
+    _description.text
+;
+    Arbitrary label identifying a calculated component data
+    point. Used to identify a specific entry in a list of values
+    forming the calculated component diffractogram. The role of
+    this identifier may be adopted by _pd_data.point_id if
+    measured, processed, and/or calculated intensity values are
+    combined in a single list.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               point_id
+    _name.linked_item_id          '_pd_data.point_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calc_component.presentation_order
+
+    _definition.id                '_pd_calc_component.presentation_order'
+    _definition.update            2022-10-09
+    _description.text
+;
+    Ordered list of _pd_phase.ids giving the order in which
+    the individual phases' calculated components are ordered
+    within _pd_calc_component.intensity_*_list.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               presentation_order
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Array
     _type.contents                Code
 
 save_
