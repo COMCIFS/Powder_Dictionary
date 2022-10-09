@@ -4494,11 +4494,6 @@ save_pd_phase.name
 
 save_
 
-
-
-
-
-
 save_PD_PREF_ORIENT
 
     _definition.id                PD_PREF_ORIENT
@@ -4515,7 +4510,7 @@ save_PD_PREF_ORIENT
     given explicitly. For other methods, use the special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
-    Järvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
+    Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             PD_GROUP
@@ -5033,7 +5028,7 @@ save_pd_pref_orient.sphericalharmonics_y_ij
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
 
-    See Järvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
+    See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             pd_pref_orient
