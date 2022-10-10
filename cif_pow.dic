@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-09-28
+    _dictionary.date              2022-09-30
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -4515,7 +4515,7 @@ save_PD_PREF_ORIENT
     given explicitly. For other methods, use the special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
-    Järvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
+    Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             PD_GROUP
@@ -5033,7 +5033,7 @@ save_pd_pref_orient.sphericalharmonics_y_ij
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
 
-    See Järvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
+    See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             pd_pref_orient
