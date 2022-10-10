@@ -4692,7 +4692,7 @@ save_pd_pref_orient.March-Dollase_diffractogram_block_id
     _pd_pref_orient.March-Dollase_diffractogram_block_id.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_diffractogram_block_id
+    _name.object_id               March_Dollase_diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -4714,7 +4714,7 @@ save_pd_pref_orient.March-Dollase_fract
     should be 1.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_fract
+    _name.object_id               March_Dollase_fract
     _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
@@ -4732,7 +4732,7 @@ save_pd_pref_orient.March-Dollase_fract_su
     Standard uncertainty of _pd_pref_orient.March-Dollase_fract.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_fract
+    _name.object_id               March_Dollase_fract
     _name.linked_item_id          '_pd_pref_orient.March-Dollase_fract'
     _units.code                   none
 
@@ -4760,7 +4760,7 @@ save_pd_pref_orient.March-Dollase_geom
 
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_geom
+    _name.object_id               March_Dollase_geom
     _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
@@ -4788,7 +4788,7 @@ save_pd_pref_orient.March-Dollase_hkl
     direction.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_hkl
+    _name.object_id               March_Dollase_hkl
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Matrix
@@ -4817,7 +4817,7 @@ save_pd_pref_orient.March-Dollase_id
     preferred-orientation correction.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_id
+    _name.object_id               March_Dollase_id
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -4836,7 +4836,7 @@ save_pd_pref_orient.March-Dollase_index_h
     direction.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_index_h
+    _name.object_id               March_Dollase_index_h
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Single
@@ -4855,7 +4855,7 @@ save_pd_pref_orient.March-Dollase_index_k
     direction.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_index_k
+    _name.object_id               March_Dollase_index_k
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Single
@@ -4874,7 +4874,7 @@ save_pd_pref_orient.March-Dollase_index_l
     direction.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_index_l
+    _name.object_id               March_Dollase_index_l
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Single
@@ -4897,7 +4897,7 @@ save_pd_pref_orient.March-Dollase_phase_block_id
     _pd_pref_orient.March-Dollase_phase_block_id.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_phase_block_id
+    _name.object_id               March_Dollase_phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -4931,7 +4931,7 @@ save_pd_pref_orient.March-Dollase_r
     further information.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_r
+    _name.object_id               March_Dollase_r
     _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
@@ -4950,7 +4950,7 @@ save_pd_pref_orient.March-Dollase_r_su
     Standard uncertainty of _pd_pref_orient.March-Dollase_r.
 ;
     _name.category_id             pd_pref_orient
-    _name.object_id               March-Dollase_r_su
+    _name.object_id               March_Dollase_r_su
     _name.linked_item_id          '_pd_pref_orient.March-Dollase_r'
     _units.code                   none
 
