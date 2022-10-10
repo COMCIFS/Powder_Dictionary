@@ -4648,11 +4648,6 @@ save_pd_phase.name
 
 save_
 
-
-
-
-
-
 save_PD_PREF_ORIENT
 
     _definition.id                PD_PREF_ORIENT
@@ -4676,15 +4671,16 @@ save_PD_PREF_ORIENT
     _name.object_id               PD_PREF_ORIENT
 
     loop_
-     _category_key.name
-        '_pd_pref_orient.March-Dollase_id'
-        '_pd_pref_orient.sphericalharmonics_id'
+      _category_key.name
+         '_pd_pref_orient.March-Dollase_id'
+         '_pd_pref_orient.sphericalharmonics_id'
 
 save_
 
 save_pd_pref_orient.March-Dollase_diffractogram_block_id
 
-    _definition.id                '_pd_pref_orient.March-Dollase_diffractogram_block_id'
+    _definition.id
+         '_pd_pref_orient.March-Dollase_diffractogram_block_id'
     _definition.update            2022-09-28
     _description.text
 ;
@@ -4802,7 +4798,9 @@ save_pd_pref_orient.March-Dollase_hkl
 ;
     With po as pd_pref_orient
 
-           _pd_pref_orient.March-Dollase_hkl =  [po.March-Dollase_index_h, po.March-Dollase_index_k, po.March-Dollase_index_l]
+           _pd_pref_orient.March-Dollase_hkl =  [po.March-Dollase_index_h,
+                                                 po.March-Dollase_index_k,
+                                                 po.March-Dollase_index_l]
 ;
 
 save_
@@ -4837,8 +4835,11 @@ save_pd_pref_orient.March-Dollase_index_h
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_index_h
-
-    _import.get                   [{'file':templ_attr.cif  'save':Miller_index}]
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _units.code                   none
 
 save_
 
@@ -4853,8 +4854,11 @@ save_pd_pref_orient.March-Dollase_index_k
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_index_k
-
-    _import.get                   [{'file':templ_attr.cif  'save':Miller_index}]
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _units.code                   none
 
 save_
 
@@ -4869,8 +4873,11 @@ save_pd_pref_orient.March-Dollase_index_l
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_index_l
-
-    _import.get                   [{'file':templ_attr.cif  'save':Miller_index}]
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _units.code                   none
 
 save_
 
@@ -5104,7 +5111,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_phase_block_id
 
     _definition.id
-      '_pd_pref_orient.sphericalharmonics_phase_block_id'
+         '_pd_pref_orient.sphericalharmonics_phase_block_id'
     _definition.update            2022-09-28
     _description.text
 ;
@@ -5127,7 +5134,7 @@ save_
 save_pd_pref_orient.sphericalharmonics_texture_index
 
     _definition.id
-      '_pd_pref_orient.sphericalharmonics_texture_index'
+         '_pd_pref_orient.sphericalharmonics_texture_index'
     _definition.update            2022-09-28
     _description.text
 ;
@@ -5162,6 +5169,23 @@ save_pd_pref_orient.sphericalharmonics_texture_index
     _pd_pref_orient.sphericalharmonics_texture_index = t
 
 ;
+
+save_
+
+save_pd_pref_orient.sphericalharmonics_y_i
+
+    _definition.id                '_pd_pref_orient.sphericalharmonics_y_i'
+    _definition.update            2022-09-28
+    _description.text
+;
+    The order of the spherical harmonics preferred-orientation
+    correction. Valid values are positive, even integers.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               sphericalharmonics_y_i
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
 
 save_
 
@@ -5205,23 +5229,6 @@ save_pd_pref_orient.sphericalharmonics_y_ij
       _pd_pref_orient.sphericalharmonics_y_ij =
         [po.sphericalharmonics_y_i, po.sphericalharmonics_y_j]
 ;
-
-save_
-
-save_pd_pref_orient.sphericalharmonics_y_i
-
-    _definition.id                '_pd_pref_orient.sphericalharmonics_y_i'
-    _definition.update            2022-09-28
-    _description.text
-;
-    The order of the spherical harmonics preferred-orientation
-    correction. Valid values are positive, even integers.
-;
-    _name.category_id             pd_pref_orient
-    _name.object_id               sphericalharmonics_y_i
-    _type.contents                Integer
-    _enumeration.range            0:
-    _units.code                   none
 
 save_
 
