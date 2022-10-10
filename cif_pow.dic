@@ -463,7 +463,7 @@ save_pd_calib_d_to_tof.coeff
         _units.code = "microseconds_per_angstrom_cubed"
     }
     else if (pc.power == -1) {
-        _units.code = "microsecond_angstroms"
+        _units.code = "angstroms_per_microsecond"
     }
     else _units.code = UNKNOWN
 ;
