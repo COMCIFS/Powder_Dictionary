@@ -5163,7 +5163,7 @@ save_pd_proc_ls.weight
 
     _definition.id                '_pd_proc_ls.weight'
     _alias.definition_id          '_pd_proc_ls_weight'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-10
     _description.text
 ;
     Weight applied to each profile point. These values
@@ -5174,7 +5174,7 @@ save_pd_proc_ls.weight
     point not used for refinement (see
     _pd_proc.info_excluded_regions).
 ;
-    _name.category_id             pd_proc_ls
+    _name.category_id             pd_proc
     _name.object_id               weight
     _type.purpose                 Number
     _type.source                  Derived
