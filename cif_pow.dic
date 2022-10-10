@@ -4602,7 +4602,7 @@ save_pd_pref_orient.March-Dollase_geom
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
-    50, 240–251, for further discussion.
+    50, 240-251, for further discussion.
 
     In most Rietveld software, 'symmetric reflection' is the
     default implementation.
@@ -4905,7 +4905,7 @@ save_pd_pref_orient.sphericalharmonics_geom
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
-    50, 240–251, for further discussion.
+    50, 240-251, for further discussion.
 
     In most Rietveld software, 'symmetric reflection' is the
     default implementation.
