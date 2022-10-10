@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-09-30
+    _dictionary.date              2022-10-10
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -397,11 +397,12 @@ save_PD_CALIB_D_TO_TOF
       _description_example.detail
 ;
          loop_
+         _pd_calib_d_to_tof.id
          _pd_calib_d_to_tof.power
          _pd_calib_d_to_tof.coeff
-         0  -2.062
-         1  746.8
-         2  0.08099
+         0    0  -2.062
+         DIFC 1  746.8
+         t2   2  0.08099
 ;
 ;
          Corresponds to the calibration equation:
@@ -426,12 +427,6 @@ save_PD_CALIB_D_TO_TOF
                           + 746.8 * d_spacing
                           + 0.08099 * d_spacing ^ 2
                           + 0.00232 / d_spacing
-
-         The coefficient with the value of -2.062, has a standard uncertainty
-         of 2.09 and a label of "0".
-
-         The coefficient with the value of 746.8, has a standard uncertainty
-         of 1.14 and a label of "DIFC".
 ;
 
 save_
@@ -502,7 +497,7 @@ save_pd_calib_d_to_tof.power
     _name.category_id             pd_calib_d_to_tof
     _name.object_id               power
     _type.purpose                 Number
-    _type.source                  Derived
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
     _units.code                   none
@@ -5837,13 +5832,15 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-09-30
+         2.5.0                    2022-10-10
 ;
-       ## Retain above version number and update date until final
+       ## Retain above version number and increment date until final
        ##release
 
        Added mass absorption coefficient and improved absorption
        definitions. Added missing su definitions.
 
        Corrected datetime examples to proper RFC3339 compliance.
+       
+       Added pd_calib_d_to_tof.
 ;
