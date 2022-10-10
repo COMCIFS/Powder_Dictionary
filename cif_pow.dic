@@ -2165,6 +2165,32 @@ save_pd_proc.intensity_total_su
 
 save_
 
+save_pd_proc.ls_weight
+
+    _definition.id                '_pd_proc.ls_weight'
+    _alias.definition_id          '_pd_proc_ls_weight'
+    _definition.update            2022-10-10
+    _description.text
+;
+    Weight applied to each profile point. These values
+    may be omitted if the weights are 1/u^2^, where
+    u is the s.u. for the _pd_proc.intensity_net values.
+
+    A weight value of zero is used to indicate a data
+    point not used for refinement (see
+    _pd_proc.info_excluded_regions).
+;
+    _name.category_id             pd_proc
+    _name.object_id               ls_weight
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
 save_pd_proc.point_id
 
     _definition.id                '_pd_proc.point_id'
@@ -5003,7 +5029,7 @@ save_pd_proc_ls.prof_r_factor
                 / sum~i~ ( I~obs~(i) )
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
-              _pd_proc_ls.weight).
+              _pd_proc.ls_weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
               y~oi~. (See _pd_meas.counts_total,
@@ -5048,7 +5074,7 @@ save_pd_proc_ls.prof_wr_expected
 
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
-              _pd_proc_ls.weight).
+              _pd_proc.ls_weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
               y~oi~. (See _pd_meas.counts_total,
@@ -5090,7 +5116,7 @@ save_pd_proc_ls.prof_wr_factor
 
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
-              _pd_proc_ls.weight).
+              _pd_proc.ls_weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
               y~oi~. (See _pd_meas.counts_total,
@@ -5156,32 +5182,6 @@ save_pd_proc_ls.special_details
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_proc_ls.weight
-
-    _definition.id                '_pd_proc_ls.weight'
-    _alias.definition_id          '_pd_proc_ls_weight'
-    _definition.update            2022-10-10
-    _description.text
-;
-    Weight applied to each profile point. These values
-    may be omitted if the weights are 1/u^2^, where
-    u is the s.u. for the _pd_proc.intensity_net values.
-
-    A weight value of zero is used to indicate a data
-    point not used for refinement (see
-    _pd_proc.info_excluded_regions).
-;
-    _name.category_id             pd_proc
-    _name.object_id               weight
-    _type.purpose                 Number
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0:
-    _units.code                   none
 
 save_
 
