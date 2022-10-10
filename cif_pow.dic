@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-09-30
+    _dictionary.date              2022-10-10
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -363,6 +363,164 @@ save_pd_calib.std_internal_name
       _description_example.case
          'NIST 640a Silicon standard'
          'Al2O3'
+
+save_
+
+save_PD_CALIB_D_TO_TOF
+
+    _definition.id                PD_CALIB_D_TO_TOF
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-09-30
+    _description.text
+;
+    This section defines the parameters used for the calibration
+    of time-of-flight from d-spacing for neutron data.
+
+    The calibration equation is of the form:
+
+    TOF = sum_i [ c_i * d^p_i ]
+
+    where TOF is the time-of-flight in microseconds, d is the
+    d-spacing in Angstroms, c_i is the ith coefficient, and
+    p_i is the ith power.
+
+    A loop is used to specify all terms of the correction
+    per histogram.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_CALIB_D_TO_TOF
+    _category_key.name            '_pd_calib_d_to_tof.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_calib_d_to_tof.id
+         _pd_calib_d_to_tof.power
+         _pd_calib_d_to_tof.coeff
+         0    0  -2.062
+         DIFC 1  746.8
+         t2   2  0.08099
+;
+;
+         Corresponds to the calibration equation:
+         time_of_flight =   -2.062
+                          + 746.8 * d_spacing
+                          + 0.08099 * d_spacing ^ 2
+;
+;
+         loop_
+         _pd_calib_d_to_tof.id
+         _pd_calib_d_to_tof.power
+         _pd_calib_d_to_tof.coeff
+         _pd_calib_d_to_tof.coeff_su
+         0     0   -2.062    2.09
+         DIFC  1   746.8     1.14
+         t2    2   0.08099   0.102
+         DIFB  -1  0.00232   0.0013
+;
+;
+         Corresponds to the calibration equation:
+         time_of_flight =   -2.062
+                          + 746.8 * d_spacing
+                          + 0.08099 * d_spacing ^ 2
+                          + 0.00232 / d_spacing
+;
+
+save_
+
+save_pd_calib_d_to_tof.coeff
+
+    _definition.id                '_pd_calib_d_to_tof.coeff'
+    _definition.update            2022-09-30
+    _description.text
+;
+    The value of the coefficient used in the equation to convert
+    d-spacing into time-of-flight.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               coeff
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _method.purpose               Definition
+    _method.expression
+;
+    with pc as pd_calib_d_to_tof
+    if (pc.power == 0) {
+        _units.code = "microseconds"
+        }
+    else if (pc.power == 1) {
+        _units.code = "microseconds_per_angstrom"
+        }
+    else if (pc.power == 2) {
+        _units.code = "microseconds_per_angstrom_squared"
+        }
+    else if (pc.power == 3) {
+        _units.code = "microseconds_per_angstrom_cubed"
+    }
+    else if (pc.power == -1) {
+        _units.code = "microsecond_angstroms"
+    }
+    else _units.code = UNKNOWN
+;
+
+save_
+
+save_pd_calib_d_to_tof.coeff_su
+
+    _definition.id                '_pd_calib_d_to_tof.coeff_su'
+    _definition.update            2022-09-30
+    _description.text
+;
+    Standard uncertainty of _pd_calib_d_to_tof.coeff.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               coeff_su
+    _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
+    _units.code                   microseconds  # should be us/A^power
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_d_to_tof.id
+
+    _definition.id                '_pd_calib_d_to_tof.id'
+    _definition.update            2022-09-30
+    _description.text
+;
+    An arbitrary code which identifies a specific term of the
+    calibration equation.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calib_d_to_tof.power
+
+    _definition.id                '_pd_calib_d_to_tof.power'
+    _definition.update            2022-09-30
+    _description.text
+;
+    The value of the power used in the equation to convert
+    d-spacing into time-of-flight.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               power
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -5694,13 +5852,15 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-09-30
+         2.5.0                    2022-10-10
 ;
-       ## Retain above version number and update date until final
+       ## Retain above version number and increment date until final
        ##release
 
        Added mass absorption coefficient and improved absorption
        definitions. Added missing su definitions.
 
        Corrected datetime examples to proper RFC3339 compliance.
+
+       Added pd_calib_d_to_tof.
 ;
