@@ -4790,6 +4790,7 @@ save_pd_pref_orient.March-Dollase_hkl
     _name.category_id             pd_pref_orient
     _name.object_id               March-Dollase_hkl
     _type.purpose                 Number
+    _type.source                  Assigned
     _type.container               Matrix
     _type.dimension               '[3]'
     _type.contents                Integer
@@ -5103,6 +5104,8 @@ save_pd_pref_orient.sphericalharmonics_id
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
     _enumeration.default          .
@@ -5204,6 +5207,9 @@ save_pd_pref_orient.sphericalharmonics_y_i
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_i
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
     _units.code                   none
@@ -5238,6 +5244,7 @@ save_pd_pref_orient.sphericalharmonics_y_ij
     _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_ijp
     _type.purpose                 Number
+    _type.source                  Assigned
     _type.container               Matrix
     _type.dimension               '[2]'
     _type.contents                Integer
@@ -5268,9 +5275,19 @@ save_pd_pref_orient.sphericalharmonics_y_j
 ;
     _name.category_id             pd_pref_orient
     _name.object_id               sphericalharmonics_y_j
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
     _type.contents                Integer
-    _enumeration.range            -y_i:y_i #probably not right
     _units.code                   none
+    _method.purpose               Definition
+    _method.expression
+;
+     With po as pd_pref_orient
+
+    _enumeration.range =
+    -po.sphericalharmonics_y_i:po.sphericalharmonics_y_i
+;
 
 save_
 
