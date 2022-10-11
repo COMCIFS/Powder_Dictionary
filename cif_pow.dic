@@ -301,7 +301,7 @@ save_pd_calib.detector_response
 
     _definition.id                '_pd_calib.detector_response'
     _alias.definition_id          '_pd_calib_detector_response'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     A value that indicates the relative sensitivity of each
@@ -324,7 +324,7 @@ save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
     _alias.definition_id          '_pd_calib_std_internal_mass_%'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     Per cent presence of the internal standard specified by the
@@ -623,7 +623,7 @@ save_pd_calib.2theta_offset
 
     _definition.id                '_pd_calib.2theta_offset'
     _alias.definition_id          '_pd_calib_2theta_offset'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     _pd_calib.2theta_offset defines an offset angle (in degrees)
@@ -860,7 +860,7 @@ save_pd_char.atten_coef_mu_calc
 
     _definition.id                '_pd_char.atten_coef_mu_calc'
     _alias.definition_id          '_pd_char_atten_coef_mu_calc'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The calculated linear attenuation coefficient, \\m, in units
@@ -887,7 +887,7 @@ save_pd_char.atten_coef_mu_obs
 
     _definition.id                '_pd_char.atten_coef_mu_obs'
     _alias.definition_id          '_pd_char_atten_coef_mu_obs'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The observed linear attenuation coefficient, \\m, in units
@@ -958,7 +958,7 @@ save_
 save_pd_char.mass_atten_coef_mu_calc
 
     _definition.id                '_pd_char.mass_atten_coef_mu_calc'
-    _definition.update            2022-09-15
+    _definition.update            2022-10-11
     _description.text
 ;
     The calculated mass attenuation coefficient, \\m*, in
@@ -981,7 +981,7 @@ save_
 save_pd_char.mass_atten_coef_mu_obs
 
     _definition.id                '_pd_char.mass_atten_coef_mu_obs'
-    _definition.update            2022-09-15
+    _definition.update            2022-10-11
     _description.text
 ;
     The observed mass attenuation coefficient, \\m*, in
@@ -1267,7 +1267,7 @@ save_pd_meas.2theta_scan
          '_pd_meas_2theta_scan'
          '_pd_meas_angle_2theta'
 
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     2\\q diffraction angle (in degrees) for intensity
@@ -1694,7 +1694,7 @@ save_pd_meas.position
 
     _definition.id                '_pd_meas.position'
     _alias.definition_id          '_pd_meas_position'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     A linear distance in millimetres corresponding to the
@@ -1729,7 +1729,7 @@ save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2019-09-25
+    _definition.update            2022-10-11
     _description.text
 ;
     The count time in seconds for each intensity measurement.
@@ -1749,7 +1749,7 @@ save_pd_meas.time_of_flight
 
     _definition.id                '_pd_meas.time_of_flight'
     _alias.definition_id          '_pd_meas_time_of_flight'
-    _definition.update            2019-09-25
+    _definition.update            2022-10-11
     _description.text
 ;
     Measured time in microseconds for time-of-flight neutron
@@ -1790,7 +1790,7 @@ save_pd_proc.2theta_corrected
 
     _definition.id                '_pd_proc.2theta_corrected'
     _alias.definition_id          '_pd_proc_2theta_corrected'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The 2\\q diffraction angle in degrees of an intensity
@@ -1817,7 +1817,7 @@ save_pd_proc.d_spacing
 
     _definition.id                '_pd_proc.d_spacing'
     _alias.definition_id          '_pd_proc_d_spacing'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     d-spacing corresponding to an intensity point
@@ -1838,7 +1838,7 @@ save_pd_proc.energy_detection
 
     _definition.id                '_pd_proc.energy_detection'
     _alias.definition_id          '_pd_proc_energy_detection'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Detection energy in electronvolts selected by the analyser,
@@ -1861,7 +1861,7 @@ save_pd_proc.energy_incident
 
     _definition.id                '_pd_proc.energy_incident'
     _alias.definition_id          '_pd_proc_energy_incident'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Incident energy in electronvolts of the source computed
@@ -2220,7 +2220,7 @@ save_pd_proc.recip_len_q
 
     _definition.id                '_pd_proc.recip_len_Q'
     _alias.definition_id          '_pd_proc_recip_len_Q'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Length in reciprocal space (|Q|= 2\\p/d) corresponding to
@@ -2241,7 +2241,7 @@ save_pd_proc.wavelength
 
     _definition.id                '_pd_proc.wavelength'
     _alias.definition_id          '_pd_proc_wavelength'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Wavelength in angstroms for the incident radiation as
@@ -3931,7 +3931,7 @@ save_pd_meas.2theta_fixed
 
     _definition.id                '_pd_meas.2theta_fixed'
     _alias.definition_id          '_pd_meas_2theta_fixed'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The 2\\q diffraction angle in degrees for measurements\
@@ -4023,7 +4023,7 @@ save_pd_meas.angle_chi
 
     _definition.id                '_pd_meas.angle_chi'
     _alias.definition_id          '_pd_meas_angle_chi'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -4046,7 +4046,7 @@ save_pd_meas.angle_omega
 
     _definition.id                '_pd_meas.angle_omega'
     _alias.definition_id          '_pd_meas_angle_omega'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -4069,7 +4069,7 @@ save_pd_meas.angle_phi
 
     _definition.id                '_pd_meas.angle_phi'
     _alias.definition_id          '_pd_meas_angle_phi'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -4143,7 +4143,7 @@ save_pd_meas.rocking_angle
 
     _definition.id                '_pd_meas.rocking_angle'
     _alias.definition_id          '_pd_meas_rocking_angle'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The angular range in degrees through which a sample
@@ -4295,7 +4295,7 @@ save_pd_peak.2theta_centroid
 
     _definition.id                '_pd_peak.2theta_centroid'
     _alias.definition_id          '_pd_peak_2theta_centroid'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Position of the centroid of a peak as a 2\\q angle.
@@ -4315,7 +4315,7 @@ save_pd_peak.2theta_maximum
 
     _definition.id                '_pd_peak.2theta_maximum'
     _alias.definition_id          '_pd_peak_2theta_maximum'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Position of the maximum of a peak as a 2\\q angle.
@@ -4335,7 +4335,7 @@ save_pd_peak.d_spacing
 
     _definition.id                '_pd_peak.d_spacing'
     _alias.definition_id          '_pd_peak_d_spacing'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Peak position as a d-spacing in angstroms.
@@ -4486,7 +4486,7 @@ save_pd_peak.width_2theta
 
     _definition.id                '_pd_peak.width_2theta'
     _alias.definition_id          '_pd_peak_width_2theta'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Peak width as full-width at half-maximum expressed as
@@ -4507,7 +4507,7 @@ save_pd_peak.width_d_spacing
 
     _definition.id                '_pd_peak.width_d_spacing'
     _alias.definition_id          '_pd_peak_width_d_spacing'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Peak width as full-width at half-maximum expressed as
@@ -4637,7 +4637,7 @@ save_pd_phase.mass_percent
          '_pd_phase_mass_percent'
          '_pd_phase_mass_%'
 
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     Per cent composition of the specified crystal phase
@@ -4713,7 +4713,7 @@ save_pd_prep.cool_rate
 
     _definition.id                '_pd_prep.cool_rate'
     _alias.definition_id          '_pd_prep_cool_rate'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Cooling rate in kelvins per minute for samples prepared
@@ -4736,7 +4736,7 @@ save_pd_prep.pressure
 
     _definition.id                '_pd_prep.pressure'
     _alias.definition_id          '_pd_prep_pressure'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Preparation pressure of the sample in kilopascals. This
@@ -4758,7 +4758,7 @@ save_pd_prep.temperature
 
     _definition.id                '_pd_prep.temperature'
     _alias.definition_id          '_pd_prep_temperature'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Preparation temperature of the sample in kelvins. This is
@@ -5865,4 +5865,6 @@ save_
        Added pd_calib_d_to_tof.
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
+
+       Updated many datanames from Number to Measurand
 ;
