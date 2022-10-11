@@ -1060,7 +1060,32 @@ save_PD_DATA
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DATA
-    _category_key.name            '_pd_data.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_data.point_id'
+         '_pd_data.diffractogram_id'
+
+save_
+
+save_pd_data.diffractogram_id
+
+    _definition.id                '_pd_data.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    tabulated data belong to. This may be omitted in the usual
+    case that only one diffraction measurement is present
+    in a data block.
+;
+    _name.category_id             pd_data
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
 
 save_
 
@@ -1101,7 +1126,31 @@ save_PD_CALC
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_CALC
-    _category_key.name            '_pd_calc.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_calc.point_id'
+         '_pd_calc.diffractogram_id'
+
+save_
+
+save_pd_calc.diffractogram_id
+
+    _definition.id                '_pd_calc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the calculated diffractogram that the
+    calculated data belong to. This may be omitted in the usual
+    case that only one calculation is present in a data block.
+;
+    _name.category_id             pd_calc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
 
 save_
 
@@ -1225,7 +1274,11 @@ save_PD_MEAS
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
-    _category_key.name            '_pd_meas.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_meas.point_id'
+         '_pd_meas.diffractogram_id'
 
 save_
 
@@ -1464,6 +1517,27 @@ save_pd_meas.detector_id
     _name.object_id               detector_id
     _type.purpose                 Encode
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_meas.diffractogram_id
+
+    _definition.id                '_pd_meas.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    tabulated data belong to. This may be omitted in the usual
+    case that only one diffraction measurement is present
+    in a data block.
+;
+    _name.category_id             pd_meas
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Code
 
@@ -1782,7 +1856,11 @@ save_PD_PROC
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_PROC
-    _category_key.name            '_pd_proc.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_proc.point_id'
+         '_pd_proc.diffractogram_id'
 
 save_
 
@@ -1831,6 +1909,27 @@ save_pd_proc.d_spacing
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   angstroms
+
+save_
+
+save_pd_proc.diffractogram_id
+
+    _definition.id                '_pd_proc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    tabulated data belong to. This may be omitted in the usual
+    case that only one diffraction measurement is present
+    in a data block.
+;
+    _name.category_id             pd_proc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
 
 save_
 
@@ -2260,6 +2359,46 @@ save_pd_proc.wavelength
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   angstroms
+
+save_
+
+save_PD_DIFFRACTOGRAM
+
+    _definition.id                PD_DIFFRACTOGRAM
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2022-10-11
+    _description.text
+;
+    This category includes data names relating to a diffractogram
+    as a whole.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_DIFFRACTOGRAM
+    _category_key.name            '_pd_diffractogram.id'
+
+save_
+
+save_pd_diffractogram.id
+
+    _definition.id                '_pd_diffractogram.id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Arbitrary label identifying a powder diffraction measurement.
+    If missing, _pd_block.id is used.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+    _method.purpose               Evaluation
+    _method.expression
+;
+    _pd_diffractogram.id = _pd_block.id
+;
 
 save_
 
@@ -5865,4 +6004,7 @@ save_
        Added pd_calib_d_to_tof.
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
+
+       Add pd_diffractogram category and linked data names.
+
 ;
