@@ -5166,8 +5166,6 @@ save_pd_pref_orient.sphericalharmonics_texture_index
     t = 0.0
 
     Loop po as pd_pref_orient  {
-    #but only where SH_phase_block_id and SH_diffractogram_block_id
-    # are the same for each SH_coeff and SH_y_i
         t += po.sphericalharmonics_c_ij ** 2
              / (2 * po.sphericalharmonics_y_i + 1)
     }
