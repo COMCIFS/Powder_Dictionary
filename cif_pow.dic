@@ -311,7 +311,7 @@ save_pd_calib.detector_response
 ;
     _name.category_id             pd_calib
     _name.object_id               detector_response
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -334,7 +334,7 @@ save_pd_calib.std_internal_mass_percent
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_mass_percent
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
@@ -634,7 +634,7 @@ save_pd_calib.2theta_offset
 ;
     _name.category_id             pd_calib_offset
     _name.object_id               2theta_offset
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -874,7 +874,7 @@ save_pd_char.atten_coef_mu_calc
 ;
     _name.category_id             pd_char
     _name.object_id               atten_coef_mu_calc
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -897,7 +897,7 @@ save_pd_char.atten_coef_mu_obs
 ;
     _name.category_id             pd_char
     _name.object_id               atten_coef_mu_obs
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -969,7 +969,7 @@ save_pd_char.mass_atten_coef_mu_calc
 ;
     _name.category_id             pd_char
     _name.object_id               mass_atten_coef_mu_calc
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -992,7 +992,7 @@ save_pd_char.mass_atten_coef_mu_obs
 ;
     _name.category_id             pd_char
     _name.object_id               mass_atten_coef_mu_obs
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1291,7 +1291,7 @@ save_pd_meas.2theta_scan
 ;
     _name.category_id             pd_meas
     _name.object_id               2theta_scan
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
@@ -1717,7 +1717,7 @@ save_pd_meas.position
 ;
     _name.category_id             pd_meas
     _name.object_id               position
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1736,7 +1736,7 @@ save_pd_meas.step_count_time
 ;
     _name.category_id             pd_meas
     _name.object_id               step_count_time
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Integer
@@ -1758,7 +1758,7 @@ save_pd_meas.time_of_flight
 ;
     _name.category_id             pd_meas
     _name.object_id               time_of_flight
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
@@ -1804,7 +1804,7 @@ save_pd_proc.2theta_corrected
 ;
     _name.category_id             pd_proc
     _name.object_id               2theta_corrected
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1825,7 +1825,7 @@ save_pd_proc.d_spacing
 ;
     _name.category_id             pd_proc
     _name.object_id               d_spacing
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1848,7 +1848,7 @@ save_pd_proc.energy_detection
 ;
     _name.category_id             pd_proc
     _name.object_id               energy_detection
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1870,7 +1870,7 @@ save_pd_proc.energy_incident
 ;
     _name.category_id             pd_proc
     _name.object_id               energy_incident
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -2228,7 +2228,7 @@ save_pd_proc.recip_len_q
 ;
     _name.category_id             pd_proc
     _name.object_id               recip_len_Q
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -2254,7 +2254,7 @@ save_pd_proc.wavelength
 ;
     _name.category_id             pd_proc
     _name.object_id               wavelength
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -3941,7 +3941,7 @@ save_pd_meas.2theta_fixed
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               2theta_fixed
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4033,7 +4033,7 @@ save_pd_meas.angle_chi
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               angle_chi
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4056,7 +4056,7 @@ save_pd_meas.angle_omega
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               angle_omega
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4079,7 +4079,7 @@ save_pd_meas.angle_phi
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               angle_phi
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4152,7 +4152,7 @@ save_pd_meas.rocking_angle
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               rocking_angle
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4302,7 +4302,7 @@ save_pd_peak.2theta_centroid
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_centroid
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4322,7 +4322,7 @@ save_pd_peak.2theta_maximum
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_maximum
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4342,7 +4342,7 @@ save_pd_peak.d_spacing
 ;
     _name.category_id             pd_peak
     _name.object_id               d_spacing
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4494,7 +4494,7 @@ save_pd_peak.width_2theta
 ;
     _name.category_id             pd_peak
     _name.object_id               width_2theta
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4515,7 +4515,7 @@ save_pd_peak.width_d_spacing
 ;
     _name.category_id             pd_peak
     _name.object_id               width_d_spacing
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4646,7 +4646,7 @@ save_pd_phase.mass_percent
 ;
     _name.category_id             pd_phase
     _name.object_id               mass_percent
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4723,7 +4723,7 @@ save_pd_prep.cool_rate
 ;
     _name.category_id             pd_prep
     _name.object_id               cool_rate
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4745,7 +4745,7 @@ save_pd_prep.pressure
 ;
     _name.category_id             pd_prep
     _name.object_id               pressure
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4767,7 +4767,7 @@ save_pd_prep.temperature
 ;
     _name.category_id             pd_prep
     _name.object_id               temperature
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
