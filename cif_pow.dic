@@ -4967,6 +4967,26 @@ save_pd_proc_ls.background_function
 
 save_
 
+save_pd_proc_ls.number_of_parameters
+
+    _definition.id                '_pd_proc_ls.number_of_parameters'
+    _definition.update            2022-10-11
+    _description.text
+;
+    The total number of refined parameters in the least-squares fit
+    to the diffractogram.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               number_of_parameters
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
 save_pd_proc_ls.peak_cutoff
 
     _definition.id                '_pd_proc_ls.peak_cutoff'
