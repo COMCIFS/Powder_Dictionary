@@ -1296,7 +1296,7 @@ save_pd_calc.component_intensity_net_list
     _pd_meas.intensity_*.
 ;
     _name.category_id             pd_calc
-    _name.object_id               intensity_net_list
+    _name.object_id               component_intensity_net_list
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Array
@@ -1338,7 +1338,7 @@ save_pd_calc.component_intensity_total_list
     _pd_meas.intensity_*.
 ;
     _name.category_id             pd_calc
-    _name.object_id               intensity_total
+    _name.object_id               component_intensity_total_list
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Array
