@@ -1314,7 +1314,7 @@ save_
 
 save_pd_calc.component_intensity_total_list
 
-    _definition.id                '_pd_calc_component.intensity_total_list'
+    _definition.id                '_pd_calc.component_intensity_total_list'
     _definition.update            2022-10-12
     _description.text
 ;
