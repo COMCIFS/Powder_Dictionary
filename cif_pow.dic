@@ -1295,7 +1295,7 @@ save_pd_calc.component_intensity_net_list
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
-    _name.category_id             pd_calc_component
+    _name.category_id             pd_calc
     _name.object_id               intensity_net_list
     _type.purpose                 Number
     _type.source                  Derived
@@ -1337,7 +1337,7 @@ save_pd_calc.component_intensity_total_list
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
-    _name.category_id             pd_calc_component
+    _name.category_id             pd_calc
     _name.object_id               intensity_total
     _type.purpose                 Number
     _type.source                  Derived
@@ -6131,6 +6131,6 @@ save_
        Added pd_calib_d_to_tof.
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
-	   
-	   Added PD_CALC_COMPONENT and related data names.
+
+       Added PD_CALC_COMPONENT and related data names.
 ;
