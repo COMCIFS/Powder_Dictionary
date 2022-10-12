@@ -1300,6 +1300,7 @@ save_pd_calc.component_intensity_net_list
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Array
+    _type.dimension               '[]'
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
@@ -1342,6 +1343,7 @@ save_pd_calc.component_intensity_total_list
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Array
+    _type.dimension               '[]'
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
