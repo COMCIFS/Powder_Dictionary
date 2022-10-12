@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-09-30
+    _dictionary.date              2022-10-12
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -297,7 +297,7 @@ save_
 save_pd_calc_component.intensity_total
 
     _definition.id                '_pd_calc_component.intensity_total'
-    _definition.update            2022-09-30
+    _definition.update            2022-10-12
     _description.text
 ;
     Intensity values for the contribution of a phase to a
@@ -335,7 +335,7 @@ save_
 save_pd_calc_component.point_id
 
     _definition.id                '_pd_calc_component.point_id'
-    _definition.update            2022-09-30
+    _definition.update            2022-10-12
     _description.text
 ;
     Arbitrary label identifying a calculated component data
@@ -1156,7 +1156,7 @@ save_
 save_pd_calc.component_intensity_total_list
 
     _definition.id                '_pd_calc_component.intensity_total_list'
-    _definition.update            2022-09-30
+    _definition.update            2022-10-12
     _description.text
 ;
     List of intensity values for the contributions of an
@@ -5960,7 +5960,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-09-30
+         2.5.0                    2022-10-12
 ;
        ## Retain above version number and update date until final
        ##release
@@ -5969,4 +5969,6 @@ save_
        definitions. Added missing su definitions.
 
        Corrected datetime examples to proper RFC3339 compliance.
+
+       Added PD_CALC_COMPONENT and related data names.
 ;
