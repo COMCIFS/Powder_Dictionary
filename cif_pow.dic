@@ -81,6 +81,7 @@ save_PD_BLOCK
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_BLOCK
+    _category_key.name            '_pd_block.id'
 
 save_
 
