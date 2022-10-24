@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-10-11
+    _dictionary.date              2022-10-21
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -50,8 +50,8 @@ save_PD_BLOCK
 
     _definition.id                PD_BLOCK
     _definition.scope             Category
-    _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.class             Loop
+    _definition.update            2022-10-21
     _description.text
 ;
     _pd_block.id is used to assign a unique ID code to a data block.
@@ -76,11 +76,12 @@ save_PD_BLOCK
     designed to ensure uniqueness.
 
     It is the responsibility of a data archive site or local
-    laboratory to create a catalogue of block ID's if that site
+    laboratory to create a catalogue of block IDs if that site
     wishes to resolve these references.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_BLOCK
+    _category_key.name            '_pd_block.id'
 
 save_
 
@@ -5852,7 +5853,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-10-11
+         2.5.0                    2022-10-21
 ;
        ## Retain above version number and increment date until final
        ##release
@@ -5865,4 +5866,6 @@ save_
        Added pd_calib_d_to_tof.
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
+
+       Made PD_BLOCK a Loop category
 ;
