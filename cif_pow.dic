@@ -16,9 +16,7 @@ data_CIF_POW
     _dictionary.version           2.5.0
     _dictionary.date              2022-10-27
     _dictionary.uri
-;
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
-;
     _dictionary.ddl_conformance   3.11.10
     _dictionary.namespace         CifPow
     _description.text
