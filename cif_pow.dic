@@ -14,9 +14,9 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-10-21
+    _dictionary.date              2022-10-27
     _dictionary.uri
-  https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
+https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
     _dictionary.namespace         CifPow
     _description.text
@@ -302,7 +302,7 @@ save_pd_calib.detector_response
 
     _definition.id                '_pd_calib.detector_response'
     _alias.definition_id          '_pd_calib_detector_response'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     A value that indicates the relative sensitivity of each
@@ -312,7 +312,7 @@ save_pd_calib.detector_response
 ;
     _name.category_id             pd_calib
     _name.object_id               detector_response
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -321,11 +321,28 @@ save_pd_calib.detector_response
 
 save_
 
+save_pd_calib.detector_response_su
+
+    _definition.id                '_pd_calib.detector_response_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_calib.detector_response.
+;
+    _name.category_id             pd_calib
+    _name.object_id               detector_response_su
+    _name.linked_item_id          '_pd_calib.detector_response'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
     _alias.definition_id          '_pd_calib_std_internal_mass_%'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     Per cent presence of the internal standard specified by the
@@ -335,12 +352,29 @@ save_pd_calib.std_internal_mass_percent
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_mass_percent
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:100.0
     _units.code                   none
+
+save_
+
+save_pd_calib.std_internal_mass_percent_su
+
+    _definition.id                '_pd_calib.std_internal_mass_percent_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_calib.std_internal_mass_percent.
+;
+    _name.category_id             pd_calib
+    _name.object_id               std_internal_mass_percent_su
+    _name.linked_item_id          '_pd_calib.std_internal_mass_percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -482,7 +516,7 @@ save_pd_calib_d_to_tof.coeff_su
     _name.category_id             pd_calib_d_to_tof
     _name.object_id               coeff_su
     _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
-    _units.code                   microseconds  # should be us/A^power
+    _units.code                   microseconds
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -624,7 +658,7 @@ save_pd_calib.2theta_offset
 
     _definition.id                '_pd_calib.2theta_offset'
     _alias.definition_id          '_pd_calib_2theta_offset'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     _pd_calib.2theta_offset defines an offset angle (in degrees)
@@ -635,12 +669,29 @@ save_pd_calib.2theta_offset
 ;
     _name.category_id             pd_calib_offset
     _name.object_id               2theta_offset
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:180.0
     _units.code                   degrees
+
+save_
+
+save_pd_calib.2theta_offset_su
+
+    _definition.id                '_pd_calib.2theta_offset_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_calib.2theta_offset.
+;
+    _name.category_id             pd_calib_offset
+    _name.object_id               2theta_offset_su
+    _name.linked_item_id          '_pd_calib.2theta_offset'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -861,7 +912,7 @@ save_pd_char.atten_coef_mu_calc
 
     _definition.id                '_pd_char.atten_coef_mu_calc'
     _alias.definition_id          '_pd_char_atten_coef_mu_calc'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The calculated linear attenuation coefficient, \\m, in units
@@ -875,7 +926,7 @@ save_pd_char.atten_coef_mu_calc
 ;
     _name.category_id             pd_char
     _name.object_id               atten_coef_mu_calc
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -884,11 +935,28 @@ save_pd_char.atten_coef_mu_calc
 
 save_
 
+save_pd_char.atten_coef_mu_calc_su
+
+    _definition.id                '_pd_char.atten_coef_mu_calc_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_char.atten_coef_mu_calc.
+;
+    _name.category_id             pd_char
+    _name.object_id               atten_coef_mu_calc_su
+    _name.linked_item_id          '_pd_char.atten_coef_mu_calc'
+    _units.code                   reciprocal_millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_char.atten_coef_mu_obs
 
     _definition.id                '_pd_char.atten_coef_mu_obs'
     _alias.definition_id          '_pd_char_atten_coef_mu_obs'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The observed linear attenuation coefficient, \\m, in units
@@ -898,12 +966,29 @@ save_pd_char.atten_coef_mu_obs
 ;
     _name.category_id             pd_char
     _name.object_id               atten_coef_mu_obs
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   reciprocal_millimetres
+
+save_
+
+save_pd_char.atten_coef_mu_obs_su
+
+    _definition.id                '_pd_char.atten_coef_mu_obs_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_char.atten_coef_mu_obs.
+;
+    _name.category_id             pd_char
+    _name.object_id               atten_coef_mu_obs_su
+    _name.linked_item_id          '_pd_char.atten_coef_mu_obs'
+    _units.code                   reciprocal_millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -959,7 +1044,7 @@ save_
 save_pd_char.mass_atten_coef_mu_calc
 
     _definition.id                '_pd_char.mass_atten_coef_mu_calc'
-    _definition.update            2022-09-15
+    _definition.update            2022-10-11
     _description.text
 ;
     The calculated mass attenuation coefficient, \\m*, in
@@ -970,7 +1055,7 @@ save_pd_char.mass_atten_coef_mu_calc
 ;
     _name.category_id             pd_char
     _name.object_id               mass_atten_coef_mu_calc
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -979,10 +1064,27 @@ save_pd_char.mass_atten_coef_mu_calc
 
 save_
 
+save_pd_char.mass_atten_coef_mu_calc_su
+
+    _definition.id                '_pd_char.mass_atten_coef_mu_calc_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_char.mass_atten_coef_mu_calc.
+;
+    _name.category_id             pd_char
+    _name.object_id               mass_atten_coef_mu_calc_su
+    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_calc'
+    _units.code                   millimetres_squared_per_gram
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_char.mass_atten_coef_mu_obs
 
     _definition.id                '_pd_char.mass_atten_coef_mu_obs'
-    _definition.update            2022-09-15
+    _definition.update            2022-10-11
     _description.text
 ;
     The observed mass attenuation coefficient, \\m*, in
@@ -993,12 +1095,29 @@ save_pd_char.mass_atten_coef_mu_obs
 ;
     _name.category_id             pd_char
     _name.object_id               mass_atten_coef_mu_obs
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   millimetres_squared_per_gram
+
+save_
+
+save_pd_char.mass_atten_coef_mu_obs_su
+
+    _definition.id                '_pd_char.mass_atten_coef_mu_obs_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_char.mass_atten_coef_mu_obs.
+;
+    _name.category_id             pd_char
+    _name.object_id               mass_atten_coef_mu_obs_su
+    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_obs'
+    _units.code                   millimetres_squared_per_gram
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1268,7 +1387,7 @@ save_pd_meas.2theta_scan
          '_pd_meas_2theta_scan'
          '_pd_meas_angle_2theta'
 
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     2\\q diffraction angle (in degrees) for intensity
@@ -1292,12 +1411,29 @@ save_pd_meas.2theta_scan
 ;
     _name.category_id             pd_meas
     _name.object_id               2theta_scan
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
     _units.code                   degrees
+
+save_
+
+save_pd_meas.2theta_scan_su
+
+    _definition.id                '_pd_meas.2theta_scan_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.2theta_scan.
+;
+    _name.category_id             pd_meas
+    _name.object_id               2theta_scan_su
+    _name.linked_item_id          '_pd_meas.2theta_scan'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1695,7 +1831,7 @@ save_pd_meas.position
 
     _definition.id                '_pd_meas.position'
     _alias.definition_id          '_pd_meas_position'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     A linear distance in millimetres corresponding to the
@@ -1718,7 +1854,7 @@ save_pd_meas.position
 ;
     _name.category_id             pd_meas
     _name.object_id               position
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1726,18 +1862,35 @@ save_pd_meas.position
 
 save_
 
+save_pd_meas.position_su
+
+    _definition.id                '_pd_meas.position_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.position.
+;
+    _name.category_id             pd_meas
+    _name.object_id               position_su
+    _name.linked_item_id          '_pd_meas.position'
+    _units.code                   millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2019-09-25
+    _definition.update            2022-10-11
     _description.text
 ;
     The count time in seconds for each intensity measurement.
 ;
     _name.category_id             pd_meas
     _name.object_id               step_count_time
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Integer
@@ -1746,11 +1899,28 @@ save_pd_meas.step_count_time
 
 save_
 
+save_pd_meas.step_count_time_su
+
+    _definition.id                '_pd_meas.step_count_time_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.step_count_time.
+;
+    _name.category_id             pd_meas
+    _name.object_id               step_count_time_su
+    _name.linked_item_id          '_pd_meas.step_count_time'
+    _units.code                   seconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_meas.time_of_flight
 
     _definition.id                '_pd_meas.time_of_flight'
     _alias.definition_id          '_pd_meas_time_of_flight'
-    _definition.update            2019-09-25
+    _definition.update            2022-10-11
     _description.text
 ;
     Measured time in microseconds for time-of-flight neutron
@@ -1759,12 +1929,29 @@ save_pd_meas.time_of_flight
 ;
     _name.category_id             pd_meas
     _name.object_id               time_of_flight
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
     _units.code                   microseconds
+
+save_
+
+save_pd_meas.time_of_flight_su
+
+    _definition.id                '_pd_meas.time_of_flight_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.time_of_flight.
+;
+    _name.category_id             pd_meas
+    _name.object_id               time_of_flight_su
+    _name.linked_item_id          '_pd_meas.time_of_flight'
+    _units.code                   microseconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1791,7 +1978,7 @@ save_pd_proc.2theta_corrected
 
     _definition.id                '_pd_proc.2theta_corrected'
     _alias.definition_id          '_pd_proc_2theta_corrected'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The 2\\q diffraction angle in degrees of an intensity
@@ -1805,7 +1992,7 @@ save_pd_proc.2theta_corrected
 ;
     _name.category_id             pd_proc
     _name.object_id               2theta_corrected
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1814,11 +2001,28 @@ save_pd_proc.2theta_corrected
 
 save_
 
+save_pd_proc.2theta_corrected_su
+
+    _definition.id                '_pd_proc.2theta_corrected_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_proc.2theta_corrected.
+;
+    _name.category_id             pd_proc
+    _name.object_id               2theta_corrected_su
+    _name.linked_item_id          '_pd_proc.2theta_corrected'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.d_spacing
 
     _definition.id                '_pd_proc.d_spacing'
     _alias.definition_id          '_pd_proc_d_spacing'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     d-spacing corresponding to an intensity point
@@ -1826,7 +2030,7 @@ save_pd_proc.d_spacing
 ;
     _name.category_id             pd_proc
     _name.object_id               d_spacing
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1835,11 +2039,28 @@ save_pd_proc.d_spacing
 
 save_
 
+save_pd_proc.d_spacing_su
+
+    _definition.id                '_pd_proc.d_spacing_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_proc.d_spacing.
+;
+    _name.category_id             pd_proc
+    _name.object_id               d_spacing_su
+    _name.linked_item_id          '_pd_proc.d_spacing'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.energy_detection
 
     _definition.id                '_pd_proc.energy_detection'
     _alias.definition_id          '_pd_proc_energy_detection'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Detection energy in electronvolts selected by the analyser,
@@ -1849,7 +2070,7 @@ save_pd_proc.energy_detection
 ;
     _name.category_id             pd_proc
     _name.object_id               energy_detection
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -1858,11 +2079,28 @@ save_pd_proc.energy_detection
 
 save_
 
+save_pd_proc.energy_detection_su
+
+    _definition.id                '_pd_proc.energy_detection_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_proc.energy_detection.
+;
+    _name.category_id             pd_proc
+    _name.object_id               energy_detection_su
+    _name.linked_item_id          '_pd_proc.energy_detection'
+    _units.code                   electron_volts
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.energy_incident
 
     _definition.id                '_pd_proc.energy_incident'
     _alias.definition_id          '_pd_proc_energy_incident'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Incident energy in electronvolts of the source computed
@@ -1871,12 +2109,29 @@ save_pd_proc.energy_incident
 ;
     _name.category_id             pd_proc
     _name.object_id               energy_incident
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   electron_volts
+
+save_
+
+save_pd_proc.energy_incident_su
+
+    _definition.id                '_pd_proc.energy_incident_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_proc.energy_incident.
+;
+    _name.category_id             pd_proc
+    _name.object_id               energy_incident_su
+    _name.linked_item_id          '_pd_proc.energy_incident'
+    _units.code                   electron_volts
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -2221,7 +2476,7 @@ save_pd_proc.recip_len_q
 
     _definition.id                '_pd_proc.recip_len_Q'
     _alias.definition_id          '_pd_proc_recip_len_Q'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Length in reciprocal space (|Q|= 2\\p/d) corresponding to
@@ -2229,7 +2484,7 @@ save_pd_proc.recip_len_q
 ;
     _name.category_id             pd_proc
     _name.object_id               recip_len_Q
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -2238,11 +2493,28 @@ save_pd_proc.recip_len_q
 
 save_
 
+save_pd_proc.recip_len_q_su
+
+    _definition.id                '_pd_proc.recip_len_Q_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_proc.recip_len_Q.
+;
+    _name.category_id             pd_proc
+    _name.object_id               recip_len_Q_su
+    _name.linked_item_id          '_pd_proc.recip_len_Q'
+    _units.code                   reciprocal_angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_proc.wavelength
 
     _definition.id                '_pd_proc.wavelength'
     _alias.definition_id          '_pd_proc_wavelength'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Wavelength in angstroms for the incident radiation as
@@ -2255,12 +2527,29 @@ save_pd_proc.wavelength
 ;
     _name.category_id             pd_proc
     _name.object_id               wavelength
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   angstroms
+
+save_
+
+save_pd_proc.wavelength_su
+
+    _definition.id                '_pd_proc.wavelength_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_proc.wavelength.
+;
+    _name.category_id             pd_proc
+    _name.object_id               wavelength_su
+    _name.linked_item_id          '_pd_proc.wavelength'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -3932,7 +4221,7 @@ save_pd_meas.2theta_fixed
 
     _definition.id                '_pd_meas.2theta_fixed'
     _alias.definition_id          '_pd_meas_2theta_fixed'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The 2\\q diffraction angle in degrees for measurements\
@@ -3942,12 +4231,29 @@ save_pd_meas.2theta_fixed
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               2theta_fixed
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
     _units.code                   degrees
+
+save_
+
+save_pd_meas.2theta_fixed_su
+
+    _definition.id                '_pd_meas.2theta_fixed_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.2theta_fixed.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               2theta_fixed_su
+    _name.linked_item_id          '_pd_meas.2theta_fixed'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4024,7 +4330,7 @@ save_pd_meas.angle_chi
 
     _definition.id                '_pd_meas.angle_chi'
     _alias.definition_id          '_pd_meas_angle_chi'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -4034,7 +4340,7 @@ save_pd_meas.angle_chi
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               angle_chi
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4043,11 +4349,28 @@ save_pd_meas.angle_chi
 
 save_
 
+save_pd_meas.angle_chi_su
+
+    _definition.id                '_pd_meas.angle_chi_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.angle_chi.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               angle_chi_su
+    _name.linked_item_id          '_pd_meas.angle_chi'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_meas.angle_omega
 
     _definition.id                '_pd_meas.angle_omega'
     _alias.definition_id          '_pd_meas_angle_omega'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -4057,7 +4380,7 @@ save_pd_meas.angle_omega
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               angle_omega
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4066,11 +4389,28 @@ save_pd_meas.angle_omega
 
 save_
 
+save_pd_meas.angle_omega_su
+
+    _definition.id                '_pd_meas.angle_omega_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.angle_omega.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               angle_omega_su
+    _name.linked_item_id          '_pd_meas.angle_omega'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_meas.angle_phi
 
     _definition.id                '_pd_meas.angle_phi'
     _alias.definition_id          '_pd_meas_angle_phi'
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     The diffractometer angle in degrees for an instrument with a
@@ -4080,12 +4420,29 @@ save_pd_meas.angle_phi
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               angle_phi
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            -180.0:360.0
     _units.code                   degrees
+
+save_
+
+save_pd_meas.angle_phi_su
+
+    _definition.id                '_pd_meas.angle_phi_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.angle_phi.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               angle_phi_su
+    _name.linked_item_id          '_pd_meas.angle_phi'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4144,7 +4501,7 @@ save_pd_meas.rocking_angle
 
     _definition.id                '_pd_meas.rocking_angle'
     _alias.definition_id          '_pd_meas_rocking_angle'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The angular range in degrees through which a sample
@@ -4153,12 +4510,29 @@ save_pd_meas.rocking_angle
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               rocking_angle
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0:360.0
     _units.code                   degrees
+
+save_
+
+save_pd_meas.rocking_angle_su
+
+    _definition.id                '_pd_meas.rocking_angle_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_meas.rocking_angle.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               rocking_angle_su
+    _name.linked_item_id          '_pd_meas.rocking_angle'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4296,19 +4670,36 @@ save_pd_peak.2theta_centroid
 
     _definition.id                '_pd_peak.2theta_centroid'
     _alias.definition_id          '_pd_peak_2theta_centroid'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Position of the centroid of a peak as a 2\\q angle.
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_centroid
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:180.0
     _units.code                   degrees
+
+save_
+
+save_pd_peak.2theta_centroid_su
+
+    _definition.id                '_pd_peak.2theta_centroid_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_peak.2theta_centroid.
+;
+    _name.category_id             pd_peak
+    _name.object_id               2theta_centroid_su
+    _name.linked_item_id          '_pd_peak.2theta_centroid'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4316,14 +4707,14 @@ save_pd_peak.2theta_maximum
 
     _definition.id                '_pd_peak.2theta_maximum'
     _alias.definition_id          '_pd_peak_2theta_maximum'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Position of the maximum of a peak as a 2\\q angle.
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_maximum
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4332,23 +4723,57 @@ save_pd_peak.2theta_maximum
 
 save_
 
+save_pd_peak.2theta_maximum_su
+
+    _definition.id                '_pd_peak.2theta_maximum_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_peak.2theta_maximum.
+;
+    _name.category_id             pd_peak
+    _name.object_id               2theta_maximum_su
+    _name.linked_item_id          '_pd_peak.2theta_maximum'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_peak.d_spacing
 
     _definition.id                '_pd_peak.d_spacing'
     _alias.definition_id          '_pd_peak_d_spacing'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Peak position as a d-spacing in angstroms.
 ;
     _name.category_id             pd_peak
     _name.object_id               d_spacing
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   angstroms
+
+save_
+
+save_pd_peak.d_spacing_su
+
+    _definition.id                '_pd_peak.d_spacing_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_peak.d_spacing.
+;
+    _name.category_id             pd_peak
+    _name.object_id               d_spacing_su
+    _name.linked_item_id          '_pd_peak.d_spacing'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4487,7 +4912,7 @@ save_pd_peak.width_2theta
 
     _definition.id                '_pd_peak.width_2theta'
     _alias.definition_id          '_pd_peak_width_2theta'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Peak width as full-width at half-maximum expressed as
@@ -4495,7 +4920,7 @@ save_pd_peak.width_2theta
 ;
     _name.category_id             pd_peak
     _name.object_id               width_2theta
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4504,11 +4929,28 @@ save_pd_peak.width_2theta
 
 save_
 
+save_pd_peak.width_2theta_su
+
+    _definition.id                '_pd_peak.width_2theta_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_peak.width_2theta.
+;
+    _name.category_id             pd_peak
+    _name.object_id               width_2theta_su
+    _name.linked_item_id          '_pd_peak.width_2theta'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_peak.width_d_spacing
 
     _definition.id                '_pd_peak.width_d_spacing'
     _alias.definition_id          '_pd_peak_width_d_spacing'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Peak width as full-width at half-maximum expressed as
@@ -4516,12 +4958,29 @@ save_pd_peak.width_d_spacing
 ;
     _name.category_id             pd_peak
     _name.object_id               width_d_spacing
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   angstroms
+
+save_
+
+save_pd_peak.width_d_spacing_su
+
+    _definition.id                '_pd_peak.width_d_spacing_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_peak.width_d_spacing.
+;
+    _name.category_id             pd_peak
+    _name.object_id               width_d_spacing_su
+    _name.linked_item_id          '_pd_peak.width_d_spacing'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4638,7 +5097,7 @@ save_pd_phase.mass_percent
          '_pd_phase_mass_percent'
          '_pd_phase_mass_%'
 
-    _definition.update            2022-09-28
+    _definition.update            2022-10-11
     _description.text
 ;
     Per cent composition of the specified crystal phase
@@ -4647,12 +5106,29 @@ save_pd_phase.mass_percent
 ;
     _name.category_id             pd_phase
     _name.object_id               mass_percent
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:100.0
     _units.code                   none
+
+save_
+
+save_pd_phase.mass_percent_su
+
+    _definition.id                '_pd_phase.mass_percent_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_phase.mass_percent.
+;
+    _name.category_id             pd_phase
+    _name.object_id               mass_percent_su
+    _name.linked_item_id          '_pd_phase.mass_percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -4714,7 +5190,7 @@ save_pd_prep.cool_rate
 
     _definition.id                '_pd_prep.cool_rate'
     _alias.definition_id          '_pd_prep_cool_rate'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Cooling rate in kelvins per minute for samples prepared
@@ -4724,7 +5200,7 @@ save_pd_prep.cool_rate
 ;
     _name.category_id             pd_prep
     _name.object_id               cool_rate
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4733,11 +5209,28 @@ save_pd_prep.cool_rate
 
 save_
 
+save_pd_prep.cool_rate_su
+
+    _definition.id                '_pd_prep.cool_rate_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_prep.cool_rate.
+;
+    _name.category_id             pd_prep
+    _name.object_id               cool_rate_su
+    _name.linked_item_id          '_pd_prep.cool_rate'
+    _units.code                   kelvins_per_minute
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_prep.pressure
 
     _definition.id                '_pd_prep.pressure'
     _alias.definition_id          '_pd_prep_pressure'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Preparation pressure of the sample in kilopascals. This
@@ -4746,7 +5239,7 @@ save_pd_prep.pressure
 ;
     _name.category_id             pd_prep
     _name.object_id               pressure
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
@@ -4755,11 +5248,28 @@ save_pd_prep.pressure
 
 save_
 
+save_pd_prep.pressure_su
+
+    _definition.id                '_pd_prep.pressure_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_prep.pressure.
+;
+    _name.category_id             pd_prep
+    _name.object_id               pressure_su
+    _name.linked_item_id          '_pd_prep.pressure'
+    _units.code                   kilopascals
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_prep.temperature
 
     _definition.id                '_pd_prep.temperature'
     _alias.definition_id          '_pd_prep_temperature'
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     Preparation temperature of the sample in kelvins. This is
@@ -4768,12 +5278,29 @@ save_pd_prep.temperature
 ;
     _name.category_id             pd_prep
     _name.object_id               temperature
-    _type.purpose                 Number
+    _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   kelvins
+
+save_
+
+save_pd_prep.temperature_su
+
+    _definition.id                '_pd_prep.temperature_su'
+    _definition.update            2022-10-27
+    _description.text
+;
+    Standard uncertainty of _pd_prep.temperature.
+;
+    _name.category_id             pd_prep
+    _name.object_id               temperature_su
+    _name.linked_item_id          '_pd_prep.temperature'
+    _units.code                   kelvins
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -5853,7 +6380,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-10-21
+         2.5.0                    2022-10-27
 ;
        ## Retain above version number and increment date until final
        ##release
@@ -5867,5 +6394,6 @@ save_
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
 
+       Updated many datanames from Number to Measurand
        Made PD_BLOCK a Loop category
 ;
