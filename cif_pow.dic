@@ -5173,11 +5173,6 @@ save_PD_PREF_ORIENT
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT
 
-    loop_
-      _category_key.name
-         '_pd_pref_orient.March-Dollase_id'
-         '_pd_pref_orient.sphericalharmonics_id'
-
 save_
 
 save_pd_pref_orient.special_details
@@ -5240,9 +5235,7 @@ save_PD_PREF_ORIENT_MARCH-DOLLASE
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT_MARCH-DOLLASE
 
-    loop_
-      _category_key.name
-         '_pd_pref_orient_March-Dollase.id'
+    _category_key.name            '_pd_pref_orient_March-Dollase.id'
 
 save_
 
@@ -5452,23 +5445,21 @@ save_pd_pref_orient_March-Dollase.index_l
 
 save_
 
-save_pd_pref_orient_March-Dollase.phase_id
+save_pd_pref_orient_March-Dollase.phase_block_id
 
-    _definition.id                '_pd_pref_orient_March-Dollase.phase_id'
+    _definition.id                '_pd_pref_orient_March-Dollase.phase_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
     A code identifying the phase to which the
-    preferred-orientation correction applies. This code
-    must match that given by _pd_phase.id. The data
+    preferred-orientation correction applies. The data
     block containing the crystallographic information
     for this phase will be identified with the corresponding
     _pd_block.id code.
 ;
     _name.category_id             pd_pref_orient_March-Dollase
     _name.object_id               phase_block_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
+    _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -5551,9 +5542,7 @@ save_PD_PREF_ORIENT_SPHERICALHARMONICS
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT_SPHERICALHARMONICS
 
-    loop_
-      _category_key.name
-         '_pd_pref_orient_sphericalharmonics.id'
+    _category_key.name            '_pd_pref_orient_sphericalharmonics.id'
 
 save_
 
@@ -5673,24 +5662,22 @@ save_pd_pref_orient_sphericalharmonics.id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.phase_id
+save_pd_pref_orient_sphericalharmonics.phase_block_id
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.phase_id'
+        '_pd_pref_orient_sphericalharmonics.phase_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
     A code identifying the phase to which the
-    preferred-orientation correction applies. This code
-    must match that given by _pd_phase.id. The data
+    preferred-orientation correction applies. The data
     block containing the crystallographic information
     for this phase will be identified with the corresponding
     _pd_block.id code.
 ;
     _name.category_id             pd_pref_orient_sphericalharmonics
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
+    _name.object_id               phase_block_id
+    _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
@@ -7101,6 +7088,6 @@ save_
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
 
        Updated many datanames from Number to Measurand
-       
+
        Made PD_BLOCK a Loop category
 ;
