@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-10-12
+    _dictionary.date              2022-11-17
     _dictionary.uri
   https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -222,7 +222,7 @@ save_PD_CALC_COMPONENT
     _description.text
 ;
     This section is used for storing the phase-specific
-    components of a computed diffractogram trace, such as
+    components of a computed diffractogram, such as
     intensities calculated from a Rietveld refinement.
 ;
     _name.category_id             PD_GROUP
@@ -373,10 +373,10 @@ save_PD_CALC_OVERALL
 
 save_
 
-save_pd_calc.component_presentation_order
+save_pd_calc_overall.component_presentation_order
 
-    _definition.id                '_pd_calc.component_presentation_order'
-    _definition.update            2022-10-12
+    _definition.id                '_pd_calc_overall.component_presentation_order'
+    _definition.update            2022-11-17
     _description.text
 ;
     List of _pd_phase.ids specifying the order in which
@@ -1272,16 +1272,17 @@ save_
 save_pd_calc.component_intensity_net_list
 
     _definition.id                '_pd_calc.component_intensity_net_list'
-    _definition.update            2022-10-12
+    _definition.update            2022-11-17
     _description.text
 ;
     List of intensity values for the contributions of an
     arbitrary number of individual phases to a computed
-    diffractogram for each data point. Values should be
-    computed at the same locations as the processed
-    diffractogram, and thus the numbers of points will be
-    defined by _pd_proc.number_of_points. Point positions
-    may be defined using _pd_proc.2theta_range_*,
+    diffractogram for each data point. Values are listed
+    in the order given by _pd_calc_overall.component_presentation_order.
+    Values should be computed at the same locations as the
+    processed diffractogram, and thus the numbers of points
+    will be defined by _pd_proc.number_of_points. Point
+    positions may be defined using _pd_proc.2theta_range_*,
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
@@ -1320,11 +1321,12 @@ save_pd_calc.component_intensity_total_list
 ;
     List of intensity values for the contributions of an
     arbitrary number of individual phases to a computed
-    diffractogram at each angle setting. Values should be
-    computed at the same locations as the processed
-    diffractogram, and thus the numbers of points will be
-    defined by _pd_proc.number_of_points. Point positions
-    may be defined using _pd_proc.2theta_range_*,
+    diffractogram at each angle setting. Values are listed
+    in the order given by _pd_calc_overall.component_presentation_order.
+    Values should be computed at the same locations as the
+    processed diffractogram, and thus the numbers of points
+    will be defined by _pd_proc.number_of_points. Point
+    positions may be defined using _pd_proc.2theta_range_*,
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
@@ -6120,7 +6122,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-10-12
+         2.5.0                    2022-11-17
 ;
        ## Retain above version number and increment date until final
        ##release
