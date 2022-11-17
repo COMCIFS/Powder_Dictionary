@@ -373,26 +373,6 @@ save_PD_CALC_OVERALL
 
 save_
 
-save_pd_calc_overall.component_presentation_order
-
-    _definition.id                '_pd_calc_overall.component_presentation_order'
-    _definition.update            2022-11-17
-    _description.text
-;
-    List of _pd_phase.ids specifying the order in which
-    the individual phases' calculated components are given
-    within _pd_calc.component_intensity_*_list.
-;
-    _name.category_id             pd_calc_overall
-    _name.object_id               component_presentation_order
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Array
-    _type.dimension               '[]'
-    _type.contents                Code
-
-save_
-
 save_pd_calc.method
 
     _definition.id                '_pd_calc.method'
@@ -414,6 +394,27 @@ save_pd_calc.method
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
+
+save_
+
+
+save_pd_calc_overall.component_presentation_order
+
+    _definition.id                '_pd_calc_overall.component_presentation_order'
+    _definition.update            2022-11-17
+    _description.text
+;
+    List of _pd_phase.ids specifying the order in which
+    the individual phases' calculated components are given
+    within _pd_calc.component_intensity_*_list.
+;
+    _name.category_id             pd_calc_overall
+    _name.object_id               component_presentation_order
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Array
+    _type.dimension               '[]'
+    _type.contents                Code
 
 save_
 
