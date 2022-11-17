@@ -5163,7 +5163,7 @@ save_PD_PREF_ORIENT
     corrections applied to a phase when modelling it's contribution
     to a hisotgram.
 
-    March-Dollase and spherical harmonics corrections can be
+    March_Dollase and spherical harmonics corrections can be
     given explicitly. For other methods, use the special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
@@ -5183,7 +5183,7 @@ save_pd_pref_orient.special_details
 ;
     Description of the preferred-orientation correction if
     such a correction is used, and it cannot be described
-    as a March-Dollase or spherical harmonics correction.
+    as a March_Dollase or spherical harmonics correction.
 
     or
 
@@ -5191,9 +5191,9 @@ save_pd_pref_orient.special_details
     used in the application of a preferred-orientation model
     that cannot be specified elsewhere.
 
-    If the correction can be described as a March-Dollase
+    If the correction can be described as a March_Dollase
     or spherical harmonics correction, use
-    _pd_pref_orient_March-Dollase.* or
+    _pd_pref_orient_March_Dollase.* or
     _pd_pref_orient_sphericalharmonics.*, as
     appropriate.
 
@@ -5213,15 +5213,15 @@ save_pd_pref_orient.special_details
 
 save_
 
-save_PD_PREF_ORIENT_MARCH-DOLLASE
+save_PD_PREF_ORIENT_MARCH_DOLLASE
 
-    _definition.id                PD_PREF_ORIENT_MARCH-DOLLASE
+    _definition.id                PD_PREF_ORIENT_MARCH_DOLLASE
     _definition.scope             Category
     _definition.class             Loop
     _definition.update            2022-11-17
     _description.text
 ;
-    This section contains a description of March-Dollase
+    This section contains a description of March_Dollase
     preferred-orientation corrections applied to a phase
     when modelling it's contribution to a hisotgram.
 
@@ -5233,16 +5233,16 @@ save_PD_PREF_ORIENT_MARCH-DOLLASE
     further information.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_PREF_ORIENT_MARCH-DOLLASE
+    _name.object_id               PD_PREF_ORIENT_MARCH_DOLLASE
 
-    _category_key.name            '_pd_pref_orient_March-Dollase.id'
+    _category_key.name            '_pd_pref_orient_March_Dollase.id'
 
 save_
 
-save_pd_pref_orient_March-Dollase.diffractogram_block_id
+save_pd_pref_orient_March_Dollase.diffractogram_block_id
 
     _definition.id
-        '_pd_pref_orient_March-Dollase.diffractogram_block_id'
+        '_pd_pref_orient_March_Dollase.diffractogram_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -5251,9 +5251,9 @@ save_pd_pref_orient_March-Dollase.diffractogram_block_id
     The data block containing the diffraction pattern
     for this phase will be identified with a _pd_block.id
     code matching the code in
-    _pd_pref_orient_March-Dollase.diffractogram_block_id.
+    _pd_pref_orient_March_Dollase.diffractogram_block_id.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -5262,20 +5262,20 @@ save_pd_pref_orient_March-Dollase.diffractogram_block_id
 
 save_
 
-save_pd_pref_orient_March-Dollase.fract
+save_pd_pref_orient_March_Dollase.fract
 
-    _definition.id                '_pd_pref_orient_March-Dollase.fract'
+    _definition.id                '_pd_pref_orient_March_Dollase.fract'
     _definition.update            2022-11-17
     _description.text
 ;
-    In the case of multiple March-Dollase preferred-orientation
+    In the case of multiple March_Dollase preferred-orientation
     directions for a single phase, this denotes the fractional
     amount of preferred orientation in each direction.
 
     The sum of all values for a given phase and diffractogram
     should be 1.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               fract
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -5285,33 +5285,33 @@ save_pd_pref_orient_March-Dollase.fract
 
 save_
 
-save_pd_pref_orient_March-Dollase.fract_su
+save_pd_pref_orient_March_Dollase.fract_su
 
-    _definition.id                '_pd_pref_orient_March-Dollase.fract_su'
+    _definition.id                '_pd_pref_orient_March_Dollase.fract_su'
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient_March-Dollase.fract.
+    Standard uncertainty of _pd_pref_orient_March_Dollase.fract.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               fract_su
-    _name.linked_item_id          '_pd_pref_orient_March-Dollase.fract'
+    _name.linked_item_id          '_pd_pref_orient_March_Dollase.fract'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_pref_orient_March-Dollase.geom
+save_pd_pref_orient_March_Dollase.geom
 
-    _definition.id                '_pd_pref_orient_March-Dollase.geom'
+    _definition.id                '_pd_pref_orient_March_Dollase.geom'
     _definition.update            2022-11-17
     _description.text
 ;
     Code identifying the geometry of the preferred-orientation
     correction, as distinct from the geometry of data collection.
 
-    The functional form of the March-Dollase correction depends
+    The functional form of the March_Dollase correction depends
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
@@ -5321,7 +5321,7 @@ save_pd_pref_orient_March-Dollase.geom
     default implementation.
 
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               geom
     _type.purpose                 State
     _type.source                  Assigned
@@ -5340,16 +5340,16 @@ save_pd_pref_orient_March-Dollase.geom
 
 save_
 
-save_pd_pref_orient_March-Dollase.hkl
+save_pd_pref_orient_March_Dollase.hkl
 
-    _definition.id                '_pd_pref_orient_March-Dollase.hkl'
+    _definition.id                '_pd_pref_orient_March_Dollase.hkl'
     _definition.update            2022-11-17
     _description.text
 ;
-    Miller indices of the March-Dollase preferred-orientation
+    Miller indices of the March_Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               hkl
     _type.purpose                 Number
     _type.source                  Assigned
@@ -5360,7 +5360,7 @@ save_pd_pref_orient_March-Dollase.hkl
     _method.purpose               Evaluation
     _method.expression
 ;
-    With po as pd_pref_orient_March-Dollase
+    With po as pd_pref_orient_March_Dollase
 
            po.hkl =  [po.index_h,
                       po.index_k,
@@ -5369,16 +5369,16 @@ save_pd_pref_orient_March-Dollase.hkl
 
 save_
 
-save_pd_pref_orient_March-Dollase.id
+save_pd_pref_orient_March_Dollase.id
 
-    _definition.id                '_pd_pref_orient_March-Dollase.id'
+    _definition.id                '_pd_pref_orient_March_Dollase.id'
     _definition.update            2022-11-17
     _description.text
 ;
-    A code to uniquely identify each March-Dollase
+    A code to uniquely identify each March_Dollase
     preferred-orientation correction.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -5388,16 +5388,16 @@ save_pd_pref_orient_March-Dollase.id
 
 save_
 
-save_pd_pref_orient_March-Dollase.index_h
+save_pd_pref_orient_March_Dollase.index_h
 
-    _definition.id                '_pd_pref_orient_March-Dollase.index_h'
+    _definition.id                '_pd_pref_orient_March_Dollase.index_h'
     _definition.update            2022-11-17
     _description.text
 ;
-    The h Miller index of the March-Dollase preferred-orientation
+    The h Miller index of the March_Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               index_h
     _type.purpose                 Number
     _type.source                  Assigned
@@ -5407,16 +5407,16 @@ save_pd_pref_orient_March-Dollase.index_h
 
 save_
 
-save_pd_pref_orient_March-Dollase.index_k
+save_pd_pref_orient_March_Dollase.index_k
 
-    _definition.id                '_pd_pref_orient_March-Dollase.index_k'
+    _definition.id                '_pd_pref_orient_March_Dollase.index_k'
     _definition.update            2022-11-17
     _description.text
 ;
-    The k Miller index of the March-Dollase preferred-orientation
+    The k Miller index of the March_Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               index_k
     _type.purpose                 Number
     _type.source                  Assigned
@@ -5426,16 +5426,16 @@ save_pd_pref_orient_March-Dollase.index_k
 
 save_
 
-save_pd_pref_orient_March-Dollase.index_l
+save_pd_pref_orient_March_Dollase.index_l
 
-    _definition.id                '_pd_pref_orient_March-Dollase.index_l'
+    _definition.id                '_pd_pref_orient_March_Dollase.index_l'
     _definition.update            2022-11-17
     _description.text
 ;
-    The l Miller index of the March-Dollase preferred-orientation
+    The l Miller index of the March_Dollase preferred-orientation
     direction.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               index_l
     _type.purpose                 Number
     _type.source                  Assigned
@@ -5445,9 +5445,9 @@ save_pd_pref_orient_March-Dollase.index_l
 
 save_
 
-save_pd_pref_orient_March-Dollase.phase_block_id
+save_pd_pref_orient_March_Dollase.phase_block_id
 
-    _definition.id                '_pd_pref_orient_March-Dollase.phase_block_id'
+    _definition.id                '_pd_pref_orient_March_Dollase.phase_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -5457,7 +5457,7 @@ save_pd_pref_orient_March-Dollase.phase_block_id
     for this phase will be identified with the corresponding
     _pd_block.id code.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -5466,9 +5466,9 @@ save_pd_pref_orient_March-Dollase.phase_block_id
 
 save_
 
-save_pd_pref_orient_March-Dollase.r
+save_pd_pref_orient_March_Dollase.r
 
-    _definition.id                '_pd_pref_orient_March-Dollase.r'
+    _definition.id                '_pd_pref_orient_March_Dollase.r'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -5480,10 +5480,10 @@ save_pd_pref_orient_March-Dollase.r
     of needle-like particles.
 
     The direction of the correction must also be given using
-    _pd_orient_March-Dollase.index_h, _k, and _l. If
+    _pd_orient_March_Dollase.index_h, _k, and _l. If
     more than one orientation direction is used, the fractional
     contribution of each direction must be specified with
-    _pd_pref_orient_March-Dollase.fract.
+    _pd_pref_orient_March_Dollase.fract.
 
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
@@ -5491,7 +5491,7 @@ save_pd_pref_orient_March-Dollase.r
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 for
     further information.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               r
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -5502,17 +5502,17 @@ save_pd_pref_orient_March-Dollase.r
 
 save_
 
-save_pd_pref_orient_March-Dollase.r_su
+save_pd_pref_orient_March_Dollase.r_su
 
-    _definition.id                '_pd_pref_orient_March-Dollase.r_su'
+    _definition.id                '_pd_pref_orient_March_Dollase.r_su'
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient_March-Dollase.r.
+    Standard uncertainty of _pd_pref_orient_March_Dollase.r.
 ;
-    _name.category_id             pd_pref_orient_March-Dollase
+    _name.category_id             pd_pref_orient_March_Dollase
     _name.object_id               r_su
-    _name.linked_item_id          '_pd_pref_orient_March-Dollase.r'
+    _name.linked_item_id          '_pd_pref_orient_March_Dollase.r'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -5532,7 +5532,7 @@ save_PD_PREF_ORIENT_SPHERICALHARMONICS
     to a phase when modelling it's contribution to a
     hisotgram.
 
-    For March-Dollase corrections, see
+    For March_Dollase corrections, see
     PD_PREF_ORIENT_MARCH-DOLLASE. For other methods,
     use _pd_pref_orient.special_details.
 
@@ -6212,9 +6212,9 @@ save_pd_proc_ls.pref_orient_corr
     _description.text
 ;
     DEPRECATED. Use _pd_pref_orient.special_details, or if
-    the correction can be described as a March-Dollase
+    the correction can be described as a March_Dollase
     or spherical harmonics correction, use
-    _pd_pref_orient.March-Dollase* or
+    _pd_pref_orient.March_Dollase* or
     _pd_pref_orient.sphericalharmonics*, as
     appropriate.
 
