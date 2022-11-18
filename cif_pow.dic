@@ -2152,7 +2152,7 @@ save_pd_proc.diffractogram_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Code
-    
+
 save_
 
 save_pd_proc.energy_detection
@@ -2649,7 +2649,7 @@ save_pd_proc.wavelength_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-    
+
 save_
 
 save_PD_DIFFRACTOGRAM
@@ -6534,8 +6534,8 @@ save_
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
 
        Add pd_diffractogram category and linked data names.
-       
+
        Updated many datanames from Number to Measurand
-       
+
        Made PD_BLOCK a Loop category
 ;
