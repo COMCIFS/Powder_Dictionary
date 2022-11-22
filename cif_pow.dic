@@ -1426,11 +1426,6 @@ save_pd_calc.component_intensity_net_list
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
-    _method.purpose               Evaluation
-    _method.expression
-;
-    #magic to go and find all of the separate _pd_calc_component.intensity_nets
-;
 
 save_
 
@@ -1470,11 +1465,6 @@ save_pd_calc.component_intensity_total_list
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
-    _method.purpose               Evaluation
-    _method.expression
-;
-    #magic to find all of the separate _pd_calc_component.intensity_totals
-;
 
 save_
 
