@@ -505,7 +505,7 @@ save_
 
 save_pd_calib.std_internal_block_id
 
-    _definition.id                '_pd_phase.block_id'
+    _definition.id                '_pd_calib.std_internal_block_id'
     _definition.update            2022-12-01
     _description.text
 ;
