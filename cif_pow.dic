@@ -1032,11 +1032,11 @@ save_pd_calib_std.external_k_factor
     \mu* is the mass attenuation coefficient of the specimen, and K is
     the normalising diffractometer constant.
 
-    O’Connor, B. H., & Raven, M. D. (1988). Application of the Rietveld
+    O'Connor, B. H., & Raven, M. D. (1988). Application of the Rietveld
     Refinement Procedure in Assaying Powdered Mixtures. Powder Diffraction,
-    3(1), 2–6. doi:10.1017/s0885715600013026 
+    3(1), 2-6. doi:10.1017/s0885715600013026
 ;
-    _name.category_id             _pd_calib_std
+    _name.category_id             pd_calib_std
     _name.object_id               external_k_factor
     _type.purpose                 Measurand
     _type.source                  Derived
