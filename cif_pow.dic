@@ -503,6 +503,26 @@ save_pd_calib.detector_response_su
 
 save_
 
+save_pd_calib.std_internal_block_id
+
+    _definition.id                '_pd_phase.block_id'
+    _definition.update            2022-12-01
+    _description.text
+;
+    A block ID code identifying the phase acting as the internal standard.
+    The data block containing the crystallographic information for this
+    phase will be identified with a _pd_block.id code matching the
+    code in _pd_calib.std_internal_block_id
+;
+    _name.category_id             pd_calib
+    _name.object_id               std_internal_block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
 save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
@@ -514,6 +534,11 @@ save_pd_calib.std_internal_mass_percent
     data item _pd_calib.std_internal_name expressed as 100 times
     the mass of standard added divided by the sum of the mass of
     standard added and the original sample mass.
+
+    This value does not take into account the crystallinity of the
+    internal standard. That is, if 1 g of a 90% crystalline internal
+    standard is added to 3 g of sample, the
+    _pd_calib.std_internal_mass_percent is 25%.
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_mass_percent
@@ -547,10 +572,11 @@ save_pd_calib.std_internal_name
 
     _definition.id                '_pd_calib.std_internal_name'
     _alias.definition_id          '_pd_calib_std_internal_name'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-01
     _description.text
 ;
     Identity of material(s) used as an internal intensity standard.
+    This should be the same as given by _pd_phase.name.
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_name
@@ -563,6 +589,24 @@ save_pd_calib.std_internal_name
       _description_example.case
          'NIST 640a Silicon standard'
          'Al2O3'
+
+save_
+
+save_pd_calib.std_internal_phase_id
+
+    _definition.id                '_pd_calib.std_internal_phase_id'
+    _definition.update            2022-12-01
+    _description.text
+;
+    A phase ID code identifying the phase acting as the internal standard.
+;
+    _name.category_id             pd_calib
+    _name.object_id               std_internal_phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
 
 save_
 
@@ -5358,12 +5402,20 @@ save_pd_phase.mass_percent
          '_pd_phase_mass_percent'
          '_pd_phase_mass_%'
 
-    _definition.update            2022-10-11
+    _definition.update            2022-12-01
     _description.text
 ;
     Per cent composition of the specified crystal phase
     expressed as the total mass of the component
     with respect to the total mass of the specimen.
+
+    If _pd_calib.std_internal_mass_percent is present, the
+    values given are assumed to be in absolute terms. The
+    mass percent given to the internal standard represent
+    the total crystalline contribution of that standard.
+    That is, if 1 g of a 90% crystalline internal
+    standard is added to 3 g of sample, the value of
+    _pd_phase.mass_percent for the standard is 22.5%.
 ;
     _name.category_id             pd_phase
     _name.object_id               mass_percent
