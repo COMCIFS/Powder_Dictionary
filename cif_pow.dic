@@ -1419,26 +1419,6 @@ save_PD_CALC
 
 save_
 
-save_pd_calc.diffractogram_id
-
-    _definition.id                '_pd_calc.diffractogram_id'
-    _definition.update            2022-10-11
-    _description.text
-;
-    Label identifying the calculated diffractogram that the
-    calculated data belong to. This may be omitted in the usual
-    case that only one calculation is present in a data block.
-;
-    _name.category_id             pd_calc
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_data.diffractogram_id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
 save_pd_calc.component_intensity_net_list
 
     _definition.id                '_pd_calc.component_intensity_net_list'
@@ -1514,6 +1494,26 @@ save_pd_calc.component_intensity_total_list
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
+
+save_
+
+save_pd_calc.diffractogram_id
+
+    _definition.id                '_pd_calc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the calculated diffractogram that the
+    calculated data belong to. This may be omitted in the usual
+    case that only one calculation is present in a data block.
+;
+    _name.category_id             pd_calc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
 
 save_
 
