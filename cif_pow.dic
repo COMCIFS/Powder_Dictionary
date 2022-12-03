@@ -5580,11 +5580,41 @@ save_PD_PHASE_MASS
     _definition.update            2022-12-03
     _description.text
 ;
-	 NEW DESCRIPTION NEEDS TO GO HERE
-	 ALSO NEED KEYS BASED ON _pd_phase.id AND _pd_diffractogram.id?
+    NEW DESCRIPTION NEEDS TO GO HERE
+    ALSO NEED KEYS BASED ON _pd_phase.id AND _pd_diffractogram.id?
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
+
+    loop_
+      _category_key.name
+         '_pd_phase_mass.diffractogram_id'
+         '_pd_phase_mass.phase_id'
+
+save_
+
+save_pd_phase_mass.diffractogram_id
+
+    _definition.id                '_pd_phase_mass.diffractogram_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A diffractogram id code (see _pd_diffractogram.id) that
+    links the phase mass percent value to the diffractogram
+    to which it belongs.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
+    _method.purpose               Evaluation
+    _method.expression
+;
+    _pd_phase_mass.diffractogram_id = _pd_phase.id
+;
 
 save_
 
@@ -5629,6 +5659,31 @@ save_pd_phase_mass.percent_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_phase_mass.phase_id
+
+    _definition.id                '_pd_phase_mass.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A phase id code (see _pd_phase.id) that links the phase
+    mass percent value to the phase id of the phase to which
+    it belongs.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
+    _method.purpose               Evaluation
+    _method.expression
+;
+    _pd_phase_mass.phase_id = _pd_phase.id
+;
 
 save_
 
