@@ -434,6 +434,14 @@ save_PD_CALIB
     intensities are first measured, but from then on should remain
     unchanged. Loops may be used for calibration information that
     differs by detector channel.
+
+    Quantification by internal standard is typically carried out
+    using the Hill & Howard algorithm in conjunction with whole-
+    pattern Rietveld modelling. The use of an internal standard
+    allows for the calculation of absolute mass fractions, giving
+    an indication of amorphous content. For a review on quantitative
+    phase analysis, see Chapter 3.9 of Internation Tables, Vol. H,
+    and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB
@@ -576,7 +584,8 @@ save_pd_calib.std_internal_name
     _description.text
 ;
     Identity of material(s) used as an internal intensity standard.
-    This should be the same as given by _pd_phase.name.
+    This should be the same as given by _pd_phase.name in the block
+    describing the internal standard phase.
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_name
@@ -961,6 +970,15 @@ save_PD_CALIB_STD
     unchanged. Loops may be used for calibration information that
     differs by detector channel or when multiple standards are
     used (for example, separately for angular and gain calibration).
+
+    Quantification by external standard is typically carried out
+    using the O'Connor and Raven algorithm in conjunction with whole-
+    pattern Rietveld modelling. The use of an external standard
+    allows for the calculation of absolute mass fractions, giving
+    an indication of amorphous content. This method requires the
+    mass attenuation coefficient of the specimen to be measured or
+    calculated. For a review on quantitative phase analysis, see
+    Chapter 3.9 of Internation Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_STD
@@ -1001,8 +1019,12 @@ save_pd_calib_std.external_block_id
     _definition.update            2016-10-18
     _description.text
 ;
-    Identifies the _pd_block.id used as an external standard for the
-    diffraction angle or the intensity calibrations.
+    Identifies the _pd_block.id of the diffractogram of the phase
+    used as an external standard for the diffraction angle or
+    intensity calibrations.
+
+    Further references to additional phases present are given in
+    that data block.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_block_id
@@ -1077,42 +1099,6 @@ save_pd_calib_std.external_name
     _name.category_id             pd_calib_std
     _name.object_id               external_name
     _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
-save_pd_calib_std.external_phase_block_id
-
-    _definition.id                '_pd_calib_std.external_phase_block_id'
-    _definition.update            2022-12-01
-    _description.text
-;
-    Identifies the _pd_block.id of the phase used as an external standard
-    for the diffraction angle or the intensity calibrations.
-;
-    _name.category_id             pd_calib_std
-    _name.object_id               external_phase_block_id
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
-save_pd_calib_std.external_phase_id
-
-    _definition.id                '_pd_calib_std.external_phase_id'
-    _definition.update            2022-12-01
-    _description.text
-;
-    A phase ID code identifying the phase acting as the external standard.
-;
-    _name.category_id             pd_calib_std
-    _name.object_id               external_phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
