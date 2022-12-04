@@ -1094,7 +1094,8 @@ save_pd_calib_std.external_name
 ;
     Identifies the name of the material used as an external standard for
     the diffraction angle or the intensity calibrations. This should
-    match the value given in _pd_phase.name.
+    match the value given in _pd_phase.name in the data block containing
+    the calibration diffractogram.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_name
