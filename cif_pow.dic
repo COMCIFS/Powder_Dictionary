@@ -1623,6 +1623,10 @@ save_pd_instr.dist_spec_vdetc
     Bragg-Brentano diffractometer. This distance is also referred to as
     the 'secondary radius', or the 'diffracted beam radius'.
 
+    Where the specimen-detector distance is difficult to define, for example,
+    for a large, flat, area detector, the distance refers to the closest
+    approach of the detector to the specimen.
+
     See the discussion on 'detector circle' or 'goniometer circle' in
     International Tables Vol H, S2.1.4.1 for further information.
 ;
@@ -3050,7 +3054,12 @@ save_pd_instr.detector_circle_radius
 
     In this construction, the detector radius is constant for all measurement
     points. For geometries where this is not the case, see
-    _pd_instr.dist_vsrc_spec and _pd_instr.dist_spec_vdetc
+    _pd_instr.dist_vsrc_spec and _pd_instr.dist_spec_vdetc.
+
+    Where the specimen-detector distance is difficult to define, for example,
+    for a large, flat, area detector, the distance refers to the closest
+    approach of the detector to the specimen.
+
 
     See the discussion on 'detector circle' or 'goniometer circle' in
     International Tables Vol H, S2.1.4.1 for further information.
