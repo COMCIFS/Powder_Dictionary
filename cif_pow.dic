@@ -196,15 +196,12 @@ save_pd_block_diffractogram.diffractogram_id
     _description.text
 ;
     A diffractogram id code (see _pd_diffractogram.id) that
-    identifies diffraction data contained in a data block other
-    than the current block. This will occur most frequently
-    when more than one set of diffraction data is used for a
-    structure determination. The data block containing the
-    diffraction data will contain a _pd_diffractogram.id code
-    matching the code in _pd_block_diffractogram.diffractogram.id.
+    identifies the diffraction data contained in the data block
+    pointed to by _pd_block_diffractogram.id.
 ;
     _name.category_id             pd_block_diffractogram
     _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -230,6 +227,7 @@ save_pd_block_diffractogram.id
 ;
     _name.category_id             pd_block_diffractogram
     _name.object_id               id
+    _name.linked_item_id          '_pd_block.id'
     _type.purpose                 Encode
     _type.source                  Assigned
     _type.container               Single
@@ -1378,7 +1376,7 @@ save_
 save_pd_data.diffractogram_id
 
     _definition.id                '_pd_data.diffractogram_id'
-    _definition.update            2022-10-11
+    _definition.update            2022-12-16
     _description.text
 ;
     Label identifying the diffraction measurement that the
@@ -1532,7 +1530,7 @@ save_pd_calc.diffractogram_id
 ;
     _name.category_id             pd_calc
     _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
@@ -1956,7 +1954,7 @@ save_pd_meas.diffractogram_id
 ;
     _name.category_id             pd_meas
     _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
@@ -2431,7 +2429,7 @@ save_pd_proc.diffractogram_id
 ;
     _name.category_id             pd_proc
     _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_data.diffractogram_id'
+    _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
@@ -5458,9 +5456,7 @@ save_PD_PHASE
     data blocks, using CIF entries from the core CIF dictionary.
 
     The _pd_phase.block_id entry points to the CIF block with
-    structural parameters for each crystalline phase. The
-    _pd_phase.id serves to link to _pd_refln.phase_id, which is
-    used to label peaks by phase.
+    structural parameters for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -5512,12 +5508,11 @@ save_PD_PHASE_BLOCK
     _definition.update            2022-12-03
     _description.text
 ;
-    NEW DESCRIPTION NEEDS TO GO HERE
-
-    The _pd_phase_block.id entry points to the CIF block with
-    structural parameters for each crystalline phase. The
-    _pd_phase_block.phase_id serves to link to _pd_refln.phase_id,
-    which is used to label peaks by phase.
+    A table of phases relevant to the current data
+    block. Each phase is identified by the block identifier
+    of the data block containing the phase information,
+    and the _pd_phase.id of the phase contained within
+    that block.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -5532,11 +5527,8 @@ save_pd_phase_block.id
     _definition.update            2022-12-03
     _description.text
 ;
-    A block ID code identifying the phase contributing to
-    the diffraction peak. The data block containing the
-    crystallographic information for this phase will be
-    identified with a _pd_block.id code matching the
-    code in _pd_phase_block.id.
+    A block ID code identifying a block containing phase
+    information.
 ;
     _name.category_id             pd_phase_block
     _name.object_id               id
@@ -5554,16 +5546,12 @@ save_pd_phase_block.phase_id
     _definition.update            2022-12-03
     _description.text
 ;
-    A phase id code (see _pd_phase.id) that identifies phase data
-    contained in a data block other than the current block. This
-    will occur most frequently when the same phase is present in
-    more than one set of diffraction data. The data block containing
-    the phase data will contain a _pd_phase.id code matching the
-    code in _pd_phase_block.phase_id.
+    A phase id code (see _pd_phase.id) that identifies the phase
+    contained in the data block pointed to by _pd_phase_block.id
 ;
     _name.category_id             pd_phase_block
     _name.object_id               phase_id
-    _name.linked_item_id          '_pd_refln.phase_id'
+    _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
@@ -5599,22 +5587,16 @@ save_pd_phase_mass.diffractogram_id
     _definition.update            2022-12-03
     _description.text
 ;
-    A diffractogram id code (see _pd_diffractogram.id) that
-    links the phase mass percent value to the diffractogram
-    to which it belongs.
+    A diffractogram id code that links the phase mass percent value to
+    the diffractogram to which it belongs.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_phase.id'
+    _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
     _type.contents                Code
-    _method.purpose               Evaluation
-    _method.expression
-;
-    _pd_phase_mass.diffractogram_id = _pd_phase.id
-;
 
 save_
 
@@ -5679,11 +5661,6 @@ save_pd_phase_mass.phase_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Code
-    _method.purpose               Evaluation
-    _method.expression
-;
-    _pd_phase_mass.phase_id = _pd_phase.id
-;
 
 save_
 
