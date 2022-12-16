@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-12-03
+    _dictionary.date              2022-12-16
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -202,7 +202,7 @@ save_pd_block_diffractogram.diffractogram_id
     _name.category_id             pd_block_diffractogram
     _name.object_id               diffractogram_id
     _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Encode
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -228,7 +228,7 @@ save_pd_block_diffractogram.id
     _name.category_id             pd_block_diffractogram
     _name.object_id               id
     _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Encode
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
