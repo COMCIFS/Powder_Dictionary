@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-12-01
+    _dictionary.date              2022-12-12
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1728,6 +1728,63 @@ save_PD_MEAS
 
 save_
 
+save_pd_instr.dist_spec_vdetc
+
+    _definition.id                '_pd_instr.dist_spec_vdetc'
+    _definition.update            2022-12-04
+    _description.text
+;
+    Distance from the specimen to the virtual detector (in millimetres).
+    The virtual detector is point in space at which the detector is
+    sampling the diffracted radiation from the point of view of the
+    specimen. eg the specimen-receiving slit distance in a point-detector,
+    Bragg-Brentano diffractometer. This distance is also referred to as
+    the 'secondary radius', or the 'diffracted beam radius'.
+
+    Where the specimen-detector distance is difficult to define, for example,
+    for a large, flat, area detector, the distance refers to the closest
+    approach of the detector to the specimen.
+
+    See the discussion on 'detector circle' or 'goniometer circle' in
+    International Tables Vol H, S2.1.4.1 for further information.
+;
+    _name.category_id             pd_meas
+    _name.object_id               dist_spec_vdetc
+    _type.purpose                 Number
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
+
+save_
+
+save_pd_instr.dist_vsrc_spec
+
+    _definition.id                '_pd_instr.dist_vsrc_spec'
+    _definition.update            2022-12-04
+    _description.text
+;
+    Distance from the virtual source to the specimen (in millimetres).
+    The virtual source is point in space from which the incident radiation
+    can be said to be coming from from the point of view of the specimen.
+    This distance is also referred to as the 'primary radius', or the
+    'incident beam radius'.
+
+    See the discussion on 'detector circle' or 'goniometer circle' in
+    International Tables Vol H, S2.1.4.1 for further information.
+;
+    _name.category_id             pd_meas
+    _name.object_id               dist_vsrc_spec
+    _type.purpose                 Number
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
+
+save_
+
 save_pd_instr.var_illum_len
 
     _definition.id                '_pd_instr.var_illum_len'
@@ -3092,6 +3149,42 @@ save_pd_instr.cons_illum_len
     _name.object_id               cons_illum_len
     _type.purpose                 Number
     _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
+
+save_
+
+save_pd_instr.detector_circle_radius
+
+    _definition.id                '_pd_instr.detector_circle_radius'
+    _definition.update            2022-12-04
+    _description.text
+;
+    The radius of the detector circle (also called the 'goniometer circle'
+    or 'diffractometer circle').
+
+    The detector circle is defined either by the centre of the active window
+    of a stationary detector, or, in most cases, by a detector moving around
+    the specimen. The radius is the distance from the specimen to the
+    detector.
+
+    In this construction, the detector radius is constant for all measurement
+    points. For geometries where this is not the case, see
+    _pd_instr.dist_vsrc_spec and _pd_instr.dist_spec_vdetc.
+
+    Where the specimen-detector distance is difficult to define, for example,
+    for a large, flat, area detector, the distance refers to the closest
+    approach of the detector to the specimen.
+
+    See the discussion on 'detector circle' or 'goniometer circle' in
+    International Tables Vol H, S2.1.4.1 for further information.
+;
+    _name.category_id             pd_instr
+    _name.object_id               detector_circle_radius
+    _type.purpose                 Number
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
@@ -6769,7 +6862,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-12-01
+         2.5.0                    2022-12-12
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -6791,4 +6884,7 @@ save_
 
        Add/amended data names to record external and internal standard
        quantitative phase analysis results.
+
+       Added ability to record detector circle radius, both fixed and
+       varying by measurement point.
 ;
