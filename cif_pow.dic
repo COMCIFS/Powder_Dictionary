@@ -5661,8 +5661,14 @@ save_PD_PHASE_MASS
     _definition.update            2022-12-03
     _description.text
 ;
-    NEW DESCRIPTION NEEDS TO GO HERE
-    ALSO NEED KEYS BASED ON _pd_phase.id AND _pd_diffractogram.id?
+    This category contains infomation pertaining to the
+    percent composition of the specified crystal phase
+    expressed as the total mass of the component
+    with respect to the total mass of the specimen.
+
+    The specific combination of relevent phase and diffractogram
+    is given by _pd_phase_mass.diffractogram_id and
+    _pd_phase_mass.phase_id
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
