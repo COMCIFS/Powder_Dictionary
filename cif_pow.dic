@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-12-04
+    _dictionary.date              2022-12-30
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1703,7 +1703,7 @@ save_pd_meas.counts_background
 
     _definition.id                '_pd_meas.counts_background'
     _alias.definition_id          '_pd_meas_counts_background'
-    _definition.update            2022-12-04
+    _definition.update            2022-12-30
     _description.text
 ;
     Counts recorded at each measurement point as a function of
@@ -1713,8 +1713,10 @@ save_pd_meas.counts_background
     as the instrument background.
 
     Corrections for background, detector dead time etc.
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
@@ -1877,7 +1879,7 @@ save_pd_meas.intensity_background
 
     _definition.id                '_pd_meas.intensity_background'
     _alias.definition_id          '_pd_meas_intensity_background'
-    _definition.update            2022-12-04
+    _definition.update            2022-12-30
     _description.text
 ;
     Intensity recorded at each measurement point as a function of
@@ -1891,9 +1893,11 @@ save_pd_meas.intensity_background
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
-    Corrections for background, detector dead time etc.,
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    Corrections for background, detector dead time etc.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     _pd_meas.units_of_intensity should be used to specify
     the units of the intensity measurements.
@@ -1929,7 +1933,7 @@ save_pd_meas.intensity_container
 
     _definition.id                '_pd_meas.intensity_container'
     _alias.definition_id          '_pd_meas_intensity_container'
-    _definition.update            2022-12-04
+    _definition.update            2022-12-30
     _description.text
 ;
     Intensity recorded at each measurement point as a function of
@@ -1943,9 +1947,11 @@ save_pd_meas.intensity_container
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
-    Corrections for background, detector dead time etc.,
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    Corrections for background, detector dead time etc.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     _pd_meas.units_of_intensity should be used to specify
     the units of the intensity measurements.
@@ -1981,7 +1987,7 @@ save_pd_meas.intensity_monitor
 
     _definition.id                '_pd_meas.intensity_monitor'
     _alias.definition_id          '_pd_meas_intensity_monitor'
-    _definition.update            2022-12-04
+    _definition.update            2022-12-30
     _description.text
 ;
     Intensity recorded at each measurement point as a function of
@@ -1994,9 +2000,11 @@ save_pd_meas.intensity_monitor
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
-    Corrections for background, detector dead time etc.,
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    Corrections for background, detector dead time etc.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     _pd_meas.units_of_intensity should be used to specify
     the units of the intensity measurements.
@@ -2032,7 +2040,7 @@ save_pd_meas.intensity_total
 
     _definition.id                '_pd_meas.intensity_total'
     _alias.definition_id          '_pd_meas_intensity_total'
-    _definition.update            2022-12-04
+    _definition.update            2022-12-30
     _description.text
 ;
     Intensity recorded at each measurement point as a function of
@@ -2564,16 +2572,17 @@ save_pd_proc.intensity_net
 
     _definition.id                '_pd_proc.intensity_net'
     _alias.definition_id          '_pd_proc_intensity_net'
-    _definition.update            2022-12-04
+    _definition.update            2022-12-30
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
 
     Intensity values for the processed diffractogram for
     each data point (see _pd_proc.2theta_, _pd_proc.wavelength
-    etc.) after correction and normalization factors have been applied
-    (in contrast to _pd_meas.counts_ or _pd_meas.intensity_
-    values, which are uncorrected).
+    etc.) after background subtraction, normalization, and other
+    correction factors have been applied (in contrast to
+    _pd_meas.counts_ or _pd_meas.intensity_ values, which are
+    uncorrected).
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_net
@@ -2581,7 +2590,6 @@ save_pd_proc.intensity_net
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            0.0:
     _units.code                   none
 
 save_
@@ -2612,10 +2620,14 @@ save_pd_proc.intensity_norm
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
 
-    Background values should be on the same scale as the
-    _pd_proc.intensity_net values. Thus normalization and correction
-    factors should be applied before background subtraction (or
-    should be applied to the background values equally).
+    Values in this data item are normalisation-corrected and contain
+    a background component.
+
+    Background values (for example, given by _pd_proc.intensity_bkg_calc)
+    should be on the same scale as the _pd_proc.intensity_net values.
+    Thus normalization and correction factors should be applied before
+    background subtraction (or should be applied to the background values
+    equally).
 
     Normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
@@ -6657,10 +6669,10 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-12-04
+         2.5.0                    2022-12-30
 ;
        ## Retain above version number and increment date until final
-       ##release
+       ## release
 
        Added mass absorption coefficient and improved absorption
        definitions. Added missing su definitions.
@@ -6678,4 +6690,9 @@ save_
        Made PD_BLOCK a Loop category
 
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
+
+       Updated descriptions of _pd_meas.counts, _pd_meas.intensity_background,
+       _pd_meas.intensity_container, and _pd_meas.intensity_monitor
+
+       Removed enumeration range for _pd_proc.intensity_net
 ;
