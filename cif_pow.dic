@@ -7337,7 +7337,6 @@ save_pd_qpa_int_std.special_details
 
 save_
 
-
 save_PD_QPA_RIR
 
     _definition.id                PD_QPA_RIR
@@ -7359,7 +7358,7 @@ save_PD_QPA_RIR
     as a highly crystalline and pure single phase. Additionally, the
     unknown and reference materials are generally accepted to be mixed
     in a 50:50 mass ratio. If corundum is used, the RIR equates to I/Ic
-    (or "I over I corundum") for the phase; these are the most commonly
+    (or 'I over I corundum') for the phase; these are the most commonly
     reported values in the literature.
 
     When applied in conjunction with the matrix-flushing method, quantitative
