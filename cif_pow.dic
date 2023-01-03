@@ -7460,7 +7460,6 @@ save_pd_qpa_rir.value
     phase p, and RIR_p is the reference intensity ratio for phase p.
     The sum is taken over all phases present in the specimen.
 
-
     Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). The reference
     intensity ratio, I/Ic, for computer simulated powder patterns. J. Appl.
     Cryst. 9, 169-174.
@@ -7490,8 +7489,8 @@ save_pd_qpa_rir.value_su
 ;
     Standard uncertainty of _pd_qpa_rir.value.
 ;
-    _name.category_id             pd_qpa_rir.value
-    _name.object_id               value
+    _name.category_id             pd_qpa_rir
+    _name.object_id               value_su
     _name.linked_item_id          '_pd_qpa_rir.value'
     _units.code                   none
 
