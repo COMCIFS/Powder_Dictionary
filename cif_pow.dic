@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-12-12
+    _dictionary.date              2022-12-30
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1393,7 +1393,7 @@ save_
 save_pd_calc.component_intensity_net_list
 
     _definition.id                '_pd_calc.component_intensity_net_list'
-    _definition.update            2022-11-17
+    _definition.update            2022-12-04
     _description.text
 ;
     List of intensity values for the contributions of an
@@ -1437,7 +1437,7 @@ save_pd_calc.component_intensity_total_list
 ;
     List of intensity values for the contributions of an
     arbitrary number of individual phases to a computed
-    diffractogram at each angle setting. Values are listed
+    diffractogram at each data point. Values are listed
     in the order given by _pd_calc_overall.component_presentation_order.
     Values should be computed at the same locations as the
     processed diffractogram, and thus the numbers of points
@@ -1472,11 +1472,11 @@ save_pd_calc.intensity_net
 
     _definition.id                '_pd_calc.intensity_net'
     _alias.definition_id          '_pd_calc_intensity_net'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-04
     _description.text
 ;
     Intensity values for a computed diffractogram at
-    each angle setting. Values should be computed at the
+    each data point. Values should be computed at the
     same locations as the processed diffractogram, and thus
     the numbers of points will be defined by
     _pd_proc.number_of_points and point positions may
@@ -1487,6 +1487,7 @@ save_pd_calc.intensity_net
     does not contain background or normalization corrections
     and thus is specified on the same scale as the
     _pd_proc.intensity_net values.
+
     If an observed pattern is included, _pd_calc.intensity_*
     should be looped with either _pd_proc.intensity_net,
     _pd_meas.counts_* or _pd_meas.intensity_*.
@@ -1515,11 +1516,11 @@ save_pd_calc.intensity_total
 
     _definition.id                '_pd_calc.intensity_total'
     _alias.definition_id          '_pd_calc_intensity_total'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-04
     _description.text
 ;
     Intensity values for a computed diffractogram at
-    each angle setting. Values should be computed at the
+    each data point. Values should be computed at the
     same locations as the processed diffractogram, and thus
     the numbers of points will be defined by
     _pd_proc.number_of_points and point positions may
@@ -1558,13 +1559,13 @@ save_pd_calc.point_id
 
     _definition.id                '_pd_calc.point_id'
     _alias.definition_id          '_pd_calc_point_id'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-04
     _description.text
 ;
     Arbitrary label identifying a calculated data point. Used to
     identify a specific entry in a list of values forming the
     calculated diffractogram. The role of this identifier may
-    be adopted by _pd_data.point_id if measured, processed and
+    be adopted by _pd_data.point_id if measured, processed, and/or
     calculated intensity values are combined in a single list.
 ;
     _name.category_id             pd_calc
@@ -1759,17 +1760,20 @@ save_pd_meas.counts_background
 
     _definition.id                '_pd_meas.counts_background'
     _alias.definition_id          '_pd_meas_counts_background'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-30
     _description.text
 ;
-    Counts measured at the measurement point as a function of
-    angle, time, channel or some other variable (see
-    _pd_meas.2theta_ etc.).  Scattering measured without
+    Counts recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_ etc.). These counts are measured without
     a specimen, specimen mounting etc., often referred to
     as the instrument background.
+
     Corrections for background, detector dead time etc.
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
@@ -1783,7 +1787,7 @@ save_pd_meas.counts_background
     _name.category_id             pd_meas
     _name.object_id               counts_background
     _type.purpose                 Number
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
@@ -1795,13 +1799,15 @@ save_pd_meas.counts_container
 
     _definition.id                '_pd_meas.counts_container'
     _alias.definition_id          '_pd_meas_counts_container'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-04
     _description.text
 ;
-    Counts measured at the measurement point as a function of
-    angle, time, channel or some other variable (see
-    _pd_meas.2theta_* etc.). from specimen container or mounting
-    without a specimen, includes background.
+    Counts recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_* etc.). These counts are measured from a
+    specimen container or mounting without a specimen, includes
+    background.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead use
     _pd_proc.intensity_* for corrected diffractograms.
@@ -1818,7 +1824,7 @@ save_pd_meas.counts_container
     _name.category_id             pd_meas
     _name.object_id               counts_container
     _type.purpose                 Number
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
@@ -1830,13 +1836,14 @@ save_pd_meas.counts_monitor
 
     _definition.id                '_pd_meas.counts_monitor'
     _alias.definition_id          '_pd_meas_counts_monitor'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-04
     _description.text
 ;
-    Counts measured at the measurement point as a function of
-    angle, time, channel or some other variable (see
-    _pd_meas.2theta_* etc.). Counts measured by an incident-
-    beam monitor to calibrate the flux on the specimen.
+    Counts recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_* etc.). These counts are measured by an
+    incident-beam monitor to calibrate the flux on the specimen.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead use
     _pd_proc.intensity_* for corrected diffractograms.
@@ -1853,7 +1860,7 @@ save_pd_meas.counts_monitor
     _name.category_id             pd_meas
     _name.object_id               counts_monitor
     _type.purpose                 Number
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
@@ -1865,14 +1872,15 @@ save_pd_meas.counts_total
 
     _definition.id                '_pd_meas.counts_total'
     _alias.definition_id          '_pd_meas_counts_total'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-04
     _description.text
 ;
-    Counts measured at the measurement point as a function of
-    angle, time, channel or some other variable (see
-    _pd_meas.2theta_ etc.). Total scattering from the specimen
-    with background, specimen mounting or container
+    Counts recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_ etc.). These counts are measured from the
+    specimen with background, specimen mounting, and/or container
     scattering included.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead use
     _pd_proc.intensity_* for corrected diffractograms.
@@ -1889,7 +1897,7 @@ save_pd_meas.counts_total
     _name.category_id             pd_meas
     _name.object_id               counts_total
     _type.purpose                 Number
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
@@ -1928,21 +1936,25 @@ save_pd_meas.intensity_background
 
     _definition.id                '_pd_meas.intensity_background'
     _alias.definition_id          '_pd_meas_intensity_background'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-30
     _description.text
 ;
-    Intensity measurements at the measurement point (see
-    the definition of _pd_meas.2theta_*). Scattering measured
+    Intensity recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_ etc.). These intensities are measured
     without a specimen, specimen mounting etc., often
     referred to as the instrument background.
+
     Use these entries for measurements where intensity
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
-    Corrections for background, detector dead time etc.,
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    Corrections for background, detector dead time etc.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     _pd_meas.units_of_intensity should be used to specify
     the units of the intensity measurements.
@@ -1950,7 +1962,7 @@ save_pd_meas.intensity_background
     _name.category_id             pd_meas
     _name.object_id               intensity_background
     _type.purpose                 Measurand
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Real
     _units.code                   none
@@ -1978,20 +1990,25 @@ save_pd_meas.intensity_container
 
     _definition.id                '_pd_meas.intensity_container'
     _alias.definition_id          '_pd_meas_intensity_container'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-30
     _description.text
 ;
-    Intensity measurements at the measurement point (see
-    the definition of _pd_meas.2theta_*). The specimen container
-    or mounting without a specimen, includes background.
+    Intensity recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_ etc.). These intensities are measured from
+    the specimen container or mounting without a specimen, includes
+    background.
+
     Use these entries for measurements where intensity
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
-    Corrections for background, detector dead time etc.,
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    Corrections for background, detector dead time etc.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     _pd_meas.units_of_intensity should be used to specify
     the units of the intensity measurements.
@@ -1999,7 +2016,7 @@ save_pd_meas.intensity_container
     _name.category_id             pd_meas
     _name.object_id               intensity_container
     _type.purpose                 Measurand
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Real
     _units.code                   none
@@ -2027,20 +2044,24 @@ save_pd_meas.intensity_monitor
 
     _definition.id                '_pd_meas.intensity_monitor'
     _alias.definition_id          '_pd_meas_intensity_monitor'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-30
     _description.text
 ;
-    Intensity measurements at the measurement point (see
-    the definition of _pd_meas.2theta_*). Intensity measured by an
+    Intensity recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_ etc.). These intensities are measured by an
     incident-beam monitor to calibrate the flux on the specimen.
+
     Use these entries for measurements where intensity
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
-    Corrections for background, detector dead time etc.,
-    should not have been made to these values. Instead use
-    _pd_proc.intensity_* for corrected diffractograms.
+    Corrections for background, detector dead time etc.
+    should not have been made to these values. Instead, make the
+    corrections and record the result using
+    _pd_proc.intensity_net, _norm, or _total, as appropriate,
+    for corrected diffractograms.
 
     _pd_meas.units_of_intensity should be used to specify
     the units of the intensity measurements.
@@ -2048,7 +2069,7 @@ save_pd_meas.intensity_monitor
     _name.category_id             pd_meas
     _name.object_id               intensity_monitor
     _type.purpose                 Measurand
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Real
     _units.code                   none
@@ -2076,13 +2097,15 @@ save_pd_meas.intensity_total
 
     _definition.id                '_pd_meas.intensity_total'
     _alias.definition_id          '_pd_meas_intensity_total'
-    _definition.update            2022-09-28
+    _definition.update            2022-12-30
     _description.text
 ;
-    Intensity measurements at the measurement point (see
-    the definition of _pd_meas.2theta_*). Scattering from
-    the specimen (with background, specimen mounting or container
+    Intensity recorded at each measurement point as a function of
+    angle, time, channel, or some other variable (see
+    _pd_meas.2theta_ etc.). These intensities are measured from
+    the specimen, with background, specimen mounting, and/or container
     scattering included.
+
     Use these entries for measurements where intensity
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
@@ -2098,7 +2121,7 @@ save_pd_meas.intensity_total
     _name.category_id             pd_meas
     _name.object_id               intensity_total
     _type.purpose                 Measurand
-    _type.source                  Derived
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Real
     _units.code                   none
@@ -2126,13 +2149,13 @@ save_pd_meas.point_id
 
     _definition.id                '_pd_meas.point_id'
     _alias.definition_id          '_pd_meas_point_id'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-04
     _description.text
 ;
     Arbitrary label identifying a measured data point. Used to
     identify a specific entry in a list of measured intensities.
     The role of this identifier may be adopted by
-    _pd_data.point_id if measured, processed and calculated
+    _pd_data.point_id if measured, processed, and/or calculated
     intensity values are combined in a single list.
 ;
     _name.category_id             pd_meas
@@ -2606,14 +2629,16 @@ save_pd_proc.intensity_net
 
     _definition.id                '_pd_proc.intensity_net'
     _alias.definition_id          '_pd_proc_intensity_net'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-30
     _description.text
 ;
-    _pd_proc.intensity_net contains intensity values for the
-    processed diffractogram for each data point (see
-    _pd_proc.2theta_, _pd_proc.wavelength etc.) after
-    correction and normalization factors have been applied
-    (in contrast to _pd_meas.counts_ values, which are
+    Inclusion of s.u.'s for these values is strongly recommended.
+
+    Intensity values for the processed diffractogram for
+    each data point (see _pd_proc.2theta_, _pd_proc.wavelength
+    etc.) after background subtraction, normalization, and other
+    correction factors have been applied (in contrast to
+    _pd_meas.counts_ or _pd_meas.intensity_ values, which are
     uncorrected).
 ;
     _name.category_id             pd_proc
@@ -2622,7 +2647,6 @@ save_pd_proc.intensity_net
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            0.0:
     _units.code                   none
 
 save_
@@ -2653,10 +2677,14 @@ save_pd_proc.intensity_norm
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
 
-    Background values should be on the same scale as the
-    _pd_proc.intensity_net values. Thus normalization and correction
-    factors should be applied before background subtraction (or
-    should be applied to the background values equally).
+    Values in this data item are normalisation-corrected and contain
+    a background component.
+
+    Background values (for example, given by _pd_proc.intensity_bkg_calc)
+    should be on the same scale as the _pd_proc.intensity_net values.
+    Thus normalization and correction factors should be applied before
+    background subtraction (or should be applied to the background values
+    equally).
 
     Normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
@@ -2706,10 +2734,10 @@ save_pd_proc.intensity_total
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
 
-    _pd_proc.intensity_total contains intensity values for the
-    processed diffractogram for each data point where
-    background, normalization, and other corrections have not
-    been applied.
+    Intensity values for the processed diffractogram at each data
+    point as a function of angle, time, channel, or some other
+    variable (see _pd_meas.2theta_* etc.), where background, normalization,
+    or other corrections have not been applied.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_total
@@ -6734,10 +6762,10 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-12-12
+         2.5.0                    2022-12-30
 ;
        ## Retain above version number and increment date until final
-       ##release
+       ## release
 
        Added mass absorption coefficient and improved absorption
        definitions. Added missing su definitions.
@@ -6753,6 +6781,15 @@ save_
        Updated many datanames from Number to Measurand.
 
        Made PD_BLOCK a Loop category.
+
+       Made PD_BLOCK a Loop category
+
+       Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
+
+       Updated descriptions of _pd_meas.counts, _pd_meas.intensity_background,
+       _pd_meas.intensity_container, and _pd_meas.intensity_monitor
+
+       Removed enumeration range for _pd_proc.intensity_net
 
        Added ability to record detector circle radius, both fixed and
        varying by measurement point.
