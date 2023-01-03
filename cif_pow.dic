@@ -5662,7 +5662,7 @@ save_PD_PHASE_MASS
     _description.text
 ;
     This category describes the percent composition by mass of
-    phases in a specimen. Values are derived from modelling a 
+    phases in a specimen. Values are derived from modelling a
     particular diffraction measurement on a specimen and should
     not be used where the mass composition has been determined
     by other means.
