@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-12-30
+    _dictionary.date              2023-01-03
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -56,7 +56,7 @@ save_PD_BLOCK
 ;
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
-    (see _pd_block_diffractogram.id, _pd_calib.std_external_block_id
+    (see _pd_block_diffractogram.id, _pd_qpa_ext_std.block_id
     and _pd_phase.block_id).
 
     Note that a data block may contain only a single diffraction
@@ -434,14 +434,6 @@ save_PD_CALIB
     intensities are first measured, but from then on should remain
     unchanged. Loops may be used for calibration information that
     differs by detector channel.
-
-    Quantification by internal standard is typically carried out
-    using the Hill & Howard algorithm in conjunction with whole-
-    pattern Rietveld modelling. The use of an internal standard
-    allows for the calculation of absolute mass fractions, giving
-    an indication of amorphous content. For a review on quantitative
-    phase analysis, see Chapter 3.9 of Internation Tables, Vol. H,
-    and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB
@@ -511,26 +503,6 @@ save_pd_calib.detector_response_su
 
 save_
 
-save_pd_calib.std_internal_block_id
-
-    _definition.id                '_pd_calib.std_internal_block_id'
-    _definition.update            2022-12-01
-    _description.text
-;
-    A block ID code identifying the phase acting as the internal standard.
-    The data block containing the crystallographic information for this
-    phase will be identified with a _pd_block.id code matching the
-    code in _pd_calib.std_internal_block_id
-;
-    _name.category_id             pd_calib
-    _name.object_id               std_internal_block_id
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
 save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
@@ -538,15 +510,12 @@ save_pd_calib.std_internal_mass_percent
     _definition.update            2022-10-11
     _description.text
 ;
+    This item is deprecated. Please see _pd_qpa_int_std.mass_percent.
+
     Per cent presence of the internal standard specified by the
     data item _pd_calib.std_internal_name expressed as 100 times
     the mass of standard added divided by the sum of the mass of
     standard added and the original sample mass.
-
-    This value does not take into account the crystallinity of the
-    internal standard. That is, if 1 g of a 90% crystalline internal
-    standard is added to 3 g of sample, the
-    _pd_calib.std_internal_mass_percent is 25%.
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_mass_percent
@@ -583,9 +552,9 @@ save_pd_calib.std_internal_name
     _definition.update            2022-12-01
     _description.text
 ;
+    This item is deprecated. Please see _pd_qpa_int_std.phase_name.
+
     Identity of material(s) used as an internal intensity standard.
-    This should be the same as given by _pd_phase.name in the block
-    describing the internal standard phase.
 ;
     _name.category_id             pd_calib
     _name.object_id               std_internal_name
@@ -598,24 +567,6 @@ save_pd_calib.std_internal_name
       _description_example.case
          'NIST 640a Silicon standard'
          'Al2O3'
-
-save_
-
-save_pd_calib.std_internal_phase_id
-
-    _definition.id                '_pd_calib.std_internal_phase_id'
-    _definition.update            2022-12-01
-    _description.text
-;
-    A phase ID code identifying the phase acting as the internal standard.
-;
-    _name.category_id             pd_calib
-    _name.object_id               std_internal_phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
 
 save_
 
@@ -971,14 +922,8 @@ save_PD_CALIB_STD
     differs by detector channel or when multiple standards are
     used (for example, separately for angular and gain calibration).
 
-    Quantification by external standard is typically carried out
-    using the O'Connor and Raven algorithm in conjunction with whole-
-    pattern Rietveld modelling. The use of an external standard
-    allows for the calculation of absolute mass fractions, giving
-    an indication of amorphous content. This method requires the
-    mass attenuation coefficient of the specimen to be measured or
-    calculated. For a review on quantitative phase analysis, see
-    Chapter 3.9 of Internation Tables, Vol. H, and references therein.
+    For quantitative phase analysis by the external standard approach,
+    please see PD_QPA_EXT_STD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_STD
@@ -1019,12 +964,11 @@ save_pd_calib_std.external_block_id
     _definition.update            2016-10-18
     _description.text
 ;
-    Identifies the _pd_block.id of the diffractogram of the phase
-    used as an external standard for the diffraction angle or
-    intensity calibrations.
+    Identifies the _pd_block.id used as an external standard for the
+    diffraction angle or the intensity calibrations.
 
-    Further references to additional phases present are given in
-    that data block.
+    For quantitative phase analysis by the external standard approach,
+    please see PD_QPA_EXT_STD.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_block_id
@@ -1032,56 +976,6 @@ save_pd_calib_std.external_block_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
-
-save_
-
-save_pd_calib_std.external_k_factor
-
-    _definition.id                '_pd_calib_std.external_k_factor'
-    _definition.update            2022-12-01
-    _description.text
-;
-    The value of the K factor applied to the quantification of
-    the phases present in the given diffractogram.
-
-    The external standard method is described by O'Connor and Raven. In this
-    method, the absolute mass percent of a phase is given as
-
-    W_k = 100 * s_k * M_k * V_k * \mu* / K
-
-    where W_k, s_k, M_k, & V_k are the absolute mass percent, Rietveld
-    scale factor, unit cell mass, and unit cell volume of phase k.
-    \mu* is the mass attenuation coefficient of the specimen, and K is
-    the normalising diffractometer constant.
-
-    O'Connor, B. H., & Raven, M. D. (1988). Application of the Rietveld
-    Refinement Procedure in Assaying Powdered Mixtures. Powder Diffraction,
-    3(1), 2-6. doi:10.1017/s0885715600013026
-;
-    _name.category_id             pd_calib_std
-    _name.object_id               external_k_factor
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
-save_pd_calib_std.external_k_factor_su
-
-    _definition.id                '_pd_calib_std.external_k_factor_su'
-    _definition.update            2022-12-01
-    _description.text
-;
-    Standard uncertainty of _pd_calib_std.external_k_factor.
-;
-    _name.category_id             pd_calib_std
-    _name.object_id               external_k_factor
-    _name.linked_item_id          '_pd_calib_std.external_k_factor'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -1093,9 +987,7 @@ save_pd_calib_std.external_name
     _description.text
 ;
     Identifies the name of the material used as an external standard for
-    the diffraction angle or the intensity calibrations. This should
-    match the value given in _pd_phase.name in the data block containing
-    the calibration diffractogram.
+    the diffraction angle or the intensity calibrations.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_name
@@ -7116,6 +7008,335 @@ save_pd_proc.number_of_points
 
 save_
 
+save_PD_QPA_EXT_STD
+
+    _definition.id                PD_QPA_EXT_STD
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-03
+    _description.text
+;
+    This category identifies the external standard used for
+    quantitative phase analysis. Loops may be used for calibration
+    information that differs by detector channel, otherwise only a
+    single value should be recorded per diffractogram.
+
+    Quantification by external standard is typically carried out
+    using the O'Connor and Raven algorithm in conjunction with whole-
+    pattern Rietveld modelling, and relies on the determination of
+    the diffractometer constant, K. The use of an external standard
+    allows for the calculation of absolute mass fractions, giving
+    an indication of amorphous content. This method requires the
+    mass attenuation coefficient of the specimen to be measured or
+    calculated. For a review on quantitative phase analysis, see
+    Chapter 3.9 of Internation Tables, Vol. H, and references therein.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_EXT_STD
+
+    loop_
+      _category_key.name
+         '_pd_qpa_ext_std.detector_id'
+         '_pd_qpa_ext_std.block_id'
+
+save_
+
+save_pd_qpa_ext_std.block_id
+
+    _definition.id                '_pd_qpa_ext_std.block_id'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the _pd_block.id of the diffractogram of the phase
+    used as an external standard for the determination of
+    the diffractometer constant.
+
+    Further references to additional phases present are given in
+    that data block.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_ext_std.detector_id
+
+    _definition.id                '_pd_qpa_ext_std.detector_id'
+    _definition.update            2016-10-18
+    _description.text
+;
+    A code which identifies the detector or channel number to which
+    the external standard data applies. Note that this code should
+    match a detector from _pd_meas.detector_id and may be omitted if
+    only one detector is used.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               detector_id
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+    _enumeration.default          .
+
+save_
+
+save_pd_qpa_ext_std.k_factor
+
+    _definition.id                '_pd_qpa_ext_std.k_factor'
+    _definition.update            2023-01-03
+    _description.text
+;
+    The value of the diffractometer constant, K,applied to the
+    quantification of the phases present in the given diffractogram.
+
+    The external standard method is described by O'Connor and Raven.
+    In this method, the absolute mass percent of a phase is given as
+
+    W_k = 100 * s_k * M_k * V_k * \mu* / K
+
+    where W_k, s_k, M_k, & V_k are the absolute mass percent, Rietveld
+    scale factor, unit cell mass, and unit cell volume of phase k.
+    \mu* is the mass attenuation coefficient of the specimen, and K is
+    the normalising diffractometer constant.
+
+    O'Connor, B. H., & Raven, M. D. (1988). Application of the Rietveld
+    Refinement Procedure in Assaying Powdered Mixtures. Powder Diffraction,
+    3(1), 2-6. doi:10.1017/s0885715600013026
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               k_factor
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_ext_std.k_factor_su
+
+    _definition.id                '_pd_qpa_ext_std.k_factor_su'
+    _definition.update            2022-12-01
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_ext_std.k_factor.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               k_factor
+    _name.linked_item_id          '_pd_qpa_ext_std.k_factor'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_ext_std.phase_id
+
+    _definition.id                '_pd_qpa_ext_std.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) used as the external standard.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_ext_std.phase_name
+
+    _definition.id                '_pd_qpa_ext_std.external_name'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the name of the material used as an external standard for
+    quantitative phase analysis. This should match the value given in
+    _pd_phase.name in the data block containing the calibration diffractogram.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               phase_name
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_ext_std.special_details
+
+    _definition.id                '_pd_qpa_ext_std.special_details'
+    _definition.update            2023-02-03
+    _description.text
+;
+    Description of external standard details that cannot otherwise
+    be recorded using other PD_QPA_EXT_STD data items
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+
+save_PD_QPA_INT_STD
+
+    _definition.id                PD_QPA_INT_STD
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2023-01-03
+    _description.text
+;
+    This category identifies the internal standard used for
+    quantitative phase analysis.
+
+    Quantification by internal standard is typically carried out
+    using the Hill and Howard algorithm in conjunction with whole-
+    pattern Rietveld modelling, with the results being scaled to
+    match the included internal standard. The use of an internal
+    standard allows for the calculation of absolute mass fractions,
+    giving an indication of amorphous content. For a review on quantitative
+    phase analysis, see Chapter 3.9 of Internation Tables, Vol. H, and
+    references therein.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_INT_STD
+
+save_
+
+save_pd_qpa_int_std.block_id
+
+    _definition.id                '_pd_qpa_int_std.block_id'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the _pd_block.id of the phase used as an internal
+    standard for the determination of absolute quantitative phase
+    analysis.
+
+    The data block containing the crystallographic information for this
+    phase will be identified with a _pd_block.id code matching the
+    code in _pd_qpa_int_std.block_id
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_int_std.mass_percent
+
+    _definition.id                '_pd_qpa_int_std.mass_percent'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Per cent presence of the internal standard specified by the
+    data item _pd_calib.std_internal_name expressed as 100 times
+    the mass of standard added divided by the sum of the mass of
+    standard added and the original sample mass.
+
+    This value does not take into account the crystallinity of the
+    internal standard. That is, if 1 g of a 90% crystalline internal
+    standard is added to 3 g of sample, the
+    _pd_calib.std_internal_mass_percent is 25%.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               mass_percent
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_int_std.mass_percent_su
+
+    _definition.id                '_pd_qpa_int_std.mass_percent_su'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_int_std.mass_percent.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               mass_percent
+    _name.linked_item_id          '_pd_qpa_int_std.mass_percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_int_std.phase_id
+
+    _definition.id                '_pd_qpa_int_std.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) used as the internal standard.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_int_std.phase_name
+
+    _definition.id                '_pd_qpa_int_std.external_name'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the name of the material used as an internal standard for
+    quantitative phase analysis. This should match the value given in
+    _pd_phase.name in the data block containing the calibration diffractogram.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               phase_name
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_int_std.special_details
+
+    _definition.id                '_pd_qpa_int_std.special_details'
+    _definition.update            2023-02-03
+    _description.text
+;
+    Description of internal standard details that cannot otherwise
+    be recorded using other PD_QPA_INT_STD data items
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_PD_SPEC
 
     _definition.id                PD_SPEC
@@ -7583,7 +7804,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-12-30
+         2.5.0                    2023-01-03
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -7603,11 +7824,6 @@ save_
 
        Made PD_BLOCK a Loop category.
 
-       Add/amended data names to record external and internal standard
-       quantitative phase analysis results.
-
-       Made PD_BLOCK a Loop category
-
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
 
        Updated descriptions of _pd_meas.counts, _pd_meas.intensity_background,
@@ -7621,4 +7837,7 @@ save_
        Updated many datanames from Number to Measurand
 
        Made PD_BLOCK a Loop category
+
+       Created PD_QPA_EXT_STD and PD_QPA_INT_STD to record quantitative
+       phase analysis by the external and internal standard approaches.
 ;
