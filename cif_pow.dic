@@ -5661,14 +5661,11 @@ save_PD_PHASE_MASS
     _definition.update            2022-12-03
     _description.text
 ;
-    This category contains infomation pertaining to the
-    percent composition of the specified crystal phase
-    expressed as the total mass of the component
-    with respect to the total mass of the specimen.
-
-    The specific combination of relevent phase and diffractogram
-    is given by _pd_phase_mass.diffractogram_id and
-    _pd_phase_mass.phase_id
+    This category describes the percent composition by mass of
+    phases in a specimen. Values are derived from modelling a 
+    particular diffraction measurement on a specimen and should
+    not be used where the mass composition has been determined
+    by other means.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -5686,8 +5683,8 @@ save_pd_phase_mass.diffractogram_id
     _definition.update            2022-12-03
     _description.text
 ;
-    A diffractogram id code that links the phase mass percent value to
-    the diffractogram to which it belongs.
+    A diffractogram id to which the phase mass percent value
+    relates.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               diffractogram_id
@@ -5711,9 +5708,8 @@ save_pd_phase_mass.percent
     _definition.update            2022-12-03
     _description.text
 ;
-    Per cent composition of the specified crystal phase
-    expressed as the total mass of the component
-    with respect to the total mass of the specimen.
+    Total mass of the component as a percentage of the total
+    mass of the specimen.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               percent
@@ -5749,9 +5745,7 @@ save_pd_phase_mass.phase_id
     _definition.update            2022-12-03
     _description.text
 ;
-    A phase id code (see _pd_phase.id) that links the phase
-    mass percent value to the phase id of the phase to which
-    it belongs.
+    The phase (see _pd_phase.id) to which the percent mass relates.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               phase_id
