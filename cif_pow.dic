@@ -7348,15 +7348,6 @@ save_PD_QPA_RIR
     This category identifies the reference intensity ratio used for
     quantitative phase analysis.
 
-
-    The generally accepted reference material is corundum due to its
-    relatively simple diffraction pattern, stability, and availability
-    as a highly crystalline and pure single phase. Additionally, the
-    unknown and reference materials are generally accepted to be mixed
-    in a 50:50 mass ratio. If corundum is used, the RIR equates to I/Ic
-    (or 'I over I corundum') for the phase; these are the most commonly
-    reported values in the literature.
-
     When applied in conjunction with the matrix-flushing method, quantitative
     phase analysis is able to be undertaken without the presence of a
     reference material. In this case, the sum of the mass fractions is
