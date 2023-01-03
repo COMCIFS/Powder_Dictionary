@@ -7348,10 +7348,6 @@ save_PD_QPA_RIR
     This category identifies the reference intensity ratio used for
     quantitative phase analysis.
 
-    The reference intensity ratio (RIR) is an instrument-independent phase
-    constant developed  for use in quantitative phase analysis and is
-    defined as the ratio of the most intense peak of phase, p, to the
-    most intense peak of a reference material, s.
 
     The generally accepted reference material is corundum due to its
     relatively simple diffraction pattern, stability, and availability
@@ -7366,7 +7362,7 @@ save_PD_QPA_RIR
     reference material. In this case, the sum of the mass fractions is
     normalised to 100%.
 
-    The weight fraction of phase p, W_p is given by
+    The weight fraction of phase p, W_p, is given by
 
     W_p = [I_p / (RIR_p * I_p,rel)] / Sum_k[I_k / (RIR_k * I_k,rel)]
 
