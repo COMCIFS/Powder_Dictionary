@@ -7155,7 +7155,7 @@ save_
 
 save_pd_qpa_ext_std.phase_name
 
-    _definition.id                '_pd_qpa_ext_std.external_name'
+    _definition.id                '_pd_qpa_ext_std.phase_name'
     _definition.update            2023-01-03
     _description.text
 ;
@@ -7175,7 +7175,7 @@ save_
 save_pd_qpa_ext_std.special_details
 
     _definition.id                '_pd_qpa_ext_std.special_details'
-    _definition.update            2023-02-03
+    _definition.update            2023-01-03
     _description.text
 ;
     Description of external standard details that cannot otherwise
@@ -7189,7 +7189,6 @@ save_pd_qpa_ext_std.special_details
     _type.contents                Text
 
 save_
-
 
 save_PD_QPA_INT_STD
 
@@ -7302,7 +7301,7 @@ save_
 
 save_pd_qpa_int_std.phase_name
 
-    _definition.id                '_pd_qpa_int_std.external_name'
+    _definition.id                '_pd_qpa_int_std.phase_name'
     _definition.update            2023-01-03
     _description.text
 ;
@@ -7310,7 +7309,7 @@ save_pd_qpa_int_std.phase_name
     quantitative phase analysis. This should match the value given in
     _pd_phase.name in the data block containing the calibration diffractogram.
 ;
-    _name.category_id             pd_qpa_ext_std
+    _name.category_id             pd_qpa_int_std
     _name.object_id               phase_name
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -7322,7 +7321,7 @@ save_
 save_pd_qpa_int_std.special_details
 
     _definition.id                '_pd_qpa_int_std.special_details'
-    _definition.update            2023-02-03
+    _definition.update            2023-01-03
     _description.text
 ;
     Description of internal standard details that cannot otherwise
