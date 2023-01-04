@@ -5566,8 +5566,8 @@ save_PD_PHASE
 
     _definition.id                PD_PHASE
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2016-11-09
+    _definition.class             Set
+    _definition.update            2023-01-04
     _description.text
 ;
     This section contains a description of the crystalline phases
@@ -5591,7 +5591,7 @@ save_pd_phase.id
     _definition.update            2022-12-03
     _description.text
 ;
-    Arbitrary label identifying a phase.
+    Arbitrary label uniquely identifying a phase.
 ;
     _name.category_id             pd_phase
     _name.object_id               id
@@ -7707,7 +7707,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2022-12-30
+         2.5.0                    2023-01-04
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -7729,19 +7729,19 @@ save_
 
        Made PD_BLOCK a Loop category.
 
-       Made PD_BLOCK a Loop category
-
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
 
        Updated descriptions of _pd_meas.counts, _pd_meas.intensity_background,
-       _pd_meas.intensity_container, and _pd_meas.intensity_monitor
+       _pd_meas.intensity_container, and _pd_meas.intensity_monitor.
 
-       Removed enumeration range for _pd_proc.intensity_net
+       Removed enumeration range for _pd_proc.intensity_net.
 
        Added ability to record detector circle radius, both fixed and
        varying by measurement point.
 
-       Updated many datanames from Number to Measurand
+       Updated many datanames from Number to Measurand.
 
-       Made PD_BLOCK a Loop category
+       Made PD_BLOCK a Loop category.
+
+       Made PD_PHASE a Set category.
 ;
