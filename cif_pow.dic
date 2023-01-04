@@ -1212,6 +1212,132 @@ save_pd_calib_std.external_name
 
 save_
 
+save_PD_CALIB_WAVELENGTH
+
+    _definition.id                PD_CALIB_WAVELENGTH
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-04
+    _description.text
+;
+    This section allows for linking to the diffractograms and phases
+    used in the calibration of the wavelength used directly or
+    indirectly in the interpretation of this data set.
+
+    Loops may be used when multiple phases and/or diffractograms are
+    used for calibration. In this case, the given wavelength is a best-fit
+    to all phases and diffractograms.
+
+    See also _diffrn_radiation_wavelength_determination.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_CALIB_WAVELENGTH
+
+    loop_
+      _category_key.name
+         '_pd_calib_wavelength.id'
+
+save_
+
+_pd_calib_wavelength.block_id
+
+    _definition.id                '_pd_calib_wavelength.block_id'
+    _definition.update            2023-01-04
+    _description.text
+;
+    A block ID code identifying a diffractogram against which the
+    wavelength calibration was taken.
+
+    The data block containing the diffraction pattern will be
+    identified with a _pd_block.id code matching the code in
+    _pd_calib_wavelength.block_id.
+;
+    _name.category_id             _pd_calib_wavelength
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_wavelength.id
+
+    _definition.id                '_pd_calib_wavelength.id'
+    _definition.update            2023-01-04
+    _description.text
+;
+    A code to uniquely identify each wavelength calibration.
+;
+    _name.category_id             pd_calib_wavelength
+    _name.object_id               id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+    _enumeration.default          .
+
+save_
+
+save_pd_calib_wavelength.phase_id
+
+    _definition.id                '_pd_calib_wavelength.phase_id'
+    _definition.update            2023-01-04
+    _description.text
+;
+    A code which identifies a phase whose cell parameters were used
+    in the calibration of the wavelength.
+;
+    _name.category_id             pd_calib_wavelength
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calib_wavelength.phase_name
+
+    _definition.id                '_pd_calib_wavelength.phase_name'
+    _definition.update            2014-06-20
+    _description.text
+;
+    Identity of material(s) used as a wavelength standard.
+;
+    _name.category_id             pd_calib_wavelength
+    _name.object_id               phase_name
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _description_example.case
+         'NIST 640a Silicon standard'
+         'Al2O3'
+
+save_
+
+save_pd_calib_wavelength.special_details
+
+    _definition.id                '_pd_calib_wavelength.special_details'
+    _definition.update            2023-01-04
+    _description.text
+;
+    Description of intensity calibration details that cannot otherwise
+    be recorded using other PD_CALIB_WAVELENGTH data items
+;
+    _name.category_id             pd_calib_wavelength
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_PD_CALIBRATION
 
     _definition.id                PD_CALIBRATION
@@ -7718,6 +7844,6 @@ save_
 
        Made PD_BLOCK a Loop category
 
-       Created PD_CALIB_INTENSITY to specifically hold intensty-related
-       calibration.
+       Created PD_CALIB_INTENSITY and PD_CALIB_WAVELENGTH to hold
+       specific calibration information.
 ;
