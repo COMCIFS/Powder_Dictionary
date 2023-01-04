@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2022-12-30
+    _dictionary.date              2022-01-04
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -737,7 +737,7 @@ save_PD_CALIB_INTENSITY
     indirectly in the interpretation of this data set. The
     information in this section of the CIF should generally be
     written when the intensities are first measured, but from then
-    on should remain unchanged. Loops should only be used for calibration
+    on should remain unchanged. Loops may be used for calibration
     information that differs by detector channel.
 ;
     _name.category_id             PD_GROUP
@@ -745,8 +745,8 @@ save_PD_CALIB_INTENSITY
 
     loop_
       _category_key.name
-      '_pd_calib_intensity.detector_id'
-      '_pd_calib_intensity.id'
+         '_pd_calib_intensity.detector_id'
+         '_pd_calib_intensity.id'
 
 save_
 
@@ -7717,4 +7717,7 @@ save_
        Updated many datanames from Number to Measurand
 
        Made PD_BLOCK a Loop category
+
+       Created PD_CALIB_INTENSITY to specifically hold intensty-related
+       calibration.
 ;
