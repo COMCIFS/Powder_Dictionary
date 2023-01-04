@@ -7240,7 +7240,6 @@ save_
 save_pd_qpa_int_std.mass_percent
 
     _definition.id                '_pd_qpa_int_std.mass_percent'
-    _alias.definition_id          '_pd_calib_std_internal_mass_%'
     _definition.update            2023-01-03
     _description.text
 ;
