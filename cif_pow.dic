@@ -1252,7 +1252,7 @@ save_pd_calib_wavelength.block_id
     identified with a _pd_block.id code matching the code in
     _pd_calib_wavelength.block_id.
 ;
-    _name.category_id             _pd_calib_wavelength
+    _name.category_id             pd_calib_wavelength
     _name.object_id               block_id
     _type.purpose                 Encode
     _type.source                  Assigned
