@@ -3058,7 +3058,7 @@ save_pd_diffractogram.id
     _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
     _method.purpose               Evaluation
     _method.expression
 ;
@@ -5606,7 +5606,7 @@ save_pd_phase.id
     _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
