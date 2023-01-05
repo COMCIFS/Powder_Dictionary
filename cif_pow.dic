@@ -2013,7 +2013,7 @@ save_pd_meas.diffractogram_id
     _description.text
 ;
     Label identifying the diffraction measurement that the
-    tabulated data belong to. This may be omitted in the usual
+        data tabulated in the PD_MEAS category belong to. This may be omitted in the usual
     case that only one diffraction measurement is present
     in a data block.
 ;
