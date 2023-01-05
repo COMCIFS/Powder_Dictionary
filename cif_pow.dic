@@ -205,7 +205,7 @@ save_pd_block_diffractogram.diffractogram_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
