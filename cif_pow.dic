@@ -2503,7 +2503,7 @@ save_pd_proc.diffractogram_id
     _description.text
 ;
     Label identifying the diffraction measurement that the
-    tabulated data belong to. This may be omitted in the usual
+    data tabulated in the PD_PROC category belong to. This may be omitted in the usual
     case that only one diffraction measurement is present
     in a data block.
 ;
