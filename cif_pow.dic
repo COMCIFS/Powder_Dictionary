@@ -1398,7 +1398,7 @@ save_pd_data.diffractogram_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -1542,7 +1542,7 @@ save_pd_calc.diffractogram_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -2031,7 +2031,7 @@ save_pd_meas.diffractogram_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -2521,7 +2521,7 @@ save_pd_proc.diffractogram_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -5684,7 +5684,7 @@ save_pd_phase_block.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
     _enumeration.default          .
 
 save_
@@ -5728,7 +5728,7 @@ save_pd_phase_mass.diffractogram_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -5798,7 +5798,7 @@ save_pd_phase_mass.phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7398,7 +7398,7 @@ save_pd_qpa_ext_std.phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7545,7 +7545,7 @@ save_pd_qpa_int_std.phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7686,7 +7686,7 @@ save_pd_qpa_rir.std_phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -8078,7 +8078,7 @@ save_pd_refln.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
