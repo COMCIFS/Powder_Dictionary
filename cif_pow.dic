@@ -5696,7 +5696,7 @@ save_PD_PHASE_MASS
     by other means.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_PHASE
+    _name.object_id               PD_PHASE_MASS
 
     loop_
       _category_key.name
