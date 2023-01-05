@@ -5747,15 +5747,14 @@ save_pd_phase_mass.percent
     Total mass of the phase expressed as a percentage of the total
     mass of the specimen.
 
-    If _pd_qpa_int_std.mass_percent or
-    _pd_qpa_ext_std.k_factor is present, the
-    values given are assumed to be in absolute terms.
+    If _pd_qpa_int_std.mass_percent or _pd_qpa_ext_std.k_factor is
+    present, the values given are assumed to be in absolute terms.
 
-    The value of _pd_phase_mass.percent given to the internal 
-    standard represents the total crystalline contribution of 
-    that standard. That is, if 1 g of a 90% crystalline internal 
-    standard is added to 3 g of sample, the value of 
-    _pd_phase.mass_percent for the standard is 22.5%.
+    The value of the mass percent given to the internal standard
+    represents the total crystalline contribution of that standard.
+    That is, if 1 g of a 90% crystalline internal standard is added
+    to 3 g of sample, the value of _pd_phase.mass_percent for the
+    standard is 22.5%.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               percent
