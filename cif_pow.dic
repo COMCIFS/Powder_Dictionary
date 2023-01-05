@@ -5636,7 +5636,7 @@ save_PD_PHASE_BLOCK
     that block.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_PHASE
+    _name.object_id               PD_PHASE_BLOCK
     _category_key.name            '_pd_phase_block.id'
 
 save_
