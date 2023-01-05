@@ -56,8 +56,8 @@ save_PD_BLOCK
 ;
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
-    (see _pd_block_diffractogram.id, _pd_calib.std_external_block_id
-    and _pd_phase.block_id).
+    (see _pd_block_diffractogram.id, _pd_calib_std.external_block_id
+    and _pd_phase_block.id).
 
     Note that a data block may contain only a single diffraction
     data set or information about a single crystalline phase.
@@ -213,7 +213,7 @@ save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
     _alias.definition_id          '_pd_block_diffractogram_id'
-    _definition.update            2016-10-18
+    _definition.update            2023-01-05
     _description.text
 ;
     A block ID code (see _pd_block.id) that identifies
@@ -264,7 +264,7 @@ save_pd_calc_component.block_id
     data block other than the current block. The data
     block containing the crystallographic information
     for this phase will be identified with a _pd_block.id
-    code matching the code in _pd_phase.block_id. The data
+    code matching the code in _pd_phase_block.id. The data
     block containing the diffractogram to which this component
     belongs will be identified with a _pd_block.id
     code matching the code in _pd_block_diffractogram.id.
@@ -1353,7 +1353,7 @@ save_PD_DATA
     _definition.id                PD_DATA
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The PD_DATA category is a "container" category that is defined
@@ -1422,7 +1422,7 @@ save_PD_CALC
     _definition.id                PD_CALC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2022-10-11
     _description.text
 ;
     This section is used for storing a computed diffractogram trace.
@@ -1653,7 +1653,7 @@ save_PD_MEAS
     _definition.id                PD_MEAS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2022-10-11
     _description.text
 ;
     This section contains the measured diffractogram prior to
@@ -2396,7 +2396,7 @@ save_PD_PROC
     _definition.id                PD_PROC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     This section contains the diffraction data set after processing
@@ -5576,7 +5576,7 @@ save_PD_PHASE
     performed, the structural results will be placed in different
     data blocks, using CIF entries from the core CIF dictionary.
 
-    The _pd_phase.block_id entry points to the CIF block with
+    The _pd_phase_block.id entry points to the CIF block with
     structural parameters for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
