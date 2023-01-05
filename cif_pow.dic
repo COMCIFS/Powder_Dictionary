@@ -213,7 +213,7 @@ save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
     _alias.definition_id          '_pd_block_diffractogram_id'
-    _definition.update            2023-01-05
+    _definition.update            2022-10-11
     _description.text
 ;
     A block ID code (see _pd_block.id) that identifies
@@ -1380,9 +1380,9 @@ save_pd_data.diffractogram_id
     _description.text
 ;
     Label identifying the diffraction measurement that the
-    data tabulated in the PD_DATA category belong to. This may be omitted in the usual
-    case that only one diffraction measurement is present
-    in a data block.
+    data tabulated in the PD_DATA category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
 ;
     _name.category_id             pd_data
     _name.object_id               diffractogram_id
@@ -2013,9 +2013,9 @@ save_pd_meas.diffractogram_id
     _description.text
 ;
     Label identifying the diffraction measurement that the
-        data tabulated in the PD_MEAS category belong to. This may be omitted in the usual
-    case that only one diffraction measurement is present
-    in a data block.
+    data tabulated in the PD_MEAS category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
 ;
     _name.category_id             pd_meas
     _name.object_id               diffractogram_id
@@ -2503,9 +2503,9 @@ save_pd_proc.diffractogram_id
     _description.text
 ;
     Label identifying the diffraction measurement that the
-    data tabulated in the PD_PROC category belong to. This may be omitted in the usual
-    case that only one diffraction measurement is present
-    in a data block.
+    data tabulated in the PD_PROC category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
 ;
     _name.category_id             pd_proc
     _name.object_id               diffractogram_id
