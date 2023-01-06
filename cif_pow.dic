@@ -1277,6 +1277,25 @@ save_pd_calib_wavelength.block_id
 
 save_
 
+save_pd_calib_wavelength.diffractogram_id
+
+    _definition.id                '_pd_calib_wavelength.diffractogram_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A code which identifies a diffractogram which was used
+    in the calibration of the wavelength.
+;
+    _name.category_id             pd_calib_wavelength
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
 save_pd_calib_wavelength.id
 
     _definition.id                '_pd_calib_wavelength.id'
@@ -1287,7 +1306,7 @@ save_pd_calib_wavelength.id
 ;
     _name.category_id             pd_calib_wavelength
     _name.object_id               id
-    _type.purpose                 Encode
+    _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
