@@ -3047,7 +3047,7 @@ save_
 save_pd_diffractogram.id
 
     _definition.id                '_pd_diffractogram.id'
-    _definition.update            2022-10-11
+    _definition.update            2022-01-06
     _description.text
 ;
     Arbitrary label identifying a powder diffraction measurement.
@@ -3059,10 +3059,10 @@ save_pd_diffractogram.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-    _method.purpose               Evaluation
+    _method.purpose               Definition
     _method.expression
 ;
-    _pd_diffractogram.id = _pd_block.id
+    _enumeration.default = _pd_block.id
 ;
 
 save_
