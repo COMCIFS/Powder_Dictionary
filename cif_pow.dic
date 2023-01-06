@@ -3524,7 +3524,7 @@ save_pd_instr.slit_eq_mono_spec
     containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Ollimation between the monochromator and the specimen.
+    collimation between the monochromator and the specimen.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
