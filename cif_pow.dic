@@ -1585,7 +1585,6 @@ save_pd_calib_xcoord.id
 ;
 save_
 
-
 save_pd_calib_xcoord.phase_id
 
     _definition.id                '_pd_calib_xcoord.phase_id'
@@ -1631,7 +1630,6 @@ save_
 save_pd_calib_xcoord.point_id
 
     _definition.id                '_pd_calib_xcoord.point_id'
-    _alias.definition_id          '_pd_calib_xcoord'
     _definition.update            2023-01-06
     _description.text
 ;
