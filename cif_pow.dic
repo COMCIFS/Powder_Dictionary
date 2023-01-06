@@ -6217,7 +6217,7 @@ save_pd_pref_orient_spherical_harmonics.c_ij_su
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient.spherical_harmonics_c_ij_su.
+    Standard uncertainty of _pd_pref_orient_spherical_harmonics.c_ij.
 ;
     _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               c_ij_su
