@@ -3472,7 +3472,7 @@ save_pd_instr.slit_ax_src_mono
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the radiation source and monochromator.
+    collimation between the radiation source and monochromator.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3498,7 +3498,7 @@ save_pd_instr.slit_ax_src_spec
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the radiation source and the specimen. Note
+    collimation between the radiation source and the specimen. Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3550,7 +3550,7 @@ save_pd_instr.slit_eq_src_mono
     containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the radiation source and monochromator.
+    collimation between the radiation source and monochromator.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -4197,7 +4197,7 @@ save_pd_instr.slit_ax_spec_detc
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the specimen and the detector. Note that
+    collimation between the specimen and the detector. Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4248,7 +4248,7 @@ save_pd_instr.slit_eq_spec_anal
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the instrument
     as a slit width (as opposed to a divergence angle). Values are
-    the width of the slit (in millimetres) defining Collimation
+    the width of the slit (in millimetres) defining collimation
     between the specimen and the analyser. Note that *_spec_detc is
     used in place of *_spec_anal and *_anal_detc if there is no
     analyser in use.
@@ -4274,7 +4274,7 @@ save_pd_instr.slit_eq_spec_detc
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the instrument
     as a slit width (as opposed to a divergence angle). Values are
-    the width of the slit (in millimetres) defining Collimation
+    the width of the slit (in millimetres) defining collimation
     between the specimen and the detector. Note that *_spec_detc is
     used in place of *_spec_anal and *_anal_detc if there is no
     analyser in use.
