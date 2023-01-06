@@ -7027,7 +7027,7 @@ save_PD_QPA_EXT_STD
     an indication of amorphous content. This method requires the
     mass attenuation coefficient of the specimen to be measured or
     calculated. For a review on quantitative phase analysis, see
-    Chapter 3.9 of Internation Tables, Vol. H, and references therein.
+    Chapter 3.9 of International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_EXT_STD
@@ -7207,7 +7207,7 @@ save_PD_QPA_INT_STD
     giving an indication of amorphous content.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
-    Internation Tables, Vol. H, and references therein.
+    International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_INT_STD
@@ -7374,7 +7374,7 @@ save_PD_QPA_RIR
     The sum is taken over all phases present in the specimen.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
-    Internation Tables, Vol. H, and references therein.
+    International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_INT_STD
