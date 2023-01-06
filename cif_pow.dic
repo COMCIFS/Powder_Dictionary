@@ -3291,7 +3291,7 @@ save_pd_instr.divg_eq_src_mono
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) between the radiation source
-    and monochromator Values are the maximum divergence angles in
+    and monochromator. Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
     other than Soller slits (see _pd_instr.soller_eq_).
     Note that *_src_spec is used in place of *_src_mono and
