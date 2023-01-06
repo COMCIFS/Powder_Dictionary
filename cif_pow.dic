@@ -1402,6 +1402,386 @@ save_pd_calib_wavelength.special_details
 
 save_
 
+save_PD_CALIB_XCOORD
+
+    _definition.id                PD_CALIB_XCOORD
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-06
+    _description.text
+;
+    This section defines the parameters used for the calibration of the
+    X-coordinate axis of the instrument used directly or indirectly in the
+    interpretation of this data set; that is, 2\\q, time-of-flight, or
+    position.
+
+    Calibration is carried out be adding the offset value:
+
+        X-coord~calibrated~ = X-coord~meas~ + X~coord_offset~
+
+    For cases where the offset value is not a constant, but rather varies
+    with X-coordinate, a set of offset values is supplied in a loop. In this
+    case, the value where the offset has been determined can be specified as
+    _pd_calib_xcoord.*_nominal. These values may need to be interpolated to
+    be applied to their respective diffractograms.
+
+    Alternatively, if the offset has been determined at each measurement
+    point in the diffractogram, _pd_calib_xcoord.point_id may be used to
+    specify the offset on a per-point basis.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_CALIB_XCOORD
+
+    loop_
+      _category_key.name
+         '_pd_calib_xcoord.detector_id'
+         '_pd_calib_xcoord.id'
+
+save_
+
+save_pd_calib_xcoord.2theta_nominal
+
+    _definition.id                '_pd_calib_xcoord.2theta_nominal'
+    _definition.update            2023-01-06
+    _description.text
+;
+    The nominal 2\\q value to which the offset given in
+    _pd_calib_xcoord.2theta_offset applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               2theta_nominal
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            -180.0:180.0
+    _units.code                   degrees
+
+save_
+
+save_pd_calib_xcoord.2theta_offset
+
+    _definition.id                '_pd_calib_xcoord.2theta_offset'
+    _definition.update            2023-01-06
+    _description.text
+;
+    _pd_calib_xcoord.2theta_offset defines an offset angle (in degrees) used
+    to calibrate 2\\q (as defined in _pd_meas.2theta_). Calibration is done
+    by adding the offset:
+
+         2\\q~calibrated~ = 2\\q~measured~ + 2\\q~offset~
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               2theta_offset
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            -180.0:180.0
+    _units.code                   degrees
+
+save_
+
+save_pd_calib_xcoord.2theta_offset_su
+
+    _definition.id                '_pd_calib_xcoord.2theta_offset_su'
+    _definition.update            2023-01-06
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.2theta_offset.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               2theta_offset_su
+    _name.linked_item_id          '_pd_calib_xcoord.2theta_offset'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.block_id
+
+    _definition.id                '_pd_calib_xcoord.block_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A block ID code identifying the diffractogram from which the
+    X-coordinate calibration was taken, if it was calibrated by a
+    specimen.
+
+    The data block containing the diffraction pattern will be
+    identified with a _pd_block.id code matching the code in
+    _pd_calib_xcoord.block_id.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.detector_id
+
+    _definition.id                '_pd_calib_xcoord.detector_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A code which identifies the detector or channel number in a
+    position-sensitive, energy-dispersive or other multiple-detector
+    instrument. Note that this code should match the code name used
+    for _pd_meas.detector_id. As a default value is defined, the detector
+    id may be omitted if only a single detector is present.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               detector_id
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+    _enumeration.default          .
+
+save_
+
+save_pd_calib_xcoord.diffractogram_id
+
+    _definition.id                '_pd_calib_xcoord.diffractogram_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A code which identifies the particular diffractogram from which this
+    X-coordinate calibration was taken, if it was calibrated by a specimen.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.id
+
+    _definition.id                '_pd_calib_xcoord.id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A code to uniquely identify each X-coordinate calibration.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+    _method.purpose               Definition
+    _method.expression
+;
+    _enumeration.default = _pd_calib_xcoord.id
+;
+save_
+
+save_pd_calib_xcoord.point_id
+
+    _definition.id                '_pd_calib_xcoord.point_id'
+    _alias.definition_id          '_pd_calib_xcoord'
+    _definition.update            2023-01-06
+    _description.text
+;
+    Arbitrary label identifying a data point in a diffractogram. Used to
+    identify a specific entry in a list of values forming the diffractogram
+    to which the X-coordinate calibration applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               point_id
+    _name.linked_item_id          '_pd_data.point_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calib_xcoord.position_nominal
+
+    _definition.id                '_pd_calib_xcoord.position_nominal'
+    _definition.update            2023-01-06
+    _description.text
+;
+    The nominal position value to which the offset given in
+    _pd_calib_xcoord.position_offset applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               position_nominal
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   millimetres
+
+save_
+
+save_pd_calib_xcoord.position_offset
+
+    _definition.id                '_pd_calib_xcoord.position_offset'
+    _definition.update            2023-01-06
+    _description.text
+;
+    _pd_calib_xcoord.position_offset defines an offset position (in
+    millimetres) used to calibrate position (as defined in
+    _pd_meas.position). Calibration is done by adding the offset:
+
+         position~calibrated~ = position~measured~ + position~offset~
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               position_offset
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   millimetres
+
+save_
+
+save_pd_calib_xcoord.position_offset_su
+
+    _definition.id                '_pd_calib_xcoord.position_offset_su'
+    _definition.update            2023-01-06
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.position_offset.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               position_offset_su
+    _name.linked_item_id          '_pd_calib_xcoord.position_offset'
+    _units.code                   millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.phase_id
+
+    _definition.id                '_pd_calib_xcoord.phase_id'
+    _definition.update            2023-01-04
+    _description.text
+;
+    A code which identifies the particular phase used in calibrating the
+    X-coordinate, if it was calibrated by a specimen.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.phase_name
+
+    _definition.id                '_pd_calib_xcoord.phase_name'
+    _definition.update            2023-01-06
+    _description.text
+;
+    Identity of material(s) used as an X-coordinate standard.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               phase_name
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _description_example.case
+         'NIST 640a Silicon standard'
+         'Al2O3'
+
+save_
+
+save_pd_calib_xcoord.special_details
+
+    _definition.id                '_pd_calib_xcoord.special_details'
+    _definition.update            2023-01-06
+    _description.text
+;
+    Description of X-coordinate calibration details that cannot otherwise
+    be recorded using other PD_CALIB_XCOORD data items
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.time_of_flight_nominal
+
+    _definition.id                '_pd_calib_xcoord.time_of_flight_nominal'
+    _definition.update            2023-01-06
+    _description.text
+;
+    The nominal time-of-flight value to which the offset given in
+    _pd_calib_xcoord.time_of_flight_offset applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               time_of_flight_nominal
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   microseconds
+
+save_
+
+save_pd_calib_xcoord.time_of_flight_offset
+
+    _definition.id                '_pd_calib_xcoord.time_of_flight_offset'
+    _definition.update            2023-01-06
+    _description.text
+;
+    _pd_calib_xcoord.time_of_flight_offset defines an offset time (in
+    microseconds) used to calibrate time-of-flight (as defined in
+    _pd_meas.time_of_flight). Calibration is done by adding the offset:
+
+    time_of_flight~calibrated~ = time_of_flight~measured~ +
+                                 time_of_flight~offset~
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               time_of_flight_offset
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   microseconds
+
+save_
+
+save_pd_calib_xcoord.time_of_flight_offset_su
+
+    _definition.id                '_pd_calib_xcoord.time_of_flight_offset_su'
+    _definition.update            2023-01-06
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.time_of_flight_offset.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               time_of_flight_offset_su
+    _name.linked_item_id          '_pd_calib_xcoord.time_of_flight_offset'
+    _units.code                   microseconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_PD_CALIBRATION
 
     _definition.id                PD_CALIBRATION
@@ -8650,4 +9030,6 @@ save_
 
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
+
+       Created PD_CALIB_XCOORD to hold X-coordinate calibration information.
 ;
