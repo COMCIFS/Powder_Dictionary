@@ -8004,5 +8004,5 @@ save_
        the reference intensity ratio approach.
 
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
-       Integer to Real
+       Integer to Real.
 ;
