@@ -56,7 +56,7 @@ save_PD_BLOCK
 ;
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
-    (see _pd_block_diffractogram.id, _pd_calib.std_external_block_id
+    (see _pd_block_diffractogram.id, _pd_qpa_ext_std.block_id
     and _pd_phase.block_id).
 
     Note that a data block may contain only a single diffraction
@@ -175,7 +175,7 @@ save_PD_BLOCK_DIFFRACTOGRAM
     _definition.id                PD_BLOCK_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+    _definition.update            2022-12-03
     _description.text
 ;
     A number of diffractograms may contribute to the
@@ -189,11 +189,31 @@ save_PD_BLOCK_DIFFRACTOGRAM
 
 save_
 
+save_pd_block_diffractogram.diffractogram_id
+
+    _definition.id                '_pd_block_diffractogram.diffractogram_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A diffractogram id code (see _pd_diffractogram.id) that
+    identifies the diffraction data contained in the data block
+    pointed to by _pd_block_diffractogram.id.
+;
+    _name.category_id             pd_block_diffractogram
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
     _alias.definition_id          '_pd_block_diffractogram_id'
-    _definition.update            2016-10-18
+    _definition.update            2022-10-11
     _description.text
 ;
     A block ID code (see _pd_block.id) that identifies
@@ -203,11 +223,12 @@ save_pd_block_diffractogram.id
     is used for a structure determination. The data
     block containing the diffraction data will contain
     a _pd_block.id code matching the code in
-    _pd_block.diffractogram_id.
+    _pd_block_diffractogram.id.
 ;
     _name.category_id             pd_block_diffractogram
     _name.object_id               id
-    _type.purpose                 Encode
+    _name.linked_item_id          '_pd_block.id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
@@ -243,7 +264,7 @@ save_pd_calc_component.block_id
     data block other than the current block. The data
     block containing the crystallographic information
     for this phase will be identified with a _pd_block.id
-    code matching the code in _pd_phase.block_id. The data
+    code matching the code in _pd_phase_block.id. The data
     block containing the diffractogram to which this component
     belongs will be identified with a _pd_block.id
     code matching the code in _pd_block_diffractogram.id.
@@ -510,6 +531,8 @@ save_pd_calib.std_internal_mass_percent
     _definition.update            2022-10-11
     _description.text
 ;
+    This item is deprecated. Please see _pd_qpa_int_std.mass_percent.
+
     Per cent presence of the internal standard specified by the
     data item _pd_calib.std_internal_name expressed as 100 times
     the mass of standard added divided by the sum of the mass of
@@ -547,7 +570,7 @@ save_pd_calib.std_internal_name
 
     _definition.id                '_pd_calib.std_internal_name'
     _alias.definition_id          '_pd_calib_std_internal_name'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-01
     _description.text
 ;
     Identity of material(s) used as an internal intensity standard.
@@ -1160,6 +1183,9 @@ save_PD_CALIB_STD
     unchanged. Loops may be used for calibration information that
     differs by detector channel or when multiple standards are
     used (for example, separately for angular and gain calibration).
+
+    For quantitative phase analysis by the external standard approach,
+    please see PD_QPA_EXT_STD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_STD
@@ -1202,6 +1228,9 @@ save_pd_calib_std.external_block_id
 ;
     Identifies the _pd_block.id used as an external standard for the
     diffraction angle or the intensity calibrations.
+
+    For quantitative phase analysis by the external standard approach,
+    please see PD_QPA_EXT_STD.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_block_id
@@ -1216,7 +1245,7 @@ save_pd_calib_std.external_name
 
     _definition.id                '_pd_calib_std.external_name'
     _alias.definition_id          '_pd_calib_std_external_name'
-    _definition.update            2016-10-18
+    _definition.update            2022-12-01
     _description.text
 ;
     Identifies the name of the material used as an external standard for
@@ -1717,7 +1746,7 @@ save_PD_DATA
     _definition.id                PD_DATA
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The PD_DATA category is a "container" category that is defined
@@ -1729,7 +1758,32 @@ save_PD_DATA
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DATA
-    _category_key.name            '_pd_data.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_data.point_id'
+         '_pd_data.diffractogram_id'
+
+save_
+
+save_pd_data.diffractogram_id
+
+    _definition.id                '_pd_data.diffractogram_id'
+    _definition.update            2022-12-16
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    data tabulated in the PD_DATA category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
+;
+    _name.category_id             pd_data
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -1761,7 +1815,7 @@ save_PD_CALC
     _definition.id                PD_CALC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2022-10-11
     _description.text
 ;
     This section is used for storing a computed diffractogram trace.
@@ -1771,7 +1825,11 @@ save_PD_CALC
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_CALC
-    _category_key.name            '_pd_calc.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_calc.point_id'
+         '_pd_calc.diffractogram_id'
 
 save_
 
@@ -1850,6 +1908,26 @@ save_pd_calc.component_intensity_total_list
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
+
+save_
+
+save_pd_calc.diffractogram_id
+
+    _definition.id                '_pd_calc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the calculated diffractogram that the
+    calculated data belong to. This may be omitted in the usual
+    case that only one calculation is present in a data block.
+;
+    _name.category_id             pd_calc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -1968,7 +2046,7 @@ save_PD_MEAS
     _definition.id                PD_MEAS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2022-10-11
     _description.text
 ;
     This section contains the measured diffractogram prior to
@@ -1992,7 +2070,11 @@ save_PD_MEAS
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
-    _category_key.name            '_pd_meas.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_meas.point_id'
+         '_pd_meas.diffractogram_id'
 
 save_
 
@@ -2317,6 +2399,27 @@ save_pd_meas.detector_id
 
 save_
 
+save_pd_meas.diffractogram_id
+
+    _definition.id                '_pd_meas.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    data tabulated in the PD_MEAS category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
+;
+    _name.category_id             pd_meas
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_meas.intensity_background
 
     _definition.id                '_pd_meas.intensity_background'
@@ -2612,7 +2715,7 @@ save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-06
     _description.text
 ;
     The count time in seconds for each intensity measurement.
@@ -2622,8 +2725,8 @@ save_pd_meas.step_count_time
     _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Integer
-    _enumeration.range            0:
+    _type.contents                Real
+    _enumeration.range            0.0:
     _units.code                   seconds
 
 save_
@@ -2649,7 +2752,7 @@ save_pd_meas.time_of_flight
 
     _definition.id                '_pd_meas.time_of_flight'
     _alias.definition_id          '_pd_meas_time_of_flight'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-06
     _description.text
 ;
     Measured time in microseconds for time-of-flight neutron
@@ -2661,8 +2764,8 @@ save_pd_meas.time_of_flight
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
-    _type.contents                Integer
-    _enumeration.range            0:
+    _type.contents                Real
+    _enumeration.range            0.0:
     _units.code                   microseconds
 
 save_
@@ -2689,7 +2792,7 @@ save_PD_PROC
     _definition.id                PD_PROC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     This section contains the diffraction data set after processing
@@ -2699,7 +2802,11 @@ save_PD_PROC
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_PROC
-    _category_key.name            '_pd_proc.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_proc.point_id'
+         '_pd_proc.diffractogram_id'
 
 save_
 
@@ -2782,6 +2889,27 @@ save_pd_proc.d_spacing_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_proc.diffractogram_id
+
+    _definition.id                '_pd_proc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    data tabulated in the PD_PROC category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
+;
+    _name.category_id             pd_proc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -3284,6 +3412,41 @@ save_pd_proc.wavelength_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_PD_DIFFRACTOGRAM
+
+    _definition.id                PD_DIFFRACTOGRAM
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2022-10-11
+    _description.text
+;
+    This category includes data names relating to a diffractogram
+    as a whole.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_DIFFRACTOGRAM
+    _category_key.name            '_pd_diffractogram.id'
+
+save_
+
+save_pd_diffractogram.id
+
+    _definition.id                '_pd_diffractogram.id'
+    _definition.update            2022-01-06
+    _description.text
+;
+    Arbitrary label identifying a powder diffraction measurement.
+    If missing, _pd_block.id is used.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -5794,8 +5957,8 @@ save_PD_PHASE
 
     _definition.id                PD_PHASE
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2016-11-09
+    _definition.class             Set
+    _definition.update            2023-01-04
     _description.text
 ;
     This section contains a description of the crystalline phases
@@ -5804,10 +5967,8 @@ save_PD_PHASE
     performed, the structural results will be placed in different
     data blocks, using CIF entries from the core CIF dictionary.
 
-    The _pd_phase.block_id entry points to the CIF block with
-    structural parameters for each crystalline phase. The
-    _pd_phase.id serves to link to _pd_refln.phase_id, which is
-    used to label peaks by phase.
+    The _pd_phase_block.id entry points to the CIF block with
+    structural parameters for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -5815,90 +5976,20 @@ save_PD_PHASE
 
 save_
 
-save_pd_phase.block_id
-
-    _definition.id                '_pd_phase.block_id'
-    _alias.definition_id          '_pd_phase_block_id'
-    _definition.update            2014-06-20
-    _description.text
-;
-    A block ID code identifying the phase contributing to
-    the diffraction peak. The data block containing the
-    crystallographic information for this phase will be
-    identified with a _pd_block.id code matching the
-    code in _pd_phase.block_id.
-;
-    _name.category_id             pd_phase
-    _name.object_id               block_id
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
 save_pd_phase.id
 
     _definition.id                '_pd_phase.id'
-    _alias.definition_id          '_pd_phase_id'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-03
     _description.text
 ;
-    A code for each crystal phase used to link with
-    _pd_refln.phase_id.
+    Arbitrary label uniquely identifying a phase.
 ;
     _name.category_id             pd_phase
     _name.object_id               id
-    _name.linked_item_id          '_pd_refln.phase_id'
-    _type.purpose                 Link
+    _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
-    _enumeration.default          .
-
-save_
-
-save_pd_phase.mass_percent
-
-    _definition.id                '_pd_phase.mass_percent'
-
-    loop_
-      _alias.definition_id
-         '_pd_phase_mass_percent'
-         '_pd_phase_mass_%'
-
-    _definition.update            2022-10-11
-    _description.text
-;
-    Per cent composition of the specified crystal phase
-    expressed as the total mass of the component
-    with respect to the total mass of the specimen.
-;
-    _name.category_id             pd_phase
-    _name.object_id               mass_percent
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0.0:100.0
-    _units.code                   none
-
-save_
-
-save_pd_phase.mass_percent_su
-
-    _definition.id                '_pd_phase.mass_percent_su'
-    _definition.update            2022-10-27
-    _description.text
-;
-    Standard uncertainty of _pd_phase.mass_percent.
-;
-    _name.category_id             pd_phase
-    _name.object_id               mass_percent_su
-    _name.linked_item_id          '_pd_phase.mass_percent'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.contents                Text
 
 save_
 
@@ -5918,6 +6009,179 @@ save_pd_phase.name
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
+
+save_
+
+save_PD_PHASE_BLOCK
+
+    _definition.id                PD_PHASE_BLOCK
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-12-03
+    _description.text
+;
+    A table of phases relevant to the current data
+    block. Each phase is identified by the block identifier
+    of the data block containing the phase information,
+    and the _pd_phase.id of the phase contained within
+    that block.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_PHASE_BLOCK
+    _category_key.name            '_pd_phase_block.id'
+
+save_
+
+save_pd_phase_block.id
+
+    _definition.id                '_pd_phase_block.id'
+    _alias.definition_id          '_pd_phase_block_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A block ID code identifying a block containing phase
+    information.
+;
+    _name.category_id             pd_phase_block
+    _name.object_id               id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_phase_block.phase_id
+
+    _definition.id                '_pd_phase_block.phase_id'
+    _alias.definition_id          '_pd_phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A phase id code (see _pd_phase.id) that identifies the phase
+    contained in the data block pointed to by _pd_phase_block.id
+;
+    _name.category_id             pd_phase_block
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+    _enumeration.default          .
+
+save_
+
+save_PD_PHASE_MASS
+
+    _definition.id                PD_PHASE_MASS
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-12-03
+    _description.text
+;
+    This category describes the percent composition by mass of
+    phases in a specimen. Values are derived from modelling a
+    particular diffraction measurement on a specimen and should
+    not be used where the mass composition has been determined
+    by other means.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_PHASE_MASS
+
+    loop_
+      _category_key.name
+         '_pd_phase_mass.diffractogram_id'
+         '_pd_phase_mass.phase_id'
+
+save_
+
+save_pd_phase_mass.diffractogram_id
+
+    _definition.id                '_pd_phase_mass.diffractogram_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A diffractogram id to which the phase mass percent value
+    relates.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_phase_mass.percent
+
+    _definition.id                '_pd_phase_mass.percent'
+
+    loop_
+      _alias.definition_id
+         '_pd_phase_mass_percent'
+         '_pd_phase_mass_%'
+
+    _definition.update            2022-12-03
+    _description.text
+;
+    Total mass of the phase expressed as a percentage of the total
+    mass of the specimen.
+
+    If _pd_qpa_int_std.mass_percent or _pd_qpa_ext_std.k_factor is
+    present, the values given are assumed to be in absolute terms.
+
+    The value of the mass percent given to the internal standard
+    represents the total crystalline contribution of that standard.
+    That is, if 1 g of a 90% crystalline internal standard is added
+    to 3 g of sample, the value of _pd_phase.mass_percent for the
+    standard is 22.5%.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               percent
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:100.0
+    _units.code                   none
+
+save_
+
+save_pd_phase_mass.percent_su
+
+    _definition.id                '_pd_phase_mass.percent_su'
+    _definition.update            2022-12-03
+    _description.text
+;
+    Standard uncertainty of _pd_phase_mass.percent.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               percent_su
+    _name.linked_item_id          '_pd_phase_mass.percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_phase_mass.phase_id
+
+    _definition.id                '_pd_phase_mass.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the percent mass relates.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -5964,7 +6228,7 @@ save_pd_pref_orient.special_details
     If the correction can be described as a March_Dollase
     or spherical harmonics correction, use
     _pd_pref_orient_March_Dollase.* or
-    _pd_pref_orient_sphericalharmonics.*, as
+    _pd_pref_orient_spherical_harmonics.*, as
     appropriate.
 
     Omitting _pd_pref_orient* implies that no preferred-
@@ -5996,7 +6260,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     when modelling it's contribution to a hisotgram.
 
     For spherical harmonics corrections, see
-    PD_PREF_ORIENT_SPHERICALHARMONICS. For other methods,
+    PD_PREF_ORIENT_SPHERICAL_HARMONICS. For other methods,
     use _pd_pref_orient.special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 for
@@ -6289,9 +6553,9 @@ save_pd_pref_orient_March_Dollase.r_su
 
 save_
 
-save_PD_PREF_ORIENT_SPHERICALHARMONICS
+save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
-    _definition.id                PD_PREF_ORIENT_SPHERICALHARMONICS
+    _definition.id                PD_PREF_ORIENT_SPHERICAL_HARMONICS
     _definition.scope             Category
     _definition.class             Loop
     _definition.update            2022-11-17
@@ -6303,29 +6567,29 @@ save_PD_PREF_ORIENT_SPHERICALHARMONICS
     hisotgram.
 
     For March_Dollase corrections, see
-    PD_PREF_ORIENT_MARCH-DOLLASE. For other methods,
+    PD_PREF_ORIENT_MARCH_DOLLASE. For other methods,
     use _pd_pref_orient.special_details.
 
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_PREF_ORIENT_SPHERICALHARMONICS
+    _name.object_id               PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
-    _category_key.name            '_pd_pref_orient_sphericalharmonics.id'
+    _category_key.name            '_pd_pref_orient_spherical_harmonics.id'
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.c_ij
+save_pd_pref_orient_spherical_harmonics.c_ij
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.c_ij'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.c_ij'
     _definition.update            2022-11-17
     _description.text
 ;
     The value of the coefficient scaling the spherical
-    harmonic, ij, as given by _pd_pref_orient_sphericalharmonics.y_ij.
+    harmonic, ij, as given by _pd_pref_orient_spherical_harmonics.y_ij.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               c_ij
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -6335,27 +6599,27 @@ save_pd_pref_orient_sphericalharmonics.c_ij
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.c_ij_su
+save_pd_pref_orient_spherical_harmonics.c_ij_su
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.c_ij_su'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.c_ij_su'
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient.sphericalharmonics_c_ij_su.
+    Standard uncertainty of _pd_pref_orient_spherical_harmonics.c_ij.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               c_ij_su
-    _name.linked_item_id          '_pd_pref_orient_sphericalharmonics.c_ij'
+    _name.linked_item_id          '_pd_pref_orient_spherical_harmonics.c_ij'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.diffractogram_block_id
+save_pd_pref_orient_spherical_harmonics.diffractogram_block_id
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.diffractogram_block_id'
+        '_pd_pref_orient_spherical_harmonics.diffractogram_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6364,9 +6628,9 @@ save_pd_pref_orient_sphericalharmonics.diffractogram_block_id
     The data block containing the diffraction pattern
     for this phase will be identified with a _pd_block.id
     code matching the code in
-    _pd_pref_orient_sphericalharmonics.diffractogram_block_id.
+    _pd_pref_orient_spherical_harmonics.diffractogram_block_id.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -6375,9 +6639,9 @@ save_pd_pref_orient_sphericalharmonics.diffractogram_block_id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.geom
+save_pd_pref_orient_spherical_harmonics.geom
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.geom'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.geom'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6394,7 +6658,7 @@ save_pd_pref_orient_sphericalharmonics.geom
     default implementation.
 
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               geom
     _type.purpose                 State
     _type.source                  Assigned
@@ -6413,16 +6677,16 @@ save_pd_pref_orient_sphericalharmonics.geom
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.id
+save_pd_pref_orient_spherical_harmonics.id
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.id'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.id'
     _definition.update            2022-11-17
     _description.text
 ;
     A code to uniquely identify each spherical harmonic
     preferred-orientation correction.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -6432,10 +6696,10 @@ save_pd_pref_orient_sphericalharmonics.id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.phase_block_id
+save_pd_pref_orient_spherical_harmonics.phase_block_id
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.phase_block_id'
+        '_pd_pref_orient_spherical_harmonics.phase_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6445,7 +6709,7 @@ save_pd_pref_orient_sphericalharmonics.phase_block_id
     for this phase will be identified with the corresponding
     _pd_block.id code.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -6454,10 +6718,10 @@ save_pd_pref_orient_sphericalharmonics.phase_block_id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.texture_index
+save_pd_pref_orient_spherical_harmonics.texture_index
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.texture_index'
+        '_pd_pref_orient_spherical_harmonics.texture_index'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6471,7 +6735,7 @@ save_pd_pref_orient_sphericalharmonics.texture_index
     Mathemical Methods", Helga and Hans-Peter Bunge,
     Wolfratshausen.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               texture_index
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -6484,44 +6748,44 @@ save_pd_pref_orient_sphericalharmonics.texture_index
 ;
     t = 0.0
 
-    Loop po as pd_pref_orient_sphericalharmonics  {
+    Loop po as pd_pref_orient_spherical_harmonics  {
         t += po.c_ij ** 2 / (2 * po.y_i + 1)
     }
-    _pd_pref_orient_sphericalharmonics.texture_index = t
+    _pd_pref_orient_spherical_harmonics.texture_index = t
 
 ;
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.texture_index_su
+save_pd_pref_orient_spherical_harmonics.texture_index_su
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.texture_index_su'
+        '_pd_pref_orient_spherical_harmonics.texture_index_su'
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient_sphericalharmonics.texture_index.
+    Standard uncertainty of _pd_pref_orient_spherical_harmonics.texture_index.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               texture_index_su
     _name.linked_item_id
-        '_pd_pref_orient_sphericalharmonics.texture_index'
+        '_pd_pref_orient_spherical_harmonics.texture_index'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.y_i
+save_pd_pref_orient_spherical_harmonics.y_i
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.y_i'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.y_i'
     _definition.update            2022-11-17
     _description.text
 ;
     The order of the spherical harmonics preferred-orientation
     correction. Valid values are positive, even integers.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               y_i
     _type.purpose                 Number
     _type.source                  Assigned
@@ -6532,9 +6796,9 @@ save_pd_pref_orient_sphericalharmonics.y_i
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.y_ij
+save_pd_pref_orient_spherical_harmonics.y_ij
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.y_ij'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.y_ij'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6557,8 +6821,8 @@ save_pd_pref_orient_sphericalharmonics.y_ij
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
-    _name.object_id               y_ijp
+    _name.category_id             pd_pref_orient_spherical_harmonics
+    _name.object_id               y_ij
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Matrix
@@ -6568,16 +6832,16 @@ save_pd_pref_orient_sphericalharmonics.y_ij
     _method.purpose               Evaluation
     _method.expression
 ;
-    With po as pd_pref_orient_sphericalharmonics
+    With po as pd_pref_orient_spherical_harmonics
 
       po.y_ij = [po.y_i, po.y_j]
 ;
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.y_j
+save_pd_pref_orient_spherical_harmonics.y_j
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.y_j'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.y_j'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6588,7 +6852,7 @@ save_pd_pref_orient_sphericalharmonics.y_j
     In general, possible values are in the range -i:i. Valid values
     are dependent on the space-group of the phase.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               y_j
     _type.purpose                 Number
     _type.source                  Assigned
@@ -6598,7 +6862,7 @@ save_pd_pref_orient_sphericalharmonics.y_j
     _method.purpose               Definition
     _method.expression
 ;
-     With po as pd_pref_orient_sphericalharmonics
+     With po as pd_pref_orient_spherical_harmonics
 
     _enumeration.range = -po.y_i:po.y_i
 ;
@@ -6984,8 +7248,8 @@ save_pd_proc_ls.pref_orient_corr
     DEPRECATED. Use _pd_pref_orient.special_details, or if
     the correction can be described as a March_Dollase
     or spherical harmonics correction, use
-    _pd_pref_orient.March_Dollase* or
-    _pd_pref_orient.sphericalharmonics*, as
+    _pd_pref_orient_March_Dollase.* or
+    _pd_pref_orient_spherical_harmonics.*, as
     appropriate.
 
     Description of the preferred-orientation correction if
@@ -7376,6 +7640,496 @@ save_pd_proc.number_of_points
 
 save_
 
+save_PD_QPA_EXT_STD
+
+    _definition.id                PD_QPA_EXT_STD
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-03
+    _description.text
+;
+    This category identifies the external standard used for
+    quantitative phase analysis. Loops may be used for calibration
+    information that differs by detector channel, otherwise only a
+    single value should be recorded per diffractogram.
+
+    Quantification by external standard is typically carried out
+    using the O'Connor and Raven algorithm in conjunction with whole-
+    pattern Rietveld modelling, and relies on the determination of
+    the diffractometer constant, K. The use of an external standard
+    allows for the calculation of absolute mass fractions, giving
+    an indication of amorphous content. This method requires the
+    mass attenuation coefficient of the specimen to be measured or
+    calculated. For a review on quantitative phase analysis, see
+    Chapter 3.9 of Internation Tables, Vol. H, and references therein.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_EXT_STD
+
+    loop_
+      _category_key.name
+         '_pd_qpa_ext_std.detector_id'
+         '_pd_qpa_ext_std.block_id'
+
+save_
+
+save_pd_qpa_ext_std.block_id
+
+    _definition.id                '_pd_qpa_ext_std.block_id'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the _pd_block.id of the diffractogram of the phase
+    used as an external standard for the determination of
+    the diffractometer constant.
+
+    Further references to additional phases present are given in
+    that data block.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_ext_std.detector_id
+
+    _definition.id                '_pd_qpa_ext_std.detector_id'
+    _definition.update            2016-10-18
+    _description.text
+;
+    A code which identifies the detector or channel number to which
+    the external standard data applies. Note that this code should
+    match a detector from _pd_meas.detector_id and may be omitted if
+    only one detector is used.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               detector_id
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+    _enumeration.default          .
+
+save_
+
+save_pd_qpa_ext_std.k_factor
+
+    _definition.id                '_pd_qpa_ext_std.k_factor'
+    _definition.update            2023-01-03
+    _description.text
+;
+    The value of the diffractometer constant, K,applied to the
+    quantification of the phases present in the given diffractogram.
+
+    The external standard method is described by O'Connor and Raven.
+    In this method, the absolute mass percent of a phase is given as
+
+    W_k = 100 * s_k * M_k * V_k * \mu* / K
+
+    where W_k, s_k, M_k, & V_k are the absolute mass percent, Rietveld
+    scale factor, unit cell mass, and unit cell volume of phase k.
+    \mu* is the mass attenuation coefficient of the specimen, and K is
+    the normalising diffractometer constant.
+
+    O'Connor, B. H., & Raven, M. D. (1988). Application of the Rietveld
+    Refinement Procedure in Assaying Powdered Mixtures. Powder Diffraction,
+    3(1), 2-6. doi:10.1017/s0885715600013026
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               k_factor
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_ext_std.k_factor_su
+
+    _definition.id                '_pd_qpa_ext_std.k_factor_su'
+    _definition.update            2022-12-01
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_ext_std.k_factor.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               k_factor_su
+    _name.linked_item_id          '_pd_qpa_ext_std.k_factor'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_ext_std.phase_id
+
+    _definition.id                '_pd_qpa_ext_std.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) used as the external standard.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_ext_std.phase_name
+
+    _definition.id                '_pd_qpa_ext_std.phase_name'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the name of the material used as an external standard for
+    quantitative phase analysis. This should match the value given in
+    _pd_phase.name in the data block containing the calibration diffractogram.
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               phase_name
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_ext_std.special_details
+
+    _definition.id                '_pd_qpa_ext_std.special_details'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Description of external standard details that cannot otherwise
+    be recorded using other PD_QPA_EXT_STD data items
+;
+    _name.category_id             pd_qpa_ext_std
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_PD_QPA_INT_STD
+
+    _definition.id                PD_QPA_INT_STD
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2023-01-03
+    _description.text
+;
+    This category identifies the internal standard used for
+    quantitative phase analysis.
+
+    Quantification by internal standard is typically carried out
+    using the Hill and Howard algorithm in conjunction with whole-
+    pattern Rietveld modelling, with the results being scaled to
+    match the included internal standard. The use of an internal
+    standard allows for the calculation of absolute mass fractions,
+    giving an indication of amorphous content.
+
+    For a review on quantitative phase analysis, see Chapter 3.9 of
+    Internation Tables, Vol. H, and references therein.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_INT_STD
+
+save_
+
+save_pd_qpa_int_std.block_id
+
+    _definition.id                '_pd_qpa_int_std.block_id'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the _pd_block.id of the phase used as an internal
+    standard for the determination of absolute quantitative phase
+    analysis.
+
+    The data block containing the crystallographic information for this
+    phase will be identified with a _pd_block.id code matching the
+    code in _pd_qpa_int_std.block_id
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_int_std.mass_percent
+
+    _definition.id                '_pd_qpa_int_std.mass_percent'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Per cent presence of the internal standard specified by the
+    data item _pd_calib.std_internal_name expressed as 100 times
+    the mass of standard added divided by the sum of the mass of
+    standard added and the original sample mass.
+
+    This value does not take into account the crystallinity of the
+    internal standard. That is, if 1 g of a 90% crystalline internal
+    standard is added to 3 g of sample, the
+    _pd_calib.std_internal_mass_percent is 25%.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               mass_percent
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_int_std.mass_percent_su
+
+    _definition.id                '_pd_qpa_int_std.mass_percent_su'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_int_std.mass_percent.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               mass_percent_su
+    _name.linked_item_id          '_pd_qpa_int_std.mass_percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_int_std.phase_id
+
+    _definition.id                '_pd_qpa_int_std.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) used as the internal standard.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_int_std.phase_name
+
+    _definition.id                '_pd_qpa_int_std.phase_name'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the name of the material used as an internal standard for
+    quantitative phase analysis. This should match the value given in
+    _pd_phase.name in the data block containing the calibration diffractogram.
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               phase_name
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_int_std.special_details
+
+    _definition.id                '_pd_qpa_int_std.special_details'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Description of internal standard details that cannot otherwise
+    be recorded using other PD_QPA_INT_STD data items
+;
+    _name.category_id             pd_qpa_int_std
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_PD_QPA_RIR
+
+    _definition.id                PD_QPA_RIR
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2023-01-03
+    _description.text
+;
+    This category identifies the reference intensity ratio used for
+    quantitative phase analysis.
+
+    The reference intensity ratio (RIR) is an instrument-independent phase
+    constant developed  for use in quantitative phase analysis and is
+    defined as the ratio of the most intense peak of phase, p, to the
+    most intense peak of a reference material, s.
+
+    The generally accepted reference material is corundum due to its
+    relatively simple diffraction pattern, stability, and availability
+    as a highly crystalline and pure single phase. Additionally, the
+    unknown and reference materials are generally accepted to be mixed
+    in a 50:50 mass ratio. If corundum is used, the RIR equates to I/Ic
+    (or 'I over I corundum') for the phase; these are the most commonly
+    reported values in the literature.
+
+    When applied in conjunction with the matrix-flushing method, quantitative
+    phase analysis is able to be undertaken without the presence of a
+    reference material. In this case, the sum of the mass fractions is
+    normalised to 100%.
+
+    The weight fraction of phase p, W_p, is given by
+
+    W_p = [I_p / (RIR_p * I_p,rel)] / Sum_k[I_k / (RIR_k * I_k,rel)]
+
+    where I_p is the intensity of the analyte peak of phase p, I_P,rel
+    is the ratio between the analyte peak and the most intense peak for
+    phase p, and RIR_p is the reference intensity ratio for phase p.
+    The sum is taken over all phases present in the specimen.
+
+    For a review on quantitative phase analysis, see Chapter 3.9 of
+    Internation Tables, Vol. H, and references therein.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_RIR
+
+save_
+
+save_pd_qpa_rir.special_details
+
+    _definition.id                '_pd_qpa_rir.special_details'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Description of RIR details that cannot otherwise
+    be recorded using other PD_QPA_RIR data items.
+;
+    _name.category_id             pd_qpa_rir
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_rir.std_block_id
+
+    _definition.id                '_pd_qpa_rir.std_block_id'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Identifies the _pd_block.id of the diffractogram used to determine
+    the reference intensity ratio.
+
+    Further references to additional phases present are given in
+    that data block.
+;
+    _name.category_id             pd_qpa_rir
+    _name.object_id               std_block_id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_qpa_rir.std_phase_id
+
+    _definition.id                '_pd_qpa_rir.std_phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) used as the internal standard in
+    the determination of the reference intensity ratio.
+;
+    _name.category_id             pd_qpa_rir
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_rir.value
+
+    _definition.id                '_pd_qpa_rir.value'
+    _definition.update            2023-01-03
+    _description.text
+;
+    The value of the reference intensity ratio to be used in
+    quantitative phase analysis, as described by Hubbard et al., 1976,
+    Hubbard & Snyder, 1988, and Snyder & Bish, 1989.
+
+    The weight fraction of phase p, W_p is given by
+
+    W_p = [I_p / (RIR_p * I_p,rel)] / Sum_k[I_k / (RIR_k * I_k,rel)]
+
+    where I_p is the intensity of the analyte peak of phase p, I_P,rel
+    is the ratio between the analyte peak and the most intense peak for
+    phase p, and RIR_p is the reference intensity ratio for phase p.
+    The sum is taken over all phases present in the specimen.
+
+    Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). The reference
+    intensity ratio, I/Ic, for computer simulated powder patterns. J. Appl.
+    Cryst. 9, 169-174.
+
+    Hubbard, C. R. & Snyder, R. L. (1988). RIR - measurement and use in
+    quantitative XRD. Powder Diffr. 3, 74-77.
+
+    Snyder, R. L. & Bish, D. L. (1989). In Modern Powder Diffraction, edited
+    by D. L. Bish & J. E. Post, pp. 101-142. Washington DC: Mineralogical
+    Society of America.
+;
+    _name.category_id             pd_qpa_rir
+    _name.object_id               value
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_rir.value_su
+
+    _definition.id                '_pd_qpa_rir.value_su'
+    _definition.update            2023-01-03
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_rir.value.
+;
+    _name.category_id             pd_qpa_rir
+    _name.object_id               value_su
+    _name.linked_item_id          '_pd_qpa_rir.value'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_PD_SPEC
 
     _definition.id                PD_SPEC
@@ -7707,7 +8461,7 @@ save_pd_refln.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7843,7 +8597,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-04
+         2.5.0                    2023-01-06
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -7857,28 +8611,43 @@ save_
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
 
+       Add PD_DIFFRACTOGRAM category and linked data names.
+
        Added PD_CALC_COMPONENT and related data names.
 
        Updated many datanames from Number to Measurand.
 
        Made PD_BLOCK a Loop category.
 
-       Made PD_BLOCK a Loop category
+       Created PD_PREF_ORIENT_MARCH_DOLLASE and
+       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orienation
+       corrections.
 
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
 
        Updated descriptions of _pd_meas.counts, _pd_meas.intensity_background,
-       _pd_meas.intensity_container, and _pd_meas.intensity_monitor
+       _pd_meas.intensity_container, and _pd_meas.intensity_monitor.
 
-       Removed enumeration range for _pd_proc.intensity_net
+       Removed enumeration range for _pd_proc.intensity_net.
 
        Added ability to record detector circle radius, both fixed and
        varying by measurement point.
 
-       Updated many datanames from Number to Measurand
+       Updated many datanames from Number to Measurand.
+
+       Made PD_PHASE a Set category.
+
+       Created PD_QPA_EXT_STD and PD_QPA_INT_STD to record quantitative
+       phase analysis by the external and internal standard approaches.
+
+       Created PD_QPA_RIR to record quantitative phase analysis by
+       the reference intensity ratio approach.
 
        Made PD_BLOCK a Loop category
 
        Created PD_CALIB_INTENSITY and PD_CALIB_WAVELENGTH to hold
        specific calibration information.
+
+       Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
+       Integer to Real.
 ;
