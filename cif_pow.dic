@@ -4428,7 +4428,7 @@ save_pd_instr.soller_eq_spec_detc
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the specimen and the
     detectoomator in use, and *_spec_detc is used in place of
-    *_spec_anal and *_anal_detc if there is no analys er in use.
+    *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               soller_eq_spec_detc
@@ -5560,8 +5560,8 @@ save_PD_PREF_ORIENT
     _description.text
 ;
     This section contains a description of preferred-orientation
-    corrections applied to a phase when modelling it's contribution
-    to a hisotgram.
+    corrections applied to a phase when modelling its contribution
+    to a histogram.
 
     March_Dollase and spherical harmonics corrections can be
     given explicitly. For other methods, use the special_details.
@@ -5623,7 +5623,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
 ;
     This section contains a description of March_Dollase
     preferred-orientation corrections applied to a phase
-    when modelling it's contribution to a hisotgram.
+    when modelling its contribution to a histogram.
 
     For spherical harmonics corrections, see
     PD_PREF_ORIENT_SPHERICALHARMONICS. For other methods,
@@ -5929,8 +5929,8 @@ save_PD_PREF_ORIENT_SPHERICALHARMONICS
 ;
     This section contains a description of spherical
     harmonics preferred-orientation corrections applied
-    to a phase when modelling it's contribution to a
-    hisotgram.
+    to a phase when modelling its contribution to a
+    histogram.
 
     For March_Dollase corrections, see
     PD_PREF_ORIENT_MARCH-DOLLASE. For other methods,
@@ -6014,7 +6014,7 @@ save_pd_pref_orient_sphericalharmonics.geom
     Code identifying the geometry of the preferred-orientation
     correction, as distinct from the geometry of data collection.
 
-    The functional form of thespherical harmonics correction depends
+    The functional form of the spherical harmonics correction depends
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
@@ -6098,7 +6098,7 @@ save_pd_pref_orient_sphericalharmonics.texture_index
     and infty is an ideal single crystal.
 
     Bunge, H.J., (2015) "Texture Analysis in Materials Science:
-    Mathemical Methods", Helga and Hans-Peter Bunge,
+    Mathematical Methods", Helga and Hans-Peter Bunge,
     Wolfratshausen.
 ;
     _name.category_id             pd_pref_orient_sphericalharmonics
@@ -6179,7 +6179,7 @@ save_pd_pref_orient_sphericalharmonics.y_ij
     valid orders are positive, even integers, and possible
     terms are in the range -i:i. Valid terms are restricted
     by space-group symmetry. The parity of the term is given
-    by it's sign; odd parity is negative, even is positive.
+    by its sign; odd parity is negative, even is positive.
 
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
@@ -6213,7 +6213,7 @@ save_pd_pref_orient_sphericalharmonics.y_j
 ;
     The term (j) of the given order (i) of the spherical harmonics
     preferred-orientation correction. The parity of the term
-    is given by it's sign; odd parity is negative, even is positive.
+    is given by its sign; odd parity is negative, even is positive.
 
     In general, possible values are in the range -i:i. Valid values
     are dependent on the space-group of the phase.
