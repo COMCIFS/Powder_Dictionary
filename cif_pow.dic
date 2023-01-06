@@ -6860,8 +6860,8 @@ save_pd_proc_ls.pref_orient_corr
     DEPRECATED. Use _pd_pref_orient.special_details, or if
     the correction can be described as a March_Dollase
     or spherical harmonics correction, use
-    _pd_pref_orient.March_Dollase* or
-    _pd_pref_orient.spherical_harmonics*, as
+    _pd_pref_orient_March_Dollase.* or
+    _pd_pref_orient_spherical_harmonics.*, as
     appropriate.
 
     Description of the preferred-orientation correction if
