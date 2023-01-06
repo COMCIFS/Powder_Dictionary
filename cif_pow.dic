@@ -4427,7 +4427,7 @@ save_pd_instr.soller_eq_spec_detc
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the specimen and the
-    detectoomator in use, and *_spec_detc is used in place of
+    detector in use, and *_spec_detc is used in place of
     *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
