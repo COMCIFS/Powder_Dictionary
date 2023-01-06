@@ -89,7 +89,7 @@ save_pd_block.id
 
     _definition.id                '_pd_block.id'
     _alias.definition_id          '_pd_block_id'
-    _definition.update            2022-09-30
+    _definition.update            2023-01-06
     _description.text
 ;
     Used to assign a unique character string to a block.
@@ -378,7 +378,7 @@ save_pd_calc.method
 
     _definition.id                '_pd_calc.method'
     _alias.definition_id          '_pd_calc_method'
-    _definition.update            2016-10-18
+    _definition.update            2023-01-06
     _description.text
 ;
     A description of the method used for the calculation of the
@@ -886,7 +886,7 @@ save_
 save_pd_calib_offset.id
 
     _definition.id                '_pd_calib_offset.id'
-    _definition.update            2016-10-19
+    _definition.update            2023-01-06
     _description.text
 ;
     An arbitrary code which identifies a particular 2\\q offset
@@ -2912,7 +2912,7 @@ save_PD_INSTR
     _definition.id                PD_INSTR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     This section contains information relevant to the instrument
@@ -3136,7 +3136,7 @@ save_pd_instr.dist_src_mono
 
     _definition.id                '_pd_instr.dist_src_mono'
     _alias.definition_id          '_pd_instr_dist_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distance in millimetres from the radiation source to
@@ -3158,7 +3158,7 @@ save_pd_instr.dist_src_spec
 
     _definition.id                '_pd_instr.dist_src_spec'
     _alias.definition_id          '_pd_instr_dist_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distances in millimetres from the radiation source to
@@ -3207,7 +3207,7 @@ save_pd_instr.divg_ax_src_mono
 
     _definition.id                '_pd_instr.divg_ax_src_mono'
     _alias.definition_id          '_pd_instr_divg_ax_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -3312,7 +3312,7 @@ save_pd_instr.divg_eq_src_spec
 
     _definition.id                '_pd_instr.divg_eq_src_spec'
     _alias.definition_id          '_pd_instr_divg_eq_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -3465,7 +3465,7 @@ save_pd_instr.slit_ax_src_mono
 
     _definition.id                '_pd_instr.slit_ax_src_mono'
     _alias.definition_id          '_pd_instr_slit_ax_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -3491,7 +3491,7 @@ save_pd_instr.slit_ax_src_spec
 
     _definition.id                '_pd_instr.slit_ax_src_spec'
     _alias.definition_id          '_pd_instr_slit_ax_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -3543,7 +3543,7 @@ save_pd_instr.slit_eq_src_mono
 
     _definition.id                '_pd_instr.slit_eq_src_mono'
     _alias.definition_id          '_pd_instr_slit_eq_src/mono'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -3595,7 +3595,7 @@ save_pd_instr.soller_ax_mono_spec
 
     _definition.id                '_pd_instr.soller_ax_mono_spec'
     _alias.definition_id          '_pd_instr_soller_ax_mono/spec'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -3650,7 +3650,7 @@ save_pd_instr.soller_ax_src_spec
 
     _definition.id                '_pd_instr.soller_ax_src_spec'
     _alias.definition_id          '_pd_instr_soller_ax_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -3729,7 +3729,7 @@ save_pd_instr.soller_eq_src_spec
 
     _definition.id                '_pd_instr.soller_eq_src_spec'
     _alias.definition_id          '_pd_instr_soller_eq_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -3754,7 +3754,7 @@ save_pd_instr.source_size_ax
 
     _definition.id                '_pd_instr.source_size_ax'
     _alias.definition_id          '_pd_instr_source_size_ax'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Axial intrinsic dimension of the radiation source (in
@@ -3776,7 +3776,7 @@ save_pd_instr.source_size_eq
 
     _definition.id                '_pd_instr.source_size_eq'
     _alias.definition_id          '_pd_instr_source_size_eq'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Equatorial intrinsic dimension of the radiation source (in
@@ -3819,7 +3819,7 @@ save_PD_INSTR_DETECTOR
     _definition.id                PD_INSTR_DETECTOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     This section contains information relevant to the detector
@@ -3890,7 +3890,7 @@ save_pd_instr.dist_spec_anal
 
     _definition.id                '_pd_instr.dist_spec_anal'
     _alias.definition_id          '_pd_instr_dist_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distances in millimetres from the specimen to the
@@ -3912,7 +3912,7 @@ save_pd_instr.dist_spec_detc
 
     _definition.id                '_pd_instr.dist_spec_detc'
     _alias.definition_id          '_pd_instr_dist_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distance in millimetres from the specimen to the
@@ -3934,7 +3934,7 @@ save_pd_instr.divg_ax_anal_detc
 
     _definition.id                '_pd_instr.divg_ax_anal_detc'
     _alias.definition_id          '_pd_instr_divg_ax_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -3960,7 +3960,7 @@ save_pd_instr.divg_ax_spec_anal
 
     _definition.id                '_pd_instr.divg_ax_spec_anal'
     _alias.definition_id          '_pd_instr_divg_ax_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction
@@ -3987,7 +3987,7 @@ save_pd_instr.divg_ax_spec_detc
 
     _definition.id                '_pd_instr.divg_ax_spec_detc'
     _alias.definition_id          '_pd_instr_divg_ax_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction
@@ -4014,7 +4014,7 @@ save_pd_instr.divg_eq_anal_detc
 
     _definition.id                '_pd_instr.divg_eq_anal_detc'
     _alias.definition_id          '_pd_instr_divg_eq_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4040,7 +4040,7 @@ save_pd_instr.divg_eq_spec_anal
 
     _definition.id                '_pd_instr.divg_eq_spec_anal'
     _alias.definition_id          '_pd_instr_divg_eq_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4066,7 +4066,7 @@ save_pd_instr.divg_eq_spec_detc
 
     _definition.id                '_pd_instr.divg_eq_spec_detc'
     _alias.definition_id          '_pd_instr_divg_eq_spec/detc'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4138,7 +4138,7 @@ save_pd_instr.slit_ax_anal_detc
 
     _definition.id                '_pd_instr.slit_ax_anal_detc'
     _alias.definition_id          '_pd_instr_slit_ax_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -4164,7 +4164,7 @@ save_pd_instr.slit_ax_spec_anal
 
     _definition.id                '_pd_instr.slit_ax_spec_anal'
     _alias.definition_id          '_pd_instr_slit_ax_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -4190,7 +4190,7 @@ save_pd_instr.slit_ax_spec_detc
 
     _definition.id                '_pd_instr.slit_ax_spec_detc'
     _alias.definition_id          '_pd_instr_slit_ax_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -4242,7 +4242,7 @@ save_pd_instr.slit_eq_spec_anal
 
     _definition.id                '_pd_instr.slit_eq_spec_anal'
     _alias.definition_id          '_pd_instr_slit_eq_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4268,7 +4268,7 @@ save_pd_instr.slit_eq_spec_detc
 
     _definition.id                '_pd_instr.slit_eq_spec_detc'
     _alias.definition_id          '_pd_instr_slit_eq_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4294,7 +4294,7 @@ save_pd_instr.soller_ax_anal_detc
 
     _definition.id                '_pd_instr.soller_ax_anal_detc'
     _alias.definition_id          '_pd_instr_soller_ax_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -4319,7 +4319,7 @@ save_pd_instr.soller_ax_spec_anal
 
     _definition.id                '_pd_instr.soller_ax_spec_anal'
     _alias.definition_id          '_pd_instr_soller_ax_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -4344,7 +4344,7 @@ save_pd_instr.soller_ax_spec_detc
 
     _definition.id                '_pd_instr.soller_ax_spec_detc'
     _alias.definition_id          '_pd_instr_soller_ax_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
@@ -4369,7 +4369,7 @@ save_pd_instr.soller_eq_anal_detc
 
     _definition.id                '_pd_instr.soller_eq_anal_detc'
     _alias.definition_id          '_pd_instr_soller_eq_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4394,7 +4394,7 @@ save_pd_instr.soller_eq_spec_anal
 
     _definition.id                '_pd_instr.soller_eq_spec_anal'
     _alias.definition_id          '_pd_instr_soller_eq_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
@@ -4443,7 +4443,7 @@ save_
 save_pd_instr_detector.id
 
     _definition.id                '_pd_instr_detector.id'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     A code which identifies the detector or channel number in a
