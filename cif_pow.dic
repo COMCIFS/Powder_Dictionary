@@ -2243,7 +2243,7 @@ save_pd_meas.step_count_time
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            0:
+    _enumeration.range            0.0:
     _units.code                   seconds
 
 save_
@@ -2282,7 +2282,7 @@ save_pd_meas.time_of_flight
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            0:
+    _enumeration.range            0.0:
     _units.code                   microseconds
 
 save_
