@@ -3059,11 +3059,6 @@ save_pd_diffractogram.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-    _method.purpose               Definition
-    _method.expression
-;
-    _enumeration.default = _pd_block.id
-;
 
 save_
 
