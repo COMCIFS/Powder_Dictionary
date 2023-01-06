@@ -89,7 +89,7 @@ save_pd_block.id
 
     _definition.id                '_pd_block.id'
     _alias.definition_id          '_pd_block_id'
-    _definition.update            2022-09-30
+    _definition.update            2023-01-06
     _description.text
 ;
     Used to assign a unique character string to a block.
@@ -142,7 +142,7 @@ save_pd_block.id
 
     The sections are separated with vertical rules '|' which are
     not allowed within the sections. Blank spaces may also
-    not be used.  Capitalization may be used within the ID code
+    not be used. Capitalization may be used within the ID code
     but should not be considered significant - searches for
     data-set ID names should be case-insensitive.
 
@@ -399,7 +399,7 @@ save_pd_calc.method
 
     _definition.id                '_pd_calc.method'
     _alias.definition_id          '_pd_calc_method'
-    _definition.update            2016-10-18
+    _definition.update            2023-01-06
     _description.text
 ;
     A description of the method used for the calculation of the
@@ -407,7 +407,7 @@ save_pd_calc.method
     calculated from crystal structure data for a single phase, the
     atom coordinates and other crystallographic information should
     be included in the datablock using the core CIF ATOM_SITE and
-    CELL data items.  If multiple phases were used, these should
+    CELL data items. If multiple phases were used, these should
     be listed in the pd_phase category.
 ;
     _name.category_id             pd_calc_overall
@@ -907,11 +907,11 @@ save_
 save_pd_calib_offset.id
 
     _definition.id                '_pd_calib_offset.id'
-    _definition.update            2016-10-19
+    _definition.update            2023-01-06
     _description.text
 ;
     An arbitrary code which identifies a particular 2\\q offset
-    description.  As a default value is defined, this may be
+    description. As a default value is defined, this may be
     omitted if only a single offset is provided.
 ;
     _name.category_id             pd_calib_offset
@@ -3067,7 +3067,7 @@ save_PD_INSTR
     _definition.id                PD_INSTR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     This section contains information relevant to the instrument
@@ -3098,7 +3098,7 @@ save_PD_INSTR
     In the PD_INSTR definitions, the term monochromator refers
     to a primary beam (pre-specimen) monochromator and the term
     analyser refers to post-diffraction (post-specimen)
-    monochromator.  The analyser may be fixed for specific
+    monochromator. The analyser may be fixed for specific
     wavelength or may be capable of being scanned.
 
     It is strongly recommended that the core dictionary term
@@ -3291,11 +3291,11 @@ save_pd_instr.dist_src_mono
 
     _definition.id                '_pd_instr.dist_src_mono'
     _alias.definition_id          '_pd_instr_dist_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distance in millimetres from the radiation source to
-    the monochromator.  Note that *_src_spec is used in place of
+    the monochromator. Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use.
 ;
     _name.category_id             pd_instr
@@ -3313,11 +3313,11 @@ save_pd_instr.dist_src_spec
 
     _definition.id                '_pd_instr.dist_src_spec'
     _alias.definition_id          '_pd_instr_dist_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distances in millimetres from the radiation source to
-    the specimen.  Note that *_src_spec is used in place of
+    the specimen. Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use
 ;
     _name.category_id             pd_instr
@@ -3362,14 +3362,14 @@ save_pd_instr.divg_ax_src_mono
 
     _definition.id                '_pd_instr.divg_ax_src_mono'
     _alias.definition_id          '_pd_instr_divg_ax_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) between
-    the radiation source and monochromator.  Values are the maximum
+    the radiation source and monochromator. Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr.soller_ax_).  Note
+    optics other than Soller slits (see _pd_instr.soller_ax_). Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3441,12 +3441,12 @@ save_pd_instr.divg_eq_src_mono
 
     _definition.id                '_pd_instr.divg_eq_src_mono'
     _alias.definition_id          '_pd_instr_divg_eq_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) between the radiation source
-    and monochromator Values are the maximum divergence angles in
+    and monochromator. Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
     other than Soller slits (see _pd_instr.soller_eq_).
     Note that *_src_spec is used in place of *_src_mono and
@@ -3467,14 +3467,14 @@ save_pd_instr.divg_eq_src_spec
 
     _definition.id                '_pd_instr.divg_eq_src_spec'
     _alias.definition_id          '_pd_instr_divg_eq_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) between the
-    radiation source and specimen.  Values are the maximum
+    radiation source and specimen. Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr.soller_eq_).  Note
+    optics other than Soller slits (see _pd_instr.soller_eq_). Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3620,14 +3620,14 @@ save_pd_instr.slit_ax_src_mono
 
     _definition.id                '_pd_instr.slit_ax_src_mono'
     _alias.definition_id          '_pd_instr_slit_ax_src/mono'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the radiation source and monochromator.
+    collimation between the radiation source and monochromator.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3646,14 +3646,14 @@ save_pd_instr.slit_ax_src_spec
 
     _definition.id                '_pd_instr.slit_ax_src_spec'
     _alias.definition_id          '_pd_instr_slit_ax_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the radiation source and the specimen.  Note
+    collimation between the radiation source and the specimen. Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3672,14 +3672,14 @@ save_pd_instr.slit_eq_mono_spec
 
     _definition.id                '_pd_instr.slit_eq_mono_spec'
     _alias.definition_id          '_pd_instr_slit_eq_mono/spec'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Ollimation between the monochromator and the specimen.
+    collimation between the monochromator and the specimen.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3698,14 +3698,14 @@ save_pd_instr.slit_eq_src_mono
 
     _definition.id                '_pd_instr.slit_eq_src_mono'
     _alias.definition_id          '_pd_instr_slit_eq_src/mono'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the radiation source and monochromator.
+    collimation between the radiation source and monochromator.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3724,14 +3724,14 @@ save_pd_instr.slit_eq_src_spec
 
     _definition.id                '_pd_instr.slit_eq_src_spec'
     _alias.definition_id          '_pd_instr_slit_eq_src/spec'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Ollimation between the radiation source and the specimen.
+    collimation between the radiation source and the specimen.
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3750,14 +3750,14 @@ save_pd_instr.soller_ax_mono_spec
 
     _definition.id                '_pd_instr.soller_ax_mono_spec'
     _alias.definition_id          '_pd_instr_soller_ax_mono/spec'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
-    instrument.  Values are the maximum divergence angles in
+    instrument. Values are the maximum divergence angles in
     degrees, as limited by Soller slits located between the
-    monochromator and specimen.  Note that *_src_spec is used in
+    monochromator and specimen. Note that *_src_spec is used in
     place of *_src_mono and *_mono_spec if there is no monochromator
     in use.
 ;
@@ -3805,14 +3805,14 @@ save_pd_instr.soller_ax_src_spec
 
     _definition.id                '_pd_instr.soller_ax_src_spec'
     _alias.definition_id          '_pd_instr_soller_ax_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
-    instrument.  Values are the maximum divergence angles in
+    instrument. Values are the maximum divergence angles in
     degrees, as limited by Soller slits located between the
-    radiation source and specimen.  Note that *_src_spec is used in
+    radiation source and specimen. Note that *_src_spec is used in
     place of *_src_mono and *_mono_spec if there is no monochromator
     in use.
 ;
@@ -3884,14 +3884,14 @@ save_pd_instr.soller_eq_src_spec
 
     _definition.id                '_pd_instr.soller_eq_src_spec'
     _alias.definition_id          '_pd_instr_soller_eq_src/spec'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the radiation source
-    and monochromator.  Note that *_src_spec is used in place of
+    and monochromator. Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use.
 ;
     _name.category_id             pd_instr
@@ -3909,11 +3909,11 @@ save_pd_instr.source_size_ax
 
     _definition.id                '_pd_instr.source_size_ax'
     _alias.definition_id          '_pd_instr_source_size_ax'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Axial intrinsic dimension of the radiation source (in
-    millimetres).  The perpendicular to the plane containing the
+    millimetres). The perpendicular to the plane containing the
     incident and scattered beam is the axial (*_ax) direction.
 ;
     _name.category_id             pd_instr
@@ -3931,11 +3931,11 @@ save_pd_instr.source_size_eq
 
     _definition.id                '_pd_instr.source_size_eq'
     _alias.definition_id          '_pd_instr_source_size_eq'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Equatorial intrinsic dimension of the radiation source (in
-    millimetres).  The equatorial direction is in the plane
+    millimetres). The equatorial direction is in the plane
     containing the incident and scattered beam.
 ;
     _name.category_id             pd_instr
@@ -3974,7 +3974,7 @@ save_PD_INSTR_DETECTOR
     _definition.id                PD_INSTR_DETECTOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     This section contains information relevant to the detector
@@ -3983,7 +3983,7 @@ save_PD_INSTR_DETECTOR
     may be prepared and included with each data set.
 
     The term analyser refers to post-diffraction (post-specimen)
-    monochromator.  The analyser may be fixed for specific
+    monochromator. The analyser may be fixed for specific
     wavelength or may be capable of being scanned.
 
     For multiple-detector instruments it may be necessary to loop the
@@ -4001,11 +4001,11 @@ save_pd_instr.2theta_monochr_post
 
     _definition.id                '_pd_instr.2theta_monochr_post'
     _alias.definition_id          '_pd_instr_2theta_monochr_post'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     The 2\\q angle for a post-specimen
-    monochromator (also called an analyzer)
+    monochromator (also called an analyser)
     (see also _pd_instr.monochr_post_spec).
 ;
     _name.category_id             pd_instr_detector
@@ -4045,11 +4045,11 @@ save_pd_instr.dist_spec_anal
 
     _definition.id                '_pd_instr.dist_spec_anal'
     _alias.definition_id          '_pd_instr_dist_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distances in millimetres from the specimen to the
-    analyser.  Note that *_spec_detc is used in place of *_spec_anal
+    analyser. Note that *_spec_detc is used in place of *_spec_anal
     if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4067,11 +4067,11 @@ save_pd_instr.dist_spec_detc
 
     _definition.id                '_pd_instr.dist_spec_detc'
     _alias.definition_id          '_pd_instr_dist_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Specifies distance in millimetres from the specimen to the
-    detector.  Note that *_spec_anal and *_anal_detc are used
+    detector. Note that *_spec_anal and *_anal_detc are used
     instead of *_spec_detc if there is an analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4089,14 +4089,14 @@ save_pd_instr.divg_ax_anal_detc
 
     _definition.id                '_pd_instr.divg_ax_anal_detc'
     _alias.definition_id          '_pd_instr_divg_ax_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) between
     the analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_ax_): Note that
+    than Soller slits (see _pd_instr.soller_ax_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4115,7 +4115,7 @@ save_pd_instr.divg_ax_spec_anal
 
     _definition.id                '_pd_instr.divg_ax_spec_anal'
     _alias.definition_id          '_pd_instr_divg_ax_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction
@@ -4124,8 +4124,7 @@ save_pd_instr.divg_ax_spec_anal
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
     other than Soller slits (see _pd_instr.soller_ax_).
-    Note that
-    *_spec_detc is used in place of *_spec_anal and *_anal_detc
+    Note that *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4143,7 +4142,7 @@ save_pd_instr.divg_ax_spec_detc
 
     _definition.id                '_pd_instr.divg_ax_spec_detc'
     _alias.definition_id          '_pd_instr_divg_ax_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction
@@ -4151,7 +4150,7 @@ save_pd_instr.divg_ax_spec_detc
     and diffracted beams) between the specimen and the detector.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_).
+    other than Soller slits (see _pd_instr.soller_ax_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
@@ -4170,14 +4169,14 @@ save_pd_instr.divg_eq_anal_detc
 
     _definition.id                '_pd_instr.divg_eq_anal_detc'
     _alias.definition_id          '_pd_instr_divg_eq_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) between the
-    analyser and the detector.  Values are the maximum divergence
+    analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_).  Note that
+    than Soller slits (see _pd_instr.soller_eq_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4196,12 +4195,12 @@ save_pd_instr.divg_eq_spec_anal
 
     _definition.id                '_pd_instr.divg_eq_spec_anal'
     _alias.definition_id          '_pd_instr_divg_eq_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) between the
-    specimen and the analyser.  Values are the maximum divergence
+    specimen and the analyser. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
     than Soller slits (see _pd_instr.soller_eq_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
@@ -4222,16 +4221,16 @@ save_pd_instr.divg_eq_spec_detc
 
     _definition.id                '_pd_instr.divg_eq_spec_detc'
     _alias.definition_id          '_pd_instr_divg_eq_spec/detc'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) between the
     specimen and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_): *_spec_detc is
-    used in place of *_spec_anal and *_anal_detc if there is no
-    analyser in use.
+    than Soller slits (see _pd_instr.soller_eq_). Note that
+    *_spec_detc is used in place of *_spec_anal and *_anal_detc if
+    there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               divg_eq_spec_detc
@@ -4294,14 +4293,14 @@ save_pd_instr.slit_ax_anal_detc
 
     _definition.id                '_pd_instr.slit_ax_anal_detc'
     _alias.definition_id          '_pd_instr_slit_ax_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    collimation between the analyser and the detector.  Note that
+    collimation between the analyser and the detector. Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4320,14 +4319,14 @@ save_pd_instr.slit_ax_spec_anal
 
     _definition.id                '_pd_instr.slit_ax_spec_anal'
     _alias.definition_id          '_pd_instr_slit_ax_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    collimation between the specimen and the analyser.  Note that
+    collimation between the specimen and the analyser. Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4346,14 +4345,14 @@ save_pd_instr.slit_ax_spec_detc
 
     _definition.id                '_pd_instr.slit_ax_spec_detc'
     _alias.definition_id          '_pd_instr_slit_ax_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
     instrument as a slit width (as opposed to a divergence angle).
     Values are the width of the slit (in millimetres) defining
-    Collimation between the specimen and the detector.  Note that
+    collimation between the specimen and the detector. Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4372,14 +4371,14 @@ save_pd_instr.slit_eq_anal_detc
 
     _definition.id                '_pd_instr.slit_eq_anal_detc'
     _alias.definition_id          '_pd_instr_slit_eq_anal/detc'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the instrument
-    as a slit width (as opposed to a divergence angle).  Values are
-    the width of the slit (in millimetres) defining Ollimation
-    between the analyser and the detector.  Note that *_spec_detc is
+    as a slit width (as opposed to a divergence angle). Values are
+    the width of the slit (in millimetres) defining collimation
+    between the analyser and the detector. Note that *_spec_detc is
     used in place of *_spec_anal and *_anal_detc if there is no
     analyser in use.
 ;
@@ -4398,14 +4397,14 @@ save_pd_instr.slit_eq_spec_anal
 
     _definition.id                '_pd_instr.slit_eq_spec_anal'
     _alias.definition_id          '_pd_instr_slit_eq_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the instrument
-    as a slit width (as opposed to a divergence angle).  Values are
-    the width of the slit (in millimetres) defining Collimation
-    between the specimen and the analyser.  Note that *_spec_detc is
+    as a slit width (as opposed to a divergence angle). Values are
+    the width of the slit (in millimetres) defining collimation
+    between the specimen and the analyser. Note that *_spec_detc is
     used in place of *_spec_anal and *_anal_detc if there is no
     analyser in use.
 ;
@@ -4424,14 +4423,14 @@ save_pd_instr.slit_eq_spec_detc
 
     _definition.id                '_pd_instr.slit_eq_spec_detc'
     _alias.definition_id          '_pd_instr_slit_eq_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the instrument
-    as a slit width (as opposed to a divergence angle).  Values are
-    the width of the slit (in millimetres) defining Collimation
-    between the specimen and the detector.  Note that *_spec_detc is
+    as a slit width (as opposed to a divergence angle). Values are
+    the width of the slit (in millimetres) defining collimation
+    between the specimen and the detector. Note that *_spec_detc is
     used in place of *_spec_anal and *_anal_detc if there is no
     analyser in use.
 ;
@@ -4450,14 +4449,14 @@ save_pd_instr.soller_ax_anal_detc
 
     _definition.id                '_pd_instr.soller_ax_anal_detc'
     _alias.definition_id          '_pd_instr_soller_ax_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
-    instrument.  Values are the maximum divergence angles in
+    instrument. Values are the maximum divergence angles in
     degrees, as limited by Soller slits located between the analyser
-    and the detector.  Note that *_spec_detc is used in place of
+    and the detector. Note that *_spec_detc is used in place of
     *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4475,14 +4474,14 @@ save_pd_instr.soller_ax_spec_anal
 
     _definition.id                '_pd_instr.soller_ax_spec_anal'
     _alias.definition_id          '_pd_instr_soller_ax_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
-    instrument.  Values are the maximum divergence angles in
+    instrument. Values are the maximum divergence angles in
     degrees, as limited by Soller slits located between the specimen
-    and the analyser; Note that *_spec_detc is used in place of
+    and the analyser. Note that *_spec_detc is used in place of
     *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4500,14 +4499,14 @@ save_pd_instr.soller_ax_spec_detc
 
     _definition.id                '_pd_instr.soller_ax_spec_detc'
     _alias.definition_id          '_pd_instr_soller_ax_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the axial direction (perpendicular to
     the plane containing the incident and diffracted beams) for the
-    instrument.  Values are the maximum divergence angles in
+    instrument. Values are the maximum divergence angles in
     degrees, as limited by Soller slits located between the specimen
-    and the detector.  Note that *_spec_detc is used in place of
+    and the detector. Note that *_spec_detc is used in place of
     *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4525,14 +4524,14 @@ save_pd_instr.soller_eq_anal_detc
 
     _definition.id                '_pd_instr.soller_eq_anal_detc'
     _alias.definition_id          '_pd_instr_soller_eq_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the analyser and the
-    detector; Note that *_spec_detc is used in place of *_spec_anal
+    detector. Note that *_spec_detc is used in place of *_spec_anal
     and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4550,14 +4549,14 @@ save_pd_instr.soller_eq_spec_anal
 
     _definition.id                '_pd_instr.soller_eq_spec_anal'
     _alias.definition_id          '_pd_instr_soller_eq_spec/anal'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the specimen and the
-    analyser.  Note that *_spec_detc is used in place of *_spec_anal
+    analyser. Note that *_spec_detc is used in place of *_spec_anal
     and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4575,15 +4574,15 @@ save_pd_instr.soller_eq_spec_detc
 
     _definition.id                '_pd_instr.soller_eq_spec_detc'
     _alias.definition_id          '_pd_instr_soller_eq_spec/detc'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the specimen and the
-    detectoomator in use, and *_spec_detc is used in place of
-    *_spec_anal and *_anal_detc if there is no analys er in use.
+    detector in use. Note that *_spec_detc is used in place of
+    *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               soller_eq_spec_detc
@@ -4599,14 +4598,14 @@ save_
 save_pd_instr_detector.id
 
     _definition.id                '_pd_instr_detector.id'
-    _definition.update            2016-10-20
+    _definition.update            2023-01-06
     _description.text
 ;
     A code which identifies the detector or channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
     instrument for which individual instrument geometry is being
     defined. Note that this code should match the code name used for
-    _pd_meas.detector_id.  Where a single detector is used, this
+    _pd_meas.detector_id. Where a single detector is used, this
     may be omitted.
 ;
     _name.category_id             pd_instr_detector
@@ -5802,14 +5801,14 @@ save_PD_PREF_ORIENT
     _definition.id                PD_PREF_ORIENT
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     This section contains a description of preferred-orientation
-    corrections applied to a phase when modelling it's contribution
-    to a hisotgram.
+    corrections applied to a phase when modelling its contribution
+    to a histogram.
 
-    March_Dollase and spherical harmonics corrections can be
+    March-Dollase and spherical harmonics corrections can be
     given explicitly. For other methods, use the special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
@@ -5824,12 +5823,12 @@ save_
 save_pd_pref_orient.special_details
 
     _definition.id                '_pd_pref_orient.special_details'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     Description of the preferred-orientation correction if
     such a correction is used, and it cannot be described
-    as a March_Dollase or spherical harmonics correction.
+    as a March-Dollase or spherical harmonics correction.
 
     or
 
@@ -5837,7 +5836,7 @@ save_pd_pref_orient.special_details
     used in the application of a preferred-orientation model
     that cannot be specified elsewhere.
 
-    If the correction can be described as a March_Dollase
+    If the correction can be described as a March-Dollase
     or spherical harmonics correction, use
     _pd_pref_orient_March_Dollase.* or
     _pd_pref_orient_spherical_harmonics.*, as
@@ -5864,12 +5863,12 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     _definition.id                PD_PREF_ORIENT_MARCH_DOLLASE
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    This section contains a description of March_Dollase
+    This section contains a description of March-Dollase
     preferred-orientation corrections applied to a phase
-    when modelling it's contribution to a hisotgram.
+    when modelling its contribution to a histogram.
 
     For spherical harmonics corrections, see
     PD_PREF_ORIENT_SPHERICAL_HARMONICS. For other methods,
@@ -5911,10 +5910,10 @@ save_
 save_pd_pref_orient_March_Dollase.fract
 
     _definition.id                '_pd_pref_orient_March_Dollase.fract'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    In the case of multiple March_Dollase preferred-orientation
+    In the case of multiple March-Dollase preferred-orientation
     directions for a single phase, this denotes the fractional
     amount of preferred orientation in each direction.
 
@@ -5951,13 +5950,13 @@ save_
 save_pd_pref_orient_March_Dollase.geom
 
     _definition.id                '_pd_pref_orient_March_Dollase.geom'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     Code identifying the geometry of the preferred-orientation
     correction, as distinct from the geometry of data collection.
 
-    The functional form of the March_Dollase correction depends
+    The functional form of the March-Dollase correction depends
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
@@ -5989,10 +5988,10 @@ save_
 save_pd_pref_orient_March_Dollase.hkl
 
     _definition.id                '_pd_pref_orient_March_Dollase.hkl'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    Miller indices of the March_Dollase preferred-orientation
+    Miller indices of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -6018,10 +6017,10 @@ save_
 save_pd_pref_orient_March_Dollase.id
 
     _definition.id                '_pd_pref_orient_March_Dollase.id'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    A code to uniquely identify each March_Dollase
+    A code to uniquely identify each March-Dollase
     preferred-orientation correction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -6037,10 +6036,10 @@ save_
 save_pd_pref_orient_March_Dollase.index_h
 
     _definition.id                '_pd_pref_orient_March_Dollase.index_h'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    The h Miller index of the March_Dollase preferred-orientation
+    The h Miller index of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -6056,10 +6055,10 @@ save_
 save_pd_pref_orient_March_Dollase.index_k
 
     _definition.id                '_pd_pref_orient_March_Dollase.index_k'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    The k Miller index of the March_Dollase preferred-orientation
+    The k Miller index of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -6075,10 +6074,10 @@ save_
 save_pd_pref_orient_March_Dollase.index_l
 
     _definition.id                '_pd_pref_orient_March_Dollase.index_l'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
-    The l Miller index of the March_Dollase preferred-orientation
+    The l Miller index of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -6170,16 +6169,17 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
     _definition.id                PD_PREF_ORIENT_SPHERICAL_HARMONICS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     This section contains a description of spherical
     harmonics preferred-orientation corrections applied
-    to a phase when modelling it's contribution to a
-    hisotgram.
+    to a phase when modelling its contribution to a
+    histogram.
 
-    For March_Dollase corrections, see
+    For March-Dollase corrections, see
     PD_PREF_ORIENT_MARCH_DOLLASE. For other methods,
+
     use _pd_pref_orient.special_details.
 
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
@@ -6254,13 +6254,13 @@ save_
 save_pd_pref_orient_spherical_harmonics.geom
 
     _definition.id                '_pd_pref_orient_spherical_harmonics.geom'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     Code identifying the geometry of the preferred-orientation
     correction, as distinct from the geometry of data collection.
 
-    The functional form of thespherical harmonics correction depends
+    The functional form of the spherical harmonics correction depends
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
@@ -6334,7 +6334,7 @@ save_pd_pref_orient_spherical_harmonics.texture_index
 
     _definition.id
         '_pd_pref_orient_spherical_harmonics.texture_index'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     The texture index, as described by equation 4.212
@@ -6344,7 +6344,7 @@ save_pd_pref_orient_spherical_harmonics.texture_index
     and infty is an ideal single crystal.
 
     Bunge, H.J., (2015) "Texture Analysis in Materials Science:
-    Mathemical Methods", Helga and Hans-Peter Bunge,
+    Mathematical Methods", Helga and Hans-Peter Bunge,
     Wolfratshausen.
 ;
     _name.category_id             pd_pref_orient_spherical_harmonics
@@ -6411,7 +6411,7 @@ save_
 save_pd_pref_orient_spherical_harmonics.y_ij
 
     _definition.id                '_pd_pref_orient_spherical_harmonics.y_ij'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     The order (i) and  term (j) of the spherical harmonic
@@ -6425,7 +6425,7 @@ save_pd_pref_orient_spherical_harmonics.y_ij
     valid orders are positive, even integers, and possible
     terms are in the range -i:i. Valid terms are restricted
     by space-group symmetry. The parity of the term is given
-    by it's sign; odd parity is negative, even is positive.
+    by its sign; odd parity is negative, even is positive.
 
     Omitting _pd_pref_orient.* implies that no preferred-
     orientation correction has been used.
@@ -6454,12 +6454,12 @@ save_
 save_pd_pref_orient_spherical_harmonics.y_j
 
     _definition.id                '_pd_pref_orient_spherical_harmonics.y_j'
-    _definition.update            2022-11-17
+    _definition.update            2023-01-06
     _description.text
 ;
     The term (j) of the given order (i) of the spherical harmonics
     preferred-orientation correction. The parity of the term
-    is given by it's sign; odd parity is negative, even is positive.
+    is given by its sign; odd parity is negative, even is positive.
 
     In general, possible values are in the range -i:i. Valid values
     are dependent on the space-group of the phase.
@@ -6854,11 +6854,11 @@ save_pd_proc_ls.pref_orient_corr
     _definition_replaced.id       1
     _definition_replaced.by       '_pd_pref_orient.special_details'
     _alias.definition_id          '_pd_proc_ls_pref_orient_corr'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-06
     _description.text
 ;
     DEPRECATED. Use _pd_pref_orient.special_details, or if
-    the correction can be described as a March_Dollase
+    the correction can be described as a March-Dollase
     or spherical harmonics correction, use
     _pd_pref_orient_March_Dollase.* or
     _pd_pref_orient_spherical_harmonics.*, as
@@ -7257,7 +7257,7 @@ save_PD_QPA_EXT_STD
     _definition.id                PD_QPA_EXT_STD
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-01-03
+    _definition.update            2023-01-06
     _description.text
 ;
     This category identifies the external standard used for
@@ -7273,7 +7273,7 @@ save_PD_QPA_EXT_STD
     an indication of amorphous content. This method requires the
     mass attenuation coefficient of the specimen to be measured or
     calculated. For a review on quantitative phase analysis, see
-    Chapter 3.9 of Internation Tables, Vol. H, and references therein.
+    Chapter 3.9 of International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_EXT_STD
@@ -7332,10 +7332,10 @@ save_
 save_pd_qpa_ext_std.k_factor
 
     _definition.id                '_pd_qpa_ext_std.k_factor'
-    _definition.update            2023-01-03
+    _definition.update            2023-01-06
     _description.text
 ;
-    The value of the diffractometer constant, K,applied to the
+    The value of the diffractometer constant, K, applied to the
     quantification of the phases present in the given diffractogram.
 
     The external standard method is described by O'Connor and Raven.
@@ -7439,7 +7439,7 @@ save_PD_QPA_INT_STD
     _definition.id                PD_QPA_INT_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-03
+    _definition.update            2023-01-06
     _description.text
 ;
     This category identifies the internal standard used for
@@ -7453,7 +7453,7 @@ save_PD_QPA_INT_STD
     giving an indication of amorphous content.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
-    Internation Tables, Vol. H, and references therein.
+    International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_INT_STD
@@ -7586,7 +7586,7 @@ save_PD_QPA_RIR
     _definition.id                PD_QPA_RIR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-03
+    _definition.update            2023-01-06
     _description.text
 ;
     This category identifies the reference intensity ratio used for
@@ -7620,7 +7620,7 @@ save_PD_QPA_RIR
     The sum is taken over all phases present in the specimen.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
-    Internation Tables, Vol. H, and references therein.
+    International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_RIR
