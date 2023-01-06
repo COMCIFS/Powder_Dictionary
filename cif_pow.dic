@@ -175,7 +175,7 @@ save_PD_BLOCK_DIFFRACTOGRAM
     _definition.id                PD_BLOCK_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+    _definition.update            2022-12-03
     _description.text
 ;
     A number of diffractograms may contribute to the
@@ -189,11 +189,31 @@ save_PD_BLOCK_DIFFRACTOGRAM
 
 save_
 
+save_pd_block_diffractogram.diffractogram_id
+
+    _definition.id                '_pd_block_diffractogram.diffractogram_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A diffractogram id code (see _pd_diffractogram.id) that
+    identifies the diffraction data contained in the data block
+    pointed to by _pd_block_diffractogram.id.
+;
+    _name.category_id             pd_block_diffractogram
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
     _alias.definition_id          '_pd_block_diffractogram_id'
-    _definition.update            2016-10-18
+    _definition.update            2022-10-11
     _description.text
 ;
     A block ID code (see _pd_block.id) that identifies
@@ -203,11 +223,12 @@ save_pd_block_diffractogram.id
     is used for a structure determination. The data
     block containing the diffraction data will contain
     a _pd_block.id code matching the code in
-    _pd_block.diffractogram_id.
+    _pd_block_diffractogram.id.
 ;
     _name.category_id             pd_block_diffractogram
     _name.object_id               id
-    _type.purpose                 Encode
+    _name.linked_item_id          '_pd_block.id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
@@ -243,7 +264,7 @@ save_pd_calc_component.block_id
     data block other than the current block. The data
     block containing the crystallographic information
     for this phase will be identified with a _pd_block.id
-    code matching the code in _pd_phase.block_id. The data
+    code matching the code in _pd_phase_block.id. The data
     block containing the diffractogram to which this component
     belongs will be identified with a _pd_block.id
     code matching the code in _pd_block_diffractogram.id.
@@ -1340,7 +1361,7 @@ save_PD_DATA
     _definition.id                PD_DATA
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     The PD_DATA category is a "container" category that is defined
@@ -1352,7 +1373,32 @@ save_PD_DATA
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DATA
-    _category_key.name            '_pd_data.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_data.point_id'
+         '_pd_data.diffractogram_id'
+
+save_
+
+save_pd_data.diffractogram_id
+
+    _definition.id                '_pd_data.diffractogram_id'
+    _definition.update            2022-12-16
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    data tabulated in the PD_DATA category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
+;
+    _name.category_id             pd_data
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -1384,7 +1430,7 @@ save_PD_CALC
     _definition.id                PD_CALC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2022-10-11
     _description.text
 ;
     This section is used for storing a computed diffractogram trace.
@@ -1394,7 +1440,11 @@ save_PD_CALC
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_CALC
-    _category_key.name            '_pd_calc.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_calc.point_id'
+         '_pd_calc.diffractogram_id'
 
 save_
 
@@ -1473,6 +1523,26 @@ save_pd_calc.component_intensity_total_list
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
+
+save_
+
+save_pd_calc.diffractogram_id
+
+    _definition.id                '_pd_calc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the calculated diffractogram that the
+    calculated data belong to. This may be omitted in the usual
+    case that only one calculation is present in a data block.
+;
+    _name.category_id             pd_calc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -1591,7 +1661,7 @@ save_PD_MEAS
     _definition.id                PD_MEAS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2022-10-11
     _description.text
 ;
     This section contains the measured diffractogram prior to
@@ -1615,7 +1685,11 @@ save_PD_MEAS
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
-    _category_key.name            '_pd_meas.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_meas.point_id'
+         '_pd_meas.diffractogram_id'
 
 save_
 
@@ -1937,6 +2011,27 @@ save_pd_meas.detector_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
+
+save_
+
+save_pd_meas.diffractogram_id
+
+    _definition.id                '_pd_meas.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    data tabulated in the PD_MEAS category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
+;
+    _name.category_id             pd_meas
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -2309,7 +2404,7 @@ save_PD_PROC
     _definition.id                PD_PROC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2022-10-11
     _description.text
 ;
     This section contains the diffraction data set after processing
@@ -2319,7 +2414,11 @@ save_PD_PROC
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_PROC
-    _category_key.name            '_pd_proc.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_proc.point_id'
+         '_pd_proc.diffractogram_id'
 
 save_
 
@@ -2402,6 +2501,27 @@ save_pd_proc.d_spacing_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_proc.diffractogram_id
+
+    _definition.id                '_pd_proc.diffractogram_id'
+    _definition.update            2022-10-11
+    _description.text
+;
+    Label identifying the diffraction measurement that the
+    data tabulated in the PD_PROC category belong to. This
+    may be omitted in the usual case that only one diffraction
+    measurement is present in a data block.
+;
+    _name.category_id             pd_proc
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -2904,6 +3024,41 @@ save_pd_proc.wavelength_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_PD_DIFFRACTOGRAM
+
+    _definition.id                PD_DIFFRACTOGRAM
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2022-10-11
+    _description.text
+;
+    This category includes data names relating to a diffractogram
+    as a whole.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_DIFFRACTOGRAM
+    _category_key.name            '_pd_diffractogram.id'
+
+save_
+
+save_pd_diffractogram.id
+
+    _definition.id                '_pd_diffractogram.id'
+    _definition.update            2022-01-06
+    _description.text
+;
+    Arbitrary label identifying a powder diffraction measurement.
+    If missing, _pd_block.id is used.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -5414,8 +5569,8 @@ save_PD_PHASE
 
     _definition.id                PD_PHASE
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2016-11-09
+    _definition.class             Set
+    _definition.update            2023-01-04
     _description.text
 ;
     This section contains a description of the crystalline phases
@@ -5424,10 +5579,8 @@ save_PD_PHASE
     performed, the structural results will be placed in different
     data blocks, using CIF entries from the core CIF dictionary.
 
-    The _pd_phase.block_id entry points to the CIF block with
-    structural parameters for each crystalline phase. The
-    _pd_phase.id serves to link to _pd_refln.phase_id, which is
-    used to label peaks by phase.
+    The _pd_phase_block.id entry points to the CIF block with
+    structural parameters for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -5435,100 +5588,20 @@ save_PD_PHASE
 
 save_
 
-save_pd_phase.block_id
-
-    _definition.id                '_pd_phase.block_id'
-    _alias.definition_id          '_pd_phase_block_id'
-    _definition.update            2014-06-20
-    _description.text
-;
-    A block ID code identifying the phase contributing to
-    the diffraction peak. The data block containing the
-    crystallographic information for this phase will be
-    identified with a _pd_block.id code matching the
-    code in _pd_phase.block_id.
-;
-    _name.category_id             pd_phase
-    _name.object_id               block_id
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
 save_pd_phase.id
 
     _definition.id                '_pd_phase.id'
-    _alias.definition_id          '_pd_phase_id'
-    _definition.update            2014-06-20
+    _definition.update            2022-12-03
     _description.text
 ;
-    A code for each crystal phase used to link with
-    _pd_refln.phase_id.
+    Arbitrary label uniquely identifying a phase.
 ;
     _name.category_id             pd_phase
     _name.object_id               id
-    _name.linked_item_id          '_pd_refln.phase_id'
-    _type.purpose                 Link
+    _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
-    _enumeration.default          .
-
-save_
-
-save_pd_phase.mass_percent
-
-    _definition.id                '_pd_phase.mass_percent'
-
-    loop_
-      _alias.definition_id
-         '_pd_phase_mass_percent'
-         '_pd_phase_mass_%'
-
-    _definition.update            2022-12-01
-    _description.text
-;
-    Per cent composition of the specified crystal phase
-    expressed as the total mass of the component
-    with respect to the total mass of the specimen.
-
-    If _pd_calib.std_internal_mass_percent or
-    _pd_calib_std.external_k_factor is present, the
-    values given are assumed to be in absolute terms.
-
-    The mass percent given to the internal standard represent
-    the total crystalline contribution of that standard.
-    That is, if 1 g of a 90% crystalline internal standard is
-    added to 3 g of sample, the value of _pd_phase.mass_percent
-    for the standard is 22.5%.
-;
-    _name.category_id             pd_phase
-    _name.object_id               mass_percent
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0.0:100.0
-    _units.code                   none
-
-save_
-
-save_pd_phase.mass_percent_su
-
-    _definition.id                '_pd_phase.mass_percent_su'
-    _definition.update            2022-10-27
-    _description.text
-;
-    Standard uncertainty of _pd_phase.mass_percent.
-;
-    _name.category_id             pd_phase
-    _name.object_id               mass_percent_su
-    _name.linked_item_id          '_pd_phase.mass_percent'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.contents                Text
 
 save_
 
@@ -5548,6 +5621,179 @@ save_pd_phase.name
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
+
+save_
+
+save_PD_PHASE_BLOCK
+
+    _definition.id                PD_PHASE_BLOCK
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-12-03
+    _description.text
+;
+    A table of phases relevant to the current data
+    block. Each phase is identified by the block identifier
+    of the data block containing the phase information,
+    and the _pd_phase.id of the phase contained within
+    that block.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_PHASE_BLOCK
+    _category_key.name            '_pd_phase_block.id'
+
+save_
+
+save_pd_phase_block.id
+
+    _definition.id                '_pd_phase_block.id'
+    _alias.definition_id          '_pd_phase_block_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A block ID code identifying a block containing phase
+    information.
+;
+    _name.category_id             pd_phase_block
+    _name.object_id               id
+    _type.purpose                 Encode
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_phase_block.phase_id
+
+    _definition.id                '_pd_phase_block.phase_id'
+    _alias.definition_id          '_pd_phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A phase id code (see _pd_phase.id) that identifies the phase
+    contained in the data block pointed to by _pd_phase_block.id
+;
+    _name.category_id             pd_phase_block
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+    _enumeration.default          .
+
+save_
+
+save_PD_PHASE_MASS
+
+    _definition.id                PD_PHASE_MASS
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2022-12-03
+    _description.text
+;
+    This category describes the percent composition by mass of
+    phases in a specimen. Values are derived from modelling a
+    particular diffraction measurement on a specimen and should
+    not be used where the mass composition has been determined
+    by other means.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_PHASE_MASS
+
+    loop_
+      _category_key.name
+         '_pd_phase_mass.diffractogram_id'
+         '_pd_phase_mass.phase_id'
+
+save_
+
+save_pd_phase_mass.diffractogram_id
+
+    _definition.id                '_pd_phase_mass.diffractogram_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    A diffractogram id to which the phase mass percent value
+    relates.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_phase_mass.percent
+
+    _definition.id                '_pd_phase_mass.percent'
+
+    loop_
+      _alias.definition_id
+         '_pd_phase_mass_percent'
+         '_pd_phase_mass_%'
+
+    _definition.update            2022-12-03
+    _description.text
+;
+    Total mass of the phase expressed as a percentage of the total
+    mass of the specimen.
+
+    If _pd_qpa_int_std.mass_percent or _pd_qpa_ext_std.k_factor is
+    present, the values given are assumed to be in absolute terms.
+
+    The value of the mass percent given to the internal standard
+    represents the total crystalline contribution of that standard.
+    That is, if 1 g of a 90% crystalline internal standard is added
+    to 3 g of sample, the value of _pd_phase.mass_percent for the
+    standard is 22.5%.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               percent
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:100.0
+    _units.code                   none
+
+save_
+
+save_pd_phase_mass.percent_su
+
+    _definition.id                '_pd_phase_mass.percent_su'
+    _definition.update            2022-12-03
+    _description.text
+;
+    Standard uncertainty of _pd_phase_mass.percent.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               percent_su
+    _name.linked_item_id          '_pd_phase_mass.percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_phase_mass.phase_id
+
+    _definition.id                '_pd_phase_mass.phase_id'
+    _definition.update            2022-12-03
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the percent mass relates.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -7147,7 +7393,7 @@ save_pd_qpa_ext_std.phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7294,7 +7540,7 @@ save_pd_qpa_int_std.phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7435,7 +7681,7 @@ save_pd_qpa_rir.std_phase_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7827,7 +8073,7 @@ save_pd_refln.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7977,6 +8223,8 @@ save_
 
        Corrected a typo in the PD_CALIB_D_TO_TOF category description.
 
+       Add PD_DIFFRACTOGRAM category and linked data names.
+
        Added PD_CALC_COMPONENT and related data names.
 
        Updated many datanames from Number to Measurand.
@@ -7990,7 +8238,7 @@ save_
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
 
        Updated descriptions of _pd_meas.counts, _pd_meas.intensity_background,
-       _pd_meas.intensity_container, and _pd_meas.intensity_monitor
+       _pd_meas.intensity_container, and _pd_meas.intensity_monitor.
 
        Removed enumeration range for _pd_proc.intensity_net.
 
@@ -7998,6 +8246,8 @@ save_
        varying by measurement point.
 
        Updated many datanames from Number to Measurand.
+
+       Made PD_PHASE a Set category.
 
        Created PD_QPA_EXT_STD and PD_QPA_INT_STD to record quantitative
        phase analysis by the external and internal standard approaches.
