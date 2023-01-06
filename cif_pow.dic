@@ -5563,7 +5563,7 @@ save_PD_PREF_ORIENT
     corrections applied to a phase when modelling its contribution
     to a histogram.
 
-    March_Dollase and spherical harmonics corrections can be
+    March-Dollase and spherical harmonics corrections can be
     given explicitly. For other methods, use the special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
@@ -5583,7 +5583,7 @@ save_pd_pref_orient.special_details
 ;
     Description of the preferred-orientation correction if
     such a correction is used, and it cannot be described
-    as a March_Dollase or spherical harmonics correction.
+    as a March-Dollase or spherical harmonics correction.
 
     or
 
@@ -5591,7 +5591,7 @@ save_pd_pref_orient.special_details
     used in the application of a preferred-orientation model
     that cannot be specified elsewhere.
 
-    If the correction can be described as a March_Dollase
+    If the correction can be described as a March-Dollase
     or spherical harmonics correction, use
     _pd_pref_orient_March_Dollase.* or
     _pd_pref_orient_sphericalharmonics.*, as
@@ -5621,7 +5621,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     _definition.update            2022-11-17
     _description.text
 ;
-    This section contains a description of March_Dollase
+    This section contains a description of March-Dollase
     preferred-orientation corrections applied to a phase
     when modelling its contribution to a histogram.
 
@@ -5668,7 +5668,7 @@ save_pd_pref_orient_March_Dollase.fract
     _definition.update            2022-11-17
     _description.text
 ;
-    In the case of multiple March_Dollase preferred-orientation
+    In the case of multiple March-Dollase preferred-orientation
     directions for a single phase, this denotes the fractional
     amount of preferred orientation in each direction.
 
@@ -5711,7 +5711,7 @@ save_pd_pref_orient_March_Dollase.geom
     Code identifying the geometry of the preferred-orientation
     correction, as distinct from the geometry of data collection.
 
-    The functional form of the March_Dollase correction depends
+    The functional form of the March-Dollase correction depends
     on whether the data were collected in symmetric or asymmetric
     reflection or transmission, or capillary geometries. See
     Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
@@ -5746,7 +5746,7 @@ save_pd_pref_orient_March_Dollase.hkl
     _definition.update            2022-11-17
     _description.text
 ;
-    Miller indices of the March_Dollase preferred-orientation
+    Miller indices of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -5775,7 +5775,7 @@ save_pd_pref_orient_March_Dollase.id
     _definition.update            2022-11-17
     _description.text
 ;
-    A code to uniquely identify each March_Dollase
+    A code to uniquely identify each March-Dollase
     preferred-orientation correction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -5794,7 +5794,7 @@ save_pd_pref_orient_March_Dollase.index_h
     _definition.update            2022-11-17
     _description.text
 ;
-    The h Miller index of the March_Dollase preferred-orientation
+    The h Miller index of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -5813,7 +5813,7 @@ save_pd_pref_orient_March_Dollase.index_k
     _definition.update            2022-11-17
     _description.text
 ;
-    The k Miller index of the March_Dollase preferred-orientation
+    The k Miller index of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -5832,7 +5832,7 @@ save_pd_pref_orient_March_Dollase.index_l
     _definition.update            2022-11-17
     _description.text
 ;
-    The l Miller index of the March_Dollase preferred-orientation
+    The l Miller index of the March-Dollase preferred-orientation
     direction.
 ;
     _name.category_id             pd_pref_orient_March_Dollase
@@ -5932,7 +5932,7 @@ save_PD_PREF_ORIENT_SPHERICALHARMONICS
     to a phase when modelling its contribution to a
     histogram.
 
-    For March_Dollase corrections, see
+    For March-Dollase corrections, see
     PD_PREF_ORIENT_MARCH-DOLLASE. For other methods,
     use _pd_pref_orient.special_details.
 
@@ -6612,7 +6612,7 @@ save_pd_proc_ls.pref_orient_corr
     _description.text
 ;
     DEPRECATED. Use _pd_pref_orient.special_details, or if
-    the correction can be described as a March_Dollase
+    the correction can be described as a March-Dollase
     or spherical harmonics correction, use
     _pd_pref_orient.March_Dollase* or
     _pd_pref_orient.sphericalharmonics*, as
