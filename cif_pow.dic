@@ -3941,7 +3941,7 @@ save_pd_instr.divg_ax_anal_detc
     the plane containing the incident and diffracted beams) between
     the analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_ax_): Note that
+    than Soller slits (see _pd_instr.soller_ax_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -3969,8 +3969,7 @@ save_pd_instr.divg_ax_spec_anal
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
     other than Soller slits (see _pd_instr.soller_ax_).
-    Note that
-    *_spec_detc is used in place of *_spec_anal and *_anal_detc
+    Note that *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -3996,7 +3995,7 @@ save_pd_instr.divg_ax_spec_detc
     and diffracted beams) between the specimen and the detector.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_).
+    other than Soller slits (see _pd_instr.soller_ax_). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
@@ -4074,9 +4073,9 @@ save_pd_instr.divg_eq_spec_detc
     containing the incident and diffracted beams) between the
     specimen and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_): *_spec_detc is
-    used in place of *_spec_anal and *_anal_detc if there is no
-    analyser in use.
+    than Soller slits (see _pd_instr.soller_eq_). Note that
+    *_spec_detc is used in place of *_spec_anal and *_anal_detc if
+    there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               divg_eq_spec_detc
@@ -4327,7 +4326,7 @@ save_pd_instr.soller_ax_spec_anal
     the plane containing the incident and diffracted beams) for the
     instrument.  Values are the maximum divergence angles in
     degrees, as limited by Soller slits located between the specimen
-    and the analyser; Note that *_spec_detc is used in place of
+    and the analyser. Note that *_spec_detc is used in place of
     *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4377,7 +4376,7 @@ save_pd_instr.soller_eq_anal_detc
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the analyser and the
-    detector; Note that *_spec_detc is used in place of *_spec_anal
+    detector. Note that *_spec_detc is used in place of *_spec_anal
     and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -4427,7 +4426,7 @@ save_pd_instr.soller_eq_spec_detc
     containing the incident and diffracted beams) for the
     instrument. Values are the maximum divergence angles in degrees,
     as limited by Soller slits located between the specimen and the
-    detector in use, and *_spec_detc is used in place of
+    detector in use. Note that *_spec_detc is used in place of
     *_spec_anal and *_anal_detc if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
