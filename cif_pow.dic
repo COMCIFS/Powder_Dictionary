@@ -5840,7 +5840,7 @@ save_pd_pref_orient.special_details
     If the correction can be described as a March_Dollase
     or spherical harmonics correction, use
     _pd_pref_orient_March_Dollase.* or
-    _pd_pref_orient_sphericalharmonics.*, as
+    _pd_pref_orient_spherical_harmonics.*, as
     appropriate.
 
     Omitting _pd_pref_orient* implies that no preferred-
@@ -5872,7 +5872,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     when modelling it's contribution to a hisotgram.
 
     For spherical harmonics corrections, see
-    PD_PREF_ORIENT_SPHERICALHARMONICS. For other methods,
+    PD_PREF_ORIENT_SPHERICAL_HARMONICS. For other methods,
     use _pd_pref_orient.special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 for
@@ -6165,9 +6165,9 @@ save_pd_pref_orient_March_Dollase.r_su
 
 save_
 
-save_PD_PREF_ORIENT_SPHERICALHARMONICS
+save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
-    _definition.id                PD_PREF_ORIENT_SPHERICALHARMONICS
+    _definition.id                PD_PREF_ORIENT_SPHERICAL_HARMONICS
     _definition.scope             Category
     _definition.class             Loop
     _definition.update            2022-11-17
@@ -6179,29 +6179,29 @@ save_PD_PREF_ORIENT_SPHERICALHARMONICS
     hisotgram.
 
     For March_Dollase corrections, see
-    PD_PREF_ORIENT_MARCH-DOLLASE. For other methods,
+    PD_PREF_ORIENT_MARCH_DOLLASE. For other methods,
     use _pd_pref_orient.special_details.
 
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_PREF_ORIENT_SPHERICALHARMONICS
+    _name.object_id               PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
-    _category_key.name            '_pd_pref_orient_sphericalharmonics.id'
+    _category_key.name            '_pd_pref_orient_spherical_harmonics.id'
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.c_ij
+save_pd_pref_orient_spherical_harmonics.c_ij
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.c_ij'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.c_ij'
     _definition.update            2022-11-17
     _description.text
 ;
     The value of the coefficient scaling the spherical
-    harmonic, ij, as given by _pd_pref_orient_sphericalharmonics.y_ij.
+    harmonic, ij, as given by _pd_pref_orient_spherical_harmonics.y_ij.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               c_ij
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -6211,27 +6211,27 @@ save_pd_pref_orient_sphericalharmonics.c_ij
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.c_ij_su
+save_pd_pref_orient_spherical_harmonics.c_ij_su
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.c_ij_su'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.c_ij_su'
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient.sphericalharmonics_c_ij_su.
+    Standard uncertainty of _pd_pref_orient_spherical_harmonics.c_ij.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               c_ij_su
-    _name.linked_item_id          '_pd_pref_orient_sphericalharmonics.c_ij'
+    _name.linked_item_id          '_pd_pref_orient_spherical_harmonics.c_ij'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.diffractogram_block_id
+save_pd_pref_orient_spherical_harmonics.diffractogram_block_id
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.diffractogram_block_id'
+        '_pd_pref_orient_spherical_harmonics.diffractogram_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6240,9 +6240,9 @@ save_pd_pref_orient_sphericalharmonics.diffractogram_block_id
     The data block containing the diffraction pattern
     for this phase will be identified with a _pd_block.id
     code matching the code in
-    _pd_pref_orient_sphericalharmonics.diffractogram_block_id.
+    _pd_pref_orient_spherical_harmonics.diffractogram_block_id.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -6251,9 +6251,9 @@ save_pd_pref_orient_sphericalharmonics.diffractogram_block_id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.geom
+save_pd_pref_orient_spherical_harmonics.geom
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.geom'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.geom'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6270,7 +6270,7 @@ save_pd_pref_orient_sphericalharmonics.geom
     default implementation.
 
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               geom
     _type.purpose                 State
     _type.source                  Assigned
@@ -6289,16 +6289,16 @@ save_pd_pref_orient_sphericalharmonics.geom
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.id
+save_pd_pref_orient_spherical_harmonics.id
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.id'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.id'
     _definition.update            2022-11-17
     _description.text
 ;
     A code to uniquely identify each spherical harmonic
     preferred-orientation correction.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -6308,10 +6308,10 @@ save_pd_pref_orient_sphericalharmonics.id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.phase_block_id
+save_pd_pref_orient_spherical_harmonics.phase_block_id
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.phase_block_id'
+        '_pd_pref_orient_spherical_harmonics.phase_block_id'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6321,7 +6321,7 @@ save_pd_pref_orient_sphericalharmonics.phase_block_id
     for this phase will be identified with the corresponding
     _pd_block.id code.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
@@ -6330,10 +6330,10 @@ save_pd_pref_orient_sphericalharmonics.phase_block_id
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.texture_index
+save_pd_pref_orient_spherical_harmonics.texture_index
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.texture_index'
+        '_pd_pref_orient_spherical_harmonics.texture_index'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6347,7 +6347,7 @@ save_pd_pref_orient_sphericalharmonics.texture_index
     Mathemical Methods", Helga and Hans-Peter Bunge,
     Wolfratshausen.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               texture_index
     _type.purpose                 Measurand
     _type.source                  Assigned
@@ -6360,44 +6360,44 @@ save_pd_pref_orient_sphericalharmonics.texture_index
 ;
     t = 0.0
 
-    Loop po as pd_pref_orient_sphericalharmonics  {
+    Loop po as pd_pref_orient_spherical_harmonics  {
         t += po.c_ij ** 2 / (2 * po.y_i + 1)
     }
-    _pd_pref_orient_sphericalharmonics.texture_index = t
+    _pd_pref_orient_spherical_harmonics.texture_index = t
 
 ;
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.texture_index_su
+save_pd_pref_orient_spherical_harmonics.texture_index_su
 
     _definition.id
-        '_pd_pref_orient_sphericalharmonics.texture_index_su'
+        '_pd_pref_orient_spherical_harmonics.texture_index_su'
     _definition.update            2022-11-17
     _description.text
 ;
-    Standard uncertainty of _pd_pref_orient_sphericalharmonics.texture_index.
+    Standard uncertainty of _pd_pref_orient_spherical_harmonics.texture_index.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               texture_index_su
     _name.linked_item_id
-        '_pd_pref_orient_sphericalharmonics.texture_index'
+        '_pd_pref_orient_spherical_harmonics.texture_index'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.y_i
+save_pd_pref_orient_spherical_harmonics.y_i
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.y_i'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.y_i'
     _definition.update            2022-11-17
     _description.text
 ;
     The order of the spherical harmonics preferred-orientation
     correction. Valid values are positive, even integers.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               y_i
     _type.purpose                 Number
     _type.source                  Assigned
@@ -6408,9 +6408,9 @@ save_pd_pref_orient_sphericalharmonics.y_i
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.y_ij
+save_pd_pref_orient_spherical_harmonics.y_ij
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.y_ij'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.y_ij'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6433,7 +6433,7 @@ save_pd_pref_orient_sphericalharmonics.y_ij
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
     further information.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               y_ij
     _type.purpose                 Number
     _type.source                  Assigned
@@ -6444,16 +6444,16 @@ save_pd_pref_orient_sphericalharmonics.y_ij
     _method.purpose               Evaluation
     _method.expression
 ;
-    With po as pd_pref_orient_sphericalharmonics
+    With po as pd_pref_orient_spherical_harmonics
 
       po.y_ij = [po.y_i, po.y_j]
 ;
 
 save_
 
-save_pd_pref_orient_sphericalharmonics.y_j
+save_pd_pref_orient_spherical_harmonics.y_j
 
-    _definition.id                '_pd_pref_orient_sphericalharmonics.y_j'
+    _definition.id                '_pd_pref_orient_spherical_harmonics.y_j'
     _definition.update            2022-11-17
     _description.text
 ;
@@ -6464,7 +6464,7 @@ save_pd_pref_orient_sphericalharmonics.y_j
     In general, possible values are in the range -i:i. Valid values
     are dependent on the space-group of the phase.
 ;
-    _name.category_id             pd_pref_orient_sphericalharmonics
+    _name.category_id             pd_pref_orient_spherical_harmonics
     _name.object_id               y_j
     _type.purpose                 Number
     _type.source                  Assigned
@@ -6474,7 +6474,7 @@ save_pd_pref_orient_sphericalharmonics.y_j
     _method.purpose               Definition
     _method.expression
 ;
-     With po as pd_pref_orient_sphericalharmonics
+     With po as pd_pref_orient_spherical_harmonics
 
     _enumeration.range = -po.y_i:po.y_i
 ;
@@ -6860,8 +6860,8 @@ save_pd_proc_ls.pref_orient_corr
     DEPRECATED. Use _pd_pref_orient.special_details, or if
     the correction can be described as a March_Dollase
     or spherical harmonics correction, use
-    _pd_pref_orient.March_Dollase* or
-    _pd_pref_orient.sphericalharmonics*, as
+    _pd_pref_orient_March_Dollase.* or
+    _pd_pref_orient_spherical_harmonics.*, as
     appropriate.
 
     Description of the preferred-orientation correction if
@@ -8230,6 +8230,10 @@ save_
        Updated many datanames from Number to Measurand.
 
        Made PD_BLOCK a Loop category.
+
+       Created PD_PREF_ORIENT_MARCH_DOLLASE and
+       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orienation
+       corrections.
 
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
 
