@@ -2232,7 +2232,7 @@ save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-06
     _description.text
 ;
     The count time in seconds for each intensity measurement.
@@ -2242,8 +2242,8 @@ save_pd_meas.step_count_time
     _type.purpose                 Measurand
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Integer
-    _enumeration.range            0:
+    _type.contents                Real
+    _enumeration.range            0.0:
     _units.code                   seconds
 
 save_
@@ -2269,7 +2269,7 @@ save_pd_meas.time_of_flight
 
     _definition.id                '_pd_meas.time_of_flight'
     _alias.definition_id          '_pd_meas_time_of_flight'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-06
     _description.text
 ;
     Measured time in microseconds for time-of-flight neutron
@@ -2281,8 +2281,8 @@ save_pd_meas.time_of_flight
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
-    _type.contents                Integer
-    _enumeration.range            0:
+    _type.contents                Real
+    _enumeration.range            0.0:
     _units.code                   microseconds
 
 save_
@@ -6188,7 +6188,7 @@ save_pd_pref_orient_sphericalharmonics.y_ij
     further information.
 ;
     _name.category_id             pd_pref_orient_sphericalharmonics
-    _name.object_id               y_ijp
+    _name.object_id               y_ij
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Matrix
@@ -7125,7 +7125,7 @@ save_pd_qpa_ext_std.k_factor_su
     Standard uncertainty of _pd_qpa_ext_std.k_factor.
 ;
     _name.category_id             pd_qpa_ext_std
-    _name.object_id               k_factor
+    _name.object_id               k_factor_su
     _name.linked_item_id          '_pd_qpa_ext_std.k_factor'
     _units.code                   none
 
@@ -7272,7 +7272,7 @@ save_pd_qpa_int_std.mass_percent_su
     Standard uncertainty of _pd_qpa_int_std.mass_percent.
 ;
     _name.category_id             pd_qpa_int_std
-    _name.object_id               mass_percent
+    _name.object_id               mass_percent_su
     _name.linked_item_id          '_pd_qpa_int_std.mass_percent'
     _units.code                   none
 
@@ -7377,7 +7377,7 @@ save_PD_QPA_RIR
     International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_QPA_INT_STD
+    _name.object_id               PD_QPA_RIR
 
 save_
 
@@ -8002,4 +8002,7 @@ save_
 
        Created PD_QPA_RIR to record quantitative phase analysis by
        the reference intensity ratio approach.
+
+       Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
+       Integer to Real.
 ;
