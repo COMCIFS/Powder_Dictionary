@@ -527,8 +527,9 @@ save_
 save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
-    _alias.definition_id          '_pd_calib_std_internal_mass_%'
-    _definition.update            2022-10-11
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_qpa_int_std.mass_percent'
+    _definition.update            2023-01-06
     _description.text
 ;
     This item is deprecated. Please see _pd_qpa_int_std.mass_percent.
@@ -552,9 +553,13 @@ save_
 save_pd_calib.std_internal_mass_percent_su
 
     _definition.id                '_pd_calib.std_internal_mass_percent_su'
-    _definition.update            2022-10-27
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_qpa_int_std.mass_percent_su'
+    _definition.update            2023-01-06
     _description.text
 ;
+    This item is deprecated. Please see _pd_qpa_int_std.mass_percent_su.
+
     Standard uncertainty of _pd_calib.std_internal_mass_percent.
 ;
     _name.category_id             pd_calib
@@ -7486,6 +7491,7 @@ save_
 save_pd_qpa_int_std.mass_percent
 
     _definition.id                '_pd_qpa_int_std.mass_percent'
+    _alias.definition_id          '_pd_calib_std_internal_mass_%'
     _definition.update            2023-01-03
     _description.text
 ;
@@ -8257,4 +8263,7 @@ save_
 
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
+
+       Deprecate _pd_calib.std_internal_mass_percent and
+       _pd_calib.std_internal_mass_percent_su.
 ;
