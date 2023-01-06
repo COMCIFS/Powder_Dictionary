@@ -7125,7 +7125,7 @@ save_pd_qpa_ext_std.k_factor_su
     Standard uncertainty of _pd_qpa_ext_std.k_factor.
 ;
     _name.category_id             pd_qpa_ext_std
-    _name.object_id               k_factor
+    _name.object_id               k_factor_su
     _name.linked_item_id          '_pd_qpa_ext_std.k_factor'
     _units.code                   none
 
@@ -7272,7 +7272,7 @@ save_pd_qpa_int_std.mass_percent_su
     Standard uncertainty of _pd_qpa_int_std.mass_percent.
 ;
     _name.category_id             pd_qpa_int_std
-    _name.object_id               mass_percent
+    _name.object_id               mass_percent_su
     _name.linked_item_id          '_pd_qpa_int_std.mass_percent'
     _units.code                   none
 
@@ -7377,7 +7377,7 @@ save_PD_QPA_RIR
     Internation Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_QPA_INT_STD
+    _name.object_id               PD_QPA_RIR
 
 save_
 
