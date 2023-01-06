@@ -7089,7 +7089,7 @@ save_pd_qpa_ext_std.k_factor
     _definition.update            2023-01-03
     _description.text
 ;
-    The value of the diffractometer constant, K,applied to the
+    The value of the diffractometer constant, K, applied to the
     quantification of the phases present in the given diffractogram.
 
     The external standard method is described by O'Connor and Raven.
