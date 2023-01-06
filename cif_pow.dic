@@ -3850,7 +3850,7 @@ save_pd_instr.2theta_monochr_post
     _description.text
 ;
     The 2\\q angle for a post-specimen
-    monochromator (also called an analyzer)
+    monochromator (also called an analyser)
     (see also _pd_instr.monochr_post_spec).
 ;
     _name.category_id             pd_instr_detector
