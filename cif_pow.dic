@@ -848,7 +848,7 @@ save_pd_calib_intensity.diffractogram_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -923,7 +923,7 @@ save_pd_calib_intensity.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -1292,7 +1292,7 @@ save_pd_calib_wavelength.diffractogram_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -1329,7 +1329,7 @@ save_pd_calib_wavelength.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
