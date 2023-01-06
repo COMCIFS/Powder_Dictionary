@@ -5872,7 +5872,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     when modelling it's contribution to a hisotgram.
 
     For spherical harmonics corrections, see
-    PD_PREF_ORIENT_SPHERICALHARMONICS. For other methods,
+    PD_PREF_ORIENT_SPHERICAL_HARMONICS. For other methods,
     use _pd_pref_orient.special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 for
