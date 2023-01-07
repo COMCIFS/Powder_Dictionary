@@ -278,6 +278,26 @@ save_pd_calc_component.block_id
 
 save_
 
+save_pd_calc_component.diffractogram_id
+
+    _definition.id                '_pd_calc_component.diffractogram_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    The diffractogram(s) (see _pd_diffractogram.id) to which these component
+    intensities form part of the _pd_calc.intensity_total or
+    _pd_calc.intensity_net values.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_calc_component.intensity_net
 
     _definition.id                '_pd_calc_component.intensity_net'
@@ -414,26 +434,6 @@ save_pd_calc.method
     _name.object_id               method
     _type.purpose                 Describe
     _type.source                  Recorded
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calc_component.diffractogram_id
-
-    _definition.id                '_pd_calc_component.diffractogram_id'
-    _definition.update            2023-01-06
-    _description.text
-;
-    The diffractogram (see _pd_diffractogram.id) to which these component
-    intensities form part of the _pd_calc.intensity_total or
-    _pd_calc.intensity_net values.
-;
-    _name.category_id             pd_calc_overall
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
