@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-06
+    _dictionary.date              2023-01-07
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -8257,4 +8257,7 @@ save_
 
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
+
+       Update definitions of _pd_phase.name, _pd_qpa_ext_std.phase_name, and
+       _pd_qpa_int_std.phase_name to better represent their contents.
 ;
