@@ -78,24 +78,6 @@ save_PD_BACKGROUND
 
 save_
 
-save_pd_background.diffractogram_id
-
-    _definition.id                '_pd_background.diffractogram_id'
-    _definition.update            2023-01-08
-    _description.text
-;
-    A diffractogram id to which the background equation relates.
-;
-    _name.category_id             pd_background
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_background.Chebyshev_coeff
 
     _definition.id                'pd_background.Chebyshev_coeff'
@@ -228,6 +210,24 @@ save_pd_background.Chebyshev_order_list
     _type.contents                Integer
     _enumeration.range            0:
     _units.code                   none
+
+save_
+
+save_pd_background.diffractogram_id
+
+    _definition.id                '_pd_background.diffractogram_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A diffractogram id to which the background equation relates.
+;
+    _name.category_id             pd_background
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
