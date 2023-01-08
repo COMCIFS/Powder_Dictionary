@@ -60,8 +60,9 @@ save_PD_AMORPHOUS
 
     See PD_PEAK for details on the specific peak parameters that may be
     recorded. Each amorphous peak may or may not be associated with an indexed
-    reflection. Amorphous peaks do not correspond to background, and should not
-    be used as such.
+    reflection, and as such, an "amorphous" phase could represent a material
+    with a unknown crystal structure. Amorphous peaks do not correspond to
+    background, and should not be used as such.
 
     Note that peak positions are customarily determined from the processed
     diffractogram, and thus corrections for position and intensity will have
