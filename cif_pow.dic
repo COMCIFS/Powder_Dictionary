@@ -69,7 +69,7 @@ save_PD_AMORPHOUS
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_AMORPHOUS
-    _category_key.name            '_pd_amorphous.id'
+
     loop_
       _category_key.name
          '_pd_amorphous.id'
