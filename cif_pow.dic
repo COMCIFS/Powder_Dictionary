@@ -372,6 +372,7 @@ save_pd_background.polynomial_power
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _units.code                   UNKNOWN
 
 save_
 
@@ -396,6 +397,7 @@ save_pd_background.polynomial_power_list
     _type.container               Matrix
     _type.dimension               '[]'
     _type.contents                Real
+    _units.code                   UNKNOWN
 
 save_
 
@@ -410,6 +412,7 @@ save_pd_background.polynomial_power_list_su
     _name.category_id             pd_background
     _name.object_id               polynomial_power_list_su
     _name.linked_item_id          'pd_background.polynomial_power_list'
+    _units.code                   UNKNOWN
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -426,6 +429,7 @@ save_pd_background.polynomial_power_su
     _name.category_id             pd_background
     _name.object_id               polynomial_power_su
     _name.linked_item_id          'pd_background.polynomial_power'
+    _units.code                   UNKNOWN
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
