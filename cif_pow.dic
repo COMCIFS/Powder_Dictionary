@@ -46,6 +46,544 @@ save_PD_GROUP
 
 save_
 
+save_PD_BACKGROUND
+
+    _definition.id                PD_BACKGROUND
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-08
+    _description.text
+;
+    This category defines various background functions that could be used when
+    calculating diffractograms.
+
+    The data items list here allow for the recording of the various coefficients
+    used, rather than a complete enumeration of the value of the background
+    calculated at every data point; although doing so is still possible.
+
+    The computed background values should include all normalization corrections,
+    and thus are specified on the same scale as the observed intensities
+    (_pd_meas.counts_* or _pd_meas.intensity_*, and _pd_calc.intensity_total).
+
+    If more than one type of background is specified for a particular
+    diffractogram, then the it is assumed they are linearly additive.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_BACKGROUND
+
+    loop_
+      _category_key.name
+         '_pd_background.diffractogram_id'
+         '_pd_background.id'
+
+save_
+
+save_pd_background.diffractogram_id
+
+    _definition.id                '_pd_background.diffractogram_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A diffractogram id to which the background equation relates.
+;
+    _name.category_id             pd_background
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_background.Chebyshev_coeff
+
+    _definition.id                'pd_background.Chebyshev_coeff'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The value of a coefficient used in a Chebyshev polynomial equation
+    representing the background in a calculated diffractogram.
+
+    The Chebyshev polynomial is of the first kind, and can be represented from
+    the recurrence relation
+
+        T~0~(x) = 1
+        T~1~(x) = x
+        T~n+1~(x) = 2 * x * T~n~(x) - T~n-1~(x).
+
+    where n represents the order of the polynomial, and x is the X-coordinate in
+    which the diffractogram was calculated, normalised to the range -1:1.
+
+    The background equation using Chebyshev polynomials is of the form:
+
+        bkg = Sum( coeff * T~n~(x))
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coeff
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_coeff_list
+
+    _definition.id                '_pd_background.Chebyshev_coeff_list'
+    _definition.update            2023-01-08
+    _description.text
+;
+    List of coefficients used in a Chebyshev equation representing the
+    background in a calculated diffractogram.
+
+    See _pd_background.Chebyshev_coeff.
+
+    Must be in the same order as the powers in
+    _pd_background.Chebyshev_order_list
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coeff_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_coeff_su
+
+    _definition.id                'pd_background.Chebyshev_coeff_su'
+    _definition.update            2022-09-30
+    _description.text
+;
+    Standard uncertainty of pd_background.Chebyshev_coeff.
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coeff_su
+    _name.linked_item_id          'pd_background.Chebyshev_coeff'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.Chebyshev_order
+
+    _definition.id                'pd_background.Chebyshev_order'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The value of an order used in a Chebyshev polynomial equation
+    representing the background in a calculated diffractogram.
+
+    The Chebyshev polynomial is of the first kind, and can be represented from
+    the recurrence relation
+
+        T~0~(x) = 1
+        T~1~(x) = x
+        T~n+1~(x) = 2 * x * T~n~(x) - T~n-1~(x).
+
+    where n represents the order of the polynomial, and x is the X-coordinate in
+    which the diffractogram was calculated, normalised to the range -1:1.
+
+    The background equation using Chebyshev polynomials is of the form:
+
+        bkg = Sum( coeff * T~n~(x))
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_power
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_order_list
+
+    _definition.id                '_pd_background.Chebyshev_order_list'
+    _definition.update            2023-01-08
+    _description.text
+;
+    List of orderss used in a Chebyshev equation representing the background
+    in a calculated diffractogram.
+
+    See _pd_background.Chebyshev_order.
+
+    Must be in the same order as the coeffs in
+    _pd_background.Chebyshev_coeff_list
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_order_list
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_background.id
+
+    _definition.id                '_pd_background.id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    An arbitrary code which identifies a specific background equation.
+;
+    _name.category_id             pd_background
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
+save_pd_background.polynomial_coeff
+
+    _definition.id                'pd_background.polynomial_coeff'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The value of a coefficient used in a polynomial equation representing the
+    background in a calculated diffractogram.
+
+    The background equation is of the form:
+
+        bkg = Sum( coeff * X_coord ^ power)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coeff
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.polynomial_coeff_list
+
+    _definition.id                '_pd_background.polynomial_coeff_list'
+    _definition.update            2023-01-08
+    _description.text
+;
+    List of coefficients used in a polynomial equation representing the
+    background in a calculated diffractogram.
+
+    See _pd_background.polynomial_coeff.
+
+    Must be in the same order as the powers in
+    _pd_background.polynomial_power_list
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coeff_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.polynomial_coeff_su
+
+    _definition.id                'pd_background.polynomial_coeff_su'
+    _definition.update            2022-09-30
+    _description.text
+;
+    Standard uncertainty of pd_background.polynomial_coeff.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coeff_su
+    _name.linked_item_id          'pd_background.polynomial_coeff'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.polynomial_power
+
+    _definition.id                'pd_background.polynomial_power'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The value of a power used in a polynomial equation representing the
+    background in a calculated diffractogram.
+
+    The background equation is of the form:
+
+        bkg = Sum( coeff * X_coord ^ power)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_power
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   UNKNOWN
+
+save_
+
+save_pd_background.polynomial_power_list
+
+    _definition.id                '_pd_background.polynomial_power_list'
+    _definition.update            2023-01-08
+    _description.text
+;
+    List of powers used in a polynomial equation representing the background
+    in a calculated diffractogram.
+
+    See _pd_background.polynomial_power.
+
+    Must be in the same order as the coeffs in
+    _pd_background.polynomial_coeff_list
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_power_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   UNKNOWN
+
+save_
+
+save_pd_background.polynomial_power_su
+
+    _definition.id                'pd_background.polynomial_power_su'
+    _definition.update            2022-09-30
+    _description.text
+;
+    Standard uncertainty of pd_background.polynomial_power.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_power_su
+    _name.linked_item_id          'pd_background.polynomial_power'
+    _units.code                   UNKNOWN
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.straight_line_intensity_1
+
+    _definition.id                'pd_background.straight_line_intensity_1'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The starting intensity for drawing a straight-line segment representing the
+    background in a calculated diffractogram. Many line segments may need to
+    be defined to cover the entire calculated range.
+
+    The background equation is of the form:
+
+               (intensity_2 - intensity_1)
+        bkg =  --------------------------- (x - X_1) + intensity_1
+                       (X_2 - X_1)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated, and the function is defined only over the range X_1:X_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_intensity_1
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.straight_line_intensity_1_su
+
+    _definition.id                'pd_background.straight_line_intensity_1_su'
+    _definition.update            2023-01-08
+    _description.text
+;
+    Standard uncertainty of pd_background.straight_line_intensity_1.
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_intensity_1_su
+    _name.linked_item_id          'pd_background.straight_line_intensity_1'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.straight_line_intensity_2
+
+    _definition.id                'pd_background.straight_line_intensity_2'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The finishing intensity for drawing a straight-line segment representing the
+    background in a calculated diffractogram. Many line segments may need to
+    be defined to cover the entire calculated range.
+
+    The background equation is of the form:
+
+               (intensity_2 - intensity_1)
+        bkg =  --------------------------- (x - X_1) + intensity_1
+                       (X_2 - X_1)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated, and the function is defined only over the range X_1:X_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_intensity_2
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.straight_line_intensity_2_su
+
+    _definition.id                'pd_background.straight_line_intensity_2_su'
+    _definition.update            2023-01-08
+    _description.text
+;
+    Standard uncertainty of pd_background.straight_line_intensity_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_intensity_2_su
+    _name.linked_item_id          'pd_background.straight_line_intensity_2'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.straight_line_intensity_list
+
+    _definition.id                '_pd_background.straight_line_intensity_list'
+    _definition.update            2023-01-08
+    _description.text
+;
+    List of intensities used to create many straight-line segments representing
+    the background in a calculated diffractogram.
+
+    See _pd_background.straight_line_intensity_1.
+
+    Must be in the same order as the X-coordinate values in
+    _pd_background.straight_line_X_list
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coeff_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.straight_line_X_1
+
+    _definition.id                'pd_background.straight_line_X_1'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The starting X-coordinate for drawing a straight-line segment representing
+    the background in a calculated diffractogram. Many line segments may need to
+    be defined to cover the entire calculated range.
+
+    The background equation is of the form:
+
+               (intensity_2 - intensity_1)
+        bkg =  --------------------------- (x - X_1) + intensity_1
+                       (X_2 - X_1)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated, and the function is defined only over the range X_1:X_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_X_1
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.straight_line_X_2
+
+    _definition.id                'pd_background.straight_line_X_2'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The starting X-coordinate for drawing a straight-line segment representing
+    the background in a calculated diffractogram. Many line segments may need to
+    be defined to cover the entire calculated range.
+
+    The background equation is of the form:
+
+               (intensity_2 - intensity_1)
+        bkg =  --------------------------- (x - X_1) + intensity_1
+                       (X_2 - X_1)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated, and the function is defined only over the range X_1:X_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_X_2
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.straight_line_X_list
+
+    _definition.id                '_pd_background.straight_line_X_list'
+    _definition.update            2023-01-08
+    _description.text
+;
+    List of X-coordinates used to create many straight-line segments
+    representing the background in a calculated diffractogram.
+
+    See _pd_background.straight_line_X_1.
+
+    Must be in the same order as the intensity values in
+    _pd_background.straight_line_intensity_list
+;
+    _name.category_id             pd_background
+    _name.object_id               straight_line_X_list
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
 save_PD_BLOCK
 
     _definition.id                PD_BLOCK
