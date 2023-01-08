@@ -97,7 +97,7 @@ save_pd_amorphous.id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-     _type.contents                Code
+    _type.contents                Code
 
 save_
 
