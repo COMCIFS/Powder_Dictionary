@@ -5911,6 +5911,29 @@ save_pd_pref_orient_March_Dollase.diffractogram_block_id
 
 save_
 
+save_pd_pref_orient_March_Dollase.diffractogram_id
+
+    _definition.id
+        '_pd_pref_orient_March_Dollase.diffractogram_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A diffractogram ID code (see _pd_diffractogram.id) identifying the
+    diffractogram to which the preferred-orientation correction applies.
+
+    The diffraction data will be identified via a _pd_diffractogram.id code
+    matching the code in _pd_pref_orient_March_Dollase.diffractogram_id.
+;
+    _name.category_id             pd_pref_orient_March_Dollase
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_pref_orient_March_Dollase.fract
 
     _definition.id                '_pd_pref_orient_March_Dollase.fract'
@@ -6115,6 +6138,28 @@ save_pd_pref_orient_March_Dollase.phase_block_id
 
 save_
 
+save_pd_pref_orient_March_Dollase.phase_id
+
+    _definition.id                '_pd_pref_orient_March_Dollase.phase_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A phase ID code (see _pd_phase.id) identifying the phase to which the
+    preferred-orientation correction applies.
+
+    The phase will be identified by a _pd_phase.id code matching the code in
+    _pd_pref_orient_March_Dollase.phase_id.
+;
+    _name.category_id             pd_pref_orient_March_Dollase
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_pref_orient_March_Dollase.r
 
     _definition.id                '_pd_pref_orient_March_Dollase.r'
@@ -6259,6 +6304,29 @@ save_pd_pref_orient_spherical_harmonics.diffractogram_block_id
 
 save_
 
+save_pd_pref_orient_spherical_harmonics.diffractogram_id
+
+    _definition.id
+        '_pd_pref_orient_spherical_harmonics.diffractogram_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A diffractogram ID code (see _pd_diffractogram.id) identifying the
+    diffractogram to which the preferred-orientation correction applies.
+
+    The diffraction data will be identified via a _pd_diffractogram.id code
+    matching the code in _pd_pref_orient_spherical_harmonics.diffractogram_id.
+;
+    _name.category_id             pd_pref_orient_spherical_harmonics
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_pref_orient_spherical_harmonics.geom
 
     _definition.id                '_pd_pref_orient_spherical_harmonics.geom'
@@ -6335,6 +6403,28 @@ save_pd_pref_orient_spherical_harmonics.phase_block_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_pref_orient_spherical_harmonics.phase_id
+
+    _definition.id                '_pd_pref_orient_spherical_harmonics.phase_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A phase ID code (see _pd_phase.id) identifying the phase to which the
+    preferred-orientation correction applies.
+
+    The phase will be identified by a _pd_phase.id code matching the code in
+    _pd_pref_orient_spherical_harmonics.phase_id.
+;
+    _name.category_id             pd_pref_orient_spherical_harmonics
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Word
 
 save_
 
