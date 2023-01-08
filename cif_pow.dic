@@ -5880,7 +5880,11 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT_MARCH_DOLLASE
 
-    _category_key.name            '_pd_pref_orient_March_Dollase.id'
+    loop_
+      _category_key.name
+         '_pd_pref_orient_March_Dollase.diffractogram_id'
+         '_pd_pref_orient_March_Dollase.id'
+         '_pd_pref_orient_March_Dollase.phase_id'
 
 save_
 
@@ -6188,7 +6192,11 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
-    _category_key.name            '_pd_pref_orient_spherical_harmonics.id'
+    loop_
+      _category_key.name
+         '_pd_pref_orient_spherical_harmonics.diffractogram_id'
+         '_pd_pref_orient_spherical_harmonics.id'
+         '_pd_pref_orient_spherical_harmonics.phase_id'
 
 save_
 
