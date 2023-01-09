@@ -360,7 +360,7 @@ save_pd_background.polynomial_coeff
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _units.code                   UNKNOWN
+    _units.code                   arbitrary
 
 save_
 
@@ -375,7 +375,7 @@ save_pd_background.polynomial_coeff_su
     _name.category_id             pd_background
     _name.object_id               polynomial_coeff_su
     _name.linked_item_id          '_pd_background.polynomial_coeff'
-    _units.code                   UNKNOWN
+    _units.code                   arbitrary
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -402,7 +402,7 @@ save_pd_background.polynomial_coeff_list
     _type.container               Matrix
     _type.dimension               '[]'
     _type.contents                Real
-    _units.code                   UNKNOWN
+    _units.code                   arbitrary
 
 save_
 
@@ -417,7 +417,7 @@ save_pd_background.polynomial_coeff_list_su
     _name.category_id             pd_background
     _name.object_id               polynomial_coeff_list_su
     _name.linked_item_id          '_pd_background.polynomial_coeff_list'
-    _units.code                   UNKNOWN
+    _units.code                   arbitrary
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
