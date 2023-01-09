@@ -321,7 +321,23 @@ save_pd_background.peak_id
     _description.text
 ;
     An arbitrary code is assigned to a peak in the background.
-##########################################################################
+
+    Used to link with _pd_peak.id. Each peak will have a unique code. In cases
+    where two peaks are severely overlapped, it may be desirable to list them as
+    a single peak.
+
+    A peak ID must be included for every amorphous peak.
+;
+    _name.category_id             pd_background
+    _name.object_id               peak_id
+    _name.linked_item_id          '_pd_peak.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
 save_pd_background.polynomial_coeff
 
     _definition.id                'pd_background.polynomial_coeff'
