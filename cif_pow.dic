@@ -508,6 +508,102 @@ save_pd_background.polynomial_power_list_su
 
 save_
 
+save_pd_background.sinc_amplitude
+
+    _definition.id                '_pd_background.sinc_amplitude'
+    _definition.update            2023-01-09
+    _description.text
+;
+    The value of the amplitude of a sinc function representing the background in
+    a calculated diffractogram.
+
+    The background equation is of the form:
+
+        bkg = (amplitude / distance) * sinc(distance * q)
+            = (amplitude / distance) * sin(distance * q) / (distance * q)
+
+    where q is the magnitude of the diffraction vector, defined as:
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               sinc_amplitude
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.sinc_amplitude_su
+
+    _definition.id                '_pd_background.sinc_amplitude_su'
+    _definition.update            2023-01-09
+    _description.text
+;
+    Standard uncertainty of _pd_background.sinc_amplitude.
+;
+    _name.category_id             pd_background
+    _name.object_id               sinc_amplitude_su
+    _name.linked_item_id          '_pd_background.sinc_amplitude'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.sinc_distance
+
+    _definition.id                '_pd_background.sinc_distance'
+    _definition.update            2023-01-09
+    _description.text
+;
+    The value of the distance in a sinc function representing the background in
+    a calculated diffractogram.
+
+    The background equation is of the form:
+
+        bkg = (amplitude / distance) * sinc(distance * q)
+            = (amplitude / distance) * sin(distance * q) / (distance * q)
+
+    where q is the magnitude of the diffraction vector, defined as:
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               sinc_distance
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   angstroms
+
+save_
+
+save_pd_background.sinc_distance_su
+
+    _definition.id                '_pd_background.sinc_distance_su'
+    _definition.update            2023-01-09
+    _description.text
+;
+    Standard uncertainty of _pd_background.sinc_distance.
+;
+    _name.category_id             pd_background
+    _name.object_id               sinc_amplitude_su
+    _name.linked_item_id          '_pd_background.sinc_distance'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_background.straight_line_intensity_1
 
     _definition.id                '_pd_background.straight_line_intensity_1'
