@@ -185,6 +185,23 @@ save_pd_background.Chebyshev_coeff
 
 save_
 
+save_pd_background.Chebyshev_coeff_su
+
+    _definition.id                'pd_background.Chebyshev_coeff_su'
+    _definition.update            2023-01-08
+    _description.text
+;
+    Standard uncertainty of pd_background.Chebyshev_coeff.
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coeff_su
+    _name.linked_item_id          'pd_background.Chebyshev_coeff'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_background.Chebyshev_coeff_list
 
     _definition.id                '_pd_background.Chebyshev_coeff_list'
@@ -228,23 +245,6 @@ save_pd_background.Chebyshev_coeff_list_su
 
 save_
 
-save_pd_background.Chebyshev_coeff_su
-
-    _definition.id                'pd_background.Chebyshev_coeff_su'
-    _definition.update            2023-01-08
-    _description.text
-;
-    Standard uncertainty of pd_background.Chebyshev_coeff.
-;
-    _name.category_id             pd_background
-    _name.object_id               Chebyshev_coeff_su
-    _name.linked_item_id          'pd_background.Chebyshev_coeff'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
 save_pd_background.Chebyshev_order
 
     _definition.id                'pd_background.Chebyshev_order'
@@ -269,7 +269,7 @@ save_pd_background.Chebyshev_order
         bkg = Sum( coeff * T~n~(x))
 ;
     _name.category_id             pd_background
-    _name.object_id               Chebyshev_power
+    _name.object_id               Chebyshev_order
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Single
@@ -364,6 +364,23 @@ save_pd_background.polynomial_coeff
 
 save_
 
+save_pd_background.polynomial_coeff_su
+
+    _definition.id                'pd_background.polynomial_coeff_su'
+    _definition.update            2023-01-08
+    _description.text
+;
+    Standard uncertainty of pd_background.polynomial_coeff.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coeff_su
+    _name.linked_item_id          'pd_background.polynomial_coeff'
+    _units.code                   UNKNOWN
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_background.polynomial_coeff_list
 
     _definition.id                '_pd_background.polynomial_coeff_list'
@@ -406,23 +423,6 @@ save_pd_background.polynomial_coeff_list_su
 
 save_
 
-save_pd_background.polynomial_coeff_su
-
-    _definition.id                'pd_background.polynomial_coeff_su'
-    _definition.update            2023-01-08
-    _description.text
-;
-    Standard uncertainty of pd_background.polynomial_coeff.
-;
-    _name.category_id             pd_background
-    _name.object_id               polynomial_coeff_su
-    _name.linked_item_id          'pd_background.polynomial_coeff'
-    _units.code                   UNKNOWN
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
 save_pd_background.polynomial_power
 
     _definition.id                'pd_background.polynomial_power'
@@ -446,6 +446,23 @@ save_pd_background.polynomial_power
     _type.container               Single
     _type.contents                Real
     _units.code                   none
+
+save_
+
+save_pd_background.polynomial_power_su
+
+    _definition.id                'pd_background.polynomial_power_su'
+    _definition.update            2023-01-08
+    _description.text
+;
+    Standard uncertainty of pd_background.polynomial_power.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_power_su
+    _name.linked_item_id          'pd_background.polynomial_power'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -485,23 +502,6 @@ save_pd_background.polynomial_power_list_su
     _name.category_id             pd_background
     _name.object_id               polynomial_power_list_su
     _name.linked_item_id          'pd_background.polynomial_power_list'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_background.polynomial_power_su
-
-    _definition.id                'pd_background.polynomial_power_su'
-    _definition.update            2023-01-08
-    _description.text
-;
-    Standard uncertainty of pd_background.polynomial_power.
-;
-    _name.category_id             pd_background
-    _name.object_id               polynomial_power_su
-    _name.linked_item_id          'pd_background.polynomial_power'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -615,7 +615,7 @@ save_pd_background.straight_line_intensity_list
     _pd_background.straight_line_X_list
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_coeff_list
+    _name.object_id               straight_line_intensity_list
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Matrix
