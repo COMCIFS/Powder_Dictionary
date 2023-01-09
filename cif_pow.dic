@@ -46,6 +46,80 @@ save_PD_GROUP
 
 save_
 
+save_PD_AMORPHOUS
+
+    _definition.id                PD_AMORPHOUS
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-08
+    _description.text
+;
+    This section contains information about peaks in an amorphous phase
+    extracted from the measured or, if present, the processed diffractogram.
+    Each peak in this table will have a unique label (see _pd_amorphous.id).
+
+    See PD_PEAK for details on the specific peak parameters that may be
+    recorded. Each amorphous peak may or may not be associated with an indexed
+    reflection, and as such, an "amorphous" phase could represent a material
+    with a unknown crystal structure. Amorphous peaks do not correspond to
+    background, and should not be used as such.
+
+    Note that peak positions are customarily determined from the processed
+    diffractogram, and thus corrections for position and intensity will have
+    been previously applied.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_AMORPHOUS
+
+    loop_
+      _category_key.name
+         '_pd_amorphous.peak_id'
+         '_pd_amorphous.phase_id'
+
+save_
+
+save_pd_amorphous.peak_id
+
+    _definition.id                '_pd_amorphous.peak_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    An arbitrary code is assigned to each peak in an amorphous phase.
+
+    Used to link with _pd_peak.id. Each peak will have a unique code. In cases
+    where two peaks are severely overlapped, it may be desirable to list them as
+    a single peak.
+
+    A peak ID must be included for every amorphous peak.
+;
+    _name.category_id             pd_amorphous
+    _name.object_id               peak_id
+    _name.linked_item_id          '_pd_peak.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_amorphous.phase_id
+
+    _definition.id                '_pd_amorphous.phase_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the amorphous peak relates.
+;
+    _name.category_id             pd_amorphous
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_PD_BLOCK
 
     _definition.id                PD_BLOCK
@@ -5618,16 +5692,15 @@ save_PD_PHASE
     _definition.id                PD_PHASE
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-04
+    _definition.update            2023-01-08
     _description.text
 ;
-    This section contains a description of the crystalline phases
-    contributing to the powder diffraction data set. Note that if
-    multiple-phase Rietveld or other structural analysis is
-    performed, the structural results will be placed in different
-    data blocks, using CIF entries from the core CIF dictionary.
+    This section contains a description of the phases contributing to the powder
+    diffraction data set. Note that if multiple-phase Rietveld or other
+    structural analysis is performed, the structural results will be placed in
+    different data blocks, using CIF entries from the core CIF dictionary.
 
-    The _pd_phase_block.id entry points to the CIF block with
+    The _pd_phase_block.id or _pd_phase.id entry points to the CIF block with
     structural parameters for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
@@ -8393,6 +8466,8 @@ save_
 
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
+
+       Created PD_AMORPHOUS.
 
        Deprecate _pd_calib.std_internal_mass_percent and
        _pd_calib.std_internal_mass_percent_su.
