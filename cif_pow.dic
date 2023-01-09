@@ -316,7 +316,7 @@ save_
 
 save_pd_background.peak_id
 
-    _definition.id                '_pd_background_peak.id'
+    _definition.id                '_pd_background.peak_id'
     _definition.update            2023-01-08
     _description.text
 ;
@@ -370,7 +370,7 @@ save_pd_background.polynomial_coeff_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.polynomial_coeff.
+    Standard uncertainty of _pd_background.polynomial_coeff.
 ;
     _name.category_id             pd_background
     _name.object_id               polynomial_coeff_su
@@ -412,7 +412,7 @@ save_pd_background.polynomial_coeff_list_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.polynomial_coeff_list.
+    Standard uncertainty of _pd_background.polynomial_coeff_list.
 ;
     _name.category_id             pd_background
     _name.object_id               polynomial_coeff_list_su
@@ -455,7 +455,7 @@ save_pd_background.polynomial_power_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.polynomial_power.
+    Standard uncertainty of _pd_background.polynomial_power.
 ;
     _name.category_id             pd_background
     _name.object_id               polynomial_power_su
@@ -497,7 +497,7 @@ save_pd_background.polynomial_power_list_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.polynomial_power_list.
+    Standard uncertainty of _pd_background.polynomial_power_list.
 ;
     _name.category_id             pd_background
     _name.object_id               polynomial_power_list_su
@@ -543,7 +543,7 @@ save_pd_background.straight_line_intensity_1_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.straight_line_intensity_1.
+    Standard uncertainty of _pd_background.straight_line_intensity_1.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_intensity_1_su
@@ -589,7 +589,7 @@ save_pd_background.straight_line_intensity_2_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.straight_line_intensity_2.
+    Standard uncertainty of _pd_background.straight_line_intensity_2.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_intensity_2_su
@@ -632,7 +632,7 @@ save_pd_background.straight_line_intensity_list_su
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of pd_background.straight_line_intensity_list.
+    Standard uncertainty of _pd_background.straight_line_intensity_list.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_intensity_list
