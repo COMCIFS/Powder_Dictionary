@@ -330,6 +330,57 @@ save_pd_background.Debye_diffuse_amplitude_su
 
 save_
 
+save_pd_background.Debye_diffuse_displacement
+
+    _definition.id                '_pd_background.Debye_diffuse_displacement'
+    _definition.update            2023-01-09
+    _description.text
+;
+    The value of the distance of Debye diffuse scattering equation representing
+    the background in a calculated diffractogram.
+
+    The background equation is of the form
+
+        bkg = amplitude * sinc(distance * q) * exp(-displacement * q^2^)
+
+    where sinc(X) is defined as
+
+        sinc(X) = sin(X) / X
+
+    and where q is the magnitude of the diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_displacement
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   angstrom_squared
+
+save_
+
+save_pd_background.Debye_diffuse_displacement_su
+
+    _definition.id                '_pd_background.Debye_diffuse_displacement_su'
+    _definition.update            2023-01-09
+    _description.text
+;
+    Standard uncertainty of _pd_background.Debye_diffuse_displacement.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_displacement_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_displacement'
+    _units.code                   angstrom_squared
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_background.Debye_diffuse_distance
 
     _definition.id                '_pd_background.Debye_diffuse_distance'
@@ -375,57 +426,6 @@ save_pd_background.Debye_diffuse_distance_su
     _name.category_id             pd_background
     _name.object_id               Debye_diffuse_distance_su
     _name.linked_item_id          '_pd_background.Debye_diffuse_distance'
-    _units.code                   angstroms
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_background.Debye_diffuse_displacement
-
-    _definition.id                '_pd_background.Debye_diffuse_displacement'
-    _definition.update            2023-01-09
-    _description.text
-;
-    The value of the distance of Debye diffuse scattering equation representing
-    the background in a calculated diffractogram.
-
-    The background equation is of the form
-
-        bkg = amplitude * sinc(distance * q) * exp(-displacement * q^2^)
-
-    where sinc(X) is defined as
-
-        sinc(X) = sin(X) / X
-
-    and where q is the magnitude of the diffraction vector, defined as
-
-        q = 4 * Pi * sin(theta) / lambda
-
-    where theta is the diffraction angle and lambda is the wavelength of the
-    incident radiation in angstroms.
-;
-    _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_displacement
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   angstroms
-
-save_
-
-save_pd_background.Debye_diffuse_displacement_su
-
-    _definition.id                '_pd_background.Debye_diffuse_displacement_su'
-    _definition.update            2023-01-09
-    _description.text
-;
-    Standard uncertainty of _pd_background.Debye_diffuse_displacement.
-;
-    _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_displacement_su
-    _name.linked_item_id          '_pd_background.Debye_diffuse_displacement'
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
