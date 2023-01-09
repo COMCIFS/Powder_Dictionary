@@ -871,7 +871,7 @@ save_PD_CALC_COMPONENT
     _definition.id                PD_CALC_COMPONENT
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-12
+    _definition.update            2023-01-08
     _description.text
 ;
     This section is used for storing the phase-specific
@@ -880,7 +880,12 @@ save_PD_CALC_COMPONENT
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALC_COMPONENT
-    _category_key.name            '_pd_calc_component.point_id'
+
+    loop_
+      _category_key.name
+         '_pd_calc_component.diffractogram_id'
+         '_pd_calc_component.point_id'
+         '_pd_calc_component.phase_id'
 
 save_
 
@@ -906,6 +911,26 @@ save_pd_calc_component.block_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
+
+save_
+
+save_pd_calc_component.diffractogram_id
+
+    _definition.id                '_pd_calc_component.diffractogram_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    The diffractogram(s) (see _pd_diffractogram.id) to which these component
+    intensities form part of the _pd_calc.intensity_total or
+    _pd_calc.intensity_net values.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -982,6 +1007,25 @@ save_pd_calc_component.intensity_total
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   none
+
+save_
+
+save_pd_calc_component.phase_id
+
+    _definition.id                '_pd_calc_component.phase_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    The phase (see _pd_phase.id) from which the component intensities
+    were calculated.
+;
+    _name.category_id             pd_calc_component
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -1158,8 +1202,9 @@ save_
 save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
-    _alias.definition_id          '_pd_calib_std_internal_mass_%'
-    _definition.update            2022-10-11
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_qpa_int_std.mass_percent'
+    _definition.update            2023-01-06
     _description.text
 ;
     This item is deprecated. Please see _pd_qpa_int_std.mass_percent.
@@ -1183,9 +1228,13 @@ save_
 save_pd_calib.std_internal_mass_percent_su
 
     _definition.id                '_pd_calib.std_internal_mass_percent_su'
-    _definition.update            2022-10-27
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_qpa_int_std.mass_percent_su'
+    _definition.update            2023-01-06
     _description.text
 ;
+    This item is deprecated. Please see _pd_qpa_int_std.mass_percent_su.
+
     Standard uncertainty of _pd_calib.std_internal_mass_percent.
 ;
     _name.category_id             pd_calib
@@ -6511,7 +6560,11 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT_MARCH_DOLLASE
 
-    _category_key.name            '_pd_pref_orient_March_Dollase.id'
+    loop_
+      _category_key.name
+         '_pd_pref_orient_March_Dollase.diffractogram_id'
+         '_pd_pref_orient_March_Dollase.id'
+         '_pd_pref_orient_March_Dollase.phase_id'
 
 save_
 
@@ -6533,6 +6586,26 @@ save_pd_pref_orient_March_Dollase.diffractogram_block_id
     _name.object_id               diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_pref_orient_March_Dollase.diffractogram_id
+
+    _definition.id
+        '_pd_pref_orient_March_Dollase.diffractogram_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A diffractogram id to which the preferred-orientation correction
+    relates.
+;
+    _name.category_id             pd_pref_orient_March_Dollase
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -6742,6 +6815,25 @@ save_pd_pref_orient_March_Dollase.phase_block_id
 
 save_
 
+save_pd_pref_orient_March_Dollase.phase_id
+
+    _definition.id                '_pd_pref_orient_March_Dollase.phase_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A phase id to which the preferred-orientation correction
+    relates.
+;
+    _name.category_id             pd_pref_orient_March_Dollase
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_pref_orient_March_Dollase.r
 
     _definition.id                '_pd_pref_orient_March_Dollase.r'
@@ -6819,7 +6911,11 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
-    _category_key.name            '_pd_pref_orient_spherical_harmonics.id'
+    loop_
+      _category_key.name
+         '_pd_pref_orient_spherical_harmonics.diffractogram_id'
+         '_pd_pref_orient_spherical_harmonics.id'
+         '_pd_pref_orient_spherical_harmonics.phase_id'
 
 save_
 
@@ -6877,6 +6973,26 @@ save_pd_pref_orient_spherical_harmonics.diffractogram_block_id
     _name.object_id               diffractogram_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_pref_orient_spherical_harmonics.diffractogram_id
+
+    _definition.id
+        '_pd_pref_orient_spherical_harmonics.diffractogram_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A diffractogram id to which the preferred-orientation correction
+    relates.
+;
+    _name.category_id             pd_pref_orient_spherical_harmonics
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -6956,6 +7072,25 @@ save_pd_pref_orient_spherical_harmonics.phase_block_id
     _name.object_id               phase_block_id
     _type.purpose                 Encode
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_pref_orient_spherical_harmonics.phase_id
+
+    _definition.id                '_pd_pref_orient_spherical_harmonics.phase_id'
+    _definition.update            2023-01-06
+    _description.text
+;
+    A phase id to which the preferred-orientation correction
+    relates.
+;
+    _name.category_id             pd_pref_orient_spherical_harmonics
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8117,6 +8252,7 @@ save_
 save_pd_qpa_int_std.mass_percent
 
     _definition.id                '_pd_qpa_int_std.mass_percent'
+    _alias.definition_id          '_pd_calib_std_internal_mass_%'
     _definition.update            2023-01-03
     _description.text
 ;
@@ -8890,4 +9026,10 @@ save_
        Integer to Real.
 
        Created PD_BACKGROUND.
+
+       Deprecate _pd_calib.std_internal_mass_percent and
+       _pd_calib.std_internal_mass_percent_su.
+
+       Added phase_id and diffractogram_id to PD_PREF_ORIENT_MARCH_DOLLASE and
+       PD_PREF_ORIENT_SPHERICAL_HARMONICS.
 ;
