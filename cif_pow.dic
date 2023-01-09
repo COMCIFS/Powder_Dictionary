@@ -120,10 +120,11 @@ save_pd_background.Chebyshev_coeff_list
     List of coefficients used in a Chebyshev equation representing the
     background in a calculated diffractogram.
 
-    See _pd_background.Chebyshev_coeff.
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
 
-    Must be in the same order as the powers in
-    _pd_background.Chebyshev_order_list
+    See _pd_background.Chebyshev_coeff.
 ;
     _name.category_id             pd_background
     _name.object_id               Chebyshev_coeff_list
@@ -204,32 +205,6 @@ save_pd_background.Chebyshev_order
 
 save_
 
-save_pd_background.Chebyshev_order_list
-
-    _definition.id                '_pd_background.Chebyshev_order_list'
-    _definition.update            2023-01-08
-    _description.text
-;
-    List of orderss used in a Chebyshev equation representing the background
-    in a calculated diffractogram.
-
-    See _pd_background.Chebyshev_order.
-
-    Must be in the same order as the coeffs in
-    _pd_background.Chebyshev_coeff_list
-;
-    _name.category_id             pd_background
-    _name.object_id               Chebyshev_order_list
-    _type.purpose                 Number
-    _type.source                  Assigned
-    _type.container               Matrix
-    _type.dimension               '[]'
-    _type.contents                Integer
-    _enumeration.range            0:
-    _units.code                   none
-
-save_
-
 save_pd_background.diffractogram_id
 
     _definition.id                '_pd_background.diffractogram_id'
@@ -254,7 +229,7 @@ save_pd_background.id
     _definition.update            2023-01-08
     _description.text
 ;
-    An arbitrary code which identifies a specific background equation.
+    An arbitrary code identifying part of a background equation.
 ;
     _name.category_id             pd_background
     _name.object_id               id
@@ -311,7 +286,7 @@ save_pd_background.polynomial_coeff
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _units.code                   none
+    _units.code                   UNKNOWN
 
 save_
 
@@ -336,7 +311,7 @@ save_pd_background.polynomial_coeff_list
     _type.container               Matrix
     _type.dimension               '[]'
     _type.contents                Real
-    _units.code                   none
+    _units.code                   UNKNOWN
 
 save_
 
@@ -351,7 +326,7 @@ save_pd_background.polynomial_coeff_list_su
     _name.category_id             pd_background
     _name.object_id               polynomial_coeff_list_su
     _name.linked_item_id          'pd_background.polynomial_coeff_list'
-    _units.code                   none
+    _units.code                   UNKNOWN
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -368,7 +343,7 @@ save_pd_background.polynomial_coeff_su
     _name.category_id             pd_background
     _name.object_id               polynomial_coeff_su
     _name.linked_item_id          'pd_background.polynomial_coeff'
-    _units.code                   none
+    _units.code                   UNKNOWN
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -396,7 +371,7 @@ save_pd_background.polynomial_power
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _units.code                   UNKNOWN
+    _units.code                   none
 
 save_
 
@@ -421,7 +396,7 @@ save_pd_background.polynomial_power_list
     _type.container               Matrix
     _type.dimension               '[]'
     _type.contents                Real
-    _units.code                   UNKNOWN
+    _units.code                   none
 
 save_
 
@@ -436,7 +411,7 @@ save_pd_background.polynomial_power_list_su
     _name.category_id             pd_background
     _name.object_id               polynomial_power_list_su
     _name.linked_item_id          'pd_background.polynomial_power_list'
-    _units.code                   UNKNOWN
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -453,7 +428,7 @@ save_pd_background.polynomial_power_su
     _name.category_id             pd_background
     _name.object_id               polynomial_power_su
     _name.linked_item_id          'pd_background.polynomial_power'
-    _units.code                   UNKNOWN
+    _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
