@@ -1136,7 +1136,7 @@ save_pd_calib_std.external_name
     _name.category_id             pd_calib_std
     _name.object_id               external_name
     _type.purpose                 Describe
-    _type.source                  Recorded
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
@@ -7625,7 +7625,7 @@ save_pd_qpa_ext_std.phase_name
     _name.category_id             pd_qpa_ext_std
     _name.object_id               phase_name
     _type.purpose                 Describe
-    _type.source                  Recorded
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
@@ -7774,7 +7774,7 @@ save_pd_qpa_int_std.phase_name
     _name.category_id             pd_qpa_int_std
     _name.object_id               phase_name
     _type.purpose                 Describe
-    _type.source                  Recorded
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
