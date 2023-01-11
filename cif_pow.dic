@@ -1534,6 +1534,116 @@ save_PD_DATA
          '_pd_data.point_id'
          '_pd_data.diffractogram_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         _pd_proc.intensity_bkg_calc
+         1   5.001   43.364   25.994961   25.994961
+         2   5.004   38.007   26.200290   26.200290
+         3   5.007   38.318   26.404083   26.404083
+         4   5.010   41.877   26.606346   26.606346
+         #further data points follow
+;
+;
+         Tabulation of diffraction data consisting of measured and calculated
+         data. The measured diffraction angle and measured intensity are given.
+         The calculated diffraction pattern intensity, including background, is
+         given, and finally, the calculated background is listed.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. In the usual case that only one diffractogram
+         is present in the data block, the category key value associated with
+         _pd_data.diffractogram_id would be taken from the value associated
+         with the data name _pd_diffractogram.id given in that data block.
+;
+;
+         loop_
+         _pd_data.point_id
+         _pd_meas.time_of_flight
+         _pd_proc.d_spacing
+         _pd_proc.intensity_total
+         _pd_proc_ls.weight
+         _pd_calc.intensity_total
+         _pd_proc.intensity_bkg_calc
+         0   1110.30100   1.489225   0.60008   6528.86960   0.553025   0.504217
+         1   1114.74220   1.495170   0.63531   6316.37917   0.571286   0.504020
+         2   1119.20117   1.501138   0.64690   6107.85715   0.593895   0.503826
+         3   1123.67798   1.507131   0.65580   6162.14696   0.620014   0.503635
+         4   1128.17269   1.513147   0.69097   5674.48379   0.647871   0.503449
+         #further data points follow
+;
+;
+         Tabulation of diffraction data consisting of measured, processed, and
+         calculated data. The measured time-of-flight is given along with the
+         corresponding d-values; The parameters for this conversion may be
+         given elsewhere using PD_CALIB_D_TO_TOF data items. The measured
+         intensity is not given, only the processed intensity is listed. The
+         weighting associated with each data point in the diffraction pattern
+         modelling process is given, along with the calculated intensity and
+         background.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. In the usual case that only one diffractogram
+         is present in the data block, the category key value associated with
+         _pd_data.diffractogram_id would be taken from the value associated
+         with the data name _pd_diffractogram.id given in that data block.
+;
+;
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_proc.2theta_corrected
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         0   3.99875   3.907132   1061.8   1076.653
+         1   4.03625   3.944633   1053.9   1074.628
+         2   4.07375   3.982134   1060.2   1072.667
+         3   4.11125   4.019635   1017.3   1070.768
+         #further data points follow
+;
+;
+         Tabulation of diffraction data consisting of measured, processed, and
+         calculated data. The measured diffraction angle is given, along with
+         diffraction angles corrected for any instrument alignment or
+         specimen displacement. Finally, the measured intensity and intensity
+         calculated from a model are given. The two intensities include
+         background and are on the same scale.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. In the usual case that only one diffractogram
+         is present in the data block, the category key value associated with
+         _pd_data.diffractogram_id would be taken from the value associated
+         with the data name _pd_diffractogram.id given in that data block.
+;
+;
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.counts_total
+         1   4.03   154
+         2   4.09   140
+         3   4.15   134
+         4   4.21   171
+         #further data points follow
+;
+;
+         Tabulation of diffraction data consisting only of measured data. The
+         intensity is measured in counts, including background. The
+         X-coordinate is 2\\q degrees as given by the diffractometer.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. In the usual case that only one diffractogram
+         is present in the data block, the category key value associated with
+         _pd_data.diffractogram_id would be taken from the value associated
+         with the data name _pd_diffractogram.id given in that data block.
+;
+
 save_
 
 save_pd_data.diffractogram_id
