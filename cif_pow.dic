@@ -330,9 +330,7 @@ save_PD_CALC_COMPONENT
          '_pd_calc_component.point_id'
          '_pd_calc_component.phase_id'
 
-    loop_
-      _description_example.case
-      _description_example.detail
+    _description_example.case
 ;
          _pd_phase.id           A_PHASE
          _pd_diffractogram.id   A_DIFFRACTOGRAM
@@ -345,11 +343,18 @@ save_PD_CALC_COMPONENT
          2    26.404083
          # further calculated points...
 ;
+    _description_example.detail
 ;
+         This shows the usual case where a single phase and diffractogram
+         combination is present in a single data block; the values of
+         _pd_calc_component.phase_id and _pd_calc_component.diffractogram_id
+         are taken directly from the parent items _pd_phase.id and
+         _pd_diffractogram.id.
+
          The first three data points of the calculated diffraction pattern
          corresponding only to the contribution of the phase with the
-         _pd_phase.id value of 'A_PHASE', including any background. The
-         diffractogram to which this profile belongs has the
+         _pd_phase.id value of 'A_PHASE', including any background, are given.
+         The diffractogram to which this profile belongs has the
          _pd_diffractogram.id value of 'A_DIFFRACTOGRAM'. The values of
          _pd_calc_component.point_id must correspond to the _pd_data.point_id
          values to which the _pd_calc_component.intensity_total values belong.
