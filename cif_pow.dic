@@ -330,6 +330,31 @@ save_PD_CALC_COMPONENT
          '_pd_calc_component.point_id'
          '_pd_calc_component.phase_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_phase.id           A_PHASE
+         _pd_diffractogram.id   A_DIFFRACTOGRAM
+
+         loop_
+         _pd_calc_component.point_id
+         _pd_calc_component.intensity_total
+         0    25.994961
+         1    26.200290
+         2    26.404083
+         # further calculated points...
+;
+;
+         The first three data points of the calculated diffraction pattern
+         corresponding only to the contribution of the phase with the
+         _pd_phase.id value of 'A_PHASE', including any background. The
+         diffractogram to which this profile belongs has the
+         _pd_diffractogram.id value of 'A_DIFFRACTOGRAM'. The values of
+         _pd_calc_component.point_id must correspond to the _pd_data.point_id
+         values to which the _pd_calc_component.intensity_total values belong.
+;
+
 save_
 
 save_pd_calc_component.block_id
