@@ -7764,7 +7764,7 @@ save_
 save_pd_qpa_int_std.phase_name
 
     _definition.id                '_pd_qpa_int_std.phase_name'
-    _definition.update            2023-01-07 #
+    _definition.update            2023-01-07
     _description.text
 ;
     Identifies the name of the material used as an internal standard for
