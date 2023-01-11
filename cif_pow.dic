@@ -5969,6 +5969,51 @@ save_PD_PHASE_MASS
          '_pd_phase_mass.diffractogram_id'
          '_pd_phase_mass.phase_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_phase_mass.diffractogram_id
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.percent
+         _pd_phase_mass.percent_su
+         A_DIFFRACTOGRAM   PHASE_1   45.45   0.42
+         A_DIFFRACTOGRAM   PHASE_2   37.42   0.63
+         A_DIFFRACTOGRAM   PHASE_3   17.13   0.53
+;
+;
+         Tabulation of quantitative phase analysis data. The phase masses,
+         expressed as percentages of the entire specimen are given, along with
+         their associated standard uncertainties. The values are associated with
+         one diffractogram and three phases.
+
+         The method of presentation given here would be associated with a
+         "summary" data block; one that doesn't contain any phase- or
+         diffractogram-specific information, but summarises results.
+;
+
+;
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.percent
+         _pd_phase_mass.percent_su
+         PHASE_1   45.45   0.42
+         PHASE_2   37.42   0.63
+         PHASE_3   17.13   0.53
+;
+;
+         Tabulation of quantitative phase analysis data. The phase masses,
+         expressed as percentages of the entire specimen are given, along with
+         their associated standard uncertainties. The values are associated with
+         three phases.
+
+         The method of presentation given here would be associated with being
+         present in a block which already contains a _pd_diffractogram.id
+         data item; the value of _pd_phase_mass.diffractogram_id is linked to
+         that value.
+;
+
 save_
 
 save_pd_phase_mass.diffractogram_id
