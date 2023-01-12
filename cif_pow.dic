@@ -4956,7 +4956,7 @@ save_PD_MEAS_OVERALL
     _definition.id                PD_MEAS_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains information about the conditions used for
@@ -4969,6 +4969,7 @@ save_PD_MEAS_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_OVERALL
+    _category_key.name            '_pd_meas_overall.diffractogram_id'
 
 save_
 
@@ -5394,6 +5395,25 @@ save_pd_meas.units_of_intensity
          'estimated from strip chart'
          'arbitrary, from film density'
          'counts, with automatic dead-time correction applied'
+
+save_
+
+save_pd_meas_overall.diffractogram_id
+
+    _definition.id                '_pd_meas_overall.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the measurement
+    conditions relate.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8578,5 +8598,6 @@ save_
 
        Added _pd_phase.id and/or _pd_diffractogram.id-linked data items to
        PD_CALC_OVERALL, PD_CALIB_D_TO_TOF, PD_INSTR, PD_MEAS_INFO_AUTHOR,
+       PD_MEAS_OVERALL,
 
 ;
