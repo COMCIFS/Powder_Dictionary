@@ -4822,7 +4822,7 @@ save_PD_MEAS_INFO_AUTHOR
 
     loop_
       _category_key.name
-         '_pd_meas_info.diffractogram_id'
+         '_pd_meas_info_author.diffractogram_id'
          '_pd_meas_info_author.name'
 
 save_
@@ -4847,16 +4847,16 @@ save_pd_meas_info_author.address
 
 save_
 
-save_pd_meas_info.diffractogram_id
+save_pd_meas_info_author.diffractogram_id
 
-    _definition.id                '_pd_meas_info.diffractogram_id'
+    _definition.id                '_pd_meas_info_author.diffractogram_id'
     _definition.update            2023-01-12
     _description.text
 ;
     The diffractogram (see _pd_diffractogram.id) to which the author details
     relate.
 ;
-    _name.category_id             pd_meas_info
+    _name.category_id             pd_meas_info_author
     _name.object_id               diffractogram_id
     _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
