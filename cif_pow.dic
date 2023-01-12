@@ -7010,7 +7010,7 @@ save_PD_PROC_INFO_AUTHOR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_INFO_AUTHOR
-    _category_key.name            '_pd_proc_info_author.name'
+
     loop_
       _category_key.name
          '_pd_proc_info_author.diffractogram_id'
