@@ -5323,7 +5323,7 @@ save_PD_PEAK
     measured or, if present, the processed diffractogram. Each
     peak in this table will have a unique label (see _pd_peak.id).
     The reflections and phases associated with each peak will be
-    specified in other sections (see PD_REFLN and PD_PHASE).
+    specified in other sections (see REFLN and PD_PHASE).
 
     Note that peak positions are customarily determined from the
     processed diffractogram and thus corrections for position
