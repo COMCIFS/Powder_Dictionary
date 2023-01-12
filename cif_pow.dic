@@ -7011,6 +7011,12 @@ save_PD_PROC_INFO_AUTHOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_INFO_AUTHOR
     _category_key.name            '_pd_proc_info_author.name'
+    loop_
+      _category_key.name
+         '_pd_proc_info_author.diffractogram_id'
+         '_pd_proc_info_author.name'
+         '_pd_proc_info_author.phase_id'
+
 
 save_
 
@@ -7018,7 +7024,7 @@ save_pd_proc_info_author.address
 
     _definition.id                '_pd_proc_info_author.address'
     _alias.definition_id          '_pd_proc_info_author_address'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-12
     _description.text
 ;
     The address of the person who processed the data.
@@ -7029,6 +7035,25 @@ save_pd_proc_info_author.address
     _name.object_id               address
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_proc_info_author.diffractogram_id
+
+    _definition.id                '_pd_proc_info_author.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the processing
+    author relates.
+;
+    _name.category_id             pd_proc_info_author
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -7093,6 +7118,24 @@ save_pd_proc_info_author.name
     _name.object_id               name
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_proc_info_author.phase_id
+
+    _definition.id                '_pd_proc_info_author.phase_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the processing author relates.
+;
+    _name.category_id             pd_proc_info_author
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8641,6 +8684,6 @@ save_
 
        Added _pd_phase.id and/or _pd_diffractogram.id-linked data items to
        PD_CALC_OVERALL, PD_CALIB_D_TO_TOF, PD_INSTR, PD_MEAS_INFO_AUTHOR,
-       PD_MEAS_OVERALL, PD_PREF_ORIENT
+       PD_MEAS_OVERALL, PD_PREF_ORIENT, PD_PROC_INFO_AUTHOR
 
 ;
