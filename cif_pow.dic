@@ -3235,7 +3235,7 @@ save_PD_INSTR
     _definition.id                PD_INSTR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-06
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains information relevant to the instrument
@@ -3275,6 +3275,7 @@ save_PD_INSTR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR
+    _category_key.name            '_pd_instr.diffractogram_id'
 
 save_
 
@@ -3430,6 +3431,25 @@ save_pd_instr.detector_circle_radius
     _type.contents                Real
     _enumeration.range            0.0:
     _units.code                   millimetres
+
+save_
+
+save_pd_instr.diffractogram_id
+
+    _definition.id                '_pd_instr.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the instrument
+    settings relate.
+;
+    _name.category_id             pd_instr
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8534,6 +8554,6 @@ save_
        link them formally to _pd_block.id
 
        Added _pd_phase.id and/or _pd_diffractogram.id-linked data items to
-       PD_CALC_OVERALL,
+       PD_CALC_OVERALL, PD_CALIB_D_TO_TOF, PD_INSTR,
 
 ;
