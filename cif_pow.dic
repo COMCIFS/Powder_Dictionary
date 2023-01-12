@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-09
+    _dictionary.date              2023-01-12
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -511,6 +511,7 @@ save_PD_CALC_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALC_OVERALL
+    _category_key.name            '_pd_calc_overall.diffractogram_id'
 
 save_
 
@@ -556,6 +557,25 @@ save_pd_calc_overall.component_presentation_order
     _type.container               Array
     _type.dimension               '[]'
     _type.contents                Code
+
+save_
+
+save_pd_calc_overall.diffractogram_id
+
+    _definition.id                '_pd_calc_overall.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the associated
+    features relate.
+;
+    _name.category_id             pd_calc_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8427,7 +8447,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-09
+         2.5.0                    2023-01-12
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8489,4 +8509,8 @@ save_
 
        Updated data items to hold block ID values to be of type Link, and to
        link them formally to _pd_block.id
+
+       Added _pd_phase.id and/or _pd_diffractogram.id-linked data items to
+       PD_CALC_OVERALL,
+
 ;
