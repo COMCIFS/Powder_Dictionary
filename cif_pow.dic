@@ -7463,7 +7463,7 @@ save_PD_PROC_OVERALL
     _definition.id                PD_PROC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains overall information about the diffraction
@@ -7655,6 +7655,25 @@ save_pd_proc.number_of_points
     _type.contents                Integer
     _enumeration.range            1:
     _units.code                   none
+
+save_
+
+save_pd_proc_overall.diffractogram_id
+
+    _definition.id                '_pd_proc_overall.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the overall
+    processing attributes relate.
+;
+    _name.category_id             pd_proc_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8684,6 +8703,6 @@ save_
 
        Added _pd_phase.id and/or _pd_diffractogram.id-linked data items to
        PD_CALC_OVERALL, PD_CALIB_D_TO_TOF, PD_INSTR, PD_MEAS_INFO_AUTHOR,
-       PD_MEAS_OVERALL, PD_PREF_ORIENT, PD_PROC_INFO_AUTHOR
+       PD_MEAS_OVERALL, PD_PREF_ORIENT, PD_PROC_INFO_AUTHOR, PD_PROC_OVERALL
 
 ;
