@@ -757,7 +757,11 @@ save_PD_CALIB_D_TO_TOF
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_D_TO_TOF
-    _category_key.name            '_pd_calib_d_to_tof.id'
+
+    loop_
+      _category_key.name
+         '_pd_calib_d_to_tof.diffractogram_id'
+         '_pd_calib_d_to_tof.id'
 
     loop_
       _description_example.case
@@ -851,6 +855,25 @@ save_pd_calib_d_to_tof.coeff_su
     _units.code                   microseconds
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_d_to_tof.diffractogram_id
+
+    _definition.id                '_pd_calib_d_to_tof.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the calibration
+    relates.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
