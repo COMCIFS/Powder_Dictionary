@@ -7472,6 +7472,7 @@ save_PD_PROC_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_OVERALL
+    _category_key.name            '_pd_proc_overall.diffractogram_id'
 
 save_
 
