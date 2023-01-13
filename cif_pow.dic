@@ -6195,6 +6195,62 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
          '_pd_pref_orient_March_Dollase.id'
          '_pd_pref_orient_March_Dollase.phase_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_pref_orient_March_Dollase.id
+         _pd_pref_orient_March_Dollase.diffractogram_id
+         _pd_pref_orient_March_Dollase.phase_id
+         _pd_pref_orient_March_Dollase.hkl
+         _pd_pref_orient_March_Dollase.fract
+         _pd_pref_orient_March_Dollase.fract_su
+         1   DIFFPAT_1   PHASE_1   [1 0 4]   0.79   0.12
+         2   DIFFPAT_1   PHASE_2   [0 0 1]   0.66   0.15
+;
+;
+         Showing a fully qualified reporting of the preferred-orientation
+         corrections for a phase with a _pd_phase.id of 'PHASE_1' a phase
+         with a _pd_phase.id of 'PHASE_2', both belonging to a diffractogram
+         with a _pd_diffractogram.id of 'DIFFPAT_1.
+
+         The first phase has the preferred-orientation direction of 104, with a
+         March r parameter value of 0.79 with a standard uncertainty of 0.12.
+
+         The second phase has the preferred-orientation direction of 001, with a
+         March r parameter value of 0.66 with a standard uncertainty of 0.15.
+;
+;
+         _pd_diffractogram.id   DIFFPAT_A
+
+         loop_
+         _pd_pref_orient_March_Dollase.id
+         _pd_pref_orient_March_Dollase.phase_id
+         _pd_pref_orient_March_Dollase.index_h
+         _pd_pref_orient_March_Dollase.index_k
+         _pd_pref_orient_March_Dollase.index_l
+         _pd_pref_orient_March_Dollase.fract
+         _pd_pref_orient_March_Dollase.r
+         a   PHASE_A   1 0 0   0.63   0.79
+         b   PHASE_A   0 1 0   0.37   0.66
+;
+;
+         Reporting of the preferred-orientation corrections for a phase with the
+         _pd_phase.id of 'PHASE_A'. The presence of _pd_diffractogram.id
+         'DIFFPAT_A' indicates that this block contains diffractogram
+         information, and the value of
+         _pd_pref_orient_March_Dollase.diffractogram_id is taken from this
+         parent value.
+
+         There are two preferred-orientation corrections being applied to the
+         same phase. The first is in the 100 direction, with a March r parameter
+         value of 0.79. This individual correction contributes 63% to the total
+         correction. The second is in the 010 direction, with a March r
+         parameter value of 0.66. This individual correction contributes 37% to
+         the total correction.
+;
+
 save_
 
 save_pd_pref_orient_March_Dollase.diffractogram_block_id
