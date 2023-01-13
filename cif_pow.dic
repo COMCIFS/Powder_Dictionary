@@ -6604,6 +6604,74 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
          '_pd_pref_orient_spherical_harmonics.id'
          '_pd_pref_orient_spherical_harmonics.phase_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_pref_orient_spherical_harmonics.id
+         _pd_pref_orient_spherical_harmonics.phase_id
+         _pd_pref_orient_spherical_harmonics.diffractogram_id
+         _pd_pref_orient_spherical_harmonics.y_ij
+         _pd_pref_orient_spherical_harmonics.c_ij
+         _pd_pref_orient_spherical_harmonics.c_ij_su
+         a   PHASE_A DIFFPAT_A   [0 0]   1.0     .
+         b   PHASE_A DIFFPAT_A   [2 0]   1.538   0.013
+         c   PHASE_B DIFFPAT_A   [0 0]   1.0     .
+         d   PHASE_B DIFFPAT_A   [4 1]  -0.066   0.010
+         e   PHASE_A DIFFPAT_B   [0 0]   1.0     .
+         f   PHASE_A DIFFPAT_B   [2 0]   1.630   0.014
+;
+;
+         Showing a fully qualified reporting of the preferred-orientation
+         corrections for phases with the _pd_phase.id of 'PHASE_A' and 'PHASE_B'
+         present in the diffractograms with the _pd_diffractogram.id of
+         'DIFFPAT_A' and 'DIFFPAT_B'.
+
+         In diffractogram 'DIFFPAT_A', both 'PHASE_A' and 'PHASE_B' have
+         corrections applied, with the non-(0,0) order/term pairs taking the
+         values (2,0) and (4,1), with coefficients of 1.538(13) and -0.066(10),
+         respectively.
+
+         In diffractogram 'DIFFPAT_B', only 'PHASE_A' has corrections applied,
+         with the non-(0,0) order/term pair taking the value (2,0), with a
+         coefficient of 1.630(14).
+;
+;
+         _pd_phase.id   PHASE_A
+
+         loop_
+         _pd_pref_orient_spherical_harmonics.id
+         _pd_pref_orient_spherical_harmonics.diffractogram_id
+         _pd_pref_orient_spherical_harmonics.y_i
+         _pd_pref_orient_spherical_harmonics.y_j
+         _pd_pref_orient_spherical_harmonics.c_ij
+         _pd_pref_orient_spherical_harmonics.c_ij_su
+         a   DIFFPAT_A   0   0   1.0     .
+         b   DIFFPAT_A   2   0   1.538   0.013
+         c   DIFFPAT_A   4   0   0.913   0.016
+         d   DIFFPAT_A   4  -3  -0.166   0.010
+         1   DIFFPAT_B   0   0   1.0     .
+         2   DIFFPAT_B   2   0   1.630   0.014
+;
+;
+         Reporting of the preferred-orientation corrections for a phase with the
+         _pd_phase.id of 'PHASE_A'. The presence of _pd_phase.id 'PHASE_A'
+         indicates that this block contains phase information, and the value of
+         _pd_pref_orient_spherical_harmonics.phase_id is taken from this
+         parent value.
+
+         This table is reporting preferred-orientation values pertinent to this
+         phase, as seen in two diffractograms: 'DIFFPAT_A' and 'DIFFPAT_B'.
+         There are four corrections applied in 'DIFFPAT_A' corresponding to
+         order/term pairs of (0,0), (2,0), (4,0), and (4, -3), and their
+         magnitudes and standard uncertainties are 1.0, 1.538(13), 0.913(16),
+         and -0.166(10), respectively. There are two corrections applied in
+         'DIFFPAT_B' corresponding to order/term pairs of (0,0) and (2,0), and
+         their magnitudes and standard uncertainties are 1.0 and 1.630(14),
+         respectively.
+;
+
 save_
 
 save_pd_pref_orient_spherical_harmonics.c_ij
