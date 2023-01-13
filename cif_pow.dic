@@ -3212,7 +3212,7 @@ save_pd_diffractogram_list.diffractogram_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Word
+    _type.contents                Text
 
 save_
 
@@ -3229,7 +3229,7 @@ save_pd_diffractogram_list.id
     _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Word
+    _type.contents                Text
 
 save_
 
@@ -5866,7 +5866,7 @@ save_pd_phase_list.id
     _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Word
+    _type.contents                Text
 
 save_
 
@@ -5892,7 +5892,7 @@ save_pd_phase_list.phase_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Word
+    _type.contents                Text
 
 save_
 
