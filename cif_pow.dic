@@ -162,7 +162,8 @@ save_pd_background.air_or_thermal_diffuse_coeff_1
     The value of the first coefficient used in an equation representing the
     background due to thermal diffuse scatering and/or air scattering, in a
     calculated diffractogram. This equation can account for background
-    contributions at both high and low q. Must be given with a
+    contributions at both high and low q. The first coefficient accounts for
+    background contributions that increase with q. Must be given with a
     _pd_background.air_or_thermal_diffuse_order value.
 
     The background equation is of the form:
@@ -218,7 +219,8 @@ save_pd_background.air_or_thermal_diffuse_coeff_2
     The value of the first coefficient used in an equation representing the
     background due to thermal diffuse scatering and/or air scattering, in a
     calculated diffractogram. This equation can account for background
-    contributions at both high and low q. Must be given with a
+    contributions at both high and low q. The second coefficient accounts for
+    background contributions that decrease with q. Must be given with a
     _pd_background.air_or_thermal_diffuse_order value.
 
     The background equation is of the form:
