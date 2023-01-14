@@ -152,6 +152,247 @@ save_PD_BACKGROUND
 
 save_
 
+save_pd_background.air_or_thermal_diffuse_coeff_1
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_1'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of the first coefficient used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram. This equation can account for background
+    contributions at both high and low q. Must be given with a
+    _pd_background.air_or_thermal_diffuse_order value.
+
+    The background equation is of the form:
+
+        bkg = Sum( C1~j~ * (q~2*j~/j!) + C2~j~ * (j!/q~2*j~), j=0:N)
+
+    where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coeff_1 and
+    coeff_2, respectively, j is the order of the equation as given in
+    _pd_background.air_or_thermal_diffuse_order, and where q is the magnitude
+    of the diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_1
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_1_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_1_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coeff_1.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_1_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coeff_1'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_2
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_2'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of the first coefficient used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram. This equation can account for background
+    contributions at both high and low q. Must be given with a
+    _pd_background.air_or_thermal_diffuse_order value.
+
+    The background equation is of the form:
+
+        bkg = Sum( C1~j~ * (q~2*j~/j!) + C2~j~ * (j!/q~2*j~), j=0:N)
+
+    where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coeff_1 and
+    coeff_2, respectively, j is the order of the equation as given in
+    _pd_background.air_or_thermal_diffuse_order, and where q is the magnitude
+    of the diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_2
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_2_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_2_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coeff_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_2_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coeff_2'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_1_list
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_1_list'
+    _definition.update            2023-01-14
+    _description.text
+;
+    List of the first coefficients used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram.
+
+    See _pd_background.air_or_thermal_diffuse_coeff_1.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_1_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_1_list_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_1_list_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coeff_1_list.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_1_list_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coeff_1_list'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_2_list
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_2_list'
+    _definition.update            2023-01-14
+    _description.text
+;
+    List of the second coefficients used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram.
+
+    See _pd_background.air_or_thermal_diffuse_coeff_2.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_2_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coeff_2_list_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coeff_2_list_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coeff_2_list.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coeff_2_list_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coeff_2_list'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_order
+
+    _definition.id                '_pd_background.air_or_thermal_diffuse_order'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of an order used in a Chebyshev polynomial equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.Chebyshev_coeff value.
+
+    The Chebyshev polynomial is of the first kind, and can be represented from
+    the recurrence relation
+
+        T~0~(x) = 1
+        T~1~(x) = x
+        T~n+1~(x) = 2 * x * T~n~(x) - T~n-1~(x).
+
+    where n represents the order of the polynomial, and x is the X-coordinate in
+    which the diffractogram was calculated, normalised to the range -1:1.
+
+    The background equation using Chebyshev polynomials is of the form:
+
+        bkg = Sum( coeff * T~n~(x))
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_order
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
 save_pd_background.Chebyshev_coeff
 
     _definition.id                '_pd_background.Chebyshev_coeff'
