@@ -529,7 +529,7 @@ save_
 
 save_pd_background.cosine_Fourier_series_coeff
 
-    _definition.id                '_pd_background.Chebyshev_coeff'
+    _definition.id                '_pd_background.cosine_Fourier_series_coeff'
     _definition.update            2023-01-14
     _description.text
 ;
