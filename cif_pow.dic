@@ -556,17 +556,18 @@ save_pd_background.cosine_Fourier_series_coeff
 
 save_
 
-save_pd_background.cosine_Fourier_series_su
+save_pd_background.cosine_Fourier_series_coeff_su
 
-    _definition.id                '_pd_background.cosine_Fourier_series_su'
+    _definition.id
+        '_pd_background.cosine_Fourier_series_coeff_su'
     _definition.update            2023-01-14
     _description.text
 ;
     Standard uncertainty of pd_background.cosine_Fourier_series.
 ;
     _name.category_id             pd_background
-    _name.object_id               cosine_Fourier_series_su
-    _name.linked_item_id          '_pd_background.cosine_Fourier_series'
+    _name.object_id               cosine_Fourier_series_coeff_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series_coeff'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
