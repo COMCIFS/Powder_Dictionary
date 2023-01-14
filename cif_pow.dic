@@ -799,11 +799,12 @@ save_pd_background.straight_line_intensity_1
     The background equation is of the form:
 
                (intensity_2 - intensity_1)
-        bkg =  --------------------------- (x - X_1) + intensity_1
+        bkg =  --------------------------- * (x - X_1) + intensity_1
                        (X_2 - X_1)
 
     where the X-coordinate is coordinate in which the diffractogram was
-    calculated, and the function is defined only over the range X_1:X_2.
+    calculated, and the function is defined only over the range X_1:X_2,
+    as given in _pd_background.straight_line_X_1 and *_X_2.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_intensity_1
@@ -849,7 +850,8 @@ save_pd_background.straight_line_intensity_2
                        (X_2 - X_1)
 
     where the X-coordinate is coordinate in which the diffractogram was
-    calculated, and the function is defined only over the range X_1:X_2.
+    calculated, and the function is defined only over the range X_1:X_2,
+    as given in _pd_background.straight_line_X_1 and *_X_2.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_intensity_2
@@ -938,7 +940,9 @@ save_pd_background.straight_line_X_1
                        (X_2 - X_1)
 
     where the X-coordinate is coordinate in which the diffractogram was
-    calculated, and the function is defined only over the range X_1:X_2.
+    calculated, and the function is defined only over the range X_1:X_2
+    and the intensities are given by _pd_background.straight_line_intensity_1
+    and *_intensity_2.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_X_1
@@ -967,7 +971,9 @@ save_pd_background.straight_line_X_2
                        (X_2 - X_1)
 
     where the X-coordinate is coordinate in which the diffractogram was
-    calculated, and the function is defined only over the range X_1:X_2.
+    calculated, and the function is defined only over the range X_1:X_2
+    and the intensities are given by _pd_background.straight_line_intensity_1
+    and *_intensity_2.
 ;
     _name.category_id             pd_background
     _name.object_id               straight_line_X_2
