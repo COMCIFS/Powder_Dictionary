@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-10
+    _dictionary.date              2023-01-14
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -272,6 +272,125 @@ save_pd_background.Chebyshev_order
 ;
     _name.category_id             pd_background
     _name.object_id               Chebyshev_order
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_coeff
+
+    _definition.id                '_pd_background.Chebyshev_coeff'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of a coefficient used in a cosine Fourier series equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.cosine_Fourier_series_order value.
+
+    The background equation using a cosine Fourier series is of the form:
+
+        bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
+
+    where x is the 2\\q value for that particular step, or some other
+    X-coordinate normalised to the range 0:180 degrees, j is the order
+    of the coefficient, and N represent the upper limit on the number of
+    coefficients used.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_coeff
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_su
+
+    _definition.id                '_pd_background.cosine_Fourier_series_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.cosine_Fourier_series.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.cosine_Fourier_series_list
+
+    _definition.id                '_pd_background.cosine_Fourier_series_list'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of a coefficient used in a cosine Fourier series equation
+    representing the background in a calculated diffractogram.
+
+    See _pd_background.cosine_Fourier_series.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_list
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_list_su
+
+    _definition.id                '_pd_background.cosine_Fourier_series_list_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.cosine_Fourier_series_list.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_list_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series_list'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.cosine_Fourier_series_order
+
+    _definition.id                '_pd_background.cosine_Fourier_series_order'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of an order used in a cosine Fourier series equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.cosine_Fourier_series_coeff value.
+
+    The background equation using a cosine Fourier series is of the form:
+
+        bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
+
+    where x is the 2\\q value for that particular step, or some other
+    X-coordinate normalised to the range 0:180 degrees, j is the order
+    of the coefficient, and N represent the upper limit on the number of
+    coefficients used.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_order
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Single
