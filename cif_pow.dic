@@ -7921,8 +7921,8 @@ save_pd_qpa_int_std.diffractogram_id
     _definition.update            2023-01-15
     _description.text
 ;
-    The diffractogram (see _pd_diffractogram.id) to which the internal standard
-    relates.
+    The diffractogram (see _pd_diffractogram.id) which is being calibrated by
+    the internal standard.
 ;
     _name.category_id             pd_qpa_int_std
     _name.object_id               diffractogram_id
