@@ -7924,13 +7924,15 @@ save_pd_qpa_int_std.diffractogram_id
     The diffractogram (see _pd_diffractogram.id) to which the internal standard
     relates.
 ;
-    _name.category_id             save_pd_qpa_int_std
+    _name.category_id             pd_qpa_int_std
     _name.object_id               diffractogram_id
     _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
+
+save_
 
 save_pd_qpa_int_std.mass_percent
 
