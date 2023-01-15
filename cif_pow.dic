@@ -7884,6 +7884,11 @@ save_PD_QPA_INT_STD
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_INT_STD
 
+    loop_
+      _category_key.name
+         '_pd_qpa_int_std.diffractogram_id'
+         '_pd_qpa_int_std.phase_id'
+
 save_
 
 save_pd_qpa_int_std.block_id
@@ -7909,6 +7914,23 @@ save_pd_qpa_int_std.block_id
     _type.contents                Text
 
 save_
+
+save_pd_qpa_int_std.diffractogram_id
+
+    _definition.id                'save_pd_qpa_int_std.diffractogram_id'
+    _definition.update            2023-01-15
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the internal standard
+    relates.
+;
+    _name.category_id             save_pd_qpa_int_std
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_pd_qpa_int_std.mass_percent
 
