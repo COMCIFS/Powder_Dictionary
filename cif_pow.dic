@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-10
+    _dictionary.date              2023-01-16
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -130,7 +130,7 @@ save_PD_BLOCK
 ;
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
-    (see _pd_block_diffractogram.id, _pd_qpa_ext_std.block_id
+    (see _pd_block_diffractogram.id, _pd_qpa_external_std.block_id
     and _pd_phase.block_id).
 
     Note that a data block may contain only a single diffraction
@@ -647,11 +647,11 @@ save_pd_calib.std_internal_mass_percent
 
     _definition.id                '_pd_calib.std_internal_mass_percent'
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_qpa_int_std.mass_percent'
+    _definition_replaced.by       '_pd_qpa_internal_std.mass_percent'
     _definition.update            2023-01-06
     _description.text
 ;
-    This item is deprecated. Please see _pd_qpa_int_std.mass_percent.
+    This item is deprecated. Please see _pd_qpa_internal_std.mass_percent.
 
     Per cent presence of the internal standard specified by the
     data item _pd_calib.std_internal_name expressed as 100 times
@@ -673,11 +673,11 @@ save_pd_calib.std_internal_mass_percent_su
 
     _definition.id                '_pd_calib.std_internal_mass_percent_su'
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_qpa_int_std.mass_percent_su'
+    _definition_replaced.by       '_pd_qpa_internal_std.mass_percent_su'
     _definition.update            2023-01-06
     _description.text
 ;
-    This item is deprecated. Please see _pd_qpa_int_std.mass_percent_su.
+    This item is deprecated. Please see _pd_qpa_internal_std.mass_percent_su.
 
     Standard uncertainty of _pd_calib.std_internal_mass_percent.
 ;
@@ -5865,8 +5865,8 @@ save_pd_phase_mass.percent
     Total mass of the phase expressed as a percentage of the total
     mass of the specimen.
 
-    If _pd_qpa_int_std.mass_percent or _pd_qpa_ext_std.k_factor is
-    present, the values given are assumed to be in absolute terms.
+    If _pd_qpa_internal_std.mass_percent or _pd_qpa_external_std.k_factor
+    is present, the values given are assumed to be in absolute terms.
 
     The value of the mass percent given to the internal standard
     represents the total crystalline contribution of that standard.
@@ -7466,18 +7466,114 @@ save_pd_proc.number_of_points
 
 save_
 
-save_PD_QPA_EXT_STD
+save_PD_QPA_CALIB_FACTOR
 
-    _definition.id                PD_QPA_EXT_STD
+    _definition.id                PD_QPA_CALIB_FACTOR
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-01-06
+    _definition.class             Set
+    _definition.update            2023-01-15
     _description.text
 ;
-    This category identifies the external standard used for
-    quantitative phase analysis. Loops may be used for calibration
-    information that differs by detector channel, otherwise only a
-    single value should be recorded per diffractogram.
+    This category gives the value of the calibration constant by which the
+    calculated intensity or scale factor associated with the given phase is
+    divided in order to allow quantitative phase analysis to be undertaken.
+    Further normalisation may be necessary, and can be indicated.
+
+    For example, if quantification was undertaken using RIR values, those
+    values can be recorded with _pd_qpa_calib_factor.value
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_CALIB_FACTOR
+    _category_key.name            '_pd_qpa_calib_factor.phase_id'
+
+save_
+
+save_pd_qpa_calib_factor.phase_id
+
+    _definition.id                '_pd_qpa_calib_factor.phase_id'
+    _definition.update            2023-01-15
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the calibration factor applies.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_calib_factor.special_details
+
+    _definition.id                '_pd_qpa_calib_factor.special_details'
+    _definition.update            2023-01-15
+    _description.text
+;
+    Description of calibration factor details that require additional detail,
+    or cannot otherwise be recorded using other PD_QPA_CALIB_FACTOR data items.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_calib_factor.value
+
+    _definition.id                '_pd_qpa_calib_factor.value'
+    _definition.update            2023-01-15
+    _description.text
+;
+    A calibration value by which a calculated intensity or scale factor
+    associated with the given phase is divided by in the process of quantitative
+    phase analysis.
+
+    The type of calibration factor, and hence the correction quantitative phase
+    analysis equation, is given in _pd_qpa_calib_factor.type.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               value
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.value_su
+
+    _definition.id                '_pd_qpa_calib_factor.value_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.value.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               value_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.value'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_PD_QPA_EXTERNAL_STD
+
+    _definition.id                PD_QPA_EXTERNAL_STD
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2023-01-15
+    _description.text
+;
+    This category identifies the external diffractogram used for
+    quantitative phase analysis.
 
     Quantification by external standard is typically carried out
     using the O'Connor and Raven algorithm in conjunction with whole-
@@ -7490,18 +7586,14 @@ save_PD_QPA_EXT_STD
     Chapter 3.9 of International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_QPA_EXT_STD
-
-    loop_
-      _category_key.name
-         '_pd_qpa_ext_std.detector_id'
-         '_pd_qpa_ext_std.block_id'
+    _name.object_id               PD_QPA_EXTERNAL_STD
+    _category_key.name            '_pd_qpa_external_std.diffractogram_id'
 
 save_
 
-save_pd_qpa_ext_std.block_id
+save_pd_qpa_external_std.diffractogram_block_id
 
-    _definition.id                '_pd_qpa_ext_std.block_id'
+    _definition.id                '_pd_qpa_external_std.diffractogram_block_id'
     _definition.update            2023-01-09
     _description.text
 ;
@@ -7512,8 +7604,8 @@ save_pd_qpa_ext_std.block_id
     Further references to additional phases present are given in
     that data block.
 ;
-    _name.category_id             pd_qpa_ext_std
-    _name.object_id               block_id
+    _name.category_id             pd_qpa_external_std
+    _name.object_id               diffractogram_block_id
     _name.linked_item_id          '_pd_block.id'
     _type.purpose                 Link
     _type.source                  Assigned
@@ -7522,31 +7614,28 @@ save_pd_qpa_ext_std.block_id
 
 save_
 
-save_pd_qpa_ext_std.detector_id
+save_pd_qpa_external_std.diffractogram_id
 
-    _definition.id                '_pd_qpa_ext_std.detector_id'
-    _definition.update            2016-10-18
+    _definition.id                '_pd_qpa_external_std.diffractogram_id'
+    _definition.update            2023-01-15
     _description.text
 ;
-    A code which identifies the detector or channel number to which
-    the external standard data applies. Note that this code should
-    match a detector from _pd_meas.detector_id and may be omitted if
-    only one detector is used.
+    The diffractogram (see _pd_diffractogram.id) which is being used to
+    calculate the diffractometer constant.
 ;
-    _name.category_id             pd_qpa_ext_std
-    _name.object_id               detector_id
-    _name.linked_item_id          '_pd_meas.detector_id'
+    _name.category_id             pd_qpa_external_std
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
     _type.purpose                 Link
-    _type.source                  Assigned
+    _type.source                  Related
     _type.container               Single
-    _type.contents                Code
-    _enumeration.default          .
+    _type.contents                Text
 
 save_
 
-save_pd_qpa_ext_std.k_factor
+save_pd_qpa_external_std.k_factor
 
-    _definition.id                '_pd_qpa_ext_std.k_factor'
+    _definition.id                '_pd_qpa_external_std.k_factor'
     _definition.update            2023-01-06
     _description.text
 ;
@@ -7567,7 +7656,7 @@ save_pd_qpa_ext_std.k_factor
     Refinement Procedure in Assaying Powdered Mixtures. Powder Diffraction,
     3(1), 2-6. doi:10.1017/s0885715600013026
 ;
-    _name.category_id             pd_qpa_ext_std
+    _name.category_id             pd_qpa_external_std
     _name.object_id               k_factor
     _type.purpose                 Measurand
     _type.source                  Derived
@@ -7577,32 +7666,32 @@ save_pd_qpa_ext_std.k_factor
 
 save_
 
-save_pd_qpa_ext_std.k_factor_su
+save_pd_qpa_external_std.k_factor_su
 
-    _definition.id                '_pd_qpa_ext_std.k_factor_su'
+    _definition.id                '_pd_qpa_external_std.k_factor_su'
     _definition.update            2022-12-01
     _description.text
 ;
-    Standard uncertainty of _pd_qpa_ext_std.k_factor.
+    Standard uncertainty of _pd_qpa_external_std.k_factor.
 ;
-    _name.category_id             pd_qpa_ext_std
+    _name.category_id             pd_qpa_external_std
     _name.object_id               k_factor_su
-    _name.linked_item_id          '_pd_qpa_ext_std.k_factor'
+    _name.linked_item_id          '_pd_qpa_external_std.k_factor'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_qpa_ext_std.phase_id
+save_pd_qpa_external_std.phase_id
 
-    _definition.id                '_pd_qpa_ext_std.phase_id'
+    _definition.id                '_pd_qpa_external_std.phase_id'
     _definition.update            2022-12-03
     _description.text
 ;
     The phase (see _pd_phase.id) used as the external standard.
 ;
-    _name.category_id             pd_qpa_ext_std
+    _name.category_id             pd_qpa_external_std
     _name.object_id               phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
@@ -7612,9 +7701,9 @@ save_pd_qpa_ext_std.phase_id
 
 save_
 
-save_pd_qpa_ext_std.phase_name
+save_pd_qpa_external_std.phase_name
 
-    _definition.id                '_pd_qpa_ext_std.phase_name'
+    _definition.id                '_pd_qpa_external_std.phase_name'
     _definition.update            2023-01-07
     _description.text
 ;
@@ -7622,7 +7711,7 @@ save_pd_qpa_ext_std.phase_name
     quantitative phase analysis. This should match the value given in
     _pd_phase.name in the data block containing the calibration diffractogram.
 ;
-    _name.category_id             pd_qpa_ext_std
+    _name.category_id             pd_qpa_external_std
     _name.object_id               phase_name
     _type.purpose                 Describe
     _type.source                  Assigned
@@ -7631,16 +7720,16 @@ save_pd_qpa_ext_std.phase_name
 
 save_
 
-save_pd_qpa_ext_std.special_details
+save_pd_qpa_external_std.special_details
 
-    _definition.id                '_pd_qpa_ext_std.special_details'
+    _definition.id                '_pd_qpa_external_std.special_details'
     _definition.update            2023-01-03
     _description.text
 ;
     Description of external standard details that cannot otherwise
     be recorded using other PD_QPA_EXT_STD data items
 ;
-    _name.category_id             pd_qpa_ext_std
+    _name.category_id             pd_qpa_external_std
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
@@ -7649,36 +7738,48 @@ save_pd_qpa_ext_std.special_details
 
 save_
 
-save_PD_QPA_INT_STD
+save_PD_QPA_INTERNAL_STD
 
-    _definition.id                PD_QPA_INT_STD
+    _definition.id                PD_QPA_INTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-06
+    _definition.update            2023-01-16
     _description.text
 ;
     This category identifies the internal standard used for
     quantitative phase analysis.
 
-    Quantification by internal standard is typically carried out
-    using the Hill and Howard algorithm in conjunction with whole-
-    pattern Rietveld modelling, with the results being scaled to
-    match the included internal standard. The use of an internal
-    standard allows for the calculation of absolute mass fractions,
-    giving an indication of amorphous content.
+    Quantification by internal standard can be carried out by a variety
+    of different methods, including the Reference Intensity Ratio or the
+    Hill & Howard algorithm in conjunction with whole-pattern Rietveld
+    modelling.
+
+    In general, the use of an internal standard converts relative phase
+    mass percentages into absolute mass percentage, allowing determination
+    of the 'unknown' (or 'amorphous', 'noncrystalline', or 'unanalysed')
+    fraction of the specimen.
+
+    This can be done as
+
+        W~p~^abs.^ = W~p~^rel.^ * (W~s~^known^ / W~s~^rel.^)
+
+    where p and s represent the analyte phase and standard phase, respectively,
+    W is the weight fraction, 'abs.' is absolute, 'rel.' is relative, and
+    'known' is the known addition. Here, W~s~^rel.^ is the relative amount of
+    standard as calculated by the quantification algorithm.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
     International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_QPA_INT_STD
+    _name.object_id               PD_QPA_INTERNAL_STD
 
 save_
 
-save_pd_qpa_int_std.block_id
+save_pd_qpa_internal_std.block_id
 
-    _definition.id                '_pd_qpa_int_std.block_id'
-    _definition.update            2023-01-09
+    _definition.id                '_pd_qpa_internal_std.block_id'
+    _definition.update            2023-01-16
     _description.text
 ;
     Identifies the _pd_block.id of the phase used as an internal
@@ -7687,9 +7788,9 @@ save_pd_qpa_int_std.block_id
 
     The data block containing the crystallographic information for this
     phase will be identified with a _pd_block.id code matching the
-    code in _pd_qpa_int_std.block_id
+    code in _pd_qpa_internal_std.block_id
 ;
-    _name.category_id             pd_qpa_int_std
+    _name.category_id             pd_qpa_internal_std
     _name.object_id               block_id
     _name.linked_item_id          '_pd_block.id'
     _type.purpose                 Link
@@ -7699,24 +7800,23 @@ save_pd_qpa_int_std.block_id
 
 save_
 
-save_pd_qpa_int_std.mass_percent
+save_pd_qpa_internal_std.mass_percent
 
-    _definition.id                '_pd_qpa_int_std.mass_percent'
+    _definition.id                '_pd_qpa_internal_std.mass_percent'
     _alias.definition_id          '_pd_calib_std_internal_mass_%'
-    _definition.update            2023-01-03
+    _definition.update            2023-01-16
     _description.text
 ;
-    Per cent presence of the internal standard specified by the
-    data item _pd_calib.std_internal_name expressed as 100 times
-    the mass of standard added divided by the sum of the mass of
-    standard added and the original sample mass.
+    Per cent presence of the internal standard specified by the data item
+    _pd_qpa_internal_std.phase_name expressed as 100 times the mass of
+    standard added divided by the sum of the mass of standard added and the
+    original sample mass.
 
-    This value does not take into account the crystallinity of the
-    internal standard. That is, if 1 g of a 90% crystalline internal
-    standard is added to 3 g of sample, the
-    _pd_calib.std_internal_mass_percent is 25%.
+    This value does not take into account the crystallinity of the internal
+    standard. That is, if 1 g of a 90% crystalline internal standard is added
+    to 3 g of sample, the _pd_qpa_internal_std.mass_percent is 25%.
 ;
-    _name.category_id             pd_qpa_int_std
+    _name.category_id             pd_qpa_internal_std
     _name.object_id               mass_percent
     _type.purpose                 Measurand
     _type.source                  Derived
@@ -7726,32 +7826,32 @@ save_pd_qpa_int_std.mass_percent
 
 save_
 
-save_pd_qpa_int_std.mass_percent_su
+save_pd_qpa_internal_std.mass_percent_su
 
-    _definition.id                '_pd_qpa_int_std.mass_percent_su'
-    _definition.update            2023-01-03
+    _definition.id                '_pd_qpa_internal_std.mass_percent_su'
+    _definition.update            2023-01-16
     _description.text
 ;
-    Standard uncertainty of _pd_qpa_int_std.mass_percent.
+    Standard uncertainty of _pd_qpa_internal_std.mass_percent.
 ;
-    _name.category_id             pd_qpa_int_std
+    _name.category_id             pd_qpa_internal_std
     _name.object_id               mass_percent_su
-    _name.linked_item_id          '_pd_qpa_int_std.mass_percent'
+    _name.linked_item_id          '_pd_qpa_internal_std.mass_percent'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_qpa_int_std.phase_id
+save_pd_qpa_internal_std.phase_id
 
-    _definition.id                '_pd_qpa_int_std.phase_id'
-    _definition.update            2022-12-03
+    _definition.id                '_pd_qpa_internal_std.phase_id'
+    _definition.update            2023-01-16
     _description.text
 ;
     The phase (see _pd_phase.id) used as the internal standard.
 ;
-    _name.category_id             pd_qpa_int_std
+    _name.category_id             pd_qpa_internal_std
     _name.object_id               phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
@@ -7761,17 +7861,17 @@ save_pd_qpa_int_std.phase_id
 
 save_
 
-save_pd_qpa_int_std.phase_name
+save_pd_qpa_internal_std.phase_name
 
-    _definition.id                '_pd_qpa_int_std.phase_name'
-    _definition.update            2023-01-07
+    _definition.id                '_pd_qpa_internal_std.phase_name'
+    _definition.update            2023-01-16
     _description.text
 ;
     Identifies the name of the material used as an internal standard for
     quantitative phase analysis. This should match the value given in
     _pd_phase.name in the data block containing the calibration diffractogram.
 ;
-    _name.category_id             pd_qpa_int_std
+    _name.category_id             pd_qpa_internal_std
     _name.object_id               phase_name
     _type.purpose                 Describe
     _type.source                  Assigned
@@ -7780,16 +7880,16 @@ save_pd_qpa_int_std.phase_name
 
 save_
 
-save_pd_qpa_int_std.special_details
+save_pd_qpa_internal_std.special_details
 
-    _definition.id                '_pd_qpa_int_std.special_details'
-    _definition.update            2023-01-03
+    _definition.id                '_pd_qpa_internal_std.special_details'
+    _definition.update            2023-01-16
     _description.text
 ;
     Description of internal standard details that cannot otherwise
-    be recorded using other PD_QPA_INT_STD data items
+    be recorded using other PD_QPA_INTERNAL_STD data items
 ;
-    _name.category_id             pd_qpa_int_std
+    _name.category_id             pd_qpa_internal_std
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
@@ -7798,165 +7898,270 @@ save_pd_qpa_int_std.special_details
 
 save_
 
-save_PD_QPA_RIR
+save_PD_QPA_OVERALL
 
-    _definition.id                PD_QPA_RIR
+    _definition.id                PD_QPA_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-06
+    _definition.update            2023-01-16
     _description.text
 ;
-    This category identifies the reference intensity ratio used for
-    quantitative phase analysis.
+    This category gives the overall information about the quantitative phase
+    analysis methodology applied to a given diffractogram.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_CALIB_FACTOR
+    _category_key.name            '_pd_qpa_overall.diffractogram_id'
 
-    The reference intensity ratio (RIR) is an instrument-independent phase
-    constant developed  for use in quantitative phase analysis and is
-    defined as the ratio of the most intense peak of phase, p, to the
-    most intense peak of a reference material, s.
+save_
 
-    The generally accepted reference material is corundum due to its
-    relatively simple diffraction pattern, stability, and availability
-    as a highly crystalline and pure single phase. Additionally, the
-    unknown and reference materials are generally accepted to be mixed
-    in a 50:50 mass ratio. If corundum is used, the RIR equates to I/Ic
-    (or 'I over I corundum') for the phase; these are the most commonly
-    reported values in the literature.
+save_pd_qpa_overall.diffractogram_id
 
-    When applied in conjunction with the matrix-flushing method, quantitative
-    phase analysis is able to be undertaken without the presence of a
-    reference material. In this case, the sum of the mass fractions is
-    normalised to 100%.
+    _definition.id                '_pd_qpa_overall.diffractogram_id'
+    _definition.update            2023-01-16
+    _description.text
+;
+    A diffractogram ID code (see _pd_diffractogram.id) identifying the
+    diffractogram to which the quantitative phase analysis information relates.
 
-    The weight fraction of phase p, W_p, is given by
+    The diffractogram will be identified by a _pd_diffractogram.id code matching
+    the code in _pd_qpa_overall.diffractogram_id.
+;
+    _name.category_id             pd_qpa_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Word
 
-    W_p = [I_p / (RIR_p * I_p,rel)] / Sum_k[I_k / (RIR_k * I_k,rel)]
+save_
 
-    where I_p is the intensity of the analyte peak of phase p, I_P,rel
-    is the ratio between the analyte peak and the most intense peak for
-    phase p, and RIR_p is the reference intensity ratio for phase p.
-    The sum is taken over all phases present in the specimen.
+save_pd_qpa_overall.special_details
+
+    _definition.id                '_pd_qpa_overall.special_details'
+    _definition.update            2023-01-16
+    _description.text
+;
+    Description of overall QPA details that require additional detail,
+    or cannot otherwise be recorded using other PD_QPA_OVERALL data items.
+;
+    _name.category_id             pd_qpa_overall
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_overall.method
+
+    _definition.id                '_pd_qpa_overall.method'
+    _definition.update            2023-01-16
+    _description.text
+;
+    The type of quantification method applied to the given diffractogram.
+
+    This data item allows the origin of the values of _pd_phase_mass.percent
+    to be determined. Additionally, it allows for the proper interpretation
+    of any _pd_qpa_calib_factor.value that is given.
+
+    If 'other' is chosen, further information must be given in
+    _pd_qpa_overall.special_details
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
     International Tables, Vol. H, and references therein.
 ;
-    _name.category_id             PD_GROUP
-    _name.object_id               PD_QPA_RIR
-
-save_
-
-save_pd_qpa_rir.special_details
-
-    _definition.id                '_pd_qpa_rir.special_details'
-    _definition.update            2023-01-03
-    _description.text
-;
-    Description of RIR details that cannot otherwise
-    be recorded using other PD_QPA_RIR data items.
-;
-    _name.category_id             pd_qpa_rir
-    _name.object_id               special_details
-    _type.purpose                 Describe
+    _name.category_id             pd_qpa_overall
+    _name.object_id               method
+    _type.purpose                 State
     _type.source                  Recorded
     _type.container               Single
-    _type.contents                Text
+    _type.contents                Code
 
-save_
-
-save_pd_qpa_rir.std_block_id
-
-    _definition.id                '_pd_qpa_rir.std_block_id'
-    _definition.update            2023-01-09
-    _description.text
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         RIR
 ;
-    Identifies the _pd_block.id of the diffractogram used to determine
-    the reference intensity ratio.
+         For an RIR value made with reference to corundum, see the state
+         'I/Ic'.
 
-    Further references to additional phases present are given in
-    that data block.
+         Quantitative phase analysis was undertaken following the Reference
+         Intensity Ratio methodology [1-3].
+
+         _pd_qpa_calib_factor.value should be defined for each phase. Its value
+         corresponds to the value C~p~, below.
+
+         The method of determining the RIR value, and the particular standard
+         against which it was calculated should be given in the
+         _pd_qpa_calib_factor.special_details for each phase.
+
+         The relative weight fraction of phase p, W_p, is given by
+
+         W~p~ = [(I~p~/I~p,rel~) / C~p~] / Sum[(I~k~/I~k,rel~) / C~k~, k=1:P]
+
+         where I~p~ is the intensity of the analyte peak of phase p, I~P,rel~
+         is the ratio between the analyte peak and the most intense peak for
+         phase p, and C~p~ is the reference intensity ratio for phase p.
+         The sum is taken over all phases present in the specimen.
+
+         [1] Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). J. Appl.
+         Crystallogr. 9, 169-174.
+
+         [2] Hubbard, C. R. & Snyder, R. L. (1988). Powder Diffr. 3, 74-77.
+
+         [3] Snyder, R. L. & Bish, D. L. (1989). In Modern Powder Diffraction,
+         edited by D. L. Bish & J. E. Post, pp. 101-142. Washington DC:
+         Mineralogical Society of America.
 ;
-    _name.category_id             pd_qpa_rir
-    _name.object_id               std_block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_qpa_rir.std_phase_id
-
-    _definition.id                '_pd_qpa_rir.std_phase_id'
-    _definition.update            2022-12-03
-    _description.text
+         I/Ic
 ;
-    The phase (see _pd_phase.id) used as the internal standard in
-    the determination of the reference intensity ratio.
+         A Reference Intensity Ratio in the specific case where the RIR value
+         was determined using corundum (\a-alumina) as the standard, and the
+         mass ratio of the standard and analyte phases was 50:50.
 ;
-    _name.category_id             pd_qpa_rir
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_qpa_rir.value
-
-    _definition.id                '_pd_qpa_rir.value'
-    _definition.update            2023-01-03
-    _description.text
+         DDM
 ;
-    The value of the reference intensity ratio to be used in
-    quantitative phase analysis, as described by Hubbard et al., 1976,
-    Hubbard & Snyder, 1988, and Snyder & Bish, 1989.
+         Quantitative phase analysis was undertaken following the Direct
+         Derivation Method [1-6].
 
-    The weight fraction of phase p, W_p is given by
+         _pd_qpa_calib_factor.value should be defined for each phase. Its value
+         corresponds to the value C~p~, below.
 
-    W_p = [I_p / (RIR_p * I_p,rel)] / Sum_k[I_k / (RIR_k * I_k,rel)]
+         The relative weight fraction of phase p, W_p, is given by
 
-    where I_p is the intensity of the analyte peak of phase p, I_P,rel
-    is the ratio between the analyte peak and the most intense peak for
-    phase p, and RIR_p is the reference intensity ratio for phase p.
-    The sum is taken over all phases present in the specimen.
+             W~p~ = (I~p~ / C~p~) / Sum(I~k~ / C~k~, k=1:P)
 
-    Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). The reference
-    intensity ratio, I/Ic, for computer simulated powder patterns. J. Appl.
-    Cryst. 9, 169-174.
+         where I~p~ is the integrated, Lp-normalised intensity of the analyte
+         phase over the entire diffractogram. The sum is taken over all phases
+         present. C~p~ is given by
 
-    Hubbard, C. R. & Snyder, R. L. (1988). RIR - measurement and use in
-    quantitative XRD. Powder Diffr. 3, 74-77.
+             C~p~ = (1/M~p~) * Sum(n~i,p~^2^, i=1:N~p~)
 
-    Snyder, R. L. & Bish, D. L. (1989). In Modern Powder Diffraction, edited
-    by D. L. Bish & J. E. Post, pp. 101-142. Washington DC: Mineralogical
-    Society of America.
+         where M~p~ is the chemical formula weight of phase p, n~i,p~ is the
+         number of electrons belonging to the i^th^ atom of phase p, and N~p~ is
+         the number of atoms in the formula unit of phase p.
+
+         [1] Toraya, H. (2016). J. Appl. Crystallogr. 49, 1508-1516.
+         [2] Toraya, H. (2017). J. Appl. Crystallogr. 50, 820-829.
+         [3] Toraya, H. (2017). J. Appl. Crystallogr. 50, 665-665.
+         [4] Toraya, H. (2018). J. Appl. Crystallogr. 51, 446-455.
+         [5] Toraya, H. (2019). J. Appl. Crystallogr. 52, 520-531.
+         [6] Toraya, H. & Omote, K. (2019). J. Appl. Crystallogr. 52, 13-22.
 ;
-    _name.category_id             pd_qpa_rir
-    _name.object_id               value
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
-save_pd_qpa_rir.value_su
-
-    _definition.id                '_pd_qpa_rir.value_su'
-    _definition.update            2023-01-03
-    _description.text
+         ZMV
 ;
-    Standard uncertainty of _pd_qpa_rir.value.
-;
-    _name.category_id             pd_qpa_rir
-    _name.object_id               value_su
-    _name.linked_item_id          '_pd_qpa_rir.value'
-    _units.code                   none
+         Quantitative phase analysis was undertaken following the ZMV
+         algorithm [1] in conjunction with Rietveld [2] refinements.
 
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+         _pd_qpa_calib_factor.value can be defined, if desired, for each phase,
+         but can be otherwise be calculated from the phases' crystal structure
+         details. Its value corresponds to the value C~p~, below.
+
+         The relative weight fraction of phase p, W~p~, is given by
+
+             W~p~ = (S~p~ / C~p~) / Sum(S~k~ / C~k~, k=1:P)
+
+         where S~p~ is the Rietveld scale factor of the analyte phase. The sum
+         is taken over all phases present, and
+
+             C~p~ = 1/(Z * M * V)~p~
+
+         where Z is the number of formula units per unit cell, M is the chemical
+         formula weight, and V is the volume of the unit cell, all of phase p.
+
+         [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
+         [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
+;
+         PONKCS
+;
+         Quantitative phase analysis was undertaken following the Partial Or No
+         Known Crystal Structure methodology [1].
+
+         _pd_qpa_calib_factor.value should be defined for each phase. Its value
+         corresponds to the value C~p~, below.
+
+         The relative weight fraction of phase p, W~p~, is given by
+
+             W~p~ = (S~p~ / C~p~) / Sum(S~k~ / C~k~, k=1:P)
+
+         where S~p~ is the Rietveld scale factor of the analyte phase. The sum
+         is taken over all phases present, and
+
+             C~p~ = (W~s~/W~p~) * (S~p~/S~s~) * (1/(ZMV)~s~)
+
+         where W is the weight fraction, S is the Rietveld scale factor, Z is
+         the number of formula units per unit cell, M is the chemical
+         formula weight, and V is the volume of the unit cell. The subscript p
+         denotes the analyte phase, and s denotes the standard phase.
+
+         Once a particular phase has been calibrated, it's value of C~p~ is
+         consistent with ZMV valuesand can be used in conjunction with the ZMV
+         algorithm with normal, crystalline phases to quantify relative phase
+         fractions in mixtures containing this phase.
+
+         If any phase in an analysis of a diffractogram uses the PONKCS
+         approach, the entire quantification is to be marked as 'PONKCS', and
+         all phases should define _pd_qpa_calib_factor.value.
+
+         [1] Scarlett, N.V.Y. & Madsen, I.C. (2006). Powder Diffr. 21, 278-284.
+;
+         absorption_diffraction
+;
+         Quantitative phase analysis was undertaken following the
+         absorption-diffraction methodology methodology [1].
+
+         _pd_qpa_calib_factor.value should be defined for each phase. Its value
+         corresponds to the value C~p~, below. In addition,
+         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
+         must be given for the specimen in each diffractogram.
+
+         The absolute weight fraction of phase p, W_p, is given by
+
+             W~p~ = [I~p~ / C~p~] * \mu^*^~m~
+
+         where I~p~ is the intensity of the analyte peak, \mu^*^~m~ is the mass
+         absorption coefficient of the entire specimen, and C~p~ is a previously
+         determined calibration constant.
+
+         [1] Klug, H.P. & Alexander, L.E. (1974). X-Ray Diffraction Procedures:
+         For Polycrystalline and Amorphous Materials. New York: Wiley.
+;
+         external_standard
+;
+         Quantitative phase analysis was undertaken following the external
+         standard methodology [1] to quantify absolute phase fractions taken
+         from Rietveld [2] refinements.
+
+         _pd_qpa_calib_factor.value can be defined for each phase, but data
+         items from the PD_QPA_EXTERNAL_STANDARD category should preferentially
+         used. In addition, _pd_char.mass_atten_coef_mu_calc or
+         _pd_char.mass_atten_coef_mu_obs must be given for the specimen in each
+         diffractogram.
+
+         The absolute weight fraction of phase p, W~p~, is given by
+
+             W~p~ = [S~p~ / C~p~] * \mu^*^~m~
+
+         where S~p~ is the Rietveld scale factor of the analyte phase, and
+         \mu^*^~m~ is the mass absorption coefficient of the entire specimen.
+         C~p~ is given as
+
+             C~p~ = K /(Z * M * V)~p~
+
+         where Z is the number of formula units per unit cell, M is the chemical
+         formula weight, and V is the volume of the unit cell, all of phase p,
+         and K is the previously determined diffractometer constant.
+
+         [1] O'Connor, B. H. & Raven, M. D. (1988). Powder Diffr. 3, 2-6.
+         [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
+;
+         other
+;
+         Please give details in _pd_qpa_overall.special_details.
+;
 
 save_
 
@@ -8427,7 +8632,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-10
+         2.5.0                    2023-01-16
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8467,17 +8672,15 @@ save_
 
        Made PD_PHASE a Set category.
 
-       Created PD_QPA_EXT_STD and PD_QPA_INT_STD to record quantitative
-       phase analysis by the external and internal standard approaches.
-
-       Created PD_QPA_RIR to record quantitative phase analysis by
-       the reference intensity ratio approach.
+       Created PD_QPA_EXTERNAL_STD and PD_QPA_INTERNAL_STD to record
+       quantitative phase analysis by the external and internal standard
+       approaches.
 
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
 
-       Update definitions of _pd_phase.name, _pd_qpa_ext_std.phase_name, and
-       _pd_qpa_int_std.phase_name to better represent their contents.
+       Update definitions of _pd_phase.name, _pd_qpa_external_std.phase_name,
+       and _pd_qpa_internal_std.phase_name to better represent their contents.
 
        Created PD_AMORPHOUS.
 
@@ -8489,4 +8692,7 @@ save_
 
        Updated data items to hold block ID values to be of type Link, and to
        link them formally to _pd_block.id
+
+       Created PD_QPA_OVERALL to record details about the overall quantitative
+       phase analysis method.
 ;
