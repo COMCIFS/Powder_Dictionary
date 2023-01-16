@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-10
+    _dictionary.date              2023-01-16
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -7379,11 +7379,10 @@ save_pd_proc.info_datetime
 
     _definition.id                '_pd_proc.info_datetime'
     _alias.definition_id          '_pd_proc_info_datetime'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-16
     _description.text
 ;
-    Date(s) and time(s) when the data set was processed.
-    May be looped if multiple processing steps were used.
+    Date and time when the data set was most recently processed.
 
     Entries should follow the standard RFC 3339 ABNF format
     'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'.
@@ -8427,7 +8426,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-10
+         2.5.0                    2023-01-16
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8489,4 +8488,7 @@ save_
 
        Updated data items to hold block ID values to be of type Link, and to
        link them formally to _pd_block.id
+
+       Update description of _pd_proc.info_datetime to maintain consistency
+       with its Set category.
 ;
