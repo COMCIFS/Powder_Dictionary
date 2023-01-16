@@ -7933,24 +7933,6 @@ save_pd_qpa_overall.diffractogram_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Word
-
-save_
-
-save_pd_qpa_overall.special_details
-
-    _definition.id                '_pd_qpa_overall.special_details'
-    _definition.update            2023-01-16
-    _description.text
-;
-    Description of overall QPA details that require additional detail,
-    or cannot otherwise be recorded using other PD_QPA_OVERALL data items.
-;
-    _name.category_id             pd_qpa_overall
-    _name.object_id               special_details
-    _type.purpose                 Describe
-    _type.source                  Recorded
-    _type.container               Single
     _type.contents                Text
 
 save_
@@ -8162,6 +8144,24 @@ save_pd_qpa_overall.method
 ;
          Please give details in _pd_qpa_overall.special_details.
 ;
+
+save_
+
+save_pd_qpa_overall.special_details
+
+    _definition.id                '_pd_qpa_overall.special_details'
+    _definition.update            2023-01-16
+    _description.text
+;
+    Description of overall QPA details that require additional detail,
+    or cannot otherwise be recorded using other PD_QPA_OVERALL data items.
+;
+    _name.category_id             pd_qpa_overall
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
