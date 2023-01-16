@@ -1366,10 +1366,9 @@ save_pd_char.mass_atten_coef_mu_calc
     _definition.update            2022-10-11
     _description.text
 ;
-    The calculated mass attenuation coefficient, \\m*, in
-    units of square millimetres per gram, also known as the
-    mass absorption coefficient. The calculated \\m* will
-    be obtained from the atomic content of each phase and
+    The calculated mass attenuation coefficient, \m^*^, in units of square
+    millimetres per gram, also known as the mass absorption coefficient. The
+    calculated \m^*^ will be obtained from the atomic content of each phase and
     the radiation wavelength.
 ;
     _name.category_id             pd_char
@@ -1400,20 +1399,19 @@ save_pd_char.mass_atten_coef_mu_calc_su
 
 save_
 
-save_pd_char.mass_atten_coef_mu_obs
+save_pd_char.mass_atten_coef_mu_meas
 
-    _definition.id                '_pd_char.mass_atten_coef_mu_obs'
-    _definition.update            2022-10-11
+    _definition.id                '_pd_char.mass_atten_coef_mu_meas'
+    _definition.update            2023-01-16
     _description.text
 ;
-    The observed mass attenuation coefficient, \\m*, in
-    units of square millimetres per gram, also known as the
-    mass absorption coefficient. The observed \\m* will be
-    determined by a transmission measurement coupled with
-    a density measurement.
+    The measured mass attenuation coefficient, \m^*^, in units of square
+    millimetres per gram, also known as the mass absorption coefficient. The
+    measured \m^*^ will be normally be determined by a transmission measurement
+    coupled with a density measurement.
 ;
     _name.category_id             pd_char
-    _name.object_id               mass_atten_coef_mu_obs
+    _name.object_id               mass_atten_coef_mu_meas
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -1423,17 +1421,17 @@ save_pd_char.mass_atten_coef_mu_obs
 
 save_
 
-save_pd_char.mass_atten_coef_mu_obs_su
+save_pd_char.mass_atten_coef_mu_meas_su
 
-    _definition.id                '_pd_char.mass_atten_coef_mu_obs_su'
-    _definition.update            2022-10-27
+    _definition.id                '_pd_char.mass_atten_coef_mu_meas_su'
+    _definition.update            2023-01-16
     _description.text
 ;
-    Standard uncertainty of _pd_char.mass_atten_coef_mu_obs.
+    Standard uncertainty of _pd_char.mass_atten_coef_mu_meas.
 ;
     _name.category_id             pd_char
-    _name.object_id               mass_atten_coef_mu_obs_su
-    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_obs'
+    _name.object_id               mass_atten_coef_mu_meas_su
+    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_meas'
     _units.code                   millimetres_squared_per_gram
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -8488,5 +8486,8 @@ save_
        PD_PREF_ORIENT_SPHERICAL_HARMONICS.
 
        Updated data items to hold block ID values to be of type Link, and to
-       link them formally to _pd_block.id
+       link them formally to _pd_block.id.
+
+       Renamed _pd_char.mass_atten_coef_mu_obs to
+       _pd_char.mass_atten_coef_mu_meas.
 ;
