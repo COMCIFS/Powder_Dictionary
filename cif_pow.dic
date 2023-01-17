@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-16
+    _dictionary.date              2023-01-17
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -868,6 +868,247 @@ save_pd_calib_d_to_tof.power
     _type.container               Single
     _type.contents                Real
     _units.code                   none
+
+save_
+
+save_PD_CALIB_INTENSITY
+
+    _definition.id                PD_CALIB_INTENSITY
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-17
+    _description.text
+;
+    This section defines the parameters used for the intensity calibration of
+    the instrument which are used directly or indirectly in the interpretation
+    of this data set. The information in this section of the CIF should
+    generally be written when the intensities are first measured, but from then
+    on should remain unchanged. Loops may be used for calibration information
+    that differs by detector channel or ID.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_CALIB_INTENSITY
+
+    loop_
+      _category_key.name
+         '_pd_calib_intensity.detector_id'
+         '_pd_calib_intensity.id'
+
+save_
+
+save_pd_calib_intensity.block_id
+
+    _definition.id                '_pd_calib_intensity.block_id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A block ID code identifying the diffractogram from which the intensity
+    calibration was taken, if it was calibrated by a specimen.
+
+    The data block containing the diffraction pattern will be identified with a
+    _pd_block.id code matching the code in _pd_calib_intensity.block_id.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               block_id
+    _name.linked_item_id          '_pd_block.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_intensity.detector_id
+
+    _definition.id                '_pd_calib_intensity.detector_id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A code which identifies the detector or channel number in a
+    position-sensitive, energy-dispersive or other multiple-detector instrument.
+    Note that this code should match the code name used for
+    _pd_meas.detector_id.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               detector_id
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calib_intensity.detector_response
+
+    _definition.id                '_pd_calib_intensity.detector_response'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A value that indicates the relative sensitivity of each detector. This can
+    compensate for differences in electronics, size and collimation. Usually,
+    one detector, or the mean for all detectors, will be assigned the value
+    of 1.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               detector_response
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
+save_pd_calib_intensity.detector_response_su
+
+    _definition.id                '_pd_calib_intensity.detector_response_su'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Standard uncertainty of _pd_calib_intensity.detector_response.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               detector_response_su
+    _name.linked_item_id          '_pd_calib_intensity.detector_response'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_intensity.diffractogram_id
+
+    _definition.id                '_pd_calib_intensity.diffractogram_id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A code which identifies the particular diffractogram from which this
+    intensity calibration was taken, if it was calibrated by a specimen.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_intensity.id
+
+    _definition.id                '_pd_calib_intensity.id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A code to uniquely identify each intensity calibration.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+    _enumeration.default          .
+
+save_
+
+save_pd_calib_intensity.incident_intensity
+
+    _definition.id                '_pd_calib_intensity.incident_intensity'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A value that indicates the intensity incident on the specimen. This value
+    should be a constant for each diffractgram. For point-wise corrections, see
+    _pd_meas.intensity_monitor.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               incident_intensity
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
+save_pd_calib_intensity.incident_intensity_su
+
+    _definition.id                '_pd_calib_intensity.incident_intensity_su'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Standard uncertainty of _pd_calib_intensity.incident_intensity.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               incident_intensity_su
+    _name.linked_item_id          '_pd_calib_intensity.incident_intensity'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_intensity.phase_id
+
+    _definition.id                '_pd_calib_intensity.phase_id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A code which identifies the particular phase from which this intensity was
+    taken, if it was calibrated by a specimen.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_intensity.phase_name
+
+    _definition.id                '_pd_calib_intensity.phase_name'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Identity of material(s) used as an intensity standard.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               phase_name
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _description_example.case
+         'NIST 640a Silicon standard'
+         'Al2O3'
+
+save_
+
+save_pd_calib_intensity.special_details
+
+    _definition.id                '_pd_calib_intensity.special_details'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Description of intensity calibration details that cannot otherwise be
+    recorded using other PD_CALIB_INTENSITY data items
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8424,7 +8665,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-16
+         2.5.0                    2023-01-17
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8493,4 +8734,6 @@ save_
 
        Renamed _pd_char.mass_atten_coef_mu_obs to
        _pd_char.mass_atten_coef_mu_meas.
+
+       Created PD_CALIB_INTENSITY
 ;
