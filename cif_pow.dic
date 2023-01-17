@@ -7377,11 +7377,10 @@ save_pd_proc.info_datetime
 
     _definition.id                '_pd_proc.info_datetime'
     _alias.definition_id          '_pd_proc_info_datetime'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-16
     _description.text
 ;
-    Date(s) and time(s) when the data set was processed.
-    May be looped if multiple processing steps were used.
+    Date and time when the data set was most recently processed.
 
     Entries should follow the standard RFC 3339 ABNF format
     'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'.
@@ -8486,7 +8485,11 @@ save_
        PD_PREF_ORIENT_SPHERICAL_HARMONICS.
 
        Updated data items to hold block ID values to be of type Link, and to
-       link them formally to _pd_block.id.
+
+       link them formally to _pd_block.id
+
+       Update description of _pd_proc.info_datetime to maintain consistency
+       with its Set category.
 
        Renamed _pd_char.mass_atten_coef_mu_obs to
        _pd_char.mass_atten_coef_mu_meas.
