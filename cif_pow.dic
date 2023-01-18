@@ -1150,7 +1150,7 @@ save_PD_CALIB_WAVELENGTH
     _definition.update            2023-01-17
     _description.text
 ;
-    This categoory allows for linking to the diffractograms and phases used in
+    This category allows for linking to the diffractograms and phases used in
     the calibration of the wavelength used directly or indirectly in the
     interpretation of this data set.
 
@@ -1172,8 +1172,8 @@ save_pd_calib_wavelength.block_id
     _definition.update            2023-01-17
     _description.text
 ;
-    A block ID code identifying a diffractogram against which the wavelength
-    calibration was taken.
+    A block ID code for a block containing a diffractogram used to calibrate
+    the wavelength.
 
     The data block containing the diffraction pattern will be identified with a
     _pd_block.id code matching the code in _pd_calib_wavelength.block_id.
