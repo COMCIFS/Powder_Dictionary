@@ -5733,8 +5733,8 @@ save_pd_phase.name
     _definition.update            2023-01-18
     _description.text
 ;
-    The name of the crystal phase. It may be designated as unknown, or by a
-    mineral name, structure type, chemical formula, or other identifier.
+    The name of the phase. It may be designated as unknown, or by a mineral
+    name, structure type, chemical formula, or other identifier.
 ;
     _name.category_id             pd_phase
     _name.object_id               name
