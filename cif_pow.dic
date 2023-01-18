@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-10
+    _dictionary.date              2023-01-16
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1157,7 +1157,7 @@ save_pd_calib_std.external_name
 
     _definition.id                '_pd_calib_std.external_name'
     _alias.definition_id          '_pd_calib_std_external_name'
-    _definition.update            2022-12-01
+    _definition.update            2023-01-07
     _description.text
 ;
     Identifies the name of the material used as an external standard for
@@ -1165,10 +1165,10 @@ save_pd_calib_std.external_name
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_name
-    _type.purpose                 Encode
+    _type.purpose                 Describe
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -1396,10 +1396,9 @@ save_pd_char.mass_atten_coef_mu_calc
     _definition.update            2022-10-11
     _description.text
 ;
-    The calculated mass attenuation coefficient, \\m*, in
-    units of square millimetres per gram, also known as the
-    mass absorption coefficient. The calculated \\m* will
-    be obtained from the atomic content of each phase and
+    The calculated mass attenuation coefficient, \m^*^, in units of square
+    millimetres per gram, also known as the mass absorption coefficient. The
+    calculated \m^*^ will be obtained from the atomic content of each phase and
     the radiation wavelength.
 ;
     _name.category_id             pd_char
@@ -1430,20 +1429,19 @@ save_pd_char.mass_atten_coef_mu_calc_su
 
 save_
 
-save_pd_char.mass_atten_coef_mu_obs
+save_pd_char.mass_atten_coef_mu_meas
 
-    _definition.id                '_pd_char.mass_atten_coef_mu_obs'
-    _definition.update            2022-10-11
+    _definition.id                '_pd_char.mass_atten_coef_mu_meas'
+    _definition.update            2023-01-16
     _description.text
 ;
-    The observed mass attenuation coefficient, \\m*, in
-    units of square millimetres per gram, also known as the
-    mass absorption coefficient. The observed \\m* will be
-    determined by a transmission measurement coupled with
-    a density measurement.
+    The measured mass attenuation coefficient, \m^*^, in units of square
+    millimetres per gram, also known as the mass absorption coefficient. The
+    measured \m^*^ will be normally be determined by a transmission measurement
+    coupled with a density measurement.
 ;
     _name.category_id             pd_char
-    _name.object_id               mass_atten_coef_mu_obs
+    _name.object_id               mass_atten_coef_mu_meas
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -1453,17 +1451,17 @@ save_pd_char.mass_atten_coef_mu_obs
 
 save_
 
-save_pd_char.mass_atten_coef_mu_obs_su
+save_pd_char.mass_atten_coef_mu_meas_su
 
-    _definition.id                '_pd_char.mass_atten_coef_mu_obs_su'
-    _definition.update            2022-10-27
+    _definition.id                '_pd_char.mass_atten_coef_mu_meas_su'
+    _definition.update            2023-01-16
     _description.text
 ;
-    Standard uncertainty of _pd_char.mass_atten_coef_mu_obs.
+    Standard uncertainty of _pd_char.mass_atten_coef_mu_meas.
 ;
     _name.category_id             pd_char
-    _name.object_id               mass_atten_coef_mu_obs_su
-    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_obs'
+    _name.object_id               mass_atten_coef_mu_meas_su
+    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_meas'
     _units.code                   millimetres_squared_per_gram
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -5463,7 +5461,7 @@ save_PD_PEAK
     measured or, if present, the processed diffractogram. Each
     peak in this table will have a unique label (see _pd_peak.id).
     The reflections and phases associated with each peak will be
-    specified in other sections (see PD_REFLN and PD_PHASE).
+    specified in other sections (see REFLN and PD_PHASE).
 
     Note that peak positions are customarily determined from the
     processed diffractogram and thus corrections for position
@@ -5872,7 +5870,7 @@ save_pd_phase.name
 
     _definition.id                '_pd_phase.name'
     _alias.definition_id          '_pd_phase_name'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-07
     _description.text
 ;
     The name of the crystal phase.
@@ -5880,10 +5878,10 @@ save_pd_phase.name
 ;
     _name.category_id             pd_phase
     _name.object_id               name
-    _type.purpose                 Encode
+    _type.purpose                 Describe
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -7688,11 +7686,10 @@ save_pd_proc.info_datetime
 
     _definition.id                '_pd_proc.info_datetime'
     _alias.definition_id          '_pd_proc_info_datetime'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-16
     _description.text
 ;
-    Date(s) and time(s) when the data set was processed.
-    May be looped if multiple processing steps were used.
+    Date and time when the data set was most recently processed.
 
     Entries should follow the standard RFC 3339 ABNF format
     'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'.
@@ -7924,7 +7921,7 @@ save_
 save_pd_qpa_ext_std.phase_name
 
     _definition.id                '_pd_qpa_ext_std.phase_name'
-    _definition.update            2023-01-03
+    _definition.update            2023-01-07
     _description.text
 ;
     Identifies the name of the material used as an external standard for
@@ -7933,10 +7930,10 @@ save_pd_qpa_ext_std.phase_name
 ;
     _name.category_id             pd_qpa_ext_std
     _name.object_id               phase_name
-    _type.purpose                 Encode
+    _type.purpose                 Describe
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -8073,7 +8070,7 @@ save_
 save_pd_qpa_int_std.phase_name
 
     _definition.id                '_pd_qpa_int_std.phase_name'
-    _definition.update            2023-01-03
+    _definition.update            2023-01-07
     _description.text
 ;
     Identifies the name of the material used as an internal standard for
@@ -8082,10 +8079,10 @@ save_pd_qpa_int_std.phase_name
 ;
     _name.category_id             pd_qpa_int_std
     _name.object_id               phase_name
-    _type.purpose                 Encode
+    _type.purpose                 Describe
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Code
+    _type.contents                Text
 
 save_
 
@@ -8736,7 +8733,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-10
+         2.5.0                    2023-01-16
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8785,6 +8782,9 @@ save_
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
 
+       Update definitions of _pd_phase.name, _pd_qpa_ext_std.phase_name, and
+       _pd_qpa_int_std.phase_name to better represent their contents.
+
        Created PD_AMORPHOUS.
 
        Deprecate _pd_calib.std_internal_mass_percent and
@@ -8794,5 +8794,12 @@ save_
        PD_PREF_ORIENT_SPHERICAL_HARMONICS.
 
        Updated data items to hold block ID values to be of type Link, and to
+
        link them formally to _pd_block.id
+
+       Update description of _pd_proc.info_datetime to maintain consistency
+       with its Set category.
+
+       Renamed _pd_char.mass_atten_coef_mu_obs to
+       _pd_char.mass_atten_coef_mu_meas.
 ;
