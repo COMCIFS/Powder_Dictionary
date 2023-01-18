@@ -1259,7 +1259,7 @@ save_
 
 save_pd_background.special_details
 
-    _definition.id                'pd_background.special_details'
+    _definition.id                '_pd_background.special_details'
     _definition.update            2023-01-18
     _description.text
 ;
@@ -1277,7 +1277,7 @@ save_
 
 save_pd_background.X_coordinate
 
-    _definition.id                'pd_background.X_coordinate'
+    _definition.id                '_pd_background.X_coordinate'
     _definition.update            2023-01-18
     _description.text
 ;
