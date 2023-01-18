@@ -1072,28 +1072,6 @@ save_pd_calib_intensity.phase_id
 
 save_
 
-save_pd_calib_intensity.phase_name
-
-    _definition.id                '_pd_calib_intensity.phase_name'
-    _definition.update            2023-01-17
-    _description.text
-;
-    Identity of material(s) used as an intensity standard.
-;
-    _name.category_id             pd_calib_intensity
-    _name.object_id               phase_name
-    _type.purpose                 Describe
-    _type.source                  Recorded
-    _type.container               Single
-    _type.contents                Text
-
-    loop_
-      _description_example.case
-         'NIST 640a Silicon standard'
-         'Al2O3'
-
-save_
-
 save_pd_calib_intensity.special_details
 
     _definition.id                '_pd_calib_intensity.special_details'
