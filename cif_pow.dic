@@ -1289,7 +1289,7 @@ save_pd_background.X_coordinate
     _type.purpose                 State
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Text
+    _type.contents                Word
 
     loop_
       _enumeration_set.state
@@ -1332,7 +1332,10 @@ save_pd_background.X_coordinate
 ;
          Incident wavelength of the source.
 ;
-
+         other
+;
+         The X-coordinate should be described in _pd_background.special_details.
+;
 save_
 
 save_PD_BLOCK
