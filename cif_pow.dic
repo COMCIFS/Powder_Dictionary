@@ -172,8 +172,8 @@ save_pd_background.air_or_thermal_diffuse_coeff_1
 
     where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coeff_1 and
     coeff_2, respectively, j is the order of the equation as given in
-    _pd_background.air_or_thermal_diffuse_order, and where q is the magnitude
-    of the diffraction vector, defined as
+    _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
+    diffraction vector, defined as
 
         q = 4 * Pi * sin(theta) / lambda
 
@@ -276,8 +276,8 @@ save_pd_background.air_or_thermal_diffuse_coeff_2
 
     where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coeff_1 and
     coeff_2, respectively, j is the order of the equation as given in
-    _pd_background.air_or_thermal_diffuse_order, and where q is the magnitude
-    of the diffraction vector, defined as
+    _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
+    diffraction vector, defined as
 
         q = 4 * Pi * sin(theta) / lambda
 
@@ -379,8 +379,8 @@ save_pd_background.air_or_thermal_diffuse_order
 
     where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coeff_1 and
     coeff_2, respectively, j is the order of the equation as given in
-    _pd_background.air_or_thermal_diffuse_order, and where q is the magnitude
-    of the diffraction vector, defined as
+    _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
+    diffraction vector, defined as
 
         q = 4 * Pi * sin(theta) / lambda
 
@@ -408,8 +408,8 @@ save_pd_background.Chebyshev_coeff
     representing the background in a calculated diffractogram. Must be given
     with a _pd_background.Chebyshev_order value.
 
-    The Chebyshev polynomial is of the first kind, and can be represented from
-    the recurrence relation
+    The Chebyshev polynomial is of the first kind, and can be represented by the
+    recurrence relation
 
         T~0~(x) = 1
         T~1~(x) = x
@@ -502,8 +502,8 @@ save_pd_background.Chebyshev_order
     representing the background in a calculated diffractogram. Must be given
     with a _pd_background.Chebyshev_coeff value.
 
-    The Chebyshev polynomial is of the first kind, and can be represented from
-    the recurrence relation
+    The Chebyshev polynomial is of the first kind, and can be represented by the
+    recurrence relation
 
         T~0~(x) = 1
         T~1~(x) = x
@@ -541,7 +541,7 @@ save_pd_background.cosine_Fourier_series_coeff
 
         bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
 
-    where x is the 2\\q value for that particular step, or some other
+    where x is the 2\q value for that particular step, or some other
     X-coordinate normalised to the range 0:180 degrees, j is the order
     of the coefficient, and N represent the upper limit on the number of
     coefficients used.
@@ -631,7 +631,7 @@ save_pd_background.cosine_Fourier_series_order
 
         bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
 
-    where x is the 2\\q value for that particular step, or some other
+    where x is the 2\q value for that particular step, or some other
     X-coordinate normalised to the range 0:180 degrees, j is the order
     of the coefficient, and N represent the upper limit on the number of
     coefficients used.
