@@ -7701,25 +7701,6 @@ save_pd_qpa_external_std.phase_id
 
 save_
 
-save_pd_qpa_external_std.phase_name
-
-    _definition.id                '_pd_qpa_external_std.phase_name'
-    _definition.update            2023-01-07
-    _description.text
-;
-    Identifies the name of the material used as an external standard for
-    quantitative phase analysis. This should match the value given in
-    _pd_phase.name in the data block containing the calibration diffractogram.
-;
-    _name.category_id             pd_qpa_external_std
-    _name.object_id               phase_name
-    _type.purpose                 Describe
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_qpa_external_std.special_details
 
     _definition.id                '_pd_qpa_external_std.special_details'
@@ -7807,9 +7788,8 @@ save_pd_qpa_internal_std.mass_percent
     _definition.update            2023-01-16
     _description.text
 ;
-    Per cent presence of the internal standard specified by the data item
-    _pd_qpa_internal_std.phase_name expressed as 100 times the mass of
-    standard added divided by the sum of the mass of standard added and the
+    Per cent presence of the internal standard expressed as 100 times the mass
+    of standard added divided by the sum of the mass of standard added and the
     original sample mass.
 
     This value does not take into account the crystallinity of the internal
@@ -7856,25 +7836,6 @@ save_pd_qpa_internal_std.phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_qpa_internal_std.phase_name
-
-    _definition.id                '_pd_qpa_internal_std.phase_name'
-    _definition.update            2023-01-16
-    _description.text
-;
-    Identifies the name of the material used as an internal standard for
-    quantitative phase analysis. This should match the value given in
-    _pd_phase.name in the data block containing the calibration diffractogram.
-;
-    _name.category_id             pd_qpa_internal_std
-    _name.object_id               phase_name
-    _type.purpose                 Describe
-    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
@@ -8679,8 +8640,7 @@ save_
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
 
-       Update definitions of _pd_phase.name, _pd_qpa_external_std.phase_name,
-       and _pd_qpa_internal_std.phase_name to better represent their contents.
+       Update definitions of _pd_phase.name to better represent their contents.
 
        Created PD_AMORPHOUS.
 
