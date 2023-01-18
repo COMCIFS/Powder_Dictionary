@@ -1026,15 +1026,45 @@ save_pd_calib_intensity.id
 
 save_
 
+save_pd_calib_intensity.incident_counts
+
+    _definition.id                '_pd_calib_intensity.incident_counts'
+    _definition.update            2023-01-18
+    _description.text
+;
+    A value that indicates the number of counts incident on the specimen. This
+    value is be a constant for each diffractgram. For point-wise corrections,
+    see _pd_meas.counts_monitor.
+
+    Standard uncertainties should not be quoted for this value. If the standard
+    uncertainties differ from the square root of the number of counts,
+    _pd_calib_intensity.incident_intensity should be used.
+;
+    _name.category_id             pd_calib_intensity
+    _name.object_id               incident_counts
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   counts
+
+save_
+
 save_pd_calib_intensity.incident_intensity
 
     _definition.id                '_pd_calib_intensity.incident_intensity'
-    _definition.update            2023-01-17
+    _definition.update            2023-01-18
     _description.text
 ;
     A value that indicates the intensity incident on the specimen. This value
-    should be a constant for each diffractgram. For point-wise corrections, see
+    is a constant for each diffractgram. For point-wise corrections, see
     _pd_meas.intensity_monitor.
+
+    Use this entry for measurements where intensity values are not counts (use
+    _pd_calib_intensity.incident_counts for event-counting measurements, where
+    the standard uncertainty is estimated as the square root of the number of
+    counts).
 ;
     _name.category_id             pd_calib_intensity
     _name.object_id               incident_intensity
