@@ -1366,10 +1366,9 @@ save_pd_char.mass_atten_coef_mu_calc
     _definition.update            2022-10-11
     _description.text
 ;
-    The calculated mass attenuation coefficient, \\m*, in
-    units of square millimetres per gram, also known as the
-    mass absorption coefficient. The calculated \\m* will
-    be obtained from the atomic content of each phase and
+    The calculated mass attenuation coefficient, \m^*^, in units of square
+    millimetres per gram, also known as the mass absorption coefficient. The
+    calculated \m^*^ will be obtained from the atomic content of each phase and
     the radiation wavelength.
 ;
     _name.category_id             pd_char
@@ -1400,20 +1399,19 @@ save_pd_char.mass_atten_coef_mu_calc_su
 
 save_
 
-save_pd_char.mass_atten_coef_mu_obs
+save_pd_char.mass_atten_coef_mu_meas
 
-    _definition.id                '_pd_char.mass_atten_coef_mu_obs'
-    _definition.update            2022-10-11
+    _definition.id                '_pd_char.mass_atten_coef_mu_meas'
+    _definition.update            2023-01-16
     _description.text
 ;
-    The observed mass attenuation coefficient, \\m*, in
-    units of square millimetres per gram, also known as the
-    mass absorption coefficient. The observed \\m* will be
-    determined by a transmission measurement coupled with
-    a density measurement.
+    The measured mass attenuation coefficient, \m^*^, in units of square
+    millimetres per gram, also known as the mass absorption coefficient. The
+    measured \m^*^ will be normally be determined by a transmission measurement
+    coupled with a density measurement.
 ;
     _name.category_id             pd_char
-    _name.object_id               mass_atten_coef_mu_obs
+    _name.object_id               mass_atten_coef_mu_meas
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -1423,17 +1421,17 @@ save_pd_char.mass_atten_coef_mu_obs
 
 save_
 
-save_pd_char.mass_atten_coef_mu_obs_su
+save_pd_char.mass_atten_coef_mu_meas_su
 
-    _definition.id                '_pd_char.mass_atten_coef_mu_obs_su'
-    _definition.update            2022-10-27
+    _definition.id                '_pd_char.mass_atten_coef_mu_meas_su'
+    _definition.update            2023-01-16
     _description.text
 ;
-    Standard uncertainty of _pd_char.mass_atten_coef_mu_obs.
+    Standard uncertainty of _pd_char.mass_atten_coef_mu_meas.
 ;
     _name.category_id             pd_char
-    _name.object_id               mass_atten_coef_mu_obs_su
-    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_obs'
+    _name.object_id               mass_atten_coef_mu_meas_su
+    _name.linked_item_id          '_pd_char.mass_atten_coef_mu_meas'
     _units.code                   millimetres_squared_per_gram
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -5323,7 +5321,7 @@ save_PD_PEAK
     measured or, if present, the processed diffractogram. Each
     peak in this table will have a unique label (see _pd_peak.id).
     The reflections and phases associated with each peak will be
-    specified in other sections (see PD_REFLN and PD_PHASE).
+    specified in other sections (see REFLN and PD_PHASE).
 
     Note that peak positions are customarily determined from the
     processed diffractogram and thus corrections for position
@@ -7379,11 +7377,10 @@ save_pd_proc.info_datetime
 
     _definition.id                '_pd_proc.info_datetime'
     _alias.definition_id          '_pd_proc_info_datetime'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-16
     _description.text
 ;
-    Date(s) and time(s) when the data set was processed.
-    May be looped if multiple processing steps were used.
+    Date and time when the data set was most recently processed.
 
     Entries should follow the standard RFC 3339 ABNF format
     'yyyy-mm-ddThh:mm:ss{Z|[+-]zz:zz}'.
@@ -8655,4 +8652,10 @@ save_
 
        Created PD_QPA_OVERALL to record details about the overall quantitative
        phase analysis method.
+
+       Update description of _pd_proc.info_datetime to maintain consistency
+       with its Set category.
+
+       Renamed _pd_char.mass_atten_coef_mu_obs to
+       _pd_char.mass_atten_coef_mu_meas.
 ;
