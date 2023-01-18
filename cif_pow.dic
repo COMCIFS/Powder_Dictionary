@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-10
+    _dictionary.date              2023-01-18
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -548,7 +548,7 @@ save_pd_calc.method
 
     _definition.id                '_pd_calc.method'
     _alias.definition_id          '_pd_calc_method'
-    _definition.update            2023-01-06
+    _definition.update            2023-01-18
     _description.text
 ;
     A description of the method used for the calculation of the
@@ -565,6 +565,13 @@ save_pd_calc.method
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         'Rietveld'
+         'Pawley'
+         'Le Bail'
+         'Independent peak fitting'
 
 save_
 
@@ -8736,7 +8743,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-10
+         2.5.0                    2023-01-18
 ;
        ## Retain above version number and increment date until final
        ## release
