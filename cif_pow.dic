@@ -1281,8 +1281,12 @@ save_pd_background.X_coordinate
     _definition.update            2023-01-18
     _description.text
 ;
-    An enumeration of the X-coordinate against which the PD_BACKGROUND values
-    were calculated.
+    The type of X-coordinate against which the PD_BACKGROUND values were
+    calculated where the explicit X-coordinate type of the background data item
+    is not given.
+
+    If the background data item explicitly states with which X-coordinate it is
+    calculated, then that takes precedence over any value here.
 ;
     _name.category_id             pd_background
     _name.object_id               X_coordinate
