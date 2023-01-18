@@ -1275,6 +1275,66 @@ save_pd_background.special_details
 
 save_
 
+save_pd_background.X_coordinate
+
+    _definition.id                'pd_background.X_coordinate'
+    _definition.update            2023-01-18
+    _description.text
+;
+    An enumeration of the X-coordinate against which the PD_BACKGROUND values
+    were calculated.
+;
+    _name.category_id             pd_background
+    _name.object_id               X_coordinate
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         2theta
+;
+         Measured 2\q diffraction angle.
+;
+         2theta_corrected
+;
+         Corrected 2\q diffraction angle.
+;
+         channel
+;
+         Channel number in a position-sensitive, energy-dispersive or other
+         multiple-detector instrument.
+;
+         position
+;
+         A measured linear distance corresponding to the location where an
+         intensity measurement was made.
+;
+         time-of-flight
+;
+         Measured time for time-of-flight neutron measurements.
+;
+         d_spacing
+;
+         Calculated d-spacing corresponding to a data point.
+;
+         energy
+;
+         Incident energy of the source.
+;
+         recip_len_q
+;
+         Length in reciprocal space (|Q|= 2\p/d) corresponding to a data point.
+;
+         wavelength
+;
+         Incident wavelength of the source.
+;
+
+save_
+
 save_PD_BLOCK
 
     _definition.id                PD_BLOCK
