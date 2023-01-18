@@ -885,6 +885,17 @@ save_PD_CALIB_INTENSITY
     generally be written when the intensities are first measured, but from then
     on should remain unchanged. Loops may be used for calibration information
     that differs by detector channel or ID.
+
+    Common intensity calibration procedures include, but are not limited to:
+     i)   data collection from a standard amount of crystalline sample;
+     ii)  the application of a known, uniform, flood-field; or
+     iii) scanning a detector bank across a peak, or the direct-beam.
+
+    In the above examples, i) provides a method to assign a value to
+    _pd_calib_intensity.incident_intensity, to place different diffractograms on
+    a common scale, and ii) & iii) provide methods to assign values to
+    _pd_calib_intensity.detector_response, to place each detector on a common
+    scale. Note that these are only indicative examples.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INTENSITY
