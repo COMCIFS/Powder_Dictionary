@@ -4891,7 +4891,7 @@ save_pd_meas.2theta_fixed
     _definition.update            2022-10-11
     _description.text
 ;
-    The 2\q diffraction angle in degrees for measurements\
+    The 2\q diffraction angle in degrees for measurements
     in a white-beam fixed-angle experiment. For measurements
     where 2\q is scanned, see _pd_meas.2theta_scan or
     _pd_meas.2theta_range_*.
