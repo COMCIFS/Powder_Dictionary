@@ -3690,7 +3690,7 @@ save_pd_instr.monochr_pre_spec
     and post-monochromator beam to be as close to parallel
     as possible. In a parallel geometry, the diffracting
     planes in the specimen and monochromator will be parallel
-    when 2\q~monochromator~ is equal to 2\q~specimen~.\
+    when 2\q~monochromator~ is equal to 2\q~specimen~.
     For further discussion see R. Jenkins & R. Snyder (1996).
     Introduction to X-ray Powder Diffraction,
     pp. 164-165. New York: Wiley.
