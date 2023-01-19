@@ -5870,7 +5870,7 @@ save_pd_phase_mass.percent
     The value of the mass percent given to the internal standard
     represents the total crystalline contribution of that standard.
     That is, if 1 g of a 90% crystalline internal standard is added
-    to 3 g of sample, the value of _pd_phase.mass_percent for the
+    to 3 g of sample, the value of _pd_phase_mass.percent for the
     standard is 22.5%.
 ;
     _name.category_id             pd_phase_mass
