@@ -4768,7 +4768,7 @@ save_pd_meas_info_author.address
 ;
     The address of the person who measured the data set. If there
     is more than one person, this will be looped with
-    _pd_meas_info.author_name.
+    _pd_meas_info_author.name.
 ;
     _name.category_id             pd_meas_info_author
     _name.object_id               address
