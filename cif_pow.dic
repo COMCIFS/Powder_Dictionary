@@ -2408,7 +2408,7 @@ save_pd_meas.position
     trace from film or a strip chart recorder. This is an
     alternative to _pd_meas.2theta_scan, which should only be
     used for instruments that record intensities directly
-    against 2\q. For instruments where the position scale\
+    against 2\q. For instruments where the position scale
     is nonlinear, the data item _pd_meas.detector_id should
     be used to record positions.
 
