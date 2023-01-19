@@ -56,7 +56,8 @@ save_PD_AMORPHOUS
 ;
     This section contains information about peaks in an amorphous phase
     extracted from the measured or, if present, the processed diffractogram.
-    Each peak in this table will have a unique label (see _pd_amorphous.id).
+    Each peak in this table will have a unique label
+    (see _pd_amorphous.peak_id).
 
     See PD_PEAK for details on the specific peak parameters that may be
     recorded. Each amorphous peak may or may not be associated with an indexed
