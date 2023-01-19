@@ -1589,13 +1589,13 @@ save_pd_calc.component_intensity_net_list
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
-    Use _pd_calc_component.intensity_net_list if the computed
+    Use _pd_calc.component_intensity_net_list if the computed
     component contribution diffraction patterns do not
     include background or normalization corrections and thus
     are specified on the same scale as the
     _pd_proc.intensity_net values.
 
-    _pd_calc_component.intensity_*_list should be looped with
+    _pd_calc.component_intensity_*_list should be looped with
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
@@ -1628,13 +1628,13 @@ save_pd_calc.component_intensity_total_list
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
-    Use _pd_calc_component.intensity_total_list if the computed
+    Use _pd_calc.component_intensity_total_list if the computed
     component contribution diffraction patterns include background
     or normalization corrections (or both), and thus are specified
     on the same scale as the observed intensities (_pd_meas.counts_*
     or _pd_meas.intensity_*).
 
-    _pd_calc_component.intensity_*_list should be looped with
+    _pd_calc.component_intensity_*_list should be looped with
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
