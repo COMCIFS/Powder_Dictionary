@@ -6293,7 +6293,7 @@ save_pd_pref_orient_March_Dollase.r
     of needle-like particles.
 
     The direction of the correction must also be given using
-    _pd_orient_March_Dollase.index_h, _k, and _l. If
+    _pd_pref_orient_March_Dollase.index_h, _k, and _l. If
     more than one orientation direction is used, the fractional
     contribution of each direction must be specified with
     _pd_pref_orient_March_Dollase.fract.
