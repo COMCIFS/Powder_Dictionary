@@ -5931,8 +5931,8 @@ save_PD_PREF_ORIENT
     corrections applied to a phase when modelling its contribution
     to a histogram.
 
-    March-Dollase and spherical harmonics corrections can be
-    given explicitly. For other methods, use the special_details.
+    March-Dollase and spherical harmonics corrections can be given explicitly.
+    For other methods, use the _pd_pref_orient.special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
     Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
@@ -6347,7 +6347,6 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
     For March-Dollase corrections, see
     PD_PREF_ORIENT_MARCH_DOLLASE. For other methods,
-
     use _pd_pref_orient.special_details.
 
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
