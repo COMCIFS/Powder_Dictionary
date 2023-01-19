@@ -23,7 +23,7 @@ https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
 ;
     The CIF_POW dictionary records the definitions of data items needed in
     powder diffraction studies. Note that unlike most IUCr CIF
-    dictionaries, the dataname is not always constructed as
+    dictionaries, the data name is not always constructed as
     <category>.<object>
 ;
 
@@ -880,7 +880,7 @@ save_PD_CALIB_OFFSET
     _definition.update            2016-11-12
     _description.text
 ;
-    Datanames in this category define an offset angle (in degrees)
+    Data items in this category define an offset angle (in degrees)
     used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
@@ -1536,7 +1536,7 @@ save_pd_data.point_id
     Arbitrary label identifying an entry in the table of
     diffractogram intensity values. This should be used in
     preference to the pd_calc/pd_calc_component/pd_meas/pd_proc
-    point_id datanames whenever datanames from more than
+    point_id data items whenever data items from more than
     one of the pd_calc/pd_calc_component/pd_proc/pd_meas
     categories are looped together.
 ;
