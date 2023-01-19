@@ -2413,7 +2413,7 @@ save_pd_meas.position
     be used to record positions.
 
     Calibration information, such as angle offsets or a
-    function to convert this distance to a 2\q angle\
+    function to convert this distance to a 2\q angle
     or d-space, should be supplied with items from PD_CALIB.
 
     Do not confuse this with the instrument geometry
