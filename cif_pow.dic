@@ -881,7 +881,7 @@ save_PD_CALIB_OFFSET
     _description.text
 ;
     Datanames in this category define an offset angle (in degrees)
-    used to calibrate 2\q (as defined in _pd_meas.2theta_).
+    used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
          2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
@@ -975,7 +975,7 @@ save_pd_calib.2theta_offset
     _description.text
 ;
     _pd_calib.2theta_offset defines an offset angle (in degrees)
-    used to calibrate 2\q (as defined in _pd_meas.2theta_).
+    used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
          2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
@@ -1804,8 +1804,8 @@ save_PD_MEAS
     uncertainty can be considered equivalent to the standard
     deviation and where the standard deviation can be estimated
     as the square root of the number of counts recorded, should
-    use the _pd_meas.counts_ fields. All other intensity values
-    should be recorded using _pd_meas.intensity_.
+    use the _pd_meas.counts_* fields. All other intensity values
+    should be recorded using _pd_meas.intensity_*.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
@@ -1929,7 +1929,7 @@ save_pd_meas.2theta_scan
     using _pd_proc.2theta_corrected.
 
     Note that for data sets collected with constant step size,
-    _pd_meas.2theta_range_ (*_min, *_max and *_inc) may be used
+    _pd_meas.2theta_range_* (min, max and inc) may be used
     instead of _pd_meas.2theta_scan. _pd_meas.2theta_angle was
     originally a distinct but cognate definition and should not be
     used in new files.
@@ -1971,7 +1971,7 @@ save_pd_meas.counts_background
 ;
     Counts recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These counts are measured without
+    _pd_meas.2theta_* etc.). These counts are measured without
     a specimen, specimen mounting etc., often referred to
     as the instrument background.
 
@@ -2083,7 +2083,7 @@ save_pd_meas.counts_total
 ;
     Counts recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These counts are measured from the
+    _pd_meas.2theta_* etc.). These counts are measured from the
     specimen with background, specimen mounting, and/or container
     scattering included.
 
@@ -2168,7 +2168,7 @@ save_pd_meas.intensity_background
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured
+    _pd_meas.2theta_* etc.). These intensities are measured
     without a specimen, specimen mounting etc., often
     referred to as the instrument background.
 
@@ -2222,7 +2222,7 @@ save_pd_meas.intensity_container
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured from
+    _pd_meas.2theta_* etc.). These intensities are measured from
     the specimen container or mounting without a specimen, includes
     background.
 
@@ -2276,7 +2276,7 @@ save_pd_meas.intensity_monitor
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured by an
+    _pd_meas.2theta_* etc.). These intensities are measured by an
     incident-beam monitor to calibrate the flux on the specimen.
 
     Use these entries for measurements where intensity
@@ -2329,7 +2329,7 @@ save_pd_meas.intensity_total
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured from
+    _pd_meas.2theta_* etc.). These intensities are measured from
     the specimen, with background, specimen mounting, and/or container
     scattering included.
 
@@ -2493,7 +2493,7 @@ save_pd_meas.time_of_flight
 ;
     Measured time in microseconds for time-of-flight neutron
     measurements. Note that the flight distance may be
-    specified using _pd_instr.dist_ values.
+    specified using _pd_instr.dist_* values.
 ;
     _name.category_id             pd_meas
     _name.object_id               time_of_flight
@@ -2556,7 +2556,7 @@ save_pd_proc.2theta_corrected
     The 2\q diffraction angle in degrees of an intensity
     measurement where 2\q is not constant. Used if
     corrections such as for nonlinearity, zero offset etc.
-    have been applied to the _pd_meas.2theta_ values or if
+    have been applied to the _pd_meas.2theta_* values or if
     2\q values are computed. If the 2\q values
     are evenly spaced, _pd_proc.2theta_range_min,
     _pd_proc.2theta_range_max and _pd_proc.2theta_range_inc
@@ -2887,10 +2887,10 @@ save_pd_proc.intensity_net
     Inclusion of s.u.'s for these values is strongly recommended.
 
     Intensity values for the processed diffractogram for
-    each data point (see _pd_proc.2theta_, _pd_proc.wavelength
+    each data point (see _pd_proc.2theta_*, _pd_proc.wavelength
     etc.) after background subtraction, normalization, and other
     correction factors have been applied (in contrast to
-    _pd_meas.counts_ or _pd_meas.intensity_ values, which are
+    _pd_meas.counts_* or _pd_meas.intensity_* values, which are
     uncorrected).
 ;
     _name.category_id             pd_proc
@@ -3467,7 +3467,7 @@ save_pd_instr.divg_ax_mono_spec
     and diffracted beams) between the monochromator and the specimen.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_):
+    other than Soller slits (see _pd_instr.soller_ax_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3493,7 +3493,7 @@ save_pd_instr.divg_ax_src_mono
     the plane containing the incident and diffracted beams) between
     the radiation source and monochromator. Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr.soller_ax_). Note
+    optics other than Soller slits (see _pd_instr.soller_ax_*). Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3520,7 +3520,7 @@ save_pd_instr.divg_ax_src_spec
     and diffracted beams)  between the radiation source and specimen.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_).
+    other than Soller slits (see _pd_instr.soller_ax_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use
 ;
@@ -3546,7 +3546,7 @@ save_pd_instr.divg_eq_mono_spec
     containing the incident and diffracted beams) between the monochromator and
     the specimen Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_eq_):
+    other than Soller slits (see _pd_instr.soller_eq_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3572,7 +3572,7 @@ save_pd_instr.divg_eq_src_mono
     containing the incident and diffracted beams) between the radiation source
     and monochromator. Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_eq_).
+    other than Soller slits (see _pd_instr.soller_eq_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3598,7 +3598,7 @@ save_pd_instr.divg_eq_src_spec
     containing the incident and diffracted beams) between the
     radiation source and specimen. Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr.soller_eq_). Note
+    optics other than Soller slits (see _pd_instr.soller_eq_*). Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -4111,8 +4111,8 @@ save_PD_INSTR_DETECTOR
     wavelength or may be capable of being scanned.
 
     For multiple-detector instruments it may be necessary to loop the
-    *_anal_detc or *_spec_detc values (for  _pd_instr.dist_,
-    _pd_instr.divg_, _pd_instr.slit_ and  _pd_instr.soller_) with
+    *_anal_detc or *_spec_detc values (for  _pd_instr.dist_*,
+    _pd_instr.divg_*, _pd_instr.slit_* and  _pd_instr.soller_*) with
     the detector ID's (_pd_instr.detector.id).
 ;
     _name.category_id             PD_GROUP
@@ -4220,7 +4220,7 @@ save_pd_instr.divg_ax_anal_detc
     the plane containing the incident and diffracted beams) between
     the analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_ax_). Note that
+    than Soller slits (see _pd_instr.soller_ax_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4247,7 +4247,7 @@ save_pd_instr.divg_ax_spec_anal
     and diffracted beams) between the specimen and the analyser.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_).
+    other than Soller slits (see _pd_instr.soller_ax_*).
     Note that *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
@@ -4274,7 +4274,7 @@ save_pd_instr.divg_ax_spec_detc
     and diffracted beams) between the specimen and the detector.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_). Note that
+    other than Soller slits (see _pd_instr.soller_ax_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
@@ -4300,7 +4300,7 @@ save_pd_instr.divg_eq_anal_detc
     containing the incident and diffracted beams) between the
     analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4326,7 +4326,7 @@ save_pd_instr.divg_eq_spec_anal
     containing the incident and diffracted beams) between the
     specimen and the analyser. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4352,7 +4352,7 @@ save_pd_instr.divg_eq_spec_detc
     containing the incident and diffracted beams) between the
     specimen and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -5478,7 +5478,7 @@ save_pd_peak.intensity
     _description.text
 ;
     Integrated area for the peak, with the same scaling as
-    the _pd_proc.intensity_ values. It is good practice to
+    the _pd_proc.intensity_* values. It is good practice to
     include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -5518,7 +5518,7 @@ save_pd_peak.pk_height
 ;
     The maximum intensity of the peak, either extrapolated
     or the highest observed intensity value. The same
-    scaling is used for the _pd_proc.intensity_ values.
+    scaling is used for the _pd_proc.intensity_* values.
     It is good practice to include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
