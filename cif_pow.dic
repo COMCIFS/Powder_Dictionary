@@ -4113,7 +4113,7 @@ save_PD_INSTR_DETECTOR
     For multiple-detector instruments it may be necessary to loop the
     *_anal_detc or *_spec_detc values (for  _pd_instr.dist_*,
     _pd_instr.divg_*, _pd_instr.slit_* and  _pd_instr.soller_*) with
-    the detector ID's (_pd_instr.detector.id).
+    the detector ID's (_pd_instr_detector.id).
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
