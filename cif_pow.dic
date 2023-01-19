@@ -4082,7 +4082,7 @@ save_pd_instr.special_details
 ;
     A brief description of the instrument giving
     details that cannot be given in other
-    _pd_instr. entries.
+    PD_INSTR entries.
 ;
     _name.category_id             pd_instr
     _name.object_id               special_details
@@ -5271,7 +5271,7 @@ save_pd_meas.special_details
     Special details of the diffraction measurement process.
     Include information about source instability, degradation etc.
     However, this item should not be used to record information
-    that can be specified in other pd_meas entries.
+    that can be specified in other PD_MEAS entries.
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               special_details
