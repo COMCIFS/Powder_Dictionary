@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-16
+    _dictionary.date              2023-01-18
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -5730,11 +5730,11 @@ save_pd_phase.name
 
     _definition.id                '_pd_phase.name'
     _alias.definition_id          '_pd_phase_name'
-    _definition.update            2023-01-07
+    _definition.update            2023-01-18
     _description.text
 ;
-    The name of the crystal phase.
-    It may be designated as unknown or by a structure type etc.
+    The name of the phase. It may be designated as unknown, or by a mineral
+    name, structure type, chemical formula, or other identifier.
 ;
     _name.category_id             pd_phase
     _name.object_id               name
@@ -5742,6 +5742,14 @@ save_pd_phase.name
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         'NIST 640e Silicon standard'
+         'Al2O3'
+         'malachite'
+         'Calcium sulphate hemihydrate. ACME Chemicals, batch #12090.'
+         'Olivine#Mg2SiO4'
 
 save_
 
@@ -8424,7 +8432,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-16
+         2.5.0                    2023-01-18
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8493,4 +8501,6 @@ save_
 
        Renamed _pd_char.mass_atten_coef_mu_obs to
        _pd_char.mass_atten_coef_mu_meas.
+
+       Updated _pd_phase.name
 ;
