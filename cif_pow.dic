@@ -6287,7 +6287,7 @@ save_pd_pref_orient_March_Dollase.r
     March distribution parameter describing the degree of
     preferred-orientation in a given phase and diffractogram.
     In general, a value of 1 describes an unoriented phase.
-    r in the range (1,\infty) describes orientation of disk-like
+    r in the range (1, \\infty) describes orientation of disk-like
     particles, and r in the range (0,1) describes orientation
     of needle-like particles.
 
@@ -6552,8 +6552,8 @@ save_pd_pref_orient_spherical_harmonics.texture_index
     The texture index, as described by equation 4.212
     in Bunge, as T = sum_{i,j} [c_{i,j)^2 / (2i+1)].
 
-    It gives the value [1, infty), where 1 is a random powder
-    and infty is an ideal single crystal.
+    It gives the value [1, \\infty), where 1 is a random powder
+    and \\infty is an ideal single crystal.
 
     Bunge, H.J., (2015) "Texture Analysis in Materials Science:
     Mathematical Methods", Helga and Hans-Peter Bunge,
