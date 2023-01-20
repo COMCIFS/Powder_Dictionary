@@ -213,7 +213,7 @@ save_pd_block.id
 
     Within each section of the code, the following characters
     may be used:
-                  A-Z a-z 0-9 # & * . : , - _ + / ( ) \ [ ]\
+                  A-Z a-z 0-9 # & * . : , - _ + / ( ) \ [ ]
 
     The sections are separated with vertical rules '|' which are
     not allowed within the sections. Blank spaces may also
@@ -1889,7 +1889,7 @@ save_pd_instr.var_illum_len
     intensity measurements (_pd_meas.* items).
 
     See _pd_instr.cons_illum_len for instruments where
-    the divergence slit is \q-compensated to yield a\
+    the divergence slit is \q-compensated to yield a
     constant illumination length.
 ;
     _name.category_id             pd_meas
@@ -7197,9 +7197,10 @@ save_pd_proc_ls.prof_wr_factor
     _pd_proc_ls.prof_wR_factor, often called R~wp~, is a
       weighted fitness metric for the agreement between the
       observed and computed diffraction patterns.
-        R~wp~ = SQRT {\
+        R~wp~ = SQRT {
                  sum~i~ ( w(i) [ I~obs~(i) - I~calc~(i) ]^2^ )
-                 / sum~i~ ( w(i) [I~obs~(i)]^2^ ) }\
+                 / sum~i~ ( w(i) [I~obs~(i)]^2^ )
+                }
 
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
@@ -7369,7 +7370,7 @@ save_pd_proc.info_data_reduction
     _description.text
 ;
     Description of the processing steps applied in the data-reduction
-    process (background subtraction, \a-2 stripping, smoothing\
+    process (background subtraction, \a-2 stripping, smoothing
     etc.). Include details of the program(s) used etc.
 ;
     _name.category_id             pd_proc_overall
