@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-17
+    _dictionary.date              2023-01-18
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -23,7 +23,7 @@ https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
 ;
     The CIF_POW dictionary records the definitions of data items needed in
     powder diffraction studies. Note that unlike most IUCr CIF
-    dictionaries, the dataname is not always constructed as
+    dictionaries, the data name is not always constructed as
     <category>.<object>
 ;
 
@@ -56,7 +56,8 @@ save_PD_AMORPHOUS
 ;
     This section contains information about peaks in an amorphous phase
     extracted from the measured or, if present, the processed diffractogram.
-    Each peak in this table will have a unique label (see _pd_amorphous.id).
+    Each peak in this table will have a unique label
+    (see _pd_amorphous.peak_id).
 
     See PD_PEAK for details on the specific peak parameters that may be
     recorded. Each amorphous peak may or may not be associated with an indexed
@@ -131,7 +132,7 @@ save_PD_BLOCK
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
     (see _pd_block_diffractogram.id, _pd_qpa_ext_std.block_id
-    and _pd_phase.block_id).
+    and _pd_phase_block.id).
 
     Note that a data block may contain only a single diffraction
     data set or information about a single crystalline phase.
@@ -212,7 +213,7 @@ save_pd_block.id
 
     Within each section of the code, the following characters
     may be used:
-                  A-Z a-z 0-9 # & * . : , - _ + / ( ) \ [ ]\
+                  A-Z a-z 0-9 # & * . : , - _ + / ( ) \ [ ]
 
     The sections are separated with vertical rules '|' which are
     not allowed within the sections. Blank spaces may also
@@ -879,14 +880,14 @@ save_PD_CALIB_OFFSET
     _definition.update            2016-11-12
     _description.text
 ;
-    Datanames in this category define an offset angle (in degrees)
-    used to calibrate 2\\q (as defined in _pd_meas.2theta_).
+    Data items in this category define an offset angle (in degrees)
+    used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
-         2\\q~calibrated~ = 2\\q~measured~ + 2\\q~offset~
+         2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
 
     For cases where the _pd_calib.2theta_offset value is
-    not a constant, but rather varies with 2\\q, a set
+    not a constant, but rather varies with 2\q, a set
     of offset values is supplied in a loop. In this case,
     the value where the offset has been determined can be
     specified as _pd_calib.2theta_off_point. Alternatively, a
@@ -910,7 +911,7 @@ save_pd_calib.2theta_off_max
     _definition.update            2014-06-20
     _description.text
 ;
-    The maximum nominal 2\\q value to which the offset given by
+    The maximum nominal 2\q value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
     _name.category_id             pd_calib_offset
@@ -931,7 +932,7 @@ save_pd_calib.2theta_off_min
     _definition.update            2014-06-20
     _description.text
 ;
-    The minimum nominal 2\\q value to which the offset given by
+    The minimum nominal 2\q value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
     _name.category_id             pd_calib_offset
@@ -952,7 +953,7 @@ save_pd_calib.2theta_off_point
     _definition.update            2014-06-20
     _description.text
 ;
-    The nominal 2\\q value to which the offset given in
+    The nominal 2\q value to which the offset given in
     _pd_calib.2theta_offset applies.
 ;
     _name.category_id             pd_calib_offset
@@ -974,10 +975,10 @@ save_pd_calib.2theta_offset
     _description.text
 ;
     _pd_calib.2theta_offset defines an offset angle (in degrees)
-    used to calibrate 2\\q (as defined in _pd_meas.2theta_).
+    used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
-         2\\q~calibrated~ = 2\\q~measured~ + 2\\q~offset~
+         2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
 ;
     _name.category_id             pd_calib_offset
     _name.object_id               2theta_offset
@@ -1034,7 +1035,7 @@ save_pd_calib_offset.id
     _definition.update            2023-01-06
     _description.text
 ;
-    An arbitrary code which identifies a particular 2\\q offset
+    An arbitrary code which identifies a particular 2\q offset
     description. As a default value is defined, this may be
     omitted if only a single offset is provided.
 ;
@@ -1300,7 +1301,7 @@ save_pd_calibration.conversion_eqn
     _type.contents                Text
     _description_example.case
 ;
-    2\\q~actual~ = 2\\q~setting~ + arctan(
+    2\q~actual~ = 2\q~setting~ + arctan(
      cos(P~1~) / {1/[P~0~ (CC - CH~0~ - P~2~ CC^2^)] - sin(P~1~)})
 ;
 
@@ -1353,7 +1354,7 @@ save_pd_char.atten_coef_mu_calc
     _definition.update            2022-10-11
     _description.text
 ;
-    The calculated linear attenuation coefficient, \\m, in units
+    The calculated linear attenuation coefficient, \m, in units
     of inverse millimetres, also known as the linear absorption
     coefficient. The value is obtained from the atomic content of
     each of the phases in the specimen, the average density
@@ -1397,7 +1398,7 @@ save_pd_char.atten_coef_mu_obs
     _definition.update            2022-10-11
     _description.text
 ;
-    The observed linear attenuation coefficient, \\m, in units
+    The observed linear attenuation coefficient, \m, in units
     of inverse millimetres, also known as the linear absorption
     coefficient. The value is determined by a transmission
     measurement.
@@ -1654,7 +1655,7 @@ save_pd_data.point_id
     Arbitrary label identifying an entry in the table of
     diffractogram intensity values. This should be used in
     preference to the pd_calc/pd_calc_component/pd_meas/pd_proc
-    point_id datanames whenever datanames from more than
+    point_id data items whenever data items from more than
     one of the pd_calc/pd_calc_component/pd_proc/pd_meas
     categories are looped together.
 ;
@@ -1707,13 +1708,13 @@ save_pd_calc.component_intensity_net_list
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
-    Use _pd_calc_component.intensity_net_list if the computed
+    Use _pd_calc.component_intensity_net_list if the computed
     component contribution diffraction patterns do not
     include background or normalization corrections and thus
     are specified on the same scale as the
     _pd_proc.intensity_net values.
 
-    _pd_calc_component.intensity_*_list should be looped with
+    _pd_calc.component_intensity_*_list should be looped with
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
@@ -1746,13 +1747,13 @@ save_pd_calc.component_intensity_total_list
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
-    Use _pd_calc_component.intensity_total_list if the computed
+    Use _pd_calc.component_intensity_total_list if the computed
     component contribution diffraction patterns include background
     or normalization corrections (or both), and thus are specified
     on the same scale as the observed intensities (_pd_meas.counts_*
     or _pd_meas.intensity_*).
 
-    _pd_calc_component.intensity_*_list should be looped with
+    _pd_calc.component_intensity_*_list should be looped with
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
@@ -1922,8 +1923,8 @@ save_PD_MEAS
     uncertainty can be considered equivalent to the standard
     deviation and where the standard deviation can be estimated
     as the square root of the number of counts recorded, should
-    use the _pd_meas.counts_ fields. All other intensity values
-    should be recorded using _pd_meas.intensity_.
+    use the _pd_meas.counts_* fields. All other intensity values
+    should be recorded using _pd_meas.intensity_*.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
@@ -2001,13 +2002,13 @@ save_pd_instr.var_illum_len
 ;
     Length of the specimen that is illuminated by the radiation
     source (in millimetres) for instruments where
-    the illumination length varies with 2\\q (fixed
+    the illumination length varies with 2\q (fixed
     divergence slits). The _pd_instr.var_illum_len
     values should be included in the same loop as the
     intensity measurements (_pd_meas.* items).
 
     See _pd_instr.cons_illum_len for instruments where
-    the divergence slit is \q-compensated to yield a\
+    the divergence slit is \q-compensated to yield a
     constant illumination length.
 ;
     _name.category_id             pd_meas
@@ -2033,21 +2034,21 @@ save_pd_meas.2theta_scan
     _definition.update            2022-10-11
     _description.text
 ;
-    2\\q diffraction angle (in degrees) for intensity
+    2\q diffraction angle (in degrees) for intensity
     points measured in a scanning method. The scan method used
     (e.g. continuous or step scan) should be specified in
-    the item _pd_meas.scan_method. For fixed 2\\q (white-beam)
+    the item _pd_meas.scan_method. For fixed 2\q (white-beam)
     experiments, use _pd_meas.2theta_fixed. In the case of
-    continuous-scan data sets, the 2\\q value should be the
+    continuous-scan data sets, the 2\q value should be the
     value at the midpoint of the counting period. Associated
     with each _pd_meas.2theta_scan value will be
-    _pd_meas.counts_* items. The 2\\q values should
+    _pd_meas.counts_* items. The 2\q values should
     not be corrected for nonlinearity,
     zero offset etc. Corrected values may be specified
     using _pd_proc.2theta_corrected.
 
     Note that for data sets collected with constant step size,
-    _pd_meas.2theta_range_ (*_min, *_max and *_inc) may be used
+    _pd_meas.2theta_range_* (min, max and inc) may be used
     instead of _pd_meas.2theta_scan. _pd_meas.2theta_angle was
     originally a distinct but cognate definition and should not be
     used in new files.
@@ -2089,7 +2090,7 @@ save_pd_meas.counts_background
 ;
     Counts recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These counts are measured without
+    _pd_meas.2theta_* etc.). These counts are measured without
     a specimen, specimen mounting etc., often referred to
     as the instrument background.
 
@@ -2201,7 +2202,7 @@ save_pd_meas.counts_total
 ;
     Counts recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These counts are measured from the
+    _pd_meas.2theta_* etc.). These counts are measured from the
     specimen with background, specimen mounting, and/or container
     scattering included.
 
@@ -2286,7 +2287,7 @@ save_pd_meas.intensity_background
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured
+    _pd_meas.2theta_* etc.). These intensities are measured
     without a specimen, specimen mounting etc., often
     referred to as the instrument background.
 
@@ -2340,7 +2341,7 @@ save_pd_meas.intensity_container
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured from
+    _pd_meas.2theta_* etc.). These intensities are measured from
     the specimen container or mounting without a specimen, includes
     background.
 
@@ -2394,7 +2395,7 @@ save_pd_meas.intensity_monitor
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured by an
+    _pd_meas.2theta_* etc.). These intensities are measured by an
     incident-beam monitor to calibrate the flux on the specimen.
 
     Use these entries for measurements where intensity
@@ -2447,7 +2448,7 @@ save_pd_meas.intensity_total
 ;
     Intensity recorded at each measurement point as a function of
     angle, time, channel, or some other variable (see
-    _pd_meas.2theta_ etc.). These intensities are measured from
+    _pd_meas.2theta_* etc.). These intensities are measured from
     the specimen, with background, specimen mounting, and/or container
     scattering included.
 
@@ -2527,12 +2528,12 @@ save_pd_meas.position
     trace from film or a strip chart recorder. This is an
     alternative to _pd_meas.2theta_scan, which should only be
     used for instruments that record intensities directly
-    against 2\\q. For instruments where the position scale\
+    against 2\q. For instruments where the position scale
     is nonlinear, the data item _pd_meas.detector_id should
     be used to record positions.
 
     Calibration information, such as angle offsets or a
-    function to convert this distance to a 2\\q angle\
+    function to convert this distance to a 2\q angle
     or d-space, should be supplied with items from PD_CALIB.
 
     Do not confuse this with the instrument geometry
@@ -2611,7 +2612,7 @@ save_pd_meas.time_of_flight
 ;
     Measured time in microseconds for time-of-flight neutron
     measurements. Note that the flight distance may be
-    specified using _pd_instr.dist_ values.
+    specified using _pd_instr.dist_* values.
 ;
     _name.category_id             pd_meas
     _name.object_id               time_of_flight
@@ -2671,14 +2672,14 @@ save_pd_proc.2theta_corrected
     _definition.update            2022-10-11
     _description.text
 ;
-    The 2\\q diffraction angle in degrees of an intensity
-    measurement where 2\\q is not constant. Used if
+    The 2\q diffraction angle in degrees of an intensity
+    measurement where 2\q is not constant. Used if
     corrections such as for nonlinearity, zero offset etc.
-    have been applied to the _pd_meas.2theta_ values or if
-    2\\q values are computed. If the 2\\q values
+    have been applied to the _pd_meas.2theta_* values or if
+    2\q values are computed. If the 2\q values
     are evenly spaced, _pd_proc.2theta_range_min,
     _pd_proc.2theta_range_max and _pd_proc.2theta_range_inc
-    may be used to specify the 2\\q values.
+    may be used to specify the 2\q values.
 ;
     _name.category_id             pd_proc
     _name.object_id               2theta_corrected
@@ -2716,7 +2717,7 @@ save_pd_proc.d_spacing
     _description.text
 ;
     d-spacing corresponding to an intensity point
-    from Bragg's law, d = \l/(2 sin\\q), in units of angstroms.
+    from Bragg's law, d = \l/(2 sin\q), in units of angstroms.
 ;
     _name.category_id             pd_proc
     _name.object_id               d_spacing
@@ -3005,10 +3006,10 @@ save_pd_proc.intensity_net
     Inclusion of s.u.'s for these values is strongly recommended.
 
     Intensity values for the processed diffractogram for
-    each data point (see _pd_proc.2theta_, _pd_proc.wavelength
+    each data point (see _pd_proc.2theta_*, _pd_proc.wavelength
     etc.) after background subtraction, normalization, and other
     correction factors have been applied (in contrast to
-    _pd_meas.counts_ or _pd_meas.intensity_ values, which are
+    _pd_meas.counts_* or _pd_meas.intensity_* values, which are
     uncorrected).
 ;
     _name.category_id             pd_proc
@@ -3195,7 +3196,7 @@ save_pd_proc.recip_len_q
     _definition.update            2022-10-11
     _description.text
 ;
-    Length in reciprocal space (|Q|= 2\\p/d) corresponding to
+    Length in reciprocal space (|Q|= 2\p/d) corresponding to
     an intensity point. Units are inverse angstroms.
 ;
     _name.category_id             pd_proc
@@ -3325,7 +3326,7 @@ save_PD_INSTR
       _diffrn_radiation_polarisn_ratio for the source polarization,
       _diffrn_radiation_probe for the radiation type.
     For data sets measured with partially monochromatized radiation,
-    for example, where both K\\a~1~ and K\\a~2~ are present, it is
+    for example, where both K\a~1~ and K\a~2~ are present, it is
     important that all wavelengths present are included in a
     loop_ using _diffrn_radiation_wavelength to define the
     wavelength and _diffrn_radiation_wavelength_wt to define the
@@ -3333,7 +3334,7 @@ save_PD_INSTR
     _diffrn_radiation_wavelength_id also be present in the
     wavelength loop. It may also be useful to
     create a "dummy" ID to use for labelling
-    peaks/reflections where the K\\a~1~ and K\\a~2~ wavelengths are
+    peaks/reflections where the K\a~1~ and K\a~2~ wavelengths are
     not resolved. Set _diffrn_radiation_wavelength_wt to be 0 for
     such a dummy ID.
 
@@ -3359,7 +3360,7 @@ save_pd_instr.2theta_monochr_pre
     _definition.update            2016-10-20
     _description.text
 ;
-    The 2\\q angle for a pre-specimen monochromator (see also
+    The 2\q angle for a pre-specimen monochromator (see also
     _pd_instr.monochr_pre_spec).
 ;
     _name.category_id             pd_instr
@@ -3430,7 +3431,7 @@ save_pd_instr.cons_illum_flag
     (also see _pd_instr.cons_illum_len).
 
     For other flat-plate instruments, where the illumination
-    length changes with 2\\q, specify 'no'. Note that
+    length changes with 2\q, specify 'no'. Note that
     if the length is known, it may be specified using
     _pd_instr.var_illum_len.
 ;
@@ -3456,7 +3457,7 @@ save_pd_instr.cons_illum_len
     _description.text
 ;
     Use _pd_instr.cons_illum_len for instruments where the length of
-    sample illuminated does not vary with 2\\q, usually achieved by
+    sample illuminated does not vary with 2\q, usually achieved by
     adjustment of the divergence slits (sometimes known as
     \q-compensated slits).
 ;
@@ -3585,7 +3586,7 @@ save_pd_instr.divg_ax_mono_spec
     and diffracted beams) between the monochromator and the specimen.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_):
+    other than Soller slits (see _pd_instr.soller_ax_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3611,7 +3612,7 @@ save_pd_instr.divg_ax_src_mono
     the plane containing the incident and diffracted beams) between
     the radiation source and monochromator. Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr.soller_ax_). Note
+    optics other than Soller slits (see _pd_instr.soller_ax_*). Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3638,7 +3639,7 @@ save_pd_instr.divg_ax_src_spec
     and diffracted beams)  between the radiation source and specimen.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_).
+    other than Soller slits (see _pd_instr.soller_ax_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use
 ;
@@ -3664,7 +3665,7 @@ save_pd_instr.divg_eq_mono_spec
     containing the incident and diffracted beams) between the monochromator and
     the specimen Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_eq_):
+    other than Soller slits (see _pd_instr.soller_eq_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3690,7 +3691,7 @@ save_pd_instr.divg_eq_src_mono
     containing the incident and diffracted beams) between the radiation source
     and monochromator. Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_eq_).
+    other than Soller slits (see _pd_instr.soller_eq_*).
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -3716,7 +3717,7 @@ save_pd_instr.divg_eq_src_spec
     containing the incident and diffracted beams) between the
     radiation source and specimen. Values are the maximum
     divergence angles in degrees, as limited by slits or beamline
-    optics other than Soller slits (see _pd_instr.soller_eq_). Note
+    optics other than Soller slits (see _pd_instr.soller_eq_*). Note
     that *_src_spec is used in place of *_src_mono and *_mono_spec
     if there is no monochromator in use.
 ;
@@ -3809,7 +3810,7 @@ save_pd_instr.monochr_pre_spec
     and post-monochromator beam to be as close to parallel
     as possible. In a parallel geometry, the diffracting
     planes in the specimen and monochromator will be parallel
-    when 2\\q~monochromator~ is equal to 2\\q~specimen~.\
+    when 2\q~monochromator~ is equal to 2\q~specimen~.
     For further discussion see R. Jenkins & R. Snyder (1996).
     Introduction to X-ray Powder Diffraction,
     pp. 164-165. New York: Wiley.
@@ -4200,7 +4201,7 @@ save_pd_instr.special_details
 ;
     A brief description of the instrument giving
     details that cannot be given in other
-    _pd_instr. entries.
+    PD_INSTR entries.
 ;
     _name.category_id             pd_instr
     _name.object_id               special_details
@@ -4229,9 +4230,9 @@ save_PD_INSTR_DETECTOR
     wavelength or may be capable of being scanned.
 
     For multiple-detector instruments it may be necessary to loop the
-    *_anal_detc or *_spec_detc values (for  _pd_instr.dist_,
-    _pd_instr.divg_, _pd_instr.slit_ and  _pd_instr.soller_) with
-    the detector ID's (_pd_instr.detector.id).
+    *_anal_detc or *_spec_detc values (for  _pd_instr.dist_*,
+    _pd_instr.divg_*, _pd_instr.slit_* and  _pd_instr.soller_*) with
+    the detector ID's (_pd_instr_detector.id).
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
@@ -4246,7 +4247,7 @@ save_pd_instr.2theta_monochr_post
     _definition.update            2023-01-06
     _description.text
 ;
-    The 2\\q angle for a post-specimen
+    The 2\q angle for a post-specimen
     monochromator (also called an analyser)
     (see also _pd_instr.monochr_post_spec).
 ;
@@ -4338,7 +4339,7 @@ save_pd_instr.divg_ax_anal_detc
     the plane containing the incident and diffracted beams) between
     the analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_ax_). Note that
+    than Soller slits (see _pd_instr.soller_ax_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4365,7 +4366,7 @@ save_pd_instr.divg_ax_spec_anal
     and diffracted beams) between the specimen and the analyser.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_).
+    other than Soller slits (see _pd_instr.soller_ax_*).
     Note that *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
@@ -4392,7 +4393,7 @@ save_pd_instr.divg_ax_spec_detc
     and diffracted beams) between the specimen and the detector.
     Values are the maximum divergence angles in
     degrees, as limited by slits or beamline optics
-    other than Soller slits (see _pd_instr.soller_ax_). Note that
+    other than Soller slits (see _pd_instr.soller_ax_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc
     if there is no analyser in use.
 ;
@@ -4418,7 +4419,7 @@ save_pd_instr.divg_eq_anal_detc
     containing the incident and diffracted beams) between the
     analyser and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4444,7 +4445,7 @@ save_pd_instr.divg_eq_spec_anal
     containing the incident and diffracted beams) between the
     specimen and the analyser. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4470,7 +4471,7 @@ save_pd_instr.divg_eq_spec_detc
     containing the incident and diffracted beams) between the
     specimen and the detector. Values are the maximum divergence
     angles in degrees, as limited by slits or beamline optics other
-    than Soller slits (see _pd_instr.soller_eq_). Note that
+    than Soller slits (see _pd_instr.soller_eq_*). Note that
     *_spec_detc is used in place of *_spec_anal and *_anal_detc if
     there is no analyser in use.
 ;
@@ -4509,7 +4510,7 @@ save_pd_instr.monochr_post_spec
     and post-monochromator beam to be as close to parallel
     as possible. In a parallel geometry, the diffracting
     planes in the specimen and monochromator will be parallel
-    when 2\\q~monochromator~ is equal to 2\\q~specimen~.\
+    when 2\q~monochromator~ is equal to 2\q~specimen~.
     For further discussion see R. Jenkins & R. Snyder (1996).
     Introduction to X-ray Powder Diffraction,
     pp. 164-165. New York: Wiley.
@@ -4886,7 +4887,7 @@ save_pd_meas_info_author.address
 ;
     The address of the person who measured the data set. If there
     is more than one person, this will be looped with
-    _pd_meas_info.author_name.
+    _pd_meas_info_author.name.
 ;
     _name.category_id             pd_meas_info_author
     _name.object_id               address
@@ -5010,9 +5011,9 @@ save_pd_meas.2theta_fixed
     _definition.update            2022-10-11
     _description.text
 ;
-    The 2\\q diffraction angle in degrees for measurements\
+    The 2\q diffraction angle in degrees for measurements
     in a white-beam fixed-angle experiment. For measurements
-    where 2\\q is scanned, see _pd_meas.2theta_scan or
+    where 2\q is scanned, see _pd_meas.2theta_scan or
     _pd_meas.2theta_range_*.
 ;
     _name.category_id             pd_meas_overall
@@ -5050,7 +5051,7 @@ save_pd_meas.2theta_range_inc
     _definition.update            2022-09-28
     _description.text
 ;
-    2\\q diffraction angle increment in degrees used for the
+    2\q diffraction angle increment in degrees used for the
     measurement of intensities. These may be used in place of the
     _pd_meas.2theta_scan values for data sets measured with a
     constant step size.
@@ -5073,7 +5074,7 @@ save_pd_meas.2theta_range_max
     _definition.update            2014-06-20
     _description.text
 ;
-    Maximum 2\\q diffraction angle in degrees used for the
+    Maximum 2\q diffraction angle in degrees used for the
     measurement of intensities. These may be used in place of the
     _pd_meas.2theta_scan values for data sets measured with a
     constant step size.
@@ -5096,7 +5097,7 @@ save_pd_meas.2theta_range_min
     _definition.update            2014-06-20
     _description.text
 ;
-    Minimum 2\\q diffraction angle in degrees used for the
+    Minimum 2\q diffraction angle in degrees used for the
     measurement of intensities. These may be used in place of the
     _pd_meas.2theta_scan values for data sets measured with a
     constant step size.
@@ -5389,7 +5390,7 @@ save_pd_meas.special_details
     Special details of the diffraction measurement process.
     Include information about source instability, degradation etc.
     However, this item should not be used to record information
-    that can be specified in other pd_meas entries.
+    that can be specified in other PD_MEAS entries.
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               special_details
@@ -5459,7 +5460,7 @@ save_pd_peak.2theta_centroid
     _definition.update            2022-10-11
     _description.text
 ;
-    Position of the centroid of a peak as a 2\\q angle.
+    Position of the centroid of a peak as a 2\q angle.
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_centroid
@@ -5496,7 +5497,7 @@ save_pd_peak.2theta_maximum
     _definition.update            2022-10-11
     _description.text
 ;
-    Position of the maximum of a peak as a 2\\q angle.
+    Position of the maximum of a peak as a 2\q angle.
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_maximum
@@ -5596,7 +5597,7 @@ save_pd_peak.intensity
     _description.text
 ;
     Integrated area for the peak, with the same scaling as
-    the _pd_proc.intensity_ values. It is good practice to
+    the _pd_proc.intensity_* values. It is good practice to
     include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -5636,7 +5637,7 @@ save_pd_peak.pk_height
 ;
     The maximum intensity of the peak, either extrapolated
     or the highest observed intensity value. The same
-    scaling is used for the _pd_proc.intensity_ values.
+    scaling is used for the _pd_proc.intensity_* values.
     It is good practice to include s.u.'s for these values.
 ;
     _name.category_id             pd_peak
@@ -5677,8 +5678,8 @@ save_pd_peak.wavelength_id
     Code identifying the wavelength appropriate for this peak
     from the wavelengths in the _diffrn_radiation_ list.
     (See _diffrn_radiation_wavelength_id.) Most commonly used
-    to distinguish K\\a~1~ peaks from K\\a~2~ or to designate
-    where K\\a~1~ and K\\a~2~ peaks cannot be resolved. For
+    to distinguish K\a~1~ peaks from K\a~2~ or to designate
+    where K\a~1~ and K\a~2~ peaks cannot be resolved. For
     complex peak tables with multiple superimposed peaks,
     specify wavelengths in the reflection table using
     _refln.wavelength_id rather than identifying peaks by
@@ -5702,7 +5703,7 @@ save_pd_peak.width_2theta
     _description.text
 ;
     Peak width as full-width at half-maximum expressed as
-    a 2\\q value in degrees.
+    a 2\q value in degrees.
 ;
     _name.category_id             pd_peak
     _name.object_id               width_2theta
@@ -5849,11 +5850,11 @@ save_pd_phase.name
 
     _definition.id                '_pd_phase.name'
     _alias.definition_id          '_pd_phase_name'
-    _definition.update            2023-01-07
+    _definition.update            2023-01-18
     _description.text
 ;
-    The name of the crystal phase.
-    It may be designated as unknown or by a structure type etc.
+    The name of the phase. It may be designated as unknown, or by a mineral
+    name, structure type, chemical formula, or other identifier.
 ;
     _name.category_id             pd_phase
     _name.object_id               name
@@ -5861,6 +5862,14 @@ save_pd_phase.name
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         'NIST 640e Silicon standard'
+         'Al2O3'
+         'malachite'
+         'Calcium sulphate hemihydrate. ACME Chemicals, batch #12090.'
+         'Olivine#Mg2SiO4'
 
 save_
 
@@ -5988,7 +5997,7 @@ save_pd_phase_mass.percent
     The value of the mass percent given to the internal standard
     represents the total crystalline contribution of that standard.
     That is, if 1 g of a 90% crystalline internal standard is added
-    to 3 g of sample, the value of _pd_phase.mass_percent for the
+    to 3 g of sample, the value of _pd_phase_mass.percent for the
     standard is 22.5%.
 ;
     _name.category_id             pd_phase_mass
@@ -6049,8 +6058,8 @@ save_PD_PREF_ORIENT
     corrections applied to a phase when modelling its contribution
     to a histogram.
 
-    March-Dollase and spherical harmonics corrections can be
-    given explicitly. For other methods, use the special_details.
+    March-Dollase and spherical harmonics corrections can be given explicitly.
+    For other methods, use the _pd_pref_orient.special_details.
 
     See Dollase, W. A. (1986). J. Appl. Cryst. 19, 267-272 and
     Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
@@ -6406,12 +6415,12 @@ save_pd_pref_orient_March_Dollase.r
     March distribution parameter describing the degree of
     preferred-orientation in a given phase and diffractogram.
     In general, a value of 1 describes an unoriented phase.
-    r in the range (1,\infty) describes orientation of disk-like
+    r in the range (1, \\infty) describes orientation of disk-like
     particles, and r in the range (0,1) describes orientation
     of needle-like particles.
 
     The direction of the correction must also be given using
-    _pd_orient_March_Dollase.index_h, _k, and _l. If
+    _pd_pref_orient_March_Dollase.index_h, _k, and _l. If
     more than one orientation direction is used, the fractional
     contribution of each direction must be specified with
     _pd_pref_orient_March_Dollase.fract.
@@ -6465,7 +6474,6 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
 
     For March-Dollase corrections, see
     PD_PREF_ORIENT_MARCH_DOLLASE. For other methods,
-
     use _pd_pref_orient.special_details.
 
     See Jarvinen, M. (1993). J. Appl. Cryst. 26, 525-531 for
@@ -6671,8 +6679,8 @@ save_pd_pref_orient_spherical_harmonics.texture_index
     The texture index, as described by equation 4.212
     in Bunge, as T = sum_{i,j} [c_{i,j)^2 / (2i+1)].
 
-    It gives the value [1, infty), where 1 is a random powder
-    and infty is an ideal single crystal.
+    It gives the value [1, \\infty), where 1 is a random powder
+    and \\infty is an ideal single crystal.
 
     Bunge, H.J., (2015) "Texture Analysis in Materials Science:
     Mathematical Methods", Helga and Hans-Peter Bunge,
@@ -7308,9 +7316,10 @@ save_pd_proc_ls.prof_wr_factor
     _pd_proc_ls.prof_wR_factor, often called R~wp~, is a
       weighted fitness metric for the agreement between the
       observed and computed diffraction patterns.
-        R~wp~ = SQRT {\
+        R~wp~ = SQRT {
                  sum~i~ ( w(i) [ I~obs~(i) - I~calc~(i) ]^2^ )
-                 / sum~i~ ( w(i) [I~obs~(i)]^2^ ) }\
+                 / sum~i~ ( w(i) [I~obs~(i)]^2^ )
+                }
 
       Note that in the above equations,
          w(i) is the weight for the ith data point (see
@@ -7408,10 +7417,10 @@ save_pd_proc.2theta_range_inc
     _definition.update            2021-11-12
     _description.text
 ;
-    The increment in 2\\q diffraction angles in degrees for the
+    The increment in 2\q diffraction angles in degrees for the
     measurement of intensities. These may be used in place of the
     _pd_proc.2theta_corrected values, or in the case of white-beam
-    experiments it will define the fixed 2\\q value.
+    experiments it will define the fixed 2\q value.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               2theta_range_inc
@@ -7431,10 +7440,10 @@ save_pd_proc.2theta_range_max
     _definition.update            2014-06-20
     _description.text
 ;
-    The maximum 2\\q diffraction angle in degrees for the
+    The maximum 2\q diffraction angle in degrees for the
     measurement of intensities. This may be used in place of the
     _pd_proc.2theta_corrected values, or in the case of white-beam
-    experiments it will define the fixed 2\\q value together with
+    experiments it will define the fixed 2\q value together with
     _pd_proc.2theta_range_min.
 ;
     _name.category_id             pd_proc_overall
@@ -7455,10 +7464,10 @@ save_pd_proc.2theta_range_min
     _definition.update            2014-06-20
     _description.text
 ;
-    The minimum 2\\q diffraction angle in degrees for the
+    The minimum 2\q diffraction angle in degrees for the
     measurement of intensities. This may be used in place of the
     _pd_proc.2theta_corrected values, or in the case of white-beam
-    experiments they will define the fixed 2\\q value together with
+    experiments they will define the fixed 2\q value together with
     _pd_proc.2theta_range_max.
 ;
     _name.category_id             pd_proc_overall
@@ -7480,7 +7489,7 @@ save_pd_proc.info_data_reduction
     _description.text
 ;
     Description of the processing steps applied in the data-reduction
-    process (background subtraction, \a-2 stripping, smoothing\
+    process (background subtraction, \a-2 stripping, smoothing
     etc.). Include details of the program(s) used etc.
 ;
     _name.category_id             pd_proc_overall
@@ -8169,17 +8178,17 @@ save_pd_spec.orientation
     _definition.update            2014-06-20
     _description.text
 ;
-    The orientation of the \\w (\\q) and 2\\q axis.\
+    The orientation of the \w (\q) and 2\q axis.
     Note that this axis is parallel to the specimen axial axis
     and perpendicular to the plane containing the incident and
     scattered beams.
 
     Thus for a horizontal orientation, scattering
     measurements are made in a plane perpendicular to the
-    ground (the 2\\q axis is parallel to the ground);\
+    ground (the 2\q axis is parallel to the ground);
     for vertical orientation, scattering measurements are
-    made in a plane parallel with the ground (the 2\\q axis\
-    is perpendicular to the ground). `Both' is appropriate for
+    made in a plane parallel with the ground (the 2\q axis
+    is perpendicular to the ground). 'Both' is appropriate for
     experiments where measurements are made in both planes,
     for example using two-dimensional detectors.
 ;
@@ -8543,7 +8552,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-17
+         2.5.0                    2023-01-18
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -8614,4 +8623,6 @@ save_
        _pd_char.mass_atten_coef_mu_meas.
 
        Created PD_CALIB_WAVELENGTH
+
+       Updated _pd_phase.name
 ;
