@@ -1254,7 +1254,7 @@ save_pd_calib_incident_intensity.special_details
     Description of intensity calibration details that cannot otherwise be
     recorded using other PD_CALIB_INCIDENT_INTENSITY data items
 ;
-    _name.category_id             _pd_calib_incident_intensity
+    _name.category_id             pd_calib_incident_intensity
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
