@@ -1162,7 +1162,12 @@ save_PD_CALIB_WAVELENGTH
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_WAVELENGTH
-    _category_key.name            '_pd_calib_wavelength.id'
+
+    loop_
+      _category_key.name
+         '_pd_calib_wavelength.diffractogram_id'
+         '_pd_calib_wavelength.diffrn_id'
+         '_pd_calib_wavelength.phase_id'
 
 save_
 
@@ -1206,21 +1211,22 @@ save_pd_calib_wavelength.diffractogram_id
 
 save_
 
-save_pd_calib_wavelength.id
+save_pd_calib_wavelength.diffrn_id
 
-    _definition.id                '_pd_calib_wavelength.id'
+    _definition.id                '_pd_calib_wavelength.diffrn_id'
     _definition.update            2023-01-17
     _description.text
 ;
-    A code to uniquely identify each wavelength calibration.
+    A code which identifies the diffraction experiment to which this calibration
+    belongs.
 ;
     _name.category_id             pd_calib_wavelength
-    _name.object_id               id
-    _type.purpose                 Key
+    _name.object_id               diffrn_id
+    _name.linked_item_id          '_diffrn.id'
+    _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-    _enumeration.default          .
 
 save_
 
