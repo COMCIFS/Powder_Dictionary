@@ -1091,7 +1091,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
-    _category_key.name            '_pd_calib_intensity.id'
+    _category_key.name            '_pd_calib_incident_intensity.id'
 
 save_
 
@@ -1120,7 +1120,8 @@ save_
 
 save_pd_calib_incident_intensity.diffractogram_id
 
-    _definition.id                '_pd_calib_incident_intensity.diffractogram_id'
+    _definition.id
+        '_pd_calib_incident_intensity.diffractogram_id'
     _definition.update            2023-01-21
     _description.text
 ;
