@@ -1023,7 +1023,7 @@ save_pd_calib_detected_intensity.id
 ;
     A code to uniquely identify each intensity calibration.
 ;
-    _name.category_id             pd_calib_intensity
+    _name.category_id             pd_calib_detected_intensity
     _name.object_id               id
     _type.purpose                 Key
     _type.source                  Assigned
@@ -1061,7 +1061,7 @@ save_pd_calib_detected_intensity.special_details
     Description of detected intensity calibration details that cannot otherwise
     be recorded using other PD_CALIB_DETECTED_INTENSITY data items
 ;
-    _name.category_id             pd_calib_intensity
+    _name.category_id             pd_calib_detected_intensity
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
@@ -1218,7 +1218,8 @@ save_pd_calib_incident_intensity.incident_intensity_su
 ;
     _name.category_id             pd_calib_incident_intensity
     _name.object_id               incident_intensity_su
-    _name.linked_item_id          '_pd_calib_intensity.incident_intensity'
+    _name.linked_item_id
+        '_pd_calib_incident_intensity.incident_intensity'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -1253,7 +1254,7 @@ save_pd_calib_incident_intensity.special_details
     Description of intensity calibration details that cannot otherwise be
     recorded using other PD_CALIB_INCIDENT_INTENSITY data items
 ;
-    _name.category_id             pd_calib_intensity
+    _name.category_id             _pd_calib_incident_intensity
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
