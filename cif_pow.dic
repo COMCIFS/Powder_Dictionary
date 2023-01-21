@@ -1227,7 +1227,7 @@ save_pd_calib_wavelength.diffrn_id
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Text
+    _type.contents                Word
 
 save_
 
