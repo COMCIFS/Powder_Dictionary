@@ -1251,8 +1251,8 @@ save_pd_char.atten_coef_mu_calc
     The calculated linear attenuation coefficient, \m, in units
     of inverse millimetres, also known as the linear absorption
     coefficient. The value is obtained from the atomic content of
-    each of the phases in the specimen, the average density
-    (allowing for specimen packing), and the radiation wavelength.
+    each of the phases in the material, the average density
+    (allowing for packing density), and the radiation wavelength.
     Note that _pd_char.atten_coef_mu_calc will differ from the value
     based on phase quantities and _exptl_absorpt.coefficient_mu for
     each phase if the packing density is not unity.
@@ -3351,7 +3351,7 @@ save_pd_instr.cons_illum_len
     _description.text
 ;
     Use _pd_instr.cons_illum_len for instruments where the length of
-    sample illuminated does not vary with 2\q, usually achieved by
+    specimen illuminated does not vary with 2\q, usually achieved by
     adjustment of the divergence slits (sometimes known as
     \q-compensated slits).
 ;
@@ -5185,7 +5185,7 @@ save_pd_meas.rocking_angle
     _definition.update            2022-10-11
     _description.text
 ;
-    The angular range in degrees through which a sample
+    The angular range in degrees through which a specimen
     is rotated or oscillated during a measurement step
     (see _pd_meas.rocking_axis).
 ;
@@ -6750,7 +6750,7 @@ save_pd_prep.conditions
     _definition.update            2014-06-20
     _description.text
 ;
-    A description of how the material was prepared
+    A description of how the sample was prepared
     (reaction conditions etc.)
 ;
     _name.category_id             pd_prep
