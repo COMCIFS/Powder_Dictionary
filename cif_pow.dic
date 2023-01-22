@@ -133,7 +133,8 @@ save_PD_BACKGROUND
 
     The data items list here allow for the recording of the various coefficients
     used, rather than a complete enumeration of the value of the background
-    calculated at every data point; although doing so is still possible.
+    calculated at every data point; although doing so is still possible -  see
+    _pd_proc.intensity_bkg_calc.
 
     The computed background values should include all normalization corrections,
     and thus are specified on the same scale as the observed intensities
