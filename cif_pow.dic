@@ -1174,36 +1174,36 @@ save_PD_CALIB_WAVELENGTH
       _description_example.case
       _description_example.detail
 ;
-         loop_
-         _pd_calib_wavelength.diffrn_id
-         _pd_calib_wavelength.diffractogram_id
-         _pd_calib_wavelength.phase_id
-         DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_SILICON
-         DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_LAB6
-         DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_SILICON
-         DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_LAB6
+       loop_
+       _pd_calib_wavelength.diffrn_id
+       _pd_calib_wavelength.diffractogram_id
+       _pd_calib_wavelength.phase_id
+       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_SILICON
+       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_LAB6
+       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_SILICON
+       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_LAB6
 ;
 ;
-			The incident wavelength used in the measurement identified by the
-			_diffrn.id 'DIFFRN_EXP_1' was refined from two different
-			diffractograms with _pd_diffractogram.id values of 'DIFFRACTOGRAM_1'
-			and 'DIFFRACTOGRAM_2'. In these diffractograms, the same two phases
-			appeared, with _pd_phase.id values of 'NIST_SILICON' and 'NIST_LAB6',
-			which were  As more than one diffractogram and phase was used, the
-			wavelength is a best-fit over all data.
+       The incident wavelength used in the measurement identified by the
+       _diffrn.id 'DIFFRN_EXP_1' was refined from two different
+       diffractograms with _pd_diffractogram.id values of 'DIFFRACTOGRAM_1'
+       and 'DIFFRACTOGRAM_2'. In these diffractograms, the same two phases
+       appeared, with _pd_phase.id values of 'NIST_SILICON' and 'NIST_LAB6',
+       which were  As more than one diffractogram and phase was used, the
+       wavelength is a best-fit over all data.
 ;
 ;
-         _diffrn.id                              DIFFRN_EXP_A
-         _pd_calib_wavelength.diffractogram_id   DIFFRACTOGRAM_A
-         _pd_calib_wavelength.phase_id           ACME_CORUNDUM
+       _diffrn.id                              DIFFRN_EXP_A
+       _pd_calib_wavelength.diffractogram_id   DIFFRACTOGRAM_A
+       _pd_calib_wavelength.phase_id           ACME_CORUNDUM
 ;
 ;
-			The incident wavelength used in the measurement identified by the
-			_diffrn.id 'DIFFRN_EXP_A' was refined from a diffractogram with a
-			_pd_diffractogram.id value of 'DIFFRACTOGRAM_A'. In this
-			diffractograms, a phase with a _pd_phase.id value of 'ACME_CORUNDUM'
-			was used to calibrate the wavelength against known unit cell
-			parameters.
+       The incident wavelength used in the measurement identified by the
+       _diffrn.id 'DIFFRN_EXP_A' was refined from a diffractogram with a
+       _pd_diffractogram.id value of 'DIFFRACTOGRAM_A'. In this
+       diffractograms, a phase with a _pd_phase.id value of 'ACME_CORUNDUM'
+       was used to calibrate the wavelength against known unit cell
+       parameters.
 ;
 
 save_
