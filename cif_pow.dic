@@ -1245,7 +1245,7 @@ save_pd_char.atten_coef_mu_calc
 
     _definition.id                '_pd_char.atten_coef_mu_calc'
     _alias.definition_id          '_pd_char_atten_coef_mu_calc'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-22
     _description.text
 ;
     The calculated linear attenuation coefficient, \m, in units
@@ -3347,7 +3347,7 @@ save_pd_instr.cons_illum_len
 
     _definition.id                '_pd_instr.cons_illum_len'
     _alias.definition_id          '_pd_instr_cons_illum_len'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-22
     _description.text
 ;
     Use _pd_instr.cons_illum_len for instruments where the length of
@@ -5182,7 +5182,7 @@ save_pd_meas.rocking_angle
 
     _definition.id                '_pd_meas.rocking_angle'
     _alias.definition_id          '_pd_meas_rocking_angle'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-22
     _description.text
 ;
     The angular range in degrees through which a specimen
@@ -6747,7 +6747,7 @@ save_pd_prep.conditions
 
     _definition.id                '_pd_prep.conditions'
     _alias.definition_id          '_pd_prep_conditions'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-22
     _description.text
 ;
     A description of how the sample was prepared
