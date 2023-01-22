@@ -7980,6 +7980,118 @@ save_pd_qpa_external_std.special_details
 
 save_
 
+save_PD_QPA_INTENSITY_FACTOR
+
+    _definition.id                PD_QPA_INTENSITY_FACTOR
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-22
+    _description.text
+;
+    This category gives the value of the intensity or scale factor which is
+    divided by the corresponding calibration factor in order to allow
+    quantitative phase analysis to be undertaken. Further normalisation may be
+    necessary, and can be indicated.
+
+    The supported methodologies are enumerated in _pd_qpa_overall.method.
+
+    For a review on quantitative phase analysis, see Chapter 3.9 of
+    International Tables, Vol. H, and references therein.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_QPA_INTENSITY_FACTOR
+
+    loop_
+      _category_key.name
+         '_pd_qpa_intensity_factor.diffractogram_id'
+         '_pd_qpa_intensity_factor.phase_id'
+
+save_
+
+save_pd_qpa_intensity_factor.diffractogram_id
+
+    _definition.id                '_pd_qpa_intensity_factor.diffractogram_id'
+    _definition.update            2023-01-15
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the intensity factor
+    relates.
+;
+    _name.category_id             pd_qpa_intensity_factor
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_intensity_factor.phase_id
+
+    _definition.id                '_pd_qpa_intensity_factor.phase_id'
+    _definition.update            2023-01-22
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the intensity factor applies.
+;
+    _name.category_id             pd_qpa_intensity_factor
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_qpa_intensity_factor.value
+
+    _definition.id                '_pd_qpa_intensity_factor.value'
+    _definition.update            2023-01-22
+    _description.text
+;
+    An intensity or scale factor value associated with the given phase and
+    diffractogram, which, when divided by the appropriate calibration value
+    defined in _pd_qpa_calib_factor.*, allows quantitative phase analysis to be
+    undertaken.
+
+    This value is not, in general, transferable between different program types
+    and versions, as each software package may incorporate different constants
+    or normalisations into their calculations. However, if all values for a
+    given diffractogram, or CIF container, are self-consistent, then
+    quantification is able to be undertaken.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_intensity_factor
+    _name.object_id               value
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_intensity_factor.value_su
+
+    _definition.id                '_pd_qpa_intensity_factor.value_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_intensity_factor.value.
+;
+    _name.category_id             pd_qpa_intensity_factor
+    _name.object_id               value_su
+    _name.linked_item_id          '_pd_qpa_intensity_factor.value'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_PD_QPA_INTERNAL_STD
 
     _definition.id                PD_QPA_INTERNAL_STD
@@ -8930,5 +9042,7 @@ save_
        Renamed _pd_char.mass_atten_coef_mu_obs to
        _pd_char.mass_atten_coef_mu_meas.
 
-       Updated _pd_phase.name
+       Updated _pd_phase.name.
+
+       Created PD_QPA_INTENSITY_FACTOR.
 ;
