@@ -1163,16 +1163,17 @@ save_pd_calibration.conversion_eqn
 
     _definition.id                '_pd_calibration.conversion_eqn'
     _alias.definition_id          '_pd_calibration_conversion_eqn'
-    _definition.update            2016-10-17
+    _definition.update            2023-01-21
     _description.text
 ;
     The calibration function for converting a channel number
     supplied in _pd_meas.detector_id for a position-sensitive
     or energy-dispersive detector or the distance supplied in
     _pd_meas.position to Q, energy, angle etc.
-    Use _pd_calib_std.external_* to define a pointer
-    to the file or data block containing the data used to
-    determine the parameter values in this function.
+
+    Use _pd_calib_std.external_block_id to define a pointer to
+    the data block containing the data used to determine the
+    parameter values in this function.
 ;
     _name.category_id             pd_calibration
     _name.object_id               conversion_eqn
@@ -8175,6 +8176,7 @@ save_pd_qpa_internal_std.mass_percent
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _enumeration.range            0.0:100.0
     _units.code                   none
 
 save_
@@ -9045,4 +9047,6 @@ save_
        Updated _pd_phase.name.
 
        Created PD_QPA_INTENSITY_FACTOR.
+
+       Updated description of _pd_calibration.conversion_eqn.
 ;
