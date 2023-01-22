@@ -7484,10 +7484,177 @@ save_PD_QPA_CALIB_FACTOR
     calculated intensity or scale factor associated with the given phase is
     divided by in order to allow quantitative phase analysis to be undertaken.
     Further normalisation may be necessary, and can be indicated.
+
+    For a description of the quantification methodologies below, and a review on
+    quantitative phase analysis in general, see Chapter 3.9 of International
+    Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_CALIB_FACTOR
     _category_key.name            '_pd_qpa_calib_factor.phase_id'
+
+save_
+
+save_pd_qpa_calib_factor.absorption_diffraction
+
+    _definition.id                '_pd_qpa_calib_factor.absorption_diffraction'
+    _definition.update            2023-01-22
+    _description.text
+;
+    A absorption-diffraction calibration value associated with the given phase
+    which allows quantitative phase analysis to be undertaken.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               absorption_diffraction
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.absorption_diffraction_su
+
+    _definition.id
+        '_pd_qpa_calib_factor.absorption_diffraction_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.absorption_diffraction.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               absorption_diffraction_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.absorption_diffraction'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_calib_factor.DDM
+
+    _definition.id                '_pd_qpa_calib_factor.DDM'
+    _definition.update            2023-01-22
+    _description.text
+;
+    A Direct-Derivation Methodology (DDM) calibration value associated with the
+    given phase which allows quantitative phase analysis to be undertaken.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               DDM
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.DDM_su
+
+    _definition.id                '_pd_qpa_calib_factor.DDM_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.DDM.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               DDM_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.DDM'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_calib_factor.external_standard
+
+    _definition.id                '_pd_qpa_calib_factor.external_standard'
+    _definition.update            2023-01-22
+    _description.text
+;
+    A external standard calibration value associated with the given phase which
+    allows quantitative phase analysis to be undertaken.
+
+    If the external standard approach is used, the use of PD_EXTERNAL_STD data
+    items is preferred.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               external_standard
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.external_standard_su
+
+    _definition.id                '_pd_qpa_calib_factor.external_standard_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.external_standard.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               external_standard_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.external_standard'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_calib_factor.I_over_Ic
+
+    _definition.id                '_pd_qpa_calib_factor.I_over_Ic'
+    _definition.update            2023-01-22
+    _description.text
+;
+    A Reference Intensity Ratio (RIR) calibration value associated with the
+    given phase which allows quantitative phase analysis to be undertaken.
+
+    This ratio must have been calculated with respect to corundum; for other
+    reference materials, please use _pd_qpa_calib_factor.RIR.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               I_over_Ic
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.I_over_Ic_su
+
+    _definition.id                '_pd_qpa_calib_factor.I_over_Ic_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.I_over_Ic.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               I_over_Ic_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.I_over_Ic'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -7509,6 +7676,94 @@ save_pd_qpa_calib_factor.phase_id
 
 save_
 
+save_pd_qpa_calib_factor.PONKCS
+
+    _definition.id                '_pd_qpa_calib_factor.PONKCS'
+    _definition.update            2023-01-22
+    _description.text
+;
+    A PONKCS calibration value associated with the given phase which allows
+    quantitative phase analysis to be undertaken.
+
+    This value, when coupled with the peak intensities for which it was
+    calibrated, forms a pseudo-ZMV value, and can also be used in
+    quantification with the ZMV algorithm.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               PONKCS
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.PONKCS_su
+
+    _definition.id                '_pd_qpa_calib_factor.PONKCS_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.PONKCS.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               PONKCS_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.PONKCS'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_calib_factor.RIR
+
+    _definition.id                '_pd_qpa_calib_factor.RIR'
+    _definition.update            2023-01-22
+    _description.text
+;
+    A Reference Intensity Ratio (RIR) calibration value associated with the
+    given phase which allows quantitative phase analysis to be undertaken.
+
+    This ratio must NOT have been calculated with respect to corundum; for RIR
+    values calculated with corundum, please use _pd_qpa_calib_factor.I_over_IC.
+
+    Details of the reference material against which this RIR was determined
+    should be given in _pd_qpa_calib_factor.special_details.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               RIR
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.RIR_su
+
+    _definition.id                '_pd_qpa_calib_factor.RIR_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.RIR.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               RIR_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.RIR'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_qpa_calib_factor.special_details
 
     _definition.id                '_pd_qpa_calib_factor.special_details'
@@ -7527,21 +7782,24 @@ save_pd_qpa_calib_factor.special_details
 
 save_
 
-save_pd_qpa_calib_factor.value
+save_pd_qpa_calib_factor.ZMV
 
-    _definition.id                '_pd_qpa_calib_factor.value'
-    _definition.update            2023-01-15
+    _definition.id                '_pd_qpa_calib_factor.ZMV'
+    _definition.update            2023-01-22
     _description.text
 ;
-    A calibration value by which a calculated intensity or scale factor
-    associated with the given phase is divided by in the process of quantitative
-    phase analysis.
+    A ZMV calibration value associated with the given phase which allows
+    quantitative phase analysis to be undertaken.
 
-    The type of calibration factor, and hence the correction quantitative phase
-    analysis equation, is given in _pd_qpa_calib_factor.type.
+    If the ZMV value used in the quantification can be derived from the
+    structural information present with the phase, then this value
+    does not need to be given.
+
+    A description of the associated quantification procedure can be found in
+    the equivalent enumeration in _pd_qpa_overall.method.
 ;
     _name.category_id             pd_qpa_calib_factor
-    _name.object_id               value
+    _name.object_id               ZMV
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -7550,17 +7808,17 @@ save_pd_qpa_calib_factor.value
 
 save_
 
-save_pd_qpa_calib_factor.value_su
+save_pd_qpa_calib_factor.ZMV_su
 
-    _definition.id                '_pd_qpa_calib_factor.value_su'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_qpa_calib_factor.ZMV_su'
+    _definition.update            2023-01-22
     _description.text
 ;
-    Standard uncertainty of _pd_qpa_calib_factor.value.
+    Standard uncertainty of _pd_qpa_calib_factor.ZMV.
 ;
     _name.category_id             pd_qpa_calib_factor
-    _name.object_id               value_su
-    _name.linked_item_id          '_pd_qpa_calib_factor.value'
+    _name.object_id               ZMV_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.ZMV'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -7872,6 +8130,9 @@ save_PD_QPA_OVERALL
 ;
     This category gives the overall information about the quantitative phase
     analysis methodology applied to a given diffractogram.
+
+    For a review on quantitative phase analysis, see Chapter 3.9 of
+    International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_CALIB_FACTOR
@@ -7915,9 +8176,6 @@ save_pd_qpa_overall.method
 
     If 'other' is chosen, further information must be given in
     _pd_qpa_overall.special_details
-
-    For a review on quantitative phase analysis, see Chapter 3.9 of
-    International Tables, Vol. H, and references therein.
 ;
     _name.category_id             pd_qpa_overall
     _name.object_id               method
