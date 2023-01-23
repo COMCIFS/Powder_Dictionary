@@ -3125,16 +3125,20 @@ save_pd_proc.wavelength
 
     _definition.id                '_pd_proc.wavelength'
     _alias.definition_id          '_pd_proc_wavelength'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-22
     _description.text
 ;
     Wavelength in angstroms for the incident radiation as
     computed from secondary calibration information. This will
-    be most appropriate for time-of-flight and synchrotron
-    measurements. This will be a single value for
-    continuous-wavelength methods or may vary for each data point
-    and be looped with the intensity values for energy-dispersive
-    measurements.
+    be most appropriate for measurements where the wavelength varies
+    for each data point and must be looped with the intensity values,
+    such as time-of-flight, or energy-dispersive measurements.
+
+    For measurements where the incident radiation can be considered to
+    be monochromatic and has been estimated or refined, for instance,
+    from instrumental parameters or a reference material, please record
+    the wavelength with _diffrn_radiation_wavelength.value and
+    _diffrn_radiation_wavelength.determination.
 ;
     _name.category_id             pd_proc
     _name.object_id               wavelength
@@ -8529,7 +8533,6 @@ save_
        PD_PREF_ORIENT_SPHERICAL_HARMONICS.
 
        Updated data items to hold block ID values to be of type Link, and to
-
        link them formally to _pd_block.id
 
        Update description of _pd_proc.info_datetime to maintain consistency
@@ -8544,5 +8547,7 @@ save_
 
        Updated descriptions of PD_CHAR, PD_PREP, and PD_SPEC to clarify
        differences between 'specimen', 'sample', and 'material'. Updated some
-       data item dscriptions to maintain a consistent nomenclature.
+       data item descriptions to maintain a consistent nomenclature.
+
+       Updated description of _pd_proc.wavelength.
 ;
