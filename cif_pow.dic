@@ -8155,6 +8155,53 @@ save_pd_qpa_internal_std.block_id
 
 save_
 
+save_pd_qpa_internal_std.crystallinity_percent
+
+    _definition.id                '_pd_qpa_internal_std.crystallinity_percent'
+    _definition.update            2023-01-23
+    _description.text
+;
+    Per cent crystallinity of the internal standard.
+
+    Materials are rarely 100% crystalline as the crystal structure at the
+    material's surface is able to relax, and/or contain reaction products. This
+    thin, disordered surface layer can account for several mass percent of the
+    standard, and, as such, can affect any resultant quantification based on the
+    standard.
+
+    Knowledge of the internal standard crystallinity allows for the known mass
+    addition to be corrected to a crystalline addition, which is the addition
+    being analysed in a diffraction experiment.
+;
+    _name.category_id             pd_qpa_internal_std
+    _name.object_id               crystallinity_percent
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:100.0
+    _units.code                   none
+
+save_
+
+save_pd_qpa_internal_std.crystallinity_percent_su
+
+    _definition.id
+        '_pd_qpa_internal_std.crystallinity_percent_su'
+    _definition.update            2023-01-23
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_internal_std.crystallinity_percent.
+;
+    _name.category_id             pd_qpa_internal_std
+    _name.object_id               crystallinity_percent_su
+    _name.linked_item_id          '_pd_qpa_internal_std.crystallinity_percent'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_qpa_internal_std.mass_percent
 
     _definition.id                '_pd_qpa_internal_std.mass_percent'
