@@ -8539,12 +8539,16 @@ save_pd_qpa_overall.method
 
          The relative weight fraction of phase p, W~p~, is given by
 
-         W~p~ = [(I~p~/I~p,rel~) / C~p~] / Sum[(I~k~/I~k,rel~) / C~k~, k=1:P]
+             W~p~ = [I~p~ / C~p~] / Sum[I~k~ / C~k~, k=1:P]
 
-         where I~p~ is the intensity of the analyte peak of phase p, I~P,rel~
-         is the ratio between the analyte peak and the most intense peak for
-         phase p, and C~p~ is the reference intensity ratio for phase p.
-         The sum is taken over all phases present in the specimen.
+         where I~p~=I~p~^'^/I~p,rel~, where I~p~^'^ is the intensity of the
+         analyte peak of phase p and I~P,rel~ is the intensity ratio between the
+         analyte peak and the most intense peak for phase p. The sum is taken
+         over all phases present in the specimen. C~p~ is the reference
+         intensity ratio for phase p, must be pre-calculated with a known,
+         crystalline internal standard, as
+
+             C~p~ = (W~s~/W~p~) * (I~p~^'^/I~s~^'^) * (I~s,rel~/(I~p,rel~)
 
          [1] Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). J. Appl.
          Crystallogr. 9, 169-174.
