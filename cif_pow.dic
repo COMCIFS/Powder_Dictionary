@@ -8400,8 +8400,10 @@ save_pd_qpa_overall.method
          Quantitative phase analysis was undertaken following the
          absorption-diffraction methodology methodology [1].
 
-         _pd_qpa_calib_factor.absorption_diffraction should be defined for each
-         phase, which corresponds to C~p~, below. In addition,
+         _pd_qpa_calib_factor.absorption_diffraction, which corresponds to C~p~,
+         below should be defined for each phase. _pd_qpa_intensity_factor.value,
+         which corresponds to I~p~, below, should be defined for each
+         diffractogram the phase appears in. In addition,
          _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
          must be given for the specimen in each diffractogram.
 
