@@ -8249,8 +8249,8 @@ save_pd_qpa_internal_std.crystallinity_percent
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.default          100.0
     _enumeration.range            0.0:100.0
+    _enumeration.default          100.0
     _units.code                   none
 
 save_
