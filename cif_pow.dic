@@ -8461,12 +8461,11 @@ save_pd_qpa_overall.method
 
          The absolute weight fraction of phase p, W~p~, is given by
 
-             W~p~ = [I~p~ / C~p~] * \mu^*^~m~
+             W~p~ = [(S~p~/K) / C~p~] * \mu^*^~m~
 
-         where I~p~ = S~p~/K, where S~p~ is the Rietveld scale factor of the
-         analyte phase and K is a previously determined diffractometer constant.
-         \mu^*^~m~ is the mass absorption coefficient of the entire specimen.
-         C~p~ is given as
+         where S~p~ is the Rietveld scale factor of the analyte phase, K is a
+         previously determined diffractometer constant, and \mu^*^~m~ is the
+         mass absorption coefficient of the entire specimen. C~p~ is given as
 
              C~p~ = 1 /(Z * M * V)~p~
 
