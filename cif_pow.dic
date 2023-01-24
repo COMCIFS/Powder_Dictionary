@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-22
+    _dictionary.date              2023-01-24
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -8373,7 +8373,7 @@ save_
 save_pd_qpa_overall.method
 
     _definition.id                '_pd_qpa_overall.method'
-    _definition.update            2023-01-22
+    _definition.update            2023-01-24
     _description.text
 ;
     The type of quantification method applied to the given diffractogram.
@@ -8461,17 +8461,17 @@ save_pd_qpa_overall.method
 
          The absolute weight fraction of phase p, W~p~, is given by
 
-             W~p~ = [S~p~ / C~p~] * \mu^*^~m~
+             W~p~ = [I~p~ / C~p~] * \mu^*^~m~
 
-         where S~p~ is the Rietveld scale factor of the analyte phase, and
+         where I~p~ = S~p~/K, where S~p~ is the Rietveld scale factor of the
+         analyte phase and K is a previously determined diffractometer constant.
          \mu^*^~m~ is the mass absorption coefficient of the entire specimen.
          C~p~ is given as
 
-             C~p~ = K /(Z * M * V)~p~
+             C~p~ = 1 /(Z * M * V)~p~
 
          where Z is the number of formula units per unit cell, M is the chemical
-         formula weight, and V is the volume of the unit cell, all of phase p,
-         and K is the previously determined diffractometer constant.
+         formula weight, and V is the volume of the unit cell, all of phase p.
 
          [1] O'Connor, B. H. & Raven, M. D. (1988). Powder Diffr. 3, 2-6.
          [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
@@ -9071,7 +9071,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-22
+         2.5.0                    2023-01-24
 ;
        ## Retain above version number and increment date until final
        ## release
