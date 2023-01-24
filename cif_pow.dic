@@ -7659,6 +7659,52 @@ save_pd_qpa_calib_factor.I_over_Ic_su
 
 save_
 
+save_pd_qpa_calib_factor.other
+
+    _definition.id                '_pd_qpa_calib_factor.other
+    _definition.update            2023-01-24
+    _description.text
+;
+    A calibration value associated with the given phase which allows
+    quantitative phase analysis to be undertaken.
+
+    The type of data this value represents must be given in
+    _pd_qpa_calib_factor.special_details.
+
+    A description of the associated quantification procedure must be given in
+    _pd_qpa_overall.method.
+
+    When this data item is used in many phases present in the same
+    diffractogram, the person creating the CIF file must ensure that they are
+    have consistent definitions.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               other
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_qpa_calib_factor.other_su
+
+    _definition.id                '_pd_qpa_calib_factor.other_su'
+    _definition.update            2023-01-22
+    _description.text
+;
+    Standard uncertainty of _pd_qpa_calib_factor.other.
+;
+    _name.category_id             pd_qpa_calib_factor
+    _name.object_id               other_su
+    _name.linked_item_id          '_pd_qpa_calib_factor.other'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_qpa_calib_factor.phase_id
 
     _definition.id                '_pd_qpa_calib_factor.phase_id'
@@ -7792,9 +7838,9 @@ save_pd_qpa_calib_factor.ZMV
     A ZMV calibration value associated with the given phase which allows
     quantitative phase analysis to be undertaken.
 
-    If the ZMV value used in the quantification can be derived from the
-    structural information present with the phase, then this value
-    does not need to be given.
+    If this value is not given, please ensure the atoms in the unit cell are
+    given in an ATOM_TYPE list to allow for the correct calculation of
+    _cell.atomic_mass.
 
     A description of the associated quantification procedure can be found in
     the equivalent enumeration in _pd_qpa_overall.method.
@@ -8179,6 +8225,7 @@ save_pd_qpa_internal_std.crystallinity_percent
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
+    _enumeration.default          100.0
     _enumeration.range            0.0:100.0
     _units.code                   none
 
