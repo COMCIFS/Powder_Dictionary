@@ -7862,9 +7862,9 @@ save_pd_qpa_calib_factor.ZMV
     A ZMV calibration value associated with the given phase which allows
     quantitative phase analysis to be undertaken.
 
-    If this value is not given, please ensure the atoms in the unit cell are
-    given in an ATOM_TYPE list to allow for the correct calculation of
-    _cell.atomic_mass.
+    If this value is not given, please ensure that _cell.volume and either
+    _cell.atomic_mass or the atoms in the unit cell are given in an ATOM_TYPE
+    list, to allow for the correct calculation of ZMV.
 
     A description of the associated quantification procedure can be found in
     the equivalent enumeration in _pd_qpa_overall.method.
