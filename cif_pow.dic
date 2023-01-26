@@ -8424,20 +8424,22 @@ save_pd_qpa_overall.method
          Quantitative phase analysis was undertaken following the
          absorption-diffraction methodology methodology [1].
 
-         _pd_qpa_calib_factor.absorption_diffraction, which corresponds to C~p~,
-         below should be defined for each phase. _pd_qpa_intensity_factor.value,
-         which corresponds to I~p~, below, should be defined for each
-         diffractogram the phase appears in. In addition,
-         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
-         must be given for the specimen in each diffractogram.
-
          The absolute weight fraction of phase p, W~p~, is given by
 
              W~p~ = [I~p~ / C~p~] * \mu^*^~m~
 
          where I~p~ is the intensity of the analyte peak, \mu^*^~m~ is the mass
          absorption coefficient of the entire specimen, and C~p~ is a previously
-         determined calibration constant.
+         determined calibration constant. Intensities from unknown specimens
+         must be collected under the same conditions as the calibration was
+         determined, or normalised to match.
+
+         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
+         must be given for the specimen in each diffractogram.
+
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and
+         _pd_qpa_calib_factor.absorption_diffraction, respectively.
 
          [1] Klug, H.P. & Alexander, L.E. (1974). X-Ray Diffraction Procedures:
          For Polycrystalline and Amorphous Materials. New York: Wiley.
@@ -8446,9 +8448,6 @@ save_pd_qpa_overall.method
 ;
          Quantitative phase analysis was undertaken following the Direct
          Derivation Method [1-6].
-
-         _pd_qpa_calib_factor.DDM should be defined for each phase, which
-         corresponds to C~p~, below.
 
          The relative weight fraction of phase p, W~p~, is given by
 
@@ -8464,6 +8463,10 @@ save_pd_qpa_overall.method
          number of electrons belonging to the i^th^ atom of phase p, and N~p~ is
          the number of atoms in the formula unit of phase p.
 
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.DDM,
+         respectively.
+
          [1] Toraya, H. (2016). J. Appl. Crystallogr. 49, 1508-1516.
          [2] Toraya, H. (2017). J. Appl. Crystallogr. 50, 820-829.
          [3] Toraya, H. (2017). J. Appl. Crystallogr. 50, 665-665.
@@ -8476,12 +8479,6 @@ save_pd_qpa_overall.method
          Quantitative phase analysis was undertaken following the external
          standard methodology [1] to quantify absolute phase fractions taken
          from Rietveld [2] refinements.
-
-         _pd_qpa_calib_factor.external_standard can be defined for each phase,
-         but data items from the PD_QPA_EXTERNAL_STANDARD category should be
-         preferentially used. In addition, _pd_char.mass_atten_coef_mu_calc or
-         _pd_char.mass_atten_coef_mu_obs must be given for the specimen in each
-         diffractogram.
 
          The absolute weight fraction of phase p, W~p~, is given by
 
@@ -8497,6 +8494,15 @@ save_pd_qpa_overall.method
          where Z is the number of formula units per unit cell, M is the chemical
          formula weight, and V is the volume of the unit cell, all of phase p.
 
+         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
+         must be given for the specimen in each diffractogram.
+
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and
+         _pd_qpa_calib_factor.external_standard, respectively, however, data
+         items from the PD_QPA_EXTERNAL_STANDARD category should be
+         preferentially used.
+
          [1] O'Connor, B. H. & Raven, M. D. (1988). Powder Diffr. 3, 2-6.
          [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
 ;
@@ -8506,18 +8512,16 @@ save_pd_qpa_overall.method
          value was determined using corundum (\a-alumina) as the standard, and
          the mass ratio of the standard and analyte phases was 50:50.
 
-         _pd_qpa_calib_factor.I_over_Ic should be defined for each phase, which
-         corresponds to C~p~.
-
          For a description of the RIR methodology, see the entry for the 'RIR'.
+
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.I_over_Ic,
+         respectively.
 ;
          PONKCS
 ;
          Quantitative phase analysis was undertaken following the Partial Or No
          Known Crystal Structure methodology [1].
-
-         _pd_qpa_calib_factor.PONKCS should be defined for each phase. Its value
-         corresponds to the value C~p~, below.
 
          The relative weight fraction of phase p, W~p~, is given by
 
@@ -8544,6 +8548,10 @@ save_pd_qpa_overall.method
          approach, the entire quantification is to be marked as 'PONKCS', and
          all phases should define _pd_qpa_calib_factor.value.
 
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.PONKCS,
+         respectively.
+
          [1] Scarlett, N.V.Y. & Madsen, I.C. (2006). Powder Diffr. 21, 278-284.
 ;
          RIR
@@ -8553,9 +8561,6 @@ save_pd_qpa_overall.method
 
          Quantitative phase analysis was undertaken following the Reference
          Intensity Ratio methodology [1-3].
-
-         _pd_qpa_calib_factor.RIR should be defined for each phase. Its value
-         corresponds to the value C~p~, below.
 
          The method of determining the RIR value, and the particular standard
          against which it was calculated should be given in the
@@ -8574,6 +8579,10 @@ save_pd_qpa_overall.method
 
              C~p~ = (W~s~/W~p~) * (I~p~^'^/I~s~^'^) * (I~s,rel~/(I~p,rel~)
 
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.RIR,
+         respectively.
+
          [1] Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). J. Appl.
          Crystallogr. 9, 169-174.
 
@@ -8588,10 +8597,6 @@ save_pd_qpa_overall.method
          Quantitative phase analysis was undertaken following the ZMV
          algorithm [1] in conjunction with Rietveld [2] refinements.
 
-         _pd_qpa_calib_factor.ZMV can be defined, if desired, for each phase,
-         but can be otherwise be calculated from the phase's crystal structure
-         details. Its value corresponds to the value C~p~, below.
-
          The relative weight fraction of phase p, W~p~, is given by
 
              W~p~ = (S~p~ / C~p~) / Sum(S~k~ / C~k~, k=1:P)
@@ -8603,6 +8608,10 @@ save_pd_qpa_overall.method
 
          where Z is the number of formula units per unit cell, M is the chemical
          formula weight, and V is the volume of the unit cell, all of phase p.
+
+         The values utilised for I~p~ and C~p~ can be recorded using
+         _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.ZMV,
+         respectively.
 
          [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
          [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
