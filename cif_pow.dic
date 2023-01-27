@@ -8562,7 +8562,7 @@ save_pd_qpa_overall.method
          'I/Ic'.
 
          Quantitative phase analysis was undertaken following the Reference
-         Intensity Ratio methodology [1-3].
+         Intensity Ratio methodology [1].
 
          The method of determining the RIR value, and the particular standard
          against which it was calculated should be given in the
@@ -8585,19 +8585,12 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.RIR,
          respectively.
 
-         [1] Hubbard, C. R., Evans, E. H. & Smith, D. K. (1976). J. Appl.
-         Crystallogr. 9, 169-174.
-
-         [2] Hubbard, C. R. & Snyder, R. L. (1988). Powder Diffr. 3, 74-77.
-
-         [3] Snyder, R. L. & Bish, D. L. (1989). In Modern Powder Diffraction,
-         edited by D. L. Bish & J. E. Post, pp. 101-142. Washington DC:
-         Mineralogical Society of America.
+         [1] Snyder, R. L. (1992). Powder Diffr. 7, 186-192.
 ;
          ZMV
 ;
          Quantitative phase analysis was undertaken following the ZMV
-         algorithm [1] in conjunction with Rietveld [2] refinements.
+         algorithm [1-2] in conjunction with Rietveld [3] refinements.
 
          The relative weight fraction of phase p, W~p~, is given by
 
@@ -8616,6 +8609,7 @@ save_pd_qpa_overall.method
          respectively.
 
          [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
+         [1] Bish,D.L. & Howard, S.A. (1988). J. Appl. Crystallogr. 21, 86-91.
          [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
 ;
          other
