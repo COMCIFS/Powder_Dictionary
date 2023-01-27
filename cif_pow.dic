@@ -8430,9 +8430,10 @@ save_pd_qpa_overall.method
 
          where I~p~ is the intensity of the analyte peak, \mu^*^~m~ is the mass
          absorption coefficient of the entire specimen, and C~p~ is a previously
-         determined calibration constant. Intensities from unknown specimens
-         must be collected under the same conditions as the calibration was
-         determined, or normalised to match.
+         determined calibration constant which depends on the data collection
+         conditions and the nature of the phase being calibrated. Intensities
+         from unknown specimens must be collected under the same conditions as
+         the calibration was determined, or normalised to match.
 
          _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
          must be given for the specimen in each diffractogram.
@@ -8442,7 +8443,8 @@ save_pd_qpa_overall.method
          _pd_qpa_calib_factor.absorption_diffraction, respectively.
 
          [1] Klug, H.P. & Alexander, L.E. (1974). X-Ray Diffraction Procedures:
-         For Polycrystalline and Amorphous Materials. New York: Wiley.
+         For Polycrystalline and Amorphous Materials. New York: Wiley. pp.
+         532-534.
 ;
          DDM
 ;
