@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-01-21
+    _dictionary.date              2023-01-23
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -2444,8 +2444,20 @@ save_PD_CHAR
     _definition.update            2014-06-20
     _description.text
 ;
-    This section contains experimental (non-diffraction) information
-    relevant to the chemical and physical nature of the material.
+    This section contains experimental (non-diffraction) information relevant to
+    the chemical and physical nature of the material from which the sample is
+    drawn.
+
+    'Specimen', 'sample', and 'material' have specific meanings, and sometimes
+    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    into the beam from which the diffraction measurement is taken, and is
+    described in PD_SPEC. The specimen is made from the 'sample', which can have
+    information is specified in PD_PREP. The sample is drawn from a 'material',
+    which may exist in an actual or idealised sense, which can have information
+    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    sample might be a specific batch from a specific manufacturer, and the
+    specimen is the material taken from the bottle and placed in the instrument.
+
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
@@ -2456,14 +2468,14 @@ save_pd_char.atten_coef_mu_calc
 
     _definition.id                '_pd_char.atten_coef_mu_calc'
     _alias.definition_id          '_pd_char_atten_coef_mu_calc'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-22
     _description.text
 ;
     The calculated linear attenuation coefficient, \m, in units
     of inverse millimetres, also known as the linear absorption
     coefficient. The value is obtained from the atomic content of
-    each of the phases in the specimen, the average density
-    (allowing for specimen packing), and the radiation wavelength.
+    each of the phases in the material, the average density
+    (allowing for packing density), and the radiation wavelength.
     Note that _pd_char.atten_coef_mu_calc will differ from the value
     based on phase quantities and _exptl_absorpt.coefficient_mu for
     each phase if the packing density is not unity.
@@ -4336,16 +4348,20 @@ save_pd_proc.wavelength
 
     _definition.id                '_pd_proc.wavelength'
     _alias.definition_id          '_pd_proc_wavelength'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-22
     _description.text
 ;
     Wavelength in angstroms for the incident radiation as
     computed from secondary calibration information. This will
-    be most appropriate for time-of-flight and synchrotron
-    measurements. This will be a single value for
-    continuous-wavelength methods or may vary for each data point
-    and be looped with the intensity values for energy-dispersive
-    measurements.
+    be most appropriate for measurements where the wavelength varies
+    for each data point and must be looped with the intensity values,
+    such as time-of-flight, or energy-dispersive measurements.
+
+    For measurements where the incident radiation can be considered to
+    be monochromatic and has been estimated or refined, for instance,
+    from instrumental parameters or a reference material, please record
+    the wavelength with _diffrn_radiation_wavelength.value and
+    _diffrn_radiation_wavelength.determination.
 ;
     _name.category_id             pd_proc
     _name.object_id               wavelength
@@ -4558,11 +4574,11 @@ save_pd_instr.cons_illum_len
 
     _definition.id                '_pd_instr.cons_illum_len'
     _alias.definition_id          '_pd_instr_cons_illum_len'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-22
     _description.text
 ;
     Use _pd_instr.cons_illum_len for instruments where the length of
-    sample illuminated does not vary with 2\q, usually achieved by
+    specimen illuminated does not vary with 2\q, usually achieved by
     adjustment of the divergence slits (sometimes known as
     \q-compensated slits).
 ;
@@ -6393,10 +6409,10 @@ save_pd_meas.rocking_angle
 
     _definition.id                '_pd_meas.rocking_angle'
     _alias.definition_id          '_pd_meas_rocking_angle'
-    _definition.update            2022-10-11
+    _definition.update            2023-01-22
     _description.text
 ;
-    The angular range in degrees through which a sample
+    The angular range in degrees through which a specimen
     is rotated or oscillated during a measurement step
     (see _pd_meas.rocking_axis).
 ;
@@ -7084,13 +7100,8 @@ save_
 save_pd_phase_mass.percent
 
     _definition.id                '_pd_phase_mass.percent'
-
-    loop_
-      _alias.definition_id
-         '_pd_phase_mass_percent'
-         '_pd_phase_mass_%'
-
-    _definition.update            2022-12-03
+    _alias.definition_id          '_pd_phase_mass_%'
+    _definition.update            2023-01-23
     _description.text
 ;
     Total mass of the phase expressed as a percentage of the total
@@ -7933,8 +7944,21 @@ save_PD_PREP
     _definition.update            2014-06-20
     _description.text
 ;
-    This section contains descriptive information about how the
-    sample was prepared.
+    This section contains descriptive information about how the sample, from
+    which the specimen was created, was prepared.
+
+    The 'specimen' is the artefact placed into the beam. The specimen is made
+    from the 'sample'. Information about the sample is specified in PD_PREP.
+
+    'Specimen', 'sample', and 'material' have specific meanings, and sometimes
+    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    into the beam from which the diffraction measurement is taken, and is
+    described in PD_SPEC. The specimen is made from the 'sample', which can have
+    information is specified in PD_PREP. The sample is drawn from a 'material',
+    which may exist in an actual or idealised sense, which can have information
+    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    sample might be a specific batch from a specific manufacturer, and the
+    specimen is the material taken from the bottle and placed in the instrument.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
@@ -7945,10 +7969,10 @@ save_pd_prep.conditions
 
     _definition.id                '_pd_prep.conditions'
     _alias.definition_id          '_pd_prep_conditions'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-22
     _description.text
 ;
-    A description of how the material was prepared
+    A description of how the sample was prepared
     (reaction conditions etc.)
 ;
     _name.category_id             pd_prep
@@ -9196,13 +9220,21 @@ save_PD_SPEC
     _definition.id                PD_SPEC
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-01-22
     _description.text
 ;
-    This section contains information about the specimen used
-    for measurement of the diffraction data set. Note that
-    information about the sample (the batch of material from which
-    the specimen was obtained) is specified in PD_PREP.
+    This section contains information about the specimen used for measurement of
+    the diffraction data set.
+
+    'Specimen', 'sample', and 'material' have specific meanings, and sometimes
+    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    into the beam from which the diffraction measurement is taken, and is
+    described in PD_SPEC. The specimen is made from the 'sample', which can have
+    information is specified in PD_PREP. The sample is drawn from a 'material',
+    which may exist in an actual or idealised sense, which can have information
+    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    sample might be a specific batch from a specific manufacturer, and the
+    specimen is the material taken from the bottle and placed in the instrument.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
@@ -9658,7 +9690,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-01-21
+         2.5.0                    2023-01-23
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -9721,7 +9753,6 @@ save_
        PD_PREF_ORIENT_SPHERICAL_HARMONICS.
 
        Updated data items to hold block ID values to be of type Link, and to
-
        link them formally to _pd_block.id
 
        Update description of _pd_proc.info_datetime to maintain consistency
@@ -9733,4 +9764,12 @@ save_
        Updated _pd_phase.name.
 
        Updated description of _pd_calibration.conversion_eqn.
+
+       Updated descriptions of PD_CHAR, PD_PREP, and PD_SPEC to clarify
+       differences between 'specimen', 'sample', and 'material'. Updated some
+       data item descriptions to maintain a consistent nomenclature.
+
+       Updated description of _pd_proc.wavelength.
+
+       Remove '_pd_phase_mass_percent' as an alias for '_pd_phase_mass.percent'.
 ;
