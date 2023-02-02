@@ -252,10 +252,10 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
     _name.linked_item_id
         '_pd_background.air_or_thermal_diffuse_coefs_1'
     _units.code                   none
-    _type.purpose                SU
-    _type.source                 Derived
-    _type.container              Matrix
-    _type.contents               Real
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
