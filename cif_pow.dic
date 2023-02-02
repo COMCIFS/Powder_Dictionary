@@ -936,10 +936,10 @@ save_pd_background.line_segment_intensity_2_su
 
 save_
 
-save_pd_background.line_segment_intensity_list
+save_pd_background.line_segment_intensities
 
-    _definition.id                '_pd_background.line_segment_intensity_list'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.line_segment_intensities'
+    _definition.update            2023-02-02
     _description.text
 ;
     List of intensities used to create many straight-line segments representing
@@ -948,10 +948,10 @@ save_pd_background.line_segment_intensity_list
     See _pd_background.line_segment_intensity_1.
 
     Must be in the same order as the X-coordinate values in
-    _pd_background.line_segment_X_list
+    _pd_background.line_segment_Xs.
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_intensity_list
+    _name.object_id               line_segment_intensities
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Matrix
@@ -961,21 +961,23 @@ save_pd_background.line_segment_intensity_list
 
 save_
 
-save_pd_background.line_segment_intensity_list_su
+save_pd_background.line_segment_intensities_su
 
     _definition.id
-        '_pd_background.line_segment_intensity_list_su'
-    _definition.update            2023-01-14
+        '_pd_background.line_segment_intensities_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of _pd_background.line_segment_intensity_list.
+    Standard uncertainty of _pd_background.line_segment_intensities.
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_intensity_list
-    _name.linked_item_id          '_pd_background.line_segment_intensity_list'
+    _name.object_id               line_segment_intensities
+    _name.linked_item_id          '_pd_background.line_segment_intensities'
     _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
@@ -1041,10 +1043,10 @@ save_pd_background.line_segment_X_2
 
 save_
 
-save_pd_background.line_segment_X_list
+save_pd_background.line_segment_Xs
 
-    _definition.id                '_pd_background.line_segment_X_list'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.line_segment_Xs'
+    _definition.update            2023-02-02
     _description.text
 ;
     List of X-coordinates used to create many straight-line segments
@@ -1053,10 +1055,10 @@ save_pd_background.line_segment_X_list
     See _pd_background.line_segment_X_1.
 
     Must be in the same order as the intensity values in
-    _pd_background.line_segment_intensity_list
+    _pd_background.line_segment_intensities
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_X_list
+    _name.object_id               line_segment_Xs
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Matrix
