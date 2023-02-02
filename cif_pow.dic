@@ -357,10 +357,10 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
     _name.linked_item_id
         '_pd_background.air_or_thermal_diffuse_coefs_2'
     _units.code                   none
-    _type.purpose                SU
-    _type.source                 Derived
-    _type.container              Matrix
-    _type.contents               Real
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
@@ -489,10 +489,10 @@ save_pd_background.Chebyshev_coefs_su
     _name.object_id               Chebyshev_coefs_su
     _name.linked_item_id          '_pd_background.Chebyshev_coefs'
     _units.code                   none
-    _type.purpose                SU
-    _type.source                 Derived
-    _type.container              Matrix
-    _type.contents               Real
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
@@ -531,10 +531,10 @@ save_pd_background.Chebyshev_order
 
 save_
 
-save_pd_background.cosine_Fourier_series_coeff
+save_pd_background.cosine_Fourier_series_coef
 
-    _definition.id                '_pd_background.cosine_Fourier_series_coeff'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.cosine_Fourier_series_coef'
+    _definition.update            2023-02-02
     _description.text
 ;
     The value of a coefficient used in a cosine Fourier series equation
@@ -551,7 +551,7 @@ save_pd_background.cosine_Fourier_series_coeff
     coefficients used.
 ;
     _name.category_id             pd_background
-    _name.object_id               cosine_Fourier_series_coeff
+    _name.object_id               cosine_Fourier_series_coef
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -560,41 +560,41 @@ save_pd_background.cosine_Fourier_series_coeff
 
 save_
 
-save_pd_background.cosine_Fourier_series_coeff_su
+save_pd_background.cosine_Fourier_series_coef_su
 
     _definition.id
-        '_pd_background.cosine_Fourier_series_coeff_su'
-    _definition.update            2023-01-14
+        '_pd_background.cosine_Fourier_series_coef_su'
+    _definition.update            2023-02-02
     _description.text
 ;
     Standard uncertainty of pd_background.cosine_Fourier_series.
 ;
     _name.category_id             pd_background
-    _name.object_id               cosine_Fourier_series_coeff_su
-    _name.linked_item_id          '_pd_background.cosine_Fourier_series_coeff'
+    _name.object_id               cosine_Fourier_series_coef_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series_coef'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_background.cosine_Fourier_series_list
+save_pd_background.cosine_Fourier_series_coefs
 
-    _definition.id                '_pd_background.cosine_Fourier_series_list'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.cosine_Fourier_series_coefs'
+    _definition.update            2023-02-02
     _description.text
 ;
     The value of a coefficient used in a cosine Fourier series equation
     representing the background in a calculated diffractogram.
 
-    See _pd_background.cosine_Fourier_series.
+    See _pd_background.cosine_Fourier_series_coef.
 
     The position of the coefficient in the list is significant, denoting the
     order to which it corresponds. The first is the zeroth order, the second
     is the first, and so on.
 ;
     _name.category_id             pd_background
-    _name.object_id               cosine_Fourier_series_list
+    _name.object_id               cosine_Fourier_series_coefs
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Matrix
@@ -604,20 +604,23 @@ save_pd_background.cosine_Fourier_series_list
 
 save_
 
-save_pd_background.cosine_Fourier_series_list_su
+save_pd_background.cosine_Fourier_series_coefs_su
 
-    _definition.id                '_pd_background.cosine_Fourier_series_list_su'
-    _definition.update            2023-01-14
+    _definition.id
+        '_pd_background.cosine_Fourier_series_coefs_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of pd_background.cosine_Fourier_series_list.
+    Standard uncertainty of pd_background.cosine_Fourier_series_coefs.
 ;
     _name.category_id             pd_background
-    _name.object_id               cosine_Fourier_series_list_su
-    _name.linked_item_id          '_pd_background.cosine_Fourier_series_list'
+    _name.object_id               cosine_Fourier_series_coefs_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series_coefs'
     _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
