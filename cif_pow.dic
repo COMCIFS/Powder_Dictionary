@@ -209,55 +209,6 @@ save_pd_background.air_or_thermal_diffuse_coef_1_su
 
 save_
 
-save_pd_background.air_or_thermal_diffuse_coefs_1
-
-    _definition.id
-        '_pd_background.air_or_thermal_diffuse_coefs_1'
-    _definition.update            2023-02-02
-    _description.text
-;
-    List of the first coefficients used in an equation representing the
-    background due to thermal diffuse scatering and/or air scattering, in a
-    calculated diffractogram.
-
-    See _pd_background.air_or_thermal_diffuse_coef_1.
-
-    The position of the coefficient in the list is significant, denoting the
-    order to which it corresponds. The first is the zeroth order, the second
-    is the first, and so on.
-;
-    _name.category_id             pd_background
-    _name.object_id               air_or_thermal_diffuse_coefs_1
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Matrix
-    _type.dimension               '[]'
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
-save_pd_background.air_or_thermal_diffuse_coefs_1_su
-
-    _definition.id
-        '_pd_background.air_or_thermal_diffuse_coefs_1_su'
-    _definition.update            2023-02-02
-    _description.text
-;
-    Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_1.
-;
-    _name.category_id             pd_background
-    _name.object_id               air_or_thermal_diffuse_coefs_1_su
-    _name.linked_item_id
-        '_pd_background.air_or_thermal_diffuse_coefs_1'
-    _type.purpose                 SU
-    _type.source                  Derived
-    _type.container               Matrix
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
 save_pd_background.air_or_thermal_diffuse_coef_2
 
     _definition.id                '_pd_background.air_or_thermal_diffuse_coef_2'
@@ -310,6 +261,55 @@ save_pd_background.air_or_thermal_diffuse_coef_2_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coefs_1
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coefs_1'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of the first coefficients used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram.
+
+    See _pd_background.air_or_thermal_diffuse_coef_1.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coefs_1
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coefs_1_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coefs_1_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_1.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coefs_1_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coefs_1'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -1250,7 +1250,7 @@ save_
 save_pd_background.polynomial_powers_su
 
     _definition.id                '_pd_background.polynomial_powers_su'
-    _definition.update            2023-01-08
+    _definition.update            2023-02-02
     _description.text
 ;
     Standard uncertainty of _pd_background.polynomial_powers.
@@ -1260,6 +1260,7 @@ save_pd_background.polynomial_powers_su
     _name.linked_item_id          '_pd_background.polynomial_powers'
     _type.purpose                 SU
     _type.source                  Derived
+    _type.container               Matrix
     _type.contents                Real
     _units.code                   none
 
