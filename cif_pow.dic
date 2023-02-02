@@ -7875,11 +7875,6 @@ save_pd_qpa_calib_factor.I_over_Ic
     _type.contents                Real
     _units.code                   none
 
-    loop_
-      _category_key.name
-         '_pd_qpa_int_std.diffractogram_id'
-         '_pd_qpa_int_std.phase_id'
-
 save_
 
 save_pd_qpa_calib_factor.I_over_Ic_su
@@ -8414,6 +8409,11 @@ save_PD_QPA_INTERNAL_STD
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_INTERNAL_STD
+
+    loop_
+      _category_key.name
+         '_pd_qpa_internal_std.diffractogram_id'
+         '_pd_qpa_internal_std.phase_id'
 
 save_
 
