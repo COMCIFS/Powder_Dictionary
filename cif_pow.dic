@@ -202,8 +202,7 @@ save_pd_background.air_or_thermal_diffuse_coef_1_su
 ;
     _name.category_id             pd_background
     _name.object_id               air_or_thermal_diffuse_coef_1_su
-    _name.linked_item_id
-        '_pd_background.air_or_thermal_diffuse_coef_1'
+    _name.linked_item_id          '_pd_background.air_or_thermal_diffuse_coef_1'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -213,7 +212,7 @@ save_
 save_pd_background.air_or_thermal_diffuse_coefs_1
 
     _definition.id
-        '_pd_background.air_or_thermal_diffuse_coeffs_1'
+        '_pd_background.air_or_thermal_diffuse_coefs_1'
     _definition.update            2023-02-02
     _description.text
 ;
@@ -251,11 +250,11 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
     _name.object_id               air_or_thermal_diffuse_coefs_1_su
     _name.linked_item_id
         '_pd_background.air_or_thermal_diffuse_coefs_1'
-    _units.code                   none
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -307,8 +306,7 @@ save_pd_background.air_or_thermal_diffuse_coef_2_su
 ;
     _name.category_id             pd_background
     _name.object_id               air_or_thermal_diffuse_coef_2_su
-    _name.linked_item_id
-        '_pd_background.air_or_thermal_diffuse_coef_2'
+    _name.linked_item_id          '_pd_background.air_or_thermal_diffuse_coef_2'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
@@ -356,11 +354,11 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
     _name.object_id               air_or_thermal_diffuse_coefs_2_su
     _name.linked_item_id
         '_pd_background.air_or_thermal_diffuse_coefs_2'
-    _units.code                   none
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -488,11 +486,11 @@ save_pd_background.Chebyshev_coefs_su
     _name.category_id             pd_background
     _name.object_id               Chebyshev_coefs_su
     _name.linked_item_id          '_pd_background.Chebyshev_coefs'
-    _units.code                   none
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -562,8 +560,7 @@ save_
 
 save_pd_background.cosine_Fourier_series_coef_su
 
-    _definition.id
-        '_pd_background.cosine_Fourier_series_coef_su'
+    _definition.id                '_pd_background.cosine_Fourier_series_coef_su'
     _definition.update            2023-02-02
     _description.text
 ;
@@ -616,11 +613,11 @@ save_pd_background.cosine_Fourier_series_coefs_su
     _name.category_id             pd_background
     _name.object_id               cosine_Fourier_series_coefs_su
     _name.linked_item_id          '_pd_background.cosine_Fourier_series_coefs'
-    _units.code                   none
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -842,6 +839,50 @@ save_pd_background.id
 
 save_
 
+save_pd_background.line_segment_intensities
+
+    _definition.id                '_pd_background.line_segment_intensities'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of intensities used to create many straight-line segments representing
+    the background in a calculated diffractogram.
+
+    See _pd_background.line_segment_intensity_1.
+
+    Must be in the same order as the X-coordinate values in
+    _pd_background.line_segment_Xs.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_intensities
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.line_segment_intensities_su
+
+    _definition.id                '_pd_background.line_segment_intensities_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.line_segment_intensities.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_intensities
+    _name.linked_item_id          '_pd_background.line_segment_intensities'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
 save_pd_background.line_segment_intensity_1
 
     _definition.id                '_pd_background.line_segment_intensity_1'
@@ -933,51 +974,6 @@ save_pd_background.line_segment_intensity_2_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_background.line_segment_intensities
-
-    _definition.id                '_pd_background.line_segment_intensities'
-    _definition.update            2023-02-02
-    _description.text
-;
-    List of intensities used to create many straight-line segments representing
-    the background in a calculated diffractogram.
-
-    See _pd_background.line_segment_intensity_1.
-
-    Must be in the same order as the X-coordinate values in
-    _pd_background.line_segment_Xs.
-;
-    _name.category_id             pd_background
-    _name.object_id               line_segment_intensities
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Matrix
-    _type.dimension               '[]'
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
-save_pd_background.line_segment_intensities_su
-
-    _definition.id
-        '_pd_background.line_segment_intensities_su'
-    _definition.update            2023-02-02
-    _description.text
-;
-    Standard uncertainty of _pd_background.line_segment_intensities.
-;
-    _name.category_id             pd_background
-    _name.object_id               line_segment_intensities
-    _name.linked_item_id          '_pd_background.line_segment_intensities'
-    _units.code                   none
-    _type.purpose                 SU
-    _type.source                  Derived
-    _type.container               Matrix
-    _type.contents                Real
 
 save_
 
@@ -1173,11 +1169,11 @@ save_pd_background.polynomial_coefs_su
     _name.category_id             pd_background
     _name.object_id               polynomial_coefs_su
     _name.linked_item_id          '_pd_background.polynomial_coefs'
-    _units.code                   arbitrary
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
     _type.contents                Real
+    _units.code                   arbitrary
 
 save_
 
@@ -1262,11 +1258,10 @@ save_pd_background.polynomial_powers_su
     _name.category_id             pd_background
     _name.object_id               polynomial_powers_su
     _name.linked_item_id          '_pd_background.polynomial_powers'
-    _units.code                   none
     _type.purpose                 SU
     _type.source                  Derived
-    _type.container               Matrix
     _type.contents                Real
+    _units.code                   none
 
 save_
 
