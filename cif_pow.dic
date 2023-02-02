@@ -654,10 +654,10 @@ save_pd_background.cosine_Fourier_series_order
 
 save_
 
-save_pd_background.Debye_diffuse_amplitude
+save_pd_background.Debye_diffuse_amp
 
-    _definition.id                '_pd_background.Debye_diffuse_amplitude'
-    _definition.update            2023-01-09
+    _definition.id                '_pd_background.Debye_diffuse_amp'
+    _definition.update            2023-02-02
     _description.text
 ;
     The value of the amplitude in a Debye diffuse scattering equation
@@ -679,7 +679,7 @@ save_pd_background.Debye_diffuse_amplitude
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_amplitude
+    _name.object_id               Debye_diffuse_amp
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -688,27 +688,27 @@ save_pd_background.Debye_diffuse_amplitude
 
 save_
 
-save_pd_background.Debye_diffuse_amplitude_su
+save_pd_background.Debye_diffuse_amp_su
 
-    _definition.id                '_pd_background.Debye_diffuse_amplitude_su'
-    _definition.update            2023-01-09
+    _definition.id                '_pd_background.Debye_diffuse_amp_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of _pd_background.Debye_diffuse_amplitude.
+    Standard uncertainty of _pd_background.Debye_diffuse_amp.
 ;
     _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_amplitude_su
-    _name.linked_item_id          '_pd_background.Debye_diffuse_amplitude'
+    _name.object_id               Debye_diffuse_amp_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_amp'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_background.Debye_diffuse_displacement
+save_pd_background.Debye_diffuse_displace
 
-    _definition.id                '_pd_background.Debye_diffuse_displacement'
-    _definition.update            2023-01-09
+    _definition.id                '_pd_background.Debye_diffuse_displace'
+    _definition.update            2023-02-02
     _description.text
 ;
     The value of the displacement in a Debye diffuse scattering equation
@@ -730,7 +730,7 @@ save_pd_background.Debye_diffuse_displacement
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_displacement
+    _name.object_id               Debye_diffuse_displace
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -739,27 +739,27 @@ save_pd_background.Debye_diffuse_displacement
 
 save_
 
-save_pd_background.Debye_diffuse_displacement_su
+save_pd_background.Debye_diffuse_displace_su
 
-    _definition.id                '_pd_background.Debye_diffuse_displacement_su'
+    _definition.id                '_pd_background.Debye_diffuse_displace_su'
     _definition.update            2023-01-09
     _description.text
 ;
-    Standard uncertainty of _pd_background.Debye_diffuse_displacement.
+    Standard uncertainty of _pd_background.Debye_diffuse_displace.
 ;
     _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_displacement_su
-    _name.linked_item_id          '_pd_background.Debye_diffuse_displacement'
+    _name.object_id               Debye_diffuse_displace_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_displace'
     _units.code                   angstrom_squared
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_background.Debye_diffuse_distance
+save_pd_background.Debye_diffuse_dist
 
-    _definition.id                '_pd_background.Debye_diffuse_distance'
-    _definition.update            2023-01-09
+    _definition.id                '_pd_background.Debye_diffuse_dist'
+    _definition.update            2023-02-02
     _description.text
 ;
     The value of the distance in a Debye diffuse scattering equation
@@ -781,7 +781,7 @@ save_pd_background.Debye_diffuse_distance
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_distance
+    _name.object_id               Debye_diffuse_dist
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -790,17 +790,17 @@ save_pd_background.Debye_diffuse_distance
 
 save_
 
-save_pd_background.Debye_diffuse_distance_su
+save_pd_background.Debye_diffuse_dist_su
 
-    _definition.id                '_pd_background.Debye_diffuse_distance_su'
-    _definition.update            2023-01-09
+    _definition.id                '_pd_background.Debye_diffuse_dist_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of _pd_background.Debye_diffuse_distance.
+    Standard uncertainty of _pd_background.Debye_diffuse_dist.
 ;
     _name.category_id             pd_background
-    _name.object_id               Debye_diffuse_distance_su
-    _name.linked_item_id          '_pd_background.Debye_diffuse_distance'
+    _name.object_id               Debye_diffuse_dist_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_dist'
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
