@@ -848,7 +848,7 @@ save_pd_background.line_segment_intensities
     List of intensities used to create many straight-line segments representing
     the background in a calculated diffractogram.
 
-    See _pd_background.line_segment_intensity_1.
+    See _pd_background.line_segment_intensity.
 
     Must be in the same order as the X-coordinate values in
     _pd_background.line_segment_Xs.
@@ -883,28 +883,34 @@ save_pd_background.line_segment_intensities_su
 
 save_
 
-save_pd_background.line_segment_intensity_1
+save_pd_background.line_segment_intensity
 
-    _definition.id                '_pd_background.line_segment_intensity_1'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.line_segment_intensity'
+    _definition.update            2023-02-02
     _description.text
 ;
-    The starting intensity for drawing a straight-line segment representing the
-    background in a calculated diffractogram. Many line segments may need to
-    be defined to cover the entire calculated range.
+    The Y coordinate in an X,Y coordinate pair representing an X coordinate as
+    defined in _pd_background.X_coordinate and intensity on the same scale as
+    the calculated diffractogram intensities. Must be given with a value
+    of _pd_background.line_segment_X to create a valid X,Y coordinate pair.
 
-    The background equation is of the form:
+    It is intended that at least two X,Y coordinate pairs are given, and that
+    the line segments between them form the background function.
+
+    The value of the background function at a point x, is of the form:
 
                (intensity_2 - intensity_1)
         bkg =  --------------------------- * (x - X_1) + intensity_1
                        (X_2 - X_1)
 
-    where the X-coordinate is coordinate in which the diffractogram was
+    where the X-coordinate is the coordinate in which the diffractogram was
     calculated, and the function is defined only over the range X_1:X_2,
-    as given in _pd_background.line_segment_X_1 and *_X_2.
+    where X_1 and X_2 are taken as the closest values of
+    _pd_background.line_segment_X to the given x value, and intensity_1 and
+    intensity_2 are their associated intensity values.
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_intensity_1
+    _name.object_id               line_segment_intensity
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -913,124 +919,52 @@ save_pd_background.line_segment_intensity_1
 
 save_
 
-save_pd_background.line_segment_intensity_1_su
+save_pd_background.line_segment_intensity_su
 
-    _definition.id                '_pd_background.line_segment_intensity_1_su'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.line_segment_intensity_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of _pd_background.line_segment_intensity_1.
+    Standard uncertainty of _pd_background.line_segment_intensity.
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_intensity_1_su
-    _name.linked_item_id          '_pd_background.line_segment_intensity_1'
+    _name.object_id               line_segment_intensity_su
+    _name.linked_item_id          '_pd_background.line_segment_intensity'
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_background.line_segment_intensity_2
+save_pd_background.line_segment_X
 
-    _definition.id                '_pd_background.line_segment_intensity_2'
-    _definition.update            2023-01-14
+    _definition.id                '_pd_background.line_segment_X'
+    _definition.update            2023-02-02
     _description.text
 ;
-    The finishing intensity for drawing a straight-line segment representing the
-    background in a calculated diffractogram. Many line segments may need to
-    be defined to cover the entire calculated range.
+    The X-coordinate in an X,Y coordinate pair representing an X coordinate as
+    defined in _pd_background.X_coordinate and intensity on the same scale as
+    the calculated diffractogram intensities. Must be given with a value
+    of _pd_background.line_segment_intensity to create a valid X,Y coordinate
+    pair.
 
-    The background equation is of the form:
+    It is intended that at least two X,Y coordinate pairs are given, and that
+    the line segments between them form the background function.
+
+    The value of the background function at a point x, is of the form:
 
                (intensity_2 - intensity_1)
         bkg =  --------------------------- * (x - X_1) + intensity_1
                        (X_2 - X_1)
 
-    where the X-coordinate is coordinate in which the diffractogram was
+    where the X-coordinate is the coordinate in which the diffractogram was
     calculated, and the function is defined only over the range X_1:X_2,
-    as given in _pd_background.line_segment_X_1 and *_X_2.
+    where X_1 and X_2 are taken as the closest values of
+    _pd_background.line_segment_X to the given x value, and intensity_1 and
+    intensity_2 are their associated intensity values.
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_intensity_2
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
-save_pd_background.line_segment_intensity_2_su
-
-    _definition.id                '_pd_background.line_segment_intensity_2_su'
-    _definition.update            2023-01-14
-    _description.text
-;
-    Standard uncertainty of _pd_background.line_segment_intensity_2.
-;
-    _name.category_id             pd_background
-    _name.object_id               line_segment_intensity_2_su
-    _name.linked_item_id          '_pd_background.line_segment_intensity_2'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_background.line_segment_X_1
-
-    _definition.id                '_pd_background.line_segment_X_1'
-    _definition.update            2023-01-14
-    _description.text
-;
-    The starting X-coordinate for drawing a straight-line segment representing
-    the background in a calculated diffractogram. Many line segments may need to
-    be defined to cover the entire calculated range.
-
-    The background equation is of the form:
-
-               (intensity_2 - intensity_1)
-        bkg =  --------------------------- * (x - X_1) + intensity_1
-                       (X_2 - X_1)
-
-    where the X-coordinate is coordinate in which the diffractogram was
-    calculated, and the function is defined only over the range X_1:X_2
-    and the intensities are given by _pd_background.line_segment_intensity_1
-    and *_intensity_2.
-;
-    _name.category_id             pd_background
-    _name.object_id               line_segment_X_1
-    _type.purpose                 Number
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   none
-
-save_
-
-save_pd_background.line_segment_X_2
-
-    _definition.id                '_pd_background.line_segment_X_2'
-    _definition.update            2023-01-14
-    _description.text
-;
-    The starting X-coordinate for drawing a straight-line segment representing
-    the background in a calculated diffractogram. Many line segments may need to
-    be defined to cover the entire calculated range.
-
-    The background equation is of the form:
-
-               (intensity_2 - intensity_1)
-        bkg =  --------------------------- * (x - X_1) + intensity_1
-                       (X_2 - X_1)
-
-    where the X-coordinate is coordinate in which the diffractogram was
-    calculated, and the function is defined only over the range X_1:X_2
-    and the intensities are given by _pd_background.line_segment_intensity_1
-    and *_intensity_2.
-;
-    _name.category_id             pd_background
-    _name.object_id               line_segment_X_2
+    _name.object_id               line_segment_X
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
@@ -1048,10 +982,10 @@ save_pd_background.line_segment_Xs
     List of X-coordinates used to create many straight-line segments
     representing the background in a calculated diffractogram.
 
-    See _pd_background.line_segment_X_1.
+    See _pd_background.line_segment_X.
 
     Must be in the same order as the intensity values in
-    _pd_background.line_segment_intensities
+    _pd_background.line_segment_intensities.
 ;
     _name.category_id             pd_background
     _name.object_id               line_segment_Xs
