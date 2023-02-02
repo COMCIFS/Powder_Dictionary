@@ -1092,10 +1092,10 @@ save_pd_background.peak_id
 
 save_
 
-save_pd_background.polynomial_coeff
+save_pd_background.polynomial_coef
 
-    _definition.id                '_pd_background.polynomial_coeff'
-    _definition.update            2023-01-08
+    _definition.id                '_pd_background.polynomial_coef'
+    _definition.update            2023-02-02
     _description.text
 ;
     The value of a coefficient used in a polynomial equation representing the
@@ -1110,7 +1110,7 @@ save_pd_background.polynomial_coeff
     calculated.
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_coeff
+    _name.object_id               polynomial_coef
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -1119,40 +1119,40 @@ save_pd_background.polynomial_coeff
 
 save_
 
-save_pd_background.polynomial_coeff_su
+save_pd_background.polynomial_coef_su
 
-    _definition.id                '_pd_background.polynomial_coeff_su'
-    _definition.update            2023-01-08
+    _definition.id                '_pd_background.polynomial_coef_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of _pd_background.polynomial_coeff.
+    Standard uncertainty of _pd_background.polynomial_coef.
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_coeff_su
-    _name.linked_item_id          '_pd_background.polynomial_coeff'
+    _name.object_id               polynomial_coef_su
+    _name.linked_item_id          '_pd_background.polynomial_coef'
     _units.code                   arbitrary
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_background.polynomial_coeff_list
+save_pd_background.polynomial_coefs
 
-    _definition.id                '_pd_background.polynomial_coeff_list'
-    _definition.update            2023-01-08
+    _definition.id                '_pd_background.polynomial_coefs'
+    _definition.update            2023-02-02
     _description.text
 ;
     List of coefficients used in a polynomial equation representing the
     background in a calculated diffractogram.
 
-    See _pd_background.polynomial_coeff.
+    See _pd_background.polynomial_coef.
 
     Must be in the same order as the powers in
-    _pd_background.polynomial_power_list. Values at the same index in each list
+    _pd_background.polynomial_powers. Values at the same index in each list
     are corresponding coefficient-power pairs.
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_coeff_list
+    _name.object_id               polynomial_coefs
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Matrix
@@ -1162,20 +1162,22 @@ save_pd_background.polynomial_coeff_list
 
 save_
 
-save_pd_background.polynomial_coeff_list_su
+save_pd_background.polynomial_coefs_su
 
-    _definition.id                '_pd_background.polynomial_coeff_list_su'
-    _definition.update            2023-01-08
+    _definition.id                '_pd_background.polynomial_coefs_su'
+    _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of _pd_background.polynomial_coeff_list.
+    Standard uncertainty of _pd_background.polynomial_coefs.
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_coeff_list_su
-    _name.linked_item_id          '_pd_background.polynomial_coeff_list'
+    _name.object_id               polynomial_coefs_su
+    _name.linked_item_id          '_pd_background.polynomial_coefs'
     _units.code                   arbitrary
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
@@ -1223,10 +1225,10 @@ save_pd_background.polynomial_power_su
 
 save_
 
-save_pd_background.polynomial_power_list
+save_pd_background.polynomial_powers
 
-    _definition.id                '_pd_background.polynomial_power_list'
-    _definition.update            2023-01-08
+    _definition.id                '_pd_background.polynomial_powers'
+    _definition.update            2023-02-02
     _description.text
 ;
     List of powers used in a polynomial equation representing the background
@@ -1239,7 +1241,7 @@ save_pd_background.polynomial_power_list
     are corresponding coefficient-power pairs.
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_power_list
+    _name.object_id               polynomial_powers
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Matrix
@@ -1249,20 +1251,22 @@ save_pd_background.polynomial_power_list
 
 save_
 
-save_pd_background.polynomial_power_list_su
+save_pd_background.polynomial_powers_su
 
-    _definition.id                '_pd_background.polynomial_power_list_su'
+    _definition.id                '_pd_background.polynomial_powers_su'
     _definition.update            2023-01-08
     _description.text
 ;
-    Standard uncertainty of _pd_background.polynomial_power_list.
+    Standard uncertainty of _pd_background.polynomial_powers.
 ;
     _name.category_id             pd_background
-    _name.object_id               polynomial_power_list_su
-    _name.linked_item_id          '_pd_background.polynomial_power_list'
+    _name.object_id               polynomial_powers_su
+    _name.linked_item_id          '_pd_background.polynomial_powers'
     _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
 
 save_
 
