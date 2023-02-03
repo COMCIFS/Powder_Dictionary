@@ -170,7 +170,7 @@ save_PD_BACKGROUND
          Corresponds to a 2nd order thermal diffuse scattering background
          equation:
 
-         bkg = (0.134) +
+         bkg = (1.5) +
                (0.0747*q^2 + 0.954/q^2) +
                (0.0132*(q^4/2) + 0.912*(2/q^4))
 ;
@@ -186,7 +186,7 @@ save_PD_BACKGROUND
          Corresponds to a 2nd order thermal diffuse scattering background
          equation:
 
-         bkg = (0.134) +
+         bkg = (1.5) +
                (0.0747*q^2 + 0.954/q^2) +
                (0.0132*(q^4/2) + 0.912*(2/q^4))
 ;
