@@ -142,7 +142,7 @@ save_PD_BACKGROUND
     (_pd_meas.counts_* or _pd_meas.intensity_*, and _pd_calc.intensity_total).
 
     If more than one type of background is specified for a particular
-    diffractogram, then the it is assumed they are linearly additive.
+    diffractogram, then it is assumed they are linearly additive.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_BACKGROUND
