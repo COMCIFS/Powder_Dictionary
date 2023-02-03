@@ -197,30 +197,20 @@ save_PD_BACKGROUND
          _pd_background.Chebyshev_order
          _pd_background.Chebyshev_coef
          _pd_background.Chebyshev_coef_su
-         1   0     4.219   1.30
-         2   1    25.114   1.62
-         3   2   -10.012   1.02
-         4   3     6.720   0.66
+         _pd_background.X_coordinate
+         1   0     4.219   1.30   time-of-flight
+         2   1    25.114   1.62   time-of-flight
+         3   2   -10.012   1.02   time-of-flight
+         4   3     6.720   0.66   time-of-flight
 ;
 ;
          Corresponds to a 3rd order Chebyshev polynomial with the zeroth
          through third order coefficients having the values 4.219, 25.114,
          -10.012, and 6.720. Each value has a standard uncertainty of 1.30,
          1.62, 1.02, and 0.66, respectively.
-;
-;
-         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
-         loop_
-         _pd_background.id
-         _pd_background.Chebyshev_coefs
-         _pd_background.Chebyshev_coefs_su
-         1   [4.219 25.114 -10.012 6.720]   [1.30 1.62 1.02 0.66]
-;
-;
-         Corresponds to a 3rd order Chebyshev polynomial with the zeroth
-         through third order coefficients having the values 4.219, 25.114,
-         -10.012, and 6.720. Each value has a standard uncertainty of 1.30,
-         1.62, 1.02, and 0.66, respectively.
+
+         The X-coordinate against which the background function is calculated
+         is time-of-flight in microseconds.
 ;
 ;
          _pd_diffractogram.id   A_DIFFRACTION_PATTERN
@@ -242,18 +232,22 @@ save_PD_BACKGROUND
          _pd_background.id
          _pd_background.line_segment_X
          _pd_background.line_segment_intensity
-         1    5.0   150.7
-         2   10.0    74.3
-         3   20.0    36.5
-         4   40.0    33.2
-         5   80.0    24.5
-         6  147.0    35.6
+         _pd_background.X_coordinate
+         1    5.0   150.7   2theta_corrected
+         2   10.0    74.3   2theta_corrected
+         3   20.0    36.5   2theta_corrected
+         4   40.0    33.2   2theta_corrected
+         5   80.0    24.5   2theta_corrected
+         6  147.0    35.6   2theta_corrected
 ;
 ;
          Corresponds to a 5 line-segment background, fixed at the six X,Y
          coordinate pairs given. Values of the background for any given x are
          found by linearly interpolating between the nearest X values given in
          the above loop.
+
+         The X-coordinate against which the background function is calculated
+         is corrected 2\q in degrees.
 ;
 ;
          _pd_diffractogram.id   A_DIFFRACTION_PATTERN
@@ -262,9 +256,11 @@ save_PD_BACKGROUND
          _pd_background.Chebyshev_coefs
          _pd_background.polynomial_coefs
          _pd_background.polynomial_powers
+         _pd_background.X_coordinate
          1
          [4.219 25.114 -10.012 6.720]
          [1049.69  5016.63]   [-1 -2]
+         2theta
 ;
 ;
          Corresponds to the linear combination of a 3rd order Chebyshev
@@ -273,6 +269,9 @@ save_PD_BACKGROUND
          The Chebyshev polynomial coefficients are 4.219, 25.114, -10.012, and
          6.720. The standard polynomial equation is
              bkg = 1049.69/X + 5016.63/X^2^
+
+         The X-coordinate against which the background function is calculated
+         is 2\q in degrees.
 ;
 
 save_
