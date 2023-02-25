@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-02-02
+    _dictionary.date              2023-02-06
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -4504,22 +4504,22 @@ save_PD_INSTR
 
     Note that several definitions in the core CIF dictionary
     are relevant here. For example, use:
-      _diffrn_radiation_wavelength for the source wavelength,
-      _diffrn_radiation_type for the X-ray wavelength type,
-      _diffrn_source for the radiation source,
-      _diffrn_radiation_polarisn_ratio for the source polarization,
-      _diffrn_radiation_probe for the radiation type.
+      _diffrn_radiation_wavelength.value for the source wavelength,
+      _diffrn_radiation_wavelength.type for the X-ray wavelength type,
+      _diffrn_source.device and _diffrn_source.details for the radiation source,
+      _diffrn_radiation.polarisn_ratio for the source polarization,
+      _diffrn_radiation.probe for the radiation type.
     For data sets measured with partially monochromatized radiation,
     for example, where both K\a~1~ and K\a~2~ are present, it is
     important that all wavelengths present are included in a
-    loop_ using _diffrn_radiation_wavelength to define the
-    wavelength and _diffrn_radiation_wavelength_wt to define the
+    loop_ using _diffrn_radiation_wavelength.value to define the
+    wavelength and _diffrn_radiation_wavelength.wt to define the
     relative intensity of that wavelength. It is required that
-    _diffrn_radiation_wavelength_id also be present in the
+    _diffrn_radiation_wavelength.id also be present in the
     wavelength loop. It may also be useful to
     create a "dummy" ID to use for labelling
     peaks/reflections where the K\a~1~ and K\a~2~ wavelengths are
-    not resolved. Set _diffrn_radiation_wavelength_wt to be 0 for
+    not resolved. Set _diffrn_radiation_wavelength.wt to be 0 for
     such a dummy ID.
 
     In the PD_INSTR definitions, the term monochromator refers
@@ -4529,7 +4529,7 @@ save_PD_INSTR
     wavelength or may be capable of being scanned.
 
     It is strongly recommended that the core dictionary term
-    _diffrn_radiation_probe (specifying the nature of the radiation
+    _diffrn_radiation.probe (specifying the nature of the radiation
     used) is employed for all data sets.
 ;
     _name.category_id             PD_GROUP
@@ -6861,7 +6861,7 @@ save_pd_peak.wavelength_id
 ;
     Code identifying the wavelength appropriate for this peak
     from the wavelengths in the _diffrn_radiation_ list.
-    (See _diffrn_radiation_wavelength_id.) Most commonly used
+    (See _diffrn_radiation_wavelength.id.) Most commonly used
     to distinguish K\a~1~ peaks from K\a~2~ or to designate
     where K\a~1~ and K\a~2~ peaks cannot be resolved. For
     complex peak tables with multiple superimposed peaks,
@@ -9643,7 +9643,7 @@ save_PD_QPA_OVERALL
     _definition.id                PD_QPA_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-16
+    _definition.update            2023-02-06
     _description.text
 ;
     This category gives the overall information about the quantitative phase
@@ -9653,7 +9653,7 @@ save_PD_QPA_OVERALL
     International Tables, Vol. H, and references therein.
 ;
     _name.category_id             PD_GROUP
-    _name.object_id               PD_QPA_CALIB_FACTOR
+    _name.object_id               PD_QPA_OVERALL
     _category_key.name            '_pd_qpa_overall.diffractogram_id'
 
 save_
@@ -10398,7 +10398,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-02-02
+         2.5.0                    2023-02-06
 ;
        ## Retain above version number and increment date until final
        ## release
