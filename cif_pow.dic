@@ -6261,7 +6261,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
 ;
          _pd_diffractogram.id   DIFFPAT_A
          _pd_phase.id           PHASE_A
-          
+
          loop_
          _pd_pref_orient_March_Dollase.id
          _pd_pref_orient_March_Dollase.index_h
