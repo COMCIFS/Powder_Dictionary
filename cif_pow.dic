@@ -121,6 +121,1292 @@ save_pd_amorphous.phase_id
 
 save_
 
+save_PD_BACKGROUND
+
+    _definition.id                PD_BACKGROUND
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-01-09
+    _description.text
+;
+    This category defines various background functions that could be used when
+    calculating diffractograms.
+
+    The data items list here allow for the recording of the various coefficients
+    used, rather than a complete enumeration of the value of the background
+    calculated at every data point; although doing so is still possible - see
+    _pd_proc.intensity_bkg_calc.
+
+    The computed background values should include all normalization corrections,
+    and thus are specified on the same scale as the observed intensities
+    (_pd_meas.counts_* or _pd_meas.intensity_*, and _pd_calc.intensity_total).
+
+    If more than one type of background is specified for a particular
+    diffractogram, then it is assumed they are linearly additive.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_BACKGROUND
+
+    loop_
+      _category_key.name
+         '_pd_background.diffractogram_id'
+         '_pd_background.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+         _pd_background.id
+         _pd_background.air_or_thermal_diffuse_order
+         _pd_background.air_or_thermal_diffuse_coef_1
+         _pd_background.air_or_thermal_diffuse_coef_2
+         1   0   1.5       0
+         2   1   0.0747    0.954
+         3   2   0.00132   0.912
+;
+;
+         Corresponds to a 2nd order thermal diffuse scattering background
+         equation:
+
+         bkg = (1.5) +
+               (0.0747*q^2 + 0.954/q^2) +
+               (0.0132*(q^4/2) + 0.912*(2/q^4))
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+         _pd_background.id
+         _pd_background.air_or_thermal_diffuse_coefs_1
+         _pd_background.air_or_thermal_diffuse_coefs_2
+         1   [1.5 0.0747 0.00132]   [0   0.954  0.912]
+;
+;
+         Corresponds to a 2nd order thermal diffuse scattering background
+         equation:
+
+         bkg = (1.5) +
+               (0.0747*q^2 + 0.954/q^2) +
+               (0.0132*(q^4/2) + 0.912*(2/q^4))
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+         _pd_background.id
+         _pd_background.Chebyshev_order
+         _pd_background.Chebyshev_coef
+         _pd_background.Chebyshev_coef_su
+         _pd_background.X_coordinate
+         1   0     4.219   1.30   time-of-flight
+         2   1    25.114   1.62   time-of-flight
+         3   2   -10.012   1.02   time-of-flight
+         4   3     6.720   0.66   time-of-flight
+;
+;
+         Corresponds to a 3rd order Chebyshev polynomial with the zeroth
+         through third order coefficients having the values 4.219, 25.114,
+         -10.012, and 6.720. Each value has a standard uncertainty of 1.30,
+         1.62, 1.02, and 0.66, respectively.
+
+         The X-coordinate against which the background function is calculated
+         is time-of-flight in microseconds.
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+         _pd_background.id
+         _pd_background.Chebyshev_coefs
+         _pd_background.Chebyshev_coefs_su
+         1   [4.219 25.114 -10.012 6.720]   [1.30 1.62 1.02 0.66]
+;
+;
+         Corresponds to a 3rd order Chebyshev polynomial with the zeroth
+         through third order coefficients having the values 4.219, 25.114,
+         -10.012, and 6.720. Each value has a standard uncertainty of 1.30,
+         1.62, 1.02, and 0.66, respectively.
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+         _pd_background.id
+         _pd_background.line_segment_X
+         _pd_background.line_segment_intensity
+         _pd_background.X_coordinate
+         1    5.0   150.7   2theta_corrected
+         2   10.0    74.3   2theta_corrected
+         3   20.0    36.5   2theta_corrected
+         4   40.0    33.2   2theta_corrected
+         5   80.0    24.5   2theta_corrected
+         6  147.0    35.6   2theta_corrected
+;
+;
+         Corresponds to a 5 line-segment background, fixed at the six X,Y
+         coordinate pairs given. Values of the background for any given x are
+         found by linearly interpolating between the nearest X values given in
+         the above loop.
+
+         The X-coordinate against which the background function is calculated
+         is corrected 2\q in degrees.
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+         _pd_background.id
+         _pd_background.Chebyshev_coefs
+         _pd_background.polynomial_coefs
+         _pd_background.polynomial_powers
+         _pd_background.X_coordinate
+         1
+         [4.219 25.114 -10.012 6.720]
+         [1049.69  5016.63]   [-1 -2]
+         2theta
+;
+;
+         Corresponds to the linear combination of a 3rd order Chebyshev
+         polynomial with a standard polynomial background.
+
+         The Chebyshev polynomial coefficients are 4.219, 25.114, -10.012, and
+         6.720. The standard polynomial equation is
+             bkg = 1049.69/X + 5016.63/X^2^
+
+         The X-coordinate against which the background function is calculated
+         is 2\q in degrees.
+;
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coef_1
+
+    _definition.id                '_pd_background.air_or_thermal_diffuse_coef_1'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of the first coefficient used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram. This equation can account for background
+    contributions at both high and low q. The first coefficient accounts for
+    background contributions that increase with q. Must be given with a
+    _pd_background.air_or_thermal_diffuse_order value.
+
+    The background equation is of the form:
+
+        bkg = Sum( C1~j~ * (q~2*j~/j!) + C2~j~ * (j!/q~2*j~), j=0:N)
+
+    where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coef_1 and
+    coef_2, respectively, j is the order of the equation as given in
+    _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
+    diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coef_1
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coef_1_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coef_1_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coef_1.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coef_1_su
+    _name.linked_item_id          '_pd_background.air_or_thermal_diffuse_coef_1'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coef_2
+
+    _definition.id                '_pd_background.air_or_thermal_diffuse_coef_2'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of the first coefficient used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram. This equation can account for background
+    contributions at both high and low q. The second coefficient accounts for
+    background contributions that decrease with q. Must be given with a
+    _pd_background.air_or_thermal_diffuse_order value.
+
+    The background equation is of the form:
+
+        bkg = Sum( C1~j~ * (q~2*j~/j!) + C2~j~ * (j!/q~2*j~), j=0:N)
+
+    where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coef_1 and
+    coef_2, respectively, j is the order of the equation as given in
+    _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
+    diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coef_2
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coef_2_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coef_2_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coef_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coef_2_su
+    _name.linked_item_id          '_pd_background.air_or_thermal_diffuse_coef_2'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coefs_1
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coefs_1'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of the first coefficients used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram.
+
+    See _pd_background.air_or_thermal_diffuse_coef_1.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coefs_1
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coefs_1_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coefs_1_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_1.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coefs_1_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coefs_1'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coefs_2
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coefs_2'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of the second coefficients used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram.
+
+    See _pd_background.air_or_thermal_diffuse_coef_2.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coefs_2
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_coefs_2_su
+
+    _definition.id
+        '_pd_background.air_or_thermal_diffuse_coefs_2_su'
+    _definition.update            2023-01-14
+    _description.text
+;
+    Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_2.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_coefs_2_su
+    _name.linked_item_id
+        '_pd_background.air_or_thermal_diffuse_coefs_2'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.air_or_thermal_diffuse_order
+
+    _definition.id                '_pd_background.air_or_thermal_diffuse_order'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of an order used in an equation representing the
+    background due to thermal diffuse scatering and/or air scattering, in a
+    calculated diffractogram. Must be given with a
+    _pd_background.air_or_thermal_diffuse_coef value.
+
+    The background equation is of the form:
+
+        bkg = Sum( C1~j~ * (q~2*j~/j!) + C2~j~ * (j!/q~2*j~), j=0:N)
+
+    where C1 and C2 represent _pd_background.air_or_thermal_diffuse_coef_1 and
+    coef_2, respectively, j is the order of the equation as given in
+    _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
+    diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               air_or_thermal_diffuse_order
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_coef
+
+    _definition.id                '_pd_background.Chebyshev_coef'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of a coefficient used in a Chebyshev polynomial equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.Chebyshev_order value.
+
+    The Chebyshev polynomial is of the first kind, and can be represented by the
+    recurrence relation
+
+        T~0~(x) = 1
+        T~1~(x) = x
+        T~n+1~(x) = 2 * x * T~n~(x) - T~n-1~(x).
+
+    where n represents the order of the polynomial, and x is the X-coordinate in
+    which the diffractogram was calculated, normalised to the range -1:1.
+
+    The background equation using Chebyshev polynomials is of the form:
+
+        bkg = Sum( coeff * T~n~(x))
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coef
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_coef_su
+
+    _definition.id                '_pd_background.Chebyshev_coef_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.Chebyshev_coef.
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coef_su
+    _name.linked_item_id          '_pd_background.Chebyshev_coef'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.Chebyshev_coefs
+
+    _definition.id                '_pd_background.Chebyshev_coefs'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of coefficients used in a Chebyshev equation representing the
+    background in a calculated diffractogram.
+
+    See _pd_background.Chebyshev_coef.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coefs
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_coefs_su
+
+    _definition.id                '_pd_background.Chebyshev_coefs_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.Chebyshev_coefs.
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_coefs_su
+    _name.linked_item_id          '_pd_background.Chebyshev_coefs'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.Chebyshev_order
+
+    _definition.id                '_pd_background.Chebyshev_order'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of an order used in a Chebyshev polynomial equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.Chebyshev_coef value.
+
+    The Chebyshev polynomial is of the first kind, and can be represented by the
+    recurrence relation
+
+        T~0~(x) = 1
+        T~1~(x) = x
+        T~n+1~(x) = 2 * x * T~n~(x) - T~n-1~(x).
+
+    where n represents the order of the polynomial, and x is the X-coordinate in
+    which the diffractogram was calculated, normalised to the range -1:1.
+
+    The background equation using Chebyshev polynomials is of the form:
+
+        bkg = Sum( coeff * T~n~(x))
+;
+    _name.category_id             pd_background
+    _name.object_id               Chebyshev_order
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_coef
+
+    _definition.id                '_pd_background.cosine_Fourier_series_coef'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of a coefficient used in a cosine Fourier series equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.cosine_Fourier_series_order value.
+
+    The background equation using a cosine Fourier series is of the form:
+
+        bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
+
+    where x is the 2\q value for that particular step, or some other
+    X-coordinate normalised to the range 0:180 degrees, j is the order
+    of the coefficient, and N represent the upper limit on the number of
+    coefficients used.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_coef
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_coef_su
+
+    _definition.id                '_pd_background.cosine_Fourier_series_coef_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.cosine_Fourier_series.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_coef_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series_coef'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.cosine_Fourier_series_coefs
+
+    _definition.id                '_pd_background.cosine_Fourier_series_coefs'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of a coefficient used in a cosine Fourier series equation
+    representing the background in a calculated diffractogram.
+
+    See _pd_background.cosine_Fourier_series_coef.
+
+    The position of the coefficient in the list is significant, denoting the
+    order to which it corresponds. The first is the zeroth order, the second
+    is the first, and so on.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_coefs
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_coefs_su
+
+    _definition.id
+        '_pd_background.cosine_Fourier_series_coefs_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of pd_background.cosine_Fourier_series_coefs.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_coefs_su
+    _name.linked_item_id          '_pd_background.cosine_Fourier_series_coefs'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.cosine_Fourier_series_order
+
+    _definition.id                '_pd_background.cosine_Fourier_series_order'
+    _definition.update            2023-01-14
+    _description.text
+;
+    The value of an order used in a cosine Fourier series equation
+    representing the background in a calculated diffractogram. Must be given
+    with a _pd_background.cosine_Fourier_series_coeff value.
+
+    The background equation using a cosine Fourier series is of the form:
+
+        bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
+
+    where x is the 2\q value for that particular step, or some other
+    X-coordinate normalised to the range 0:180 degrees, j is the order
+    of the coefficient, and N represent the upper limit on the number of
+    coefficients used.
+;
+    _name.category_id             pd_background
+    _name.object_id               cosine_Fourier_series_order
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
+save_pd_background.Debye_diffuse_amp
+
+    _definition.id                '_pd_background.Debye_diffuse_amp'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of the amplitude in a Debye diffuse scattering equation
+    representing the background in a calculated diffractogram.
+
+    The background equation is of the form
+
+        bkg = amplitude * sinc(distance * q) * exp(-displacement * q^2^)
+
+    where sinc(X) is defined as
+
+        sinc(X) = sin(X) / X
+
+    and where q is the magnitude of the diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_amp
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.Debye_diffuse_amp_su
+
+    _definition.id                '_pd_background.Debye_diffuse_amp_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.Debye_diffuse_amp.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_amp_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_amp'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.Debye_diffuse_displace
+
+    _definition.id                '_pd_background.Debye_diffuse_displace'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of the displacement in a Debye diffuse scattering equation
+    representing the background in a calculated diffractogram.
+
+    The background equation is of the form
+
+        bkg = amplitude * sinc(distance * q) * exp(-displacement * q^2^)
+
+    where sinc(X) is defined as
+
+        sinc(X) = sin(X) / X
+
+    and where q is the magnitude of the diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_displace
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   angstrom_squared
+
+save_
+
+save_pd_background.Debye_diffuse_displace_su
+
+    _definition.id                '_pd_background.Debye_diffuse_displace_su'
+    _definition.update            2023-01-09
+    _description.text
+;
+    Standard uncertainty of _pd_background.Debye_diffuse_displace.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_displace_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_displace'
+    _units.code                   angstrom_squared
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.Debye_diffuse_dist
+
+    _definition.id                '_pd_background.Debye_diffuse_dist'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of the distance in a Debye diffuse scattering equation
+    representing the background in a calculated diffractogram.
+
+    The background equation is of the form
+
+        bkg = amplitude * sinc(distance * q) * exp(-displacement * q^2^)
+
+    where sinc(X) is defined as
+
+        sinc(X) = sin(X) / X
+
+    and where q is the magnitude of the diffraction vector, defined as
+
+        q = 4 * Pi * sin(theta) / lambda
+
+    where theta is the diffraction angle and lambda is the wavelength of the
+    incident radiation in angstroms.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_dist
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   angstroms
+
+save_
+
+save_pd_background.Debye_diffuse_dist_su
+
+    _definition.id                '_pd_background.Debye_diffuse_dist_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.Debye_diffuse_dist.
+;
+    _name.category_id             pd_background
+    _name.object_id               Debye_diffuse_dist_su
+    _name.linked_item_id          '_pd_background.Debye_diffuse_dist'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.diffractogram_id
+
+    _definition.id                '_pd_background.diffractogram_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    A diffractogram id to which the background equation relates.
+;
+    _name.category_id             pd_background
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_background.id
+
+    _definition.id                '_pd_background.id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    An arbitrary code identifying part of a background equation.
+;
+    _name.category_id             pd_background
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
+save_pd_background.line_segment_intensities
+
+    _definition.id                '_pd_background.line_segment_intensities'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of intensities used to create many straight-line segments representing
+    the background in a calculated diffractogram.
+
+    See _pd_background.line_segment_intensity.
+
+    Must be in the same order as the X-coordinate values in
+    _pd_background.line_segment_Xs.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_intensities
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.line_segment_intensities_su
+
+    _definition.id                '_pd_background.line_segment_intensities_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.line_segment_intensities.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_intensities
+    _name.linked_item_id          '_pd_background.line_segment_intensities'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.line_segment_intensity
+
+    _definition.id                '_pd_background.line_segment_intensity'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The Y coordinate in an X,Y coordinate pair representing an X coordinate as
+    defined in _pd_background.X_coordinate and intensity on the same scale as
+    the calculated diffractogram intensities. Must be given with a value
+    of _pd_background.line_segment_X to create a valid X,Y coordinate pair.
+
+    It is intended that at least two X,Y coordinate pairs are given, and that
+    the line segments between them form the background function.
+
+    The value of the background function at a point x, is of the form:
+
+               (intensity_2 - intensity_1)
+        bkg =  --------------------------- * (x - X_1) + intensity_1
+                       (X_2 - X_1)
+
+    where the X-coordinate is the coordinate in which the diffractogram was
+    calculated, and the function is defined only over the range X_1:X_2,
+    where X_1 and X_2 are taken as the closest values of
+    _pd_background.line_segment_X to the given x value, and intensity_1 and
+    intensity_2 are their associated intensity values.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_intensity
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.line_segment_intensity_su
+
+    _definition.id                '_pd_background.line_segment_intensity_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.line_segment_intensity.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_intensity_su
+    _name.linked_item_id          '_pd_background.line_segment_intensity'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.line_segment_X
+
+    _definition.id                '_pd_background.line_segment_X'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The X-coordinate in an X,Y coordinate pair representing an X coordinate as
+    defined in _pd_background.X_coordinate and intensity on the same scale as
+    the calculated diffractogram intensities. Must be given with a value
+    of _pd_background.line_segment_intensity to create a valid X,Y coordinate
+    pair.
+
+    It is intended that at least two X,Y coordinate pairs are given, and that
+    the line segments between them form the background function.
+
+    The value of the background function at a point x, is of the form:
+
+               (intensity_2 - intensity_1)
+        bkg =  --------------------------- * (x - X_1) + intensity_1
+                       (X_2 - X_1)
+
+    where the X-coordinate is the coordinate in which the diffractogram was
+    calculated, and the function is defined only over the range X_1:X_2,
+    where X_1 and X_2 are taken as the closest values of
+    _pd_background.line_segment_X to the given x value, and intensity_1 and
+    intensity_2 are their associated intensity values.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_X
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.line_segment_Xs
+
+    _definition.id                '_pd_background.line_segment_Xs'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of X-coordinates used to create many straight-line segments
+    representing the background in a calculated diffractogram.
+
+    See _pd_background.line_segment_X.
+
+    Must be in the same order as the intensity values in
+    _pd_background.line_segment_intensities.
+;
+    _name.category_id             pd_background
+    _name.object_id               line_segment_Xs
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.peak_id
+
+    _definition.id                '_pd_background.peak_id'
+    _definition.update            2023-01-08
+    _description.text
+;
+    An arbitrary code is assigned to a peak in the background.
+
+    Used to link with _pd_peak.id. Each peak will have a unique code. In cases
+    where two peaks are severely overlapped, it may be desirable to list them as
+    a single peak.
+
+    A peak ID must be included for every amorphous peak.
+;
+    _name.category_id             pd_background
+    _name.object_id               peak_id
+    _name.linked_item_id          '_pd_peak.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_background.polynomial_coef
+
+    _definition.id                '_pd_background.polynomial_coef'
+    _definition.update            2023-02-02
+    _description.text
+;
+    The value of a coefficient used in a polynomial equation representing the
+    background in a calculated diffractogram. Must be given with a
+    _pd_background.polynomial_power value.
+
+    The background equation is of the form:
+
+        bkg = Sum( coeff * X_coord ^ power)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coef
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   arbitrary
+
+save_
+
+save_pd_background.polynomial_coef_su
+
+    _definition.id                '_pd_background.polynomial_coef_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.polynomial_coef.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coef_su
+    _name.linked_item_id          '_pd_background.polynomial_coef'
+    _units.code                   arbitrary
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.polynomial_coefs
+
+    _definition.id                '_pd_background.polynomial_coefs'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of coefficients used in a polynomial equation representing the
+    background in a calculated diffractogram.
+
+    See _pd_background.polynomial_coef.
+
+    Must be in the same order as the powers in
+    _pd_background.polynomial_powers. Values at the same index in each list
+    are corresponding coefficient-power pairs.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coefs
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   arbitrary
+
+save_
+
+save_pd_background.polynomial_coefs_su
+
+    _definition.id                '_pd_background.polynomial_coefs_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.polynomial_coefs.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_coefs_su
+    _name.linked_item_id          '_pd_background.polynomial_coefs'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   arbitrary
+
+save_
+
+save_pd_background.polynomial_power
+
+    _definition.id                '_pd_background.polynomial_power'
+    _definition.update            2023-01-08
+    _description.text
+;
+    The value of a power used in a polynomial equation representing the
+    background in a calculated diffractogram. Must be given with a
+    _pd_background.polynomial_coeff value.
+
+    The background equation is of the form:
+
+        bkg = Sum( coeff * X_coord ^ power)
+
+    where the X-coordinate is coordinate in which the diffractogram was
+    calculated.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_power
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.polynomial_power_su
+
+    _definition.id                '_pd_background.polynomial_power_su'
+    _definition.update            2023-01-08
+    _description.text
+;
+    Standard uncertainty of _pd_background.polynomial_power.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_power_su
+    _name.linked_item_id          '_pd_background.polynomial_power'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_background.polynomial_powers
+
+    _definition.id                '_pd_background.polynomial_powers'
+    _definition.update            2023-02-02
+    _description.text
+;
+    List of powers used in a polynomial equation representing the background
+    in a calculated diffractogram.
+
+    See _pd_background.polynomial_power.
+
+    Must be in the same order as the powers in
+    _pd_background.polynomial_coeff_list. Values at the same index in each list
+    are corresponding coefficient-power pairs.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_powers
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.dimension               '[]'
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.polynomial_powers_su
+
+    _definition.id                '_pd_background.polynomial_powers_su'
+    _definition.update            2023-02-02
+    _description.text
+;
+    Standard uncertainty of _pd_background.polynomial_powers.
+;
+    _name.category_id             pd_background
+    _name.object_id               polynomial_powers_su
+    _name.linked_item_id          '_pd_background.polynomial_powers'
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Matrix
+    _type.contents                Real
+    _units.code                   none
+
+save_
+
+save_pd_background.special_details
+
+    _definition.id                '_pd_background.special_details'
+    _definition.update            2023-01-18
+    _description.text
+;
+    Description of background details that cannot otherwise be recorded using
+    other PD_BACKGROUND data items.
+;
+    _name.category_id             pd_background
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_background.X_coordinate
+
+    _definition.id                '_pd_background.X_coordinate'
+    _definition.update            2023-01-18
+    _description.text
+;
+    The type of X-coordinate against which the PD_BACKGROUND values were
+    calculated where the explicit X-coordinate type of the background data item
+    is not given.
+
+    If the background data item explicitly states with which X-coordinate it is
+    calculated, then that takes precedence over any value here.
+;
+    _name.category_id             pd_background
+    _name.object_id               X_coordinate
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         2theta
+;
+         Measured 2\q diffraction angle.
+;
+         2theta_corrected
+;
+         Corrected 2\q diffraction angle.
+;
+         channel
+;
+         Channel number in a position-sensitive, energy-dispersive or other
+         multiple-detector instrument.
+;
+         position
+;
+         A measured linear distance corresponding to the location where an
+         intensity measurement was made.
+;
+         time-of-flight
+;
+         Measured time for time-of-flight neutron measurements.
+;
+         d_spacing
+;
+         Calculated d-spacing corresponding to a data point.
+;
+         energy
+;
+         Incident energy of the source.
+;
+         recip_len_q
+;
+         Length in reciprocal space (|Q|= 2\p/d) corresponding to a data point.
+;
+         wavelength
+;
+         Incident wavelength of the source.
+;
+         other
+;
+         The X-coordinate should be described in _pd_background.special_details.
+;
+save_
+
 save_PD_BLOCK
 
     _definition.id                PD_BLOCK
@@ -9159,7 +10445,10 @@ save_
        Changed _pd_meas.step_count_time and _pd_meas.time_of_flight from
        Integer to Real.
 
-       Update definitions of _pd_phase.name to better represent their contents.
+       Created PD_BACKGROUND.
+
+       Update definitions of _pd_phase.name, _pd_qpa_ext_std.phase_name, and
+       _pd_qpa_int_std.phase_name to better represent their contents.
 
        Created PD_AMORPHOUS.
 
