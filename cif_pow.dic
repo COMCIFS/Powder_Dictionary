@@ -6004,6 +6004,8 @@ save_PD_PHASE_MASS
       _description_example.case
       _description_example.detail
 ;
+         _audit.schema         Custom
+         
          loop_
          _pd_phase_mass.diffractogram_id
          _pd_phase_mass.phase_id
@@ -6019,12 +6021,13 @@ save_PD_PHASE_MASS
          their associated standard uncertainties. The values are associated with
          one diffractogram and three phases.
 
-         The method of presentation given here would be associated with a
-         "summary" data block; one that doesn't contain any phase- or
-         diffractogram-specific information, but summarises results.
+         Blocks containing information about more than one phase must set a
+         non-default value for _audit.schema.
 ;
 
 ;
+         _audit.schema            Custom
+         
          loop_
          _pd_phase_mass.phase_id
          _pd_phase_mass.percent
@@ -6043,6 +6046,9 @@ save_PD_PHASE_MASS
          present in a block which already contains a _pd_diffractogram.id
          data item; the value of _pd_phase_mass.diffractogram_id is linked to
          that value.
+         
+         When information about more than one phase is contained in a single
+         data block, _audit.schema should have a non-default value.
 ;
 
 save_
@@ -6225,6 +6231,8 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
       _description_example.case
       _description_example.detail
 ;
+         _audit.schema                Custom
+         
          loop_
          _pd_pref_orient_March_Dollase.id
          _pd_pref_orient_March_Dollase.diffractogram_id
@@ -6246,28 +6254,27 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
 
          The second phase has the preferred-orientation direction of 001, with a
          March r parameter value of 0.66 with a standard uncertainty of 0.15.
+         
+         As information about more than one phase is present in the data block
+         _audit.schema takes a non-default value.
 ;
 ;
          _pd_diffractogram.id   DIFFPAT_A
-
+         _pd_phase.id           PHASE_A
+          
          loop_
          _pd_pref_orient_March_Dollase.id
-         _pd_pref_orient_March_Dollase.phase_id
          _pd_pref_orient_March_Dollase.index_h
          _pd_pref_orient_March_Dollase.index_k
          _pd_pref_orient_March_Dollase.index_l
          _pd_pref_orient_March_Dollase.fract
          _pd_pref_orient_March_Dollase.r
-         a   PHASE_A   1 0 0   0.63   0.79
-         b   PHASE_A   0 1 0   0.37   0.66
+         a   1 0 0   0.63   0.79
+         b   0 1 0   0.37   0.66
 ;
 ;
          Reporting of the preferred-orientation corrections for a phase with the
-         _pd_phase.id of 'PHASE_A'. The presence of _pd_diffractogram.id
-         'DIFFPAT_A' indicates that this block contains diffractogram
-         information, and the value of
-         _pd_pref_orient_March_Dollase.diffractogram_id is taken from this
-         parent value.
+         _pd_phase.id of 'PHASE_A' for diffractogram DIFFPAT_A.
 
          There are two preferred-orientation corrections being applied to the
          same phase. The first is in the 100 direction, with a March r parameter
@@ -6275,6 +6282,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
          correction. The second is in the 010 direction, with a March r
          parameter value of 0.66. This individual correction contributes 37% to
          the total correction.
+         
 ;
 
 save_
@@ -6633,6 +6641,8 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
       _description_example.case
       _description_example.detail
 ;
+         _audit.schema          Custom
+         
          loop_
          _pd_pref_orient_spherical_harmonics.id
          _pd_pref_orient_spherical_harmonics.phase_id
@@ -6661,6 +6671,9 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
          In diffractogram 'DIFFPAT_B', only 'PHASE_A' has corrections applied,
          with the non-(0,0) order/term pair taking the value (2,0), with a
          coefficient of 1.630(14).
+         
+         As information for more than one phase is contained in the data block,
+         _audit.schema has non-default value 'Custom'.
 ;
 ;
          _pd_phase.id   PHASE_A
@@ -6681,10 +6694,7 @@ save_PD_PREF_ORIENT_SPHERICAL_HARMONICS
 ;
 ;
          Reporting of the preferred-orientation corrections for a phase with the
-         _pd_phase.id of 'PHASE_A'. The presence of _pd_phase.id 'PHASE_A'
-         indicates that this block contains phase information, and the value of
-         _pd_pref_orient_spherical_harmonics.phase_id is taken from this
-         parent value.
+         _pd_phase.id of 'PHASE_A'.
 
          This table is reporting preferred-orientation values pertinent to this
          phase, as seen in two diffractograms: 'DIFFPAT_A' and 'DIFFPAT_B'.
