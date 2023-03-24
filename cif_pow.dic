@@ -1174,6 +1174,8 @@ save_PD_CALIB_WAVELENGTH
       _description_example.case
       _description_example.detail
 ;
+       _audit.schema            Custom
+
        loop_
        _pd_calib_wavelength.diffrn_id
        _pd_calib_wavelength.diffractogram_id
@@ -1190,7 +1192,9 @@ save_PD_CALIB_WAVELENGTH
        and 'DIFFRACTOGRAM_2'. In these diffractograms, the same two phases
        appeared, with _pd_phase.id values of 'NIST_SILICON' and 'NIST_LAB6',
        As more than one diffractogram and phase was used, the wavelength
-       is a best-fit over all data.
+       is a best-fit over all data. Because information relating to
+       more than one diffractogram and phase is collected in a single
+       data block, _audit.schema is set to "Custom".
 ;
 ;
        _diffrn.id                              DIFFRN_EXP_A
