@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-02-06
+    _dictionary.date              2023-03-25
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -3241,6 +3241,24 @@ save_pd_diffractogram.id
     _name.object_id               id
     _type.purpose                 Key
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_diffractogram.spec_id
+
+    _definition.id                '_pd_diffractogram.spec_id'
+    _definition.update            2023-03-25
+    _description.text
+;
+    The specimen (see _pd_spec.id) from which the diffractogram was collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               spec_id
+    _name.linked_item_id          '_pd_spec.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8897,6 +8915,7 @@ save_PD_SPEC
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
+    _category_key.name            '_pd_spec.id'
 
 save_
 
@@ -8919,20 +8938,18 @@ save_pd_spec.description
 
 save_
 
-save_pd_spec.diffractogram_id
+save_pd_spec.id
 
-    _definition.id                '_pd_spec.diffractogram_id'
-    _definition.update            2023-01-12
+    _definition.id                '_pd_spec.id'
+    _definition.update            2023-03-25
     _description.text
 ;
-    The diffractogram (see _pd_diffractogram.id) to which the specimen-
-    preparation details relate.
+    Arbitrary label identifying a powder diffraction specimen.
 ;
     _name.category_id             pd_spec
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
@@ -9368,7 +9385,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-02-06
+         2.5.0                    2023-03-25
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -9455,4 +9472,6 @@ save_
        Updated description of _pd_proc.wavelength.
 
        Remove '_pd_phase_mass_percent' as an alias for '_pd_phase_mass.percent'.
+
+       Added _pd_spec.id and _pd_diffractogram.spec_id
 ;
