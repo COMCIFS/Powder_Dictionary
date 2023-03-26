@@ -7434,7 +7434,7 @@ save_pd_peak_overall.id
 ;
     An arbitrary code identifying the overall peak description.
 ;
-    _name.category_id             _pd_peak_overall
+    _name.category_id             pd_peak_overall
     _name.object_id               id
     _type.purpose                 Key
     _type.source                  Assigned
