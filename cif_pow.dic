@@ -995,7 +995,7 @@ save_pd_background.line_segment_intensities_su
     Standard uncertainty of _pd_background.line_segment_intensities.
 ;
     _name.category_id             pd_background
-    _name.object_id               line_segment_intensities
+    _name.object_id               line_segment_intensities_su
     _name.linked_item_id          '_pd_background.line_segment_intensities'
     _type.purpose                 SU
     _type.source                  Derived
