@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-03-02
+    _dictionary.date              2023-03-25
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1798,6 +1798,7 @@ save_PD_CALC_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALC_OVERALL
+    _category_key.name            '_pd_calc_overall.diffractogram_id'
 
 save_
 
@@ -1843,6 +1844,25 @@ save_pd_calc_overall.component_presentation_order
     _type.container               Array
     _type.dimension               '[]'
     _type.contents                Code
+
+save_
+
+save_pd_calc_overall.diffractogram_id
+
+    _definition.id                '_pd_calc_overall.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the associated
+    features relate.
+;
+    _name.category_id             pd_calc_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -2024,7 +2044,11 @@ save_PD_CALIB_D_TO_TOF
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_D_TO_TOF
-    _category_key.name            '_pd_calib_d_to_tof.id'
+
+    loop_
+      _category_key.name
+         '_pd_calib_d_to_tof.diffractogram_id'
+         '_pd_calib_d_to_tof.id'
 
     loop_
       _description_example.case
@@ -2118,6 +2142,25 @@ save_pd_calib_d_to_tof.coeff_su
     _units.code                   microseconds
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_d_to_tof.diffractogram_id
+
+    _definition.id                '_pd_calib_d_to_tof.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the calibration
+    relates.
+;
+    _name.category_id             pd_calib_d_to_tof
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -4654,12 +4697,30 @@ save_pd_diffractogram.id
 
 save_
 
+save_pd_diffractogram.spec_id
+
+    _definition.id                '_pd_diffractogram.spec_id'
+    _definition.update            2023-03-25
+    _description.text
+;
+    The specimen (see _pd_spec.id) from which the diffractogram was collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               spec_id
+    _name.linked_item_id          '_pd_spec.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_PD_INSTR
 
     _definition.id                PD_INSTR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-06
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains information relevant to the instrument
@@ -4699,6 +4760,7 @@ save_PD_INSTR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR
+    _category_key.name            '_pd_instr.id'
 
 save_
 
@@ -5109,6 +5171,23 @@ save_pd_instr.geometry
        Parallel-beam non-focusing optics with channel-cut
         monochromator and linear position-sensitive detector
 ;
+
+save_
+
+save_pd_instr.id
+
+    _definition.id                '_pd_instr.id'
+    _definition.update            2023-03-25
+    _description.text
+;
+    Arbitrary label identifying a powder diffraction instrument.
+;
+    _name.category_id             pd_instr
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -6223,7 +6302,11 @@ save_PD_MEAS_INFO_AUTHOR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_INFO_AUTHOR
-    _category_key.name            '_pd_meas_info_author.name'
+
+    loop_
+      _category_key.name
+         '_pd_meas_info_author.diffractogram_id'
+         '_pd_meas_info_author.name'
 
 save_
 
@@ -6231,7 +6314,7 @@ save_pd_meas_info_author.address
 
     _definition.id                '_pd_meas_info_author.address'
     _alias.definition_id          '_pd_meas_info_author_address'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-12
     _description.text
 ;
     The address of the person who measured the data set. If there
@@ -6242,6 +6325,25 @@ save_pd_meas_info_author.address
     _name.object_id               address
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_meas_info_author.diffractogram_id
+
+    _definition.id                '_pd_meas_info_author.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the author details
+    relate.
+;
+    _name.category_id             pd_meas_info_author
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -6337,7 +6439,7 @@ save_PD_MEAS_OVERALL
     _definition.id                PD_MEAS_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains information about the conditions used for
@@ -6350,6 +6452,7 @@ save_PD_MEAS_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_OVERALL
+    _category_key.name            '_pd_meas_overall.diffractogram_id'
 
 save_
 
@@ -6775,6 +6878,25 @@ save_pd_meas.units_of_intensity
          'estimated from strip chart'
          'arbitrary, from film density'
          'counts, with automatic dead-time correction applied'
+
+save_
+
+save_pd_meas_overall.diffractogram_id
+
+    _definition.id                '_pd_meas_overall.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the measurement
+    conditions relate.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -7395,7 +7517,7 @@ save_PD_PREF_ORIENT
     _definition.id                PD_PREF_ORIENT
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-06
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains a description of preferred-orientation
@@ -7411,6 +7533,49 @@ save_PD_PREF_ORIENT
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREF_ORIENT
+
+    loop_
+      _category_key.name
+         '_pd_pref_orient.diffractogram_id'
+         '_pd_pref_orient.phase_id'
+
+save_
+
+save_pd_pref_orient.diffractogram_id
+
+    _definition.id                '_pd_pref_orient.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the preferred-
+    orientation correction relates.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_pref_orient.phase_id
+
+    _definition.id                '_pd_pref_orient.phase_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the preferred-orientation
+    correction relates.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8343,7 +8508,12 @@ save_PD_PROC_INFO_AUTHOR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_INFO_AUTHOR
-    _category_key.name            '_pd_proc_info_author.name'
+
+    loop_
+      _category_key.name
+         '_pd_proc_info_author.diffractogram_id'
+         '_pd_proc_info_author.name'
+         '_pd_proc_info_author.phase_id'
 
 save_
 
@@ -8351,7 +8521,7 @@ save_pd_proc_info_author.address
 
     _definition.id                '_pd_proc_info_author.address'
     _alias.definition_id          '_pd_proc_info_author_address'
-    _definition.update            2014-06-20
+    _definition.update            2023-01-12
     _description.text
 ;
     The address of the person who processed the data.
@@ -8362,6 +8532,25 @@ save_pd_proc_info_author.address
     _name.object_id               address
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_proc_info_author.diffractogram_id
+
+    _definition.id                '_pd_proc_info_author.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the processing
+    author relates.
+;
+    _name.category_id             pd_proc_info_author
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8426,6 +8615,24 @@ save_pd_proc_info_author.name
     _name.object_id               name
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_proc_info_author.phase_id
+
+    _definition.id                '_pd_proc_info_author.phase_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the processing author relates.
+;
+    _name.category_id             pd_proc_info_author
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8754,7 +8961,7 @@ save_PD_PROC_OVERALL
     _definition.id                PD_PROC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2023-01-12
     _description.text
 ;
     This section contains overall information about the diffraction
@@ -8764,6 +8971,7 @@ save_PD_PROC_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_OVERALL
+    _category_key.name            '_pd_proc_overall.diffractogram_id'
 
 save_
 
@@ -8945,6 +9153,25 @@ save_pd_proc.number_of_points
     _type.contents                Integer
     _enumeration.range            1:
     _units.code                   none
+
+save_
+
+save_pd_proc_overall.diffractogram_id
+
+    _definition.id                '_pd_proc_overall.diffractogram_id'
+    _definition.update            2023-01-12
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the overall
+    processing attributes relate.
+;
+    _name.category_id             pd_proc_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -9650,6 +9877,11 @@ save_PD_QPA_INTERNAL_STD
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_INTERNAL_STD
 
+    loop_
+      _category_key.name
+         '_pd_qpa_internal_std.diffractogram_id'
+         '_pd_qpa_internal_std.phase_id'
+
 save_
 
 save_pd_qpa_internal_std.block_id
@@ -9721,6 +9953,28 @@ save_pd_qpa_internal_std.crystallinity_percent_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_qpa_internal_std.diffractogram_id
+
+    _definition.id                '_pd_qpa_internal_std.diffractogram_id'
+    _definition.update            2023-02-02
+    _description.text
+;
+    A diffractogram ID code (see _pd_diffractogram.id) identifying the
+    diffractogram to which the internal standard relates.
+
+    The diffractogram will be identified by a _pd_diffractogram.id code matching
+    the code in _pd_qpa_overall.diffractogram_id.
+;
+    _name.category_id             pd_qpa_internal_std
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -10111,6 +10365,7 @@ save_PD_SPEC
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
+    _category_key.name            '_pd_spec.id'
 
 save_
 
@@ -10128,6 +10383,23 @@ save_pd_spec.description
     _name.object_id               description
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_spec.id
+
+    _definition.id                '_pd_spec.id'
+    _definition.update            2023-03-25
+    _description.text
+;
+    Arbitrary label identifying a powder diffraction specimen.
+;
+    _name.category_id             pd_spec
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
@@ -10563,7 +10835,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-03-02
+         2.5.0                    2023-03-25
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -10626,6 +10898,11 @@ save_
        Updated data items to hold block ID values to be of type Link, and to
        link them formally to _pd_block.id
 
+       Added _pd_phase.id and/or _pd_diffractogram.id-linked data items to
+       PD_CALC_OVERALL, PD_CALIB_D_TO_TOF, PD_INSTR, PD_MEAS_INFO_AUTHOR,
+       PD_MEAS_OVERALL, PD_PREF_ORIENT, PD_PROC_INFO_AUTHOR, PD_PROC_OVERALL,
+       PD_SPEC
+
        Created PD_QPA_OVERALL to record details about the overall quantitative
        phase analysis method.
 
@@ -10650,4 +10927,6 @@ save_
        Updated description of _pd_proc.wavelength.
 
        Remove '_pd_phase_mass_percent' as an alias for '_pd_phase_mass.percent'.
+
+       Added _pd_spec.id and _pd_diffractogram.spec_id
 ;
