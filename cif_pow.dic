@@ -1536,7 +1536,7 @@ save_PD_BLOCK_DIFFRACTOGRAM
     _definition.id                PD_BLOCK_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-12-03
+    _definition.update            2016-10-18
     _description.text
 ;
     A number of diffractograms may contribute to the
@@ -1547,26 +1547,6 @@ save_PD_BLOCK_DIFFRACTOGRAM
     _name.category_id             PD_GROUP
     _name.object_id               PD_BLOCK_DIFFRACTOGRAM
     _category_key.name            '_pd_block_diffractogram.id'
-
-save_
-
-save_pd_block_diffractogram.diffractogram_id
-
-    _definition.id                '_pd_block_diffractogram.diffractogram_id'
-    _definition.update            2022-12-03
-    _description.text
-;
-    A diffractogram id code (see _pd_diffractogram.id) that
-    identifies the diffraction data contained in the data block
-    pointed to by _pd_block_diffractogram.id.
-;
-    _name.category_id             pd_block_diffractogram
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
@@ -4862,6 +4842,71 @@ save_pd_diffractogram.spec_id
 
 save_
 
+save_PD_DIFFRACTOGRAM_LIST
+
+    _definition.id                PD_DIFFRACTOGRAM_LIST
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-03-26
+    _description.text
+;
+    A number of diffractograms may contribute to the determination of the
+    structure of a single phase, or need to otherwise be listed. This category
+    enables the looping of values corresponding to _pd_diffractogram.id values.
+    See also PD_DIFFRACTOGRAM.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_DIFFRACTOGRAM_LIST
+    loop_
+      _category_key.name
+         '_pd_diffractogram_list.diffractogram_id'
+         '_pd_diffractogram_list.id'
+
+save_
+
+save_pd_diffractogram_list.diffractogram_id
+
+    _definition.id                '_pd_diffractogram_list.diffractogram_id'
+    _definition.update            2023-03-26
+    _description.text
+;
+    A diffractogram ID code (see _pd_diffractogram.id) that identifies
+    diffraction data.
+
+    This data item is used to provide a list of diffractogram ID values. This
+    will occur if more than one set of diffraction data is used, for example, in
+    a structure determination, or in situ experiment.
+
+    The diffraction data will be identified a _pd_diffractogram.id code matching
+    the code in a _pd_diffractogram_list.diffractogram_id.
+;
+    _name.category_id             pd_diffractogram_list
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
+save_pd_diffractogram_list.id
+
+    _definition.id                '_pd_diffractogram_list.id'
+    _definition.update            2023-03-26
+    _description.text
+;
+    Arbitrary label identifying a _pd_diffractogram.id value.
+;
+    _name.category_id             pd_diffractogram_list
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_PD_INSTR
 
     _definition.id                PD_INSTR
@@ -7496,13 +7541,13 @@ save_PD_PHASE_BLOCK
     _definition.id                PD_PHASE_BLOCK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-12-03
+    _definition.update            2023-03-26
     _description.text
 ;
-    A table of phases relevant to the current data
+    A table of phase block ids relevant to the current data
     block. Each phase is identified by the block identifier
     of the data block containing the phase information,
-    and the _pd_phase.id of the phase contained within
+    and the _pd_block.id of the phase contained within
     that block.
 ;
     _name.category_id             PD_GROUP
@@ -7530,24 +7575,66 @@ save_pd_phase_block.id
 
 save_
 
-save_pd_phase_block.phase_id
+save_PD_PHASE_LIST
 
-    _definition.id                '_pd_phase_block.phase_id'
-    _alias.definition_id          '_pd_phase_id'
-    _definition.update            2022-12-03
+    _definition.id                PD_PHASE_LIST
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-03-26
     _description.text
 ;
-    A phase id code (see _pd_phase.id) that identifies the phase
-    contained in the data block pointed to by _pd_phase_block.id
+    A number of phases may contribute to a single diffractogram, or need to
+    otherwise be listed. This category enables the looping of values
+    corresponding to _pd_phase.id values. See also PD_PHASE.
 ;
-    _name.category_id             pd_phase_block
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_PHASE_LIST
+    loop_
+      _category_key.name
+         '_pd_phase_list.id'
+         '_pd_phase_list.phase_id'
+
+save_
+
+save_pd_phase_list.id
+
+    _definition.id                '_pd_phase_list.id'
+    _definition.update            2023-03-26
+    _description.text
+;
+    Arbitrary label identifying a _pd_phase.id value.
+;
+    _name.category_id             pd_phase_list
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
+save_pd_phase_list.phase_id
+
+    _definition.id                '_pd_phase_list.phase_id'
+    _definition.update            2023-03-26
+    _description.text
+;
+    A phase ID code (see _pd_phase.id) that identifies a phase.
+
+    This data item is used to provide a list of phase ID values. This will occur
+    if more than one phase is present in a diffractogram, as in, for example,
+    quantitative phase analysis.
+
+    The phase data will be identified a _pd_phase.id code matching the code in
+    _pd_phase_list.phase_id.
+;
+    _name.category_id             pd_phase_list
     _name.object_id               phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
+    _type.contents                Word
 
 save_
 
