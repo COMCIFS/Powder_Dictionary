@@ -2243,13 +2243,19 @@ save_pd_calib_detected_intensity.detector_response
 
     _definition.id
         '_pd_calib_detected_intensity.detector_response'
-    _definition.update            2023-01-21
+    _definition.update            2023-04-07
     _description.text
 ;
-    A value that indicates the relative sensitivity of each detector. This can
-    compensate for differences in electronics, size and collimation. Usually,
-    one detector, or the mean for all detectors, will be assigned the value
-    of 1.
+    A value that indicates the relative sensitivity of each detector. That is, a
+    value of 0.5 indicates that the detector records half as much intensity as
+    it should, and a value of 2 indicates that the detector records twice as
+    much intensity as it should. To bring all detectors on to a common scale,
+    the observed intensity should be divided by the value of
+    _pd_calib_detected_intensity.detector_response
+
+    This can compensate for differences in electronics, size and collimation.
+    Usually, one detector, or the mean for all detectors, will be assigned the
+    value of 1.
 ;
     _name.category_id             pd_calib_detected_intensity
     _name.object_id               detector_response
