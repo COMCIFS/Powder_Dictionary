@@ -1450,9 +1450,8 @@ save_pd_block.id
 
     _definition.id                '_pd_block.id'
     loop_
-       _definition_replaced.id
-       _definition_replaced.by
-      _category_key.name
+      _definition_replaced.id
+      _definition_replaced.by
          1 '_pd_phase.id'
          2 '_pd_diffractogram.id'
     _alias.definition_id          '_pd_block_id'
