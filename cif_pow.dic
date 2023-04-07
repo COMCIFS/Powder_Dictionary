@@ -1452,8 +1452,8 @@ save_pd_block.id
     loop_
       _definition_replaced.id
       _definition_replaced.by
-         1 '_pd_phase.id'
-         2 '_pd_diffractogram.id'
+         1                        '_pd_phase.id'
+         2                        '_pd_diffractogram.id'
     _alias.definition_id          '_pd_block_id'
     _definition.update            2023-04-07
     _description.text
