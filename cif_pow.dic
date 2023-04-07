@@ -1449,10 +1449,19 @@ save_
 save_pd_block.id
 
     _definition.id                '_pd_block.id'
+    loop_
+       _definition_replaced.id
+       _definition_replaced.by
+      _category_key.name
+         1 '_pd_phase.id'
+         2 '_pd_diffractogram.id'
     _alias.definition_id          '_pd_block_id'
-    _definition.update            2023-01-06
+    _definition.update            2023-04-07
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id or _pd_diffractogram.id, as necessary.
+
     Used to assign a unique character string to a block.
     Note that this code is not intended to be parsed; the
     concatenation of several strings is used in order to
@@ -1573,10 +1582,15 @@ save_
 save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_diffractogram.id'
     _alias.definition_id          '_pd_block_diffractogram_id'
-    _definition.update            2022-10-11
+    _definition.update            2023-04-07
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_diffractogram.id, as necessary.
+
     A block ID code (see _pd_block.id) that identifies
     diffraction data contained in a data block other
     than the current block. This will occur most frequently
@@ -7466,10 +7480,15 @@ save_
 save_pd_phase_block.id
 
     _definition.id                '_pd_phase_block.id'
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_phase.id'
     _alias.definition_id          '_pd_phase_block_id'
-    _definition.update            2023-01-09
+    _definition.update            2023-04-07
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id, as necessary.
+
     A block ID code identifying a block containing phase information.
 ;
     _name.category_id             pd_phase_block
