@@ -11084,7 +11084,7 @@ save_pd_refln.peak_overall_id
 ;
     _name.category_id             refln
     _name.object_id               peak_overall_id
-    _name.linked_item_id          '_pd_peak_overall_id.id'
+    _name.linked_item_id          '_pd_peak_overall.id'
     _type.purpose                 Link
     _type.source                  Assigned
     _type.container               Single
