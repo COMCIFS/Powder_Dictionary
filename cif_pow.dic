@@ -109,11 +109,8 @@ save_pd_amorphous.peak_overall_id
     _definition.update            2023-04-13
     _description.text
 ;
-    An arbitrary code identifying the overall peak description for the amorphous
-    phase peaks.
-
-    Used to link with _pd_peak_overall.id. Each peak description will have a
-    unique code.
+    A code linking to general information about peak description and
+    determination for the amorphous phase peaks.
 ;
     _name.category_id             pd_amorphous
     _name.object_id               peak_overall_id
@@ -1172,11 +1169,8 @@ save_pd_background.peak_overall_id
     _definition.update            2023-04-13
     _description.text
 ;
-    An arbitrary code identifying the overall peak description for the
-    background peaks.
-
-    Used to link with _pd_peak_overall.id. Each peak description will have a
-    unique code.
+    A code linking to general information about peak description and
+    determination for the background peaks.
 ;
     _name.category_id             pd_background
     _name.object_id               peak_overall_id
@@ -11496,11 +11490,8 @@ save_pd_refln.peak_overall_id
     _definition.update            2023-04-13
     _description.text
 ;
-    An arbitrary code identifying the overall peak description for the
-    reflection peaks.
-
-    Used to link with _pd_peak_overall.id. Each peak description will have a
-    unique code.
+    A code linking to general information about peak description and
+    determination for the reflection peaks.
 ;
     _name.category_id             refln
     _name.object_id               peak_overall_id
