@@ -3203,14 +3203,14 @@ save_PD_CALIB_XCOORD
          value for each data point.
 ;
 ;
-			loop_
-			_pd_calib_xcoord_overall.id
-			_pd_calib_xcoord_overall.detector_id
-			_pd_calib_xcoord_overall.diffractogram_id
-			_pd_calib_xcoord_overall.phase_id
-			_pd_calib_xcoord_overall.special_details
-			A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
-			B   det2   .   .   "Scanned through direct beam with fine slit."
+            loop_
+            _pd_calib_xcoord_overall.id
+            _pd_calib_xcoord_overall.detector_id
+            _pd_calib_xcoord_overall.diffractogram_id
+            _pd_calib_xcoord_overall.phase_id
+            _pd_calib_xcoord_overall.special_details
+            A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
+            B   det2   .   .   "Scanned through direct beam with fine slit."
 
           loop_
           _pd_calib_xcoord.id
@@ -3492,25 +3492,25 @@ save_PD_CALIB_XCOORD_OVERALL
       _description_example.case
       _description_example.detail
 ;
-			loop_
-			_pd_calib_xcoord_overall.id
-			_pd_calib_xcoord_overall.detector_id
-			d1   det1
-			d2   det2
+         loop_
+         _pd_calib_xcoord_overall.id
+         _pd_calib_xcoord_overall.detector_id
+         d1   det1
+         d2   det2
 ;
 ;
          Calibration offsets given using PD_CALIB_XCOORD category data items
          will correspond to calibrations carried out on the given two detectors.
 ;
 ;
-			loop_
-			_pd_calib_xcoord_overall.id
-			_pd_calib_xcoord_overall.detector_id
-			_pd_calib_xcoord_overall.diffractogram_id
-			_pd_calib_xcoord_overall.phase_id
-			1   A   CALIBRATION_DIFFRACTOGRAM_A   NIST_SRM640E
-			2   B   CALIBRATION_DIFFRACTOGRAM_B   NIST_SRM640E
-			3   C   CALIBRATION_DIFFRACTOGRAM_C   NIST_SRM640E
+         loop_
+         _pd_calib_xcoord_overall.id
+         _pd_calib_xcoord_overall.detector_id
+         _pd_calib_xcoord_overall.diffractogram_id
+         _pd_calib_xcoord_overall.phase_id
+         1   A   CALIBRATION_DIFFRACTOGRAM_A   NIST_SRM640E
+         2   B   CALIBRATION_DIFFRACTOGRAM_B   NIST_SRM640E
+         3   C   CALIBRATION_DIFFRACTOGRAM_C   NIST_SRM640E
 ;
 ;
          Calibration offsets given using PD_CALIB_XCOORD category data items
@@ -3521,14 +3521,14 @@ save_PD_CALIB_XCOORD_OVERALL
          items.
 ;
 ;
-			loop_
-			_pd_calib_xcoord_overall.id
-			_pd_calib_xcoord_overall.detector_id
-			_pd_calib_xcoord_overall.diffractogram_id
-			_pd_calib_xcoord_overall.phase_id
-			_pd_calib_xcoord_overall.special_details
-			A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
-			B   det2   .   .   "Scanned through direct beam with fine slit."
+         loop_
+         _pd_calib_xcoord_overall.id
+         _pd_calib_xcoord_overall.detector_id
+         _pd_calib_xcoord_overall.diffractogram_id
+         _pd_calib_xcoord_overall.phase_id
+         _pd_calib_xcoord_overall.special_details
+         A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
+         B   det2   .   .   "Scanned through direct beam with fine slit."
 ;
 ;
          Different detectors can be calibrated through different means. Here,
