@@ -3144,6 +3144,93 @@ save_PD_CALIB_XCOORD
     _name.object_id               PD_CALIB_XCOORD
     _category_key.name            '_pd_calib_xcoord.id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+          _pd_calib_xcoord.point_id
+          _pd_calib_xcoord.2theta_offset
+          1   0.01
+          2   0.01
+          3   0.02
+          4   0.02
+          ...
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          _pd_calc.intensity_total
+          1   10.01   1234    1234.1
+          2   10.03   1235    1235.3
+          3   10.05   1352    1236.5
+          4   10.07   1324    1237.7
+          ...
+;
+;
+         Calibration offset values are provided for each data point in the
+         diffractogram.
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+          _pd_calib_xcoord.id
+          _pd_calib_xcoord.2theta_nominal
+          _pd_calib_xcoord.2theta_offset
+          a   10.00   0.01
+          b   12.00   0.02
+          c   14.00   0.03
+          d   16.00   0.04
+          ...
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          _pd_calc.intensity_total
+          1   10.01   1234    1234.1
+          2   10.03   1235    1235.3
+          3   10.05   1352    1236.5
+          4   10.07   1324    1237.7
+          ...
+;
+;
+         Calibration offsets and the nominal 2\q values to which they apply are
+         listed, along with the diffraction pattern to which they apply. With
+         the given calibration data, an interpolation must be made to obtain a
+         value for each data point.
+;
+;
+			loop_
+			_pd_calib_xcoord_overall.id
+			_pd_calib_xcoord_overall.detector_id
+			_pd_calib_xcoord_overall.diffractogram_id
+			_pd_calib_xcoord_overall.phase_id
+			_pd_calib_xcoord_overall.special_details
+			A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
+			B   det2   .   .   "Scanned through direct beam with fine slit."
+
+          loop_
+          _pd_calib_xcoord.id
+          _pd_calib_xcoord.position_nominal
+          _pd_calib_xcoord.position_offset
+          _pd_calib_xcoord.overall_id
+          a   10.00   0.01   A
+          b   10.00   0.02   B
+          c   12.00   0.03   A
+          d   12.00   0.03   B
+          ...
+;
+;
+         Calibration offsets and the nominal position values to which they apply
+         are listed. The given _pd_calib_xcoord.overall_id refers to the
+         PD_CALIB_XCOORD_OVERALL category items given above.
+
+         An interpolation must be made to obtain a value for each data point.
+;
+
 save_
 
 save_pd_calib_xcoord.2theta_nominal
@@ -3400,6 +3487,58 @@ save_PD_CALIB_XCOORD_OVERALL
       _category_key.name
          '_pd_calib_xcoord_overall.detector_id'
          '_pd_calib_xcoord_overall.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+			loop_
+			_pd_calib_xcoord_overall.id
+			_pd_calib_xcoord_overall.detector_id
+			d1   det1
+			d2   det2
+;
+;
+         Calibration offsets given using PD_CALIB_XCOORD category data items
+         will correspond to calibrations carried out on the given two detectors.
+;
+;
+			loop_
+			_pd_calib_xcoord_overall.id
+			_pd_calib_xcoord_overall.detector_id
+			_pd_calib_xcoord_overall.diffractogram_id
+			_pd_calib_xcoord_overall.phase_id
+			1   A   CALIBRATION_DIFFRACTOGRAM_A   NIST_SRM640E
+			2   B   CALIBRATION_DIFFRACTOGRAM_B   NIST_SRM640E
+			3   C   CALIBRATION_DIFFRACTOGRAM_C   NIST_SRM640E
+;
+;
+         Calibration offsets given using PD_CALIB_XCOORD category data items
+         will correspond to calibrations carried out on the given three
+         detectors derived from analysis of the given diffractograms and phase.
+
+         Calibration values will be given using PD_CALIB_XCOORD category data
+         items.
+;
+;
+			loop_
+			_pd_calib_xcoord_overall.id
+			_pd_calib_xcoord_overall.detector_id
+			_pd_calib_xcoord_overall.diffractogram_id
+			_pd_calib_xcoord_overall.phase_id
+			_pd_calib_xcoord_overall.special_details
+			A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
+			B   det2   .   .   "Scanned through direct beam with fine slit."
+;
+;
+         Different detectors can be calibrated through different means. Here,
+         det1 was calibrated through the analysis of a diffractogram and a
+         known reference material, whereas det2 was calibrated by scanning the
+         detector through the direct beam.
+
+         Calibration values will be given using PD_CALIB_XCOORD category data
+         items.
+;
 
 save_
 
