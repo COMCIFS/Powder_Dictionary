@@ -7409,11 +7409,11 @@ save_pd_meas.scan_method
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         step                     'step scan'
-         cont                     'continuous scan'
-         tof                      'time of flight'
-         disp                     'energy dispersive'
-         fixed                    'stationary detector'
+         step                     'Step scan.'
+         cont                     'Continuous scan.'
+         tof                      'Time of flight.'
+         disp                     'Energy dispersive.'
+         fixed                    'Stationary detector.'
 
 save_
 
@@ -8471,11 +8471,11 @@ save_pd_pref_orient_march_dollase.geom
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         srefln                   'symmetric reflection'
-         arefln                   'asymmetric reflection'
-         strans                   'symmetric transmission'
-         atrans                   'asymmetric transmission'
-         cap                      'capillary (Debye-Scherrer)'
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
     _enumeration.default          srefln
 
 save_
@@ -8889,11 +8889,11 @@ save_pd_pref_orient_spherical_harmonics.geom
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         srefln                   'symmetric reflection'
-         arefln                   'asymmetric reflection'
-         strans                   'symmetric transmission'
-         atrans                   'asymmetric transmission'
-         cap                      'capillary (Debye-Scherrer)'
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
     _enumeration.default          srefln
 
 save_
