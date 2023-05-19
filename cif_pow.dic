@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-04-13
+    _dictionary.date              2023-05-14
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -7409,11 +7409,11 @@ save_pd_meas.scan_method
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         step                     'step scan'
-         cont                     'continuous scan'
-         tof                      'time of flight'
-         disp                     'energy dispersive'
-         fixed                    'stationary detector'
+         step                     'Step scan.'
+         cont                     'Continuous scan.'
+         tof                      'Time of flight.'
+         disp                     'Energy dispersive.'
+         fixed                    'Stationary detector.'
 
 save_
 
@@ -8471,11 +8471,11 @@ save_pd_pref_orient_march_dollase.geom
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         srefln                   'symmetric reflection'
-         arefln                   'asymmetric reflection'
-         strans                   'symmetric transmission'
-         atrans                   'asymmetric transmission'
-         cap                      'capillary (Debye-Scherrer)'
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
     _enumeration.default          srefln
 
 save_
@@ -8889,11 +8889,11 @@ save_pd_pref_orient_spherical_harmonics.geom
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         srefln                   'symmetric reflection'
-         arefln                   'asymmetric reflection'
-         strans                   'symmetric transmission'
-         atrans                   'asymmetric transmission'
-         cap                      'capillary (Debye-Scherrer)'
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
     _enumeration.default          srefln
 
 save_
@@ -11655,7 +11655,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-04-13
+         2.5.0                    2023-05-14
 ;
        ## Retain above version number and increment date until final
        ## release
