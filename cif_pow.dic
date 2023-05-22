@@ -3133,9 +3133,6 @@ save_PD_CALIB_XCOORD
     _pd_calib_xcoord.*_nominal. These values may need to be interpolated to
     be applied to their respective diffractograms.
 
-    This category should be used to specify corrections relating to specimen
-    displacement, and other such specimen-related corrections.
-
     Alternatively, if the offset has been determined at each measurement
     point in the diffractogram, _pd_calib_xcoord.point_id may be used to
     specify the offset on a per-point basis.
