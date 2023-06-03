@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-04-13
+    _dictionary.date              2023-05-14
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -539,7 +539,7 @@ save_pd_background.air_or_thermal_diffuse_order
 
 save_
 
-save_pd_background.Chebyshev_coef
+save_pd_background.chebyshev_coef
 
     _definition.id                '_pd_background.Chebyshev_coef'
     _definition.update            2023-02-02
@@ -573,7 +573,7 @@ save_pd_background.Chebyshev_coef
 
 save_
 
-save_pd_background.Chebyshev_coef_su
+save_pd_background.chebyshev_coef_su
 
     _definition.id                '_pd_background.Chebyshev_coef_su'
     _definition.update            2023-02-02
@@ -590,7 +590,7 @@ save_pd_background.Chebyshev_coef_su
 
 save_
 
-save_pd_background.Chebyshev_coefs
+save_pd_background.chebyshev_coefs
 
     _definition.id                '_pd_background.Chebyshev_coefs'
     _definition.update            2023-02-02
@@ -616,7 +616,7 @@ save_pd_background.Chebyshev_coefs
 
 save_
 
-save_pd_background.Chebyshev_coefs_su
+save_pd_background.chebyshev_coefs_su
 
     _definition.id                '_pd_background.Chebyshev_coefs_su'
     _definition.update            2023-02-02
@@ -635,7 +635,7 @@ save_pd_background.Chebyshev_coefs_su
 
 save_
 
-save_pd_background.Chebyshev_order
+save_pd_background.chebyshev_order
 
     _definition.id                '_pd_background.Chebyshev_order'
     _definition.update            2023-02-02
@@ -670,7 +670,7 @@ save_pd_background.Chebyshev_order
 
 save_
 
-save_pd_background.cosine_Fourier_series_coef
+save_pd_background.cosine_fourier_series_coef
 
     _definition.id                '_pd_background.cosine_Fourier_series_coef'
     _definition.update            2023-02-02
@@ -699,7 +699,7 @@ save_pd_background.cosine_Fourier_series_coef
 
 save_
 
-save_pd_background.cosine_Fourier_series_coef_su
+save_pd_background.cosine_fourier_series_coef_su
 
     _definition.id                '_pd_background.cosine_Fourier_series_coef_su'
     _definition.update            2023-02-02
@@ -716,7 +716,7 @@ save_pd_background.cosine_Fourier_series_coef_su
 
 save_
 
-save_pd_background.cosine_Fourier_series_coefs
+save_pd_background.cosine_fourier_series_coefs
 
     _definition.id                '_pd_background.cosine_Fourier_series_coefs'
     _definition.update            2023-02-02
@@ -742,7 +742,7 @@ save_pd_background.cosine_Fourier_series_coefs
 
 save_
 
-save_pd_background.cosine_Fourier_series_coefs_su
+save_pd_background.cosine_fourier_series_coefs_su
 
     _definition.id
         '_pd_background.cosine_Fourier_series_coefs_su'
@@ -762,7 +762,7 @@ save_pd_background.cosine_Fourier_series_coefs_su
 
 save_
 
-save_pd_background.cosine_Fourier_series_order
+save_pd_background.cosine_fourier_series_order
 
     _definition.id                '_pd_background.cosine_Fourier_series_order'
     _definition.update            2023-01-14
@@ -792,7 +792,7 @@ save_pd_background.cosine_Fourier_series_order
 
 save_
 
-save_pd_background.Debye_diffuse_amp
+save_pd_background.debye_diffuse_amp
 
     _definition.id                '_pd_background.Debye_diffuse_amp'
     _definition.update            2023-02-02
@@ -826,7 +826,7 @@ save_pd_background.Debye_diffuse_amp
 
 save_
 
-save_pd_background.Debye_diffuse_amp_su
+save_pd_background.debye_diffuse_amp_su
 
     _definition.id                '_pd_background.Debye_diffuse_amp_su'
     _definition.update            2023-02-02
@@ -843,7 +843,7 @@ save_pd_background.Debye_diffuse_amp_su
 
 save_
 
-save_pd_background.Debye_diffuse_displace
+save_pd_background.debye_diffuse_displace
 
     _definition.id                '_pd_background.Debye_diffuse_displace'
     _definition.update            2023-02-02
@@ -877,7 +877,7 @@ save_pd_background.Debye_diffuse_displace
 
 save_
 
-save_pd_background.Debye_diffuse_displace_su
+save_pd_background.debye_diffuse_displace_su
 
     _definition.id                '_pd_background.Debye_diffuse_displace_su'
     _definition.update            2023-01-09
@@ -894,7 +894,7 @@ save_pd_background.Debye_diffuse_displace_su
 
 save_
 
-save_pd_background.Debye_diffuse_dist
+save_pd_background.debye_diffuse_dist
 
     _definition.id                '_pd_background.Debye_diffuse_dist'
     _definition.update            2023-02-02
@@ -928,7 +928,7 @@ save_pd_background.Debye_diffuse_dist
 
 save_
 
-save_pd_background.Debye_diffuse_dist_su
+save_pd_background.debye_diffuse_dist_su
 
     _definition.id                '_pd_background.Debye_diffuse_dist_su'
     _definition.update            2023-02-02
@@ -1077,7 +1077,7 @@ save_pd_background.line_segment_intensity_su
 
 save_
 
-save_pd_background.line_segment_X
+save_pd_background.line_segment_x
 
     _definition.id                '_pd_background.line_segment_X'
     _definition.update            2023-02-02
@@ -1114,7 +1114,7 @@ save_pd_background.line_segment_X
 
 save_
 
-save_pd_background.line_segment_Xs
+save_pd_background.line_segment_xs
 
     _definition.id                '_pd_background.line_segment_Xs'
     _definition.update            2023-02-02
@@ -1378,7 +1378,7 @@ save_pd_background.special_details
 
 save_
 
-save_pd_background.X_coordinate
+save_pd_background.x_coordinate
 
     _definition.id                '_pd_background.X_coordinate'
     _definition.update            2023-01-18
@@ -7331,11 +7331,11 @@ save_pd_meas.scan_method
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         step                     'step scan'
-         cont                     'continuous scan'
-         tof                      'time of flight'
-         disp                     'energy dispersive'
-         fixed                    'stationary detector'
+         step                     'Step scan.'
+         cont                     'Continuous scan.'
+         tof                      'Time of flight.'
+         disp                     'Energy dispersive.'
+         fixed                    'Stationary detector.'
 
 save_
 
@@ -8284,7 +8284,7 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
 
 save_
 
-save_pd_pref_orient_March_Dollase.diffractogram_id
+save_pd_pref_orient_march_dollase.diffractogram_id
 
     _definition.id
         '_pd_pref_orient_March_Dollase.diffractogram_id'
@@ -8304,7 +8304,7 @@ save_pd_pref_orient_March_Dollase.diffractogram_id
 
 save_
 
-save_pd_pref_orient_March_Dollase.fract
+save_pd_pref_orient_march_dollase.fract
 
     _definition.id                '_pd_pref_orient_March_Dollase.fract'
     _definition.update            2023-01-06
@@ -8327,7 +8327,7 @@ save_pd_pref_orient_March_Dollase.fract
 
 save_
 
-save_pd_pref_orient_March_Dollase.fract_su
+save_pd_pref_orient_march_dollase.fract_su
 
     _definition.id                '_pd_pref_orient_March_Dollase.fract_su'
     _definition.update            2022-11-17
@@ -8344,7 +8344,7 @@ save_pd_pref_orient_March_Dollase.fract_su
 
 save_
 
-save_pd_pref_orient_March_Dollase.geom
+save_pd_pref_orient_march_dollase.geom
 
     _definition.id                '_pd_pref_orient_March_Dollase.geom'
     _definition.update            2023-01-06
@@ -8373,16 +8373,16 @@ save_pd_pref_orient_March_Dollase.geom
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         srefln                   'symmetric reflection'
-         arefln                   'asymmetric reflection'
-         strans                   'symmetric transmission'
-         atrans                   'asymmetric transmission'
-         cap                      'capillary (Debye-Scherrer)'
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
     _enumeration.default          srefln
 
 save_
 
-save_pd_pref_orient_March_Dollase.hkl
+save_pd_pref_orient_march_dollase.hkl
 
     _definition.id                '_pd_pref_orient_March_Dollase.hkl'
     _definition.update            2023-01-06
@@ -8411,7 +8411,7 @@ save_pd_pref_orient_March_Dollase.hkl
 
 save_
 
-save_pd_pref_orient_March_Dollase.id
+save_pd_pref_orient_march_dollase.id
 
     _definition.id                '_pd_pref_orient_March_Dollase.id'
     _definition.update            2023-01-06
@@ -8430,7 +8430,7 @@ save_pd_pref_orient_March_Dollase.id
 
 save_
 
-save_pd_pref_orient_March_Dollase.index_h
+save_pd_pref_orient_march_dollase.index_h
 
     _definition.id                '_pd_pref_orient_March_Dollase.index_h'
     _definition.update            2023-01-06
@@ -8449,7 +8449,7 @@ save_pd_pref_orient_March_Dollase.index_h
 
 save_
 
-save_pd_pref_orient_March_Dollase.index_k
+save_pd_pref_orient_march_dollase.index_k
 
     _definition.id                '_pd_pref_orient_March_Dollase.index_k'
     _definition.update            2023-01-06
@@ -8468,7 +8468,7 @@ save_pd_pref_orient_March_Dollase.index_k
 
 save_
 
-save_pd_pref_orient_March_Dollase.index_l
+save_pd_pref_orient_march_dollase.index_l
 
     _definition.id                '_pd_pref_orient_March_Dollase.index_l'
     _definition.update            2023-01-06
@@ -8487,7 +8487,7 @@ save_pd_pref_orient_March_Dollase.index_l
 
 save_
 
-save_pd_pref_orient_March_Dollase.phase_id
+save_pd_pref_orient_march_dollase.phase_id
 
     _definition.id                '_pd_pref_orient_March_Dollase.phase_id'
     _definition.update            2023-01-06
@@ -8506,7 +8506,7 @@ save_pd_pref_orient_March_Dollase.phase_id
 
 save_
 
-save_pd_pref_orient_March_Dollase.r
+save_pd_pref_orient_march_dollase.r
 
     _definition.id                '_pd_pref_orient_March_Dollase.r'
     _definition.update            2022-11-17
@@ -8542,7 +8542,7 @@ save_pd_pref_orient_March_Dollase.r
 
 save_
 
-save_pd_pref_orient_March_Dollase.r_su
+save_pd_pref_orient_march_dollase.r_su
 
     _definition.id                '_pd_pref_orient_March_Dollase.r_su'
     _definition.update            2022-11-17
@@ -8743,11 +8743,11 @@ save_pd_pref_orient_spherical_harmonics.geom
     loop_
       _enumeration_set.state
       _enumeration_set.detail
-         srefln                   'symmetric reflection'
-         arefln                   'asymmetric reflection'
-         strans                   'symmetric transmission'
-         atrans                   'asymmetric transmission'
-         cap                      'capillary (Debye-Scherrer)'
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
     _enumeration.default          srefln
 
 save_
@@ -9870,7 +9870,7 @@ save_pd_qpa_calib_factor.absorption_diffraction_su
 
 save_
 
-save_pd_qpa_calib_factor.DDM
+save_pd_qpa_calib_factor.ddm
 
     _definition.id                '_pd_qpa_calib_factor.DDM'
     _definition.update            2023-01-22
@@ -9892,7 +9892,7 @@ save_pd_qpa_calib_factor.DDM
 
 save_
 
-save_pd_qpa_calib_factor.DDM_su
+save_pd_qpa_calib_factor.ddm_su
 
     _definition.id                '_pd_qpa_calib_factor.DDM_su'
     _definition.update            2023-01-22
@@ -9951,7 +9951,7 @@ save_pd_qpa_calib_factor.external_standard_su
 
 save_
 
-save_pd_qpa_calib_factor.I_over_Ic
+save_pd_qpa_calib_factor.i_over_ic
 
     _definition.id                '_pd_qpa_calib_factor.I_over_Ic'
     _definition.update            2023-01-22
@@ -9976,7 +9976,7 @@ save_pd_qpa_calib_factor.I_over_Ic
 
 save_
 
-save_pd_qpa_calib_factor.I_over_Ic_su
+save_pd_qpa_calib_factor.i_over_ic_su
 
     _definition.id                '_pd_qpa_calib_factor.I_over_Ic_su'
     _definition.update            2023-01-22
@@ -10057,7 +10057,7 @@ save_pd_qpa_calib_factor.phase_id
 
 save_
 
-save_pd_qpa_calib_factor.PONKCS
+save_pd_qpa_calib_factor.ponkcs
 
     _definition.id                '_pd_qpa_calib_factor.PONKCS'
     _definition.update            2023-01-22
@@ -10083,7 +10083,7 @@ save_pd_qpa_calib_factor.PONKCS
 
 save_
 
-save_pd_qpa_calib_factor.PONKCS_su
+save_pd_qpa_calib_factor.ponkcs_su
 
     _definition.id                '_pd_qpa_calib_factor.PONKCS_su'
     _definition.update            2023-01-22
@@ -10100,7 +10100,7 @@ save_pd_qpa_calib_factor.PONKCS_su
 
 save_
 
-save_pd_qpa_calib_factor.RIR
+save_pd_qpa_calib_factor.rir
 
     _definition.id                '_pd_qpa_calib_factor.RIR'
     _definition.update            2023-01-22
@@ -10128,7 +10128,7 @@ save_pd_qpa_calib_factor.RIR
 
 save_
 
-save_pd_qpa_calib_factor.RIR_su
+save_pd_qpa_calib_factor.rir_su
 
     _definition.id                '_pd_qpa_calib_factor.RIR_su'
     _definition.update            2023-01-22
@@ -10163,7 +10163,7 @@ save_pd_qpa_calib_factor.special_details
 
 save_
 
-save_pd_qpa_calib_factor.ZMV
+save_pd_qpa_calib_factor.zmv
 
     _definition.id                '_pd_qpa_calib_factor.ZMV'
     _definition.update            2023-01-22
@@ -10189,7 +10189,7 @@ save_pd_qpa_calib_factor.ZMV
 
 save_
 
-save_pd_qpa_calib_factor.ZMV_su
+save_pd_qpa_calib_factor.zmv_su
 
     _definition.id                '_pd_qpa_calib_factor.ZMV_su'
     _definition.update            2023-01-22
@@ -11439,7 +11439,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-04-13
+         2.5.0                    2023-05-14
 ;
        ## Retain above version number and increment date until final
        ## release
