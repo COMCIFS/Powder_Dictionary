@@ -3304,11 +3304,7 @@ save_pd_calib_xcoord.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-    _method.purpose               Definition
-    _method.expression
-;
-    _enumeration.default = _pd_calib_xcoord.point_id
-;
+
 save_
 
 save_pd_calib_xcoord.overall_id
