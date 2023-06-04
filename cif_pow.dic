@@ -11483,6 +11483,64 @@ save_PD_QPA_EXTERNAL_STD
     _name.object_id               PD_QPA_EXTERNAL_STD
     _category_key.name            '_pd_qpa_external_std.diffractogram_id'
 
+    _description_example.case
+;
+         data_diffractogram_block
+            _pd_diffractogram.id   DIFFRACTOGRAM_2
+
+            loop_
+            _pd_phase_mass.phase_id
+            _pd_phase_mass.percent
+            _pd_phase_mass.percent_su
+            PHASE_1             42.81   0.56
+            PHASE_2             14.73   0.24
+
+            _pd_qpa_external_std.diffractogram_id   THE_REFERENCE
+            _pd_char.mass_atten_coef_mu_calc        6940
+
+            _pd_qpa_overall.method                  external_standard
+
+
+         data_ext_std_diffractogram
+            _pd_diffractogram.id   THE_REFERENCE
+
+            loop_
+            _pd_phase_mass.phase_id
+            _pd_phase_mass.percent
+            _pd_phase_mass.percent_su
+            NIST_ALUMINA_676A   99.02   1.11
+
+            _pd_qpa_external_std.k_factor           293.36
+            _pd_char.mass_atten_coef_mu_calc        3159
+
+            _pd_qpa_overall.method                  external_standard
+;
+    _description_example.detail
+;
+         A diffraction pattern containing two phases (PHASE_1 and PHASE_2) has
+         been quantified using the external standard algorithm after Rietveld
+         refinement.
+
+         The K factor, or diffractometer constant, is calculated from a
+         diffraction pattern of a previously characterised standard, collected
+         under the same conditions as the unknown, as
+
+            K = S~s~ * (Z * M * V)~s~ * μ^*^~s~ / W~s~
+
+         where the subscript s denotes the standard, and S is the Rietveld scale
+         factor, Z is the number of formula units per unit cell, M is the
+         chemical formula weight, and V is the volume of the unit cell.
+         μ^*^~m~ is the mass absorption coefficient, and W is the crystalline
+         fraction.
+
+         The absolute weight fraction of phase p, W~p~, can now be given by
+
+             W~p~ = [S~p~ * (Z * M * V)~p~ / K] * μ^*^~m~
+
+         where μ^*^~m~ is the mass absorption coefficient of the entire
+         specimen.
+;
+
 save_
 
 save_pd_qpa_external_std.diffractogram_id
