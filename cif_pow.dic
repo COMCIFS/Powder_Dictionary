@@ -3341,6 +3341,23 @@ save_pd_char.colour
 
 save_
 
+save_pd_char.id
+
+    _definition.id                '_pd_char.id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    Arbitrary label identifying a material.
+;
+    _name.category_id             pd_char
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_char.mass_atten_coef_mu_calc
 
     _definition.id                '_pd_char.mass_atten_coef_mu_calc'
