@@ -4431,6 +4431,38 @@ save_PD_DATA
          _pd_data.diffractogram_id would be taken from the value associated
          with the data name _pd_diffractogram.id given in that data block.
 ;
+;
+         _pd_calc_overall.component_presentation_order
+             [ PHASE_A_ID PHASE_B_ID PHASE_C_ID ]
+
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         _pd_calc.component_intensity_net_list
+         0   3.99875   1061.8   1076.653 [ 20.20 203.215 512.256 ]
+         1   4.03625   1053.9   1074.628 [ 21.34 204.535 513.156 ]
+         2   4.07375   1060.2   1072.667 [ 21.45 205.755 516.456 ]
+         3   4.11125   1017.3   1070.768 [ 21.55 206.975 513.256 ]
+         #further data points follow
+;
+;
+         Tabulation of diffraction data consisting of measured and
+         calculated data, where the calculated data also include intensities
+         ascribed to the different phases which make up the model. The phases to
+         which the intensities belong are given by the value of
+         _pd_calc_overall.component_presentation_order. These values correspond
+         to the _pd_phase.id values of the phases contributing to the current
+         diffractogram. As _pd_calc.component_intensity_net_list is used, the
+         intensities given do not include any background contribution.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. In the usual case that only one diffractogram
+         is present in the data block, the category key value associated with
+         _pd_data.diffractogram_id would be taken from the value associated
+         with the data name _pd_diffractogram.id given in that data block.
+;
 
 save_
 
