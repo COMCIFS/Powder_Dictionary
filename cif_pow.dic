@@ -12153,7 +12153,9 @@ save_pd_qpa_overall.method
     of any _pd_qpa_calib_factor.* value that is given.
 
     If 'other' is chosen, further information must be given in
-    _pd_qpa_overall.special_details
+    _pd_qpa_overall.special_details.
+
+    See examples in PD_QPA_* as to how this category is used.
 ;
     _name.category_id             pd_qpa_overall
     _name.object_id               method
