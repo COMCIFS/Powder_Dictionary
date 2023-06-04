@@ -11096,7 +11096,6 @@ _description_example.case
              _pd_phase.id   PHASE_C
              _pd_qpa_calib_factor.I_over_Ic   1.00
 
-
          data_diffractogram_block
              _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
 
@@ -11737,7 +11736,6 @@ _description_example.case
          data_phase_3
              _pd_phase.id   PHASE_C
              _pd_qpa_calib_factor.I_over_Ic   1.00
-
 
          data_diffractogram_block
              _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
