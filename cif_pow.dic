@@ -11082,7 +11082,7 @@ save_PD_QPA_CALIB_FACTOR
     _name.object_id               PD_QPA_CALIB_FACTOR
     _category_key.name            '_pd_qpa_calib_factor.phase_id'
 
-_description_example.case
+    _description_example.case
 ;
          data_phase_1
              _pd_phase.id   PHASE_A
@@ -11723,7 +11723,7 @@ save_PD_QPA_INTENSITY_FACTOR
          '_pd_qpa_intensity_factor.diffractogram_id'
          '_pd_qpa_intensity_factor.phase_id'
 
-_description_example.case
+    _description_example.case
 ;
          data_phase_1
              _pd_phase.id   PHASE_A
