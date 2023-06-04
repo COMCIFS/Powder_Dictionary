@@ -12449,6 +12449,36 @@ save_PD_SPEC
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
     _category_key.name            '_pd_spec.id'
+    _description_example.case
+;
+         _pd_spec.id            ABC123
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+         _pd_spec.mounting      'back-packed powder pellet'
+         _pd_spec.orientation   horizontal
+         _pd_spec.preparation   '''3 kg of source rock was coarse crushed and
+                                   pulverised to -70 μm. This was sucessively
+                                   riffle-split to obtain a split of ~50 g. The
+                                   split was further homogenised and cone-and-
+                                   quartered to obtain a 3 g split. 1 g of α-
+                                   alumina was added as an internal standard.
+                                   The specimen was micronised for 15 min with
+                                   15 ml of ethanol and dried at 45 °C. The
+                                   resulting powder was backpressed into a
+                                   holder with a semi-automated press.'''
+         _pd_spec.shape         flat_sheet
+         _pd_spec.size_axial    25.0
+         _pd_spec.size_equat    25.0
+         _pd_spec.size_thick     3.5
+;
+    _description_example.detail
+;
+         A specimen of iron ore, from FeOre Inc., with an added internal
+         standard was prepared for analysis. The data were collected in
+         reflection on an instrument where the incident and diffracted beams
+         are vertical. The specimen flat, and is 25.0 x 25.0 mm, or it could be
+         inferred to be ⌀25 mm. The specimen was prepared as described.
+;
 
 save_
 
@@ -12468,6 +12498,12 @@ save_pd_spec.description
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         'Grab specimen from goethite bottle from Acme. Lot #1234.'
+         'By-product found in corroded pipe threads.'
+         'Mystery powder found in back of cupboard.'
 
 save_
 
