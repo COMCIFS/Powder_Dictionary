@@ -10982,7 +10982,7 @@ save_pd_qpa_overall.method
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
          Any difference between the sum of the the individual phase weight
-         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
          [1] Toraya, H. (2016). J. Appl. Crystallogr. 49, 1508-1516.
@@ -11077,7 +11077,7 @@ save_pd_qpa_overall.method
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
          Any difference between the sum of the the individual phase weight
-         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
          [1] Scarlett, N.V.Y. & Madsen, I.C. (2006). Powder Diffr. 21, 278-284.
@@ -11118,7 +11118,7 @@ save_pd_qpa_overall.method
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
          Any difference between the sum of the the individual phase weight
-         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
          [1] Snyder, R. L. (1992). Powder Diffr. 7, 186-192.
@@ -11151,7 +11151,7 @@ save_pd_qpa_overall.method
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
          Any difference between the sum of the the individual phase weight
-         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
          [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
