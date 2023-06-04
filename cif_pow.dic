@@ -6186,6 +6186,7 @@ save_pd_diffractogram.id
          '1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV'
          '76d675f5-9f0b-4bd9-8be3-1266edf74908'
          'DIFFRACTOGRAM Z2'
+         'Insitu_pattern_0123'
          'Synthesis number 1'
 save_
 
@@ -9050,12 +9051,18 @@ save_PD_PHASE_MASS
          their associated standard uncertainties. The values are associated with
          one diffractogram and three phases.
 
+         The method of presentation given here would be associated with being
+         present in a block which does not contain a _pd_diffractogram.id or
+         _pd_phase.id data item.
+
          Blocks containing information about more than one phase must set a
          non-default value for _audit.schema.
 ;
 
 ;
          _audit.schema            Custom
+
+         _pd_diffractogram.id   A_DIFFRACTOGRAM
 
          loop_
          _pd_phase_mass.phase_id
