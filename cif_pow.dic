@@ -9198,6 +9198,23 @@ save_pd_prep.cool_rate_su
 
 save_
 
+save_pd_prep.id
+
+    _definition.id                '_pd_prep.id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    Arbitrary label identifying a sample.
+;
+    _name.category_id             pd_prep
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_prep.pressure
 
     _definition.id                '_pd_prep.pressure'
