@@ -3185,7 +3185,7 @@ save_PD_CHAR
     _definition.id                PD_CHAR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-06-04
     _description.text
 ;
     This section contains experimental (non-diffraction) information relevant to
@@ -3205,6 +3205,7 @@ save_PD_CHAR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
+    _category_key.name            '_pd_spec.id'
 
 save_
 
@@ -9132,7 +9133,7 @@ save_PD_PREP
     _definition.id                PD_PREP
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-06-04
     _description.text
 ;
     This section contains descriptive information about how the sample, from
@@ -9153,6 +9154,7 @@ save_PD_PREP
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
+    _category_key.name            '_pd_prep.id'
 
 save_
 
