@@ -9156,6 +9156,24 @@ save_PD_PREP
 
 save_
 
+save_pd_prep.char_id
+
+    _definition.id                '_pd_prep.char_id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    A char id, representing a material, to which this sample relates.
+;
+    _name.category_id             pd_prep
+    _name.object_id               char_id
+    _name.linked_item_id          '_pd_char.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_prep.conditions
 
     _definition.id                '_pd_prep.conditions'
@@ -11340,6 +11358,24 @@ save_pd_spec.orientation
          horizontal
          vertical
          both
+
+save_
+
+save_pd_spec.prep_id
+
+    _definition.id                '_pd_spec.prep_id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    A prep id, representing a sample, to which this specimen relates.
+;
+    _name.category_id             pd_spec
+    _name.object_id               prep_id
+    _name.linked_item_id          '_pd_prep.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
