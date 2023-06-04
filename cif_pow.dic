@@ -10975,6 +10975,16 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.DDM,
          respectively.
 
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
+
          [1] Toraya, H. (2016). J. Appl. Crystallogr. 49, 1508-1516.
          [2] Toraya, H. (2017). J. Appl. Crystallogr. 50, 820-829.
          [3] Toraya, H. (2017). J. Appl. Crystallogr. 50, 665-665.
@@ -11060,6 +11070,16 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.PONKCS,
          respectively.
 
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
+
          [1] Scarlett, N.V.Y. & Madsen, I.C. (2006). Powder Diffr. 21, 278-284.
 ;
          RIR
@@ -11091,6 +11111,16 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.RIR,
          respectively.
 
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
+
          [1] Snyder, R. L. (1992). Powder Diffr. 7, 186-192.
 ;
          ZMV
@@ -11113,6 +11143,16 @@ save_pd_qpa_overall.method
          The values utilised for I~p~ and C~p~ can be recorded using
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.ZMV,
          respectively.
+
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages  and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
 
          [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
          [1] Bish,D.L. & Howard, S.A. (1988). J. Appl. Crystallogr. 21, 86-91.
