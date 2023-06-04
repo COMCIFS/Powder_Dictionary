@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-05-14
+    _dictionary.date              2023-06-04
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -11220,7 +11220,7 @@ save_PD_SPEC
     _definition.id                PD_SPEC
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-22
+    _definition.update            2023-03-25
     _description.text
 ;
     This section contains information about the specimen used for measurement of
@@ -11745,7 +11745,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-05-14
+         2.5.0                    2023-06-04
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -11852,4 +11852,7 @@ save_
 
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN
+
+       Created category keys for PD_CHAR and PD_PREP. Added link keys between
+       PD_CHAR and PD_PREP, and PD_PREP and PD_SPEC.
 ;
