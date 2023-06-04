@@ -6181,6 +6181,12 @@ save_pd_diffractogram.id
     _type.container               Single
     _type.contents                Text
 
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV'
+         '76d675f5-9f0b-4bd9-8be3-1266edf74908'
+         'DIFFRACTOGRAM Z2'
+         'Synthesis number 1'
 save_
 
 save_pd_diffractogram.spec_id
