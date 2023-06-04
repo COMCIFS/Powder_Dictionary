@@ -11497,9 +11497,7 @@ save_PD_QPA_EXTERNAL_STD
 
             _pd_qpa_external_std.diffractogram_id   THE_REFERENCE
             _pd_char.mass_atten_coef_mu_calc        6940
-
             _pd_qpa_overall.method                  external_standard
-
 
          data_ext_std_diffractogram
             _pd_diffractogram.id   THE_REFERENCE
@@ -11512,7 +11510,6 @@ save_PD_QPA_EXTERNAL_STD
 
             _pd_qpa_external_std.k_factor           293.36
             _pd_char.mass_atten_coef_mu_calc        3159
-
             _pd_qpa_overall.method                  external_standard
 ;
     _description_example.detail
