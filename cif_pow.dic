@@ -11853,6 +11853,6 @@ save_
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN
 
-       Created category keys for PD_CHAR and PD_PREP. Added link keys between
-       PD_CHAR and PD_PREP, and PD_PREP and PD_SPEC.
+       Created category keys for PD_CHAR and PD_PREP. Added link keys to join
+       PD_CHAR to PD_PREP, and PD_PREP to PD_SPEC.
 ;
