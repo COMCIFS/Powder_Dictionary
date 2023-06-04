@@ -8852,6 +8852,22 @@ save_PD_PEAK_OVERALL
     _name.object_id               PD_PEAK_OVERALL
     _category_key.name            '_pd_peak_overall.id'
 
+    loop_
+      _description_example.case
+;
+         _pd_peak_overall.id        PEAK_GROUP_1
+         _pd_peak.special_details   '''Peak positions allowed to refine freely.
+                                    Peak widths constrained to follow UVW
+                                    relationship. Peak shape constrained to be
+                                    Lorentzian.'''
+;
+;
+         _pd_peak_overall.id        peaks
+         _pd_peak.special_details   '''Peak positions fixed by second-derivative
+                                    analysis. Widths allowed to refine freely.
+                                    Pearson-VII peakshape.'''
+;
+
 save_
 
 save_pd_peak.special_details
