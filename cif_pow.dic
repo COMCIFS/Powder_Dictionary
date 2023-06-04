@@ -3205,7 +3205,7 @@ save_PD_CHAR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
-    _category_key.name            '_pd_spec.id'
+    _category_key.name            '_pd_char.id'
 
 save_
 
