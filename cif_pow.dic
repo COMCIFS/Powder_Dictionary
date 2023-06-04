@@ -9237,6 +9237,24 @@ save_pd_prep.pressure_su
 
 save_
 
+save_pd_prep.special_details
+
+    _definition.id                '_pd_prep.special_details'
+    _definition.update            2023-06-04
+    _description.text
+;
+    Descriptive information about the sample that cannot be included in other
+    data items.
+;
+    _name.category_id             pd_prep
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_prep.temperature
 
     _definition.id                '_pd_prep.temperature'
