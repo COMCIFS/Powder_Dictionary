@@ -10916,8 +10916,8 @@ save_PD_PROC_OVERALL
          #...
 ;
 ;
-         The processed diffractogram is in equally spaced 2\q points, starting at
-         5.00\% 2\q, going up in steps of 0.02\%, with the last data point at
+         The processed diffractogram is in equally spaced 2\q points, starting
+         at 5.00\% 2\q, going up in steps of 0.02\%, with the last data point at
          95.00\% 2\q. In total, there are 4501 data points.
 ;
 ;
