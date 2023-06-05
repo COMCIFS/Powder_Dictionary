@@ -8865,21 +8865,21 @@ save_PD_PEAK_OVERALL
     loop_
       _description_example.case
 ;
-         _pd_peak_overall.id        PEAK_GROUP_1
-         _pd_peak.special_details
-      ;
-         Peak positions allowed to refine freely. Peak widths
-         constrained to follow UVW relationship. Peak shape
-         constrained to be Lorentzian.
-      ;
+          _pd_peak_overall.id        PEAK_GROUP_1
+          _pd_peak.special_details
+       ;
+          Peak positions allowed to refine freely. Peak widths
+          constrained to follow UVW relationship. Peak shape
+          constrained to be Lorentzian.
+       ;
 ;
 ;
-         _pd_peak_overall.id        peaks
-         _pd_peak.special_details
-      ;
-         Peak positions fixed by second-derivative analysis.
-         Widths allowed to refine freely. Pearson-VII peakshape.
-      ;
+          _pd_peak_overall.id        peaks
+          _pd_peak.special_details
+       ;
+          Peak positions fixed by second-derivative analysis.
+          Widths allowed to refine freely. Pearson-VII peakshape.
+       ;
 ;
 
 save_
@@ -10906,20 +10906,20 @@ save_PD_PROC_OVERALL
       _description_example.case
       _description_example.detail
 ;
-         _pd_diffractogram.id   PATTERN_42
+          _pd_diffractogram.id   PATTERN_42
 
-         _pd_proc.2theta_range_min   5.00
-         _pd_proc.2theta_range_max  95.00
-         _pd_proc.2theta_range_inc   0.02
-         _pd_proc.number_of_points  4501
+          _pd_proc.2theta_range_min   5.00
+          _pd_proc.2theta_range_max  95.00
+          _pd_proc.2theta_range_inc   0.02
+          _pd_proc.number_of_points  4501
 
-         loop_
-         _pd_data.id
-         _pd_proc.intensity_total
-         _pd_proc.intensity_total_su
-         1   1234   23
-         2   1256   24
-         #...
+          loop_
+          _pd_data.id
+          _pd_proc.intensity_total
+          _pd_proc.intensity_total_su
+          1   1234   23
+          2   1256   24
+          #...
 ;
 ;
          The processed diffractogram is in equally spaced 2\q points, starting
@@ -10927,15 +10927,15 @@ save_PD_PROC_OVERALL
          95.00\% 2\q. In total, there are 4501 data points.
 ;
 ;
-         _pd_proc_overall.diffractogram_id   PATTERN_43
-         _pd_proc.info_datetime              2042-12-13T02:37:23Z
-         _pd_proc.info_data_reduction
-      ;
-         Background removed by spline fitting. K\a~2~ removed using
-         the built-in function. Pattern smoothed by Fourier methods.
-         Used EVA 15.
-      ;
-         _pd_proc.info_excluded_regions      '30-31\% due to quartz impurity.'
+          _pd_proc_overall.diffractogram_id   PATTERN_43
+          _pd_proc.info_datetime              2042-12-13T02:37:23Z
+          _pd_proc.info_data_reduction
+       ;
+          Background removed by spline fitting. K\a~2~ removed using
+          the built-in function. Pattern smoothed by Fourier methods.
+          Used EVA 15.
+       ;
+          _pd_proc.info_excluded_regions      '30-31\% due to quartz impurity.'
 ;
 ;
          The information here applies to the diffractogram with the id
