@@ -8866,16 +8866,20 @@ save_PD_PEAK_OVERALL
       _description_example.case
 ;
          _pd_peak_overall.id        PEAK_GROUP_1
-         _pd_peak.special_details   '''Peak positions allowed to refine freely.
-                                    Peak widths constrained to follow UVW
-                                    relationship. Peak shape constrained to be
-                                    Lorentzian.'''
+         _pd_peak.special_details
+      ;
+         Peak positions allowed to refine freely. Peak widths
+         constrained to follow UVW relationship. Peak shape
+         constrained to be Lorentzian.
+      ;
 ;
 ;
          _pd_peak_overall.id        peaks
-         _pd_peak.special_details   '''Peak positions fixed by second-derivative
-                                    analysis. Widths allowed to refine freely.
-                                    Pearson-VII peakshape.'''
+         _pd_peak.special_details
+      ;
+         Peak positions fixed by second-derivative analysis.
+         Widths allowed to refine freely. Pearson-VII peakshape.
+      ;
 ;
 
 save_
@@ -10203,13 +10207,15 @@ save_pd_prep.char_id
     _description_example.case
 ;
          _pd_prep.id           'rutile 1234'
-         _pd_prep.conditions   '''1 kg of anatase from Acme, Lot#1234 was placed
-                               in several platinum crucible in a furnace at
-                               atmospheric pressure. The furnace was heated at
-                               5 K/min to 1100 K, and held there overnight. The
-                               furnace was then switched off and allowed to cool
-                               naturally. The batch was combined, homoginised,
-                               and riffle-split into 50 g packets.'''
+         _pd_prep.conditions
+      ;
+         1 kg of anatase from Acme, Lot#1234 was placed in several
+         platinum crucible in a furnace at atmospheric pressure.
+         The furnace was heated at 5 K/min to 1100 K, and held there
+         overnight. The furnace was then switched off and allowed to
+         cool naturally. The batch was combined, homoginised, and
+         riffle-split into 50 g packets.
+      ;
          _pd_prep.pressure      101.3
          _pd_prep.temperature  1100
 ;
@@ -10923,10 +10929,12 @@ save_PD_PROC_OVERALL
 ;
          _pd_proc_overall.diffractogram_id   PATTERN_43
          _pd_proc.info_datetime              2042-12-13T02:37:23Z
-         _pd_proc.info_data_reduction        '''Background removed by spline
-                                             fitting. K\a~2~ removed using the
-                                             built-in function. Pattern smoothed
-                                             by Fourier methods. Used EVA 15.'''
+         _pd_proc.info_data_reduction
+      ;
+         Background removed by spline fitting. K\a~2~ removed using
+         the built-in function. Pattern smoothed by Fourier methods.
+         Used EVA 15.
+      ;
          _pd_proc.info_excluded_regions      '30-31\% due to quartz impurity.'
 ;
 ;
@@ -12535,13 +12543,14 @@ save_PD_SPEC
          _pd_spec.mount_mode    reflection
          _pd_spec.mounting      'back-packed powder pellet'
          _pd_spec.orientation   horizontal
-         _pd_spec.preparation   '''50 g of recieved sample was homogenised and
-                                   cone-and-quartered to obtain a 3 g split.
-                                   1 g of \a-alumina was added as an internal
-                                   standard. The specimen was micronised for
-                                   15 min with 15 ml of ethanol and dried at
-                                   45 \%C. The resulting powder was backpressed
-                                   into a holder with a semi-automated press.'''
+         _pd_spec.preparation
+      ;
+         50 g of recieved sample was homogenised and cone-and-quartered
+         to obtain a 3 g split. 1 g of \a-alumina was added as an internal
+         standard. The specimen was micronised for 15 min with 15 ml of
+         ethanol and dried at  45 \%C. The resulting powder was backpressed
+         into a holder with a semi-automated press.
+      ;
          _pd_spec.shape         flat_sheet
          _pd_spec.size_axial    25.0
          _pd_spec.size_equat    25.0
