@@ -437,7 +437,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
 
     _definition.id
         '_pd_background.air_or_thermal_diffuse_coefs_1_su'
-    _definition.update            2023-02-02
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_1.
@@ -449,6 +449,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   none
 
@@ -486,7 +487,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
 
     _definition.id
         '_pd_background.air_or_thermal_diffuse_coefs_2_su'
-    _definition.update            2023-01-14
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_2.
@@ -498,6 +499,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   none
 
@@ -619,7 +621,7 @@ save_
 save_pd_background.chebyshev_coefs_su
 
     _definition.id                '_pd_background.Chebyshev_coefs_su'
-    _definition.update            2023-02-02
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of pd_background.Chebyshev_coefs.
@@ -630,6 +632,7 @@ save_pd_background.chebyshev_coefs_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   none
 
@@ -746,7 +749,7 @@ save_pd_background.cosine_fourier_series_coefs_su
 
     _definition.id
         '_pd_background.cosine_Fourier_series_coefs_su'
-    _definition.update            2023-02-02
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of pd_background.cosine_Fourier_series_coefs.
@@ -757,6 +760,7 @@ save_pd_background.cosine_fourier_series_coefs_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   none
 
@@ -1008,7 +1012,7 @@ save_
 save_pd_background.line_segment_intensities_su
 
     _definition.id                '_pd_background.line_segment_intensities_su'
-    _definition.update            2023-02-02
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of _pd_background.line_segment_intensities.
@@ -1019,6 +1023,7 @@ save_pd_background.line_segment_intensities_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   none
 
@@ -1255,7 +1260,7 @@ save_
 save_pd_background.polynomial_coefs_su
 
     _definition.id                '_pd_background.polynomial_coefs_su'
-    _definition.update            2023-02-02
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of _pd_background.polynomial_coefs.
@@ -1266,6 +1271,7 @@ save_pd_background.polynomial_coefs_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   arbitrary
 
@@ -1344,7 +1350,7 @@ save_
 save_pd_background.polynomial_powers_su
 
     _definition.id                '_pd_background.polynomial_powers_su'
-    _definition.update            2023-02-02
+    _definition.update            2023-06-04
     _description.text
 ;
     Standard uncertainty of _pd_background.polynomial_powers.
@@ -1355,6 +1361,7 @@ save_pd_background.polynomial_powers_su
     _type.purpose                 SU
     _type.source                  Derived
     _type.container               Matrix
+    _type.dimension               '[]'
     _type.contents                Real
     _units.code                   none
 
@@ -3102,6 +3109,553 @@ save_pd_calib_wavelength.special_details
     recorded using other PD_CALIB_WAVELENGTH data items
 ;
     _name.category_id             pd_calib_wavelength
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_PD_CALIB_XCOORD
+
+    _definition.id                PD_CALIB_XCOORD
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-05-06
+    _description.text
+;
+    This section defines the parameters used for the calibration of the
+    X-coordinate axis of the instrument used directly or indirectly in the
+    interpretation of this data set; that is, 2\q, time-of-flight, or
+    position.
+
+    Calibration is carried out be adding the offset value:
+
+        X-coord~calibrated~ = X-coord~meas~ + X-coord~offset~
+
+    For cases where the offset value is not a constant, but rather varies
+    with X-coordinate, a set of offset values is supplied in a loop. In this
+    case, the value where the offset has been determined can be specified as
+    _pd_calib_xcoord.*_nominal. These values may need to be interpolated to
+    be applied to their respective diffractograms.
+
+    Alternatively, if the offset has been determined at each measurement
+    point in the diffractogram, _pd_calib_xcoord.point_id may be used to
+    specify the offset on a per-point basis.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_CALIB_XCOORD
+    _category_key.name            '_pd_calib_xcoord.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+          _pd_calib_xcoord.point_id
+          _pd_calib_xcoord.2theta_offset
+          1   0.01
+          2   0.01
+          3   0.02
+          4   0.02
+          ...
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          _pd_calc.intensity_total
+          1   10.01   1234    1234.1
+          2   10.03   1235    1235.3
+          3   10.05   1352    1236.5
+          4   10.07   1324    1237.7
+          ...
+;
+;
+         Calibration offset values are provided for each data point in the
+         diffractogram.
+;
+;
+         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         loop_
+          _pd_calib_xcoord.id
+          _pd_calib_xcoord.2theta_nominal
+          _pd_calib_xcoord.2theta_offset
+          a   10.00   0.01
+          b   12.00   0.02
+          c   14.00   0.03
+          d   16.00   0.04
+          ...
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          _pd_calc.intensity_total
+          1   10.01   1234    1234.1
+          2   10.03   1235    1235.3
+          3   10.05   1352    1236.5
+          4   10.07   1324    1237.7
+          ...
+;
+;
+         Calibration offsets and the nominal 2\q values to which they apply are
+         listed, along with the diffraction pattern to which they apply. With
+         the given calibration data, an interpolation must be made to obtain a
+         value for each data point.
+;
+;
+            loop_
+            _pd_calib_xcoord_overall.id
+            _pd_calib_xcoord_overall.detector_id
+            _pd_calib_xcoord_overall.diffractogram_id
+            _pd_calib_xcoord_overall.phase_id
+            _pd_calib_xcoord_overall.special_details
+            A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
+            B   det2   .   .   "Scanned through direct beam with fine slit."
+
+          loop_
+          _pd_calib_xcoord.id
+          _pd_calib_xcoord.position_nominal
+          _pd_calib_xcoord.position_offset
+          _pd_calib_xcoord.overall_id
+          a   10.00   0.01   A
+          b   10.00   0.02   B
+          c   12.00   0.03   A
+          d   12.00   0.03   B
+          ...
+;
+;
+         Calibration offsets and the nominal position values to which they apply
+         are listed. The given _pd_calib_xcoord.overall_id refers to the
+         PD_CALIB_XCOORD_OVERALL category items given above.
+
+         An interpolation must be made to obtain a value for each data point.
+;
+
+save_
+
+save_pd_calib_xcoord.2theta_nominal
+
+    _definition.id                '_pd_calib_xcoord.2theta_nominal'
+    _definition.update            2023-01-17
+    _description.text
+;
+    The nominal 2\q value to which the offset given in
+    _pd_calib_xcoord.2theta_offset applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               2theta_nominal
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            -180.0:180.0
+    _units.code                   degrees
+
+save_
+
+save_pd_calib_xcoord.2theta_offset
+
+    _definition.id                '_pd_calib_xcoord.2theta_offset'
+    _definition.update            2023-01-17
+    _description.text
+;
+    _pd_calib_xcoord.2theta_offset defines an offset angle (in degrees) used
+    to calibrate 2\q (as defined in _pd_meas.2theta_). Calibration is done
+    by adding the offset:
+
+         2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               2theta_offset
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            -180.0:180.0
+    _units.code                   degrees
+
+save_
+
+save_pd_calib_xcoord.2theta_offset_su
+
+    _definition.id                '_pd_calib_xcoord.2theta_offset_su'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.2theta_offset.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               2theta_offset_su
+    _name.linked_item_id          '_pd_calib_xcoord.2theta_offset'
+    _units.code                   degrees
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.id
+
+    _definition.id                '_pd_calib_xcoord.id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    A code to uniquely identify each X-coordinate calibration.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.overall_id
+
+    _definition.id                '_pd_calib_xcoord.overall_id'
+    _definition.update            2023-05-06
+    _description.text
+;
+    A code which identifies the particular set of overall calibration conditions
+    under which the calibration was calculated.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               overall_id
+    _name.linked_item_id          '_pd_calib_xcoord_overall.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.point_id
+
+    _definition.id                '_pd_calib_xcoord.point_id'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Arbitrary label identifying a data point in a diffractogram. Used to
+    identify a specific entry in a list of values forming the diffractogram
+    to which the X-coordinate calibration applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               point_id
+    _name.linked_item_id          '_pd_data.point_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
+save_pd_calib_xcoord.position_nominal
+
+    _definition.id                '_pd_calib_xcoord.position_nominal'
+    _definition.update            2023-01-17
+    _description.text
+;
+    The nominal position value to which the offset given in
+    _pd_calib_xcoord.position_offset applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               position_nominal
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   millimetres
+
+save_
+
+save_pd_calib_xcoord.position_offset
+
+    _definition.id                '_pd_calib_xcoord.position_offset'
+    _definition.update            2023-01-17
+    _description.text
+;
+    _pd_calib_xcoord.position_offset defines an offset position (in
+    millimetres) used to calibrate position (as defined in
+    _pd_meas.position). Calibration is done by adding the offset:
+
+         position~calibrated~ = position~measured~ + position~offset~
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               position_offset
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   millimetres
+
+save_
+
+save_pd_calib_xcoord.position_offset_su
+
+    _definition.id                '_pd_calib_xcoord.position_offset_su'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.position_offset.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               position_offset_su
+    _name.linked_item_id          '_pd_calib_xcoord.position_offset'
+    _units.code                   millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.time_of_flight_nominal
+
+    _definition.id                '_pd_calib_xcoord.time_of_flight_nominal'
+    _definition.update            2023-01-17
+    _description.text
+;
+    The nominal time-of-flight value to which the offset given in
+    _pd_calib_xcoord.time_of_flight_offset applies.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               time_of_flight_nominal
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   microseconds
+
+save_
+
+save_pd_calib_xcoord.time_of_flight_offset
+
+    _definition.id                '_pd_calib_xcoord.time_of_flight_offset'
+    _definition.update            2023-01-17
+    _description.text
+;
+    _pd_calib_xcoord.time_of_flight_offset defines an offset time (in
+    microseconds) used to calibrate time-of-flight (TOF) (as defined in
+    _pd_meas.time_of_flight). Calibration is done by adding the offset:
+
+    TOF~calibrated~ = TOF~measured~ + TOF~offset~
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               time_of_flight_offset
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   microseconds
+
+save_
+
+save_pd_calib_xcoord.time_of_flight_offset_su
+
+    _definition.id                '_pd_calib_xcoord.time_of_flight_offset_su'
+    _definition.update            2023-01-17
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.time_of_flight_offset.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               time_of_flight_offset_su
+    _name.linked_item_id          '_pd_calib_xcoord.time_of_flight_offset'
+    _units.code                   microseconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_PD_CALIB_XCOORD_OVERALL
+
+    _definition.id                PD_CALIB_XCOORD_OVERALL
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2023-05-06
+    _description.text
+;
+    This category gives the overall information about the x-coordinate
+    calibration applied to a given diffractogram.
+;
+    _name.category_id             PD_GROUP
+    _name.object_id               PD_CALIB_XCOORD_OVERALL
+
+    loop_
+      _category_key.name
+         '_pd_calib_xcoord_overall.detector_id'
+         '_pd_calib_xcoord_overall.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_calib_xcoord_overall.id
+         _pd_calib_xcoord_overall.detector_id
+         d1   det1
+         d2   det2
+;
+;
+         Calibration offsets given using PD_CALIB_XCOORD category data items
+         will correspond to calibrations carried out on the given two detectors.
+;
+;
+         loop_
+         _pd_calib_xcoord_overall.id
+         _pd_calib_xcoord_overall.detector_id
+         _pd_calib_xcoord_overall.diffractogram_id
+         _pd_calib_xcoord_overall.phase_id
+         1   A   CALIBRATION_DIFFRACTOGRAM_A   NIST_SRM640E
+         2   B   CALIBRATION_DIFFRACTOGRAM_B   NIST_SRM640E
+         3   C   CALIBRATION_DIFFRACTOGRAM_C   NIST_SRM640E
+;
+;
+         Calibration offsets given using PD_CALIB_XCOORD category data items
+         will correspond to calibrations carried out on the given three
+         detectors derived from analysis of the given diffractograms and phase.
+
+         Calibration values will be given using PD_CALIB_XCOORD category data
+         items.
+;
+;
+         loop_
+         _pd_calib_xcoord_overall.id
+         _pd_calib_xcoord_overall.detector_id
+         _pd_calib_xcoord_overall.diffractogram_id
+         _pd_calib_xcoord_overall.phase_id
+         _pd_calib_xcoord_overall.special_details
+         A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
+         B   det2   .   .   "Scanned through direct beam with fine slit."
+;
+;
+         Different detectors can be calibrated through different means. Here,
+         det1 was calibrated through the analysis of a diffractogram and a
+         known reference material, whereas det2 was calibrated by scanning the
+         detector through the direct beam.
+
+         Calibration values will be given using PD_CALIB_XCOORD category data
+         items.
+;
+
+save_
+
+save_pd_calib_xcoord_overall.block_id
+
+    _definition.id                '_pd_calib_xcoord_overall.block_id'
+    _definition.update            2023-05-06
+    _description.text
+;
+    A block ID code identifying the diffractogram from which the X-coordinate
+    calibration was taken, if it was calibrated by a specimen.
+
+    The data block containing the diffraction pattern will be identified with a
+    _pd_block.id code matching the code in _pd_calib_xcoord_overall.block_id.
+;
+    _name.category_id             pd_calib_xcoord_overall
+    _name.object_id               block_id
+    _name.linked_item_id          '_pd_block.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord_overall.detector_id
+
+    _definition.id                '_pd_calib_xcoord_overall.detector_id'
+    _definition.update            2023-05-06
+    _description.text
+;
+    A code which identifies the detector or channel number, in a
+    position-sensitive, energy-dispersive or other multiple-detector instrument,
+    to which the calibration applies.
+
+    Note that this code should match the code name used for
+    _pd_meas.detector_id. As a default value is defined, the detector id may be
+    omitted if only a single detector is present.
+;
+    _name.category_id             pd_calib_xcoord_overall
+    _name.object_id               detector_id
+    _name.linked_item_id          '_pd_meas.detector_id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+    _enumeration.default          .
+
+save_
+
+save_pd_calib_xcoord_overall.diffractogram_id
+
+    _definition.id                '_pd_calib_xcoord_overall.diffractogram_id'
+    _definition.update            2023-05-06
+    _description.text
+;
+    A code which identifies the particular diffractogram from which this
+    X-coordinate calibration was taken, if it was calibrated by a specimen.
+;
+    _name.category_id             pd_calib_xcoord_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord_overall.id
+
+    _definition.id                '_pd_calib_xcoord_overall.id'
+    _definition.update            2023-05-06
+    _description.text
+;
+    A code to uniquely identify the overall values associated with a group of
+    calibration points.
+;
+    _name.category_id             pd_calib_xcoord_overall
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord_overall.phase_id
+
+    _definition.id                '_pd_calib_xcoord_overall.phase_id'
+    _definition.update            2023-05-06
+    _description.text
+;
+    A code which identifies the particular phase used in calibrating the
+    X-coordinate, if it was calibrated by a specimen. The phase can be
+    an internal or external standard.
+;
+    _name.category_id             pd_calib_xcoord_overall
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord_overall.special_details
+
+    _definition.id                '_pd_calib_xcoord_overall.special_details'
+    _definition.update            2023-05-06
+    _description.text
+;
+    Description of X-coordinate calibration details that cannot otherwise
+    be recorded using other PD_CALIB_XCOORD_OVERALL data items.
+;
+    _name.category_id             pd_calib_xcoord_overall
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
@@ -11047,6 +11601,16 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.DDM,
          respectively.
 
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
+
          [1] Toraya, H. (2016). J. Appl. Crystallogr. 49, 1508-1516.
          [2] Toraya, H. (2017). J. Appl. Crystallogr. 50, 820-829.
          [3] Toraya, H. (2017). J. Appl. Crystallogr. 50, 665-665.
@@ -11132,6 +11696,16 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.PONKCS,
          respectively.
 
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
+
          [1] Scarlett, N.V.Y. & Madsen, I.C. (2006). Powder Diffr. 21, 278-284.
 ;
          RIR
@@ -11163,6 +11737,16 @@ save_pd_qpa_overall.method
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.RIR,
          respectively.
 
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
+
          [1] Snyder, R. L. (1992). Powder Diffr. 7, 186-192.
 ;
          ZMV
@@ -11185,6 +11769,16 @@ save_pd_qpa_overall.method
          The values utilised for I~p~ and C~p~ can be recorded using
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.ZMV,
          respectively.
+
+         If an internal standard, s, is present with a known addition, the
+         relative weight fractions can be converted to absolute weight fractions
+         by
+
+            W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
+
+         Any difference between the sum of the the individual phase weight
+         percentages and 100 wt% can be attributed to unanalysed or amorphous
+         phases.
 
          [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
          [1] Bish,D.L. & Howard, S.A. (1988). J. Appl. Crystallogr. 21, 86-91.
@@ -11821,6 +12415,8 @@ save_
 
        Renamed _pd_char.mass_atten_coef_mu_obs to
        _pd_char.mass_atten_coef_mu_meas.
+
+       Created PD_CALIB_XCOORD and PD_CALIB_XCOORD_OVERALL
 
        Updated _pd_phase.name
 
