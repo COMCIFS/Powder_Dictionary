@@ -1953,7 +1953,14 @@ save_PD_CALIB
     _definition.id                PD_CALIB
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        PD_CALIB_DETECTED_INTENSITY
+         2                        PD_QPA_INTERNAL_STD
+
+    _definition.update            2023-06-05
     _description.text
 ;
     This section defines the parameters used for the calibration
@@ -1995,10 +2002,16 @@ save_
 save_pd_calib.detector_response
 
     _definition.id                '_pd_calib.detector_response'
+    _definition_replaced.id       1
+    _definition_replaced.by
+        '_pd_calib_detected_intensity.detector_response'
     _alias.definition_id          '_pd_calib_detector_response'
-    _definition.update            2022-10-11
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see
+    _pd_calib_detected_intensity.detector_response.
+
     A value that indicates the relative sensitivity of each
     detector. This can compensate for differences in electronics,
     size and collimation. Usually, one detector or the mean for
@@ -2018,9 +2031,15 @@ save_
 save_pd_calib.detector_response_su
 
     _definition.id                '_pd_calib.detector_response_su'
-    _definition.update            2022-10-27
+    _definition_replaced.id       1
+    _definition_replaced.by
+        '_pd_calib_detected_intensity.detector_response_su'
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see
+    _pd_calib_detected_intensity.detector_response_su.
+
     Standard uncertainty of _pd_calib.detector_response.
 ;
     _name.category_id             pd_calib
@@ -2082,10 +2101,15 @@ save_
 save_pd_calib.std_internal_name
 
     _definition.id                '_pd_calib.std_internal_name'
+    _definition_replaced.id       1
+    _definition_replaced.by       .
     _alias.definition_id          '_pd_calib_std_internal_name'
-    _definition.update            2022-12-01
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see PD_QPA_INTERNAL_STD for alternate
+    methods of identifying an internal standard.
+
     Identity of material(s) used as an internal intensity standard.
 ;
     _name.category_id             pd_calib
