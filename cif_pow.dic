@@ -1963,6 +1963,9 @@ save_PD_CALIB
     _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see PD_CALIB_DETECTED_INTENSITY and
+    PD_QPA_INTERNAL_STD.
+
     This section defines the parameters used for the calibration
     of the instrument that are used directly or indirectly in the
     interpretation of this data set. The information in this
@@ -2720,6 +2723,9 @@ save_PD_CALIB_OFFSET
     _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see PD_CALIB_XCOORD and
+    PD_CALIB_XCOORD_OVERALL.
+
     Data items in this category define an offset angle (in degrees)
     used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
@@ -2952,6 +2958,10 @@ save_PD_CALIB_STD
     _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see PD_CALIB_DETECTED_INTENSITY,
+    PD_CALIB_INCIDENT_INTENSITY, PD_CALIB_WAVELENGTH, and
+    PD_CALIB_XCOORD_OVERALL.
+
     This category identifies the external standards used for the calibration
     of the instrument that are used directly or indirectly in the
     interpretation of this data set. The information in this
@@ -12489,5 +12499,5 @@ save_
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN
 
-       Deprecated PD_CALIB, PD_CALIB_OFFSET.
+       Deprecated PD_CALIB, PD_CALIB_OFFSET, and PD_CALIB_STD.
 ;
