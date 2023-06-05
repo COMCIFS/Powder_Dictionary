@@ -2940,7 +2940,16 @@ save_PD_CALIB_STD
     _definition.id                PD_CALIB_STD
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        PD_CALIB_DETECTED_INTENSITY
+         2                        PD_CALIB_INCIDENT_INTENSITY
+         3                        PD_CALIB_WAVELENGTH
+         4                        PD_CALIB_XCOORD_OVERALL
+
+    _definition.update            2023-06-05
     _description.text
 ;
     This category identifies the external standards used for the calibration
@@ -2953,7 +2962,7 @@ save_PD_CALIB_STD
     used (for example, separately for angular and gain calibration).
 
     For quantitative phase analysis by the external standard approach,
-    please see PD_QPA_EXT_STD.
+    please see PD_QPA_EXTERNAL_STD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_STD
@@ -2968,9 +2977,19 @@ save_
 save_pd_calib_std.detector_id
 
     _definition.id                '_pd_calib_std.detector_id'
-    _definition.update            2016-10-18
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_pd_calib_detected_intensity.detector_id'
+         2                        '_pd_calib_xcoord_overall.detector_id'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_detected_intensity.detector_id
+    or _pd_calib_xcoord_overall.detector_id, as necessary.
+
     A code which identifies the detector or channel number that the
     calibration data applies to. Note that this code should match a
     detector from _pd_meas.detector_id and may be omitted if only
@@ -2990,10 +3009,34 @@ save_
 save_pd_calib_std.external_block_id
 
     _definition.id                '_pd_calib_std.external_block_id'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                       '_pd_calib_detected_intensity.block_id'
+         2                       '_pd_calib_detected_intensity.diffractogram_id'
+         3                       '_pd_calib_incident_intensity.block_id'
+         4                       '_pd_calib_incident_intensity.diffractogram_id'
+         5                       '_pd_calib_wavelength.block_id'
+         6                       '_pd_calib_wavelength.diffractogram_id'
+         7                       '_pd_calib_xcoord_overall.block_id'
+         8                       '_pd_calib_xcoord_overall.diffractogram_id'
+
     _alias.definition_id          '_pd_calib_std_external_block_id'
-    _definition.update            2023-01-09
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see:
+      - _pd_calib_detected_intensity.block_id
+      - _pd_calib_detected_intensity.diffractogram_id
+      - _pd_calib_incident_intensity.block_id
+      - _pd_calib_incident_intensity.diffractogram_id
+      - _pd_calib_wavelength.block_id
+      - _pd_calib_wavelength.diffractogram_id
+      - _pd_calib_xcoord_overall.block_id
+      - _pd_calib_xcoord_overall.diffractogram_id
+    as necessary.
+
     Identifies the _pd_block.id used as an external standard for the
     diffraction angle or the intensity calibrations.
 
@@ -3013,10 +3056,20 @@ save_
 save_pd_calib_std.external_name
 
     _definition.id                '_pd_calib_std.external_name'
+    _definition_replaced.id       1
+    _definition_replaced.by       .
     _alias.definition_id          '_pd_calib_std_external_name'
-    _definition.update            2023-01-07
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see:
+      - PD_CALIB_DETECTED_INTENSITY
+      - PD_CALIB_INCIDENT_INTENSITY
+      - PD_CALIB_WAVELENGTH
+      - PD_CALIB_XCOORD
+      - PD_CALIB_XCOORD_OVERALL
+    as necessary, for information on how to identify the external standard used.
+
     Identifies the name of the material used as an external standard for
     the diffraction angle or the intensity calibrations.
 ;
