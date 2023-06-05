@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-04
+    _dictionary.date              2023-06-05
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -7431,6 +7431,8 @@ save_
 save_PD_MEAS_INFO_AUTHOR
 
     _definition.id                PD_MEAS_INFO_AUTHOR
+    _definition.scope             Category
+    _definition.class             Loop
 
     loop_
       _definition_replaced.id
@@ -7438,8 +7440,6 @@ save_PD_MEAS_INFO_AUTHOR
          1                        'AUDIT_AUTHOR'
          2                        'AUDIT_AUTHOR_ROLE'
 
-    _definition.scope             Category
-    _definition.class             Loop
     _definition.update            2023-06-05
     _description.text
 ;
@@ -12283,7 +12283,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-04
+         2.5.0                    2023-06-05
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12391,5 +12391,8 @@ save_
        Added _pd_peak_overall.id.
 
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
-       PD_BACKGROUND, and REFLN
+       PD_BACKGROUND, and REFLN.
+
+       Deprecated PD_MEAS_INFO_AUTHOR in favour of AUDIT_AUTHOR and
+       AUDIT_AUTHOR_ROLE.
 ;
