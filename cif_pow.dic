@@ -10592,6 +10592,68 @@ save_PD_PROC_LS
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_LS
     _category_key.name            '_pd_proc_ls.diffractogram_id'
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   PATTERN_42
+
+         _pd_proc_ls.peak_cutoff        0.0001
+         _pd_proc_ls.prof_wr_expected   0.12324
+         _pd_proc_ls.prof_wr_factor     0.15432
+         _pd_proc_ls.profile_function   'Fundamental parameters'
+;
+;
+         The PD_PROC_LS information applies to the diffractogram with the id of
+         PATTERN_42. The peak intensities are calculated out to a point where
+         the intensity is 0.0001\\times the intensity at the peak maximum, or
+         0.01%. The value of R~exp~ is 12.324% and R~wp~ is 15.432%. The peak
+         profiles were calculated using fundamental parameters
+;
+;
+         _pd_proc_ls.diffractogram_id   cae4f697-ae84-4e3f-a0c1-4569d60b6191
+         _pd_proc_ls.peak_cutoff        0.005
+         _pd_proc_ls.prof_wr_expected   0.0273
+         _pd_proc_ls.prof_wr_factor     0.0569
+         _pd_proc_ls.profile_function
+       ;
+         The profiles were calculated using the modified Thompson-Cox-Hastings
+         formulation, where:
+
+           tch_L =  X * tan(\q)) + (Y / cos(\q)
+           tch_G = (U * tan(\q)^2^ + V * tan(\q) + W + Z / cos(\q)^2^)^1/2^
+           tch_P = (   tch_G^5^ +
+             2.69269 * tch_G^4^ * tch_L +
+             2.42843 * tch_G^3^ * tch_L^2^ +
+             4.47163 * tch_G^2^ * tch_L^3^ +
+             0.07842 * tch_G    * tch_L^4^ +
+                                  tch_L^5^ )^1/5^
+           tch_Q = tch_L / tch_P
+           eta = 1.36603 * tch_Q - 0.47719 * tch_Q^2^ + 0.1116 * tch_Q^3^
+
+         The full-width half-maximum of the Lorentzian and Gaussian peaks are
+         given by tch_L and tch_G, respectively.
+
+         The mixing parameter between the amount of Lorentzian and Gaussian is
+         given by eta.
+
+         U, W, Y, and Z were fixed at zero.
+
+         The refined values of V and X were 0.059(2)\% and 0.037(1)\%,
+         respectively.
+
+         For further details, see J. Appl. Cryst. (1987). 20, 79-83
+         https://doi.org/10.1107/S0021889887087090
+       ;
+;
+;
+         The PD_PROC_LS information applies to the diffractogram with the id of
+         the given GUID. The peak intensities are calculated out to a point
+         where the intensity is 0.005\\times the intensity at the peak maximum,
+         or 0.5%. The value of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak
+         profiles were calculated using the modified Thompson-Cox-Hasting
+         algorithm, as described, with final refined parameter values given.
+;
 
 save_
 
