@@ -12467,21 +12467,18 @@ save_PD_SPEC
     _category_key.name            '_pd_spec.id'
     _description_example.case
 ;
-         _pd_spec.id            ABC123
+         _pd_spec.id            ABC123_03
          _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
          _pd_spec.mount_mode    reflection
          _pd_spec.mounting      'back-packed powder pellet'
          _pd_spec.orientation   horizontal
-         _pd_spec.preparation   '''3 kg of source rock was coarse crushed and
-                                   pulverised to -70 μm. This was sucessively
-                                   riffle-split to obtain a split of ~50 g. The
-                                   split was further homogenised and cone-and-
-                                   quartered to obtain a 3 g split. 1 g of α-
-                                   alumina was added as an internal standard.
-                                   The specimen was micronised for 15 min with
-                                   15 ml of ethanol and dried at 45 °C. The
-                                   resulting powder was backpressed into a
-                                   holder with a semi-automated press.'''
+         _pd_spec.preparation   '''50 g of recieved sample was homogenised and
+                                   cone-and-quartered to obtain a 3 g split.
+                                   1 g of α-alumina was added as an internal
+                                   standard. The specimen was micronised for
+                                   15 min with 15 ml of ethanol and dried at
+                                   45 °C. The resulting powder was backpressed
+                                   into a holder with a semi-automated press.'''
          _pd_spec.shape         flat_sheet
          _pd_spec.size_axial    25.0
          _pd_spec.size_equat    25.0
