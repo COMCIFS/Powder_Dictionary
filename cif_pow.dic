@@ -10895,6 +10895,46 @@ save_PD_PROC_OVERALL
     _name.object_id               PD_PROC_OVERALL
     _category_key.name            '_pd_proc_overall.diffractogram_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+			_pd_diffractogram.id   PATTERN_42
+
+			_pd_proc.2theta_range_min   5.00
+			_pd_proc.2theta_range_max  95.00
+			_pd_proc.2theta_range_inc   0.02
+			_pd_proc.number_of_points  4501
+
+			loop_
+			_pd_data.id
+			_pd_proc.intensity_total
+			_pd_proc.intensity_total_su
+			1   1234   23
+			2   1256   24
+			#...
+;
+;
+         The processed diffractogram is in equally spaced 2θ points, starting at
+         5.00° 2θ, going up in steps of 0.02°, with the last data point at
+         95.00° 2θ. In total, there are 4501 data points.
+;
+;
+			_pd_proc_overall.diffractogram_id   PATTERN_43
+			_pd_proc.info_datetime              2042-12-13T02:37:23Z
+			_pd_proc.info_data_reduction        '''Background removed by spline
+			                                    fitting. Kα~2~ removed using the
+			                                    built-in function. Pattern smoothed
+			                                    by Fourier methods. Used EVA 15.'''
+			_pd_proc.info_excluded_regions      '30-31 deg due to quartz impurity.'
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_43'. The data were processed at 2:37 h GMT on the 13th of
+         December 2042. The data were modified as described. The data between
+         30 and 31° 2θ should be ignored, due to an impurity.
+;
+
 save_
 
 save_pd_proc.2theta_range_inc
