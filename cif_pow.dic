@@ -3023,14 +3023,14 @@ save_pd_calib_std.external_block_id
     loop_
       _definition_replaced.id
       _definition_replaced.by
-         1                       '_pd_calib_detected_intensity.block_id'
-         2                       '_pd_calib_detected_intensity.diffractogram_id'
-         3                       '_pd_calib_incident_intensity.block_id'
-         4                       '_pd_calib_incident_intensity.diffractogram_id'
-         5                       '_pd_calib_wavelength.block_id'
-         6                       '_pd_calib_wavelength.diffractogram_id'
-         7                       '_pd_calib_xcoord_overall.block_id'
-         8                       '_pd_calib_xcoord_overall.diffractogram_id'
+         1                      '_pd_calib_detected_intensity.block_id'
+         2                      '_pd_calib_detected_intensity.diffractogram_id'
+         3                      '_pd_calib_incident_intensity.block_id'
+         4                      '_pd_calib_incident_intensity.diffractogram_id'
+         5                      '_pd_calib_wavelength.block_id'
+         6                      '_pd_calib_wavelength.diffractogram_id'
+         7                      '_pd_calib_xcoord_overall.block_id'
+         8                      '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
     _definition.update            2023-06-05
