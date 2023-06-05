@@ -4027,6 +4027,15 @@ save_PD_CHAR
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
     _category_key.name            '_pd_char.id'
+    _description_example.case
+;
+         _pd_char.colour                   white
+         _pd_char.mass_atten_coef_mu_calc  4878
+         _pd_char.particle_morphology
+            'Large equiaxed chunks, approx. 3 mm  across.'
+         _pd_char.special_details
+            'Bottle labelled "corundum". MAC calculated from XRF.'
+;
 
 save_
 
