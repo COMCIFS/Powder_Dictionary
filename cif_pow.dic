@@ -2710,7 +2710,14 @@ save_PD_CALIB_OFFSET
     _definition.id                PD_CALIB_OFFSET
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-11-12
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        PD_CALIB_XCOORD
+         2                        PD_CALIB_XCOORD_OVERALL
+
+    _definition.update            2023-06-05
     _description.text
 ;
     Data items in this category define an offset angle (in degrees)
@@ -2740,10 +2747,18 @@ save_
 save_pd_calib.2theta_off_max
 
     _definition.id                '_pd_calib.2theta_off_max'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       .
+
     _alias.definition_id          '_pd_calib_2theta_off_max'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see PD_CALIB_XCOORD. In general,
+    calibrations are now carried out over the given range, removing the need
+    to explicitly provide minima and maxima.
+
     The maximum nominal 2\q value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
@@ -2761,10 +2776,18 @@ save_
 save_pd_calib.2theta_off_min
 
     _definition.id                '_pd_calib.2theta_off_min'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       .
+
     _alias.definition_id          '_pd_calib_2theta_off_min'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see PD_CALIB_XCOORD. In general,
+    calibrations are now carried out over the given range, removing the need
+    to explicitly provide minima and maxima.
+
     The minimum nominal 2\q value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
@@ -2782,10 +2805,16 @@ save_
 save_pd_calib.2theta_off_point
 
     _definition.id                '_pd_calib.2theta_off_point'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_nominal'
+
     _alias.definition_id          '_pd_calib_2theta_off_point'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.2theta_nominal.
+
     The nominal 2\q value to which the offset given in
     _pd_calib.2theta_offset applies.
 ;
@@ -2803,10 +2832,16 @@ save_
 save_pd_calib.2theta_offset
 
     _definition.id                '_pd_calib.2theta_offset'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset'
+
     _alias.definition_id          '_pd_calib_2theta_offset'
-    _definition.update            2022-10-11
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset.
+
     _pd_calib.2theta_offset defines an offset angle (in degrees)
     used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
@@ -2827,9 +2862,15 @@ save_
 save_pd_calib.2theta_offset_su
 
     _definition.id                '_pd_calib.2theta_offset_su'
-    _definition.update            2022-10-27
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset_su'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset_su.
+
     Standard uncertainty of _pd_calib.2theta_offset.
 ;
     _name.category_id             pd_calib_offset
@@ -2844,9 +2885,15 @@ save_
 save_pd_calib_offset.detector_id
 
     _definition.id                '_pd_calib_offset.detector_id'
-    _definition.update            2016-11-12
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord_overall.detector_id'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord_overall.detector_id.
+
     The detector to which the offset values relate.
     As a default value is defined, the detector id may be
     omitted if only a single detector is present.
@@ -2865,9 +2912,15 @@ save_
 save_pd_calib_offset.id
 
     _definition.id                '_pd_calib_offset.id'
-    _definition.update            2023-01-06
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.id'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.id.
+
     An arbitrary code which identifies a particular 2\q offset
     description. As a default value is defined, this may be
     omitted if only a single offset is provided.
@@ -12383,5 +12436,5 @@ save_
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN
 
-       Deprecate PD_CALIB.
+       Deprecated PD_CALIB, PD_CALIB_OFFSET.
 ;
