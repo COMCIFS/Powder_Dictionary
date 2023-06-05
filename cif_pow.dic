@@ -3739,7 +3739,7 @@ save_PD_CHAR
     _definition.id                PD_CHAR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-02-22
     _description.text
 ;
     This section contains experimental (non-diffraction) information relevant to
@@ -9669,7 +9669,7 @@ save_PD_PREP
     _definition.id                PD_PREP
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2023-02-22
     _description.text
 ;
     This section contains descriptive information about how the sample, from
