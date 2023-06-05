@@ -7437,8 +7437,8 @@ save_PD_MEAS_INFO_AUTHOR
     loop_
       _definition_replaced.id
       _definition_replaced.by
-         1                        'AUDIT_AUTHOR'
-         2                        'AUDIT_AUTHOR_ROLE'
+         1                        AUDIT_AUTHOR
+         2                        AUDIT_AUTHOR_ROLE
 
     _definition.update            2023-06-05
     _description.text
@@ -9873,8 +9873,8 @@ save_PD_PROC_INFO_AUTHOR
     loop_
       _definition_replaced.id
       _definition_replaced.by
-         1                        'AUDIT_AUTHOR'
-         2                        'AUDIT_AUTHOR_ROLE'
+         1                        AUDIT_AUTHOR
+         2                        AUDIT_AUTHOR_ROLE
 
     _definition.update            2023-06-05
     _description.text
