@@ -9869,7 +9869,14 @@ save_PD_PROC_INFO_AUTHOR
     _definition.id                PD_PROC_INFO_AUTHOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        'AUDIT_AUTHOR'
+         2                        'AUDIT_AUTHOR_ROLE'
+
+    _definition.update            2023-06-05
     _description.text
 ;
     This section contains information about the person(s)
@@ -9877,22 +9884,27 @@ save_PD_PROC_INFO_AUTHOR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_INFO_AUTHOR
-
-    loop_
-      _category_key.name
-         '_pd_proc_info_author.diffractogram_id'
-         '_pd_proc_info_author.name'
-         '_pd_proc_info_author.phase_id'
+    _category_key.name            '_pd_proc_info_author.name'
 
 save_
 
 save_pd_proc_info_author.address
 
     _definition.id                '_pd_proc_info_author.address'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.address'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_address'
-    _definition.update            2023-01-12
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.address and
+    _audit_author_role.role.
+
     The address of the person who processed the data.
     If there is more than one person, this will be looped with
     _pd_proc_info_author.name.
@@ -9906,32 +9918,23 @@ save_pd_proc_info_author.address
 
 save_
 
-save_pd_proc_info_author.diffractogram_id
-
-    _definition.id                '_pd_proc_info_author.diffractogram_id'
-    _definition.update            2023-01-12
-    _description.text
-;
-    The diffractogram (see _pd_diffractogram.id) to which the processing
-    author relates.
-;
-    _name.category_id             pd_proc_info_author
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_proc_info_author.email
 
     _definition.id                '_pd_proc_info_author.email'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.email'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_email'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.email and
+    _audit_author_role.role.
+
     The e-mail address of the person who processed the
     data. If there is more than one person, this will be looped
     with _pd_proc_info_author.name.
@@ -9948,10 +9951,20 @@ save_
 save_pd_proc_info_author.fax
 
     _definition.id                '_pd_proc_info_author.fax'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.fax'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_fax'
-    _definition.update            2014-06-20
+    _definition.update            2023-05-06
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.fax and
+    _audit_author_role.role.
+
     The fax number of the person who processed the data.
     If there is more than one person, this will be looped with
     _pd_proc_info_author.name. The recommended style is
@@ -9970,10 +9983,20 @@ save_
 save_pd_proc_info_author.name
 
     _definition.id                '_pd_proc_info_author.name'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.name'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_name'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.name and
+    _audit_author_role.role.
+
     The name of the person who processed the data, if different
     from the person(s) who measured the data set. The family
     name(s), followed by a comma and including any dynastic
@@ -9989,31 +10012,23 @@ save_pd_proc_info_author.name
 
 save_
 
-save_pd_proc_info_author.phase_id
-
-    _definition.id                '_pd_proc_info_author.phase_id'
-    _definition.update            2023-01-12
-    _description.text
-;
-    The phase (see _pd_phase.id) to which the processing author relates.
-;
-    _name.category_id             pd_proc_info_author
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_proc_info_author.phone
 
     _definition.id                '_pd_proc_info_author.phone'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.phone'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_phone'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.phone and
+    _audit_author_role.role.
+
     The telephone number of the person who processed the data.
     If there is more than one person, this will be looped
     with _pd_proc_info_author.name. The recommended style is
@@ -12393,6 +12408,6 @@ save_
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN.
 
-       Deprecated PD_MEAS_INFO_AUTHOR in favour of AUDIT_AUTHOR and
-       AUDIT_AUTHOR_ROLE.
+       Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
+       AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
 ;
