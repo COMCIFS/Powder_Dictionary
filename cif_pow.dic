@@ -1953,13 +1953,6 @@ save_PD_CALIB
     _definition.id                PD_CALIB
     _definition.scope             Category
     _definition.class             Loop
-
-    loop_
-      _definition_replaced.id
-      _definition_replaced.by
-         1                        PD_CALIB_DETECTED_INTENSITY
-         2                        PD_QPA_INTERNAL_STD
-
     _definition.update            2023-06-05
     _description.text
 ;
@@ -2713,13 +2706,6 @@ save_PD_CALIB_OFFSET
     _definition.id                PD_CALIB_OFFSET
     _definition.scope             Category
     _definition.class             Loop
-
-    loop_
-      _definition_replaced.id
-      _definition_replaced.by
-         1                        PD_CALIB_XCOORD
-         2                        PD_CALIB_XCOORD_OVERALL
-
     _definition.update            2023-06-05
     _description.text
 ;
@@ -2946,15 +2932,6 @@ save_PD_CALIB_STD
     _definition.id                PD_CALIB_STD
     _definition.scope             Category
     _definition.class             Loop
-
-    loop_
-      _definition_replaced.id
-      _definition_replaced.by
-         1                        PD_CALIB_DETECTED_INTENSITY
-         2                        PD_CALIB_INCIDENT_INTENSITY
-         3                        PD_CALIB_WAVELENGTH
-         4                        PD_CALIB_XCOORD_OVERALL
-
     _definition.update            2023-06-05
     _description.text
 ;
