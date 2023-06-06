@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-04
+    _dictionary.date              2023-06-06
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -3669,14 +3669,20 @@ save_PD_CALIBRATION
     _definition.id                PD_CALIBRATION
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-17
+    _definition.update            2023-06-06
     _description.text
 ;
-    This section contains calibration information that is
-    not looped
+    This section details the equations used to convert a channel number
+    supplied in _pd_meas.detector_id for a position-sensitive or
+    energy-dispersive detector or the distance supplied in _pd_meas.position
+    to Q, energy, angle etc.
+
+    This information is not designed to be machine-readable, but should be
+    written in an explicit manner to enable reimplementation.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIBRATION
+    _category_key.name            '_pd_calibration.diffractogram_id'
 
 save_
 
@@ -3684,17 +3690,13 @@ save_pd_calibration.conversion_eqn
 
     _definition.id                '_pd_calibration.conversion_eqn'
     _alias.definition_id          '_pd_calibration_conversion_eqn'
-    _definition.update            2023-01-21
+    _definition.update            2023-06-06
     _description.text
 ;
-    The calibration function for converting a channel number
+    The calibration equation for converting a channel number
     supplied in _pd_meas.detector_id for a position-sensitive
     or energy-dispersive detector or the distance supplied in
     _pd_meas.position to Q, energy, angle etc.
-
-    Use _pd_calib_std.external_block_id to define a pointer to
-    the data block containing the data used to determine the
-    parameter values in this function.
 ;
     _name.category_id             pd_calibration
     _name.object_id               conversion_eqn
@@ -3710,20 +3712,56 @@ save_pd_calibration.conversion_eqn
 
 save_
 
+save_pd_calibration.diffractogram_id
+
+    _definition.id                '_pd_calibration.diffractogram_id'
+    _definition.update            2023-06-06
+    _description.text
+;
+    A code which identifies the diffractogram to which this calibration equation
+    has been applied.
+;
+    _name.category_id             pd_calibration
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calibration.ref_diffractogram_id
+
+    _definition.id                '_pd_calibration.ref_diffractogram_id'
+    _definition.update            2023-06-06
+    _description.text
+;
+    A code which identifies the reference diffractogram from which this
+    calibration equation was derived.
+;
+    _name.category_id             pd_calibration
+    _name.object_id               ref_diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_calibration.special_details
 
     _definition.id                '_pd_calibration.special_details'
     _alias.definition_id          '_pd_calibration_special_details'
-    _definition.update            2016-10-17
+    _definition.update            2023-06-06
     _description.text
 ;
-    Description of how the instrument was
-    calibrated, particularly for instruments where
-    calibration information is used to make hardware
-    settings that would otherwise be invisible once data
-    collection is completed. Do not use this item to specify
-    information that can be specified using other
-    PD_CALIBRATION or PD_CALIB items.
+    Description of how the instrument was calibrated, particularly for
+    instruments where calibration information is used to make hardware
+    settings that would otherwise be invisible once data collection is
+    completed. Do not use this item to specify information that can be
+    specified using other PD_CALIBRATION items.
 ;
     _name.category_id             pd_calibration
     _name.object_id               special_details
@@ -12249,7 +12287,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-04
+         2.5.0                    2023-06-06
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12357,5 +12395,8 @@ save_
        Added _pd_peak_overall.id.
 
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
-       PD_BACKGROUND, and REFLN
+       PD_BACKGROUND, and REFLN.
+
+       Update PD_CALIBRATION with _pd_calibration.ref_diffractogram_id and new
+       category key _pd_calibration.diffractogram_id.
 ;
