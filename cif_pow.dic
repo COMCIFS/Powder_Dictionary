@@ -3672,7 +3672,7 @@ save_PD_CALIBRATION
     _definition.update            2023-06-06
     _description.text
 ;
-    This section details the equations used to convert a channel number
+    This category details the equations used to convert a channel number
     supplied in _pd_meas.detector_id for a position-sensitive or
     energy-dispersive detector or the distance supplied in _pd_meas.position
     to Q, energy, angle etc.
@@ -3683,6 +3683,39 @@ save_PD_CALIBRATION
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIBRATION
     _category_key.name            '_pd_calibration.diffractogram_id'
+    _description_example.case
+;
+         _pd_diffractogram.id   EDD_DP
+
+         _pd_calibration.conversion_eqn
+       ;
+            E = A~0~ + A~1~ * channel + A~2~ * channel^2^
+
+            Values refined from the reference pattern and then kept fixed.
+            A~0~ = 19964(2)      eV
+            A~1~ =    87.51(4)   eV / channel
+            A~2~ =     0.0156(6) eV / channel^2^
+       ;
+         _pd_calibration.special_details
+       ;
+            Gain settings slight affected the detector linearity.
+            The gain was fixed at 4.2 as this produced the most
+            linear response. This value was fixed for all data
+            collection, including the standards.
+       ;
+         _pd_calibration.ref_diffractogram_id   EDD_STANDARD
+
+         loop_
+         _pd_data.id
+         _pd_meas.detector_id
+         _pd_proc.energy_detection
+         _pd_proc.energy_detection_su
+         _pd_meas.counts_total
+         a   1    20051.5   4.1    1234
+         b   2    20139.1   4.2    1434
+         c   3    20226.7   4.3    1457
+         #...
+;
 
 save_
 
