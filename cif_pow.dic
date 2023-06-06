@@ -2221,9 +2221,31 @@ save_pd_calib_d_to_tof.coeff_su
     _name.category_id             pd_calib_d_to_tof
     _name.object_id               coeff_su
     _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
-    _units.code                   microseconds
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _method.purpose               Definition
+    _method.expression
+;
+    with pc as pd_calib_d_to_tof
+    if (pc.power == 0) {
+        _units.code = "microseconds"
+        }
+    else if (pc.power == 1) {
+        _units.code = "microseconds_per_angstrom"
+        }
+    else if (pc.power == 2) {
+        _units.code = "microseconds_per_angstrom_squared"
+        }
+    else if (pc.power == 3) {
+        _units.code = "microseconds_per_angstrom_cubed"
+    }
+    else if (pc.power == -1) {
+        _units.code = "angstroms_per_microsecond"
+    }
+    else _units.code = UNKNOWN
+;
 
 save_
 
