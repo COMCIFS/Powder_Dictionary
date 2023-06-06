@@ -7433,16 +7433,11 @@ save_PD_MEAS_INFO_AUTHOR
     _definition.id                PD_MEAS_INFO_AUTHOR
     _definition.scope             Category
     _definition.class             Loop
-
-    loop_
-      _definition_replaced.id
-      _definition_replaced.by
-         1                        AUDIT_AUTHOR
-         2                        AUDIT_AUTHOR_ROLE
-
     _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
     This section contains information about the person(s)
     who conducted the measurement.
 ;
@@ -9869,16 +9864,11 @@ save_PD_PROC_INFO_AUTHOR
     _definition.id                PD_PROC_INFO_AUTHOR
     _definition.scope             Category
     _definition.class             Loop
-
-    loop_
-      _definition_replaced.id
-      _definition_replaced.by
-         1                        AUDIT_AUTHOR
-         2                        AUDIT_AUTHOR_ROLE
-
     _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
     This section contains information about the person(s)
     who processed the data.
 ;
