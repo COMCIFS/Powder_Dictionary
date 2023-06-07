@@ -9718,7 +9718,7 @@ save_pd_prep.char_id
     _definition.update            2023-06-04
     _description.text
 ;
-    A char id, representing a material, to which this sample relates.
+    The identifier for the material from which this sample was prepared
 ;
     _name.category_id             pd_prep
     _name.object_id               char_id
@@ -11963,7 +11963,7 @@ save_pd_spec.prep_id
     _definition.update            2023-06-04
     _description.text
 ;
-    A prep id, representing a sample, to which this specimen relates.
+    The identifier for the sample from which this specimen was taken.
 ;
     _name.category_id             pd_spec
     _name.object_id               prep_id
