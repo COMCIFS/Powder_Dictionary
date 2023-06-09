@@ -1595,6 +1595,9 @@ save_PD_BLOCK_DIFFRACTOGRAM
     _definition.update            2022-12-03
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_diffractogram.id as necessary.
+
     A number of diffractograms may contribute to the
     determination of the structure of a single phase.
     The _pd_block.ids of those diffractograms should
@@ -8557,6 +8560,9 @@ save_PD_PHASE_BLOCK
     _definition.update            2022-12-03
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id as necessary.
+
     A table of phases relevant to the current data
     block. Each phase is identified by the block identifier
     of the data block containing the phase information,
