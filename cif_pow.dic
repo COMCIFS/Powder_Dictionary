@@ -1595,26 +1595,6 @@ save_PD_BLOCK_DIFFRACTOGRAM
 
 save_
 
-save_pd_block_diffractogram.diffractogram_id
-
-    _definition.id                '_pd_block_diffractogram.diffractogram_id'
-    _definition.update            2022-12-03
-    _description.text
-;
-    A diffractogram id code (see _pd_diffractogram.id) that
-    identifies the diffraction data contained in the data block
-    pointed to by _pd_block_diffractogram.id.
-;
-    _name.category_id             pd_block_diffractogram
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
@@ -8705,27 +8685,6 @@ save_pd_phase_block.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_phase_block.phase_id
-
-    _definition.id                '_pd_phase_block.phase_id'
-    _alias.definition_id          '_pd_phase_id'
-    _definition.update            2022-12-03
-    _description.text
-;
-    A phase id code (see _pd_phase.id) that identifies the phase
-    contained in the data block pointed to by _pd_phase_block.id
-;
-    _name.category_id             pd_phase_block
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
 
 save_
 
