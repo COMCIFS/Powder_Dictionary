@@ -1606,26 +1606,6 @@ save_PD_BLOCK_DIFFRACTOGRAM
 
 save_
 
-save_pd_block_diffractogram.diffractogram_id
-
-    _definition.id                '_pd_block_diffractogram.diffractogram_id'
-    _definition.update            2022-12-03
-    _description.text
-;
-    A diffractogram id code (see _pd_diffractogram.id) that
-    identifies the diffraction data contained in the data block
-    pointed to by _pd_block_diffractogram.id.
-;
-    _name.category_id             pd_block_diffractogram
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
@@ -1942,9 +1922,12 @@ save_PD_CALIB
     _definition.id                PD_CALIB
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-17
+    _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see PD_CALIB_DETECTED_INTENSITY and
+    PD_QPA_INTERNAL_STD.
+
     This section defines the parameters used for the calibration
     of the instrument that are used directly or indirectly in the
     interpretation of this data set. The information in this
@@ -1984,10 +1967,16 @@ save_
 save_pd_calib.detector_response
 
     _definition.id                '_pd_calib.detector_response'
+    _definition_replaced.id       1
+    _definition_replaced.by
+        '_pd_calib_detected_intensity.detector_response'
     _alias.definition_id          '_pd_calib_detector_response'
-    _definition.update            2022-10-11
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see
+    _pd_calib_detected_intensity.detector_response.
+
     A value that indicates the relative sensitivity of each
     detector. This can compensate for differences in electronics,
     size and collimation. Usually, one detector or the mean for
@@ -2007,9 +1996,15 @@ save_
 save_pd_calib.detector_response_su
 
     _definition.id                '_pd_calib.detector_response_su'
-    _definition.update            2022-10-27
+    _definition_replaced.id       1
+    _definition_replaced.by
+        '_pd_calib_detected_intensity.detector_response_su'
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see
+    _pd_calib_detected_intensity.detector_response_su.
+
     Standard uncertainty of _pd_calib.detector_response.
 ;
     _name.category_id             pd_calib
@@ -2073,10 +2068,15 @@ save_
 save_pd_calib.std_internal_name
 
     _definition.id                '_pd_calib.std_internal_name'
+    _definition_replaced.id       1
+    _definition_replaced.by       .
     _alias.definition_id          '_pd_calib_std_internal_name'
-    _definition.update            2022-12-01
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see PD_QPA_INTERNAL_STD for alternate
+    methods of identifying an internal standard.
+
     Identity of material(s) used as an internal intensity standard.
 ;
     _name.category_id             pd_calib
@@ -2212,9 +2212,31 @@ save_pd_calib_d_to_tof.coeff_su
     _name.category_id             pd_calib_d_to_tof
     _name.object_id               coeff_su
     _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
-    _units.code                   microseconds
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+    _type.purpose                 SU
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _method.purpose               Definition
+    _method.expression
+;
+    with pc as pd_calib_d_to_tof
+    if (pc.power == 0) {
+        _units.code = "microseconds"
+        }
+    else if (pc.power == 1) {
+        _units.code = "microseconds_per_angstrom"
+        }
+    else if (pc.power == 2) {
+        _units.code = "microseconds_per_angstrom_squared"
+        }
+    else if (pc.power == 3) {
+        _units.code = "microseconds_per_angstrom_cubed"
+    }
+    else if (pc.power == -1) {
+        _units.code = "angstroms_per_microsecond"
+    }
+    else _units.code = UNKNOWN
+;
 
 save_
 
@@ -2632,9 +2654,12 @@ save_PD_CALIB_OFFSET
     _definition.id                PD_CALIB_OFFSET
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-11-12
+    _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see PD_CALIB_XCOORD and
+    PD_CALIB_XCOORD_OVERALL.
+
     Data items in this category define an offset angle (in degrees)
     used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
@@ -2662,10 +2687,18 @@ save_
 save_pd_calib.2theta_off_max
 
     _definition.id                '_pd_calib.2theta_off_max'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       .
+
     _alias.definition_id          '_pd_calib_2theta_off_max'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see PD_CALIB_XCOORD. In general,
+    calibrations are now carried out over the given range, removing the need
+    to explicitly provide minima and maxima.
+
     The maximum nominal 2\q value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
@@ -2683,10 +2716,18 @@ save_
 save_pd_calib.2theta_off_min
 
     _definition.id                '_pd_calib.2theta_off_min'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       .
+
     _alias.definition_id          '_pd_calib_2theta_off_min'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see PD_CALIB_XCOORD. In general,
+    calibrations are now carried out over the given range, removing the need
+    to explicitly provide minima and maxima.
+
     The minimum nominal 2\q value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
@@ -2704,10 +2745,16 @@ save_
 save_pd_calib.2theta_off_point
 
     _definition.id                '_pd_calib.2theta_off_point'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_nominal'
+
     _alias.definition_id          '_pd_calib_2theta_off_point'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.2theta_nominal.
+
     The nominal 2\q value to which the offset given in
     _pd_calib.2theta_offset applies.
 ;
@@ -2725,10 +2772,16 @@ save_
 save_pd_calib.2theta_offset
 
     _definition.id                '_pd_calib.2theta_offset'
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset'
+
     _alias.definition_id          '_pd_calib_2theta_offset'
-    _definition.update            2022-10-11
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset.
+
     _pd_calib.2theta_offset defines an offset angle (in degrees)
     used to calibrate 2\q (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
@@ -2749,9 +2802,15 @@ save_
 save_pd_calib.2theta_offset_su
 
     _definition.id                '_pd_calib.2theta_offset_su'
-    _definition.update            2022-10-27
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset_su'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset_su.
+
     Standard uncertainty of _pd_calib.2theta_offset.
 ;
     _name.category_id             pd_calib_offset
@@ -2766,9 +2825,15 @@ save_
 save_pd_calib_offset.detector_id
 
     _definition.id                '_pd_calib_offset.detector_id'
-    _definition.update            2016-11-12
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord_overall.detector_id'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord_overall.detector_id.
+
     The detector to which the offset values relate.
     As a default value is defined, the detector id may be
     omitted if only a single detector is present.
@@ -2787,9 +2852,15 @@ save_
 save_pd_calib_offset.id
 
     _definition.id                '_pd_calib_offset.id'
-    _definition.update            2023-01-06
+
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_xcoord.id'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_xcoord.id.
+
     An arbitrary code which identifies a particular 2\q offset
     description. As a default value is defined, this may be
     omitted if only a single offset is provided.
@@ -2809,9 +2880,13 @@ save_PD_CALIB_STD
     _definition.id                PD_CALIB_STD
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+    _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see PD_CALIB_DETECTED_INTENSITY,
+    PD_CALIB_INCIDENT_INTENSITY, PD_CALIB_WAVELENGTH, and
+    PD_CALIB_XCOORD_OVERALL.
+
     This category identifies the external standards used for the calibration
     of the instrument that are used directly or indirectly in the
     interpretation of this data set. The information in this
@@ -2822,7 +2897,7 @@ save_PD_CALIB_STD
     used (for example, separately for angular and gain calibration).
 
     For quantitative phase analysis by the external standard approach,
-    please see PD_QPA_EXT_STD.
+    please see PD_QPA_EXTERNAL_STD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_STD
@@ -2837,9 +2912,19 @@ save_
 save_pd_calib_std.detector_id
 
     _definition.id                '_pd_calib_std.detector_id'
-    _definition.update            2016-10-18
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_pd_calib_detected_intensity.detector_id'
+         2                        '_pd_calib_xcoord_overall.detector_id'
+
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _pd_calib_detected_intensity.detector_id
+    or _pd_calib_xcoord_overall.detector_id, as necessary.
+
     A code which identifies the detector or channel number that the
     calibration data applies to. Note that this code should match a
     detector from _pd_meas.detector_id and may be omitted if only
@@ -2859,10 +2944,34 @@ save_
 save_pd_calib_std.external_block_id
 
     _definition.id                '_pd_calib_std.external_block_id'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                      '_pd_calib_detected_intensity.block_id'
+         2                      '_pd_calib_detected_intensity.diffractogram_id'
+         3                      '_pd_calib_incident_intensity.block_id'
+         4                      '_pd_calib_incident_intensity.diffractogram_id'
+         5                      '_pd_calib_wavelength.block_id'
+         6                      '_pd_calib_wavelength.diffractogram_id'
+         7                      '_pd_calib_xcoord_overall.block_id'
+         8                      '_pd_calib_xcoord_overall.diffractogram_id'
+
     _alias.definition_id          '_pd_calib_std_external_block_id'
-    _definition.update            2023-01-09
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see:
+      - _pd_calib_detected_intensity.block_id
+      - _pd_calib_detected_intensity.diffractogram_id
+      - _pd_calib_incident_intensity.block_id
+      - _pd_calib_incident_intensity.diffractogram_id
+      - _pd_calib_wavelength.block_id
+      - _pd_calib_wavelength.diffractogram_id
+      - _pd_calib_xcoord_overall.block_id
+      - _pd_calib_xcoord_overall.diffractogram_id
+    as necessary.
+
     Identifies the _pd_block.id used as an external standard for the
     diffraction angle or the intensity calibrations.
 
@@ -2882,10 +2991,20 @@ save_
 save_pd_calib_std.external_name
 
     _definition.id                '_pd_calib_std.external_name'
+    _definition_replaced.id       1
+    _definition_replaced.by       .
     _alias.definition_id          '_pd_calib_std_external_name'
-    _definition.update            2023-01-07
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see:
+      - PD_CALIB_DETECTED_INTENSITY
+      - PD_CALIB_INCIDENT_INTENSITY
+      - PD_CALIB_WAVELENGTH
+      - PD_CALIB_XCOORD
+      - PD_CALIB_XCOORD_OVERALL
+    as necessary, for information on how to identify the external standard used.
+
     Identifies the name of the material used as an external standard for
     the diffraction angle or the intensity calibrations.
 ;
@@ -7334,29 +7453,37 @@ save_PD_MEAS_INFO_AUTHOR
     _definition.id                PD_MEAS_INFO_AUTHOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+    _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
     This section contains information about the person(s)
     who conducted the measurement.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_INFO_AUTHOR
-
-    loop_
-      _category_key.name
-         '_pd_meas_info_author.diffractogram_id'
-         '_pd_meas_info_author.name'
+    _category_key.name            '_pd_meas_info_author.name'
 
 save_
 
 save_pd_meas_info_author.address
 
     _definition.id                '_pd_meas_info_author.address'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.address'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_meas_info_author_address'
-    _definition.update            2023-01-12
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.address and
+    _audit_author_role.role.
+
     The address of the person who measured the data set. If there
     is more than one person, this will be looped with
     _pd_meas_info_author.name.
@@ -7370,32 +7497,23 @@ save_pd_meas_info_author.address
 
 save_
 
-save_pd_meas_info_author.diffractogram_id
-
-    _definition.id                '_pd_meas_info_author.diffractogram_id'
-    _definition.update            2023-01-12
-    _description.text
-;
-    The diffractogram (see _pd_diffractogram.id) to which the author details
-    relate.
-;
-    _name.category_id             pd_meas_info_author
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_meas_info_author.email
 
     _definition.id                '_pd_meas_info_author.email'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.email'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_meas_info_author_email'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.email and
+    _audit_author_role.role.
+
     The e-mail address of the person who measured the data set. If
     there is more than one person, this will be looped with
     _pd_meas_info_author.name.
@@ -7412,10 +7530,20 @@ save_
 save_pd_meas_info_author.fax
 
     _definition.id                '_pd_meas_info_author.fax'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.fax'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_meas_info_author_fax'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.fax and
+    _audit_author_role.role.
+
     The fax number of the person who measured the data set. If
     there is more than one person, this will be looped with
     _pd_meas_info_author.name. The recommended style is
@@ -7434,10 +7562,20 @@ save_
 save_pd_meas_info_author.name
 
     _definition.id                '_pd_meas_info_author.name'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.name'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_meas_info_author_name'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.name and
+    _audit_author_role.role.
+
     The name of the person who measured the data set. The family
     name(s), followed by a comma and including any dynastic
     components, precedes the first name(s) or initial(s).
@@ -7455,10 +7593,20 @@ save_
 save_pd_meas_info_author.phone
 
     _definition.id                '_pd_meas_info_author.phone'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.phone'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_meas_info_author_phone'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.phone and
+    _audit_author_role.role.
+
     The telephone number of the person who measured the data set.
     If there is more than one person, this will be looped with
     _pd_meas_info_author.name. The recommended style is
@@ -8442,27 +8590,6 @@ save_pd_phase_block.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_phase_block.phase_id
-
-    _definition.id                '_pd_phase_block.phase_id'
-    _alias.definition_id          '_pd_phase_id'
-    _definition.update            2022-12-03
-    _description.text
-;
-    A phase id code (see _pd_phase.id) that identifies the phase
-    contained in the data block pointed to by _pd_phase_block.id
-;
-    _name.category_id             pd_phase_block
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
 
 save_
 
@@ -9644,30 +9771,37 @@ save_PD_PROC_INFO_AUTHOR
     _definition.id                PD_PROC_INFO_AUTHOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2016-10-18
+    _definition.update            2023-06-05
     _description.text
 ;
+    This category is deprecated. Please see AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
     This section contains information about the person(s)
     who processed the data.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_INFO_AUTHOR
-
-    loop_
-      _category_key.name
-         '_pd_proc_info_author.diffractogram_id'
-         '_pd_proc_info_author.name'
-         '_pd_proc_info_author.phase_id'
+    _category_key.name            '_pd_proc_info_author.name'
 
 save_
 
 save_pd_proc_info_author.address
 
     _definition.id                '_pd_proc_info_author.address'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.address'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_address'
-    _definition.update            2023-01-12
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.address and
+    _audit_author_role.role.
+
     The address of the person who processed the data.
     If there is more than one person, this will be looped with
     _pd_proc_info_author.name.
@@ -9681,32 +9815,23 @@ save_pd_proc_info_author.address
 
 save_
 
-save_pd_proc_info_author.diffractogram_id
-
-    _definition.id                '_pd_proc_info_author.diffractogram_id'
-    _definition.update            2023-01-12
-    _description.text
-;
-    The diffractogram (see _pd_diffractogram.id) to which the processing
-    author relates.
-;
-    _name.category_id             pd_proc_info_author
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_proc_info_author.email
 
     _definition.id                '_pd_proc_info_author.email'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.email'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_email'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.email and
+    _audit_author_role.role.
+
     The e-mail address of the person who processed the
     data. If there is more than one person, this will be looped
     with _pd_proc_info_author.name.
@@ -9723,10 +9848,20 @@ save_
 save_pd_proc_info_author.fax
 
     _definition.id                '_pd_proc_info_author.fax'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.fax'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_fax'
-    _definition.update            2014-06-20
+    _definition.update            2023-05-06
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.fax and
+    _audit_author_role.role.
+
     The fax number of the person who processed the data.
     If there is more than one person, this will be looped with
     _pd_proc_info_author.name. The recommended style is
@@ -9745,10 +9880,20 @@ save_
 save_pd_proc_info_author.name
 
     _definition.id                '_pd_proc_info_author.name'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.name'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_name'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.name and
+    _audit_author_role.role.
+
     The name of the person who processed the data, if different
     from the person(s) who measured the data set. The family
     name(s), followed by a comma and including any dynastic
@@ -9764,31 +9909,23 @@ save_pd_proc_info_author.name
 
 save_
 
-save_pd_proc_info_author.phase_id
-
-    _definition.id                '_pd_proc_info_author.phase_id'
-    _definition.update            2023-01-12
-    _description.text
-;
-    The phase (see _pd_phase.id) to which the processing author relates.
-;
-    _name.category_id             pd_proc_info_author
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_proc_info_author.phone
 
     _definition.id                '_pd_proc_info_author.phone'
+
+    loop_
+      _definition_replaced.id
+      _definition_replaced.by
+         1                        '_audit_author.phone'
+         2                        '_audit_author_role.role'
+
     _alias.definition_id          '_pd_proc_info_author_phone'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see _audit_author.phone and
+    _audit_author_role.role.
+
     The telephone number of the person who processed the data.
     If there is more than one person, this will be looped
     with _pd_proc_info_author.name. The recommended style is
@@ -12122,4 +12259,9 @@ save_
 
        Deprecated PD_BLOCK, PD_BLOCK_DIFFRACTOGRAM, PD_PHASE_BLOCK, and all
        related data items
+
+       Deprecated PD_CALIB, PD_CALIB_OFFSET, and PD_CALIB_STD.
+
+       Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
+       AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
 ;
