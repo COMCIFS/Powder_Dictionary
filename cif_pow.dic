@@ -2957,17 +2957,13 @@ save_pd_calib_std.external_block_id
          4                      '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
-    _definition.update            2023-06-05
+    _definition.update            2023-06-08
     _description.text
 ;
     This item is deprecated. Please see:
-      - _pd_calib_detected_intensity.block_id
       - _pd_calib_detected_intensity.diffractogram_id
-      - _pd_calib_incident_intensity.block_id
       - _pd_calib_incident_intensity.diffractogram_id
-      - _pd_calib_wavelength.block_id
       - _pd_calib_wavelength.diffractogram_id
-      - _pd_calib_xcoord_overall.block_id
       - _pd_calib_xcoord_overall.diffractogram_id
     as necessary.
 
