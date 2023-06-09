@@ -1956,10 +1956,15 @@ save_
 save_pd_calib.detector_id
 
     _definition.id                '_pd_calib.detector_id'
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_detected_intensity.detector_id'
     _alias.definition_id          '_pd_calib_detector_id'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-05
     _description.text
 ;
+    This item is deprecated. Please see
+    _pd_calib_detected_intensity.detector_id.
+
     A code which identifies the detector or channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
     instrument. Note that this code should match the code name used
