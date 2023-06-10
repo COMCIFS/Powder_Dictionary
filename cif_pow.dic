@@ -1974,7 +1974,6 @@ save_pd_calib.detector_id
     _type.container               Single
     _type.contents                Code
 
-
 save_
 
 save_pd_calib.detector_response
@@ -2386,7 +2385,6 @@ save_pd_calib_detected_intensity.detector_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Code
-
 
 save_
 
