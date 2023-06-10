@@ -2593,6 +2593,48 @@ save_PD_CALIB_DETECTED_INTENSITY
          '_pd_calib_detected_intensity.detector_id'
          '_pd_calib_detected_intensity.id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.detector_response_su
+         _pd_calib_detected_intensity.diffractogram_id
+         _pd_calib_detected_intensity.phase_id
+         A_27a6a2a6   1       .       DIFFRACTOGRAM_A   676A
+         B_27a6a2a6   1.035   0.013   DIFFRACTOGRAM_B   676A
+;
+;
+         The two detectors, A and B, have responses of 1 and 1.035,
+         respectively, meaning that their measured intensities must be divided
+         by these values to retreive their true values. These response values
+         were derived from an analysis of the diffraction patterns
+         DIFFRACTOGRAM_A and DIFFRACTOGRAM_A, both of which contain the phase
+         676A.
+;
+;
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.diffractogram_id
+         _pd_calib_detected_intensity.phase_id
+         _pd_calib_detected_intensity.special_details
+         1_4913c6ed   1       . . 'Scanned through direct beam.'
+         2_4913c6ed   0.973   . . 'Scanned through direct beam.'
+         3_4913c6ed   0.997   . . 'Scanned through direct beam.'
+         4_4913c6ed   1.039   . . 'Scanned through direct beam.'
+         #...
+;
+;
+         A position-sensitive detector was scanned through the direct beam to
+         calibrate the response of each channel to a constant-intensity source.
+         The measured intensity of each channel must be divided by the given
+         response to obtain the actual value. No diffraction pattern or phase
+         was involved in the derivation of the response values.
+;
+
 save_
 
 save_pd_calib_detected_intensity.detector_id
