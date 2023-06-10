@@ -2582,24 +2582,6 @@ save_pd_calib_incident_intensity.diffractogram_id
 
 save_
 
-save_pd_calib_incident_intensity.instr_id
-
-    _definition.id                '_pd_calib_incident_intensity.instr_id'
-    _definition.update            2023-06-10
-    _description.text
-;
-    The instrument (see _pd_instr.id) to which the calibration relates.
-;
-    _name.category_id             pd_calib_incident_intensity
-    _name.object_id               instr_id
-    _name.linked_item_id          '_pd_instr.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_calib_incident_intensity.incident_counts
 
     _definition.id                '_pd_calib_incident_intensity.incident_counts'
@@ -2668,6 +2650,24 @@ save_pd_calib_incident_intensity.incident_intensity_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_incident_intensity.instr_id
+
+    _definition.id                '_pd_calib_incident_intensity.instr_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The instrument (see _pd_instr.id) to which the calibration relates.
+;
+    _name.category_id             pd_calib_incident_intensity
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
