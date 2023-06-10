@@ -8197,7 +8197,7 @@ save_PD_PEAK
     _definition.id                PD_PEAK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2023-06-10
     _description.text
 ;
     This section contains peak information extracted from the
@@ -8212,7 +8212,11 @@ save_PD_PEAK
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK
-    _category_key.name            '_pd_peak.id'
+
+    loop_
+      _category_key.name
+         '_pd_peak.diffractogram_id'
+         '_pd_peak.id'
 
 save_
 
@@ -8324,6 +8328,25 @@ save_pd_peak.d_spacing_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_peak.diffractogram_id
+
+    _definition.id                '_pd_peak.diffractogram_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the peak information
+    relates.
+;
+    _name.category_id             pd_peak
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
