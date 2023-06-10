@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-05
+    _dictionary.date              2023-06-10
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -3246,7 +3246,7 @@ save_PD_CALIB_XCOORD
     _definition.id                PD_CALIB_XCOORD
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-05-06
+    _definition.update            2023-06-10
     _description.text
 ;
     This section defines the parameters used for the calibration of the
@@ -3270,7 +3270,11 @@ save_PD_CALIB_XCOORD
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_XCOORD
-    _category_key.name            '_pd_calib_xcoord.id'
+
+    loop_
+      _category_key.name
+         '_pd_calib_xcoord.diffractogram_id'
+         '_pd_calib_xcoord.id'
 
     loop_
       _description_example.case
@@ -3418,6 +3422,25 @@ save_pd_calib_xcoord.2theta_offset_su
     _units.code                   degrees
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.diffractogram_id
+
+    _definition.id                '_pd_calib_xcoord.diffractogram_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the calibration
+    relates.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -12391,7 +12414,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-05
+         2.5.0                    2023-06-10
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12505,4 +12528,6 @@ save_
 
        Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
        AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
+       Add _pd_calib_xcoord.diffractogram_id.
 ;
