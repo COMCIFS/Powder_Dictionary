@@ -1571,8 +1571,8 @@ save_pd_block.id
 
     loop_
       _description_example.case
-         1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987
-         1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV
+         1991-09-15T16:54:00Z|Si-std|B.Toby|D500#1234-987
+         1991-09-15T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV
 
 save_
 
