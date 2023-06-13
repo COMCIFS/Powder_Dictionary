@@ -9876,7 +9876,11 @@ save_PD_PREP
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
-    _category_key.name            '_pd_prep.id'
+
+    loop_
+      _category_key.name
+         '_pd_prep.char_id'
+         '_pd_prep.id'
 
 save_
 
@@ -12010,7 +12014,11 @@ save_PD_SPEC
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
-    _category_key.name            '_pd_spec.id'
+
+    loop_
+      _category_key.name
+         '_pd_spec.id'
+         '_pd_spec.prep_id'
 
 save_
 
