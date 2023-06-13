@@ -2591,7 +2591,7 @@ save_pd_calib_incident_intensity.incident_counts
     _description.text
 ;
     A value that indicates the number of counts incident on the specimen. This
-    value is be a constant for each diffractgram. For point-wise corrections,
+    value is be a constant for each diffractogram. For point-wise corrections,
     see _pd_meas.counts_monitor.
 
     Standard uncertainties should not be quoted for this value. If the standard
@@ -2617,7 +2617,7 @@ save_pd_calib_incident_intensity.incident_intensity
     _description.text
 ;
     A value that indicates the intensity incident on the specimen. This value
-    is a constant for each diffractgram. For point-wise corrections, see
+    is a constant for each diffractogram. For point-wise corrections, see
     _pd_meas.intensity_monitor.
 
     Use this entry for measurements where intensity values are not counts (use
