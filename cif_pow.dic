@@ -6775,7 +6775,7 @@ save_pd_instr.soller_eq_mono_spec
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for
     the instrument. Values are the maximum divergence angles in
-    degrees, as limited by Soller slits located  between the monochromator and
+    degrees, as limited by Soller slits located between the monochromator and
     the specimen. Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -9776,7 +9776,7 @@ save_pd_pref_orient_spherical_harmonics.y_ij
     _definition.update            2023-01-06
     _description.text
 ;
-    The order (i) and  term (j) of the spherical harmonic
+    The order (i) and term (j) of the spherical harmonic
     preferred-orientation correction. Spherical
     harmonics are functions that obey the point-symmetry
     operations of the phase, and can be used to model
