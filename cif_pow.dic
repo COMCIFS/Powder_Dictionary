@@ -2591,7 +2591,7 @@ save_pd_calib_incident_intensity.incident_counts
     _description.text
 ;
     A value that indicates the number of counts incident on the specimen. This
-    value is be a constant for each diffractogram. For point-wise corrections,
+    value is a constant for each diffractogram. For point-wise corrections,
     see _pd_meas.counts_monitor.
 
     Standard uncertainties should not be quoted for this value. If the standard
@@ -3875,9 +3875,9 @@ save_PD_CHAR
     cannot be specifically deliniated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
-    information is specified in PD_PREP. The sample is drawn from a 'material',
+    information specified in PD_PREP. The sample is drawn from a 'material',
     which may exist in an actual or idealised sense, which can have information
-    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    specified in PD_CHAR. For example: the material might be BaTiO3, the
     sample might be a specific batch from a specific manufacturer, and the
     specimen is the material taken from the bottle and placed in the instrument.
 
@@ -5618,7 +5618,7 @@ save_pd_proc.intensity_incident
     correction function should be specified as
     _pd_proc.intensity_incident. The normalization should be
     specified in _pd_proc.intensity_incident as a value to be
-    used to divide the measured intensities to obtained the
+    used to divide the measured intensities to obtain the
     normalized diffractogram. Thus, the
     _pd_proc.intensity_incident values should increase as the
     incident flux is increased.
@@ -9861,9 +9861,9 @@ save_PD_PREP
     cannot be specifically deliniated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
-    information is specified in PD_PREP. The sample is drawn from a 'material',
+    information specified in PD_PREP. The sample is drawn from a 'material',
     which may exist in an actual or idealised sense, which can have information
-    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    specified in PD_CHAR. For example: the material might be BaTiO3, the
     sample might be a specific batch from a specific manufacturer, and the
     specimen is the material taken from the bottle and placed in the instrument.
 ;
@@ -10921,7 +10921,7 @@ save_pd_qpa_calib_factor.other
     _pd_qpa_overall.method.
 
     When this data item is used in many phases present in the same
-    diffractogram, the person creating the CIF file must ensure that they are
+    diffractogram, the person creating the CIF file must ensure that they
     have consistent definitions.
 ;
     _name.category_id             pd_qpa_calib_factor
@@ -11941,9 +11941,9 @@ save_PD_SPEC
     cannot be specifically deliniated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
-    information is specified in PD_PREP. The sample is drawn from a 'material',
+    information specified in PD_PREP. The sample is drawn from a 'material',
     which may exist in an actual or idealised sense, which can have information
-    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    specified in PD_CHAR. For example: the material might be BaTiO3, the
     sample might be a specific batch from a specific manufacturer, and the
     specimen is the material taken from the bottle and placed in the instrument.
 ;
