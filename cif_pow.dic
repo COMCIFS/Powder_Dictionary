@@ -4595,7 +4595,7 @@ save_pd_instr.dist_spec_vdetc
     Distance from the specimen to the virtual detector (in millimetres).
     The virtual detector is point in space at which the detector is
     sampling the diffracted radiation from the point of view of the
-    specimen. eg the specimen-receiving slit distance in a point-detector,
+    specimen, e.g. the specimen-receiving slit distance in a point-detector,
     Bragg-Brentano diffractometer. This distance is also referred to as
     the 'secondary radius', or the 'diffracted beam radius'.
 
