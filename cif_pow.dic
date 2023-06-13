@@ -5619,7 +5619,7 @@ save_pd_proc.intensity_incident
     _pd_proc.intensity_incident. The normalization should be
     specified in _pd_proc.intensity_incident as a value to be
     used to divide the measured intensities to obtain the
-    normalized diffractogram. Thus, the
+    normalised diffractogram. Thus, the
     _pd_proc.intensity_incident values should increase as the
     incident flux is increased.
 ;
@@ -10378,7 +10378,7 @@ save_pd_proc_ls.prof_wr_expected
 ;
     _pd_proc_ls.prof_wR_expected, sometimes called the
       theoretical R~wp~ or R~exp~, is a weighted fitness metric for
-      the statistical precision of the data set. For an idealized fit,
+      the statistical precision of the data set. For an idealised fit,
       where all deviations between the observed intensities and
       those computed from the model are due to statistical
       fluctuations, the observed R~wp~ should match the expected
