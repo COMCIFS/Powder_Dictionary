@@ -11352,7 +11352,7 @@ save_pd_qpa_intensity_factor.value
     This value is not, in general, transferable between different program types
     and versions, as each software package may incorporate different constants
     or normalisations into their calculations. However, if all values for a
-    given diffractogram are self-consistent, then quantification is able to be
+    given diffractogram are self-consistent, then quantification can be
     undertaken.
 
     A description of the associated quantification procedure can be found in
