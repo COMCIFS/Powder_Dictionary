@@ -11130,8 +11130,8 @@ save_PD_QPA_EXTERNAL_STD
     quantitative phase analysis.
 
     Quantification by external standard is typically carried out
-    using the O'Connor and Raven algorithm in conjunction with whole-
-    pattern Rietveld modelling, and relies on the determination of
+    using the O'Connor and Raven algorithm in conjunction with whole-pattern
+    Rietveld modelling, and relies on the determination of
     the diffractometer constant, K. The use of an external standard
     allows for the calculation of absolute mass fractions, giving
     an indication of amorphous content. This method requires the
