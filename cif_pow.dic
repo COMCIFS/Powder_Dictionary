@@ -8198,7 +8198,7 @@ save_PD_PEAK
     _definition.id                PD_PEAK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2023-06-10
     _description.text
 ;
     This section contains peak information extracted from the
@@ -8213,7 +8213,11 @@ save_PD_PEAK
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK
-    _category_key.name            '_pd_peak.id'
+
+    loop_
+      _category_key.name
+         '_pd_peak.diffractogram_id'
+         '_pd_peak.id'
 
 save_
 
@@ -8325,6 +8329,25 @@ save_pd_peak.d_spacing_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_peak.diffractogram_id
+
+    _definition.id                '_pd_peak.diffractogram_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the peak information
+    relates.
+;
+    _name.category_id             pd_peak
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8540,7 +8563,7 @@ save_PD_PEAK_OVERALL
     _definition.id                PD_PEAK_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2023-06-10
     _description.text
 ;
     This category describes general aspects of the peak extraction
@@ -8548,7 +8571,11 @@ save_PD_PEAK_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK_OVERALL
-    _category_key.name            '_pd_peak_overall.id'
+
+    loop_
+      _category_key.name
+         '_pd_peak_overall.diffractogram_id'
+         '_pd_peak_overall.id'
 
 save_
 
@@ -8567,6 +8594,25 @@ save_pd_peak.special_details
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_peak_overall.diffractogram_id
+
+    _definition.id                '_pd_peak_overall.diffractogram_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the overall peak
+    information relates.
+;
+    _name.category_id             pd_peak_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -12500,12 +12546,14 @@ save_
        Added _pd_peak_overall.id.
 
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
-       PD_BACKGROUND, and REFLN
+       PD_BACKGROUND, and REFLN.
 
        Deprecated PD_CALIB, PD_CALIB_OFFSET, and PD_CALIB_STD.
 
        Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
        AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
+       Add _pd_peak.diffractogram_id and _pd_peak_overall.diffractogram_id.
 
        Altered PD_CALIB_INCIDENT_INTENSITY to be a Set category.
 
