@@ -513,8 +513,8 @@ save_pd_background.air_or_thermal_diffuse_order
 ;
     The value of an order used in an equation representing the
     background due to thermal diffuse scattering and/or air scattering, in a
-    calculated diffractogram. Must be given with a
-    _pd_background.air_or_thermal_diffuse_coef value.
+    calculated diffractogram. Must be given with
+    _pd_background.air_or_thermal_diffuse_coef_1 and coef_2 values.
 
     The background equation is of the form:
 
@@ -1332,9 +1332,9 @@ save_pd_background.polynomial_powers
 
     See _pd_background.polynomial_power.
 
-    Must be in the same order as the powers in
-    _pd_background.polynomial_coeff_list. Values at the same index in each list
-    are corresponding coefficient-power pairs.
+    Must be in the same order as the powers in _pd_background.polynomial_coefs.
+    Values at the same index in each list are corresponding coefficient-power
+    pairs.
 ;
     _name.category_id             pd_background
     _name.object_id               polynomial_powers
@@ -1462,8 +1462,8 @@ save_PD_BLOCK
 ;
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
-    (see _pd_block_diffractogram.id, _pd_qpa_external_std.block_id
-    and _pd_phase.block_id).
+    (see _pd_block_diffractogram.id, _pd_phase_block.id and
+    _pd_qpa_external_std.diffractogram_block_id).
 
     Note that a data block may contain only a single diffraction
     data set or information about a single crystalline phase.
@@ -2331,8 +2331,8 @@ save_PD_CALIB_DETECTED_INTENSITY
      ii) scanning a detector bank across a peak, or the direct-beam.
 
     The above examples provide experimental methods to assign values to
-    _pd_calib_intensity.detector_response, to place each detector on a common
-    scale. Note that these are only indicative examples.
+    _pd_calib_detected_intensity.detector_response which place each detector on
+    a common scale. Note that these are only indicative examples.
 
     This category is only intended to record detector-related response to
     a beam incident on the detector. To record variations in intensity during
@@ -2359,7 +2359,7 @@ save_pd_calib_detected_intensity.block_id
     calibration was taken, if it was calibrated by a specimen.
 
     The data block containing the diffraction pattern will be identified with a
-    _pd_block.id code matching the code in _pd_calib_intensity.block_id.
+    _pd_block.id code matching the code given here.
 ;
     _name.category_id             pd_calib_detected_intensity
     _name.object_id               block_id
@@ -2532,8 +2532,9 @@ save_PD_CALIB_INCIDENT_INTENSITY
 
     One common intensity calibration procedures involves data collection from a
     standard amount of crystalline sample, which allows a value to be assigned
-    to _pd_calib_intensity.incident_intensity, to place different diffractograms
-    on a common scale. Note that this is only an indicative example.
+    to _pd_calib_incident_intensity.incident_intensity, to place different
+    diffractograms on a common scale. Note that this is only an indicative
+    example.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
@@ -2596,7 +2597,7 @@ save_pd_calib_incident_intensity.incident_counts
 
     Standard uncertainties should not be quoted for this value. If the standard
     uncertainties differ from the square root of the number of counts,
-    _pd_calib_intensity.incident_intensity should be used.
+    _pd_calib_incident_intensity.incident_intensity should be used.
 ;
     _name.category_id             pd_calib_incident_intensity
     _name.object_id               incident_counts
@@ -2621,9 +2622,9 @@ save_pd_calib_incident_intensity.incident_intensity
     _pd_meas.intensity_monitor.
 
     Use this entry for measurements where intensity values are not counts (use
-    _pd_calib_intensity.incident_counts for event-counting measurements, where
-    the standard uncertainty is estimated as the square root of the number of
-    counts).
+    _pd_calib_incident_intensity.incident_counts for event-counting
+    measurements, where the standard uncertainty is estimated as the square root
+    of the number of counts).
 ;
     _name.category_id             pd_calib_incident_intensity
     _name.object_id               incident_intensity
@@ -5051,7 +5052,7 @@ save_pd_meas.intensity_monitor
     _pd_meas.2theta_* etc.). These intensities are measured by an
     incident-beam monitor to calibrate the flux on the specimen.
     For a single value used to scale an entire diffractogram, see
-    _pd_calib_intensity.incident_intensity.
+    _pd_calib_incident_intensity.incident_intensity.
 
     Use these entries for measurements where intensity
     values are not counts (use _pd_meas.counts_* for event-counting
