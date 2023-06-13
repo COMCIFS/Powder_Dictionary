@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-09
+    _dictionary.date              2023-06-10
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -2520,8 +2520,8 @@ save_PD_CALIB_INCIDENT_INTENSITY
 
     _definition.id                PD_CALIB_INCIDENT_INTENSITY
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-01-21
+    _definition.class             Set
+    _definition.update            2023-06-10
     _description.text
 ;
     This section defines the parameters used for the incident intensity
@@ -2537,7 +2537,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
-    _category_key.name            '_pd_calib_incident_intensity.id'
+    _category_key.name            '_pd_calib_incident_intensity.instr_id'
 
 save_
 
@@ -2581,24 +2581,6 @@ save_pd_calib_incident_intensity.diffractogram_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_calib_incident_intensity.id
-
-    _definition.id                '_pd_calib_incident_intensity.id'
-    _definition.update            2023-01-21
-    _description.text
-;
-    A code to uniquely identify each incident intensity calibration.
-;
-    _name.category_id             pd_calib_incident_intensity
-    _name.object_id               id
-    _type.purpose                 Key
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
 
 save_
 
@@ -2670,6 +2652,24 @@ save_pd_calib_incident_intensity.incident_intensity_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_incident_intensity.instr_id
+
+    _definition.id                '_pd_calib_incident_intensity.instr_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The instrument (see _pd_instr.id) to which the calibration relates.
+;
+    _name.category_id             pd_calib_incident_intensity
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -12392,7 +12392,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-09
+         2.5.0                    2023-06-10
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12506,6 +12506,8 @@ save_
 
        Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
        AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
+
+       Altered PD_CALIB_INCIDENT_INTENSITY to be a Set category.
 
        Redefined _pd_meas.detector_id in terms of _pd_instr_detector.id. Linked
        all _pd_*.detector_id data names to _pd_instr_detector.id.
