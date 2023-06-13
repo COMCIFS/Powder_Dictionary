@@ -4625,7 +4625,7 @@ save_pd_instr.dist_vsrc_spec
 ;
     Distance from the virtual source to the specimen (in millimetres).
     The virtual source is point in space from which the incident radiation
-    can be said to be coming from from the point of view of the specimen.
+    can be said to be coming from the point of view of the specimen.
     This distance is also referred to as the 'primary radius', or the
     'incident beam radius'.
 
@@ -11671,7 +11671,7 @@ save_pd_qpa_overall.method
          absorption_diffraction
 ;
          Quantitative phase analysis was undertaken following the
-         absorption-diffraction methodology methodology [1].
+         absorption-diffraction methodology [1].
 
          The absolute weight fraction of phase p, W~p~, is given by
 
@@ -11724,7 +11724,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11819,7 +11819,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11860,7 +11860,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11893,7 +11893,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
