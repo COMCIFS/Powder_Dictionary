@@ -302,7 +302,7 @@ save_pd_background.air_or_thermal_diffuse_coef_1
     _description.text
 ;
     The value of the first coefficient used in an equation representing the
-    background due to thermal diffuse scatering and/or air scattering, in a
+    background due to thermal diffuse scattering and/or air scattering, in a
     calculated diffractogram. This equation can account for background
     contributions at both high and low q. The first coefficient accounts for
     background contributions that increase with q. Must be given with a
@@ -339,7 +339,7 @@ save_pd_background.air_or_thermal_diffuse_coef_1_su
     _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of pd_background.air_or_thermal_diffuse_coef_1.
+    Standard uncertainty of _pd_background.air_or_thermal_diffuse_coef_1.
 ;
     _name.category_id             pd_background
     _name.object_id               air_or_thermal_diffuse_coef_1_su
@@ -357,7 +357,7 @@ save_pd_background.air_or_thermal_diffuse_coef_2
     _description.text
 ;
     The value of the first coefficient used in an equation representing the
-    background due to thermal diffuse scatering and/or air scattering, in a
+    background due to thermal diffuse scattering and/or air scattering, in a
     calculated diffractogram. This equation can account for background
     contributions at both high and low q. The second coefficient accounts for
     background contributions that decrease with q. Must be given with a
@@ -394,7 +394,7 @@ save_pd_background.air_or_thermal_diffuse_coef_2_su
     _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of pd_background.air_or_thermal_diffuse_coef_2.
+    Standard uncertainty of _pd_background.air_or_thermal_diffuse_coef_2.
 ;
     _name.category_id             pd_background
     _name.object_id               air_or_thermal_diffuse_coef_2_su
@@ -413,7 +413,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_1
     _description.text
 ;
     List of the first coefficients used in an equation representing the
-    background due to thermal diffuse scatering and/or air scattering, in a
+    background due to thermal diffuse scattering and/or air scattering, in a
     calculated diffractogram.
 
     See _pd_background.air_or_thermal_diffuse_coef_1.
@@ -440,7 +440,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
     _definition.update            2023-06-04
     _description.text
 ;
-    Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_1.
+    Standard uncertainty of _pd_background.air_or_thermal_diffuse_coefs_1.
 ;
     _name.category_id             pd_background
     _name.object_id               air_or_thermal_diffuse_coefs_1_su
@@ -463,7 +463,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_2
     _description.text
 ;
     List of the second coefficients used in an equation representing the
-    background due to thermal diffuse scatering and/or air scattering, in a
+    background due to thermal diffuse scattering and/or air scattering, in a
     calculated diffractogram.
 
     See _pd_background.air_or_thermal_diffuse_coef_2.
@@ -490,7 +490,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
     _definition.update            2023-06-04
     _description.text
 ;
-    Standard uncertainty of pd_background.air_or_thermal_diffuse_coefs_2.
+    Standard uncertainty of _pd_background.air_or_thermal_diffuse_coefs_2.
 ;
     _name.category_id             pd_background
     _name.object_id               air_or_thermal_diffuse_coefs_2_su
@@ -512,7 +512,7 @@ save_pd_background.air_or_thermal_diffuse_order
     _description.text
 ;
     The value of an order used in an equation representing the
-    background due to thermal diffuse scatering and/or air scattering, in a
+    background due to thermal diffuse scattering and/or air scattering, in a
     calculated diffractogram. Must be given with a
     _pd_background.air_or_thermal_diffuse_coef value.
 
@@ -581,7 +581,7 @@ save_pd_background.chebyshev_coef_su
     _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of pd_background.Chebyshev_coef.
+    Standard uncertainty of _pd_background.Chebyshev_coef.
 ;
     _name.category_id             pd_background
     _name.object_id               Chebyshev_coef_su
@@ -624,7 +624,7 @@ save_pd_background.chebyshev_coefs_su
     _definition.update            2023-06-04
     _description.text
 ;
-    Standard uncertainty of pd_background.Chebyshev_coefs.
+    Standard uncertainty of _pd_background.Chebyshev_coefs.
 ;
     _name.category_id             pd_background
     _name.object_id               Chebyshev_coefs_su
@@ -708,7 +708,7 @@ save_pd_background.cosine_fourier_series_coef_su
     _definition.update            2023-02-02
     _description.text
 ;
-    Standard uncertainty of pd_background.cosine_Fourier_series.
+    Standard uncertainty of _pd_background.cosine_Fourier_series_coef.
 ;
     _name.category_id             pd_background
     _name.object_id               cosine_Fourier_series_coef_su
@@ -752,7 +752,7 @@ save_pd_background.cosine_fourier_series_coefs_su
     _definition.update            2023-06-04
     _description.text
 ;
-    Standard uncertainty of pd_background.cosine_Fourier_series_coefs.
+    Standard uncertainty of _pd_background.cosine_Fourier_series_coefs.
 ;
     _name.category_id             pd_background
     _name.object_id               cosine_Fourier_series_coefs_su
@@ -774,7 +774,7 @@ save_pd_background.cosine_fourier_series_order
 ;
     The value of an order used in a cosine Fourier series equation
     representing the background in a calculated diffractogram. Must be given
-    with a _pd_background.cosine_Fourier_series_coeff value.
+    with a _pd_background.cosine_Fourier_series_coef value.
 
     The background equation using a cosine Fourier series is of the form:
 
@@ -1285,7 +1285,7 @@ save_pd_background.polynomial_power
 ;
     The value of a power used in a polynomial equation representing the
     background in a calculated diffractogram. Must be given with a
-    _pd_background.polynomial_coeff value.
+    _pd_background.polynomial_coef value.
 
     The background equation is of the form:
 
@@ -1571,8 +1571,8 @@ save_pd_block.id
 
     loop_
       _description_example.case
-         1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987
-         1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV
+         1991-09-15T16:54:00Z|Si-std|B.Toby|D500#1234-987
+         1991-09-15T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV
 
 save_
 
@@ -1959,7 +1959,7 @@ save_pd_calib.detector_id
     _definition_replaced.id       1
     _definition_replaced.by       '_pd_calib_detected_intensity.detector_id'
     _alias.definition_id          '_pd_calib_detector_id'
-    _definition.update            2023-06-05
+    _definition.update            2023-06-09
     _description.text
 ;
     This item is deprecated. Please see
@@ -1967,14 +1967,15 @@ save_pd_calib.detector_id
 
     A code which identifies the detector or channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
-    instrument. Note that this code should match the code name used
-    for _pd_meas.detector_id.
+    instrument for which the individual instrument geometry is being
+    defined. This code should match the code name used for
+    _pd_instr_detector.id.
 ;
     _name.category_id             pd_calib
     _name.object_id               detector_id
-    _name.linked_item_id          '_pd_meas.detector_id'
+    _name.linked_item_id          '_pd_instr_detector.id'
     _type.purpose                 Link
-    _type.source                  Assigned
+    _type.source                  Related
     _type.container               Single
     _type.contents                Code
 
@@ -2373,19 +2374,20 @@ save_
 save_pd_calib_detected_intensity.detector_id
 
     _definition.id                '_pd_calib_detected_intensity.detector_id'
-    _definition.update            2023-01-21
+    _definition.update            2023-06-09
     _description.text
 ;
     A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector instrument.
-    Note that this code should match the code name used for
-    _pd_meas.detector_id.
+    position-sensitive, energy-dispersive or other multiple-detector
+    instrument for which the individual instrument geometry is being
+    defined. This code should match the code name used for
+    _pd_instr_detector.id.
 ;
     _name.category_id             pd_calib_detected_intensity
     _name.object_id               detector_id
-    _name.linked_item_id          '_pd_meas.detector_id'
+    _name.linked_item_id          '_pd_instr_detector.id'
     _type.purpose                 Link
-    _type.source                  Assigned
+    _type.source                  Related
     _type.container               Single
     _type.contents                Code
 
@@ -2518,8 +2520,8 @@ save_PD_CALIB_INCIDENT_INTENSITY
 
     _definition.id                PD_CALIB_INCIDENT_INTENSITY
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-01-21
+    _definition.class             Set
+    _definition.update            2023-06-10
     _description.text
 ;
     This section defines the parameters used for the incident intensity
@@ -2535,7 +2537,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
-    _category_key.name            '_pd_calib_incident_intensity.id'
+    _category_key.name            '_pd_calib_incident_intensity.instr_id'
 
 save_
 
@@ -2579,24 +2581,6 @@ save_pd_calib_incident_intensity.diffractogram_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_calib_incident_intensity.id
-
-    _definition.id                '_pd_calib_incident_intensity.id'
-    _definition.update            2023-01-21
-    _description.text
-;
-    A code to uniquely identify each incident intensity calibration.
-;
-    _name.category_id             pd_calib_incident_intensity
-    _name.object_id               id
-    _type.purpose                 Key
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
 
 save_
 
@@ -2668,6 +2652,24 @@ save_pd_calib_incident_intensity.incident_intensity_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_incident_intensity.instr_id
+
+    _definition.id                '_pd_calib_incident_intensity.instr_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The instrument (see _pd_instr.id) to which the calibration relates.
+;
+    _name.category_id             pd_calib_incident_intensity
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -2978,24 +2980,26 @@ save_pd_calib_std.detector_id
          1                        '_pd_calib_detected_intensity.detector_id'
          2                        '_pd_calib_xcoord_overall.detector_id'
 
-    _definition.update            2023-06-05
+    _definition.update            2023-06-09
     _description.text
 ;
     This item is deprecated. Please see _pd_calib_detected_intensity.detector_id
     or _pd_calib_xcoord_overall.detector_id, as necessary.
 
-    A code which identifies the detector or channel number that the
-    calibration data applies to. Note that this code should match a
-    detector from _pd_meas.detector_id and may be omitted if only
-    one detector is used.
+    A code which identifies the detector or channel number in a
+    position-sensitive, energy-dispersive or other multiple-detector
+    instrument for which the individual instrument geometry is being
+    defined. This code should match the code name used for
+    _pd_instr_detector.id.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               detector_id
-    _name.linked_item_id          '_pd_meas.detector_id'
+    _name.linked_item_id          '_pd_instr_detector.id'
     _type.purpose                 Link
-    _type.source                  Assigned
+    _type.source                  Related
     _type.container               Single
     _type.contents                Code
+
     _enumeration.default          .
 
 save_
@@ -3035,7 +3039,7 @@ save_pd_calib_std.external_block_id
     diffraction angle or the intensity calibrations.
 
     For quantitative phase analysis by the external standard approach,
-    please see PD_QPA_EXT_STD.
+    please see PD_QPA_EXTERNAL_STD.
 ;
     _name.category_id             pd_calib_std
     _name.object_id               external_block_id
@@ -3714,25 +3718,22 @@ save_
 save_pd_calib_xcoord_overall.detector_id
 
     _definition.id                '_pd_calib_xcoord_overall.detector_id'
-    _definition.update            2023-05-06
+    _definition.update            2023-06-09
     _description.text
 ;
-    A code which identifies the detector or channel number, in a
-    position-sensitive, energy-dispersive or other multiple-detector instrument,
-    to which the calibration applies.
-
-    Note that this code should match the code name used for
-    _pd_meas.detector_id. As a default value is defined, the detector id may be
-    omitted if only a single detector is present.
+    A code which identifies the detector or channel number in a
+    position-sensitive, energy-dispersive or other multiple-detector
+    instrument for which the individual instrument geometry is being
+    defined. This code should match the code name used for
+    _pd_instr_detector.id.
 ;
     _name.category_id             pd_calib_xcoord_overall
     _name.object_id               detector_id
-    _name.linked_item_id          '_pd_meas.detector_id'
+    _name.linked_item_id          '_pd_instr_detector.id'
     _type.purpose                 Link
-    _type.source                  Assigned
+    _type.source                  Related
     _type.container               Single
     _type.contents                Code
-    _enumeration.default          .
 
 save_
 
@@ -4906,24 +4907,27 @@ save_pd_meas.detector_id
 
     _definition.id                '_pd_meas.detector_id'
     _alias.definition_id          '_pd_meas_detector_id'
-    _definition.update            2014-06-20
+    _definition.update            2023-06-09
     _description.text
 ;
-    A code or number which identifies the measuring detector or
-    channel number in a position-sensitive, energy-dispersive
-    or other multiple-detector instrument.
+    A code which identifies the detector or channel number in a
+    position-sensitive, energy-dispersive or other multiple-detector
+    instrument for which the individual instrument geometry is being
+    defined. This code should match the code name used for
+    _pd_instr_detector.id.
 
-    Calibration information, such as angle offsets or
-    a calibration function to convert channel numbers
-    to Q, energy, wavelength, angle etc. should
-    be described with PD_CALIB values. If
-    _pd_calibration.conversion_eqn is used, the detector ID's
-    should be the number to be used in the equation.
+    Calibration information, such as angle offsets or a calibration
+    function to convert channel numbers to Q, energy, wavelength,
+    angle etc. should be described using PD_CALIB_XCOORD and/or
+    PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
+    used, the detector IDs should be the number to be used in the
+    equation.
 ;
     _name.category_id             pd_meas
     _name.object_id               detector_id
-    _type.purpose                 Encode
-    _type.source                  Assigned
+    _name.linked_item_id          '_pd_instr_detector.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Code
 
@@ -7555,20 +7559,17 @@ save_
 save_pd_instr_detector.id
 
     _definition.id                '_pd_instr_detector.id'
-    _definition.update            2023-01-06
+    _definition.update            2023-06-09
     _description.text
 ;
     A code which identifies the detector or channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which individual instrument geometry is being
-    defined. Note that this code should match the code name used for
-    _pd_meas.detector_id. Where a single detector is used, this
-    may be omitted.
+    instrument for which the individual instrument geometry is being
+    defined. Where a single detector is used, this may be omitted.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               id
-    _name.linked_item_id          '_pd_meas.detector_id'
-    _type.purpose                 Link
+    _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
@@ -8220,7 +8221,7 @@ save_PD_PEAK
     _definition.id                PD_PEAK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2014-06-20
+    _definition.update            2023-06-10
     _description.text
 ;
     This section contains peak information extracted from the
@@ -8235,7 +8236,11 @@ save_PD_PEAK
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK
-    _category_key.name            '_pd_peak.id'
+
+    loop_
+      _category_key.name
+         '_pd_peak.diffractogram_id'
+         '_pd_peak.id'
 
 save_
 
@@ -8347,6 +8352,25 @@ save_pd_peak.d_spacing_su
     _units.code                   angstroms
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_peak.diffractogram_id
+
+    _definition.id                '_pd_peak.diffractogram_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the peak information
+    relates.
+;
+    _name.category_id             pd_peak
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -8562,7 +8586,7 @@ save_PD_PEAK_OVERALL
     _definition.id                PD_PEAK_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2023-06-10
     _description.text
 ;
     This category describes general aspects of the peak extraction
@@ -8570,7 +8594,11 @@ save_PD_PEAK_OVERALL
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK_OVERALL
-    _category_key.name            '_pd_peak_overall.id'
+
+    loop_
+      _category_key.name
+         '_pd_peak_overall.diffractogram_id'
+         '_pd_peak_overall.id'
 
 save_
 
@@ -8589,6 +8617,25 @@ save_pd_peak.special_details
     _name.object_id               special_details
     _type.purpose                 Describe
     _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_peak_overall.diffractogram_id
+
+    _definition.id                '_pd_peak_overall.diffractogram_id'
+    _definition.update            2023-06-10
+    _description.text
+;
+    The diffractogram (see _pd_diffractogram.id) to which the overall peak
+    information relates.
+;
+    _name.category_id             pd_peak_overall
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -11238,7 +11285,7 @@ save_pd_qpa_external_std.special_details
     _description.text
 ;
     Description of external standard details that cannot otherwise
-    be recorded using other PD_QPA_EXT_STD data items
+    be recorded using other PD_QPA_EXTERNAL_STD data items.
 ;
     _name.category_id             pd_qpa_external_std
     _name.object_id               special_details
@@ -12522,7 +12569,7 @@ save_
        Added _pd_peak_overall.id.
 
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
-       PD_BACKGROUND, and REFLN
+       PD_BACKGROUND, and REFLN.
 
        Deprecated PD_CALIB, PD_CALIB_OFFSET, and PD_CALIB_STD.
 
@@ -12530,4 +12577,11 @@ save_
        AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
 
        Add _pd_calib_xcoord.diffractogram_id.
+
+       Add _pd_peak.diffractogram_id and _pd_peak_overall.diffractogram_id.
+
+       Altered PD_CALIB_INCIDENT_INTENSITY to be a Set category.
+
+       Redefined _pd_meas.detector_id in terms of _pd_instr_detector.id. Linked
+       all _pd_*.detector_id data names to _pd_instr_detector.id.
 ;
