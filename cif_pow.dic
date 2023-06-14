@@ -4220,7 +4220,7 @@ save_PD_DATA
          _pd_meas.time_of_flight
          _pd_proc.d_spacing
          _pd_proc.intensity_total
-         _pd_proc_ls.weight
+         _pd_proc.ls_weight
          _pd_calc.intensity_total
          _pd_proc.intensity_bkg_calc
          0   1110.30100   1.489225   0.60008   6528.86960   0.553025   0.504217
