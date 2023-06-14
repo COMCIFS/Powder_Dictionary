@@ -2359,7 +2359,7 @@ save_pd_calib_detected_intensity.block_id
     calibration was taken, if it was calibrated by a specimen.
 
     The data block containing the diffraction pattern will be identified with a
-    _pd_block.id code matching the code given here.
+    _pd_block.id code matching the code given as the value of this data item.
 ;
     _name.category_id             pd_calib_detected_intensity
     _name.object_id               block_id
