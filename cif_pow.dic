@@ -62,7 +62,7 @@ save_PD_AMORPHOUS
     See PD_PEAK for details on the specific peak parameters that may be
     recorded. Each amorphous peak may or may not be associated with an indexed
     reflection, and as such, an "amorphous" phase could represent a material
-    with a unknown crystal structure. Amorphous peaks do not correspond to
+    with an unknown crystal structure. Amorphous peaks do not correspond to
     background, and should not be used as such.
 
     Note that peak positions are customarily determined from the processed
@@ -2592,7 +2592,7 @@ save_pd_calib_incident_intensity.incident_counts
     _description.text
 ;
     A value that indicates the number of counts incident on the specimen. This
-    value is be a constant for each diffractgram. For point-wise corrections,
+    value is a constant for each diffractogram. For point-wise corrections,
     see _pd_meas.counts_monitor.
 
     Standard uncertainties should not be quoted for this value. If the standard
@@ -2618,7 +2618,7 @@ save_pd_calib_incident_intensity.incident_intensity
     _description.text
 ;
     A value that indicates the intensity incident on the specimen. This value
-    is a constant for each diffractgram. For point-wise corrections, see
+    is a constant for each diffractogram. For point-wise corrections, see
     _pd_meas.intensity_monitor.
 
     Use this entry for measurements where intensity values are not counts (use
@@ -3899,9 +3899,9 @@ save_PD_CHAR
     cannot be specifically deliniated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
-    information is specified in PD_PREP. The sample is drawn from a 'material',
+    information specified in PD_PREP. The sample is drawn from a 'material',
     which may exist in an actual or idealised sense, which can have information
-    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    specified in PD_CHAR. For example: the material might be BaTiO3, the
     sample might be a specific batch from a specific manufacturer, and the
     specimen is the material taken from the bottle and placed in the instrument.
 
@@ -4619,7 +4619,7 @@ save_pd_instr.dist_spec_vdetc
     Distance from the specimen to the virtual detector (in millimetres).
     The virtual detector is point in space at which the detector is
     sampling the diffracted radiation from the point of view of the
-    specimen. eg the specimen-receiving slit distance in a point-detector,
+    specimen, e.g. the specimen-receiving slit distance in a point-detector,
     Bragg-Brentano diffractometer. This distance is also referred to as
     the 'secondary radius', or the 'diffracted beam radius'.
 
@@ -4649,7 +4649,7 @@ save_pd_instr.dist_vsrc_spec
 ;
     Distance from the virtual source to the specimen (in millimetres).
     The virtual source is point in space from which the incident radiation
-    can be said to be coming from from the point of view of the specimen.
+    can be said to be coming from the point of view of the specimen.
     This distance is also referred to as the 'primary radius', or the
     'incident beam radius'.
 
@@ -5642,8 +5642,8 @@ save_pd_proc.intensity_incident
     correction function should be specified as
     _pd_proc.intensity_incident. The normalization should be
     specified in _pd_proc.intensity_incident as a value to be
-    used to divide the measured intensities to obtained the
-    normalized diffractogram. Thus, the
+    used to divide the measured intensities to obtain the
+    normalised diffractogram. Thus, the
     _pd_proc.intensity_incident values should increase as the
     incident flux is increased.
 ;
@@ -6799,7 +6799,7 @@ save_pd_instr.soller_eq_mono_spec
     Describes collimation in the equatorial plane (the plane
     containing the incident and diffracted beams) for
     the instrument. Values are the maximum divergence angles in
-    degrees, as limited by Soller slits located  between the monochromator and
+    degrees, as limited by Soller slits located between the monochromator and
     the specimen. Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -7889,7 +7889,7 @@ save_pd_meas.angle_chi
     _definition.update            2022-10-11
     _description.text
 ;
-    The diffractometer angle in degrees for an instrument with a
+    The diffractometer angle in degrees for an instrument with an
     Euler circle. The definitions for these angles follow the
     convention of International Tables for X-ray Crystallography
     (1974), Vol. IV, p. 276.
@@ -7929,7 +7929,7 @@ save_pd_meas.angle_omega
     _definition.update            2022-10-11
     _description.text
 ;
-    The diffractometer angle in degrees for an instrument with a
+    The diffractometer angle in degrees for an instrument with an
     Euler circle. The definitions for these angles follow the
     convention of International Tables for X-ray Crystallography
     (1974), Vol. IV, p. 276.
@@ -7969,7 +7969,7 @@ save_pd_meas.angle_phi
     _definition.update            2022-10-11
     _description.text
 ;
-    The diffractometer angle in degrees for an instrument with a
+    The diffractometer angle in degrees for an instrument with an
     Euler circle. The definitions for these angles follow the
     convention of International Tables for X-ray Crystallography
     (1974), Vol. IV, p. 276.
@@ -9800,7 +9800,7 @@ save_pd_pref_orient_spherical_harmonics.y_ij
     _definition.update            2023-01-06
     _description.text
 ;
-    The order (i) and  term (j) of the spherical harmonic
+    The order (i) and term (j) of the spherical harmonic
     preferred-orientation correction. Spherical
     harmonics are functions that obey the point-symmetry
     operations of the phase, and can be used to model
@@ -9885,9 +9885,9 @@ save_PD_PREP
     cannot be specifically deliniated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
-    information is specified in PD_PREP. The sample is drawn from a 'material',
+    information specified in PD_PREP. The sample is drawn from a 'material',
     which may exist in an actual or idealised sense, which can have information
-    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    specified in PD_CHAR. For example: the material might be BaTiO3, the
     sample might be a specific batch from a specific manufacturer, and the
     specimen is the material taken from the bottle and placed in the instrument.
 ;
@@ -10402,7 +10402,7 @@ save_pd_proc_ls.prof_wr_expected
 ;
     _pd_proc_ls.prof_wR_expected, sometimes called the
       theoretical R~wp~ or R~exp~, is a weighted fitness metric for
-      the statistical precision of the data set. For an idealized fit,
+      the statistical precision of the data set. For an idealised fit,
       where all deviations between the observed intensities and
       those computed from the model are due to statistical
       fluctuations, the observed R~wp~ should match the expected
@@ -10945,7 +10945,7 @@ save_pd_qpa_calib_factor.other
     _pd_qpa_overall.method.
 
     When this data item is used in many phases present in the same
-    diffractogram, the person creating the CIF file must ensure that they are
+    diffractogram, the person creating the CIF file must ensure that they
     have consistent definitions.
 ;
     _name.category_id             pd_qpa_calib_factor
@@ -11154,8 +11154,8 @@ save_PD_QPA_EXTERNAL_STD
     quantitative phase analysis.
 
     Quantification by external standard is typically carried out
-    using the O'Connor and Raven algorithm in conjunction with whole-
-    pattern Rietveld modelling, and relies on the determination of
+    using the O'Connor and Raven algorithm in conjunction with whole-pattern
+    Rietveld modelling, and relies on the determination of
     the diffractometer constant, K. The use of an external standard
     allows for the calculation of absolute mass fractions, giving
     an indication of amorphous content. This method requires the
@@ -11376,7 +11376,7 @@ save_pd_qpa_intensity_factor.value
     This value is not, in general, transferable between different program types
     and versions, as each software package may incorporate different constants
     or normalisations into their calculations. However, if all values for a
-    given diffractogram are self-consistent, then quantification is able to be
+    given diffractogram are self-consistent, then quantification can be
     undertaken.
 
     A description of the associated quantification procedure can be found in
@@ -11695,7 +11695,7 @@ save_pd_qpa_overall.method
          absorption_diffraction
 ;
          Quantitative phase analysis was undertaken following the
-         absorption-diffraction methodology methodology [1].
+         absorption-diffraction methodology [1].
 
          The absolute weight fraction of phase p, W~p~, is given by
 
@@ -11748,7 +11748,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11843,7 +11843,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11884,7 +11884,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11917,7 +11917,7 @@ save_pd_qpa_overall.method
 
             W~p~^absolute^ = W~p~^relative^ * (W~s~^known^ / W~s~^relative^)
 
-         Any difference between the sum of the the individual phase weight
+         Any difference between the sum of the individual phase weight
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
@@ -11965,9 +11965,9 @@ save_PD_SPEC
     cannot be specifically deliniated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
-    information is specified in PD_PREP. The sample is drawn from a 'material',
+    information specified in PD_PREP. The sample is drawn from a 'material',
     which may exist in an actual or idealised sense, which can have information
-    is specified in PD_CHAR. For example: the material might be BaTiO3, the
+    specified in PD_CHAR. For example: the material might be BaTiO3, the
     sample might be a specific batch from a specific manufacturer, and the
     specimen is the material taken from the bottle and placed in the instrument.
 ;
