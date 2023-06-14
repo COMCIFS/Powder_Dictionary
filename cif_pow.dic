@@ -10854,8 +10854,8 @@ save_pd_qpa_calib_factor.external_standard
     A external standard calibration value associated with the given phase which
     allows quantitative phase analysis to be undertaken.
 
-    If the external standard approach is used, the use of PD_EXTERNAL_STD data
-    items is preferred.
+    If the external standard approach is used, the use of PD_QPA_EXTERNAL_STD
+    data items is preferred.
 
     A description of the associated quantification procedure can be found in
     the equivalent enumeration in _pd_qpa_overall.method.
