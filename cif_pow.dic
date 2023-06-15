@@ -5855,11 +5855,18 @@ save_PD_DIFFRACTOGRAM
     _definition.id                PD_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2022-10-11
+    _definition.update            2023-06-15
     _description.text
 ;
     This category includes data names relating to a diffractogram
     as a whole.
+
+    This category allows for the description of the diffractograms contributing
+    to a powder diffraction data set. Note that if multiple-diffractogram
+    Rietveld or other analysis is performed, the individual diffractograms will
+    be placed in different data blocks, using CIF entries from the core and
+    powder CIF dictionaries.
+
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DIFFRACTOGRAM
@@ -5870,10 +5877,13 @@ save_
 save_pd_diffractogram.id
 
     _definition.id                '_pd_diffractogram.id'
-    _definition.update            2023-06-08
+    _definition.update            2023-06-15
     _description.text
 ;
     Arbitrary label identifying a powder diffraction measurement.
+
+    The _pd_diffractogram.id value identifies a particular block as containing
+    parameters related to a particular diffractogram.
 ;
     _name.category_id             pd_diffractogram
     _name.object_id               id
@@ -12348,5 +12358,6 @@ save_
        Redefined _pd_meas.detector_id in terms of _pd_instr_detector.id. Linked
        all _pd_*.detector_id data names to _pd_instr_detector.id.
 
-       Update description of PD_PHASE and _ps_phase.id.
+       Update description of PD_PHASE, PD_DIFFRACTOGRAM, _pd_phase.id, and
+       _pd_diffractogram.id.
 ;
