@@ -3888,7 +3888,7 @@ save_PD_CHAR
     _definition.id                PD_CHAR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-02-22
+    _definition.update            2023-06-04
     _description.text
 ;
     This section contains experimental (non-diffraction) information relevant to
@@ -3908,6 +3908,7 @@ save_PD_CHAR
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
+    _category_key.name            '_pd_char.id'
 
 save_
 
@@ -4041,6 +4042,23 @@ save_pd_char.colour
          orange_red
          brownish_red
          yellow_metallic
+
+save_
+
+save_pd_char.id
+
+    _definition.id                '_pd_char.id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    Arbitrary label identifying a material.
+;
+    _name.category_id             pd_char
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -9872,7 +9890,7 @@ save_PD_PREP
     _definition.id                PD_PREP
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-02-22
+    _definition.update            2023-06-04
     _description.text
 ;
     This section contains descriptive information about how the sample, from
@@ -9893,6 +9911,29 @@ save_PD_PREP
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
+
+    loop_
+      _category_key.name
+         '_pd_prep.char_id'
+         '_pd_prep.id'
+
+save_
+
+save_pd_prep.char_id
+
+    _definition.id                '_pd_prep.char_id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    The identifier for the material from which this sample was prepared
+;
+    _name.category_id             pd_prep
+    _name.object_id               char_id
+    _name.linked_item_id          '_pd_char.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -9955,6 +9996,23 @@ save_pd_prep.cool_rate_su
 
 save_
 
+save_pd_prep.id
+
+    _definition.id                '_pd_prep.id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    Arbitrary label identifying a sample.
+;
+    _name.category_id             pd_prep
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_prep.pressure
 
     _definition.id                '_pd_prep.pressure'
@@ -9991,6 +10049,24 @@ save_pd_prep.pressure_su
     _units.code                   kilopascals
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_prep.special_details
+
+    _definition.id                '_pd_prep.special_details'
+    _definition.update            2023-06-04
+    _description.text
+;
+    Descriptive information about the sample that cannot be included in other
+    data items.
+;
+    _name.category_id             pd_prep
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -11955,7 +12031,7 @@ save_PD_SPEC
     _definition.id                PD_SPEC
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-22
+    _definition.update            2023-03-25
     _description.text
 ;
     This section contains information about the specimen used for measurement of
@@ -11973,7 +12049,11 @@ save_PD_SPEC
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
-    _category_key.name            '_pd_spec.id'
+
+    loop_
+      _category_key.name
+         '_pd_spec.id'
+         '_pd_spec.prep_id'
 
 save_
 
@@ -12095,6 +12175,24 @@ save_pd_spec.orientation
          horizontal
          vertical
          both
+
+save_
+
+save_pd_spec.prep_id
+
+    _definition.id                '_pd_spec.prep_id'
+    _definition.update            2023-06-04
+    _description.text
+;
+    The identifier for the sample from which this specimen was taken.
+;
+    _name.category_id             pd_spec
+    _name.object_id               prep_id
+    _name.linked_item_id          '_pd_prep.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -12571,6 +12669,9 @@ save_
 
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN.
+
+       Created category keys for PD_CHAR and PD_PREP. Added link keys to join
+       PD_CHAR to PD_PREP, and PD_PREP to PD_SPEC.
 
        Deprecated PD_CALIB, PD_CALIB_OFFSET, and PD_CALIB_STD.
 
