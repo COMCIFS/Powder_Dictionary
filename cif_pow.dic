@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-10
+    _dictionary.date              2023-06-15
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1465,8 +1465,8 @@ save_PD_BLOCK
 
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
-    (see _pd_block_diffractogram.id, _pd_phase_block.id and
-    _pd_qpa_external_std.diffractogram_block_id).
+    (see _pd_block_diffractogram.id  _pd_phase_block.id or
+    _pd_calib_std.external_block_id).
 
     Note that a data block may contain only a single diffraction
     data set or information about a single crystalline phase.
@@ -8559,16 +8559,13 @@ save_PD_PHASE
     _definition.id                PD_PHASE
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-08
+    _definition.update            2023-06-15
     _description.text
 ;
     This section contains a description of the phases contributing to the powder
     diffraction data set. Note that if multiple-phase Rietveld or other
     structural analysis is performed, the structural results will be placed in
     different data blocks, using CIF entries from the core CIF dictionary.
-
-    The _pd_phase.id entry points to the CIF block with structural parameters
-    for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -8579,10 +8576,13 @@ save_
 save_pd_phase.id
 
     _definition.id                '_pd_phase.id'
-    _definition.update            2022-12-03
+    _definition.update            2023-06-15
     _description.text
 ;
     Arbitrary label uniquely identifying a phase.
+
+    The _pd_phase.id value identifies a particular block as containing
+    parameters related to a particular crystalline phase.
 ;
     _name.category_id             pd_phase
     _name.object_id               id
@@ -12347,4 +12347,6 @@ save_
 
        Redefined _pd_meas.detector_id in terms of _pd_instr_detector.id. Linked
        all _pd_*.detector_id data names to _pd_instr_detector.id.
+
+       Update description of PD_PHASE and _ps_phase.id.
 ;
