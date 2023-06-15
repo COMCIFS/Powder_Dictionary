@@ -11753,7 +11753,7 @@ save_pd_qpa_overall.method
 
     This data item allows the origin of the values of _pd_phase_mass.percent
     to be determined. Additionally, it allows for the proper interpretation
-    of any _pd_qpa_calib_factor.value that is given.
+    of any _pd_qpa_calib_factor.* value that is given.
 
     If 'other' is chosen, further information must be given in
     _pd_qpa_overall.special_details
@@ -11907,7 +11907,7 @@ save_pd_qpa_overall.method
 
          If any phase in an analysis of a diffractogram uses the PONKCS
          approach, the entire quantification is to be marked as 'PONKCS', and
-         all phases should define _pd_qpa_calib_factor.value.
+         all phases should define _pd_qpa_calib_factor.ponkcs.
 
          The values utilised for I~p~ and C~p~ can be recorded using
          _pd_qpa_intensity_factor.value and _pd_qpa_calib_factor.PONKCS,
