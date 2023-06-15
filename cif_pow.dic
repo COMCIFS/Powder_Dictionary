@@ -1502,12 +1502,13 @@ save_pd_block.id
       _definition_replaced.by
          1                        '_pd_phase.id'
          2                        '_pd_diffractogram.id'
+         3                        '_audit.block_code'
     _alias.definition_id          '_pd_block_id'
-    _definition.update            2023-06-08
+    _definition.update            2023-06-15
     _description.text
 ;
     **DEPRECATED**
-    Use _pd_phase.id or _pd_diffractogram.id, as necessary.
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code as necessary.
 
     Used to assign a unique character string to a block.
     Note that this code is not intended to be parsed; the
