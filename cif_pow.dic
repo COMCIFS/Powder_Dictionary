@@ -8562,8 +8562,8 @@ save_PD_PHASE
     _definition.update            2023-06-15
     _description.text
 ;
-    This section contains a description of the phases contributing to the powder
-    diffraction data set. Note that if multiple-phase Rietveld or other
+    This category allows for the description of the phases contributing to a
+    powder diffraction data set. Note that if multiple-phase Rietveld or other
     structural analysis is performed, the structural results will be placed in
     different data blocks, using CIF entries from the core CIF dictionary.
 ;
