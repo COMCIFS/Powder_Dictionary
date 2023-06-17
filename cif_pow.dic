@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-13
+    _dictionary.date              2023-06-17
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -2588,12 +2588,12 @@ save_
 save_pd_calib_incident_intensity.incident_counts
 
     _definition.id                '_pd_calib_incident_intensity.incident_counts'
-    _definition.update            2023-01-21
+    _definition.update            2023-06-17
     _description.text
 ;
-    A value that indicates the number of counts incident on the specimen. This
-    value is a constant for each diffractogram. For point-wise corrections,
-    see _pd_meas.counts_monitor.
+    A value that indicates the number of counts incident on the specimen per
+    second. This value is a constant for each diffractogram. For point-wise
+    corrections, see _pd_meas.counts_monitor.
 
     Standard uncertainties should not be quoted for this value. If the standard
     uncertainties differ from the square root of the number of counts,
@@ -2606,7 +2606,6 @@ save_pd_calib_incident_intensity.incident_counts
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
-    _units.code                   counts
 
 save_
 
@@ -2617,9 +2616,9 @@ save_pd_calib_incident_intensity.incident_intensity
     _definition.update            2023-01-21
     _description.text
 ;
-    A value that indicates the intensity incident on the specimen. This value
-    is a constant for each diffractogram. For point-wise corrections, see
-    _pd_meas.intensity_monitor.
+    A value that indicates the intensity incident on the specimen per second.
+    This value is a constant for each diffractogram. For point-wise corrections,
+    see _pd_meas.intensity_monitor.
 
     Use this entry for measurements where intensity values are not counts (use
     _pd_calib_incident_intensity.incident_counts for event-counting
@@ -2633,7 +2632,7 @@ save_pd_calib_incident_intensity.incident_intensity
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
-    _units.code                   none
+    _units.code                   per_second
 
 save_
 
@@ -2641,7 +2640,7 @@ save_pd_calib_incident_intensity.incident_intensity_su
 
     _definition.id
         '_pd_calib_incident_intensity.incident_intensity_su'
-    _definition.update            2023-01-21
+    _definition.update            2023-06-17
     _description.text
 ;
     Standard uncertainty of _pd_calib_incident_intensity.incident_intensity.
@@ -2650,7 +2649,7 @@ save_pd_calib_incident_intensity.incident_intensity_su
     _name.object_id               incident_intensity_su
     _name.linked_item_id
         '_pd_calib_incident_intensity.incident_intensity'
-    _units.code                   none
+    _units.code                   per_second
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
@@ -12560,7 +12559,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-13
+         2.5.0                    2023-06-17
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12689,4 +12688,7 @@ save_
 
        Converted all 'Array' and 'Matrix'-type data items to be 'List', except
        _pd_pref_orient_march_dollase.hkl.
+
+       Change units of _pd_calib_incident_intensity.incident_* to
+       counts_per_second and per_second.
 ;
