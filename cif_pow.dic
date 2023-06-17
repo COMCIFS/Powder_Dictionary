@@ -8094,57 +8094,6 @@ save_pd_meas.rocking_angle
     _enumeration.range            0:360.0
     _units.code                   degrees
 
-    loop_
-      _description_example.case
-      _description_example.detail
-;
-        _pd_meas.rocking_angle   5
-        _pd_meas.rocking_axis    omega
-
-        _pd_instr.geometry       Bragg-Brentano
-
-        _pd_meas.2theta_scan
-        _pd_meas.counts_total
-        12.00  123
-        12.02  124
-;
-;
-        The specimen was rocked +- 2.5\% about the points 12.00 and 12.02\% 2\q
-        during the measurement.
-;
-;
-        _pd_meas.rocking_angle   180
-        _pd_meas.rocking_axis    phi
-
-        _pd_instr.geometry       Bragg-Brentano
-
-        _pd_meas.2theta_scan
-        _pd_meas.counts_total
-        12.00  123
-        12.02  124
-;
-;
-        The specimen was rotated 180\% during the collection of the data at
-        each measurement point of 12.00 and 12.02\% 2\q. This may have been
-        a continuous rotation of 360\% over both measurement points, or an
-        initial rotation of 180\% followed by a rotation of -180\%.
-;
-;
-        _pd_meas.rocking_angle   180
-        _pd_meas.rocking_axis    omega
-
-        _pd_instr.geometry       Debye-Scherrer
-
-        _pd_meas.2theta_scan
-        _pd_meas.counts_total
-        12.00  123
-        12.02  124
-;
-;
-        The specimen was rotated 180\% during the collection of the data at
-        each measurement point of 12.00 and 12.02\% 2\q.
-;
-
 save_
 
 save_pd_meas.rocking_angle_su
@@ -12743,4 +12692,6 @@ save_
 
        Converted all 'Array' and 'Matrix'-type data items to be 'List', except
        _pd_pref_orient_march_dollase.hkl.
+
+       Clarified description of _pd_meas.rocking_angle.
 ;
