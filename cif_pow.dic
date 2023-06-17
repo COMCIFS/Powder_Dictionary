@@ -7438,7 +7438,7 @@ save_PD_INSTR_DETECTOR
         _pd_instr.dist_spec_detc          117.5
         _pd_instr.monochr_post_spec       'Fe filter'
         _pd_instr.slit_ax_spec_detc        12
-        _pd_instr.slit_eq_spec_detc         0.075   # pixel detector, so the slit is the detector
+        _pd_instr.slit_eq_spec_detc         0.075
         _pd_instr.soller_ax_spec_detc       2.5
 ;
 ;
