@@ -10199,6 +10199,12 @@ save_PD_PREP
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
+
+    loop_
+      _category_key.name
+         '_pd_prep.char_id'
+         '_pd_prep.id'
+
     _description_example.case
 ;
          _pd_prep.id           'rutile 1234'
@@ -10214,11 +10220,6 @@ save_PD_PREP
          _pd_prep.pressure      101.3
          _pd_prep.temperature  1100
 ;
-
-    loop_
-      _category_key.name
-         '_pd_prep.char_id'
-         '_pd_prep.id'
 
 save_
 
