@@ -2606,6 +2606,7 @@ save_pd_calib_incident_intensity.incident_counts
     _type.container               Single
     _type.contents                Integer
     _enumeration.range            0:
+    _units.code                   counts_per_second
 
 save_
 
