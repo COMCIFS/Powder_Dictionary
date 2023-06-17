@@ -10342,6 +10342,27 @@ save_PD_PREP
     _name.object_id               PD_PREP
     _category_key.name            '_pd_prep.id'
 
+    loop_
+      _category_key.name
+         '_pd_prep.char_id'
+         '_pd_prep.id'
+
+    _description_example.case
+;
+         _pd_prep.id           'rutile 1234'
+         _pd_prep.conditions
+      ;
+         1 kg of anatase from Acme, Lot#1234 was placed in several
+         platinum crucible in a furnace at atmospheric pressure.
+         The furnace was heated at 5 K/min to 1100 K, and held there
+         overnight. The furnace was then switched off and allowed to
+         cool naturally. The batch was combined, homoginised, and
+         riffle-split into 50 g packets.
+      ;
+         _pd_prep.pressure      101.3
+         _pd_prep.temperature  1100
+;
+
 save_
 
 save_pd_prep.char_id
