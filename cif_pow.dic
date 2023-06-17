@@ -8078,9 +8078,12 @@ save_pd_meas.rocking_angle
     _definition.update            2023-01-22
     _description.text
 ;
-    The angular range in degrees through which a specimen
-    is rotated or oscillated during a measurement step
-    (see _pd_meas.rocking_axis).
+    The total angular range, in degrees, through which a specimen is rotated or
+    oscillated during a measurement step (see _pd_meas.rocking_axis).
+
+    Where the rocking axis aligns with a measurement axis, and the rotation
+    range relates to the point being measured, the total angular range is
+    assumed to be centred on the measurement point.
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               rocking_angle
@@ -8090,6 +8093,57 @@ save_pd_meas.rocking_angle
     _type.contents                Real
     _enumeration.range            0:360.0
     _units.code                   degrees
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _pd_meas.rocking_angle   5
+        _pd_meas.rocking_axis    omega
+
+        _pd_instr.geometry       Bragg-Brentano
+
+        _pd_meas.2theta_scan
+        _pd_meas.counts_total
+        12.00  123
+        12.02  124
+;
+;
+        The specimen was rocked +- 2.5\% about the points 12.00 and 12.02\% 2\q
+        during the measurement.
+;
+;
+        _pd_meas.rocking_angle   180
+        _pd_meas.rocking_axis    phi
+
+        _pd_instr.geometry       Bragg-Brentano
+
+        _pd_meas.2theta_scan
+        _pd_meas.counts_total
+        12.00  123
+        12.02  124
+;
+;
+        The specimen was rotated 180\% during the collection of the data at
+        each measurement point of 12.00 and 12.02\% 2\q. This may have been
+        a continuous rotation of 360\% over both measurement points, or an
+        initial rotation of 180\% followed by a rotation of -180\%.
+;
+;
+        _pd_meas.rocking_angle   180
+        _pd_meas.rocking_axis    omega
+
+        _pd_instr.geometry       Debye-Scherrer
+
+        _pd_meas.2theta_scan
+        _pd_meas.counts_total
+        12.00  123
+        12.02  124
+;
+;
+        The specimen was rotated 180\% during the collection of the data at
+        each measurement point of 12.00 and 12.02\% 2\q.
+;
 
 save_
 
