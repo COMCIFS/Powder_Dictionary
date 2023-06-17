@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-13
+    _dictionary.date              2023-06-17
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1897,7 +1897,7 @@ save_pd_calc_overall.component_presentation_order
 ;
     List of _pd_phase.ids specifying the order in which
     the individual phases' calculated components are given
-    within _pd_calc.component_intensity_*_list.
+    within _pd_calc.component_intensities_*.
 ;
     _name.category_id             pd_calc_overall
     _name.object_id               component_presentation_order
@@ -4383,10 +4383,10 @@ save_PD_CALC
 
 save_
 
-save_pd_calc.component_intensity_net_list
+save_pd_calc.component_intensities_net
 
-    _definition.id                '_pd_calc.component_intensity_net_list'
-    _definition.update            2023-06-13
+    _definition.id                '_pd_calc.component_intensities_net'
+    _definition.update            2023-06-17
     _description.text
 ;
     List of intensity values for the contributions of an
@@ -4400,18 +4400,18 @@ save_pd_calc.component_intensity_net_list
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
-    Use _pd_calc.component_intensity_net_list if the computed
+    Use _pd_calc.component_intensities_net if the computed
     component contribution diffraction patterns do not
     include background or normalization corrections and thus
     are specified on the same scale as the
     _pd_proc.intensity_net values.
 
-    _pd_calc.component_intensity_*_list should be looped with
+    _pd_calc.component_intensities_* should be looped with
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
     _name.category_id             pd_calc
-    _name.object_id               component_intensity_net_list
+    _name.object_id               component_intensities_net
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               List
@@ -4422,10 +4422,10 @@ save_pd_calc.component_intensity_net_list
 
 save_
 
-save_pd_calc.component_intensity_total_list
+save_pd_calc.component_intensities_total
 
-    _definition.id                '_pd_calc.component_intensity_total_list'
-    _definition.update            2023-06-13
+    _definition.id                '_pd_calc.component_intensities_total'
+    _definition.update            2023-06-17
     _description.text
 ;
     List of intensity values for the contributions of an
@@ -4439,18 +4439,18 @@ save_pd_calc.component_intensity_total_list
     _pd_proc.2theta_corrected, _pd_proc.d_spacing, or other
     appropriate x-coordinates.
 
-    Use _pd_calc.component_intensity_total_list if the computed
+    Use _pd_calc.component_intensities_total if the computed
     component contribution diffraction patterns include background
     or normalization corrections (or both), and thus are specified
     on the same scale as the observed intensities (_pd_meas.counts_*
     or _pd_meas.intensity_*).
 
-    _pd_calc.component_intensity_*_list should be looped with
+    _pd_calc.component_intensities_* should be looped with
     either _pd_proc.intensity_net, _pd_meas.counts_*, and/or
     _pd_meas.intensity_*.
 ;
     _name.category_id             pd_calc
-    _name.object_id               component_intensity_total_list
+    _name.object_id               component_intensities_total
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               List
@@ -12560,7 +12560,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-13
+         2.5.0                    2023-06-17
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12689,4 +12689,7 @@ save_
 
        Converted all 'Array' and 'Matrix'-type data items to be 'List', except
        _pd_pref_orient_march_dollase.hkl.
+
+       Renamed _pd_calc.component_intensity_*_list to
+       _pd_calc.component_intensities_*
 ;
