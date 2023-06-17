@@ -8074,8 +8074,12 @@ save_PD_MEAS_OVERALL
 
           _pd_meas.datetime_initiated   2023-02-27T22:45:00+08:00
 
+          _pd_meas.rocking_angle   180
+          _pd_meas.rocking_axis    phi
+          _pd_instr.geometry       Bragg-Brentano
+
           loop_
-          _pd_data.id
+          _pd_data.point_id
           _pd_meas.counts_total
           1   1234
           2   1256
@@ -8088,21 +8092,26 @@ save_PD_MEAS_OVERALL
          collected in a continuous scan, such that the detector did not stop
          moving, and the intensities were binned according to the goniometer
          angle during the collection time per step. Data collection was started
-         on the 27 of February, 2023 at 2245 h in a timezone +8 h from UTC.
+         on the 27^th^ of February, 2023 at 2245 h in a timezone +8 h from UTC.
+         The specimen was rotated 180\% during the collection of the data for
+         each measurement point
 ;
 ;
           _pd_meas.rocking_angle   2.5
           _pd_meas.rocking_axis    omega
           _pd_meas.scan_method     step
 
+          _pd_instr.geometry       Bragg-Brentano
+
           _pd_meas_overall.diffractogram_id   PATTERN_96
 
           loop_
-          _pd_data.id
+          _pd_data.point_id
+          _pd_data.diffractogram_id
           _pd_meas.2theta_scan
           _pd_meas.counts_total
-          1   5.02   1234
-          2   5.04   1256
+          1   PATTERN_96   5.02   1234
+          2   PATTERN_96   5.04   1256
           #...
 ;
 ;
@@ -8120,7 +8129,7 @@ save_PD_MEAS_OVERALL
           _pd_meas.scan_method         disp
 
           loop_
-          _pd_data.id
+          _pd_data.point_id
           _pd_proc.energy_detection
           _pd_meas.intensity_total
           _pd_meas.intensity_total_su
