@@ -12689,7 +12689,4 @@ save_
 
        Converted all 'Array' and 'Matrix'-type data items to be 'List', except
        _pd_pref_orient_march_dollase.hkl.
-
-       Renamed _pd_calc.component_intensity_*_list to
-       _pd_calc.component_intensities_*
 ;
