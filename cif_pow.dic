@@ -89,6 +89,28 @@ save_PD_AMORPHOUS_PEAK
          '_pd_amorphous_peak.id'
          '_pd_amorphous_peak.phase_id'
 
+    _description_example.case
+;
+        _pd_phase.id   AMOR_PHASE
+
+        loop_
+        _pd_amorphous_peak.id
+        _pd_amorphous_peak.d_spacing
+        _pd_amorphous_peak.rel_intensity
+        _pd_amorphous_peak.peak_ids
+        _pd_amorphous_peak.diffractogram_ids
+        i     4.413   0.642   [ 1 a ]   [ DIFFRACTOGRAM_A DIFFRACTOGRAM_B ]
+        ii    2.792   0.648   [ 2 b ]   [ DIFFRACTOGRAM_A DIFFRACTOGRAM_B ]
+        iii   2.467   1       [ 3 c ]   [ DIFFRACTOGRAM_A DIFFRACTOGRAM_B ]
+;
+    _description_example.detail
+;
+        This amorphous phase consists of three peaks. This phase has been used
+        in two diffractograms, DIFFRACTOGRAM_A and DIFFRACTOGRAM_B. To find the
+        exact peak position, width and intensity details, you must find the
+        peaks indexed with the given peak id and diffractogram id combinations.
+;
+
 save_
 
 save_pd_amorphous_peak.d_spacing
