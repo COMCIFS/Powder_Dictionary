@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-06-13
+    _dictionary.date              2023-06-18
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -298,7 +298,7 @@ save_
 
 save_pd_amorphous_peak.special_details
 
-    _definition.id                'save_pd_amorphous_peak.special_details'
+    _definition.id                '_pd_amorphous_peak.special_details'
     _definition.update            2023-06-18
     _description.text
 ;
@@ -12734,7 +12734,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-06-13
+         2.5.0                    2023-06-18
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12785,8 +12785,6 @@ save_
 
        Update definitions of _pd_phase.name, _pd_qpa_ext_std.phase_name, and
        _pd_qpa_int_std.phase_name to better represent their contents.
-
-       Created PD_AMORPHOUS.
 
        Deprecate _pd_calib.std_internal_mass_percent and
        _pd_calib.std_internal_mass_percent_su.
@@ -12863,4 +12861,6 @@ save_
 
        Converted all 'Array' and 'Matrix'-type data items to be 'List', except
        _pd_pref_orient_march_dollase.hkl.
+
+       Created PD_AMORPHOUS_PEAK.
 ;
