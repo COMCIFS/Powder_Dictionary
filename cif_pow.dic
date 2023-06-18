@@ -2822,7 +2822,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
 ;
 ;
         _pd_calib_incident_intensity.instr_id                9deaa4f1
-        _pd_calib_incident_intensity.incident_intentity      453.3
+        _pd_calib_incident_intensity.incident_intensity      453.3
         _pd_calib_incident_intensity.incident_intensity_su     1.6
         _pd_calib_incident_intensity.diffractogram_id        STANDARD_30ffb964
         _pd_calib_incident_intensity.phase_id                SRM1796_15341c3a
@@ -6304,6 +6304,7 @@ save_pd_diffractogram.id
          'DIFFRACTOGRAM Z2'
          'Insitu_pattern_0123'
          'Synthesis number 1'
+
 save_
 
 save_pd_diffractogram.spec_id
@@ -6433,7 +6434,7 @@ save_PD_INSTR
         _diffrn_radiation_wavelength.value
         _diffrn_radiation_wavelength.wt
         _diffrn_radiation_wavelength.type
-        _diffrn_radiation_wavelength.determination
+        _diffrn_radiation_wavelength.details
          1  1.7889847  0.378 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
          2  1.7892524  0.144 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
          3  1.7896946  0.127 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
@@ -7416,7 +7417,6 @@ save_PD_INSTR_DETECTOR
         _pd_instr.slit_ax_spec_anal         9.5
         _pd_instr.slit_eq_spec_anal         0.5
         _pd_instr.soller_eq_spec_anal       2.5
-
 ;
 ;
         Assume this detector is paired with the instrument identified by the
@@ -10570,7 +10570,7 @@ save_PD_PREP
          platinum crucible in a furnace at atmospheric pressure.
          The furnace was heated at 5 K/min to 1100 K, and held there
          overnight. The furnace was then switched off and allowed to
-         cool naturally. The batch was combined, homoginised, and
+         cool naturally. The batch was combined, homogenised, and
          riffle-split into 50 g packets.
       ;
          _pd_prep.pressure      101.3
@@ -11366,7 +11366,7 @@ save_PD_PROC_OVERALL
           _pd_proc.number_of_points  4501
 
           loop_
-          _pd_data.id
+          _pd_data.point_id
           _pd_proc.intensity_total
           _pd_proc.intensity_total_su
           1   1234   23
@@ -11645,7 +11645,7 @@ save_PD_QPA_CALIB_FACTOR
              PHASE_B   17.90(15)
              PHASE_C   30.08(14)
 
-             _pd_qpa_overall.method   I_over_Ic
+             _pd_qpa_overall.method   I/Ic
 
              loop_
              _pd_qpa_intensity_factor.phase_id
@@ -12286,7 +12286,7 @@ save_PD_QPA_INTENSITY_FACTOR
              PHASE_B   17.90(15)
              PHASE_C   30.08(14)
 
-             _pd_qpa_overall.method   I_over_Ic
+             _pd_qpa_overall.method   I/Ic
 
              loop_
              _pd_qpa_intensity_factor.phase_id
@@ -12997,7 +12997,7 @@ save_PD_SPEC
          _pd_spec.orientation   horizontal
          _pd_spec.preparation
       ;
-         50 g of recieved sample was homogenised and cone-and-quartered
+         50 g of received sample was homogenised and cone-and-quartered
          to obtain a 3 g split. 1 g of \a-alumina was added as an internal
          standard. The specimen was micronised for 15 min with 15 ml of
          ethanol and dried at  45 \%C. The resulting powder was backpressed
