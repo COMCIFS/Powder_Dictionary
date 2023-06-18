@@ -2633,7 +2633,7 @@ save_pd_calib_incident_intensity.incident_intensity
     _type.container               Single
     _type.contents                Real
     _enumeration.range            0.0:
-    _units.code                   per_second
+    _units.code                   hertz
 
 save_
 
@@ -2650,7 +2650,7 @@ save_pd_calib_incident_intensity.incident_intensity_su
     _name.object_id               incident_intensity_su
     _name.linked_item_id
         '_pd_calib_incident_intensity.incident_intensity'
-    _units.code                   per_second
+    _units.code                   hertz
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
