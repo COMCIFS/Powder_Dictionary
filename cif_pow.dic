@@ -8075,12 +8075,15 @@ save_pd_meas.rocking_angle
 
     _definition.id                '_pd_meas.rocking_angle'
     _alias.definition_id          '_pd_meas_rocking_angle'
-    _definition.update            2023-01-22
+    _definition.update            2023-06-16
     _description.text
 ;
-    The angular range in degrees through which a specimen
-    is rotated or oscillated during a measurement step
-    (see _pd_meas.rocking_axis).
+    The total angular range, in degrees, through which a specimen is rotated or
+    oscillated during a measurement step (see _pd_meas.rocking_axis).
+
+    Where the rocking axis aligns with a measurement axis, and the rotation
+    range relates to the point being measured, the total angular range is
+    assumed to be centred on the measurement point.
 ;
     _name.category_id             pd_meas_overall
     _name.object_id               rocking_angle
@@ -12692,4 +12695,6 @@ save_
 
        Change units of _pd_calib_incident_intensity.incident_* to
        counts_per_second and per_second.
+
+       Clarified description of _pd_meas.rocking_angle.
 ;
