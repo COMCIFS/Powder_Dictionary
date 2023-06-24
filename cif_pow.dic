@@ -1508,7 +1508,15 @@ save_pd_block.id
     _description.text
 ;
     **DEPRECATED**
-    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code as necessary.
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code
+    as necessary. The data items linked to _pd_block.id were normally
+    used to identify blocks containing relevent phases or diffractograms;
+    in which case, use _pd_phase.id, _pd_diffractogram.id to identify
+    the phase or diffractogram of interest. However, in some contexts,
+    _pd_block.id may be used to identify the block as a whole. In this
+    case, use _audit.block_code to identify the block, and another block
+    to which the block is associated can refer to the block via
+    _audit_link.block_code.
 
     Used to assign a unique character string to a block.
     Note that this code is not intended to be parsed; the
