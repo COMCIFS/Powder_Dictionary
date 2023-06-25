@@ -12,14 +12,14 @@ loop_
 	_diffrn_radiation_wavelength.value
 	_diffrn_radiation_wavelength.wt
 	_diffrn_radiation_wavelength.type
-		1    1.7889847   0.378
-		2    1.7892524   0.144
-		3    1.7896946   0.127
-		4    1.7888515   0.088
-		5    1.7927905   0.197
-		6    1.7930637   0.095
-		7    1.7934738   0.050
-		8    1.6207938   0.00147
+		1    1.7889847   0.378    'Co K\a'
+		2    1.7892524   0.144    'Co K\a'
+		3    1.7896946   0.127    'Co K\a'
+		4    1.7888515   0.088    'Co K\a'
+		5    1.7927905   0.197    'Co K\a'
+		6    1.7930637   0.095    'Co K\a'
+		7    1.7934738   0.050    'Co K\a'
+		8    1.6207938   0.00147  'Co K\a'
 
 #######	End common information	#######
 
@@ -463,7 +463,7 @@ data_DIFFRACTOGRAM_0020
 _pd_diffractogram.id	DIFFRACTOGRAM_0020
 
 _pd_meas.datetime_initiated	2023-06-19T21:00:34+08:00
-_pd_meas.scan_method	scan
+_pd_meas.scan_method	cont
 
 _refine_ls.goodness_of_fit_all	1.33237
 _pd_proc_ls.prof_R_factor	0.06355
@@ -7286,7 +7286,7 @@ data_SRM676A
 _pd_diffractogram.id	SRM676A
 
 _pd_meas.datetime_initiated	2023-06-19T20:01:53+08:00
-_pd_meas.scan_method	scan
+_pd_meas.scan_method	cont
 
 _refine_ls.goodness_of_fit_all	1.32287
 _pd_proc_ls.prof_R_factor	0.07675
