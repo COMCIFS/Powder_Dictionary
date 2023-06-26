@@ -6580,6 +6580,10 @@ save_pd_instr.mirror_pre
     of a focussing/elliptical mirror. If this value is equal to twice the
     detector radius (see _pd_instr.detector_circle_radius), then the beam is
     focussed on the detector when 2\q = 0.0\%.
+
+    As a mirror will normally take the place of a monochromator, the use of
+    PD_INSTR data items referring to 'mono' (such as
+    _pd_instr.soller_ax_src_mono) will be taken as referring to the mirror.
 ;
     _name.category_id             pd_instr
     _name.object_id               mirror_pre
@@ -7301,6 +7305,10 @@ save_pd_instr.mirror_post
     The focal length of a post-specimen mirror. A value of '0.0' indicates
     a parallel/parabolic mirror. A non-zero value indicates the focal length
     of a focussing/elliptical mirror.
+
+    As a mirror will normally take the place of a monochromator, use of
+    PD_INSTR_DETECTOR data items referring to 'anal' (such as
+    _pd_instr.dist_anal_detc) will be taken as referring to the mirror.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               mirror_post
