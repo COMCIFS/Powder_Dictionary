@@ -190,8 +190,8 @@ save_PD_BACKGROUND
          equation:
 
          bkg = (1.5) +
-               (0.0747*q^2 + 0.954/q^2) +
-               (0.0132*(q^4/2) + 0.912*(2/q^4))
+               (0.0747*q^2^ + 0.954/q^2^) +
+               (0.0132*(q^4^/2) + 0.912*(2/q^4^))
 ;
 ;
          _pd_diffractogram.id   A_DIFFRACTION_PATTERN
@@ -206,8 +206,8 @@ save_PD_BACKGROUND
          equation:
 
          bkg = (1.5) +
-               (0.0747*q^2 + 0.954/q^2) +
-               (0.0132*(q^4/2) + 0.912*(2/q^4))
+               (0.0747*q^2^ + 0.954/q^2^) +
+               (0.0132*(q^4^/2) + 0.912*(2/q^4^))
 ;
 ;
          _pd_diffractogram.id   A_DIFFRACTION_PATTERN
@@ -266,7 +266,7 @@ save_PD_BACKGROUND
          the above loop.
 
          The X-coordinate against which the background function is calculated
-         is corrected 2\q in degrees.
+         is corrected 2θ in degrees.
 ;
 ;
          _pd_diffractogram.id   A_DIFFRACTION_PATTERN
@@ -290,7 +290,7 @@ save_PD_BACKGROUND
              bkg = 1049.69/X + 5016.63/X^2^
 
          The X-coordinate against which the background function is calculated
-         is 2\q in degrees.
+         is 2θ in degrees.
 ;
 
 save_
@@ -317,9 +317,9 @@ save_pd_background.air_or_thermal_diffuse_coef_1
     _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
     diffraction vector, defined as
 
-        q = 4 * Pi * sin(theta) / lambda
+        q = 4πsin(θ)/λ
 
-    where theta is the diffraction angle and lambda is the wavelength of the
+    where θ is the diffraction angle and λ is the wavelength of the
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
@@ -372,9 +372,9 @@ save_pd_background.air_or_thermal_diffuse_coef_2
     _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
     diffraction vector, defined as
 
-        q = 4 * Pi * sin(theta) / lambda
+        q = 4πsin(θ)/λ
 
-    where theta is the diffraction angle and lambda is the wavelength of the
+    where θ is the diffraction angle and λ is the wavelength of the
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
@@ -525,9 +525,9 @@ save_pd_background.air_or_thermal_diffuse_order
     _pd_background.air_or_thermal_diffuse_order, and q is the magnitude of the
     diffraction vector, defined as
 
-        q = 4 * Pi * sin(theta) / lambda
+        q = 4πsin(θ)/λ
 
-    where theta is the diffraction angle and lambda is the wavelength of the
+    where θ is the diffraction angle and λ is the wavelength of the
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
@@ -563,7 +563,7 @@ save_pd_background.chebyshev_coef
 
     The background equation using Chebyshev polynomials is of the form:
 
-        bkg = Sum( coeff * T~n~(x))
+        bkg = Sum( coef * T~n~(x))
 ;
     _name.category_id             pd_background
     _name.object_id               Chebyshev_coef
@@ -660,7 +660,7 @@ save_pd_background.chebyshev_order
 
     The background equation using Chebyshev polynomials is of the form:
 
-        bkg = Sum( coeff * T~n~(x))
+        bkg = Sum( coef * T~n~(x))
 ;
     _name.category_id             pd_background
     _name.object_id               Chebyshev_order
@@ -687,7 +687,7 @@ save_pd_background.cosine_fourier_series_coef
 
         bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
 
-    where x is the 2\q value for that particular step, or some other
+    where x is the 2θ value for that particular step, or some other
     X-coordinate normalised to the range 0:180 degrees, j is the order
     of the coefficient, and N represent the upper limit on the number of
     coefficients used.
@@ -780,7 +780,7 @@ save_pd_background.cosine_fourier_series_order
 
         bkg = C~0~ + Sum( C~j~ * cos(x * j), j=1:N)
 
-    where x is the 2\q value for that particular step, or some other
+    where x is the 2θ value for that particular step, or some other
     X-coordinate normalised to the range 0:180 degrees, j is the order
     of the coefficient, and N represent the upper limit on the number of
     coefficients used.
@@ -815,9 +815,9 @@ save_pd_background.debye_diffuse_amp
 
     and where q is the magnitude of the diffraction vector, defined as
 
-        q = 4 * Pi * sin(theta) / lambda
+        q = 4πsin(θ)/λ
 
-    where theta is the diffraction angle and lambda is the wavelength of the
+    where θ is the diffraction angle and λ is the wavelength of the
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
@@ -866,9 +866,9 @@ save_pd_background.debye_diffuse_displace
 
     and where q is the magnitude of the diffraction vector, defined as
 
-        q = 4 * Pi * sin(theta) / lambda
+        q = 4πsin(θ)/λ
 
-    where theta is the diffraction angle and lambda is the wavelength of the
+    where θ is the diffraction angle and λ is the wavelength of the
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
@@ -917,9 +917,9 @@ save_pd_background.debye_diffuse_dist
 
     and where q is the magnitude of the diffraction vector, defined as
 
-        q = 4 * Pi * sin(theta) / lambda
+        q = 4πsin(θ)/λ
 
-    where theta is the diffraction angle and lambda is the wavelength of the
+    where θ is the diffraction angle and λ is the wavelength of the
     incident radiation in angstroms.
 ;
     _name.category_id             pd_background
@@ -1199,7 +1199,7 @@ save_pd_background.polynomial_coef
 
     The background equation is of the form:
 
-        bkg = Sum( coeff * X_coord ^ power)
+        bkg = Sum( coef * X_coord ^ power)
 
     where the X-coordinate is coordinate in which the diffractogram was
     calculated.
@@ -1289,7 +1289,7 @@ save_pd_background.polynomial_power
 
     The background equation is of the form:
 
-        bkg = Sum( coeff * X_coord ^ power)
+        bkg = Sum( coef * X_coord ^ power)
 
     where the X-coordinate is coordinate in which the diffractogram was
     calculated.
@@ -1410,11 +1410,11 @@ save_pd_background.x_coordinate
       _enumeration_set.detail
          2theta
 ;
-         Measured 2\q diffraction angle.
+         Measured 2θ diffraction angle.
 ;
          2theta_corrected
 ;
-         Corrected 2\q diffraction angle.
+         Corrected 2θ diffraction angle.
 ;
          channel
 ;
@@ -1440,7 +1440,7 @@ save_pd_background.x_coordinate
 ;
          recip_len_q
 ;
-         Length in reciprocal space (|Q|= 2\p/d) corresponding to a data point.
+         Length in reciprocal space (|Q|= 2π/d) corresponding to a data point.
 ;
          wavelength
 ;
@@ -2121,11 +2121,11 @@ save_PD_CALIB_D_TO_TOF
 
     The calibration equation is of the form:
 
-    TOF = sum_i [ c_i * d^p_i ]
+    TOF = Sum( c~i~ * d^p~i~, i=0:N)
 
     where TOF is the time-of-flight in microseconds, d is the
-    d-spacing in angstroms, c_i is the ith coefficient, and
-    p_i is the ith power.
+    d-spacing in angstroms, c~i~ is the ith coefficient, and
+    p~i~ is the ith power.
 
     A loop is used to specify all terms of the correction
     per histogram.
@@ -2154,7 +2154,7 @@ save_PD_CALIB_D_TO_TOF
          Corresponds to the calibration equation:
          time_of_flight =   -2.062
                           + 746.8 * d_spacing
-                          + 0.08099 * d_spacing ^ 2
+                          + 0.08099 * d_spacing^2^
 ;
 ;
          loop_
@@ -2171,7 +2171,7 @@ save_PD_CALIB_D_TO_TOF
          Corresponds to the calibration equation:
          time_of_flight =   -2.062
                           + 746.8 * d_spacing
-                          + 0.08099 * d_spacing ^ 2
+                          + 0.08099 * d_spacing^2^
                           + 0.00232 / d_spacing
 ;
 
@@ -2723,13 +2723,13 @@ save_PD_CALIB_OFFSET
     PD_CALIB_XCOORD_OVERALL.
 
     Data items in this category define an offset angle (in degrees)
-    used to calibrate 2\q (as defined in _pd_meas.2theta_*).
+    used to calibrate 2θ (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
-         2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
+         2θ~calibrated~ = 2θ~measured~ + 2θ~offset~
 
     For cases where the _pd_calib.2theta_offset value is
-    not a constant, but rather varies with 2\q, a set
+    not a constant, but rather varies with 2θ, a set
     of offset values is supplied in a loop. In this case,
     the value where the offset has been determined can be
     specified as _pd_calib.2theta_off_point. Alternatively, a
@@ -2761,7 +2761,7 @@ save_pd_calib.2theta_off_max
     calibrations are now carried out over the given range, removing the need
     to explicitly provide minima and maxima.
 
-    The maximum nominal 2\q value to which the offset given by
+    The maximum nominal 2θ value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
     _name.category_id             pd_calib_offset
@@ -2790,7 +2790,7 @@ save_pd_calib.2theta_off_min
     calibrations are now carried out over the given range, removing the need
     to explicitly provide minima and maxima.
 
-    The minimum nominal 2\q value to which the offset given by
+    The minimum nominal 2θ value to which the offset given by
     _pd_calib.2theta_offset applies.
 ;
     _name.category_id             pd_calib_offset
@@ -2817,7 +2817,7 @@ save_pd_calib.2theta_off_point
 ;
     This item is deprecated. Please see _pd_calib_xcoord.2theta_nominal.
 
-    The nominal 2\q value to which the offset given in
+    The nominal 2θ value to which the offset given in
     _pd_calib.2theta_offset applies.
 ;
     _name.category_id             pd_calib_offset
@@ -2845,10 +2845,10 @@ save_pd_calib.2theta_offset
     This item is deprecated. Please see _pd_calib_xcoord.2theta_offset.
 
     _pd_calib.2theta_offset defines an offset angle (in degrees)
-    used to calibrate 2\q (as defined in _pd_meas.2theta_*).
+    used to calibrate 2θ (as defined in _pd_meas.2theta_*).
     Calibration is done by adding the offset:
 
-         2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
+         2θ~calibrated~ = 2θ~measured~ + 2θ~offset~
 ;
     _name.category_id             pd_calib_offset
     _name.object_id               2theta_offset
@@ -2923,7 +2923,7 @@ save_pd_calib_offset.id
 ;
     This item is deprecated. Please see _pd_calib_xcoord.id.
 
-    An arbitrary code which identifies a particular 2\q offset
+    An arbitrary code which identifies a particular 2θ offset
     description. As a default value is defined, this may be
     omitted if only a single offset is provided.
 ;
@@ -3853,7 +3853,7 @@ save_pd_calibration.conversion_eqn
     _type.contents                Text
     _description_example.case
 ;
-    2\q~actual~ = 2\q~setting~ + arctan(
+    2θ~actual~ = 2θ~setting~ + arctan(
      cos(P~1~) / {1/[P~0~ (CC - CH~0~ - P~2~ CC^2^)] - sin(P~1~)})
 ;
 
@@ -3919,7 +3919,7 @@ save_pd_char.atten_coef_mu_calc
     _definition.update            2023-01-22
     _description.text
 ;
-    The calculated linear attenuation coefficient, \m, in units
+    The calculated linear attenuation coefficient, μ, in units
     of inverse millimetres, also known as the linear absorption
     coefficient. The value is obtained from the atomic content of
     each of the phases in the material, the average density
@@ -3963,7 +3963,7 @@ save_pd_char.atten_coef_mu_obs
     _definition.update            2022-10-11
     _description.text
 ;
-    The observed linear attenuation coefficient, \m, in units
+    The observed linear attenuation coefficient, μ, in units
     of inverse millimetres, also known as the linear absorption
     coefficient. The value is determined by a transmission
     measurement.
@@ -4068,9 +4068,9 @@ save_pd_char.mass_atten_coef_mu_calc
     _definition.update            2022-10-11
     _description.text
 ;
-    The calculated mass attenuation coefficient, \m^*^, in units of square
+    The calculated mass attenuation coefficient, μ^*^, in units of square
     millimetres per gram, also known as the mass absorption coefficient. The
-    calculated \m^*^ will be obtained from the atomic content of each phase and
+    calculated μ^*^ will be obtained from the atomic content of each phase and
     the radiation wavelength.
 ;
     _name.category_id             pd_char
@@ -4107,9 +4107,9 @@ save_pd_char.mass_atten_coef_mu_meas
     _definition.update            2023-01-16
     _description.text
 ;
-    The measured mass attenuation coefficient, \m^*^, in units of square
+    The measured mass attenuation coefficient, μ^*^, in units of square
     millimetres per gram, also known as the mass absorption coefficient. The
-    measured \m^*^ will be normally be determined by a transmission measurement
+    measured μ^*^ will be normally be determined by a transmission measurement
     coupled with a density measurement.
 ;
     _name.category_id             pd_char
@@ -4305,7 +4305,7 @@ save_PD_DATA
 ;
          Tabulation of diffraction data consisting only of measured data. The
          intensity is measured in counts, including background. The
-         X-coordinate is 2\\q degrees as given by the diffractometer.
+         X-coordinate is 2θ degrees as given by the diffractometer.
 
          The category key value associated with _pd_data.point_id is given
          with every data point. In the usual case that only one diffractogram
@@ -4694,13 +4694,13 @@ save_pd_instr.var_illum_len
 ;
     Length of the specimen that is illuminated by the radiation
     source (in millimetres) for instruments where
-    the illumination length varies with 2\q (fixed
+    the illumination length varies with 2θ (fixed
     divergence slits). The _pd_instr.var_illum_len
     values should be included in the same loop as the
     intensity measurements (_pd_meas.* items).
 
     See _pd_instr.cons_illum_len for instruments where
-    the divergence slit is \q-compensated to yield a
+    the divergence slit is θ-compensated to yield a
     constant illumination length.
 ;
     _name.category_id             pd_meas
@@ -4726,15 +4726,15 @@ save_pd_meas.2theta_scan
     _definition.update            2022-10-11
     _description.text
 ;
-    2\q diffraction angle (in degrees) for intensity
+    2θ diffraction angle (in degrees) for intensity
     points measured in a scanning method. The scan method used
     (e.g. continuous or step scan) should be specified in
-    the item _pd_meas.scan_method. For fixed 2\q (white-beam)
+    the item _pd_meas.scan_method. For fixed 2θ (white-beam)
     experiments, use _pd_meas.2theta_fixed. In the case of
-    continuous-scan data sets, the 2\q value should be the
+    continuous-scan data sets, the 2θ value should be the
     value at the midpoint of the counting period. Associated
     with each _pd_meas.2theta_scan value will be
-    _pd_meas.counts_* items. The 2\q values should
+    _pd_meas.counts_* items. The 2θ values should
     not be corrected for nonlinearity,
     zero offset etc. Corrected values may be specified
     using _pd_proc.2theta_corrected.
@@ -5225,12 +5225,12 @@ save_pd_meas.position
     trace from film or a strip chart recorder. This is an
     alternative to _pd_meas.2theta_scan, which should only be
     used for instruments that record intensities directly
-    against 2\q. For instruments where the position scale
+    against 2θ. For instruments where the position scale
     is nonlinear, the data item _pd_meas.detector_id should
     be used to record positions.
 
     Calibration information, such as angle offsets or a
-    function to convert this distance to a 2\q angle
+    function to convert this distance to a 2θ angle
     or d-space, should be supplied with items from PD_CALIB.
 
     Do not confuse this with the instrument geometry
@@ -5369,14 +5369,14 @@ save_pd_proc.2theta_corrected
     _definition.update            2022-10-11
     _description.text
 ;
-    The 2\q diffraction angle in degrees of an intensity
-    measurement where 2\q is not constant. Used if
+    The 2θ diffraction angle in degrees of an intensity
+    measurement where 2θ is not constant. Used if
     corrections such as for nonlinearity, zero offset etc.
     have been applied to the _pd_meas.2theta_* values or if
-    2\q values are computed. If the 2\q values
+    2θ values are computed. If the 2θ values
     are evenly spaced, _pd_proc.2theta_range_min,
     _pd_proc.2theta_range_max and _pd_proc.2theta_range_inc
-    may be used to specify the 2\q values.
+    may be used to specify the 2θ values.
 ;
     _name.category_id             pd_proc
     _name.object_id               2theta_corrected
@@ -5414,7 +5414,7 @@ save_pd_proc.d_spacing
     _description.text
 ;
     d-spacing corresponding to an intensity point
-    from Bragg's law, d = \l/(2 sin\q), in units of angstroms.
+    from Bragg's law, d = λ/(2 sinθ), in units of angstroms.
 ;
     _name.category_id             pd_proc
     _name.object_id               d_spacing
@@ -5655,7 +5655,7 @@ save_pd_proc.intensity_incident
     If the intensities have been corrected for a variation of the
     incident intensity as a function of a data-collection
     variable (examples: source fluctuations in synchrotrons,
-    \q-compensated slits in conventional diffractometers,
+    θ-compensated slits in conventional diffractometers,
     spectral corrections for white-beam experiments), the
     correction function should be specified as
     _pd_proc.intensity_incident. The normalization should be
@@ -5893,7 +5893,7 @@ save_pd_proc.recip_len_q
     _definition.update            2022-10-11
     _description.text
 ;
-    Length in reciprocal space (|Q|= 2\p/d) corresponding to
+    Length in reciprocal space (|Q|= 2π/d) corresponding to
     an intensity point. Units are inverse angstroms.
 ;
     _name.category_id             pd_proc
@@ -6045,7 +6045,7 @@ save_PD_INSTR
       _diffrn_radiation.polarisn_ratio for the source polarization,
       _diffrn_radiation.probe for the radiation type.
     For data sets measured with partially monochromatized radiation,
-    for example, where both K\a~1~ and K\a~2~ are present, it is
+    for example, where both Kα~1~ and Kα~2~ are present, it is
     important that all wavelengths present are included in a
     loop_ using _diffrn_radiation_wavelength.value to define the
     wavelength and _diffrn_radiation_wavelength.wt to define the
@@ -6053,7 +6053,7 @@ save_PD_INSTR
     _diffrn_radiation_wavelength.id also be present in the
     wavelength loop. It may also be useful to
     create a "dummy" ID to use for labelling
-    peaks/reflections where the K\a~1~ and K\a~2~ wavelengths are
+    peaks/reflections where the Kα~1~ and Kα~2~ wavelengths are
     not resolved. Set _diffrn_radiation_wavelength.wt to be 0 for
     such a dummy ID.
 
@@ -6080,7 +6080,7 @@ save_pd_instr.2theta_monochr_pre
     _definition.update            2016-10-20
     _description.text
 ;
-    The 2\q angle for a pre-specimen monochromator (see also
+    The 2θ angle for a pre-specimen monochromator (see also
     _pd_instr.monochr_pre_spec).
 ;
     _name.category_id             pd_instr
@@ -6147,11 +6147,11 @@ save_pd_instr.cons_illum_flag
     _description.text
 ;
     Use 'yes' for instruments where the divergence slit is
-    \q-compensated to yield a constant illumination length
+    θ-compensated to yield a constant illumination length
     (also see _pd_instr.cons_illum_len).
 
     For other flat-plate instruments, where the illumination
-    length changes with 2\q, specify 'no'. Note that
+    length changes with 2θ, specify 'no'. Note that
     if the length is known, it may be specified using
     _pd_instr.var_illum_len.
 ;
@@ -6177,9 +6177,9 @@ save_pd_instr.cons_illum_len
     _description.text
 ;
     Use _pd_instr.cons_illum_len for instruments where the length of
-    specimen illuminated does not vary with 2\q, usually achieved by
+    specimen illuminated does not vary with 2θ, usually achieved by
     adjustment of the divergence slits (sometimes known as
-    \q-compensated slits).
+    θ-compensated slits).
 ;
     _name.category_id             pd_instr
     _name.object_id               cons_illum_len
@@ -6547,7 +6547,7 @@ save_pd_instr.monochr_pre_spec
     and post-monochromator beam to be as close to parallel
     as possible. In a parallel geometry, the diffracting
     planes in the specimen and monochromator will be parallel
-    when 2\q~monochromator~ is equal to 2\q~specimen~.
+    when 2θ~monochromator~ is equal to 2θ~specimen~.
     For further discussion see R. Jenkins & R. Snyder (1996).
     Introduction to X-ray Powder Diffraction,
     pp. 164-165. New York: Wiley.
@@ -6984,7 +6984,7 @@ save_pd_instr.2theta_monochr_post
     _definition.update            2023-01-06
     _description.text
 ;
-    The 2\q angle for a post-specimen
+    The 2θ angle for a post-specimen
     monochromator (also called an analyser)
     (see also _pd_instr.monochr_post_spec).
 ;
@@ -7247,7 +7247,7 @@ save_pd_instr.monochr_post_spec
     and post-monochromator beam to be as close to parallel
     as possible. In a parallel geometry, the diffracting
     planes in the specimen and monochromator will be parallel
-    when 2\q~monochromator~ is equal to 2\q~specimen~.
+    when 2θ~monochromator~ is equal to 2θ~specimen~.
     For further discussion see R. Jenkins & R. Snyder (1996).
     Introduction to X-ray Powder Diffraction,
     pp. 164-165. New York: Wiley.
@@ -7798,9 +7798,9 @@ save_pd_meas.2theta_fixed
     _definition.update            2022-10-11
     _description.text
 ;
-    The 2\q diffraction angle in degrees for measurements
+    The 2θ diffraction angle in degrees for measurements
     in a white-beam fixed-angle experiment. For measurements
-    where 2\q is scanned, see _pd_meas.2theta_scan or
+    where 2θ is scanned, see _pd_meas.2theta_scan or
     _pd_meas.2theta_range_*.
 ;
     _name.category_id             pd_meas_overall
@@ -7838,7 +7838,7 @@ save_pd_meas.2theta_range_inc
     _definition.update            2022-09-28
     _description.text
 ;
-    2\q diffraction angle increment in degrees used for the
+    2θ diffraction angle increment in degrees used for the
     measurement of intensities. These may be used in place of the
     _pd_meas.2theta_scan values for data sets measured with a
     constant step size.
@@ -7861,7 +7861,7 @@ save_pd_meas.2theta_range_max
     _definition.update            2014-06-20
     _description.text
 ;
-    Maximum 2\q diffraction angle in degrees used for the
+    Maximum 2θ diffraction angle in degrees used for the
     measurement of intensities. These may be used in place of the
     _pd_meas.2theta_scan values for data sets measured with a
     constant step size.
@@ -7884,7 +7884,7 @@ save_pd_meas.2theta_range_min
     _definition.update            2014-06-20
     _description.text
 ;
-    Minimum 2\q diffraction angle in degrees used for the
+    Minimum 2θ diffraction angle in degrees used for the
     measurement of intensities. These may be used in place of the
     _pd_meas.2theta_scan values for data sets measured with a
     constant step size.
@@ -8273,7 +8273,7 @@ save_pd_peak.2theta_centroid
     _definition.update            2022-10-11
     _description.text
 ;
-    Position of the centroid of a peak as a 2\q angle.
+    Position of the centroid of a peak as a 2θ angle.
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_centroid
@@ -8310,7 +8310,7 @@ save_pd_peak.2theta_maximum
     _definition.update            2022-10-11
     _description.text
 ;
-    Position of the maximum of a peak as a 2\q angle.
+    Position of the maximum of a peak as a 2θ angle.
 ;
     _name.category_id             pd_peak
     _name.object_id               2theta_maximum
@@ -8510,8 +8510,8 @@ save_pd_peak.wavelength_id
     Code identifying the wavelength appropriate for this peak
     from the wavelengths in the _diffrn_radiation_ list.
     (See _diffrn_radiation_wavelength.id.) Most commonly used
-    to distinguish K\a~1~ peaks from K\a~2~ or to designate
-    where K\a~1~ and K\a~2~ peaks cannot be resolved. For
+    to distinguish Kα~1~ peaks from Kα~2~ or to designate
+    where Kα~1~ and Kα~2~ peaks cannot be resolved. For
     complex peak tables with multiple superimposed peaks,
     specify wavelengths in the reflection table using
     _refln.wavelength_id rather than identifying peaks by
@@ -8535,7 +8535,7 @@ save_pd_peak.width_2theta
     _description.text
 ;
     Peak width as full-width at half-maximum expressed as
-    a 2\q value in degrees.
+    a 2θ value in degrees.
 ;
     _name.category_id             pd_peak
     _name.object_id               width_2theta
@@ -9413,7 +9413,7 @@ save_pd_pref_orient_march_dollase.r
     March distribution parameter describing the degree of
     preferred-orientation in a given phase and diffractogram.
     In general, a value of 1 describes an unoriented phase.
-    r in the range (1, \\infty) describes orientation of disk-like
+    r in the range (1, ∞) describes orientation of disk-like
     particles, and r in the range (0,1) describes orientation
     of needle-like particles.
 
@@ -9747,8 +9747,8 @@ save_pd_pref_orient_spherical_harmonics.texture_index
     The texture index, as described by equation 4.212
     in Bunge, as T = sum_{i,j} [c_{i,j)^2 / (2i+1)].
 
-    It gives the value [1, \\infty), where 1 is a random powder
-    and \\infty is an ideal single crystal.
+    It gives the value [1, ∞), where 1 is a random powder
+    and ∞ is an ideal single crystal.
 
     Bunge, H.J., (2015) "Texture Analysis in Materials Science:
     Mathematical Methods", Helga and Hans-Peter Bunge,
@@ -10629,10 +10629,10 @@ save_pd_proc.2theta_range_inc
     _definition.update            2021-11-12
     _description.text
 ;
-    The increment in 2\q diffraction angles in degrees for the
+    The increment in 2θ diffraction angles in degrees for the
     measurement of intensities. These may be used in place of the
     _pd_proc.2theta_corrected values, or in the case of white-beam
-    experiments it will define the fixed 2\q value.
+    experiments it will define the fixed 2θ value.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               2theta_range_inc
@@ -10652,10 +10652,10 @@ save_pd_proc.2theta_range_max
     _definition.update            2014-06-20
     _description.text
 ;
-    The maximum 2\q diffraction angle in degrees for the
+    The maximum 2θ diffraction angle in degrees for the
     measurement of intensities. This may be used in place of the
     _pd_proc.2theta_corrected values, or in the case of white-beam
-    experiments it will define the fixed 2\q value together with
+    experiments it will define the fixed 2θ value together with
     _pd_proc.2theta_range_min.
 ;
     _name.category_id             pd_proc_overall
@@ -10676,10 +10676,10 @@ save_pd_proc.2theta_range_min
     _definition.update            2014-06-20
     _description.text
 ;
-    The minimum 2\q diffraction angle in degrees for the
+    The minimum 2θ diffraction angle in degrees for the
     measurement of intensities. This may be used in place of the
     _pd_proc.2theta_corrected values, or in the case of white-beam
-    experiments they will define the fixed 2\q value together with
+    experiments they will define the fixed 2θ value together with
     _pd_proc.2theta_range_max.
 ;
     _name.category_id             pd_proc_overall
@@ -10701,7 +10701,7 @@ save_pd_proc.info_data_reduction
     _description.text
 ;
     Description of the processing steps applied in the data-reduction
-    process (background subtraction, \a-2 stripping, smoothing
+    process (background subtraction, α-2 stripping, smoothing
     etc.). Include details of the program(s) used etc.
 ;
     _name.category_id             pd_proc_overall
@@ -11302,11 +11302,11 @@ save_pd_qpa_external_std.k_factor
     The external standard method is described by O'Connor and Raven.
     In this method, the absolute mass percent of a phase is given as
 
-    W_k = 100 * s_k * M_k * V_k * \mu* / K
+    W~k~ = 100 * s~k~ * M~k~ * V~k~ * μ^*^ / K
 
-    where W_k, s_k, M_k, & V_k are the absolute mass percent, Rietveld
+    where W~k~, s~k~, M~k~, & V~k~ are the absolute mass percent, Rietveld
     scale factor, unit cell mass, and unit cell volume of phase k.
-    \mu* is the mass attenuation coefficient of the specimen, and K is
+    μ^*^ is the mass attenuation coefficient of the specimen, and K is
     the normalising diffractometer constant.
 
     O'Connor, B. H., & Raven, M. D. (1988). Application of the Rietveld
@@ -11778,9 +11778,9 @@ save_pd_qpa_overall.method
 
          The absolute weight fraction of phase p, W~p~, is given by
 
-             W~p~ = [I~p~ / C~p~] * \mu^*^~m~
+             W~p~ = [I~p~ / C~p~] * μ^*^~m~
 
-         where I~p~ is the intensity of the analyte peak, \mu^*^~m~ is the mass
+         where I~p~ is the intensity of the analyte peak, μ^*^~m~ is the mass
          absorption coefficient of the entire specimen, and C~p~ is a previously
          determined calibration constant which depends on the data collection
          conditions and the nature of the phase being calibrated. Intensities
@@ -11846,11 +11846,11 @@ save_pd_qpa_overall.method
 
          The absolute weight fraction of phase p, W~p~, is given by
 
-             W~p~ = [I~p~ / C~p~] * \mu^*^~m~
+             W~p~ = [I~p~ / C~p~] * μ^*^~m~
 
          where I~p~ = S~p~/K, where S~p~ is the Rietveld scale factor of the
          analyte phase and K is a previously determined diffractometer constant.
-         \mu^*^~m~ is the mass absorption coefficient of the entire specimen.
+         μ^*^~m~ is the mass absorption coefficient of the entire specimen.
          C~p~ is given as
 
              C~p~ = 1 /(Z * M * V)~p~
@@ -11873,7 +11873,7 @@ save_pd_qpa_overall.method
          I/Ic
 ;
          A Reference Intensity Ratio (RIR) in the specific case where the RIR
-         value was determined using corundum (\a-alumina) as the standard, and
+         value was determined using corundum (α-alumina) as the standard, and
          the mass ratio of the standard and analyte phases was 50:50.
 
          For a description of the RIR methodology, see the entry for the 'RIR'.
@@ -12152,16 +12152,16 @@ save_pd_spec.orientation
     _definition.update            2014-06-20
     _description.text
 ;
-    The orientation of the \w (\q) and 2\q axis.
+    The orientation of the ω (θ) and 2θ axis.
     Note that this axis is parallel to the specimen axial axis
     and perpendicular to the plane containing the incident and
     scattered beams.
 
     Thus for a horizontal orientation, scattering
     measurements are made in a plane perpendicular to the
-    ground (the 2\q axis is parallel to the ground);
+    ground (the 2θ axis is parallel to the ground);
     for vertical orientation, scattering measurements are
-    made in a plane parallel with the ground (the 2\q axis
+    made in a plane parallel with the ground (the 2θ axis
     is perpendicular to the ground). 'Both' is appropriate for
     experiments where measurements are made in both planes,
     for example using two-dimensional detectors.
