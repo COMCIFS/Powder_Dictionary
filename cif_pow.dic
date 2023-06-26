@@ -6569,6 +6569,29 @@ save_pd_instr.monochr_pre_spec
 
 save_
 
+save_pd_instr.mirror_pre
+
+    _definition.id                '_pd_instr.mirror_pre'
+    _definition.update            2023-06-26
+    _description.text
+;
+    The focal length of a pre-specimen mirror. A value of '0.0' indicates
+    a parallel/parabolic mirror. A non-zero value indicates the focal length
+    of a focussing/elliptical mirror. If this value is equal to twice the
+    detector radius (see _pd_instr.detector_circle_radius), then the beam is
+    focussed on the detector when 2\q = 0.0\%.
+;
+    _name.category_id             pd_instr
+    _name.object_id               mirror_pre
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
+
+save_
+
 save_pd_instr.slit_ax_mono_spec
 
     _definition.id                '_pd_instr.slit_ax_mono_spec'
@@ -7266,6 +7289,27 @@ save_pd_instr.monochr_post_spec
          'none'
          'equatorial mounted graphite (0001)'
          'Si (111), antiparallel'
+
+save_
+
+save_pd_instr.mirror_post
+
+    _definition.id                '_pd_instr.mirror_post'
+    _definition.update            2023-06-26
+    _description.text
+;
+    The focal length of a post-specimen mirror. A value of '0.0' indicates
+    a parallel/parabolic mirror. A non-zero value indicates the focal length
+    of a focussing/elliptical mirror.
+;
+    _name.category_id             pd_instr_detector
+    _name.object_id               mirror_post
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   millimetres
 
 save_
 
