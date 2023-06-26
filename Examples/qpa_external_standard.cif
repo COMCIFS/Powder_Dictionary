@@ -36,8 +36,8 @@ _cell.angle_beta  90
 _cell.angle_gamma 90
 _cell.volume      137.446(11)
 
-_exptl_crystal_density_diffrn	4.1343(3)
-_exptl_absorpt_coefficient_mu	17.7460(14)
+_exptl_crystal.density_diffrn	4.1343(3)
+_exptl_absorpt.coefficient_mu	17.7460(14)
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	orthorhombic
@@ -85,8 +85,8 @@ _cell.angle_beta  90
 _cell.angle_gamma 120
 _cell.volume      300.59(17)
 
-_exptl_crystal_density_diffrn	5.155(3)
-_exptl_absorpt_coefficient_mu	23.448(13)
+_exptl_crystal.density_diffrn	5.155(3)
+_exptl_absorpt.coefficient_mu	23.448(13)
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	trigonal
@@ -161,8 +161,8 @@ _cell.angle_beta  90
 _cell.angle_gamma 120
 _cell.volume      113.007337
 
-_exptl_crystal_density_diffrn	2.64865267
-_exptl_absorpt_coefficient_mu	14.6131524
+_exptl_crystal.density_diffrn	2.64865267
+_exptl_absorpt.coefficient_mu	14.6131524
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	trigonal
@@ -206,8 +206,8 @@ _cell.angle_beta  105.044
 _cell.angle_gamma 89.792
 _cell.volume      329.41(13)
 
-_exptl_crystal_density_diffrn	2.6027(10)
-_exptl_absorpt_coefficient_mu	12.281(5)
+_exptl_crystal.density_diffrn	2.6027(10)
+_exptl_absorpt.coefficient_mu	12.281(5)
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	triclinic
@@ -278,8 +278,8 @@ _cell.angle_beta  91.72
 _cell.angle_gamma 90
 _cell.volume      1331(2)
 
-_exptl_crystal_density_diffrn	2.537(4)
-_exptl_absorpt_coefficient_mu	12.160(19)
+_exptl_crystal.density_diffrn	2.537(4)
+_exptl_absorpt.coefficient_mu	12.160(19)
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	monoclinic
@@ -345,8 +345,8 @@ _cell.angle_beta  90
 _cell.angle_gamma 90
 _cell.volume      136.42(10)
 
-_exptl_crystal_density_diffrn	3.889(3)
-_exptl_absorpt_coefficient_mu	70.49(5)
+_exptl_crystal.density_diffrn	3.889(3)
+_exptl_absorpt.coefficient_mu	70.49(5)
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	tetragonal
@@ -416,8 +416,8 @@ _cell.angle_beta  90
 _cell.angle_gamma 90
 _cell.volume      63.5(2)
 
-_exptl_crystal_density_diffrn	4.178(14)
-_exptl_absorpt_coefficient_mu	75.7(3)
+_exptl_crystal.density_diffrn	4.178(14)
+_exptl_absorpt.coefficient_mu	75.7(3)
 _cell_measurement.theta_min	2.50394
 _cell_measurement.theta_max	47.504047
 _space_group.crystal_system	tetragonal
@@ -7220,8 +7220,8 @@ _cell.angle_beta  90
 _cell.angle_gamma 120
 _cell.volume      254.879(4)
 
-_exptl_crystal_density_diffrn	3.98568(6)
-_exptl_absorpt_coefficient_mu	19.4470(3)
+_exptl_crystal.density_diffrn	3.98568(6)
+_exptl_absorpt.coefficient_mu	19.4470(3)
 _cell_measurement.theta_min	4.0007923
 _cell_measurement.theta_max	47.504047
 _space_group.name_H-M_alt
