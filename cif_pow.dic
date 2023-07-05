@@ -5856,7 +5856,7 @@ save_pd_proc.ls_weight
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            0:
+    _enumeration.range            0.0:
     _units.code                   none
 
 save_
@@ -8091,7 +8091,7 @@ save_pd_meas.rocking_angle
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.range            0:360.0
+    _enumeration.range            0.0:360.0
     _units.code                   degrees
 
 save_
