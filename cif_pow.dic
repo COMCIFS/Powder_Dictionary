@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2023-07-05
+    _dictionary.date              2023-07-11
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -437,7 +437,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
 
     _definition.id
         '_pd_background.air_or_thermal_diffuse_coefs_1_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.air_or_thermal_diffuse_coefs_1.
@@ -447,7 +447,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_1_su
     _name.linked_item_id
         '_pd_background.air_or_thermal_diffuse_coefs_1'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -487,7 +487,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
 
     _definition.id
         '_pd_background.air_or_thermal_diffuse_coefs_2_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.air_or_thermal_diffuse_coefs_2.
@@ -497,7 +497,7 @@ save_pd_background.air_or_thermal_diffuse_coefs_2_su
     _name.linked_item_id
         '_pd_background.air_or_thermal_diffuse_coefs_2'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -621,7 +621,7 @@ save_
 save_pd_background.chebyshev_coefs_su
 
     _definition.id                '_pd_background.Chebyshev_coefs_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.Chebyshev_coefs.
@@ -630,7 +630,7 @@ save_pd_background.chebyshev_coefs_su
     _name.object_id               Chebyshev_coefs_su
     _name.linked_item_id          '_pd_background.Chebyshev_coefs'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -749,7 +749,7 @@ save_pd_background.cosine_fourier_series_coefs_su
 
     _definition.id
         '_pd_background.cosine_Fourier_series_coefs_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.cosine_Fourier_series_coefs.
@@ -758,7 +758,7 @@ save_pd_background.cosine_fourier_series_coefs_su
     _name.object_id               cosine_Fourier_series_coefs_su
     _name.linked_item_id          '_pd_background.cosine_Fourier_series_coefs'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -1012,7 +1012,7 @@ save_
 save_pd_background.line_segment_intensities_su
 
     _definition.id                '_pd_background.line_segment_intensities_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.line_segment_intensities.
@@ -1021,7 +1021,7 @@ save_pd_background.line_segment_intensities_su
     _name.object_id               line_segment_intensities_su
     _name.linked_item_id          '_pd_background.line_segment_intensities'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -1260,7 +1260,7 @@ save_
 save_pd_background.polynomial_coefs_su
 
     _definition.id                '_pd_background.polynomial_coefs_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.polynomial_coefs.
@@ -1269,7 +1269,7 @@ save_pd_background.polynomial_coefs_su
     _name.object_id               polynomial_coefs_su
     _name.linked_item_id          '_pd_background.polynomial_coefs'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -1350,7 +1350,7 @@ save_
 save_pd_background.polynomial_powers_su
 
     _definition.id                '_pd_background.polynomial_powers_su'
-    _definition.update            2023-06-13
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_background.polynomial_powers.
@@ -1359,7 +1359,7 @@ save_pd_background.polynomial_powers_su
     _name.object_id               polynomial_powers_su
     _name.linked_item_id          '_pd_background.polynomial_powers'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               List
     _type.dimension               '[]'
     _type.contents                Real
@@ -2219,7 +2219,7 @@ save_
 save_pd_calib_d_to_tof.coeff_su
 
     _definition.id                '_pd_calib_d_to_tof.coeff_su'
-    _definition.update            2022-09-30
+    _definition.update            2023-07-11
     _description.text
 ;
     Standard uncertainty of _pd_calib_d_to_tof.coeff.
@@ -2228,7 +2228,7 @@ save_pd_calib_d_to_tof.coeff_su
     _name.object_id               coeff_su
     _name.linked_item_id          '_pd_calib_d_to_tof.coeff'
     _type.purpose                 SU
-    _type.source                  Derived
+    _type.source                  Related
     _type.container               Single
     _type.contents                Real
     _method.purpose               Definition
@@ -12563,7 +12563,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2023-07-05
+         2.5.0                    2023-07-11
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12697,4 +12697,6 @@ save_
        counts_per_second and per_second.
 
        Clarified description of _pd_meas.rocking_angle.
+
+       Changed the _type.source attribute of all SU data items to 'Related'.
 ;
