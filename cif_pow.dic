@@ -5988,24 +5988,6 @@ save_PD_DIFFRACTOGRAM
 
 save_
 
-save_pd_diffractogram.id
-
-    _definition.id                '_pd_diffractogram.id'
-    _definition.update            2022-01-06
-    _description.text
-;
-    Arbitrary label identifying a powder diffraction measurement.
-    If missing, _pd_block.id is used.
-;
-    _name.category_id             pd_diffractogram
-    _name.object_id               id
-    _type.purpose                 Key
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_diffractogram.diffrn_id
 
     _definition.id                '_pd_diffractogram.diffrn_id'
@@ -6022,6 +6004,24 @@ save_pd_diffractogram.diffrn_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Word
+
+save_
+
+save_pd_diffractogram.id
+
+    _definition.id                '_pd_diffractogram.id'
+    _definition.update            2022-01-06
+    _description.text
+;
+    Arbitrary label identifying a powder diffraction measurement.
+    If missing, _pd_block.id is used.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
