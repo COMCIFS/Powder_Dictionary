@@ -11749,7 +11749,7 @@ save_
 save_pd_qpa_overall.method
 
     _definition.id                '_pd_qpa_overall.method'
-    _definition.update            2023-01-24
+    _definition.update            2023-11-12
     _description.text
 ;
     The type of quantification method applied to the given diffractogram.
@@ -11787,7 +11787,7 @@ save_pd_qpa_overall.method
          from unknown specimens must be collected under the same conditions as
          the calibration was determined, or normalised to match.
 
-         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
+         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_meas
          must be given for the specimen in each diffractogram.
 
          The values utilised for I~p~ and C~p~ can be recorded using
@@ -11858,7 +11858,7 @@ save_pd_qpa_overall.method
          where Z is the number of formula units per unit cell, M is the chemical
          formula weight, and V is the volume of the unit cell, all of phase p.
 
-         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_obs
+         _pd_char.mass_atten_coef_mu_calc or _pd_char.mass_atten_coef_mu_meas
          must be given for the specimen in each diffractogram.
 
          The values utilised for I~p~ and C~p~ can be recorded using
