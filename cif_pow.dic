@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2024-05-15
+    _dictionary.date              2025-04-18
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -1496,10 +1496,21 @@ save_
 save_pd_block.id
 
     _definition.id                '_pd_block.id'
+    loop_
+       _definition_replaced.id
+       _definition_replaced.by
+      _category_key.name
+         1 '_pd_phase.id'
+         2 '_pd_diffractogram.id'
+         3 '_audit.block_code'
     _alias.definition_id          '_pd_block_id'
-    _definition.update            2023-01-06
+    _definition.update            2025-04-18
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code, 
+    as necessary.
+
     Used to assign a unique character string to a block.
     Note that this code is not intended to be parsed; the
     concatenation of several strings is used in order to
@@ -1583,9 +1594,12 @@ save_PD_BLOCK_DIFFRACTOGRAM
     _definition.id                PD_BLOCK_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-12-03
+    _definition.update            2025-04-18
     _description.text
 ;
+     **DEPRECATED**
+    Use _pd_diffractogram.id, as necessary.
+    
     A number of diffractograms may contribute to the
     determination of the structure of a single phase.
     The _pd_block.ids of those diffractograms should
@@ -1600,10 +1614,15 @@ save_
 save_pd_block_diffractogram.id
 
     _definition.id                '_pd_block_diffractogram.id'
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_diffractogram.id'
     _alias.definition_id          '_pd_block_diffractogram_id'
-    _definition.update            2022-10-11
+    _definition.update            2025-04-18
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_diffractogram.id, as necessary.
+
     A block ID code (see _pd_block.id) that identifies
     diffraction data contained in a data block other
     than the current block. This will occur most frequently
@@ -8634,6 +8653,9 @@ save_PD_PHASE_BLOCK
     _definition.update            2022-12-03
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id, as necessary.
+
     A table of phases relevant to the current data
     block. Each phase is identified by the block identifier
     of the data block containing the phase information,
@@ -8649,10 +8671,15 @@ save_
 save_pd_phase_block.id
 
     _definition.id                '_pd_phase_block.id'
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_phase.id'
     _alias.definition_id          '_pd_phase_block_id'
-    _definition.update            2023-01-09
+    _definition.update            2025-04-18
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id, as necessary.
+
     A block ID code identifying a block containing phase information.
 ;
     _name.category_id             pd_phase_block
