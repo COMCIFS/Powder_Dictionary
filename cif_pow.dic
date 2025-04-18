@@ -1459,9 +1459,13 @@ save_PD_BLOCK
     _definition.id                PD_BLOCK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-21
+    _definition.update            2025-04-18
     _description.text
 ;
+    **DEPRECATED**
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code' as 
+    necessary.
+
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
     (see _pd_block_diffractogram.id, _pd_phase_block.id and
@@ -2035,7 +2039,8 @@ save_pd_calib.std_internal_mass_percent
     _definition.update            2023-01-06
     _description.text
 ;
-    This item is deprecated. Please see _pd_qpa_internal_std.mass_percent.
+    **DEPRECATED**
+    Please see _pd_qpa_internal_std.mass_percent.
 
     Per cent presence of the internal standard specified by the
     data item _pd_calib.std_internal_name expressed as 100 times
@@ -2061,7 +2066,8 @@ save_pd_calib.std_internal_mass_percent_su
     _definition.update            2023-01-06
     _description.text
 ;
-    This item is deprecated. Please see _pd_qpa_internal_std.mass_percent_su.
+    **DEPRECATED**
+    Please see _pd_qpa_internal_std.mass_percent_su.
 
     Standard uncertainty of _pd_calib.std_internal_mass_percent.
 ;
@@ -4494,14 +4500,13 @@ save_PD_MEAS
     _definition.id                PD_MEAS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-11
+    _definition.update            2025-04-18
     _description.text
 ;
     This section contains the measured diffractogram prior to
     processing and application of correction terms. While additional
     information may be added to the CIF as data are processed and
-    transported between laboratories (possibly with the addition of
-    a new _pd_block.id entry), the information in this section of
+    transported between laboratories, the information in this section of
     the CIF will rarely be changed once data collection is complete.
 
     Where possible, measurements in this section should have no
@@ -5242,13 +5247,12 @@ save_PD_PROC
     _definition.id                PD_PROC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-11
+    _definition.update            2025-04-18
     _description.text
 ;
     This section contains the diffraction data set after processing
     and application of correction terms. If the data set is
-    reprocessed, this section may be replaced (with the addition of
-    a new _pd_block.id entry).
+    reprocessed, this section may be replaced.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_PROC
@@ -5889,11 +5893,10 @@ save_
 save_pd_diffractogram.id
 
     _definition.id                '_pd_diffractogram.id'
-    _definition.update            2022-01-06
+    _definition.update            2025-04-18
     _description.text
 ;
     Arbitrary label identifying a powder diffraction measurement.
-    If missing, _pd_block.id is used.
 ;
     _name.category_id             pd_diffractogram
     _name.object_id               id
@@ -7672,15 +7675,14 @@ save_PD_MEAS_OVERALL
     _definition.id                PD_MEAS_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-12
+    _definition.update            2025-04-18
     _description.text
 ;
     This section contains information about the conditions used for
     the measurement of the diffraction data set, prior to processing
     and application of correction terms. While additional
     information may be added to the CIF as data are processed and
-    transported between laboratories (possibly with the addition of
-    a new _pd_block.id entry), the information in this section of
+    transported between laboratories, the information in this section of
     the CIF will rarely be changed once data collection is complete.
 ;
     _name.category_id             PD_GROUP
@@ -10418,13 +10420,13 @@ save_PD_PROC_OVERALL
     _definition.id                PD_PROC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-12
+    _definition.update            2025-04-18
     _description.text
 ;
     This section contains overall information about the diffraction
     data set after processing and application of correction
     terms. If the data set is reprocessed, this section may be
-    replaced (with the addition of a new _pd_block.id entry).
+    replaced.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_OVERALL
@@ -12326,7 +12328,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2024-05-15
+         2.5.0                    2025-04-18
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12465,4 +12467,8 @@ save_
 
        Updated the CIF_CORE dictionary import statement with the new Head
        category name.
+
+       Deprecated PD_BLOCK, PD_BLOCK_DIFFRACTOGRAM, PD_PHASE_BLOCK, and all
+       related data items in favour of PD_PHASE and PD_DIFFRACTOGRAM.
+
 ;
