@@ -1676,32 +1676,6 @@ save_PD_CALC_COMPONENT
 
 save_
 
-save_pd_calc_component.block_id
-
-    _definition.id                '_pd_calc_component.block_id'
-    _definition.update            2023-01-09
-    _description.text
-;
-    A block ID code (see _pd_block.id) that identifies
-    calculated component diffraction data contained in a
-    data block other than the current block. The data
-    block containing the crystallographic information
-    for this phase will be identified with a _pd_block.id
-    code matching the code in _pd_phase_block.id. The data
-    block containing the diffractogram to which this component
-    belongs will be identified with a _pd_block.id
-    code matching the code in _pd_block_diffractogram.id.
-;
-    _name.category_id             pd_calc_component
-    _name.object_id               block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_calc_component.diffractogram_id
 
     _definition.id                '_pd_calc_component.diffractogram_id'
@@ -2351,28 +2325,6 @@ save_PD_CALIB_DETECTED_INTENSITY
 
 save_
 
-save_pd_calib_detected_intensity.block_id
-
-    _definition.id                '_pd_calib_detected_intensity.block_id'
-    _definition.update            2023-01-21
-    _description.text
-;
-    A block ID code identifying the diffractogram from which the intensity
-    calibration was taken, if it was calibrated by a specimen.
-
-    The data block containing the diffraction pattern will be identified with a
-    _pd_block.id code matching the code given as the value of this data item.
-;
-    _name.category_id             pd_calib_detected_intensity
-    _name.object_id               block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_calib_detected_intensity.detector_id
 
     _definition.id                '_pd_calib_detected_intensity.detector_id'
@@ -2541,29 +2493,6 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
     _category_key.name            '_pd_calib_incident_intensity.instr_id'
-
-save_
-
-save_pd_calib_incident_intensity.block_id
-
-    _definition.id                '_pd_calib_incident_intensity.block_id'
-    _definition.update            2023-01-21
-    _description.text
-;
-    A block ID code identifying the diffractogram from which the intensity
-    calibration was taken, if it was calibrated by a specimen.
-
-    The data block containing the diffraction pattern will be identified with a
-    _pd_block.id code matching the code in
-    _pd_calib_incident_intensity.block_id.
-;
-    _name.category_id             pd_calib_incident_intensity
-    _name.object_id               block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
@@ -3014,27 +2943,19 @@ save_pd_calib_std.external_block_id
     loop_
       _definition_replaced.id
       _definition_replaced.by
-         1                      '_pd_calib_detected_intensity.block_id'
-         2                      '_pd_calib_detected_intensity.diffractogram_id'
-         3                      '_pd_calib_incident_intensity.block_id'
-         4                      '_pd_calib_incident_intensity.diffractogram_id'
-         5                      '_pd_calib_wavelength.block_id'
-         6                      '_pd_calib_wavelength.diffractogram_id'
-         7                      '_pd_calib_xcoord_overall.block_id'
-         8                      '_pd_calib_xcoord_overall.diffractogram_id'
+         1                      '_pd_calib_detected_intensity.diffractogram_id'
+         2                      '_pd_calib_incident_intensity.diffractogram_id'
+         3                      '_pd_calib_wavelength.diffractogram_id'
+         4                      '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
     _definition.update            2023-06-05
     _description.text
 ;
     This item is deprecated. Please see:
-      - _pd_calib_detected_intensity.block_id
       - _pd_calib_detected_intensity.diffractogram_id
-      - _pd_calib_incident_intensity.block_id
       - _pd_calib_incident_intensity.diffractogram_id
-      - _pd_calib_wavelength.block_id
       - _pd_calib_wavelength.diffractogram_id
-      - _pd_calib_xcoord_overall.block_id
       - _pd_calib_xcoord_overall.diffractogram_id
     as necessary.
 
@@ -3149,27 +3070,6 @@ save_PD_CALIB_WAVELENGTH
        was used to calibrate the wavelength against known unit cell
        parameters.
 ;
-
-save_
-
-save_pd_calib_wavelength.block_id
-
-    _definition.id                '_pd_calib_wavelength.block_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A block ID code for a block containing a diffractogram used to calibrate
-    the wavelength.
-
-    The data block containing the diffraction pattern will be identified with a
-    _pd_block.id code matching the code in _pd_calib_wavelength.block_id.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               block_id
-    _type.purpose                 Encode
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
@@ -3693,28 +3593,6 @@ save_PD_CALIB_XCOORD_OVERALL
          Calibration values will be given using PD_CALIB_XCOORD category data
          items.
 ;
-
-save_
-
-save_pd_calib_xcoord_overall.block_id
-
-    _definition.id                '_pd_calib_xcoord_overall.block_id'
-    _definition.update            2023-05-06
-    _description.text
-;
-    A block ID code identifying the diffractogram from which the X-coordinate
-    calibration was taken, if it was calibrated by a specimen.
-
-    The data block containing the diffraction pattern will be identified with a
-    _pd_block.id code matching the code in _pd_calib_xcoord_overall.block_id.
-;
-    _name.category_id             pd_calib_xcoord_overall
-    _name.object_id               block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
@@ -9140,30 +9018,6 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
 
 save_
 
-save_pd_pref_orient_march_dollase.diffractogram_block_id
-
-    _definition.id
-        '_pd_pref_orient_March_Dollase.diffractogram_block_id'
-    _definition.update            2023-01-09
-    _description.text
-;
-    A block ID code identifying the diffractogram to
-    which the preferred-orientation correction applies.
-    The data block containing the diffraction pattern
-    for this phase will be identified with a _pd_block.id
-    code matching the code in
-    _pd_pref_orient_March_Dollase.diffractogram_block_id.
-;
-    _name.category_id             pd_pref_orient_March_Dollase
-    _name.object_id               diffractogram_block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_pref_orient_march_dollase.diffractogram_id
 
     _definition.id
@@ -9364,28 +9218,6 @@ save_pd_pref_orient_march_dollase.index_l
     _type.container               Single
     _type.contents                Integer
     _units.code                   none
-
-save_
-
-save_pd_pref_orient_march_dollase.phase_block_id
-
-    _definition.id                '_pd_pref_orient_March_Dollase.phase_block_id'
-    _definition.update            2023-01-09
-    _description.text
-;
-    A code identifying the phase to which the
-    preferred-orientation correction applies. The data
-    block containing the crystallographic information
-    for this phase will be identified with the corresponding
-    _pd_block.id code.
-;
-    _name.category_id             pd_pref_orient_March_Dollase
-    _name.object_id               phase_block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
@@ -9598,30 +9430,6 @@ save_pd_pref_orient_spherical_harmonics.c_ij_su
 
 save_
 
-save_pd_pref_orient_spherical_harmonics.diffractogram_block_id
-
-    _definition.id
-        '_pd_pref_orient_spherical_harmonics.diffractogram_block_id'
-    _definition.update            2023-01-09
-    _description.text
-;
-    A block ID code identifying the diffractogram to
-    which the preferred-orientation correction applies.
-    The data block containing the diffraction pattern
-    for this phase will be identified with a _pd_block.id
-    code matching the code in
-    _pd_pref_orient_spherical_harmonics.diffractogram_block_id.
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               diffractogram_block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_pref_orient_spherical_harmonics.diffractogram_id
 
     _definition.id
@@ -9696,29 +9504,6 @@ save_pd_pref_orient_spherical_harmonics.id
     _type.container               Single
     _type.contents                Code
     _enumeration.default          .
-
-save_
-
-save_pd_pref_orient_spherical_harmonics.phase_block_id
-
-    _definition.id
-        '_pd_pref_orient_spherical_harmonics.phase_block_id'
-    _definition.update            2023-01-09
-    _description.text
-;
-    A code identifying the phase to which the
-    preferred-orientation correction applies. The data
-    block containing the crystallographic information
-    for this phase will be identified with the corresponding
-    _pd_block.id code.
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               phase_block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
@@ -11252,29 +11037,6 @@ save_PD_QPA_EXTERNAL_STD
 
 save_
 
-save_pd_qpa_external_std.diffractogram_block_id
-
-    _definition.id                '_pd_qpa_external_std.diffractogram_block_id'
-    _definition.update            2023-01-09
-    _description.text
-;
-    Identifies the _pd_block.id of the diffractogram of the phase
-    used as an external standard for the determination of
-    the diffractometer constant.
-
-    Further references to additional phases present are given in
-    that data block.
-;
-    _name.category_id             pd_qpa_external_std
-    _name.object_id               diffractogram_block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_qpa_external_std.diffractogram_id
 
     _definition.id                '_pd_qpa_external_std.diffractogram_id'
@@ -11532,30 +11294,6 @@ save_PD_QPA_INTERNAL_STD
       _category_key.name
          '_pd_qpa_internal_std.diffractogram_id'
          '_pd_qpa_internal_std.phase_id'
-
-save_
-
-save_pd_qpa_internal_std.block_id
-
-    _definition.id                '_pd_qpa_internal_std.block_id'
-    _definition.update            2023-01-16
-    _description.text
-;
-    Identifies the _pd_block.id of the phase used as an internal
-    standard for the determination of absolute quantitative phase
-    analysis.
-
-    The data block containing the crystallographic information for this
-    phase will be identified with a _pd_block.id code matching the
-    code in _pd_qpa_internal_std.block_id
-;
-    _name.category_id             pd_qpa_internal_std
-    _name.object_id               block_id
-    _name.linked_item_id          '_pd_block.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
 
 save_
 
