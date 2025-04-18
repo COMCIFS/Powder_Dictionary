@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2024-05-15
+    _dictionary.date              2025-04-18
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   3.11.10
@@ -5874,7 +5874,7 @@ save_pd_diffractogram.id
     _definition.update            2025-04-18
     _description.text
 ;
-    Arbitrary label identifying a powder diffraction measurement.
+    Unique label identifying a powder diffraction measurement.
 
     The _pd_diffractogram.id value identifies a particular block as containing
     parameters related to a particular diffractogram.
@@ -8587,10 +8587,7 @@ save_pd_phase.id
     _definition.update            2025-04-18
     _description.text
 ;
-    Arbitrary label uniquely identifying a phase.
-
-    The _pd_phase.id value identifies a particular block as containing
-    parameters related to a particular crystalline phase.
+    Unique label identifying a phase.
 ;
     _name.category_id             pd_phase
     _name.object_id               id
@@ -12305,7 +12302,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2024-05-15
+         2.5.0                    2025-04-18
 ;
        ## Retain above version number and increment date until final
        ## release
