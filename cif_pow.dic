@@ -1499,10 +1499,9 @@ save_pd_block.id
     loop_
        _definition_replaced.id
        _definition_replaced.by
-      _category_key.name
-         1 '_pd_phase.id'
-         2 '_pd_diffractogram.id'
-         3 '_audit.block_code'
+         1                        '_pd_phase.id'
+         2                        '_pd_diffractogram.id'
+         3                        '_audit.block_code'
     _alias.definition_id          '_pd_block_id'
     _definition.update            2025-04-18
     _description.text
@@ -8584,16 +8583,13 @@ save_PD_PHASE
     _definition.id                PD_PHASE
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-08
+    _definition.update            2025-04-18
     _description.text
 ;
-    This section contains a description of the phases contributing to the powder
+    This category allows for the description of the phases contributing to the powder
     diffraction data set. Note that if multiple-phase Rietveld or other
     structural analysis is performed, the structural results will be placed in
     different data blocks, using CIF entries from the core CIF dictionary.
-
-    The _pd_phase_block.id or _pd_phase.id entry points to the CIF block with
-    structural parameters for each crystalline phase.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PHASE
@@ -8604,10 +8600,10 @@ save_
 save_pd_phase.id
 
     _definition.id                '_pd_phase.id'
-    _definition.update            2022-12-03
+    _definition.update            2025-04-18
     _description.text
 ;
-    Arbitrary label uniquely identifying a phase.
+    Unique label identifying a phase.
 ;
     _name.category_id             pd_phase
     _name.object_id               id
