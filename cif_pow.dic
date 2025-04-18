@@ -1463,7 +1463,7 @@ save_PD_BLOCK
     _description.text
 ;
     **DEPRECATED**
-    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code' as 
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code' as
     necessary.
 
     _pd_block.id is used to assign a unique ID code to a data block.
@@ -1511,7 +1511,7 @@ save_pd_block.id
     _description.text
 ;
     **DEPRECATED**
-    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code, 
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code,
     as necessary.
 
     Used to assign a unique character string to a block.
@@ -1602,7 +1602,7 @@ save_PD_BLOCK_DIFFRACTOGRAM
 ;
      **DEPRECATED**
     Use _pd_diffractogram.id, as necessary.
-    
+
     A number of diffractograms may contribute to the
     determination of the structure of a single phase.
     The _pd_block.ids of those diffractograms should
@@ -8588,8 +8588,8 @@ save_PD_PHASE
     _definition.update            2025-04-18
     _description.text
 ;
-    This category allows for the description of the phases contributing to the powder
-    diffraction data set. Note that if multiple-phase Rietveld or other
+    This category allows for the description of the phases contributing to the
+    powder diffraction data set. Note that if multiple-phase Rietveld or other
     structural analysis is performed, the structural results will be placed in
     different data blocks, using CIF entries from the core CIF dictionary.
 ;
