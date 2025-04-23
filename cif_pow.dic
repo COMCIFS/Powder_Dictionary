@@ -70,7 +70,7 @@ save_PD_AMORPHOUS_PEAK
 
     To maintain complete generality, amorphous peak positions are given only in
     terms of d spacing, and peak intensities as relative intensities. These are
-    then instansiated in a specific diffractogram by related data items in
+    then instantiated in a specific diffractogram by related data items in
     PD_PEAK.
 
     The intensities given in this category must only be correct relative to each
