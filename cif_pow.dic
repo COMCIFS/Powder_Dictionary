@@ -186,7 +186,7 @@ save_pd_amorphous_peak.id
     _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Word
+    _type.contents                Code
 
 save_
 
