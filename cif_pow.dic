@@ -274,7 +274,8 @@ save_pd_amorphous_peak.peak_overall_ids
     _type.source                  Assigned
     _type.container               List
     _type.dimension               '[]'
-    _type.contents                Text
+    _type.contents                ByReference
+    _type.contents_referenced_id  '_pd_peak_overall.id'
 
 save_
 
