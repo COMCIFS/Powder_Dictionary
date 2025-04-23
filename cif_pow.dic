@@ -197,7 +197,7 @@ save_pd_amorphous_peak.intensity
     _description.text
 ;
     Relative integrated area for the peak. This value must be obeyed by any
-    peaks used in an diffractogram which are assigned to peaks in this phase.
+    peaks used in a diffractogram which are assigned to peaks in this phase.
 
     This value, when properly calibrated, will represent a structure factor
     amplitude, but this is not necessary. It is necessary that the value given
