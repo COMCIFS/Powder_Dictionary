@@ -8618,25 +8618,6 @@ save_PD_PHASE
 
 save_
 
-save_pd_phase.diffrn_id
-
-    _definition.id                '_pd_phase.diffrn_id'
-    _definition.update            2023-10-16
-    _description.text
-;
-    A code which identifies the diffraction conditions to which this phase
-    pertains.
-;
-    _name.category_id             pd_phase
-    _name.object_id               diffrn_id
-    _name.linked_item_id          '_diffrn.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Word
-
-save_
-
 save_pd_phase.id
 
     _definition.id                '_pd_phase.id'
