@@ -5893,6 +5893,25 @@ save_PD_DIFFRACTOGRAM
 
 save_
 
+save_pd_diffractogram.diffrn_id
+
+    _definition.id                '_pd_diffractogram.diffrn_id'
+    _definition.update            2023-10-16
+    _description.text
+;
+    A code which identifies the diffraction conditions under which this
+    diffractogram was collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               diffrn_id
+    _name.linked_item_id          '_diffrn.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_diffractogram.id
 
     _definition.id                '_pd_diffractogram.id'
@@ -12470,10 +12489,11 @@ save_
 
        Changed the _type.source attribute of all SU data items to 'Related'.
 
+       Added _pd_diffractogram.diffrn_id.
+
        Updated the CIF_CORE dictionary import statement with the new Head
        category name.
 
        Deprecated PD_BLOCK, PD_BLOCK_DIFFRACTOGRAM, PD_PHASE_BLOCK, and all
        related data items in favour of PD_PHASE and PD_DIFFRACTOGRAM.
-
 ;
