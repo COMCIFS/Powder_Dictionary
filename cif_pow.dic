@@ -1855,6 +1855,43 @@ save_PD_CALC_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALC_OVERALL
     _category_key.name            '_pd_calc_overall.diffractogram_id'
+    _description_example.case
+;
+         _pd_diffractogram.id   DIFFRACTOGRAM_NUMBER_7
+         _pd_calc.method        Rietveld
+
+         _pd_calc_overall.component_presentation_order
+             [ PHASE_A_ID PHASE_B_ID PHASE_C_ID ]
+
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         _pd_calc.component_intensity_net_list
+         0   3.99875   1061.8   1076.653 [ 20.20 203.215 512.256 ]
+         1   4.03625   1053.9   1074.628 [ 21.34 204.535 513.156 ]
+         2   4.07375   1060.2   1072.667 [ 21.45 205.755 516.456 ]
+         3   4.11125   1017.3   1070.768 [ 21.55 206.975 513.256 ]
+         #...
+;
+    _description_example.detail
+;
+         Tabulation of diffraction data consisting of measured and
+         calculated data, where the calculated data also include intensities
+         ascribed to the different phases which make up the model. The phases to
+         which the intensities belong are given by the value of
+         _pd_calc_overall.component_presentation_order. These values correspond
+         to the _pd_phase.id values of the phases contributing to the current
+         diffractogram. As _pd_calc.component_intensity_net_list is used, the
+         intensities given do not include any background contribution.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. The category key value associated with
+         _pd_calc_overall.diffractogram_id and _pd_data.diffractogram_id would
+         be taken as 'DIFFRACTOGRAM_NUMBER_7', the value of
+         _pd_diffractogram.id given in the data block.
+;
 
 save_
 
@@ -2350,6 +2387,48 @@ save_PD_CALIB_DETECTED_INTENSITY
          '_pd_calib_detected_intensity.detector_id'
          '_pd_calib_detected_intensity.id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.detector_response_su
+         _pd_calib_detected_intensity.diffractogram_id
+         _pd_calib_detected_intensity.phase_id
+         A_27a6a2a6   1       .       DIFFRACTOGRAM_A   676A
+         B_27a6a2a6   1.035   0.013   DIFFRACTOGRAM_B   676A
+;
+;
+         The two detectors, A and B, have responses of 1 and 1.035,
+         respectively, meaning that their measured intensities must be divided
+         by these values to retreive their true values. These response values
+         were derived from an analysis of the diffraction patterns
+         DIFFRACTOGRAM_A and DIFFRACTOGRAM_A, both of which contain the phase
+         676A.
+;
+;
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.diffractogram_id
+         _pd_calib_detected_intensity.phase_id
+         _pd_calib_detected_intensity.special_details
+         1_4913c6ed   1       . . 'Scanned through direct beam.'
+         2_4913c6ed   0.973   . . 'Scanned through direct beam.'
+         3_4913c6ed   0.997   . . 'Scanned through direct beam.'
+         4_4913c6ed   1.039   . . 'Scanned through direct beam.'
+         #...
+;
+;
+         A position-sensitive detector was scanned through the direct beam to
+         calibrate the response of each channel to a constant-intensity source.
+         The measured intensity of each channel must be divided by the given
+         response to obtain the actual value. No diffraction pattern or phase
+         was involved in the derivation of the response values.
+;
+
 save_
 
 save_pd_calib_detected_intensity.detector_id
@@ -2502,7 +2581,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _definition.id                PD_CALIB_INCIDENT_INTENSITY
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2023-06-17
     _description.text
 ;
     This section defines the parameters used for the incident intensity
@@ -2520,6 +2599,34 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
     _category_key.name            '_pd_calib_incident_intensity.instr_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _pd_calib_incident_intensity.instr_id           a3643812
+        _pd_calib_incident_intensity.incident_counts    4231
+        _pd_calib_incident_intensity.special_details    'From beam monitor.'
+;
+;
+        The number of counts incident on the specimen in the instrument
+        identified as a3643812 is 4231, as measured by a beam monitor. The
+        uncertainty on the incident counts is given as the square root of the
+        counts.
+;
+;
+        _pd_calib_incident_intensity.instr_id                9deaa4f1
+        _pd_calib_incident_intensity.incident_intensity      453.3
+        _pd_calib_incident_intensity.incident_intensity_su     1.6
+        _pd_calib_incident_intensity.diffractogram_id        STANDARD_30ffb964
+        _pd_calib_incident_intensity.phase_id                SRM1796_15341c3a
+;
+;
+        In the instrument identified as 9deaa4f1, the intensity incident on the
+        specimen is 453.3 +- 1.6. This was determined through an analysis of
+        the diffractogram, STANDARD_30ffb964, which contains the phase,
+        SRM1796_15341c3a.
+;
 
 save_
 
@@ -3816,6 +3923,15 @@ save_PD_CHAR
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
     _category_key.name            '_pd_char.id'
+    _description_example.case
+;
+         _pd_char.colour                   white
+         _pd_char.mass_atten_coef_mu_calc  4878
+         _pd_char.particle_morphology
+            'Large equiaxed chunks, approx. 3 mm  across.'
+         _pd_char.special_details
+            'Bottle labelled "corundum". MAC calculated from XRF.'
+;
 
 save_
 
@@ -4213,6 +4329,38 @@ save_PD_DATA
          Tabulation of diffraction data consisting only of measured data. The
          intensity is measured in counts, including background. The
          X-coordinate is 2θ degrees as given by the diffractometer.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. In the usual case that only one diffractogram
+         is present in the data block, the category key value associated with
+         _pd_data.diffractogram_id would be taken from the value associated
+         with the data name _pd_diffractogram.id given in that data block.
+;
+;
+         _pd_calc_overall.component_presentation_order
+             [ PHASE_A_ID PHASE_B_ID PHASE_C_ID ]
+
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         _pd_calc.component_intensity_net_list
+         0   3.99875   1061.8   1076.653 [ 20.20 203.215 512.256 ]
+         1   4.03625   1053.9   1074.628 [ 21.34 204.535 513.156 ]
+         2   4.07375   1060.2   1072.667 [ 21.45 205.755 516.456 ]
+         3   4.11125   1017.3   1070.768 [ 21.55 206.975 513.256 ]
+         #further data points follow
+;
+;
+         Tabulation of diffraction data consisting of measured and
+         calculated data, where the calculated data also include intensities
+         ascribed to the different phases which make up the model. The phases to
+         which the intensities belong are given by the value of
+         _pd_calc_overall.component_presentation_order. These values correspond
+         to the _pd_phase.id values of the phases contributing to the current
+         diffractogram. As _pd_calc.component_intensity_net_list is used, the
+         intensities given do not include any background contribution.
 
          The category key value associated with _pd_data.point_id is given
          with every data point. In the usual case that only one diffractogram
@@ -5927,6 +6075,14 @@ save_pd_diffractogram.id
     _type.container               Single
     _type.contents                Text
 
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV'
+         '76d675f5-9f0b-4bd9-8be3-1266edf74908'
+         'DIFFRACTOGRAM Z2'
+         'Insitu_pattern_0123'
+         'Synthesis number 1'
+
 save_
 
 save_pd_diffractogram.spec_id
@@ -5993,6 +6149,112 @@ save_PD_INSTR
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR
     _category_key.name            '_pd_instr.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _diffrn_radiation_wavelength.type     'Cu K\a~1~'
+        _diffrn_radiation_wavelength.value    1.540596
+
+        _pd_instr.id                          b4131be5
+        _pd_instr.geometry
+        ;
+         Bragg-Brentano, pre-specimen double-bounce monochromator.
+         Dual strip detectors covering ~20\% each. Scanned to cover all angles.
+        ;
+        _pd_instr.2theta_monochr_pre           45.31
+        _pd_instr.monochr_pre_spec            'Ge 220'
+        _pd_instr.divg_eq_mono_spec             0.2
+        _pd_instr.cons_illum_flag             no
+        _pd_instr.detector_circle_radius      320
+        _pd_instr.dist_mono_spec              402
+        _pd_instr.dist_src_mono                39
+        _pd_instr.beam_size_ax                 10.5
+        _pd_instr.slit_ax_mono_spec            10.0
+        _pd_instr.slit_eq_mono_spec             0.5
+        _pd_instr.soller_ax_mono_spec           2.5
+        _pd_instr.source_size_ax               12
+        _pd_instr.source_size_eq                0.4
+        _pd_instr.location                    'Physics, Anytown University.'
+;
+;
+        This instrument is identified by the id b4131be5. The instrument is
+        described as a Bragg-Brentano diffractometer with a pre-specimen,
+        double-bounce Ge 220 monochromator. It has two detectors; these are not
+        described here, see PD_INSTR_DETECTOR. The monochromator is set at
+        45.31\% 2\q. The equatorial divergence between the monochromator and
+        specimen is fixed at 0.2\%; this instrument is not run in constant
+        illumination length mode.
+
+        The distance from the virtual source to the specimen for all
+        measurement points is 320 mm, whereas the distance from the
+        monochromator to the specimen is 402 mm. The monochromator is
+        situated 39 mm from the source. The width of the beam on the specimen,
+        in the axial direction, is 10.5 mm, and the width of the beam is
+        defined at the monochromator by a 10 mm mask. There is a 0.5 mm
+        equatorial slit between the monochromator and specimen, which can be
+        assumed to be on the detector circle, and acts as the virtual source.
+
+        There are 2.5\% axial Soller slits between the monochromator and the
+        specimen. The size of the source in the X-ray tube is 12 x 0.4 mm.
+
+        The instrument is located in the Department of Physics in Anytown
+        University.
+
+        The radiation used in the instrument is defined by data names from the
+        DIFFRN_RADIATION_WAVELENGTH category. In this case, it is pure Cu K\a~1~
+        radiation with a wavelength of 1.540596 \%A.
+;
+;
+        loop_
+        _diffrn_radiation_wavelength.id
+        _diffrn_radiation_wavelength.value
+        _diffrn_radiation_wavelength.wt
+        _diffrn_radiation_wavelength.type
+        _diffrn_radiation_wavelength.details
+         1  1.7889847  0.378 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+         2  1.7892524  0.144 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+         3  1.7896946  0.127 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+         4  1.7888515  0.088 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+         5  1.7927905  0.197 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+         6  1.7930637  0.095 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+         7  1.7934738  0.050 'Co K\a' 'G. H\"olzer et al. Phys. Rev. A 56, 4554'
+
+        _pd_instr.id                       58b6d83b
+        _pd_instr.geometry                 Bragg-Brentano
+        _pd_instr.cons_illum_len            12.0
+        _pd_instr.detector_circle_radius   117.5
+        _pd_instr.dist_src_spec            117.5
+        _pd_instr.beam_size_ax               9.8
+        _pd_instr.slit_ax_src_spec           9.5
+        _pd_instr.soller_ax_src_spec        5.0
+        _pd_instr.source_size_ax            8.5
+        _pd_instr.source_size_eq            0.4
+        _pd_instr.location
+            'ACME Measurements, 123 Main St. Maintown.'
+;
+;
+        This instrument is identified by the id 58b6d83b. The instrument is
+        described as a Bragg-Brentano diffractometer. The instrument is run
+        with a constant illumination length of 12 mm.
+
+        The distance from the source to the specimen for all measurement points
+        is 117.5 mm, which is identical the distance from the source to the
+        specimen, as the X-ray tube is mounted on the detector circle. The width
+        of the beam on the specimen, in the axial direction, is 9.8 mm, and the
+        width of the beam is defined at the source by a 9.5 mm mask.
+
+        There are 5.0\% axial Soller slits between the source and the specimen.
+        The size of the source in the X-ray tube is 8.5 x 0.4 mm.
+
+        The instrument is located at ACME Measurements in Maintown.
+
+        The radiation used in the instrument is defined by data names from the
+        DIFFRN_RADIATION_WAVELENGTH category. In this case, it is Co K\a
+        radiation as described by the constituent seven wavelengths, as
+        described by G. H\"olzer et al. Phys. Rev. A 56, 4554.
+;
 
 save_
 
@@ -6898,6 +7160,76 @@ save_PD_INSTR_DETECTOR
     _name.object_id               PD_INSTR_DETECTOR
     _category_key.name            '_pd_instr_detector.id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        # _pd_instr.id                          b4131be5
+
+        loop_
+        _pd_instr_detector.id
+        _pd_instr.dist_spec_detc
+        _pd_instr.slit_ax_spec_detc
+        _pd_instr.slit_eq_spec_detc
+            fd343493   320   8.5   0.075
+            47540661   320   8.5   0.075
+;
+;
+        Assume these detectors are paired with the instrument identified by the
+        id b4131be5.
+
+        There are two detectors, fd343493 and 47540661. Both detectors are
+        positioned 320 mm from the specimen, and are defined by two slits,
+        8.5 mm in the axial direction, and 0.075 mm in the equatorial direction.
+        As the instrument description says that this instrument has 'Dual strip
+        detectors', it can be assumed that the detector window is 8.5 mm wide,
+        and each strip, or pixel, in the dector is 75 \mm high.
+;
+;
+        # _pd_instr.id                       58b6d83b
+
+        _pd_instr.2theta_monochr_post      31.0
+        _pd_instr.dist_anal_detc           47
+        _pd_instr.dist_spec_anal          135
+        _pd_instr.monochr_post_spec       'Graphite mosaic monochromator'
+        _pd_instr.slit_ax_spec_anal         9.5
+        _pd_instr.slit_eq_spec_anal         0.5
+        _pd_instr.soller_eq_spec_anal       2.5
+;
+;
+        Assume this detector is paired with the instrument identified by the
+        id 58b6d83b.
+
+        The post-specimen, graphite, mosaic monochromator is set at 31.0\% 2\q.
+        The monochromator is situated 47 mm from the detector. The distance from
+        the specimen to the monochromator is 135 mm. The width of the beam is
+        defined at the monochromator by a 9.5 mm mask. There is a 0.5 mm
+        equatorial slit between the specimen and monochromator, which can be
+        assumed to be on the detector circle, and acts as the virtual detector.
+        There are 2.5\% axial Soller slits between the specimen and the
+        monochromator.
+;
+;
+        # _pd_instr.id                       58b6d83b
+
+        _pd_instr.dist_spec_detc          117.5
+        _pd_instr.monochr_post_spec       'Fe filter'
+        _pd_instr.slit_ax_spec_detc        12
+        _pd_instr.slit_eq_spec_detc         0.075
+        _pd_instr.soller_ax_spec_detc       2.5
+;
+;
+        Assume this detector is paired with the instrument identified by the
+        id 58b6d83b.
+
+        The distance from the specimen to the detector is 117.5 mm. The X-ray
+        beam is "monochromatised" by a metal Fe filter. The detector is defined
+        by a 12 mm axial and 0.075 mm equatorial slit. The small size of the
+        equatorial slit might lead the reader to assume a strip detector was
+        used. This should be documented using _pd_instr.special_details. There
+        are 2.5\% axial Soller slits between the specimen and the detector.
+;
+
 save_
 
 save_pd_instr.2theta_monochr_post
@@ -7711,6 +8043,91 @@ save_PD_MEAS_OVERALL
     _name.object_id               PD_MEAS_OVERALL
     _category_key.name            '_pd_meas_overall.diffractogram_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_37
+
+          _pd_meas.2theta_range_min   5.00
+          _pd_meas.2theta_range_max  95.00
+          _pd_meas.2theta_range_inc   0.02
+          _pd_meas.number_of_points  4501
+          _pd_meas.scan_method       cont
+
+          _pd_meas.datetime_initiated   2023-02-27T22:45:00+08:00
+
+          _pd_meas.rocking_angle   180
+          _pd_meas.rocking_axis    phi
+          _pd_instr.geometry       Bragg-Brentano
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.counts_total
+          1   1234
+          2   1256
+          #...
+;
+;
+         The measured diffractogram is in equally spaced 2\q points, starting
+         at 5.00\% 2\q, going up in steps of 0.02\%, with the last data point at
+         95.00\% 2\q. In total, there are 4501 data points. The data were
+         collected in a continuous scan, such that the detector did not stop
+         moving, and the intensities were binned according to the goniometer
+         angle during the collection time per step. Data collection was started
+         on the 27^th^ of February, 2023 at 2245 h in a timezone +8 h from UTC.
+         The specimen was rotated 180\% during the collection of the data for
+         each measurement point
+;
+;
+          _pd_meas.rocking_angle   2.5
+          _pd_meas.rocking_axis    omega
+          _pd_meas.scan_method     step
+
+          _pd_instr.geometry       Bragg-Brentano
+
+          _pd_meas_overall.diffractogram_id   PATTERN_96
+
+          loop_
+          _pd_data.point_id
+          _pd_data.diffractogram_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          1   PATTERN_96   5.02   1234
+          2   PATTERN_96   5.04   1256
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_96'. For each measurement point, the specimen rotated +-2.5\%
+         from its standard position about the omega axis.
+;
+;
+          _pd_diffractogram.id         EDD_123
+
+          _pd_meas.2theta_fixed         5
+          _pd_meas.angle_chi           45
+          _pd_meas.units_of_intensity
+             'Proportional to current (Ampere) from Si(Li) detector.'
+          _pd_meas.scan_method         disp
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.energy_detection
+          _pd_meas.intensity_total
+          _pd_meas.intensity_total_su
+          1   50300   1234   23
+          2   50400   1256   24
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'EDD_123'. The detector was fixed at 5\% 2\q and tilted at
+         45\% \c. The data were collected in energy-dispersive mode, where
+         the intensity recorded was proportional to the current measured in
+         the Si(Li) detector.
+;
+
 save_
 
 save_pd_meas.2theta_fixed
@@ -8186,6 +8603,58 @@ save_PD_PEAK
          '_pd_peak.diffractogram_id'
          '_pd_peak.id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_peak.id
+         _pd_peak.2theta_centroid
+         _pd_peak.width_2theta
+         _pd_peak.intensity
+         _pd_peak.intensity_su
+         A   12.35   0.26   1023    7
+         B   24.74   0.56   2318   15
+         C   37.79   0.61    506    2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak centroid (eg 12.35\% 2\q), and the
+         width is the full-width at half-maximum (eg 0.26\% 2\q). The peak
+         intensity is given as the peak area with an associated standard
+         uncertainty (eg 1023 +- 7).
+;
+;
+         loop_
+         _diffrn_radiation_wavelength.id
+         _diffrn_radiation_wavelength.value
+         _diffrn_radiation_wavelength.wt
+         1   1.534753   0.0159
+         2   1.540596   0.5691
+         3   1.541058   0.0762
+         4   1.544410   0.2517
+         5   1.544721   0.0871
+
+         loop_
+         _pd_peak.id
+         _pd_peak.d_spacing
+         _pd_peak.pk_height
+         _pd_peak.pk_height_su
+         _pd_peak.wavelength_id
+         a   6.25   10432   132   2
+         b   3.17    8973    87   2
+         c   1.25   25632   167   2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak in angstroms (eg 6.25 \%A). The peak intensity
+         is given as the peak height with an associated standard uncertainty
+         (eg 10432 +- 132). The particular wavelength used to calculate the
+         d-spacing from the data's original 2\q results is given in the final
+         column, which corresponds to 1.540596 \%A, as given in the top-most
+         loop.
+;
+
 save_
 
 save_pd_peak.2theta_centroid
@@ -8544,6 +9013,26 @@ save_PD_PEAK_OVERALL
          '_pd_peak_overall.diffractogram_id'
          '_pd_peak_overall.id'
 
+    loop_
+      _description_example.case
+;
+          _pd_peak_overall.id        PEAK_GROUP_1
+          _pd_peak.special_details
+       ;
+          Peak positions allowed to refine freely. Peak widths
+          constrained to follow UVW relationship. Peak shape
+          constrained to be Lorentzian.
+       ;
+;
+;
+          _pd_peak_overall.id        peaks
+          _pd_peak.special_details
+       ;
+          Peak positions fixed by second-derivative analysis.
+          Widths allowed to refine freely. Pearson-VII peakshape.
+       ;
+;
+
 save_
 
 save_pd_peak.special_details
@@ -8635,6 +9124,13 @@ save_pd_phase.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987'
+         '9d0e3eef-614a-4127-aef5-8b859168fd13'
+         'PHASE A'
+         'Calcium sulphate hemihydrate. ACME Chemicals, batch #12090.'
 
 save_
 
@@ -8755,12 +9251,18 @@ save_PD_PHASE_MASS
          their associated standard uncertainties. The values are associated with
          one diffractogram and three phases.
 
+         The method of presentation given here would be associated with being
+         present in a block which does not contain a _pd_diffractogram.id or
+         _pd_phase.id data item.
+
          Blocks containing information about more than one phase must set a
          non-default value for _audit.schema.
 ;
 
 ;
          _audit.schema            Custom
+
+         _pd_diffractogram.id   A_DIFFRACTOGRAM
 
          loop_
          _pd_phase_mass.phase_id
@@ -9754,6 +10256,22 @@ save_PD_PREP
          '_pd_prep.char_id'
          '_pd_prep.id'
 
+    _description_example.case
+;
+         _pd_prep.id           'rutile 1234'
+         _pd_prep.conditions
+      ;
+         1 kg of anatase from Acme, Lot#1234 was placed in several
+         platinum crucible in a furnace at atmospheric pressure.
+         The furnace was heated at 5 K/min to 1100 K, and held there
+         overnight. The furnace was then switched off and allowed to
+         cool naturally. The batch was combined, homogenised, and
+         riffle-split into 50 g packets.
+      ;
+         _pd_prep.pressure      101.3
+         _pd_prep.temperature  1100
+;
+
 save_
 
 save_pd_prep.char_id
@@ -10144,6 +10662,68 @@ save_PD_PROC_LS
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_LS
     _category_key.name            '_pd_proc_ls.diffractogram_id'
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   PATTERN_42
+
+         _pd_proc_ls.peak_cutoff        0.0001
+         _pd_proc_ls.prof_wr_expected   0.12324
+         _pd_proc_ls.prof_wr_factor     0.15432
+         _pd_proc_ls.profile_function   'Fundamental parameters'
+;
+;
+         The PD_PROC_LS information applies to the diffractogram with the id of
+         PATTERN_42. The peak intensities are calculated out to a point where
+         the intensity is 0.0001\\times the intensity at the peak maximum, or
+         0.01%. The value of R~exp~ is 12.324% and R~wp~ is 15.432%. The peak
+         profiles were calculated using fundamental parameters
+;
+;
+         _pd_proc_ls.diffractogram_id   cae4f697-ae84-4e3f-a0c1-4569d60b6191
+         _pd_proc_ls.peak_cutoff        0.005
+         _pd_proc_ls.prof_wr_expected   0.0273
+         _pd_proc_ls.prof_wr_factor     0.0569
+         _pd_proc_ls.profile_function
+       ;
+         The profiles were calculated using the modified Thompson-Cox-Hastings
+         formulation, where:
+
+           tch_L =  X * tan(\q)) + (Y / cos(\q)
+           tch_G = (U * tan(\q)^2^ + V * tan(\q) + W + Z / cos(\q)^2^)^1/2^
+           tch_P = (   tch_G^5^ +
+             2.69269 * tch_G^4^ * tch_L +
+             2.42843 * tch_G^3^ * tch_L^2^ +
+             4.47163 * tch_G^2^ * tch_L^3^ +
+             0.07842 * tch_G    * tch_L^4^ +
+                                  tch_L^5^ )^1/5^
+           tch_Q = tch_L / tch_P
+           eta = 1.36603 * tch_Q - 0.47719 * tch_Q^2^ + 0.1116 * tch_Q^3^
+
+         The full-width half-maximum of the Lorentzian and Gaussian peaks are
+         given by tch_L and tch_G, respectively.
+
+         The mixing parameter between the amount of Lorentzian and Gaussian is
+         given by eta.
+
+         U, W, Y, and Z were fixed at zero.
+
+         The refined values of V and X were 0.059(2)\% and 0.037(1)\%,
+         respectively.
+
+         For further details, see J. Appl. Cryst. (1987). 20, 79-83
+         https://doi.org/10.1107/S0021889887087090
+       ;
+;
+;
+         The PD_PROC_LS information applies to the diffractogram with the id of
+         the given GUID. The peak intensities are calculated out to a point
+         where the intensity is 0.005\\times the intensity at the peak maximum,
+         or 0.5%. The value of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak
+         profiles were calculated using the modified Thompson-Cox-Hasting
+         algorithm, as described, with final refined parameter values given.
+;
 
 save_
 
@@ -10454,6 +11034,48 @@ save_PD_PROC_OVERALL
     _name.object_id               PD_PROC_OVERALL
     _category_key.name            '_pd_proc_overall.diffractogram_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_42
+
+          _pd_proc.2theta_range_min   5.00
+          _pd_proc.2theta_range_max  95.00
+          _pd_proc.2theta_range_inc   0.02
+          _pd_proc.number_of_points  4501
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.intensity_total
+          _pd_proc.intensity_total_su
+          1   1234   23
+          2   1256   24
+          #...
+;
+;
+         The processed diffractogram is in equally spaced 2\q points, starting
+         at 5.00\% 2\q, going up in steps of 0.02\%, with the last data point at
+         95.00\% 2\q. In total, there are 4501 data points.
+;
+;
+          _pd_proc_overall.diffractogram_id   PATTERN_43
+          _pd_proc.info_datetime              2042-12-13T02:37:23Z
+          _pd_proc.info_data_reduction
+       ;
+          Background removed by spline fitting. K\a~2~ removed using
+          the built-in function. Pattern smoothed by Fourier methods.
+          Used EVA 15.
+       ;
+          _pd_proc.info_excluded_regions      '30-31\% due to quartz impurity.'
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_43'. The data were processed at 2:37 h GMT on the 13th of
+         December 2042. The data were modified as described. The data between
+         30 and 31\% 2\q should be ignored, due to an impurity.
+;
+
 save_
 
 save_pd_proc.2theta_range_inc
@@ -10669,6 +11291,8 @@ save_PD_QPA_CALIB_FACTOR
     divided by in order to allow quantitative phase analysis to be undertaken.
     Further normalisation may be necessary, and can be indicated.
 
+    See also PD_QPA_INTENSITY_FACTOR and _pd_qpa_overall.method.
+
     For a description of the quantification methodologies below, and a review on
     quantitative phase analysis in general, see Chapter 3.9 of International
     Tables, Vol. H, and references therein.
@@ -10676,6 +11300,55 @@ save_PD_QPA_CALIB_FACTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_CALIB_FACTOR
     _category_key.name            '_pd_qpa_calib_factor.phase_id'
+
+    _description_example.case
+;
+         data_phase_1
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_2
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_3
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM646a) has been quantified using the I_over_Ic
+         specialisation of the RIR algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I_over_Ic algorithm detailed in
+         _pd_qpa_overall.method.
+;
 
 save_
 
@@ -11080,6 +11753,61 @@ save_PD_QPA_EXTERNAL_STD
     _name.object_id               PD_QPA_EXTERNAL_STD
     _category_key.name            '_pd_qpa_external_std.diffractogram_id'
 
+    _description_example.case
+;
+         data_diffractogram_block
+            _pd_diffractogram.id   DIFFRACTOGRAM_2
+
+            loop_
+            _pd_phase_mass.phase_id
+            _pd_phase_mass.percent
+            _pd_phase_mass.percent_su
+            PHASE_1             42.81   0.56
+            PHASE_2             14.73   0.24
+
+            _pd_qpa_external_std.diffractogram_id   THE_REFERENCE
+            _pd_char.mass_atten_coef_mu_calc        6940
+            _pd_qpa_overall.method                  external_standard
+
+         data_ext_std_diffractogram
+            _pd_diffractogram.id   THE_REFERENCE
+
+            loop_
+            _pd_phase_mass.phase_id
+            _pd_phase_mass.percent
+            _pd_phase_mass.percent_su
+            NIST_ALUMINA_676A   99.02   1.11
+
+            _pd_qpa_external_std.k_factor           293.36
+            _pd_char.mass_atten_coef_mu_calc        3159
+            _pd_qpa_overall.method                  external_standard
+;
+    _description_example.detail
+;
+         A diffraction pattern containing two phases (PHASE_1 and PHASE_2) has
+         been quantified using the external standard algorithm after Rietveld
+         refinement.
+
+         The K factor, or diffractometer constant, is calculated from a
+         diffraction pattern of a previously characterised standard, collected
+         under the same conditions as the unknown, as
+
+            K = S~s~ * (Z * M * V)~s~ * \m^*^~s~ / W~s~
+
+         where the subscript s denotes the standard, and S is the Rietveld scale
+         factor, Z is the number of formula units per unit cell, M is the
+         chemical formula weight, and V is the volume of the unit cell.
+         \m^*^~m~ is the mass absorption coefficient, and W is the crystalline
+         fraction.
+
+         The absolute weight fraction of phase p, W~p~, can now be given by
+
+             W~p~ = [S~p~ * (Z * M * V)~p~ / K] * \m^*^~m~
+
+         where \m^*^~m~ is the mass absorption coefficient of the entire
+         specimen.
+;
+
 save_
 
 save_pd_qpa_external_std.diffractogram_id
@@ -11200,7 +11928,8 @@ save_PD_QPA_INTENSITY_FACTOR
     quantitative phase analysis to be undertaken. Further normalisation may be
     necessary, and can be indicated.
 
-    The supported methodologies are enumerated in _pd_qpa_overall.method.
+    The supported methodologies are enumerated in _pd_qpa_overall.method. See
+    also PD_QPA_CALIB_FACTOR.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
     International Tables, Vol. H, and references therein.
@@ -11212,6 +11941,55 @@ save_PD_QPA_INTENSITY_FACTOR
       _category_key.name
          '_pd_qpa_intensity_factor.diffractogram_id'
          '_pd_qpa_intensity_factor.phase_id'
+
+    _description_example.case
+;
+         data_phase_1
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_2
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_3
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM646a) has been quantified using the I_over_Ic
+         specialisation of the RIR algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I_over_Ic algorithm detailed in
+         _pd_qpa_overall.method.
+;
 
 save_
 
@@ -11339,6 +12117,54 @@ save_PD_QPA_INTERNAL_STD
       _category_key.name
          '_pd_qpa_internal_std.diffractogram_id'
          '_pd_qpa_internal_std.phase_id'
+
+    _description_example.case
+;
+         _pd_diffractogram.id   DIFFRACTOGRAM_1
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.percent
+         _pd_phase_mass.percent_su
+         PHASE_1             42.81   0.56
+         PHASE_2             14.73   0.24
+         NIST_ALUMINA_676A   24.76   0.28
+
+         _pd_qpa_internal_std.mass_percent              25.000
+         _pd_qpa_internal_std.mass_percent_su            0.002
+         _pd_qpa_internal_std.crystallinity_percent     99.02
+         _pd_qpa_internal_std.crystallinity_percent_su   1.11
+         _pd_qpa_internal_std.phase_id                  NIST_ALUMINA_676A
+
+         _pd_qpa_overall.method   ZMV
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM646a) has been quantified using the ZMV algorithm after
+         Rietveld refinement.
+
+         The diffraction pattern was collected from a specimen containing
+         25.000 +- 0.002 wt% internal standard (i.e. 1 g added to 3 g of unknown
+         to make a specimen with total weight of 4 g). The internal standard is
+         known to be 99.02 +- 1.11 % crystalline, and so the reported value of
+         _pd_phase_mass.percent for the standard is 25.000 * 0.9902 = 24.96 wt%.
+
+         The weight fractions derived from the ZMW algorithm were then scaled as
+
+            W~p~^absolute^ = W~p~^ZMV^ * (W~s~^known^ / W~s~^ZMV^)
+
+         where W is the weight percentage, p is the phase, s is the standard
+         'ZMV' is the weight fraction from the ZMV algorithm, and 'known' is the
+         known addition of standard (_pd_qpa_internal_std.mass_percent). These
+         are the values reported as _pd_phase_mass.percent. Any difference
+         between the sum of the _pd_phase_mass.percent values and 100 wt% can
+         be attributed to unanalysed or amorphous phases.
+
+         The crystal structure of the internal standard is described by the
+         information linked to the _pd_phase.id data item with the value
+         'NIST_ALUMINA_676A'.
+;
 
 save_
 
@@ -11546,7 +12372,9 @@ save_pd_qpa_overall.method
     of any _pd_qpa_calib_factor.* value that is given.
 
     If 'other' is chosen, further information must be given in
-    _pd_qpa_overall.special_details
+    _pd_qpa_overall.special_details.
+
+    See examples in PD_QPA_* as to how this category is used.
 ;
     _name.category_id             pd_qpa_overall
     _name.object_id               method
@@ -11845,6 +12673,35 @@ save_PD_SPEC
          '_pd_spec.id'
          '_pd_spec.prep_id'
 
+    _description_example.case
+;
+         _pd_spec.id            ABC123_03
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+         _pd_spec.mounting      'back-packed powder pellet'
+         _pd_spec.orientation   horizontal
+         _pd_spec.preparation
+      ;
+         50 g of received sample was homogenised and cone-and-quartered
+         to obtain a 3 g split. 1 g of \a-alumina was added as an internal
+         standard. The specimen was micronised for 15 min with 15 ml of
+         ethanol and dried at  45 \%C. The resulting powder was backpressed
+         into a holder with a semi-automated press.
+      ;
+         _pd_spec.shape         flat_sheet
+         _pd_spec.size_axial    25.0
+         _pd_spec.size_equat    25.0
+         _pd_spec.size_thick     3.5
+;
+    _description_example.detail
+;
+         A specimen of iron ore, from FeOre Inc., with an added internal
+         standard was prepared for analysis. The data were collected in
+         reflection on an instrument where the incident and diffracted beams
+         are vertical. The specimen flat, and is 25.0 x 25.0 mm, or it could be
+         inferred to be 25 mm diameter. The specimen was prepared as described.
+;
+
 save_
 
 save_pd_spec.description
@@ -11863,6 +12720,12 @@ save_pd_spec.description
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         'Grab specimen from goethite bottle from Acme. Lot #1234.'
+         'By-product found in corroded pipe threads.'
+         'Mystery powder found in back of cupboard.'
 
 save_
 
@@ -12481,6 +13344,8 @@ save_
 
        Converted all 'Array' and 'Matrix'-type data items to be 'List', except
        _pd_pref_orient_march_dollase.hkl.
+
+       Added examples to PD_CALIB_INCIDENT_INTENSITY.
 
        Change units of _pd_calib_incident_intensity.incident_* to
        counts_per_second and per_second.
