@@ -12265,10 +12265,11 @@ save_refln.f_squared_meas
     _method.purpose               Definition
     _method.expression
 ;
-         If (_diffrn_radiation.probe == "neutron")  _units.code =
-    "femtometre_squared" Else If (_diffrn_radiation.probe == "electron")
-    _units.code =  "volt_squared" Else
-      _units.code =  "electron_squared"
+    If      (_diffrn_radiation.probe == "neutron")
+                                         _units.code = "femtometre_squared"
+    Else If (_diffrn_radiation.probe == "electron")
+                                         _units.code =  "volt_squared"
+    Else                                 _units.code =  "electron_squared"
 ;
 
 save_
