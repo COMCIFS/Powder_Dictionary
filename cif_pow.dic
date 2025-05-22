@@ -12281,11 +12281,12 @@ save_refln.wavelength_id
 
     loop_
       _alias.definition_id
-         '_refln_wavelength_id'
-         '_pd_refln.wavelength_id'
-         '_pd_refln_wavelength_id'
+      _alias.deprecation_date
+         '_refln_wavelength_id'                                      .
+         '_pd_refln.wavelength_id'                                   2021-12-06
+         '_pd_refln_wavelength_id'                                   2021-12-06
 
-    _definition.update            2021-12-06
+    _definition.update            2025-05-21
     _description.text
 ;
     _pd_refln.wavelength_id is DEPRECATED. _refln.wavelength_id should
@@ -12496,6 +12497,9 @@ save_
 
        Deprecated PD_BLOCK, PD_BLOCK_DIFFRACTOGRAM, PD_PHASE_BLOCK, and all
        related data items in favour of PD_PHASE and PD_DIFFRACTOGRAM.
+
+       Explicitly deprecated the _pd_refln.wavelength_id and
+       _pd_refln_wavelength_id aliases.
 
        Set DDL conformance to version 4.2.0.
 ;
