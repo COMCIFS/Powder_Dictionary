@@ -17,7 +17,7 @@ data_CIF_POW
     _dictionary.date              2025-05-21
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
-    _dictionary.ddl_conformance   3.11.10
+    _dictionary.ddl_conformance   4.2.0
     _dictionary.namespace         CifPow
     _description.text
 ;
@@ -12500,4 +12500,6 @@ save_
 
        Explicitly deprecated the _pd_refln.wavelength_id and
        _pd_refln_wavelength_id aliases.
+
+       Set DDL conformance to version 4.2.0.
 ;
