@@ -12157,24 +12157,6 @@ save_REFLN
 
 save_
 
-save_refln.diffractogram_id
-
-    _definition.id                '_refln.diffractogram_id'
-    _definition.update            2025-05-23
-    _description.text
-;
-    The diffractogram to which the reflection list relates.
-;
-    _name.category_id             refln
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
 save_pd_refln.peak_id
 
     _definition.id                '_pd_refln.peak_id'
@@ -12230,6 +12212,24 @@ save_pd_refln.phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_refln.diffractogram_id
+
+    _definition.id                '_refln.diffractogram_id'
+    _definition.update            2025-05-23
+    _description.text
+;
+    The diffractogram to which the reflection list relates.
+;
+    _name.category_id             refln
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
