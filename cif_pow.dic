@@ -51,6 +51,212 @@ save_PD_GROUP
 
 save_
 
+save_CHEMICAL
+
+    _definition.id                CHEMICAL
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2012-11-22
+    _description.text
+;
+    The CATEGORY of data items which describe the composition and
+    chemical properties of the compound under study. The formula data
+    items must be consistent with the density, unit-cell and Z values.
+;
+    _name.category_id             EXPTL
+    _name.object_id               CHEMICAL
+    _category_key.name            '_chemical.phase_id'
+
+save_
+
+save_chemical.phase_id
+
+    _definition.id                '_chemical.phase_id'
+    _definition.update            2025-05-23
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the chemical information relates.
+;
+    _name.category_id             chemical
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_CHEMICAL_CONN_ATOM
+
+    _definition.id                CHEMICAL_CONN_ATOM
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2021-06-29
+    _description.text
+;
+    The CATEGORY of data items which describe the 2D chemical structure of
+    the molecular species. They allow a 2D chemical diagram to be
+    reconstructed for use in a publication or in a database search
+    for structural and substructural relationships. In particular,
+    the chemical_conn_atom data items provide information about the
+    chemical properties of the atoms in the structure. In cases
+    where crystallographic and molecular symmetry elements coincide
+    they must also contain symmetry-generated atoms, so as to describe
+    a complete chemical entity.
+;
+    _name.category_id             CHEMICAL
+    _name.object_id               CHEMICAL_CONN_ATOM
+
+    loop_
+      _category_key.name
+         '_chemical_conn_atom.number'
+         '_chemical_conn_atom.phase_id'
+
+save_
+
+save_chemical_conn_atom.phase_id
+
+    _definition.id                '_chemical_conn_atom.phase_id'
+    _definition.update            2025-05-23
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the chemical connectivity
+    relates.
+;
+    _name.category_id             chemical_conn_atom
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_CHEMICAL_CONN_BOND
+
+    _definition.id                CHEMICAL_CONN_BOND
+    _definition.scope             Category
+    _definition.class             Loop
+    _definition.update            2021-06-29
+    _description.text
+;
+    The CATEGORY of data items which specify the connections between
+    the atoms sites in the chemical_conn_atom list and the nature
+    of the chemical bond between these atoms. These are details about
+    the two-dimensional (2D) chemical structure of the molecular species.
+    They allow a 2D chemical diagram to be reconstructed for use in a
+    publication or in a database search for structural and substructural
+    relationships.
+;
+    _name.category_id             CHEMICAL
+    _name.object_id               CHEMICAL_CONN_BOND
+
+    loop_
+      _category_key.name
+         '_chemical_conn_bond.phase_id'
+         '_chemical_conn_bond.atom_1'
+         '_chemical_conn_bond.atom_2'
+
+save_
+
+save_chemical_conn_bond.phase_id
+
+    _definition.id                '_chemical_conn_bond.phase_id'
+    _definition.update            2025-05-23
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the chemical connectivity
+    relates.
+;
+    _name.category_id             chemical_conn_bond
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_CHEMICAL_FORMULA
+
+    _definition.id                CHEMICAL_FORMULA
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2023-01-13
+    _description.text
+;
+    The CATEGORY of data items which specify the composition and chemical
+    properties of the compound. The formula data items must agree
+    with those that specify the density, unit-cell and Z values.
+
+    The following rules apply to the construction of the data items
+    _chemical_formula.analytical, *.structural and *.sum. For the
+    data item *.moiety the formula construction is broken up into
+    residues or moieties, i.e. groups of atoms that form a molecular
+    unit or molecular ion. The rules given below apply within each
+    moiety, but different requirements apply to the way that moieties
+    are connected (see _chemical_formula.moiety).
+
+    1. Only recognized element symbols may be used.
+
+    2. Each element symbol is followed by a 'count' number. A count of
+       '1' may be omitted.
+
+    3. A space or parenthesis must separate each cluster of (element
+       symbol + count).
+
+    4. Where a group of elements is enclosed in parentheses, the
+       multiplier for the group must follow the closing parentheses.
+       That is, all element and group multipliers are assumed to be
+       printed as subscripted numbers. [An exception to this rule
+       exists for *.moiety formulae where pre- and post-multipliers
+       are permitted for molecular units].
+
+    5. Unless the elements are ordered in a manner that corresponds to
+       their chemical structure, as in _chemical_formula.structural,
+       the order of the elements within any group or moiety
+       depends on whether or not carbon is present. If carbon is
+       present, the order should be: C, then H, then the other
+       elements in alphabetical order of their symbol. If carbon is
+       not present, the elements are listed purely in alphabetical order
+       of their symbol. This is the 'Hill' system used by Chemical
+       Abstracts. This ordering is used in _chemical_formula.moiety
+       and _chemical_formula.sum.
+
+          _chemical_formula.IUPAC      '[Mo (C O)4 (C18 H33 P)2]'
+          _chemical_formula.moiety     'C40 H66 Mo O4 P2'
+          _chemical_formula.structural '((C O)4 (P (C6 H11)3)2)Mo'
+          _chemical_formula.sum         'C40 H66 Mo O4 P2'
+          _chemical_formula.weight      768.81
+;
+    _name.category_id             CHEMICAL
+    _name.object_id               CHEMICAL_FORMULA
+    _category_key.name            '_chemical_formula.phase_id'
+
+save_
+
+save_chemical_formula.phase_id
+
+    _definition.id                '_chemical_formula.phase_id'
+    _definition.update            2025-05-23
+    _description.text
+;
+    The phase (see _pd_phase.id) to which the chemical formula
+    relates.
+;
+    _name.category_id             chemical_formula
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_PD_AMORPHOUS
 
     _definition.id                PD_AMORPHOUS
@@ -12523,4 +12729,7 @@ save_
 
        Added child key data name of _pd_diffractogram.id to refln category.
        Update refln category keys to match core.
+
+       Added children of _pd_phase.id as key data names of CHEMICAL_*
+       categories.
 ;
