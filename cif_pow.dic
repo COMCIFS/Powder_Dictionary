@@ -12521,6 +12521,6 @@ save_
 
        Removed default values of _refln.f_complex and _refln.f_squared_meas.
 
-       Added child key data name of pd_diffractogram.id to refln category.
+       Added child key data name of _pd_diffractogram.id to refln category.
        Update refln category keys to match core.
 ;
