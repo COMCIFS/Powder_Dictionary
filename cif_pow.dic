@@ -12151,10 +12151,27 @@ save_REFLN
 
     loop_
       _category_key.name
-         '_refln.index_h'
-         '_refln.index_k'
-         '_refln.index_l'
+         '_refln.id'
          '_pd_refln.phase_id'
+         '_refln.diffractogram_id'
+
+save_
+
+save_refln.diffractogram_id
+
+    _definition.id                '_refln.diffractogram_id'
+    _definition.update            2025-05-23
+    _description.text
+;
+    The diffractogram to which the reflection list relates.
+;
+    _name.category_id             refln
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -12503,4 +12520,7 @@ save_
        Set DDL conformance to version 4.2.0.
 
        Removed default values of _refln.f_complex and _refln.f_squared_meas.
+
+       Added child key data name of pd_diffractogram.id to refln category.
+       Update refln category keys to match core.
 ;
