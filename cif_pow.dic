@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-05-21
+    _dictionary.date              2025-05-22
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -12222,7 +12222,7 @@ save_refln.f_complex
 
     _definition.id                '_refln.F_complex'
     _alias.definition_id          '_refln_F_complex'
-    _definition.update            2017-03-07
+    _definition.update            2025-05-22
     _description.text
 ;
     The structure factor vector for the reflection calculated from
@@ -12234,7 +12234,6 @@ save_refln.f_complex
     _type.source                  Derived
     _type.container               Single
     _type.contents                Complex
-    _enumeration.default          0.+0.j
     _method.purpose               Definition
     _method.expression
 ;
@@ -12249,7 +12248,7 @@ save_refln.f_squared_meas
 
     _definition.id                '_refln.F_squared_meas'
     _alias.definition_id          '_refln_F_squared_meas'
-    _definition.update            2017-03-22
+    _definition.update            2025-05-22
     _description.text
 ;
     The structure factor amplitude for the reflection derived by partitioning
@@ -12263,14 +12262,14 @@ save_refln.f_squared_meas
     _type.source                  Derived
     _type.container               Single
     _type.contents                Real
-    _enumeration.default          0.
     _method.purpose               Definition
     _method.expression
 ;
-         If (_diffrn_radiation.probe == "neutron")  _units.code =
-    "femtometre_squared" Else If (_diffrn_radiation.probe == "electron")
-    _units.code =  "volt_squared" Else
-      _units.code =  "electron_squared"
+    If      (_diffrn_radiation.probe == "neutron")
+                                         _units.code = "femtometre_squared"
+    Else If (_diffrn_radiation.probe == "electron")
+                                         _units.code =  "volt_squared"
+    Else                                 _units.code =  "electron_squared"
 ;
 
 save_
@@ -12351,7 +12350,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-05-21
+         2.5.0                    2025-05-22
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12502,4 +12501,6 @@ save_
        _pd_refln_wavelength_id aliases.
 
        Set DDL conformance to version 4.2.0.
+
+       Removed default values of _refln.f_complex and _refln.f_squared_meas.
 ;
