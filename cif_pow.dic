@@ -12710,6 +12710,6 @@ save_
 
        Removed default values of _refln.f_complex and _refln.f_squared_meas.
 
-       Added children of `_pd_phase.id` ask key data names of CHEMICAL_*
+       Added children of _pd_phase.id as key data names of CHEMICAL_*
        categories.
 ;
