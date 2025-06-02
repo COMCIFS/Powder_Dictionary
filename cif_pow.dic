@@ -11284,7 +11284,7 @@ save_PD_QPA_EXTERNAL_STD
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_EXTERNAL_STD
-     loop_
+    loop_
       _category_key.name
          '_pd_qpa_external_std.diffractogram_id'
          '_pd_qpa_external_std.phase_id'
@@ -11570,9 +11570,10 @@ save_pd_qpa_internal_std.crystallinity_percent
     addition to be corrected to a crystalline addition, which is the addition
     being analysed in a diffraction experiment.
 
-    For discussion on this topic, see Rowles MR. The effect of reference material
-    crystallinity on absolute quantitative phase analysis using the internal standard
-    method. Powder Diffraction. 2024;39(4):224-226. doi:10.1017/S0885715624000460
+    For discussion on this topic, see Rowles MR. The effect of reference
+    material crystallinity on absolute quantitative phase analysis using the
+    internal standard method. Powder Diffraction. 2024;39(4):224-226.
+    doi:10.1017/S0885715624000460
 ;
     _name.category_id             pd_qpa_internal_std
     _name.object_id               crystallinity_percent
@@ -11870,7 +11871,8 @@ save_pd_qpa_overall.method
 
          [1] O'Connor, B. H. & Raven, M. D. (1988). Powder Diffr. 3, 2-6.
          [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
-         [3] Loopstra, B. O., & H. M. Rietveld. (1969). Acta Crystallogr. B 25, 787–91.
+         [3] Loopstra, B. O., & H. M. Rietveld. (1969). Acta Crystallogr. B 25,
+             787-91.
 
 ;
          I/Ic
@@ -12003,10 +12005,12 @@ save_pd_qpa_overall.method
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
-         [1] Hill, R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
+         [1] Hill, R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20,
+             467-474.
          [2] Bish, D.L. & Howard, S.A. (1988). J. Appl. Crystallogr. 21, 86-91.
          [3] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
-         [4] Loopstra, B. O., & H. M. Rietveld. (1969). Acta Crystallogr. B 25, 787–91.
+         [4] Loopstra, B. O., & H. M. Rietveld. (1969). Acta Crystallogr. B 25,
+             787-91.
 ;
          other
 ;
