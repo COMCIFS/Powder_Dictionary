@@ -9119,7 +9119,7 @@ save_pd_phase_mass.type
          absolute
 ;
          The mass percentages given are correct in an absolute sense. Some internal
-         standard, external standard or other calibration has been applied to the data
+         standard, external standard, or other calibration has been applied to the data
          to account for the presence of amorphous or other unanalysed phases.
 ;
          original
