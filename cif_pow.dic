@@ -11972,7 +11972,7 @@ save_pd_qpa_overall.method
          ZMV
 ;
          Quantitative phase analysis was undertaken following the ZMV
-         algorithm [1-2] in conjunction with Rietveld [3] refinements.
+         algorithm [1-2] in conjunction with Rietveld [3-4] refinements.
 
          The relative weight fraction of phase p, W~p~, is given by
 
@@ -12000,9 +12000,10 @@ save_pd_qpa_overall.method
          percentages and 100 wt% can be attributed to unanalysed or amorphous
          phases.
 
-         [1] Hill,R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
-         [1] Bish,D.L. & Howard, S.A. (1988). J. Appl. Crystallogr. 21, 86-91.
-         [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
+         [1] Hill, R.J. & Howard, C.J. (1987). J. Appl. Crystallogr. 20, 467-474.
+         [2] Bish, D.L. & Howard, S.A. (1988). J. Appl. Crystallogr. 21, 86-91.
+         [3] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
+         [4] Loopstra, B. O., & H. M. Rietveld. (1969). Acta Crystallogr. B 25, 787–91.
 ;
          other
 ;
