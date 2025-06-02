@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-05-23
+    _dictionary.date              2025-06-02
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -11510,16 +11510,16 @@ save_PD_QPA_INTERNAL_STD
     _definition.id                PD_QPA_INTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-16
+    _definition.update            2025-06-02
     _description.text
 ;
     This category identifies the internal standard used for
     quantitative phase analysis.
 
     Quantification by internal standard can be carried out by a variety
-    of different methods, including the Reference Intensity Ratio or the
-    Hill & Howard algorithm in conjunction with whole-pattern Rietveld
-    modelling.
+    of different methods, including the Reference Intensity Ratio, or the
+    Hill & Howard or Bish & Howard algorithm in conjunction with
+    whole-pattern Rietveld modelling.
 
     In general, the use of an internal standard converts relative phase
     mass percentages into absolute mass percentage, allowing determination
@@ -11528,11 +11528,12 @@ save_PD_QPA_INTERNAL_STD
 
     This can be done as
 
-        W~p~^abs.^ = W~p~^rel.^ * (W~s~^known^ / W~s~^rel.^)
+        W~p~^abs.^ = W~p~^rel.^ * (W~s~^known^ * W~s~^cryst.^ / W~s~^rel.^)
 
     where p and s represent the analyte phase and standard phase, respectively,
     W is the weight fraction, 'abs.' is absolute, 'rel.' is relative, and
-    'known' is the known addition. Here, W~s~^rel.^ is the relative amount of
+    'known' is the known addition. W~s~^cryst.^ is the crystalline fraction of
+    the internal standard. Here, W~s~^rel.^ is the relative amount of
     standard as calculated by the quantification algorithm.
 
     For a review on quantitative phase analysis, see Chapter 3.9 of
@@ -11551,12 +11552,12 @@ save_
 save_pd_qpa_internal_std.crystallinity_percent
 
     _definition.id                '_pd_qpa_internal_std.crystallinity_percent'
-    _definition.update            2023-01-23
+    _definition.update            2025-06-02
     _description.text
 ;
     Per cent crystallinity of the internal standard.
 
-    Materials are rarely 100% crystalline as the crystal structure at the
+    Materials are rarely 100% crystalline, as the crystal structure at the
     material's surface is able to relax, and/or contain reaction products. This
     thin, disordered surface layer can account for several mass percent of the
     standard, and, as such, can affect any resultant quantification based on the
@@ -11565,6 +11566,10 @@ save_pd_qpa_internal_std.crystallinity_percent
     Knowledge of the internal standard crystallinity allows for the known mass
     addition to be corrected to a crystalline addition, which is the addition
     being analysed in a diffraction experiment.
+
+    For discussion on this topic, see Rowles MR. The effect of reference material
+    crystallinity on absolute quantitative phase analysis using the internal standard
+    method. Powder Diffraction. 2024;39(4):224-226. doi:10.1017/S0885715624000460
 ;
     _name.category_id             pd_qpa_internal_std
     _name.object_id               crystallinity_percent
@@ -11627,7 +11632,7 @@ save_pd_qpa_internal_std.mass_percent
 ;
     Per cent presence of the internal standard expressed as 100 times the mass
     of standard added divided by the sum of the mass of standard added and the
-    original sample mass.
+    original sample mass, also known as the 'known addition'.
 
     This value does not take into account the crystallinity of the internal
     standard. That is, if 1 g of a 90% crystalline internal standard is added
@@ -11862,6 +11867,8 @@ save_pd_qpa_overall.method
 
          [1] O'Connor, B. H. & Raven, M. D. (1988). Powder Diffr. 3, 2-6.
          [2] Rietveld, H. M. (1969). J. Appl. Crystallogr. 2, 65-71.
+         [3] Loopstra, B. O., & H. M. Rietveld. (1969). Acta Crystallogr. B 25, 787–91.
+
 ;
          I/Ic
 ;
@@ -12573,7 +12580,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-05-23
+         2.5.0                    2025-06-02
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12732,4 +12739,6 @@ save_
 
        Added children of _pd_phase.id as key data names of CHEMICAL_*
        categories.
+
+       Updated descriptions within PD_QPA_INTERNAL_STD.
 ;
