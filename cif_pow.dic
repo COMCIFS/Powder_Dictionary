@@ -9022,14 +9022,8 @@ save_pd_phase_mass.percent
     Total mass of the phase expressed as a percentage of the total
     mass of the specimen.
 
-    If _pd_qpa_internal_std.mass_percent or _pd_qpa_external_std.k_factor
-    is present, the values given are assumed to be in absolute terms.
-
-    The value of the mass percent given to the internal standard
-    represents the total crystalline contribution of that standard.
-    That is, if 1 g of a 90% crystalline internal standard is added
-    to 3 g of sample, the value of _pd_phase_mass.percent for the
-    standard is 22.5%.
+    The type of value that is given here is denoted by the value of
+    _pd_phase_mass.type.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               percent
@@ -9074,6 +9068,74 @@ save_pd_phase_mass.phase_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_phase_mass.special_details
+
+    _definition.id                '_pd_phase_mass.special_details'
+    _definition.update            2025-06-02
+    _description.text
+;
+    Description of phase mass details that require additional detail,
+    or cannot otherwise be recorded using other PD_PHASE_MASS data items.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_phase_mass.type
+
+    _definition.id                '_pd_phase_mass.type'
+    _definition.update            2025-06-02
+    _description.text
+;
+    The type of mass percentage values indicated by _pd_phase_mass.percent.
+
+    If 'other' is chosen, further information must be given in
+    _pd_phase_mass.special_details.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               type
+    _type.purpose                 State
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Code
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         relative
+;
+         The mass percentages given are relative values. That is, they are correct
+         with respect to each other, but may be incorrect in an absolute sense due
+         to the presence of amorphous or other unanalysed phases.
+;
+         absolute
+;
+         The mass percentages given are correct in an absolute sense. Some internal
+         standard, external standard or other calibration has been applied to the data
+         to account for the presence of amorphous or other unanalysed phases.
+;
+         original
+;
+         As per absolute, but the mass percentages have been normalised to remove the
+         presence of the internal standard; that is, the mass percentages represent the
+         original mass percentages of the phases in the specimen before the internal
+         standard was added.
+;
+         other
+;
+         The mass percentage values given represent some other type. Further information
+         is given in _pd_phase_mass.special_details.
+;
+
+    _enumeration.default          relative
 
 save_
 
@@ -12732,4 +12794,7 @@ save_
 
        Added children of _pd_phase.id as key data names of CHEMICAL_*
        categories.
+
+       Addedd _pd_phase_mass.type to PD_PHASE_MASS to record the type of
+       mass percentage being recorded.
 ;
