@@ -11266,7 +11266,7 @@ save_PD_QPA_EXTERNAL_STD
     _definition.id                PD_QPA_EXTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-15
+    _definition.update            2025-06-02
     _description.text
 ;
     This category identifies the external diffractogram used for
@@ -11284,7 +11284,10 @@ save_PD_QPA_EXTERNAL_STD
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_EXTERNAL_STD
-    _category_key.name            '_pd_qpa_external_std.diffractogram_id'
+     loop_
+      _category_key.name
+         '_pd_qpa_external_std.diffractogram_id'
+         '_pd_qpa_external_std.phase_id'
 
 save_
 
