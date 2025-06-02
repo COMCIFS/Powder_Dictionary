@@ -567,7 +567,7 @@ save_pd_background.air_or_thermal_diffuse_coef_2
     _definition.update            2023-02-02
     _description.text
 ;
-    The value of the first coefficient used in an equation representing the
+    The value of the second coefficient used in an equation representing the
     background due to thermal diffuse scattering and/or air scattering, in a
     calculated diffractogram. This equation can account for background
     contributions at both high and low q. The second coefficient accounts for
@@ -1367,7 +1367,7 @@ save_pd_background.peak_id
     where two peaks are severely overlapped, it may be desirable to list them as
     a single peak.
 
-    A peak ID must be included for every amorphous peak.
+    A peak ID must be included for every background peak.
 ;
     _name.category_id             pd_background
     _name.object_id               peak_id
