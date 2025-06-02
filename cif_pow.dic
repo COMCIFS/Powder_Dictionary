@@ -9112,27 +9112,29 @@ save_pd_phase_mass.type
       _enumeration_set.detail
          relative
 ;
-         The mass percentages given are relative values. That is, they are correct
-         with respect to each other, but may be incorrect in an absolute sense due
-         to the presence of amorphous or other unanalysed phases.
+         The mass percentages given are relative values. That is, they are
+         correct with respect to each other, but may be incorrect in an
+         absolute sense due to the presence of amorphous or other unanalysed
+         phases.
 ;
          absolute
 ;
-         The mass percentages given are correct in an absolute sense. Some internal
-         standard, external standard, or other calibration has been applied to the data
-         to account for the presence of amorphous or other unanalysed phases.
+         The mass percentages given are correct in an absolute sense. Some
+         internal standard, external standard, or other calibration has been
+         applied to the data to account for the presence of amorphous or other
+         unanalysed phases.
 ;
          original
 ;
-         As per absolute, but the mass percentages have been normalised to remove the
-         presence of the internal standard; that is, the mass percentages represent the
-         original mass percentages of the phases in the specimen before the internal
-         standard was added.
+         As per absolute, but the mass percentages have been normalised to
+         remove the presence of the internal standard; that is, the mass
+         percentages represent the original mass percentages of the phases in
+         the specimen before the internal standard was added.
 ;
          other
 ;
-         The mass percentage values given represent some other type. Further information
-         is given in _pd_phase_mass.special_details.
+         The mass percentage values given represent some other type. Further
+         information is given in _pd_phase_mass.special_details.
 ;
 
     _enumeration.default          relative
