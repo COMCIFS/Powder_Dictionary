@@ -12797,6 +12797,6 @@ save_
        Added children of _pd_phase.id as key data names of CHEMICAL_*
        categories.
 
-       Addedd _pd_phase_mass.type to PD_PHASE_MASS to record the type of
+       Added _pd_phase_mass.type to PD_PHASE_MASS to record the type of
        mass percentage being recorded.
 ;
