@@ -275,7 +275,7 @@ save_
 
 save_diffrn.instr_id
 
-    _definition.id                '_chemical_formula.phase_id'
+    _definition.id                '_diffrn.instr_id'
     _definition.update            2025-06-17
     _description.text
 ;
