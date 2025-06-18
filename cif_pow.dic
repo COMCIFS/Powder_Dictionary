@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-05-23
+    _dictionary.date              2025-06-17
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -8993,6 +8993,60 @@ save_PD_PHASE_MASS
 
 save_
 
+save_pd_phase_mass.absolute
+
+    _definition.id                '_pd_phase_mass.absolute'
+    _definition.update            2025-06-17
+    _description.text
+;
+    Total mass of a phase expressed as a percentage of the total
+    mass of the specimen.
+
+    That is, _pd_phase_mass.absolute represents a mass percentage of the
+    analysed phase after some internal standard, external standard, or
+    other calibration has been applied to the data to account for the
+    presence of amorphous or other unanalysed phases.
+
+    If absolute quantification was obtained using other than an internal
+    standard, the value of _pd_phase_mass.absolute is the same as
+    _pd_phase_mass.original.
+
+    The value of _pd_phase_mass.absolute given to any internal standard phase
+    represents the total crystalline contribution of that standard.
+    That is, if 1 g of a 90% crystalline internal standard was added
+    to 3 g of sample, the value of _pd_phase_mass.absolute for the
+    standard phase is 22.5 wt%.
+
+    See also _pd_phase_mass.original.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               absolute
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:100.0
+    _units.code                   none
+
+save_
+
+save_pd_phase_mass.absolute_su
+
+    _definition.id                '_pd_phase_mass.absolute_su'
+    _definition.update            2025-06-17
+    _description.text
+;
+    Standard uncertainty of _pd_phase_mass.absolute.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               absolute_su
+    _name.linked_item_id          '_pd_phase_mass.absolute'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_phase_mass.diffractogram_id
 
     _definition.id                '_pd_phase_mass.diffractogram_id'
@@ -9012,24 +9066,75 @@ save_pd_phase_mass.diffractogram_id
 
 save_
 
+save_pd_phase_mass.original
+
+    _definition.id                '_pd_phase_mass.original'
+    _definition.update            2025-06-17
+    _description.text
+;
+    Total mass of the phase expressed as a percentage of the total
+    mass of the specimen, ignoring the presence of an internal
+    standard.
+
+    That is, _pd_phase_mass.original represents an absolute mass percentage
+    of the analysed phase after an internal standard has been
+    applied to the data to account for the presence of amorphous or other
+    unanalysed phases, but then scaled to remove the internal standard, which
+    wasn't present in the original specimen.
+
+    The value of _pd_phase_mass.original given to any internal standard phase
+    is necessarily 0 wt%.
+
+    If absolute quantification was obtained using other than an internal
+    standard, the value of _pd_phase_mass.original is the same as
+    _pd_phase_mass.absolute.
+
+    See also _pd_phase_mass.absolute.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               original
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:100.0
+    _units.code                   none
+
+save_
+
+save_pd_phase_mass.original_su
+
+    _definition.id                '_pd_phase_mass.original_su'
+    _definition.update            2025-06-17
+    _description.text
+;
+    Standard uncertainty of _pd_phase_mass.original.
+;
+    _name.category_id             pd_phase_mass
+    _name.object_id               original_su
+    _name.linked_item_id          '_pd_phase_mass.original'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_phase_mass.percent
 
     _definition.id                '_pd_phase_mass.percent'
     _alias.definition_id          '_pd_phase_mass_%'
-    _definition.update            2023-01-23
+    _definition.update            2025-06-17
     _description.text
 ;
     Total mass of the phase expressed as a percentage of the total
-    mass of the specimen.
+    crystalline mass of the specimen. That is, _pd_phase_mass.percent
+    represents a relative mass percentage of the analysed phase.
 
-    If _pd_qpa_internal_std.mass_percent or _pd_qpa_external_std.k_factor
-    is present, the values given are assumed to be in absolute terms.
+    These values ignore the presence of amorphous or other unanalysed
+    phases in the specimen.
 
-    The value of the mass percent given to the internal standard
-    represents the total crystalline contribution of that standard.
-    That is, if 1 g of a 90% crystalline internal standard is added
-    to 3 g of sample, the value of _pd_phase_mass.percent for the
-    standard is 22.5%.
+    For absolute mass percentages, see _pd_phase_mass.absolute
+    and _pd_phase_mass.original.
 ;
     _name.category_id             pd_phase_mass
     _name.object_id               percent
@@ -12573,7 +12678,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-05-23
+         2.5.0                    2025-06-17
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12732,4 +12837,8 @@ save_
 
        Added children of _pd_phase.id as key data names of CHEMICAL_*
        categories.
+
+       Added _pd_phase_mass.absolute and *.original to record absolute
+       mass percentages of phases. Clarified that *.percent was for
+       relative mass percentages only.
 ;
