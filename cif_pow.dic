@@ -8064,7 +8064,7 @@ save_PD_MEAS_OVERALL
     _definition.id                PD_MEAS_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2025-04-18
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains information about the conditions used for
@@ -8077,6 +8077,91 @@ save_PD_MEAS_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_OVERALL
     _category_key.name            '_pd_meas_overall.diffractogram_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_37
+
+          _pd_meas.2theta_range_min   5.00
+          _pd_meas.2theta_range_max  95.00
+          _pd_meas.2theta_range_inc   0.02
+          _pd_meas.number_of_points  4501
+          _pd_meas.scan_method       cont
+
+          _pd_meas.datetime_initiated   2023-02-27T22:45:00+08:00
+
+          _pd_meas.rocking_angle   180
+          _pd_meas.rocking_axis    phi
+          _pd_instr.geometry       Bragg-Brentano
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.counts_total
+          1   1234
+          2   1256
+          #...
+;
+;
+         The measured diffractogram is in equally spaced 2θ points, starting
+         at 5.00° 2θ, going up in steps of 0.02°, with the last data point at
+         95.00° 2θ. In total, there are 4501 data points. The data were
+         collected in a continuous scan, such that the detector did not stop
+         moving, and the intensities were binned according to the goniometer
+         angle during the collection time per step. Data collection was started
+         on the 27^th^ of February, 2023 at 2245 h in a timezone +8 h from UTC.
+         The specimen was rotated 180° during the collection of the data for
+         each measurement point
+;
+;
+          _pd_meas.rocking_angle   2.5
+          _pd_meas.rocking_axis    omega
+          _pd_meas.scan_method     step
+
+          _pd_instr.geometry       Bragg-Brentano
+
+          _pd_meas_overall.diffractogram_id   PATTERN_96
+
+          loop_
+          _pd_data.point_id
+          _pd_data.diffractogram_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          1   PATTERN_96   5.02   1234
+          2   PATTERN_96   5.04   1256
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_96'. For each measurement point, the specimen rotated ±2.5°
+         from its standard position about the omega axis.
+;
+;
+          _pd_diffractogram.id         EDD_123
+
+          _pd_meas.2theta_fixed         5
+          _pd_meas.angle_chi           45
+          _pd_meas.units_of_intensity
+             'Proportional to current (Ampere) from Si(Li) detector.'
+          _pd_meas.scan_method         disp
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.energy_detection
+          _pd_meas.intensity_total
+          _pd_meas.intensity_total_su
+          1   50300   1234   23
+          2   50400   1256   24
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'EDD_123'. The detector was fixed at 5° 2θ and tilted at
+         45° χ. The data were collected in energy-dispersive mode, where
+         the intensity recorded was proportional to the current measured in
+         the Si(Li) detector.
+;
 
 save_
 
@@ -13300,8 +13385,8 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
-       PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
+       PD_DIFFRACTOGRAM, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS,
+       PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
 
        Add _pd_peak.overall_id
 
