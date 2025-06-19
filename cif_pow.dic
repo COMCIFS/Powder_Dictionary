@@ -8752,7 +8752,7 @@ save_PD_PEAK_OVERALL
     _definition.id                PD_PEAK_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This category describes general aspects of the peak extraction
@@ -8761,6 +8761,26 @@ save_PD_PEAK_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK_OVERALL
     _category_key.name            '_pd_peak_overall.id'
+
+    loop_
+      _description_example.case
+;
+          _pd_peak_overall.id        PEAK_GROUP_1
+          _pd_peak.special_details
+       ;
+          Peak positions allowed to refine freely. Peak widths
+          constrained to follow UVW relationship. Peak shape
+          constrained to be Lorentzian.
+       ;
+;
+;
+          _pd_peak_overall.id        peaks
+          _pd_peak.special_details
+       ;
+          Peak positions fixed by second-derivative analysis.
+          Widths allowed to refine freely. Pearson-VII peakshape.
+       ;
+;
 
 save_
 
@@ -12830,4 +12850,6 @@ save_
        Updated descriptions of data items linked to _pd_data.point_id to
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
+
+       Added examples to PD_PEAK_OVERALL
 ;
