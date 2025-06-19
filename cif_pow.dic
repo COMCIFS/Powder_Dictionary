@@ -6149,6 +6149,15 @@ save_pd_diffractogram.id
     _type.container               Single
     _type.contents                Text
 
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV'
+         '76d675f5-9f0b-4bd9-8be3-1266edf74908'
+         'DIFFRACTOGRAM Z2'
+         'Insitu_pattern_0123'
+         'Synthesis number 1'
+         'white_030e391f'
+
 save_
 
 save_pd_diffractogram.spec_id
@@ -12830,4 +12839,6 @@ save_
        Updated descriptions of data items linked to _pd_data.point_id to
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
+
+       Add example to _pd_diffractogram.id
 ;
