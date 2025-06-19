@@ -12671,7 +12671,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-18
+         2.5.0                    2025-06-19
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12834,4 +12834,8 @@ save_
        Added _pd_phase_mass.absolute and *.original to record absolute
        mass percentages of phases. Clarified that *.percent was for
        relative mass percentages only.
+
+       Updated descriptions of data items linked to _pd_data.point_id to
+       clarify that identical values refer to the same data point in each
+       disparate loop; they cannot be assigned values independently.
 ;
