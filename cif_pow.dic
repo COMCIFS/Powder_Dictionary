@@ -4701,7 +4701,7 @@ save_pd_calc.point_id
     Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
     _pd_proc.point_id refer to the same point, and thus provide a way of
     indicating that points in disparate loops are equivalent. The role of this
-    identifier may be adopted by _pd_data.point_id if measured, processed,
+    identifier should be adopted by _pd_data.point_id if measured, processed,
     and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_calc
@@ -5324,7 +5324,7 @@ save_pd_meas.point_id
     Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
     _pd_proc.point_id refer to the same point, and thus provide a way of
     indicating that points in disparate loops are equivalent. The role of this
-    identifier may be adopted by _pd_data.point_id if measured, processed,
+    identifier should be adopted by _pd_data.point_id if measured, processed,
     and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_meas
@@ -6000,7 +6000,7 @@ save_pd_proc.point_id
     Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
     _pd_proc.point_id refer to the same point, and thus provide a way of
     indicating that points in disparate loops are equivalent. The role of this
-    identifier may be adopted by _pd_data.point_id if measured, processed,
+    identifier should be adopted by _pd_data.point_id if measured, processed,
     and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_proc
