@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-18
+    _dictionary.date              2025-06-19
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -10015,7 +10015,7 @@ save_PD_PREP
     _definition.id                PD_PREP
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-04
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains descriptive information about how the sample, from
@@ -10036,11 +10036,7 @@ save_PD_PREP
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
-
-    loop_
-      _category_key.name
-         '_pd_prep.char_id'
-         '_pd_prep.id'
+    _category_key.name            '_pd_prep.id'
 
 save_
 
@@ -12109,7 +12105,7 @@ save_PD_SPEC
     _definition.id                PD_SPEC
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-03-25
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains information about the specimen used for measurement of
@@ -12127,11 +12123,7 @@ save_PD_SPEC
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
-
-    loop_
-      _category_key.name
-         '_pd_spec.id'
-         '_pd_spec.prep_id'
+    _category_key.name            '_pd_spec.id'
 
 save_
 
@@ -12655,7 +12647,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-18
+         2.5.0                    2025-06-19
 ;
        ## Retain above version number and increment date until final
        ## release
