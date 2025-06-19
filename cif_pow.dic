@@ -8981,7 +8981,7 @@ save_PD_PHASE_MASS
          The relative phase masses are given by _pd_phase_mass.percent, and as
          we know that PHASE_2 is an internal standard, we can also
          calculate the absolute mass percentages in the specimen, given by
-         _pd_phase_mass.absolute. We can then calculate he original mass
+         _pd_phase_mass.absolute. We can then calculate the original mass
          percentages, those present in the sample before adding the internal
          standard, given by _pd_phase_mass.original.
 
