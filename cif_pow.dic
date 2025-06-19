@@ -3623,12 +3623,17 @@ save_
 save_pd_calib_xcoord.point_id
 
     _definition.id                '_pd_calib_xcoord.point_id'
-    _definition.update            2023-01-17
+    _definition.update            2025-06-19
     _description.text
 ;
     Arbitrary label identifying a data point in a diffractogram. Used to
     identify a specific entry in a list of values forming the diffractogram
     to which the X-coordinate calibration applies.
+
+    The value of _pd_calib_xcoord.point_id must be the same as
+    the value of _pd_data.point_id given to the equivalent data point
+    in the measured/processed/calculated diffractogram to which
+    the X-coordinate calibration applies.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               point_id
@@ -4454,15 +4459,16 @@ save_pd_data.point_id
 
     _definition.id                '_pd_data.point_id'
     _alias.definition_id          '_pd_data_point_id'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying an entry in the table of
-    diffractogram intensity values. This should be used in
-    preference to the pd_calc/pd_calc_component/pd_meas/pd_proc
-    point_id data items whenever data items from more than
-    one of the pd_calc/pd_calc_component/pd_proc/pd_meas
-    categories are looped together.
+    Arbitrary label identifying a specific entry in a loop of
+    values forming a diffractogram.
+
+    This should be used in preference to _pd_calc.point_id,
+    _pd_calc_component.point_id, _pd_meas.point_id, or
+    _pd_proc.point_id whenever data items from more than one of
+    those categories are looped together.
 ;
     _name.category_id             pd_data
     _name.object_id               point_id
@@ -4685,14 +4691,18 @@ save_pd_calc.point_id
 
     _definition.id                '_pd_calc.point_id'
     _alias.definition_id          '_pd_calc_point_id'
-    _definition.update            2022-12-04
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying a calculated data point. Used to
-    identify a specific entry in a list of values forming the
-    calculated diffractogram. The role of this identifier may
-    be adopted by _pd_data.point_id if measured, processed, and/or
-    calculated intensity values are combined in a single list.
+    Arbitrary label identifying a calculated data point.
+    Used to identify a specific entry in a loop of values forming the
+    calculated diffractogram.
+
+    Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
+    _pd_proc.point_id refer to the same point, and thus provide a way of
+    indicating that points in disparate loops are equivalent. The role of this
+    identifier should be adopted by _pd_data.point_id if measured, processed,
+    and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_calc
     _name.object_id               point_id
@@ -5304,14 +5314,18 @@ save_pd_meas.point_id
 
     _definition.id                '_pd_meas.point_id'
     _alias.definition_id          '_pd_meas_point_id'
-    _definition.update            2022-12-04
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying a measured data point. Used to
-    identify a specific entry in a list of measured intensities.
-    The role of this identifier may be adopted by
-    _pd_data.point_id if measured, processed, and/or calculated
-    intensity values are combined in a single list.
+    Arbitrary label identifying a measured data point.
+    Used to identify a specific entry in a loop of values forming the
+    measured diffractogram.
+
+    Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
+    _pd_proc.point_id refer to the same point, and thus provide a way of
+    indicating that points in disparate loops are equivalent. The role of this
+    identifier should be adopted by _pd_data.point_id if measured, processed,
+    and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_meas
     _name.object_id               point_id
@@ -5976,16 +5990,18 @@ save_pd_proc.point_id
 
     _definition.id                '_pd_proc.point_id'
     _alias.definition_id          '_pd_proc_point_id'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying a processed data point. Used to
-    identify a specific entry in a list of processed intensities.
-    The role of this identifier may be adopted by
-    _pd_data.point_id if measured, processed and calculated
-    intensity values are combined in a single list, or by
-    _pd_meas.point_id if measured and processed lists are
-    combined.
+    Arbitrary label identifying a processed data point.
+    Used to identify a specific entry in a loop of values forming the
+    processed diffractogram.
+
+    Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
+    _pd_proc.point_id refer to the same point, and thus provide a way of
+    indicating that points in disparate loops are equivalent. The role of this
+    identifier should be adopted by _pd_data.point_id if measured, processed,
+    and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_proc
     _name.object_id               point_id
@@ -12810,4 +12826,8 @@ save_
        Added _pd_phase_mass.absolute and *.original to record absolute
        mass percentages of phases. Clarified that *.percent was for
        relative mass percentages only.
+
+       Updated descriptions of data items linked to _pd_data.point_id to
+       clarify that identical values refer to the same data point in each
+       disparate loop; they cannot be assigned values independently.
 ;
