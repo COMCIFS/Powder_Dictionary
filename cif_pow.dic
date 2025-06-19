@@ -3437,8 +3437,9 @@ save_PD_CALIB_XCOORD
       _description_example.case
       _description_example.detail
 ;
-         _pd_diffractogram.id   CALIBRATION_DIFFRACTOGRAM
-         _pd_calib_xcoord_overall.id   main_calibration
+         _pd_diffractogram.id                        CALIBRATION_DIFFRACTOGRAM
+         _pd_calib_xcoord_overall.id                 main_calibration
+         _pd_calib_xcoord_overall.diffractogram_id   CALIBRATION_DIFFRACTOGRAM
 
          loop_
          _pd_calib_xcoord.id
@@ -3473,8 +3474,9 @@ save_PD_CALIB_XCOORD
          allow other diffractograms to refer to it.
 ;
 ;
-         _pd_diffractogram.id          TOF_STD
-         _pd_calib_xcoord_overall.id   tof-calibration
+         _pd_diffractogram.id                        TOF_STD
+         _pd_calib_xcoord_overall.id                 tof-calibration
+         _pd_calib_xcoord_overall.diffractogram_id   TOF_STD
 
          loop_
          _pd_calib_xcoord.id
@@ -4112,94 +4114,46 @@ save_PD_CALIB_XCOORD_OVERALL
 
     _definition.id                PD_CALIB_XCOORD_OVERALL
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-05-06
+    _definition.class             Set
+    _definition.update            2025-06-19
     _description.text
 ;
     This category gives the overall information about the x-coordinate
     calibration applied to a given diffractogram.
+
+    See PD_CALIB_XCOORD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_XCOORD_OVERALL
-
-    loop_
-      _category_key.name
-         '_pd_calib_xcoord_overall.detector_id'
-         '_pd_calib_xcoord_overall.id'
+    _category_key.name            '_pd_calib_xcoord_overall.id'
 
     loop_
       _description_example.case
       _description_example.detail
-;
-         loop_
-         _pd_calib_xcoord_overall.id
-         _pd_calib_xcoord_overall.detector_id
-         d1   det1
-         d2   det2
-;
-;
-         Calibration offsets given using PD_CALIB_XCOORD category data items
-         will correspond to calibrations carried out on the given two detectors.
-;
-;
-         loop_
-         _pd_calib_xcoord_overall.id
-         _pd_calib_xcoord_overall.detector_id
-         _pd_calib_xcoord_overall.diffractogram_id
-         _pd_calib_xcoord_overall.phase_id
-         1   A   CALIBRATION_DIFFRACTOGRAM_A   NIST_SRM640E
-         2   B   CALIBRATION_DIFFRACTOGRAM_B   NIST_SRM640E
-         3   C   CALIBRATION_DIFFRACTOGRAM_C   NIST_SRM640E
-;
-;
-         Calibration offsets given using PD_CALIB_XCOORD category data items
-         will correspond to calibrations carried out on the given three
-         detectors derived from analysis of the given diffractograms and phase.
 
-         Calibration values will be given using PD_CALIB_XCOORD category data
-         items.
+;
+         _pd_calib_xcoord_overall.id       904bbf31-8eb5-44ee-92d0-3cf9d3f2e7f6
+         _pd_calib_xcoord_overall.diffractogram_id  CALIBRATION_DIFFRACTOGRAM_A
+         _pd_calib_xcoord_overall.phase_id          NIST_SRM640E
 ;
 ;
-         loop_
-         _pd_calib_xcoord_overall.id
-         _pd_calib_xcoord_overall.detector_id
-         _pd_calib_xcoord_overall.diffractogram_id
-         _pd_calib_xcoord_overall.phase_id
+         Calibration values given using PD_CALIB_XCOORD category data items
+         which refer to the overall calibration conditions identified by
+         the above UUID were derived from the diffractogram
+         identified by "CALIBRATION_DIFFRACTOGRAM_A" and the phase
+         identified by "NIST_SRM640E".
+;
+;
+         _pd_calib_xcoord_overall.id                 B
          _pd_calib_xcoord_overall.special_details
-         A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
-         B   det2   .   .   "Scanned through direct beam with fine slit."
+                                  "Scanned through direct beam with fine slit."
 ;
 ;
-         Different detectors can be calibrated through different means. Here,
-         det1 was calibrated through the analysis of a diffractogram and a
-         known reference material, whereas det2 was calibrated by scanning the
-         detector through the direct beam.
-
-         Calibration values will be given using PD_CALIB_XCOORD category data
-         items.
+         Calibration values given using PD_CALIB_XCOORD category data items
+         which refer to the overall calibration conditions identified by
+         "B" were derived by scanning the detector through the
+         direct beam with a fine slit.
 ;
-
-save_
-
-save_pd_calib_xcoord_overall.detector_id
-
-    _definition.id                '_pd_calib_xcoord_overall.detector_id'
-    _definition.update            2023-06-09
-    _description.text
-;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. This code should match the code name used for
-    _pd_instr_detector.id.
-;
-    _name.category_id             pd_calib_xcoord_overall
-    _name.object_id               detector_id
-    _name.linked_item_id          '_pd_instr_detector.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Code
 
 save_
 
