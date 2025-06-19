@@ -10555,12 +10555,6 @@ save_PD_PREP
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
     _category_key.name            '_pd_prep.id'
-
-    loop_
-      _category_key.name
-         '_pd_prep.char_id'
-         '_pd_prep.id'
-
     _description_example.case
 ;
          _pd_prep.id           'rutile 1234'
