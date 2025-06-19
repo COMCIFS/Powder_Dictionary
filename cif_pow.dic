@@ -7119,6 +7119,10 @@ save_PD_INSTR_DETECTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
     _category_key.name            '_pd_instr_detector.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
 ;
         _pd_instr.id                          b4131be5
 
