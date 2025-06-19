@@ -11842,7 +11842,7 @@ save_PD_QPA_INTERNAL_STD
     _definition.id                PD_QPA_INTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-16
+    _definition.update            2025-06-19
     _description.text
 ;
     This category identifies the internal standard used for
@@ -11877,6 +11877,55 @@ save_PD_QPA_INTERNAL_STD
       _category_key.name
          '_pd_qpa_internal_std.diffractogram_id'
          '_pd_qpa_internal_std.phase_id'
+
+    _description_example.case
+;
+         _audit.schema          Custom
+         _pd_diffractogram.id   DIFFRACTOGRAM_1
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.absolute
+         _pd_phase_mass.absolute_su
+         PHASE_1             42.81   0.56
+         PHASE_2             14.73   0.24
+         NIST_ALUMINA_676A   24.76   0.28
+
+         _pd_qpa_internal_std.mass_percent              25.000
+         _pd_qpa_internal_std.mass_percent_su            0.002
+         _pd_qpa_internal_std.crystallinity_percent     99.02
+         _pd_qpa_internal_std.crystallinity_percent_su   1.11
+         _pd_qpa_internal_std.phase_id                  NIST_ALUMINA_676A
+
+         _pd_qpa_overall.method   ZMV
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM646a) has been quantified using the ZMV algorithm after
+         Rietveld refinement.
+
+         The diffraction pattern was collected from a specimen containing
+         25.000 ± 0.002 wt% internal standard (i.e. 1 g added to 3 g of unknown
+         to make a specimen with total weight of 4 g). The internal standard is
+         known to be 99.02 ± 1.11 % crystalline, and so the reported value of
+         _pd_phase_mass.percent for the standard is 25.000 * 0.9902 = 24.96 wt%.
+
+         The weight fractions derived from the ZMW algorithm were then scaled as
+
+            W~p~^absolute^ = W~p~^ZMV^ * (W~s~^known^ / W~s~^ZMV^)
+
+         where W is the weight percentage, p is the phase, s is the standard
+         'ZMV' is the weight fraction from the ZMV algorithm, and 'known' is the
+         known addition of standard (_pd_qpa_internal_std.mass_percent). These
+         are the values reported as _pd_phase_mass.absolute. Any difference
+         between the sum of the _pd_phase_mass.absolute values and 100 wt% can
+         be attributed to unanalysed or amorphous phases.
+
+         The crystal structure of the internal standard is described by the
+         information linked to the _pd_phase.id data item with the value
+         'NIST_ALUMINA_676A'.
+;
 
 save_
 
@@ -13102,7 +13151,7 @@ save_
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
        _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
-       PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
+       PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
