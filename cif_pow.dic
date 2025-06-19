@@ -4006,7 +4006,7 @@ save_PD_CHAR
     _definition.id                PD_CHAR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-04
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains experimental (non-diffraction) information relevant to
@@ -4027,6 +4027,15 @@ save_PD_CHAR
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
     _category_key.name            '_pd_char.id'
+    _description_example.case
+;
+         _pd_char.colour                   white
+         _pd_char.mass_atten_coef_mu_calc  4878
+         _pd_char.particle_morphology
+            'Large equiaxed chunks, approx. 3 mm  across.'
+         _pd_char.special_details
+            'Bottle labelled "corundum". MAC calculated from XRF.'
+;
 
 save_
 
@@ -12840,5 +12849,5 @@ save_
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
 
-       Add example to _pd_diffractogram.id
+       Added example to PD_CHAR, _pd_diffractogram.id.
 ;
