@@ -10961,7 +10961,7 @@ save_PD_QPA_CALIB_FACTOR
     _definition.id                PD_QPA_CALIB_FACTOR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-15
+    _definition.update            2025-06-19
     _description.text
 ;
     This category gives the value of the calibration constant by which the
@@ -10976,6 +10976,55 @@ save_PD_QPA_CALIB_FACTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_CALIB_FACTOR
     _category_key.name            '_pd_qpa_calib_factor.phase_id'
+
+    _description_example.case
+;
+         data_phase_1
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_2
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_3
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM646a) has been quantified using the I_over_Ic
+         specialisation of the RIR algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I_over_Ic algorithm detailed in
+         _pd_qpa_overall.method.
+;
 
 save_
 
@@ -12830,4 +12879,6 @@ save_
        Updated descriptions of data items linked to _pd_data.point_id to
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
+
+       Added example PD_QPA_CALIB_FACTOR
 ;
