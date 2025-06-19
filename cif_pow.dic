@@ -8426,7 +8426,7 @@ save_PD_PEAK
     _definition.id                PD_PEAK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains peak information extracted from the
@@ -8446,6 +8446,58 @@ save_PD_PEAK
       _category_key.name
          '_pd_peak.diffractogram_id'
          '_pd_peak.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_peak.id
+         _pd_peak.2theta_centroid
+         _pd_peak.width_2theta
+         _pd_peak.intensity
+         _pd_peak.intensity_su
+         A   12.35   0.26   1023    7
+         B   24.74   0.56   2318   15
+         C   37.79   0.61    506    2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak centroid (eg 12.35° 2θ), and the
+         width is the full-width at half-maximum (eg 0.26° 2θ). The peak
+         intensity is given as the peak area with an associated standard
+         uncertainty (eg 1023 ± 7).
+;
+;
+         loop_
+         _diffrn_radiation_wavelength.id
+         _diffrn_radiation_wavelength.value
+         _diffrn_radiation_wavelength.wt
+         1   1.534753   0.0159
+         2   1.540596   0.5691
+         3   1.541058   0.0762
+         4   1.544410   0.2517
+         5   1.544721   0.0871
+
+         loop_
+         _pd_peak.id
+         _pd_peak.d_spacing
+         _pd_peak.pk_height
+         _pd_peak.pk_height_su
+         _pd_peak.wavelength_id
+         a   6.25   10432   132   2
+         b   3.17    8973    87   2
+         c   1.25   25632   167   2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak in angstroms (eg 6.25 Å). The peak intensity
+         is given as the peak height with an associated standard uncertainty
+         (eg 10432 ± 132). The particular wavelength used to calculate the
+         d-spacing from the data's original 2θ results is given in the final
+         column, which corresponds to 1.540596 Å, as given in the top-most
+         loop.
+;
 
 save_
 
@@ -13025,10 +13077,9 @@ save_
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
 
-       Added example PD_QPA_CALIB_FACTOR
-
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PHASE_MASS, PD_PROC_LS, PD_SPEC.
+       _pd_diffractogram.id, PD_PEAK, PD_PHASE_MASS, PD_PROC_LS,
+       PD_QPA_CALIB_FACTOR, PD_SPEC.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
