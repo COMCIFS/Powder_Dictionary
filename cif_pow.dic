@@ -8950,7 +8950,7 @@ save_PD_PHASE_MASS
 ;
 ;
          Tabulation of quantitative phase analysis data. The relative phase
-         masses, expressed as percentages of the entire specimen are given,
+         masses, expressed as percentages of the entire specimen, are given
          along with their associated standard uncertainties. The values are
          associated with one diffractogram and three phases.
 
