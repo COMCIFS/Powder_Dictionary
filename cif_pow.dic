@@ -8938,28 +8938,7 @@ save_PD_PHASE_MASS
       _description_example.detail
 ;
          _audit.schema         Custom
-
-         loop_
-         _pd_phase_mass.diffractogram_id
-         _pd_phase_mass.phase_id
-         _pd_phase_mass.percent
-         _pd_phase_mass.percent_su
-         A_DIFFRACTOGRAM   PHASE_1   45.45   0.42
-         A_DIFFRACTOGRAM   PHASE_2   37.42   0.63
-         A_DIFFRACTOGRAM   PHASE_3   17.13   0.53
-;
-;
-         Tabulation of quantitative phase analysis data. The phase masses,
-         expressed as percentages of the entire specimen are given, along with
-         their associated standard uncertainties. The values are associated with
-         one diffractogram and three phases.
-
-         Blocks containing information about more than one phase must set a
-         non-default value for _audit.schema.
-;
-
-;
-         _audit.schema            Custom
+         _pd_diffractogram.id  A_DIFFRACTOGRAM
 
          loop_
          _pd_phase_mass.phase_id
@@ -8970,18 +8949,44 @@ save_PD_PHASE_MASS
          PHASE_3   17.13   0.53
 ;
 ;
-         Tabulation of quantitative phase analysis data. The phase masses,
-         expressed as percentages of the entire specimen are given, along with
-         their associated standard uncertainties. The values are associated with
-         three phases.
+         Tabulation of quantitative phase analysis data. The relative phase
+         masses, expressed as percentages of the entire specimen are given,
+         along with their associated standard uncertainties. The values are
+         associated with one diffractogram and three phases.
 
-         The method of presentation given here would be associated with being
-         present in a block which already contains a _pd_diffractogram.id
-         data item; the value of _pd_phase_mass.diffractogram_id is linked to
-         that value.
+         Blocks containing information about more than one phase or
+         diffractogram must set a non-default value for _audit.schema.
+;
 
-         When information about more than one phase is contained in a single
-         data block, _audit.schema should have a non-default value.
+;
+         _audit.schema         Custom
+
+         _pd_diffractogram.id  ANOTHER_DIFFRACTOGRAM
+
+         _pd_qpa_internal_std.mass_percent    25.000
+         _pd_qpa_internal_std.phase_id        PHASE_2
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.percent
+         _pd_phase_mass.absolute
+         _pd_phase_mass.original
+         PHASE_1   45.45   30.36   40.49
+         PHASE_2   37.42   25.00    0
+         PHASE_3   17.13   11.44   15.26
+;
+;
+         Tabulation of quantitative phase analysis data.
+
+         The relative phase masses are given by _pd_phase_mass.percent, and as
+         we know that PHASE_2 is an internal standard, we can also
+         calculate the absolute mass percentages in the specimen, given by
+         _pd_phase_mass.absolute. We can then calculate he original mass
+         percentages, those present in the sample before adding the internal
+         standard, given by _pd_phase_mass.original.
+
+         Blocks containing information about more than one phase or
+         diffractogram must set a non-default value for _audit.schema.
 ;
 
 save_
@@ -12830,4 +12835,6 @@ save_
        Updated descriptions of data items linked to _pd_data.point_id to
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
+
+       Added exaples PD_PHASE_MASS
 ;
