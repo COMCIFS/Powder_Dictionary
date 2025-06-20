@@ -12165,7 +12165,7 @@ save_PD_SPEC
 ;
          A specimen of iron ore, from FeOre Inc., with an added internal
          standard was prepared for analysis. The sample from which the specimen
-         was prepared is identified by a _pd_prep.id values of "ABC123_main".
+         was prepared is identified by a _pd_prep.id value of "ABC123_main".
          The data were collected in reflection on an instrument where the
          incident and diffracted beams are vertical. The specimen flat, and is
          25.0 x 25.0 mm, or it could be inferred to be 25 mm diameter.
