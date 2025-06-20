@@ -10979,19 +10979,20 @@ save_PD_QPA_CALIB_FACTOR
 
     _description_example.case
 ;
-         data_phase_1
+         data_phase_A
              _pd_phase.id   PHASE_A
              _pd_qpa_calib_factor.I_over_Ic   3.26
 
-         data_phase_2
+         data_phase_B
              _pd_phase.id   PHASE_B
              _pd_qpa_calib_factor.I_over_Ic   4.79
 
-         data_phase_3
+         data_phase_C
              _pd_phase.id   PHASE_C
              _pd_qpa_calib_factor.I_over_Ic   1.00
 
          data_diffractogram_block
+             _audit.schema          Custom
              _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
 
              loop_
@@ -11012,9 +11013,9 @@ save_PD_QPA_CALIB_FACTOR
 ;
     _description_example.detail
 ;
-         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
-         some NIST SRM646a) has been quantified using the I_over_Ic
-         specialisation of the RIR algorithm.
+         A diffraction pattern containing three phases (PHASE_A, PHASE_B, and
+         PHASE_C) has been quantified using the I/Ic specialisation of the RIR
+         algorithm.
 
          The I/Ic value for each of the phases is specified by the values of
          _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
@@ -11022,8 +11023,13 @@ save_PD_QPA_CALIB_FACTOR
          _pd_qpa_intensity_factor.value.
 
          The quantification values given by _pd_phase_mass.percent can now be
-         confirmed by following the I_over_Ic algorithm detailed in
+         confirmed by following the I/Ic algorithm detailed in
          _pd_qpa_overall.method.
+
+         As there are loops containing data names linked to key data names of
+         Set categories (_pd_phase_mass.phase_id and
+         _pd_qpa_intensity_factor.phase_id), the _audit.schema value for the
+         last block must take the value 'Custom'
 ;
 
 save_
