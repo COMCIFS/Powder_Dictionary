@@ -11902,14 +11902,14 @@ save_PD_QPA_INTERNAL_STD
     _description_example.detail
 ;
          A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
-         some NIST SRM646a) has been quantified using the ZMV algorithm after
+         some NIST SRM676a) has been quantified using the ZMV algorithm after
          Rietveld refinement.
 
          The diffraction pattern was collected from a specimen containing
          25.000 ± 0.002 wt% internal standard (i.e. 1 g added to 3 g of unknown
          to make a specimen with total weight of 4 g). The internal standard is
          known to be 99.02 ± 1.11 % crystalline, and so the reported value of
-         _pd_phase_mass.percent for the standard is 25.000 * 0.9902 = 24.96 wt%.
+         _pd_phase_mass.absolute for the standard is 25.000 * 0.9902 = 24.76 wt%.
 
          The weight fractions derived from the ZMW algorithm were then scaled as
 
