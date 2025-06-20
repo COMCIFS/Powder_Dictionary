@@ -10585,7 +10585,7 @@ save_PD_PROC_LS
          The profiles were calculated using the modified Thompson-Cox-Hastings
          formulation, where:
 
-           tch_L =  X * tan(\q)) + (Y / cos(\q)
+           tch_L =  X * tan(\q) + Y / cos(\q)
            tch_G = (U * tan(\q)^2^ + V * tan(\q) + W + Z / cos(\q)^2^)^1/2^
            tch_P = (   tch_G^5^ +
              2.69269 * tch_G^4^ * tch_L +
