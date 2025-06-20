@@ -3438,6 +3438,7 @@ save_PD_CALIB_XCOORD
       _description_example.detail
 ;
          _pd_diffractogram.id                        CALIBRATION_DIFFRACTOGRAM
+         _pd_diffractogram.instr_id                  INSTRUMENT_1
          _pd_calib_xcoord_overall.id                 main_calibration
          _pd_calib_xcoord_overall.diffractogram_id   CALIBRATION_DIFFRACTOGRAM
 
@@ -3464,44 +3465,49 @@ save_PD_CALIB_XCOORD
           ...
 ;
 ;
-         A diffractogram identified as "CALIBRATION_DIFFRACTOGRAM" was
-         collected to act as a calibration standard for the 2\q axis.
-         The measured and processed 2\q values from the resultant analysis
+         A diffractogram identified as "CALIBRATION_DIFFRACTOGRAM", was
+         collected on the instrument identified as "INSTRUMENT_1", to act
+         as a calibration standard for the 2θ axis.
+         The measured and processed 2θ values from the resultant analysis
          are taken as the nominal and actual values, respectively, for
          the calibration.
 
          The calibration is given the overall id of 'main_calibration', to
-         allow other diffractograms to refer to it.
+         link the source of the calibration to the individual loop values.
 ;
 ;
          _pd_diffractogram.id                        TOF_STD
+         _pd_diffractogram.instr_id                  tof-instrument-1
          _pd_calib_xcoord_overall.id                 tof-calibration
          _pd_calib_xcoord_overall.diffractogram_id   TOF_STD
 
          loop_
          _pd_calib_xcoord.id
+         _pd_calib_xcoord.detector_id
          _pd_calib_xcoord.nominal_time_of_flight
          _pd_calib_xcoord.actual_d_spacing
-          1   1110.301000     1.489225
-          2   1114.742200     1.495170
-          3   1119.201170     1.501138
-          4   1123.677980     1.507131
+          1   A  1110.301000     1.489225
+          2   A  1114.742200     1.495170
+          3   A  1119.201170     1.501138
+          4   A  1123.677980     1.507131
           ...
 
          loop_
          _pd_data.id
+         _pd_meas.detector_id
          _pd_meas.time_of_flight
          _pd_proc.d_spacing
          _pd_proc.intensity_total
          _pd_calc.intensity_total
-          i   1110.301000     1.489225     0.600083   0.553025
-          ii  1114.742200     1.495170     0.635318   0.571286
-          iii 1119.201170     1.501138     0.646909   0.593895
-          iv  1123.677980     1.507131     0.655807   0.620014
+          i   A  1110.301000     1.489225     0.600083   0.553025
+          ii  A  1114.742200     1.495170     0.635318   0.571286
+          iii A  1119.201170     1.501138     0.646909   0.593895
+          iv  A  1123.677980     1.507131     0.655807   0.620014
           ...
 ;
 ;
-         A diffractogram identified as "TOF_STD" was collected to act as a
+         A diffractogram identified as "TOF_STD" was collected on the
+         instrument identified as "tof-instrument-1" to act as a
          calibration standard to allow the calculation of d-spacing from
          time-of-flight. The measured TOF and processed d-spacing values
          from the resultant analysis are taken as the nominal and actual
@@ -3512,22 +3518,27 @@ save_PD_CALIB_XCOORD
 ;
 ;
          _pd_diffractogram.id          SAMPLE_1
-         _pd_calib_xcoord_overall.id   tof-calibration
+         _pd_diffractogram.instr_id    tof-instrument-1
 
          loop_
          _pd_data.id
+         _pd_meas.detector_id
          _pd_meas.time_of_flight
          _pd_proc.intensity_total
-          1   1137.216120     0.746836
-          2   1141.764990     0.728226
-          3   1146.332050     0.734770
-          4   1150.917370     0.767760
+          1   A  1137.216120     0.746836
+          2   A  1141.764990     0.728226
+          3   A  1146.332050     0.734770
+          4   A  1150.917370     0.767760
           ...
 ;
 ;
-         A diffractogram identified as "SAMPLE_1" was collected and had the
-         calibration identified as "tof-calibration" applied to it to allow
-         the calculation of d-spacing from time-of-flight.
+         A diffractogram identified as "SAMPLE_1" was collected on the
+         instrument identified as "tof-instrument-1". Knowing the instrument
+         and detector id values, the correct calibration can be found
+         by looking up the _pd_instr.id value associated with the diffractogram
+         id recorded in _pd_calib_xcoord_overall.diffractogram_id, and then
+         the detector id value associated with the _pd_calib_xcoord_overall.id
+         value in the loop.
 ;
 
 save_
