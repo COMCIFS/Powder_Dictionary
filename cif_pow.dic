@@ -10271,7 +10271,7 @@ save_pd_prep.pressure
 ;
     Preparation pressure of the sample in kilopascals. This
     is particularly important for materials which are metastable
-    at the measurement pressure, _diffrn_ambient_pressure.
+    at the measurement pressure, _diffrn.ambient_pressure.
 ;
     _name.category_id             pd_prep
     _name.object_id               pressure
