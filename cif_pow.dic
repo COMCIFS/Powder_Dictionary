@@ -4103,7 +4103,7 @@ save_PD_CHAR
     drawn.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -10153,7 +10153,7 @@ save_PD_PREP
     from the 'sample'. Information about the sample is specified in PD_PREP.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -12304,7 +12304,7 @@ save_PD_SPEC
     the diffraction data set.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -12893,7 +12893,7 @@ save_
        Made PD_BLOCK a Loop category.
 
        Created PD_PREF_ORIENT_MARCH_DOLLASE and
-       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orienation
+       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orientation
        corrections.
 
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
