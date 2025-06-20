@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-19
+    _dictionary.date              2025-06-20
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -7206,7 +7206,7 @@ save_PD_INSTR_DETECTOR
     _definition.id                PD_INSTR_DETECTOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-01-06
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains information relevant to the detector
@@ -7226,6 +7226,76 @@ save_PD_INSTR_DETECTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
     _category_key.name            '_pd_instr_detector.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _pd_instr.id                          b4131be5
+
+        loop_
+        _pd_instr_detector.id
+        _pd_instr.dist_spec_detc
+        _pd_instr.slit_ax_spec_detc
+        _pd_instr.slit_eq_spec_detc
+            fd343493   320   8.5   0.075
+            47540661   320   8.5   0.075
+;
+;
+        These detectors are paired with the instrument identified by the
+        id b4131be5.
+
+        There are two detectors, fd343493 and 47540661. Both detectors are
+        positioned 320 mm from the specimen, and are defined by two slits,
+        8.5 mm in the axial direction, and 0.075 mm in the equatorial direction.
+        As the instrument description says that this instrument has 'Dual strip
+        detectors', it can be assumed that the detector window is 8.5 mm wide,
+        and each strip, or pixel, in the dector is 75 μm high.
+;
+;
+        _pd_instr.id                       58b6d83b
+
+        _pd_instr.2theta_monochr_post      31.0
+        _pd_instr.dist_anal_detc           47
+        _pd_instr.dist_spec_anal          135
+        _pd_instr.monochr_post_spec       'Graphite mosaic monochromator'
+        _pd_instr.slit_ax_spec_anal         9.5
+        _pd_instr.slit_eq_spec_anal         0.5
+        _pd_instr.soller_eq_spec_anal       2.5
+;
+;
+        This detector is paired with the instrument identified by the
+        id 58b6d83b.
+
+        The post-specimen, graphite, mosaic monochromator is set at 31.0° 2θ.
+        The monochromator is situated 47 mm from the detector. The distance from
+        the specimen to the monochromator is 135 mm. The width of the beam is
+        defined at the monochromator by a 9.5 mm mask. There is a 0.5 mm
+        equatorial slit between the specimen and monochromator, which can be
+        assumed to be on the detector circle, and acts as the virtual detector.
+        There are 2.5° axial Soller slits between the specimen and the
+        monochromator.
+;
+;
+        _pd_instr.id                       58b6d83b
+
+        _pd_instr.dist_spec_detc          117.5
+        _pd_instr.monochr_post_spec       'Fe filter'
+        _pd_instr.slit_ax_spec_detc        12
+        _pd_instr.slit_eq_spec_detc         0.075
+        _pd_instr.soller_ax_spec_detc       2.5
+;
+;
+        This detector is paired with the instrument identified by the
+        id 58b6d83b.
+
+        The distance from the specimen to the detector is 117.5 mm. The X-ray
+        beam is "monochromatised" by a metal Fe filter. The detector is defined
+        by a 12 mm axial and 0.075 mm equatorial slit. The small size of the
+        equatorial slit might lead the reader to assume a strip detector was
+        used. This should be documented using _pd_instr.special_details. There
+        are 2.5° axial Soller slits between the specimen and the detector.
+;
 
 save_
 
@@ -7844,6 +7914,24 @@ save_pd_instr_detector.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
+
+save_
+
+save_pd_instr_detector.instr_id
+
+    _definition.id                '_pd_instr_detector.instr_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    The instrument (see _pd_instr.id) to which the detector belongs.
+;
+    _name.category_id             pd_instr_detector
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -12775,7 +12863,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-19
+         2.5.0                    2025-06-20
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12943,6 +13031,8 @@ save_
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
 
+       Added _pd_instr_detector.instr_id
+
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PHASE_MASS.
+       _pd_diffractogram.id, PD_INSTR_DETECTOR,PD_PHASE_MASS.
 ;
