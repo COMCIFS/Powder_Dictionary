@@ -10459,7 +10459,7 @@ save_PD_PROC_LS
 ;
          The PD_PROC_LS information applies to the diffractogram with the id of
          PATTERN_42. The peak intensities are calculated out to a point where
-         the intensity is 0.0001× the intensity at the peak maximum, or
+         the intensity is 0.0001 times the intensity at the peak maximum, or
          0.01%. The value of R~exp~ is 12.324% and R~wp~ is 15.432%. The peak
          profiles were calculated using fundamental parameters
 ;
@@ -10500,12 +10500,13 @@ save_PD_PROC_LS
        ;
 ;
 ;
-         The PD_PROC_LS information applies to the diffractogram with the id of
-         the given GUID. The peak intensities are calculated out to a point
-         where the intensity is 0.005× the intensity at the peak maximum,
-         or 0.5%. The value of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak
-         profiles were calculated using the modified Thompson-Cox-Hasting
-         algorithm, as described, with final refined parameter values given.
+         The PD_PROC_LS information applies to the diffractogram identified
+         by the UUID given in _pd_proc_ls.diffractogram_id. The peak
+         intensities are calculated out to a point where the intensity is
+         0.005 times the intensity at the peak maximum, or 0.5%. The value
+         of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak profiles were
+         calculated using the modified Thompson-Cox-Hasting algorithm, as
+         described, with final refined parameter values given.
 ;
 
 save_
