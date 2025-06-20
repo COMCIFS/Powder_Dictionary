@@ -11572,7 +11572,6 @@ save_PD_QPA_EXTERNAL_STD
             _pd_char.mass_atten_coef_mu_calc        3159
             _pd_qpa_overall.method                  external_standard
 
-
          data_diffractogram_block
             _audit.schema                Custom
             _pd_diffractogram.id         DIFFRACTOGRAM_2
