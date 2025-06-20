@@ -11549,7 +11549,7 @@ save_PD_QPA_INTENSITY_FACTOR
     _description_example.detail
 ;
          A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
-         some NIST SRM646a) has been quantified using the I_over_Ic
+         some NIST SRM646a) has been quantified using the I over Ic (I/Ic)
          specialisation of the RIR algorithm.
 
          The I/Ic value for each of the phases is specified by the values of
