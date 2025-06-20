@@ -6258,6 +6258,25 @@ save_pd_diffractogram.id
 
 save_
 
+save_pd_diffractogram.instr_id
+
+    _definition.id                '_pd_diffractogram.instr_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    The instrument (see _pd_instr.id) with which the diffractogram was
+    collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_diffractogram.spec_id
 
     _definition.id                '_pd_diffractogram.spec_id'
