@@ -3103,7 +3103,7 @@ save_pd_calib.2theta_off_point
     _definition.id                '_pd_calib.2theta_off_point'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.nominal_2theta'
+    _definition_replaced.by       '_pd_calib_xcoord.2theta_nominal'
 
     _alias.definition_id          '_pd_calib_2theta_off_point'
     _definition.update            2023-06-05
@@ -3306,10 +3306,10 @@ save_pd_calib_std.external_block_id
     loop_
       _definition_replaced.id
       _definition_replaced.by
-         1                      '_pd_calib_detected_intensity_overall.diffractogram_id'
-         2                      '_pd_calib_incident_intensity.diffractogram_id'
-         3                      '_pd_calib_wavelength.diffractogram_id'
-         4                      '_pd_calib_xcoord_overall.diffractogram_id'
+         1              '_pd_calib_detected_intensity_overall.diffractogram_id'
+         2              '_pd_calib_incident_intensity.diffractogram_id'
+         3              '_pd_calib_wavelength.diffractogram_id'
+         4              '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
     _definition.update            2023-06-05
