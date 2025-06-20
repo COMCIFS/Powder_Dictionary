@@ -10617,7 +10617,7 @@ save_PD_PROC_LS
          intensities are calculated out to a point where the intensity is
          0.005 times the intensity at the peak maximum, or 0.5%. The value
          of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak profiles were
-         calculated using the modified Thompson-Cox-Hasting algorithm, as
+         calculated using the modified Thompson-Cox-Hastings algorithm, as
          described, with final refined parameter values given.
 ;
 
