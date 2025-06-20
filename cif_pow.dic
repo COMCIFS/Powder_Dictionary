@@ -4961,7 +4961,7 @@ save_pd_meas.2theta_scan
 
     Note that for data sets collected with constant step size,
     _pd_meas.2theta_range_* (min, max and inc) may be used
-    instead of _pd_meas.2theta_scan. _pd_meas.2theta_angle was
+    instead of _pd_meas.2theta_scan. _pd_meas_angle_2theta was
     originally a distinct but cognate definition and should not be
     used in new files.
 ;
