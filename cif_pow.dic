@@ -2745,7 +2745,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _definition.id                PD_CALIB_INCIDENT_INTENSITY
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This section defines the parameters used for the incident intensity
@@ -2763,6 +2763,58 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
     _category_key.name            '_pd_calib_incident_intensity.instr_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _pd_calib_incident_intensity.instr_id           a3643812
+        _pd_calib_incident_intensity.incident_counts    4231
+        _pd_calib_incident_intensity.special_details    'From beam monitor.'
+;
+;
+        The number of counts incident on the specimen in the instrument
+        identified as a3643812 is 4231, as measured by a beam monitor. The
+        uncertainty on the incident counts is given as the square root of the
+        counts.
+;
+;
+        _pd_calib_incident_intensity.instr_id                9deaa4f1
+        _pd_calib_incident_intensity.incident_intensity      453.3
+        _pd_calib_incident_intensity.incident_intensity_su     1.6
+        _pd_calib_incident_intensity.diffractogram_id        STANDARD_30ffb964
+        _pd_calib_incident_intensity.phase_id                SRM1796_15341c3a
+;
+;
+        In the instrument identified as 9deaa4f1, the intensity incident on the
+        specimen is 453.3 ± 1.6. This was determined through an analysis of
+        the diffractogram, STANDARD_30ffb964, which contains the phase,
+        SRM1796_15341c3a.
+;
+;
+        _pd_instr.id           a3643812
+        _pd_diffractogram.id   WHITE_POWDER
+
+        loop_
+        _pd_data.point_id
+        _pd_meas.2theta_scan
+        _pd_meas.counts_total
+        _pd_proc.intensity_total
+        _pd_proc.intensity_total_su
+        1   10.02   2774   0.6556   0.0160
+        2   10.04   2923   0.6909   0.0166
+        3   10.06   3096   0.7317   0.0173
+        4   10.08   3159   0.7466   0.0176
+        # ...
+;
+;
+        The measured intensities for the diffractogram "WHITE_POWDER"
+        collected on the instrument "a3643812" have been processed to
+        give the normalised intensity at each point in the scan using
+        the incident intensity calibration linked to that instrument.
+        The SU values have also been calculated for the
+        _pd_proc.intensity_total values.
+;
 
 save_
 
@@ -12886,5 +12938,6 @@ save_
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
 
-       Added example to PD_CALC_OVERALL, PD_CHAR, _pd_diffractogram.id.
+       Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
+       _pd_diffractogram.id.
 ;
