@@ -2592,6 +2592,66 @@ save_PD_CALIB_DETECTED_INTENSITY
       _category_key.name
          '_pd_calib_detected_intensity.detector_id'
          '_pd_calib_detected_intensity.overall_id'
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_calib_detected_intensity_overall.id                calid_det_int
+         _pd_calib_detected_intensity_overall.diffractogram_id  DIFFRACTOGRAM_A
+         _pd_calib_detected_intensity_overall.special_details
+             'flood field calibration'
+
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.detector_response_su
+         A   1       .
+         B   1.035   0.013
+
+         _pd_diffractogram.id         DIFFRACTOGRAM_A
+         _pd_diffractogram.instr_id   INSTRUMENT_1234
+
+         loop_
+         _pd_meas.detector_id
+         _pd_meas.2theta_scan
+         _pd_meas.counts_total
+         A   10.04   1021
+         B   10.04   1056
+         A   10.06   1022
+         B   10.06   1058
+         #...
+;
+;
+         The two detectors, A and B, have responses of 1 and 1.035,
+         respectively, meaning that their measured intensities must be divided
+         by these values to retreive their true values. These response values
+         were derived from an analysis of the diffractogram DIFFRACTOGRAM_A,
+         which is given after the calibration. The diffractogram
+         DIFFRACTOGRAM_A is the result of a flood-field calibration collected
+         on an instrument designated INSTRUMENT_1234.
+;
+;
+         _pd_diffractogram.id         UNKNOWN_SAMPLE
+         _pd_diffractogram.instr_id   INSTRUMENT_1234
+
+         loop_
+         _pd_meas.detector_id
+         _pd_meas.2theta_scan
+         _pd_meas.counts_total
+         A   12.12   13545
+         B   12.12   14022
+         A   12.16   13698
+         B   12.16   14167
+         #...
+;
+;
+         This shows the case where the calibration can be applied to a
+         diffractogram collected from an unknown specimen. We know the
+         instrument and detectors used to collect the data, so we can
+         find the appropriate calibration values for the detectors
+         from the PD_CALIB_DETECTED_INTENSITY category via the
+         PD_CALIB_DETECTED_INTENSITY_OVERALL category.
+;
 
 save_
 
