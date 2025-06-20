@@ -260,6 +260,7 @@ save_
 save_DIFFRN_RADIATION_WAVELENGTH
 
     _definition.id                DIFFRN_RADIATION_WAVELENGTH
+    _definition.scope             Category
     _definition.class             Loop
     _definition.update            2025-06-20
     _description.text
