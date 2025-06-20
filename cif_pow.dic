@@ -2705,7 +2705,8 @@ save_
 
 save_pd_calib_detected_intensity_overall.diffractogram_id
 
-    _definition.id                '_pd_calib_detected_intensity_overall.diffractogram_id'
+    _definition.id
+        '_pd_calib_detected_intensity_overall.diffractogram_id'
     _definition.update            2025-06-20
     _description.text
 ;
@@ -2742,7 +2743,8 @@ save_
 
 save_pd_calib_detected_intensity_overall.phase_id
 
-    _definition.id                '_pd_calib_detected_intensity_overall.phase_id'
+    _definition.id
+        '_pd_calib_detected_intensity_overall.phase_id'
     _definition.update            2025-06-20
     _description.text
 ;
@@ -2762,7 +2764,8 @@ save_
 
 save_pd_calib_detected_intensity_overall.special_details
 
-    _definition.id                '_pd_calib_detected_intensity_overall.special_details'
+    _definition.id
+        '_pd_calib_detected_intensity_overall.special_details'
     _definition.update            2025-06-20
     _description.text
 ;
