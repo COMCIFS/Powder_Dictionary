@@ -11063,6 +11063,9 @@ save_pd_proc.info_excluded_regions
     Description of regions in the diffractogram excluded
     from processing along with a justification of why the
     data points were not used.
+
+    To indicate excluded regions in a machine-readble manner,
+    set the requisite values in _pd_proc.ls_weight to 0.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               info_excluded_regions
