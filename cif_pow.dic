@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-20
+    _dictionary.date              2025-06-21
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -4698,6 +4698,36 @@ save_pd_calc.diffractogram_id
 
 save_
 
+save_pd_calc.intensity_bkg
+
+    _definition.id                '_pd_calc.intensity_bkg'
+    _definition.update            2025-06-21
+    _description.text
+;
+    Intensity values for the computed background of a
+    diffractogram at each data point. Values should be computed
+    at the same locations as the processed diffractogram, and
+    thus the numbers of points will be defined by
+    _pd_proc.number_of_points and point positions may
+    be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    If the background is calculated in such a way that
+    s.u. values are available, prefer _pd_proc.intensity_bkg_calc.
+
+    See also PD_BACKGROUND.
+;
+    _name.category_id             pd_calc
+    _name.object_id               intensity_bkg
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
 save_pd_calc.intensity_net
 
     _definition.id                '_pd_calc.intensity_net'
@@ -5771,7 +5801,7 @@ save_pd_proc.intensity_bkg_calc
 
     _definition.id                '_pd_proc.intensity_bkg_calc'
     _alias.definition_id          '_pd_proc_intensity_bkg_calc'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
@@ -5779,7 +5809,10 @@ save_pd_proc.intensity_bkg_calc
     _pd_proc.intensity_bkg_calc is intended to contain the
     background intensity for every data point where the
     background function has been fitted or estimated (for example, in
-    all Rietveld and profile fits).
+    all Rietveld and profile fits) where the background
+    values have an asssociated s.u..
+
+    If there is no s.u. value, prefer _pd_calc.intensity_bkg.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_bkg_calc
@@ -12870,7 +12903,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-20
+         2.5.0                    2025-06-21
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13040,4 +13073,7 @@ save_
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
        _pd_diffractogram.id, PD_PHASE_MASS, PD_PROC_LS, PD_SPEC.
+
+       Created _pd_calc.intensity_bkg and updated description
+       _pd_proc.intensity_bkg_calc
 ;
