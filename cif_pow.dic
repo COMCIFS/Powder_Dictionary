@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-20
+    _dictionary.date              2025-06-22
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -8446,46 +8446,6 @@ save_pd_meas.special_details
 
 save_
 
-save_pd_meas_overall.step_count_time
-
-    _definition.id                '_pd_meas_overall.step_count_time'
-    _definition.update            2025-06-22
-    _description.text
-;
-    The count time in seconds for each intensity measurement where
-    the count time is constant for each step in the diffractogram.
-
-    Where the step count time is not constant for each point, use
-    _pd_meas.step_count_time.
-;
-    _name.category_id             pd_meas_overall
-    _name.object_id               step_count_time
-    _type.purpose                 Measurand
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            0.0:
-    _units.code                   seconds
-
-save_
-
-save_pd_meas_overall.step_count_time_su
-
-    _definition.id                '_pd_meas_overall.step_count_time_su'
-    _definition.update            2025-06-22
-    _description.text
-;
-    Standard uncertainty of _pd_meas_overall.step_count_time.
-;
-    _name.category_id             pd_meas_overall
-    _name.object_id               step_count_time_su
-    _name.linked_item_id          '_pd_meas_overall.step_count_time'
-    _units.code                   seconds
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
 save_pd_meas.units_of_intensity
 
     _definition.id                '_pd_meas.units_of_intensity'
@@ -8530,6 +8490,46 @@ save_pd_meas_overall.diffractogram_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_meas_overall.step_count_time
+
+    _definition.id                '_pd_meas_overall.step_count_time'
+    _definition.update            2025-06-22
+    _description.text
+;
+    The count time in seconds for each intensity measurement where
+    the count time is constant for each step in the diffractogram.
+
+    Where the step count time is not constant for each point, use
+    _pd_meas.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time
+    _type.purpose                 Measurand
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   seconds
+
+save_
+
+save_pd_meas_overall.step_count_time_su
+
+    _definition.id                '_pd_meas_overall.step_count_time_su'
+    _definition.update            2025-06-22
+    _description.text
+;
+    Standard uncertainty of _pd_meas_overall.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time_su
+    _name.linked_item_id          '_pd_meas_overall.step_count_time'
+    _units.code                   seconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
