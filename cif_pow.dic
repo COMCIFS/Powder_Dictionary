@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-19
+    _dictionary.date              2025-06-20
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -2052,7 +2052,7 @@ save_PD_CALC_OVERALL
     _definition.id                PD_CALC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2025-06-19
     _description.text
 ;
     Items in this category record overall features of the computed
@@ -2061,6 +2061,43 @@ save_PD_CALC_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALC_OVERALL
     _category_key.name            '_pd_calc_overall.diffractogram_id'
+    _description_example.case
+;
+         _pd_diffractogram.id   DIFFRACTOGRAM_NUMBER_7
+         _pd_calc.method        Rietveld
+
+         _pd_calc_overall.component_presentation_order
+             [ PHASE_A_ID PHASE_B_ID PHASE_C_ID ]
+
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         _pd_calc.component_intensities_net
+         0   3.99875   1061.8   1076.653 [ 20.20 203.215 512.256 ]
+         1   4.03625   1053.9   1074.628 [ 21.34 204.535 513.156 ]
+         2   4.07375   1060.2   1072.667 [ 21.45 205.755 516.456 ]
+         3   4.11125   1017.3   1070.768 [ 21.55 206.975 513.256 ]
+         #...
+;
+    _description_example.detail
+;
+         Tabulation of diffraction data consisting of measured and
+         calculated data, where the calculated data also include intensities
+         ascribed to the different phases which make up the model. The phases to
+         which the intensities belong are given by the value of
+         _pd_calc_overall.component_presentation_order. These values correspond
+         to the _pd_phase.id values of the phases contributing to the current
+         diffractogram. As _pd_calc.component_intensities_net is used, the
+         intensities given do not include any background contribution.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. The category key value associated with
+         _pd_calc_overall.diffractogram_id and _pd_data.diffractogram_id would
+         be taken as 'DIFFRACTOGRAM_NUMBER_7', the value of
+         _pd_diffractogram.id given in the data block.
+;
 
 save_
 
@@ -2708,7 +2745,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _definition.id                PD_CALIB_INCIDENT_INTENSITY
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This section defines the parameters used for the incident intensity
@@ -2726,6 +2763,58 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
     _category_key.name            '_pd_calib_incident_intensity.instr_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _pd_calib_incident_intensity.instr_id           a3643812
+        _pd_calib_incident_intensity.incident_counts    4231
+        _pd_calib_incident_intensity.special_details    'From beam monitor.'
+;
+;
+        The number of counts incident on the specimen in the instrument
+        identified as a3643812 is 4231, as measured by a beam monitor. The
+        uncertainty on the incident counts is given as the square root of the
+        counts.
+;
+;
+        _pd_calib_incident_intensity.instr_id                9deaa4f1
+        _pd_calib_incident_intensity.incident_intensity      453.3
+        _pd_calib_incident_intensity.incident_intensity_su     1.6
+        _pd_calib_incident_intensity.diffractogram_id        STANDARD_30ffb964
+        _pd_calib_incident_intensity.phase_id                SRM1796_15341c3a
+;
+;
+        In the instrument identified as 9deaa4f1, the intensity incident on the
+        specimen is 453.3 ± 1.6. This was determined through an analysis of
+        the diffractogram, STANDARD_30ffb964, which contains the phase,
+        SRM1796_15341c3a.
+;
+;
+        _pd_instr.id           a3643812
+        _pd_diffractogram.id   WHITE_POWDER
+
+        loop_
+        _pd_data.point_id
+        _pd_meas.2theta_scan
+        _pd_meas.counts_total
+        _pd_proc.intensity_total
+        _pd_proc.intensity_total_su
+        1   10.02   2774   0.6556   0.0160
+        2   10.04   2923   0.6909   0.0166
+        3   10.06   3096   0.7317   0.0173
+        4   10.08   3159   0.7466   0.0176
+        # ...
+;
+;
+        The measured intensities for the diffractogram "WHITE_POWDER"
+        collected on the instrument "a3643812" have been processed to
+        give the normalised intensity at each point in the scan using
+        the incident intensity calibration linked to that instrument.
+        The SU values have also been calculated for the
+        _pd_proc.intensity_total values.
+;
 
 save_
 
@@ -4006,7 +4095,7 @@ save_PD_CHAR
     _definition.id                PD_CHAR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-04
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains experimental (non-diffraction) information relevant to
@@ -4014,7 +4103,7 @@ save_PD_CHAR
     drawn.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -4027,6 +4116,15 @@ save_PD_CHAR
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
     _category_key.name            '_pd_char.id'
+    _description_example.case
+;
+         _pd_char.colour                   white
+         _pd_char.mass_atten_coef_mu_calc  4878
+         _pd_char.particle_morphology
+            'Large equiaxed chunks, approx. 3 mm  across.'
+         _pd_char.special_details
+            'Bottle labelled "corundum". MAC calculated from XRF.'
+;
 
 save_
 
@@ -4845,7 +4943,7 @@ save_pd_meas.2theta_scan
          '_pd_meas_2theta_scan'
          '_pd_meas_angle_2theta'
 
-    _definition.update            2022-10-11
+    _definition.update            2025-06-20
     _description.text
 ;
     2θ diffraction angle (in degrees) for intensity
@@ -4863,7 +4961,7 @@ save_pd_meas.2theta_scan
 
     Note that for data sets collected with constant step size,
     _pd_meas.2theta_range_* (min, max and inc) may be used
-    instead of _pd_meas.2theta_scan. _pd_meas.2theta_angle was
+    instead of _pd_meas.2theta_scan. _pd_meas_angle_2theta was
     originally a distinct but cognate definition and should not be
     used in new files.
 ;
@@ -6146,6 +6244,34 @@ save_pd_diffractogram.id
     _name.object_id               id
     _type.purpose                 Key
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV'
+         '76d675f5-9f0b-4bd9-8be3-1266edf74908'
+         'DIFFRACTOGRAM Z2'
+         'Insitu_pattern_0123'
+         'Synthesis number 1'
+         'white_030e391f'
+
+save_
+
+save_pd_diffractogram.instr_id
+
+    _definition.id                '_pd_diffractogram.instr_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    The instrument (see _pd_instr.id) with which the diffractogram was
+    collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8938,28 +9064,7 @@ save_PD_PHASE_MASS
       _description_example.detail
 ;
          _audit.schema         Custom
-
-         loop_
-         _pd_phase_mass.diffractogram_id
-         _pd_phase_mass.phase_id
-         _pd_phase_mass.percent
-         _pd_phase_mass.percent_su
-         A_DIFFRACTOGRAM   PHASE_1   45.45   0.42
-         A_DIFFRACTOGRAM   PHASE_2   37.42   0.63
-         A_DIFFRACTOGRAM   PHASE_3   17.13   0.53
-;
-;
-         Tabulation of quantitative phase analysis data. The phase masses,
-         expressed as percentages of the entire specimen are given, along with
-         their associated standard uncertainties. The values are associated with
-         one diffractogram and three phases.
-
-         Blocks containing information about more than one phase must set a
-         non-default value for _audit.schema.
-;
-
-;
-         _audit.schema            Custom
+         _pd_diffractogram.id  A_DIFFRACTOGRAM
 
          loop_
          _pd_phase_mass.phase_id
@@ -8970,18 +9075,44 @@ save_PD_PHASE_MASS
          PHASE_3   17.13   0.53
 ;
 ;
-         Tabulation of quantitative phase analysis data. The phase masses,
-         expressed as percentages of the entire specimen are given, along with
-         their associated standard uncertainties. The values are associated with
-         three phases.
+         Tabulation of quantitative phase analysis data. The relative phase
+         masses, expressed as percentages of the entire specimen, are given
+         along with their associated standard uncertainties. The values are
+         associated with one diffractogram and three phases.
 
-         The method of presentation given here would be associated with being
-         present in a block which already contains a _pd_diffractogram.id
-         data item; the value of _pd_phase_mass.diffractogram_id is linked to
-         that value.
+         Blocks containing information about more than one phase or
+         diffractogram must set a non-default value for _audit.schema.
+;
 
-         When information about more than one phase is contained in a single
-         data block, _audit.schema should have a non-default value.
+;
+         _audit.schema         Custom
+
+         _pd_diffractogram.id  ANOTHER_DIFFRACTOGRAM
+
+         _pd_qpa_internal_std.mass_percent    25.000
+         _pd_qpa_internal_std.phase_id        PHASE_2
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.percent
+         _pd_phase_mass.absolute
+         _pd_phase_mass.original
+         PHASE_1   45.45   30.36   40.49
+         PHASE_2   37.42   25.00    0
+         PHASE_3   17.13   11.44   15.26
+;
+;
+         Tabulation of quantitative phase analysis data.
+
+         The relative phase masses are given by _pd_phase_mass.percent, and as
+         we know that PHASE_2 is an internal standard, we can also
+         calculate the absolute mass percentages in the specimen, given by
+         _pd_phase_mass.absolute. We can then calculate the original mass
+         percentages, those present in the sample before adding the internal
+         standard, given by _pd_phase_mass.original.
+
+         Blocks containing information about more than one phase or
+         diffractogram must set a non-default value for _audit.schema.
 ;
 
 save_
@@ -10041,7 +10172,7 @@ save_PD_PREP
     from the 'sample'. Information about the sample is specified in PD_PREP.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -10154,12 +10285,12 @@ save_pd_prep.pressure
 
     _definition.id                '_pd_prep.pressure'
     _alias.definition_id          '_pd_prep_pressure'
-    _definition.update            2022-10-11
+    _definition.update            2025-06-20
     _description.text
 ;
     Preparation pressure of the sample in kilopascals. This
     is particularly important for materials which are metastable
-    at the measurement pressure, _diffrn_ambient_pressure.
+    at the measurement pressure, _diffrn.ambient_pressure.
 ;
     _name.category_id             pd_prep
     _name.object_id               pressure
@@ -10426,7 +10557,7 @@ save_PD_PROC_LS
     _definition.id                PD_PROC_LS
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2025-06-19
     _description.text
 ;
     This section is used to define parameters relevant to a
@@ -10444,6 +10575,70 @@ save_PD_PROC_LS
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_LS
     _category_key.name            '_pd_proc_ls.diffractogram_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   PATTERN_42
+
+         _pd_proc_ls.peak_cutoff        0.0001
+         _pd_proc_ls.prof_wr_expected   0.12324
+         _pd_proc_ls.prof_wr_factor     0.15432
+         _pd_proc_ls.profile_function   'Fundamental parameters'
+;
+;
+         The PD_PROC_LS information applies to the diffractogram with the id of
+         PATTERN_42. The peak intensities are calculated out to a point where
+         the intensity is 0.0001 times the intensity at the peak maximum, or
+         0.01%. The value of R~exp~ is 12.324% and R~wp~ is 15.432%. The peak
+         profiles were calculated using fundamental parameters
+;
+;
+         _pd_proc_ls.diffractogram_id   cae4f697-ae84-4e3f-a0c1-4569d60b6191
+         _pd_proc_ls.peak_cutoff        0.005
+         _pd_proc_ls.prof_wr_expected   0.0273
+         _pd_proc_ls.prof_wr_factor     0.0569
+         _pd_proc_ls.profile_function
+       ;
+         The profiles were calculated using the modified Thompson-Cox-Hastings
+         formulation, where:
+
+           tch_L =  X * tan(\q) + Y / cos(\q)
+           tch_G = (U * tan(\q)^2^ + V * tan(\q) + W + Z / cos(\q)^2^)^1/2^
+           tch_P = (   tch_G^5^ +
+             2.69269 * tch_G^4^ * tch_L +
+             2.42843 * tch_G^3^ * tch_L^2^ +
+             4.47163 * tch_G^2^ * tch_L^3^ +
+             0.07842 * tch_G    * tch_L^4^ +
+                                  tch_L^5^ )^1/5^
+           tch_Q = tch_L / tch_P
+           eta = 1.36603 * tch_Q - 0.47719 * tch_Q^2^ + 0.1116 * tch_Q^3^
+
+         The full-width half-maximum of the Lorentzian and Gaussian peaks are
+         given by tch_L and tch_G, respectively.
+
+         The mixing parameter between the amount of Lorentzian and Gaussian is
+         given by eta.
+
+         U, W, Y, and Z were fixed at zero.
+
+         The refined values of V and X were 0.059(2)\% and 0.037(1)\%,
+         respectively.
+
+         For further details, see J. Appl. Cryst. (1987). 20, 79-83
+         https://doi.org/10.1107/S0021889887087090
+       ;
+;
+;
+         The PD_PROC_LS information applies to the diffractogram identified
+         by the UUID given in _pd_proc_ls.diffractogram_id. The peak
+         intensities are calculated out to a point where the intensity is
+         0.005 times the intensity at the peak maximum, or 0.5%. The value
+         of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak profiles were
+         calculated using the modified Thompson-Cox-Hastings algorithm, as
+         described, with final refined parameter values given.
+;
 
 save_
 
@@ -12183,7 +12378,7 @@ save_PD_SPEC
     the diffraction data set.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -12195,6 +12390,37 @@ save_PD_SPEC
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
     _category_key.name            '_pd_spec.id'
+    _description_example.case
+;
+         _pd_spec.prep_id       ABC123_main
+         _pd_spec.id            ABC123_03
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+         _pd_spec.mounting      'back-packed powder pellet'
+         _pd_spec.orientation   horizontal
+         _pd_spec.preparation
+      ;
+         50 g of received sample was homogenised and cone-and-quartered
+         to obtain a 3 g split. 1 g of ɑ-alumina was added as an internal
+         standard. The specimen was micronised for 15 min with 15 ml of
+         ethanol and dried at 45 °C. The resulting powder was backpressed
+         into a holder with a semi-automated press.
+      ;
+         _pd_spec.shape         flat_sheet
+         _pd_spec.size_axial    25.0
+         _pd_spec.size_equat    25.0
+         _pd_spec.size_thick     3.5
+;
+    _description_example.detail
+;
+         A specimen of iron ore, from FeOre Inc., with an added internal
+         standard was prepared for analysis. The sample from which the specimen
+         was prepared is identified by a _pd_prep.id value of "ABC123_main".
+         The data were collected in reflection on an instrument where the
+         incident and diffracted beams are vertical. The specimen flat, and is
+         25.0 x 25.0 mm, or it could be inferred to be 25 mm diameter.
+         The specimen was prepared as described.
+;
 
 save_
 
@@ -12718,7 +12944,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-19
+         2.5.0                    2025-06-20
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -12741,7 +12967,7 @@ save_
        Made PD_BLOCK a Loop category.
 
        Created PD_PREF_ORIENT_MARCH_DOLLASE and
-       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orienation
+       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orientation
        corrections.
 
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
@@ -12887,4 +13113,7 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added example PD_QPA_CALIB_FACTOR
+
+       Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
+       _pd_diffractogram.id, PD_PHASE_MASS, PD_PROC_LS, PD_SPEC.
 ;
