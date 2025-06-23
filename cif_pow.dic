@@ -257,28 +257,6 @@ save_chemical_formula.phase_id
 
 save_
 
-save_DIFFRN_RADIATION_WAVELENGTH
-
-    _definition.id                DIFFRN_RADIATION_WAVELENGTH
-    _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2025-06-20
-    _description.text
-;
-    The CATEGORY of data items which specify the wavelength of the
-    radiation used in measuring diffraction intensities. Items may be
-    looped to identify and assign weights to distinct wavelength
-    components from a polychromatic beam.
-;
-    _name.category_id             DIFFRN_RADIATION
-    _name.object_id               DIFFRN_RADIATION_WAVELENGTH
-    loop_
-      _category_key.name
-         '_diffrn_radiation_wavelength.id'
-         '_diffrn_radiation_wavelength.radiation_id'
-
-save_
-
 save_diffrn_radiation_wavelength.diffractogram_id
 
     _definition.id
