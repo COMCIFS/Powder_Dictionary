@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-22
+    _dictionary.date              2025-06-23
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -252,6 +252,63 @@ save_chemical_formula.phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.diffractogram_id
+
+    _definition.id
+        '_diffrn_radiation_wavelength.diffractogram_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    A code which identifies a diffractogram which was used in the calibration of
+    the wavelength.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.phase_id
+
+    _definition.id                '_diffrn_radiation_wavelength.phase_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    A code which identifies a phase whose cell parameters were used in the
+    calibration of the wavelength.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.special_details
+
+    _definition.id                '_diffrn_radiation_wavelength.special_details'
+    _definition.update            2025-06-23
+    _description.text
+;
+    Description of wavelength calibration details that cannot otherwise be
+    recorded using other DIFFRN_RADIATION_WAVELENGTH data items.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
 
@@ -3267,11 +3324,11 @@ save_pd_calib_std.external_block_id
       _definition_replaced.by
          1                      '_pd_calib_detected_intensity.diffractogram_id'
          2                      '_pd_calib_incident_intensity.diffractogram_id'
-         3                      '_pd_calib_wavelength.diffractogram_id'
+         3                      '_diffrn_radiation_wavelength.diffractogram_id'
          4                      '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-20
     _description.text
 ;
     This item is deprecated. Please see:
@@ -3321,150 +3378,6 @@ save_pd_calib_std.external_name
     _name.object_id               external_name
     _type.purpose                 Describe
     _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_PD_CALIB_WAVELENGTH
-
-    _definition.id                PD_CALIB_WAVELENGTH
-    _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-01-17
-    _description.text
-;
-    This category allows for linking to the diffractograms and phases used in
-    the calibration of the wavelength used directly or indirectly in the
-    interpretation of this data set.
-
-    Loops may be used when multiple phases and/or diffractograms are used for
-    calibration. In this case, the given wavelength is a best-fit to all phases
-    and diffractograms.
-
-    See also _diffrn_radiation_wavelength.determination.
-;
-    _name.category_id             PD_GROUP
-    _name.object_id               PD_CALIB_WAVELENGTH
-
-    loop_
-      _category_key.name
-         '_pd_calib_wavelength.diffractogram_id'
-         '_pd_calib_wavelength.diffrn_id'
-         '_pd_calib_wavelength.phase_id'
-
-    loop_
-      _description_example.case
-      _description_example.detail
-;
-       _audit.schema            Custom
-
-       loop_
-       _pd_calib_wavelength.diffrn_id
-       _pd_calib_wavelength.diffractogram_id
-       _pd_calib_wavelength.phase_id
-       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_SILICON
-       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_LAB6
-       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_SILICON
-       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_LAB6
-;
-;
-       The incident wavelength used in the measurement identified by the
-       _diffrn.id 'DIFFRN_EXP_1' was refined from two different
-       diffractograms with _pd_diffractogram.id values of 'DIFFRACTOGRAM_1'
-       and 'DIFFRACTOGRAM_2'. In these diffractograms, the same two phases
-       appeared, with _pd_phase.id values of 'NIST_SILICON' and 'NIST_LAB6',
-       As more than one diffractogram and phase was used, the wavelength
-       is a best-fit over all data. Because information relating to
-       more than one diffractogram and phase is collected in a single
-       data block, _audit.schema is set to "Custom".
-;
-;
-       _diffrn.id                              DIFFRN_EXP_A
-       _pd_calib_wavelength.diffractogram_id   DIFFRACTOGRAM_A
-       _pd_calib_wavelength.phase_id           ACME_CORUNDUM
-;
-;
-       The incident wavelength used in the measurement identified by the
-       _diffrn.id 'DIFFRN_EXP_A' was refined from a diffractogram with a
-       _pd_diffractogram.id value of 'DIFFRACTOGRAM_A'. In this
-       diffractogram, a phase with a _pd_phase.id value of 'ACME_CORUNDUM'
-       was used to calibrate the wavelength against known unit cell
-       parameters.
-;
-
-save_
-
-save_pd_calib_wavelength.diffractogram_id
-
-    _definition.id                '_pd_calib_wavelength.diffractogram_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies a diffractogram which was used in the calibration of
-    the wavelength.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calib_wavelength.diffrn_id
-
-    _definition.id                '_pd_calib_wavelength.diffrn_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies the diffraction experiment to which this calibration
-    belongs.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               diffrn_id
-    _name.linked_item_id          '_diffrn.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Word
-
-save_
-
-save_pd_calib_wavelength.phase_id
-
-    _definition.id                '_pd_calib_wavelength.phase_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies a phase whose cell parameters were used in the
-    calibration of the wavelength.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calib_wavelength.special_details
-
-    _definition.id                '_pd_calib_wavelength.special_details'
-    _definition.update            2023-01-17
-    _description.text
-;
-    Description of intensity calibration details that cannot otherwise be
-    recorded using other PD_CALIB_WAVELENGTH data items
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               special_details
-    _type.purpose                 Describe
-    _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
 
@@ -6286,6 +6199,25 @@ save_pd_diffractogram.id
 
 save_
 
+save_pd_diffractogram.instr_id
+
+    _definition.id                '_pd_diffractogram.instr_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    The instrument (see _pd_instr.id) with which the diffractogram was
+    collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_diffractogram.spec_id
 
     _definition.id                '_pd_diffractogram.spec_id'
@@ -8562,7 +8494,7 @@ save_PD_PEAK
     _definition.id                PD_PEAK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains peak information extracted from the
@@ -8582,6 +8514,58 @@ save_PD_PEAK
       _category_key.name
          '_pd_peak.diffractogram_id'
          '_pd_peak.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_peak.id
+         _pd_peak.2theta_centroid
+         _pd_peak.width_2theta
+         _pd_peak.intensity
+         _pd_peak.intensity_su
+         A   12.35   0.26   1023    7
+         B   24.74   0.56   2318   15
+         C   37.79   0.61    506    2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak centroid (eg 12.35° 2θ), and the
+         width is the full-width at half-maximum (eg 0.26° 2θ). The peak
+         intensity is given as the peak area with an associated standard
+         uncertainty (eg 1023 ± 7).
+;
+;
+         loop_
+         _diffrn_radiation_wavelength.id
+         _diffrn_radiation_wavelength.value
+         _diffrn_radiation_wavelength.wt
+         1   1.534753   0.0159
+         2   1.540596   0.5691
+         3   1.541058   0.0762
+         4   1.544410   0.2517
+         5   1.544721   0.0871
+
+         loop_
+         _pd_peak.id
+         _pd_peak.d_spacing
+         _pd_peak.pk_height
+         _pd_peak.pk_height_su
+         _pd_peak.wavelength_id
+         a   6.25   10432   132   2
+         b   3.17    8973    87   2
+         c   1.25   25632   167   2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak in angstroms (eg 6.25 Å). The peak intensity
+         is given as the peak height with an associated standard uncertainty
+         (eg 10432 ± 132). The particular wavelength used to calculate the
+         d-spacing from the data's original 2θ results is given in the final
+         column, which corresponds to 1.540596 Å, as given in the top-most
+         loop.
+;
 
 save_
 
@@ -9009,6 +8993,13 @@ save_pd_phase.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987'
+         '9d0e3eef-614a-4127-aef5-8b859168fd13'
+         'PHASE A'
+         'Calcium sulphate hemihydrate. ACME Chemicals, batch #12090.'
 
 save_
 
@@ -10233,6 +10224,22 @@ save_PD_PREP
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
     _category_key.name            '_pd_prep.id'
+    _description_example.case
+;
+         _pd_prep.char_id       'Acme anatase 1234'
+         _pd_prep.id           'rutile 1234'
+         _pd_prep.conditions
+      ;
+         1 kg of anatase from Acme, Lot#1234 was placed in several
+         platinum crucible in a furnace at atmospheric pressure.
+         The furnace was heated at 5 K/min to 1100 K, and held there
+         overnight. The furnace was then switched off and allowed to
+         cool naturally. The batch was combined, homogenised, and
+         riffle-split into 50 g packets.
+      ;
+         _pd_prep.pressure      101.3
+         _pd_prep.temperature  1100
+;
 
 save_
 
@@ -11205,7 +11212,7 @@ save_PD_QPA_CALIB_FACTOR
     _definition.id                PD_QPA_CALIB_FACTOR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-15
+    _definition.update            2025-06-19
     _description.text
 ;
     This category gives the value of the calibration constant by which the
@@ -11220,6 +11227,61 @@ save_PD_QPA_CALIB_FACTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_CALIB_FACTOR
     _category_key.name            '_pd_qpa_calib_factor.phase_id'
+
+    _description_example.case
+;
+         data_phase_A
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_B
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_C
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _audit.schema          Custom
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_A, PHASE_B, and
+         PHASE_C) has been quantified using the I/Ic specialisation of the RIR
+         algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I/Ic algorithm detailed in
+         _pd_qpa_overall.method.
+
+         As there are loops containing data names linked to key data names of
+         Set categories (_pd_phase_mass.phase_id and
+         _pd_qpa_intensity_factor.phase_id), the _audit.schema value for the
+         last block must take the value 'Custom'
+;
 
 save_
 
@@ -12938,7 +13000,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-22
+         2.5.0                    2025-06-23
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13107,7 +13169,14 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PHASE_MASS, PD_PROC_LS, PD_SPEC.
+       _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
+       PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
 
+       PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
+       and _diffrn_radiation_wavelength.diffractogram_id added to record
+       the source of a refined wavelength value.
+       _diffrn_radiation_wavelength.special_details added to record
+       information about the wavelength.
+       
        Added _pd_meas_overall.step_count_time
 ;
