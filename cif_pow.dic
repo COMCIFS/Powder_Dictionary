@@ -6365,8 +6365,13 @@ save_PD_INSTR
       _description_example.case
       _description_example.detail
 ;
-        _diffrn_radiation_wavelength.type     'Cu K\a~1~'
-        _diffrn_radiation_wavelength.value    1.540596
+        _diffrn_radiation.id   Hires_tube
+
+        loop_
+        _diffrn_radiation_wavelength.id
+        _diffrn_radiation_wavelength.type
+        _diffrn_radiation_wavelength.value
+        1  'Cu K\a~1~'  1.540596
 
         _pd_instr.id                          b4131be5
         _pd_instr.geometry
