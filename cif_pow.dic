@@ -13142,7 +13142,7 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
+       PD_DIFFRACTOGRAM, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
        PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
