@@ -6159,10 +6159,11 @@ save_PD_DIFFRACTOGRAM
 ;
          A set of diffraction conditions, instrument settings, and specimen
          information, are detailed with their respective id values.
-         A diffractogram is defined, with a unique identifier, and
-         linked to those diffraction conditions, instrument settings, and
-         specimen information. This says that the diffractogram was collected
-         under those conditions, with that instrument, and that specimen.
+         A diffractogram is defined with a UUID, and then linked to those
+         diffraction conditions, instrument settings, and specimen information
+         through the relevant _pd_diffractogram.* data names. This says that
+         the diffractogram was collected under those conditions, with that
+         instrument, and that specimen.
 ;
 
 save_
