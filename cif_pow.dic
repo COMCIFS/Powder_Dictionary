@@ -8926,6 +8926,13 @@ save_pd_phase.id
     _type.container               Single
     _type.contents                Text
 
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987'
+         '9d0e3eef-614a-4127-aef5-8b859168fd13'
+         'PHASE A'
+         'Calcium sulphate hemihydrate. ACME Chemicals, batch #12090.'
+
 save_
 
 save_pd_phase.name
@@ -13094,8 +13101,8 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PEAK, PD_PHASE_MASSS, PD_PREP, PD_PROC_LS,
-       PD_QPA_CALIB_FACTOR, PD_SPEC.
+       _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
+       PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
