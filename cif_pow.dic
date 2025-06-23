@@ -11640,6 +11640,7 @@ save_PD_QPA_INTENSITY_FACTOR
              _pd_qpa_calib_factor.I_over_Ic   1.00
 
          data_diffractogram_block
+             _audit.schema          Custom
              _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
 
              loop_
