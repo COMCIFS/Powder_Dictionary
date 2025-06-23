@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-20
+    _dictionary.date              2025-06-23
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -252,6 +252,63 @@ save_chemical_formula.phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.diffractogram_id
+
+    _definition.id
+        '_diffrn_radiation_wavelength.diffractogram_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    A code which identifies a diffractogram which was used in the calibration of
+    the wavelength.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.phase_id
+
+    _definition.id                '_diffrn_radiation_wavelength.phase_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    A code which identifies a phase whose cell parameters were used in the
+    calibration of the wavelength.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.special_details
+
+    _definition.id                '_diffrn_radiation_wavelength.special_details'
+    _definition.update            2025-06-23
+    _description.text
+;
+    Description of wavelength calibration details that cannot otherwise be
+    recorded using other DIFFRN_RADIATION_WAVELENGTH data items.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
 
@@ -3267,11 +3324,11 @@ save_pd_calib_std.external_block_id
       _definition_replaced.by
          1                      '_pd_calib_detected_intensity.diffractogram_id'
          2                      '_pd_calib_incident_intensity.diffractogram_id'
-         3                      '_pd_calib_wavelength.diffractogram_id'
+         3                      '_diffrn_radiation_wavelength.diffractogram_id'
          4                      '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-20
     _description.text
 ;
     This item is deprecated. Please see:
@@ -3321,150 +3378,6 @@ save_pd_calib_std.external_name
     _name.object_id               external_name
     _type.purpose                 Describe
     _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_PD_CALIB_WAVELENGTH
-
-    _definition.id                PD_CALIB_WAVELENGTH
-    _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-01-17
-    _description.text
-;
-    This category allows for linking to the diffractograms and phases used in
-    the calibration of the wavelength used directly or indirectly in the
-    interpretation of this data set.
-
-    Loops may be used when multiple phases and/or diffractograms are used for
-    calibration. In this case, the given wavelength is a best-fit to all phases
-    and diffractograms.
-
-    See also _diffrn_radiation_wavelength.determination.
-;
-    _name.category_id             PD_GROUP
-    _name.object_id               PD_CALIB_WAVELENGTH
-
-    loop_
-      _category_key.name
-         '_pd_calib_wavelength.diffractogram_id'
-         '_pd_calib_wavelength.diffrn_id'
-         '_pd_calib_wavelength.phase_id'
-
-    loop_
-      _description_example.case
-      _description_example.detail
-;
-       _audit.schema            Custom
-
-       loop_
-       _pd_calib_wavelength.diffrn_id
-       _pd_calib_wavelength.diffractogram_id
-       _pd_calib_wavelength.phase_id
-       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_SILICON
-       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_LAB6
-       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_SILICON
-       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_LAB6
-;
-;
-       The incident wavelength used in the measurement identified by the
-       _diffrn.id 'DIFFRN_EXP_1' was refined from two different
-       diffractograms with _pd_diffractogram.id values of 'DIFFRACTOGRAM_1'
-       and 'DIFFRACTOGRAM_2'. In these diffractograms, the same two phases
-       appeared, with _pd_phase.id values of 'NIST_SILICON' and 'NIST_LAB6',
-       As more than one diffractogram and phase was used, the wavelength
-       is a best-fit over all data. Because information relating to
-       more than one diffractogram and phase is collected in a single
-       data block, _audit.schema is set to "Custom".
-;
-;
-       _diffrn.id                              DIFFRN_EXP_A
-       _pd_calib_wavelength.diffractogram_id   DIFFRACTOGRAM_A
-       _pd_calib_wavelength.phase_id           ACME_CORUNDUM
-;
-;
-       The incident wavelength used in the measurement identified by the
-       _diffrn.id 'DIFFRN_EXP_A' was refined from a diffractogram with a
-       _pd_diffractogram.id value of 'DIFFRACTOGRAM_A'. In this
-       diffractogram, a phase with a _pd_phase.id value of 'ACME_CORUNDUM'
-       was used to calibrate the wavelength against known unit cell
-       parameters.
-;
-
-save_
-
-save_pd_calib_wavelength.diffractogram_id
-
-    _definition.id                '_pd_calib_wavelength.diffractogram_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies a diffractogram which was used in the calibration of
-    the wavelength.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calib_wavelength.diffrn_id
-
-    _definition.id                '_pd_calib_wavelength.diffrn_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies the diffraction experiment to which this calibration
-    belongs.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               diffrn_id
-    _name.linked_item_id          '_diffrn.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Word
-
-save_
-
-save_pd_calib_wavelength.phase_id
-
-    _definition.id                '_pd_calib_wavelength.phase_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies a phase whose cell parameters were used in the
-    calibration of the wavelength.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calib_wavelength.special_details
-
-    _definition.id                '_pd_calib_wavelength.special_details'
-    _definition.update            2023-01-17
-    _description.text
-;
-    Description of intensity calibration details that cannot otherwise be
-    recorded using other PD_CALIB_WAVELENGTH data items
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               special_details
-    _type.purpose                 Describe
-    _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
 
@@ -12944,7 +12857,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-20
+         2.5.0                    2025-06-23
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13116,4 +13029,10 @@ save_
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
        _pd_diffractogram.id, PD_PHASE_MASS, PD_PROC_LS, PD_SPEC.
+
+       PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
+       and _diffrn_radiation_wavelength.diffractogram_id added to record
+       the source of a refined wavelength value.
+       _diffrn_radiation_wavelength.special_details added to record
+       information about the wavelength.
 ;
