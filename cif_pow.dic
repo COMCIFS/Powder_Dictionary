@@ -8115,6 +8115,7 @@ save_PD_MEAS_OVERALL
          each measurement point
 ;
 ;
+          _audit.schema            Custom
           _pd_meas.rocking_angle   2.5
           _pd_meas.rocking_axis    omega
           _pd_meas.scan_method     step
@@ -8136,6 +8137,9 @@ save_PD_MEAS_OVERALL
          The information here applies to the diffractogram with the id
          'PATTERN_96'. For each measurement point, the specimen rotated ±2.5°
          from its standard position about the omega axis.
+
+         As we're looping a data name linked to a Set category, the
+         _audit.schema item is set to "Custom".
 ;
 ;
           _pd_diffractogram.id         EDD_123
