@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-20
+    _dictionary.date              2025-06-23
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -291,6 +291,25 @@ save_diffrn_radiation_wavelength.phase_id
     _name.linked_item_id          '_pd_phase.id'
     _type.purpose                 Link
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.special_details
+
+    _definition.id
+        '_diffrn_radiation_wavelength.special_details'
+    _definition.update            2025-06-23
+    _description.text
+;
+    Description of wavelength calibration details that cannot otherwise be
+    recorded using other DIFFRN_RADIATION_WAVELENGTH data items.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
 
@@ -12958,4 +12977,6 @@ save_
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
        the source of a refined wavelength value.
+       _diffrn_radiation_wavelength.special_details added to record
+       information about the wavelength.
 ;
