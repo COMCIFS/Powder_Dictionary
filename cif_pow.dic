@@ -6378,39 +6378,50 @@ save_PD_INSTR
     _definition.id                PD_INSTR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-12
+    _definition.update            2025-06-24
     _description.text
 ;
-    This section contains information relevant to the instrument
+    This category contains information relevant to the instrument
     used for the diffraction measurement. For most laboratories,
     very little of this information will change, so a standard file
     may be prepared and included with each data set.
 
+    Formally, PD_INSTR defines data names which record information from
+    the source to the specimen, whilst PD_INSTR_DETECTOR records
+    information about the instrument from the specimen to the
+    detector(s). Both categories use data names of the form _pd_instr.*.
+
     Note that several definitions in the core CIF dictionary
     are relevant here. For example, use:
+      _diffrn_radiation.id to identify to the source as a whole,
+      _diffrn_radiation_wavelength.id to identify the wavelength,
       _diffrn_radiation_wavelength.value for the source wavelength,
       _diffrn_radiation_wavelength.type for the X-ray wavelength type,
       _diffrn_source.device and _diffrn_source.details for the radiation source,
       _diffrn_radiation.polarisn_ratio for the source polarization,
       _diffrn_radiation.probe for the radiation type.
-    For data sets measured with partially monochromatized radiation,
+
+    For diffractograms measured with partially monochromatized radiation,
     for example, where both Kα~1~ and Kα~2~ are present, it is
     important that all wavelengths present are included in a
-    loop_ using _diffrn_radiation_wavelength.value to define the
-    wavelength and _diffrn_radiation_wavelength.wt to define the
-    relative intensity of that wavelength. It is required that
-    _diffrn_radiation_wavelength.id also be present in the
-    wavelength loop. It may also be useful to
-    create a "dummy" ID to use for labelling
+    loop:
+      _diffrn_radiation_wavelength.id to identify each individual wavelength,
+      _diffrn_radiation_wavelength.value for each wavelength,
+      _diffrn_radiation_wavelength.wt for the relative intensity of that wavelength
+
+    _diffrn_radiation_wavelength.id is used to link wavelengths to peaks
+    (PD_PEAKS) and/or reflections (REFLN), allowing d-spacings to be calculated.
+
+    It may also be useful to create a "dummy" ID to use for labelling
     peaks/reflections where the Kα~1~ and Kα~2~ wavelengths are
     not resolved. Set _diffrn_radiation_wavelength.wt to be 0 for
     such a dummy ID.
 
-    In the PD_INSTR definitions, the term monochromator refers
-    to a primary beam (pre-specimen) monochromator and the term
-    analyser refers to post-diffraction (post-specimen)
-    monochromator. The analyser may be fixed for specific
-    wavelength or may be capable of being scanned.
+    In the PD_INSTR definitions, the term "monochromator" refers to a
+    primary beam (pre-specimen) monochromator and the term "analyser"
+    refers to post-diffraction (post-specimen) monochromator. The
+    analyser may be fixed for specific wavelength or may be capable
+    of being scanned.
 
     It is strongly recommended that the core dictionary term
     _diffrn_radiation.probe (specifying the nature of the radiation
