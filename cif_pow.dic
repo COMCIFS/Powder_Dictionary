@@ -425,8 +425,10 @@ save_PD_BACKGROUND
     _pd_calc.intensity_bkg.
 
     The computed background values should include all normalization corrections,
-    and thus are specified on the same scale as the observed intensities
-    (_pd_meas.counts_* or _pd_meas.intensity_*, and _pd_calc.intensity_total).
+    and thus are specified on the same scale as the other calculated intensities
+    such as _pd_calc.intensity_total. Indeed the sum of
+    _pd_proc.intensity_bkg_calc and _pd_calc.intensity_net should be
+    _pd_calc.intensity_total.
 
     If more than one type of background is specified for a particular
     diffractogram, then it is assumed they are linearly additive.
