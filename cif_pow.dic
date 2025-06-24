@@ -8115,31 +8115,26 @@ save_PD_MEAS_OVERALL
          each measurement point
 ;
 ;
-          _audit.schema            Custom
           _pd_meas.rocking_angle   2.5
           _pd_meas.rocking_axis    omega
           _pd_meas.scan_method     step
 
           _pd_instr.geometry       Bragg-Brentano
 
-          _pd_meas_overall.diffractogram_id   PATTERN_96
+          _pd_diffractogram.id     PATTERN_96
 
           loop_
           _pd_data.point_id
-          _pd_data.diffractogram_id
           _pd_meas.2theta_scan
           _pd_meas.counts_total
-          1   PATTERN_96   5.02   1234
-          2   PATTERN_96   5.04   1256
+          1   5.02   1234
+          2   5.04   1256
           #...
 ;
 ;
          The information here applies to the diffractogram with the id
          'PATTERN_96'. For each measurement point, the specimen rotated ±2.5°
          from its standard position about the omega axis.
-
-         As we're looping a data name linked to a Set category, the
-         _audit.schema item is set to "Custom".
 ;
 ;
           _pd_diffractogram.id         EDD_123
