@@ -6407,7 +6407,7 @@ save_PD_INSTR
     loop:
       _diffrn_radiation_wavelength.id to identify each individual wavelength,
       _diffrn_radiation_wavelength.value for each wavelength,
-      _diffrn_radiation_wavelength.wt for the relative intensity of that wavelength
+      _diffrn_radiation_wavelength.wt the relative intensity of that wavelength
 
     _diffrn_radiation_wavelength.id is used to link wavelengths to peaks
     (PD_PEAKS) and/or reflections (REFLN), allowing d-spacings to be calculated.
@@ -13339,7 +13339,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-23
+         2.5.0                    2025-06-24
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13525,4 +13525,6 @@ save_
        information about the wavelength.
 
        Added _pd_meas_overall.step_count_time.
+
+       Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
 ;
