@@ -6178,7 +6178,7 @@ save_PD_DIFFRACTOGRAM
     _definition.id                PD_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2022-10-11
+    _definition.update            2025-06-23
     _description.text
 ;
     This category includes data names relating to a diffractogram
@@ -6187,6 +6187,48 @@ save_PD_DIFFRACTOGRAM
     _name.category_id             PD_GROUP
     _name.object_id               PD_DIFFRACTOGRAM
     _category_key.name            '_pd_diffractogram.id'
+    _description_example.case
+;
+         _diffrn.id                    'high temperature iron ore'
+         _diffrn.ambient_temperature   1273
+         _diffrn.ambient_pressure      101.3
+
+         _pd_instr.id                       "Lab machine 1"
+         _pd_instr.geometry                 Bragg-Brentano
+         _pd_instr.detector_circle_radius   117.5
+
+         _pd_spec.id            ABC123_03
+         _pd_spec.prep_id       ABC123_main
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+
+         _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
+         _pd_diffractogram.diffrn_id   "high temperature iron ore"
+         _pd_diffractogram.instr_id    "Lab machine 1"
+         _pd_diffractogram.spec_id     ABC123_03
+
+         loop_
+            _pd_meas.2theta_scan
+            _pd_proc.intensity_total
+            _pd_proc.ls_weight
+            _pd_calc.intensity_total
+            _pd_proc.intensity_bkg_calc
+            5.01   43.364   0.0402   25.994961    25.994961
+            5.04   38.007   0.0505   26.200290    26.200290
+            5.07   38.318   0.0465   26.404083    26.404083
+            5.10   41.877   0.0452   26.606346    26.606346
+            #...
+;
+    _description_example.detail
+;
+         A set of diffraction conditions, instrument settings, and specimen
+         information, are detailed with their respective id values.
+         A diffractogram is defined with a UUID, and then linked to those
+         diffraction conditions, instrument settings, and specimen information
+         through the relevant _pd_diffractogram.* data names. This says that
+         the diffractogram was collected under those conditions, with that
+         instrument, and that specimen.
+;
 
 save_
 
@@ -13258,7 +13300,7 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
+       PD_DIFFRACTOGRAM, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
        PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
 
        Add _pd_peak.overall_id
