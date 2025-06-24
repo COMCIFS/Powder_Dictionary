@@ -6943,7 +6943,7 @@ save_pd_instr.radiation_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Text
+    _type.contents                Word
 
 save_
 
