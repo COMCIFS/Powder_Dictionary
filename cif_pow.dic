@@ -6929,6 +6929,24 @@ save_pd_instr.monochr_pre_spec
 
 save_
 
+save_pd_instr.radiation_id
+
+    _definition.id                '_pd_instr.radiation_id'
+    _definition.update            2025-06-24
+    _description.text
+;
+    The radiation source (see _diffrn_radiation.id) of the instrument.
+;
+    _name.category_id             pd_instr
+    _name.object_id               radiation_id
+    _name.linked_item_id          '_diffrn_radiation.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_instr.slit_ax_mono_spec
 
     _definition.id                '_pd_instr.slit_ax_mono_spec'
