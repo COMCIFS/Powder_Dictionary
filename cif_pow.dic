@@ -7939,6 +7939,24 @@ save_pd_instr.soller_eq_spec_detc
 
 save_
 
+save_pd_instr_detector.instr_id
+
+    _definition.id                '_pd_instr_detector.instr_id'
+    _definition.update            2025-06-24
+    _description.text
+;
+    The instrument (see _pd_instr.id) to which the detector belongs.
+;
+    _name.category_id             pd_instr_detector
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_pd_instr_detector.id
 
     _definition.id                '_pd_instr_detector.id'
