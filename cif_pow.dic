@@ -422,7 +422,7 @@ save_PD_BACKGROUND
     The data items list here allow for the recording of the various coefficients
     used, rather than a complete enumeration of the value of the background
     calculated at every data point; although doing so is still possible - see
-    _pd_proc.intensity_bkg_calc.
+    _pd_calc.intensity_bkg.
 
     The computed background values should include all normalization corrections,
     and thus are specified on the same scale as the observed intensities
@@ -4342,7 +4342,7 @@ save_PD_DATA
          _pd_meas.2theta_scan
          _pd_meas.intensity_total
          _pd_calc.intensity_total
-         _pd_proc.intensity_bkg_calc
+         _pd_calc.intensity_bkg
          1   5.001   43.364   25.994961   25.994961
          2   5.004   38.007   26.200290   26.200290
          3   5.007   38.318   26.404083   26.404083
@@ -4369,7 +4369,7 @@ save_PD_DATA
          _pd_proc.intensity_total
          _pd_proc.ls_weight
          _pd_calc.intensity_total
-         _pd_proc.intensity_bkg_calc
+         _pd_calc.intensity_bkg
          0   1110.30100   1.489225   0.60008   6528.86960   0.553025   0.504217
          1   1114.74220   1.495170   0.63531   6316.37917   0.571286   0.504020
          2   1119.20117   1.501138   0.64690   6107.85715   0.593895   0.503826
@@ -4611,6 +4611,36 @@ save_pd_calc.diffractogram_id
 
 save_
 
+save_pd_calc.intensity_bkg
+
+    _definition.id                '_pd_calc.intensity_bkg'
+    _definition.update            2025-06-21
+    _description.text
+;
+    Intensity values for the computed background of a
+    diffractogram at each data point. Values should be computed
+    at the same locations as the processed diffractogram, and
+    thus the numbers of points will be defined by
+    _pd_proc.number_of_points and point positions may
+    be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    If the background is calculated in such a way that
+    s.u. values are available, prefer _pd_proc.intensity_bkg_calc.
+
+    See also PD_BACKGROUND.
+;
+    _name.category_id             pd_calc
+    _name.object_id               intensity_bkg
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
 save_pd_calc.intensity_net
 
     _definition.id                '_pd_calc.intensity_net'
@@ -4689,9 +4719,9 @@ save_pd_calc.intensity_total
     _method.purpose               Evaluation
     _method.expression
 ;
-    t = pd_proc.intensity_bkg_calc
+    t = pd_calc.intensity_bkg
     loop pcc as pd_calc_component {
-        t += pcc.intensity_total - pd_proc.intensity_bkg_calc
+        t += pcc.intensity_total - pd_calc.intensity_bkg
     }
     pd_calc.intensity_total = t
 ;
@@ -5684,7 +5714,7 @@ save_pd_proc.intensity_bkg_calc
 
     _definition.id                '_pd_proc.intensity_bkg_calc'
     _alias.definition_id          '_pd_proc_intensity_bkg_calc'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
@@ -5692,7 +5722,10 @@ save_pd_proc.intensity_bkg_calc
     _pd_proc.intensity_bkg_calc is intended to contain the
     background intensity for every data point where the
     background function has been fitted or estimated (for example, in
-    all Rietveld and profile fits).
+    all Rietveld and profile fits) where the background
+    values have an asssociated s.u..
+
+    If there is no s.u. value, prefer _pd_calc.intensity_bkg.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_bkg_calc
@@ -5738,6 +5771,7 @@ save_pd_proc.intensity_bkg_fix
     of '.' for data points where a fixed background has not
     been defined. The extrapolated background at every point
     may be specified using _pd_proc.intensity_bkg_calc.
+    See also _pd_calc.intensity_bkg.
 
     Background values should be on the same scale as the
     _pd_proc.intensity_net values. Thus normalization and
@@ -5884,11 +5918,11 @@ save_pd_proc.intensity_norm
     Values in this data item are normalisation-corrected and contain
     a background component.
 
-    Background values (for example, given by _pd_proc.intensity_bkg_calc)
-    should be on the same scale as the _pd_proc.intensity_net values.
-    Thus normalization and correction factors should be applied before
-    background subtraction (or should be applied to the background values
-    equally).
+    Background values (for example, given by _pd_proc.intensity_bkg_calc,
+    or _pd_calc.intensity_bkg) should be on the same scale as the
+    _pd_proc.intensity_net values. Thus normalization and correction
+    factors should be applied before background subtraction (or should be
+    applied to the background values equally).
 
     Normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
@@ -10634,7 +10668,7 @@ save_pd_proc_ls.background_function
 
     _definition.id                '_pd_proc_ls.background_function'
     _alias.definition_id          '_pd_proc_ls_background_function'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Description of the background treatment mechanism used to
@@ -10650,7 +10684,8 @@ save_pd_proc_ls.background_function
     coefficients used in the background function with their
     s.u.'s. The background values for each data point
     computed from the function should be specified in
-    _pd_proc.intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc or _pd_calc.intensity_bkg,
+    depending on if s.u. values are calculated for the bkg values.
 
     If background correction is performed using extrapolation
     from a set of points at fixed locations, these points
@@ -10662,7 +10697,10 @@ save_pd_proc_ls.background_function
     etc.) and whether the values were refined to improve the
     agreement. The extrapolated background intensity value for
     each data point should be specified in
-    _pd_proc.intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc or _pd_calc.intensity_bkg,
+    depending on if s.u. values are calculated for the bkg values.
+
+    See also PD_BACKGROUND.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               background_function
@@ -13103,6 +13141,9 @@ save_
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
        _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
        PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
+
+       Created _pd_calc.intensity_bkg and updated description of
+       _pd_proc.intensity_bkg_calc.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
