@@ -26,7 +26,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - name: checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
           
       # Check syntax of all CIF files
         - name: check_syntax
@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Get the cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: cache
         with:
                  path: ~/.julia
@@ -54,17 +54,17 @@ jobs:
         run: |
                julia -e 'import Pkg;Pkg.add("CrystalInfoFramework");Pkg.add("Lerche");Pkg.add("FilePaths");Pkg.add("ArgParse")'
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
                 path: main
       - name: checkout julia tools
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
                 repository: jamesrhester/julia_cif_tools
                 path: julia_cif_tools
 
       - name: Checkout CIF master files
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
                 repository: COMCIFS/cif_core
                 path: cif_core
@@ -89,9 +89,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: syntax
     steps:
-        - name: checkout
-          uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v4
 
-        - name: check_ddlm
-          uses: COMCIFS/dictionary_check_action@main
-          id: ddlm_check
+      - name: Checkout the coreCIF dictionary
+        uses: actions/checkout@v4
+        with:
+          repository: COMCIFS/cif_core
+          path: cif-dictionaries/cif_core
+
+      - name: Checkout the multiblock coreCIF dictionary
+        uses: actions/checkout@v4
+        with:
+          repository: COMCIFS/MultiBlock_Dictionary
+          path: cif-dictionaries/MultiBlock_Dictionary
+
+      - name: check_ddlm
+        uses: COMCIFS/dictionary_check_action@main
+        id: ddlm_check
