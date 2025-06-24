@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-23
+    _dictionary.date              2025-06-24
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -7317,19 +7317,23 @@ save_PD_INSTR_DETECTOR
     _definition.update            2023-01-06
     _description.text
 ;
-    This section contains information relevant to the detector
+    This category contains information relevant to the detector
     geometry used for the diffraction measurement. For most laboratories,
     very little of this information will change, so a standard file
     may be prepared and included with each data set.
 
-    The term analyser refers to post-diffraction (post-specimen)
+    Data items from this category must be combined with those from
+    PD_INSTR to form a description of the instrument. Both categories use
+    data names of the form _pd_instr.*.
+
+    The term "analyser" refers to post-diffraction (post-specimen)
     monochromator. The analyser may be fixed for specific
     wavelength or may be capable of being scanned.
 
     For multiple-detector instruments it may be necessary to loop the
     *_anal_detc or *_spec_detc values (for  _pd_instr.dist_*,
     _pd_instr.divg_*, _pd_instr.slit_* and  _pd_instr.soller_*) with
-    the detector ID's (_pd_instr_detector.id).
+    the detector IDs (_pd_instr_detector.id).
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
