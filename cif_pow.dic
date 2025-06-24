@@ -6187,7 +6187,10 @@ save_PD_DIFFRACTOGRAM
     _name.category_id             PD_GROUP
     _name.object_id               PD_DIFFRACTOGRAM
     _category_key.name            '_pd_diffractogram.id'
-    _description_example.case
+
+    loop_
+      _description_example.case
+      _description_example.detail
 ;
          _diffrn.id                    'high temperature iron ore'
          _diffrn.ambient_temperature   1273
@@ -6219,7 +6222,6 @@ save_PD_DIFFRACTOGRAM
             5.10   41.877   0.0452   26.606346    26.606346
             #...
 ;
-    _description_example.detail
 ;
          A set of diffraction conditions, instrument settings, and specimen
          information, are detailed with their respective id values.
@@ -6228,6 +6230,63 @@ save_PD_DIFFRACTOGRAM
          through the relevant _pd_diffractogram.* data names. This says that
          the diffractogram was collected under those conditions, with that
          instrument, and that specimen.
+
+         It is not sufficient, for machine-readability, that the _diffrn.id,
+         _pd_instr.id, and _pd_spec.id are given in the same block; they must
+         be explicitly set through _pd_diffractogram.diffrn_id,
+         _pd_diffractogram.instr_id, and _pd_diffractogram.spec_id.
+;
+;
+         data_diffrn_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _diffrn.id                    'high temperature iron ore'
+            _diffrn.ambient_temperature   1273
+            _diffrn.ambient_pressure      101.3
+
+         data_instr_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_instr.id                       "Lab machine 1"
+            _pd_instr.geometry                 Bragg-Brentano
+            _pd_instr.detector_circle_radius   117.5
+
+         data_spec_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_spec.id            ABC123_03
+            _pd_spec.prep_id       ABC123_main
+            _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+            _pd_spec.mount_mode    reflection
+
+         data_diffract_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
+            _pd_diffractogram.diffrn_id   "high temperature iron ore"
+            _pd_diffractogram.instr_id    "Lab machine 1"
+            _pd_diffractogram.spec_id     ABC123_03
+
+            loop_
+               _pd_meas.2theta_scan
+               _pd_proc.intensity_total
+               _pd_proc.ls_weight
+               _pd_calc.intensity_total
+               _pd_proc.intensity_bkg_calc
+               5.01   43.364   0.0402   25.994961    25.994961
+               5.04   38.007   0.0505   26.200290    26.200290
+               5.07   38.318   0.0465   26.404083    26.404083
+               5.10   41.877   0.0452   26.606346    26.606346
+               #...
+;
+;
+         A functionally identical data set as to the first example.
+         The _audit_dataset.id asserts that all data blocks are to
+         be interpreted as one entity. Within that scope, the use of
+         _pd_diffractogram.diffrn_id, _pd_diffractogram.instr_id, and
+         _pd_diffractogram.spec_id link those diffraction conditions,
+         instrument, and specimen details in the same manner as in the
+         first example.
 ;
 
 save_
