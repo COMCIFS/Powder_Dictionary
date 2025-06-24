@@ -13563,4 +13563,6 @@ save_
        Added _pd_meas_overall.step_count_time.
 
        Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
+
+       Added _pd_instr.radiation_id and _pd_instr_detector.instr_id.
 ;
