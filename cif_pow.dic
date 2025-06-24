@@ -4960,7 +4960,8 @@ save_pd_meas.counts_background
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -4997,7 +4998,8 @@ save_pd_meas.counts_container
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5033,7 +5035,8 @@ save_pd_meas.counts_monitor
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5070,7 +5073,8 @@ save_pd_meas.counts_total
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5156,6 +5160,11 @@ save_pd_meas.intensity_background
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
     corrections and record the result using
@@ -5209,6 +5218,11 @@ save_pd_meas.intensity_container
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
+
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
 
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
@@ -5265,6 +5279,11 @@ save_pd_meas.intensity_monitor
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
     corrections and record the result using
@@ -5318,6 +5337,11 @@ save_pd_meas.intensity_total
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
+
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
 
     Corrections for background, detector dead time etc.,
     should not have been made to these values. Instead use
@@ -5436,10 +5460,14 @@ save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-22
     _description.text
 ;
     The count time in seconds for each intensity measurement.
+
+    Use this item for measurements where the count time
+    varies for different points; where the step count time is
+    constant, prefer _pd_meas_overall.step_count_time.
 ;
     _name.category_id             pd_meas
     _name.object_id               step_count_time
@@ -8454,6 +8482,46 @@ save_pd_meas_overall.diffractogram_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_meas_overall.step_count_time
+
+    _definition.id                '_pd_meas_overall.step_count_time'
+    _definition.update            2025-06-22
+    _description.text
+;
+    The count time in seconds for each intensity measurement where
+    the count time is constant for each step in the diffractogram.
+
+    Where the step count time is not constant for each point, use
+    _pd_meas.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time
+    _type.purpose                 Measurand
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   seconds
+
+save_
+
+save_pd_meas_overall.step_count_time_su
+
+    _definition.id                '_pd_meas_overall.step_count_time_su'
+    _definition.update            2025-06-22
+    _description.text
+;
+    Standard uncertainty of _pd_meas_overall.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time_su
+    _name.linked_item_id          '_pd_meas_overall.step_count_time'
+    _units.code                   seconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -13157,4 +13225,6 @@ save_
        the source of a refined wavelength value.
        _diffrn_radiation_wavelength.special_details added to record
        information about the wavelength.
+
+       Added _pd_meas_overall.step_count_time
 ;
