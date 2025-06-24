@@ -11102,12 +11102,15 @@ save_pd_proc.info_excluded_regions
 
     _definition.id                '_pd_proc.info_excluded_regions'
     _alias.definition_id          '_pd_proc_info_excluded_regions'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Description of regions in the diffractogram excluded
     from processing along with a justification of why the
     data points were not used.
+
+    To indicate excluded regions in a machine-readble manner,
+    set the requisite values in _pd_proc.ls_weight to 0.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               info_excluded_regions
@@ -13144,6 +13147,8 @@ save_
 
        Created _pd_calc.intensity_bkg and updated description of
        _pd_proc.intensity_bkg_calc.
+
+       Enhanced description of _pd_proc.info_excluded_region.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
