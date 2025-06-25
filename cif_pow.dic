@@ -6620,10 +6620,12 @@ save_pd_instr.dist_mono_spec
 
     _definition.id                '_pd_instr.dist_mono_spec'
     _alias.definition_id          '_pd_instr_dist_mono/spec'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies distances in millimetres from the monochromator to the specimen.
+    Specifies distances in millimetres from the monochromator to the centre
+    of the specimen along the mean beam path.
+
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -6642,11 +6644,13 @@ save_pd_instr.dist_src_mono
 
     _definition.id                '_pd_instr.dist_src_mono'
     _alias.definition_id          '_pd_instr_dist_src/mono'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
     Specifies distance in millimetres from the radiation source to
-    the monochromator. Note that *_src_spec is used in place of
+    the monochromator along the mean beam path.
+
+    Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use.
 ;
     _name.category_id             pd_instr
@@ -6664,11 +6668,13 @@ save_pd_instr.dist_src_spec
 
     _definition.id                '_pd_instr.dist_src_spec'
     _alias.definition_id          '_pd_instr_dist_src/spec'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
     Specifies distances in millimetres from the radiation source to
-    the specimen. Note that *_src_spec is used in place of
+    the centre of the specimen along the mean beam path.
+
+    Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use
 ;
     _name.category_id             pd_instr
@@ -7413,10 +7419,12 @@ save_pd_instr.dist_anal_detc
 
     _definition.id                '_pd_instr.dist_anal_detc'
     _alias.definition_id          '_pd_instr_dist_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies the distance in millimetres from the analyser to the detector.
+    Specifies the distance in millimetres from the analyser to the
+    detector along the mean beam path.
+
     Note that *_spec_detc is used in place of *_anal_detc
     if there is no analyser in use.
 ;
@@ -7435,11 +7443,13 @@ save_pd_instr.dist_spec_anal
 
     _definition.id                '_pd_instr.dist_spec_anal'
     _alias.definition_id          '_pd_instr_dist_spec/anal'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies distances in millimetres from the specimen to the
-    analyser. Note that *_spec_detc is used in place of *_spec_anal
+    Specifies distances in millimetres from the centre of the
+    specimen to the analyser along the mean beam path.
+
+    Note that *_spec_detc is used in place of *_spec_anal
     if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -7457,11 +7467,15 @@ save_pd_instr.dist_spec_detc
 
     _definition.id                '_pd_instr.dist_spec_detc'
     _alias.definition_id          '_pd_instr_dist_spec/detc'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies distance in millimetres from the specimen to the
-    detector. Note that *_spec_anal and *_anal_detc are used
+    Specifies distance in millimetres from the centre of the
+    specimen to the detector. If the detector not a point detector,
+    then the distance refers to the shortest distance from the
+    specimen to the detector.
+
+    Note that *_spec_anal and *_anal_detc are used
     instead of *_spec_detc if there is an analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -13597,4 +13611,8 @@ save_
        Descriptions of PD_DATA, PD_CALC, PD_MEAS, and PD_PROC updated
        to make explicit that they can only represent one-dimensional
        data.
+
+       Update descriptions of _pd_instr.dist* to define distance for
+       non-point detectors and to specify the specimen centre as the
+       point of interest.
 ;
