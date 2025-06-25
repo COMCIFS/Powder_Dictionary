@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-24
+    _dictionary.date              2025-06-25
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -4317,7 +4317,7 @@ save_PD_DATA
     _definition.id                PD_DATA
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-11
+    _definition.update            2025-06-25
     _description.text
 ;
     The PD_DATA category is a "container" category that is defined
@@ -4326,6 +4326,13 @@ save_PD_DATA
     As PD_CALC, PD_MEAS, and PD_PROC are all subcategories of this
     category, the various items belonging to those categories may
     be looped together or separately, as desired.
+
+    The data contained within PD_DATA and its subcategories only
+    represent one-dimensional datasets, that is, intensity as some
+    function of 2θ, d-spacing, time-of-flight, position, or other
+    applicable diffraction-related coordinate as defined in PD_MEAS
+    or PD_PROC. Higher dimensional data must first be reduced in some
+    manner before it can be assigned to data names in these categories.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DATA
@@ -4497,13 +4504,19 @@ save_PD_CALC
     _definition.id                PD_CALC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-11
+    _definition.update            2025-06-25
     _description.text
 ;
     This section is used for storing a computed diffractogram trace.
     This may be a simulated powder pattern for a material from a
     program such as LAZY/PULVERIX or the computed intensities from a
     Rietveld refinement.
+
+    The intensities contained within PD_CALC represent one-dimensional
+    datasets, that is, intensity as a function of _pd_calc.point_id.
+    2θ, d-spacing, time-of-flight, position, or other applicable
+    diffraction-related coordinate can be assigned to each data point
+    through the equivalent *.point_id in PD_MEAS or PD_PROC.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_CALC
@@ -4762,7 +4775,7 @@ save_PD_MEAS
     _definition.id                PD_MEAS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2025-04-18
+    _definition.update            2025-06-25
     _description.text
 ;
     This section contains the measured diffractogram prior to
@@ -4782,6 +4795,13 @@ save_PD_MEAS
     as the square root of the number of counts recorded, should
     use the _pd_meas.counts_* fields. All other intensity values
     should be recorded using _pd_meas.intensity_*.
+
+    The data contained within PD_MEAS only represent one-dimensional
+    datasets, that is, intensity as some function of 2θ, d-spacing,
+    time-of-flight, position, or other applicable diffraction-related
+    coordinate as defined. Higher dimensional data must first be reduced
+    in some manner before it can be assigned to data names in these
+    categories.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
@@ -5541,12 +5561,20 @@ save_PD_PROC
     _definition.id                PD_PROC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2025-04-18
+    _definition.update            2025-06-25
     _description.text
 ;
     This section contains the diffraction data set after processing
     and application of correction terms. If the data set is
     reprocessed, this section may be replaced.
+
+    The data contained within PD_PROC only represent one-dimensional
+    datasets, that is, intensity as some function of 2θ, d-spacing,
+    time-of-flight, position, or other applicable diffraction-related
+    coordinate as defined. Higher dimensional data must first be reduced
+    in some manner before it can be assigned to data names in these
+    categories.
+
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_PROC
@@ -13375,7 +13403,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-24
+         2.5.0                    2025-06-25
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13565,4 +13593,8 @@ save_
        Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
 
        Added _pd_instr.radiation_id and _pd_instr_detector.instr_id.
+
+       Descriptions of PD_DATA, PD_CALC, PD_MEAS, and PD_PROC updated
+       to make explicit that they can only represent one-dimensional
+       data.
 ;
