@@ -4958,6 +4958,33 @@ save_pd_meas.2theta_scan_su
 
 save_
 
+save_pd_meas.channel
+
+    _definition.id                '_pd_meas.channel'
+    _definition.update            2025-06-26
+    _description.text
+;
+    A number which identifies the channel number, detector element, or
+    other subsection of a position-sensitive, energy-dispersive or other
+    multiple-detector instrument for which there is an intensity we can
+    record separately.
+
+    Calibration information, such as angle offsets or a calibration
+    function to convert channel numbers to Q, energy, wavelength,
+    angle etc. should be described using PD_CALIB_XCOORD and/or
+    PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
+    used, the detector IDs should be the number to be used in the
+    equation.
+;
+    _name.category_id             pd_meas
+    _name.object_id               channel
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+
+save_
+
 save_pd_meas.counts_background
 
     _definition.id                '_pd_meas.counts_background'
@@ -5115,14 +5142,17 @@ save_pd_meas.detector_id
 
     _definition.id                '_pd_meas.detector_id'
     _alias.definition_id          '_pd_meas_detector_id'
-    _definition.update            2023-06-09
+    _definition.update            2025-06-26
     _description.text
 ;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. This code should match the code name used for
-    _pd_instr_detector.id.
+    A code which identifies the detector for which the individual
+    instrument geometry is being defined. This code should match
+    the code name used for _pd_instr_detector.id.
+
+    Although it is possible to use this data name to describe channel
+    number in a position-sensitive, energy-dispersive or other
+    multiple-detector instrument, _pd_meas.channel should alwayes
+    be used in lieu where possible.
 
     Calibration information, such as angle offsets or a calibration
     function to convert channel numbers to Q, energy, wavelength,
@@ -13637,4 +13667,12 @@ save_
 
        Add _pd_instr_detector.diffrn_detector_id to link a pdCIF to a
        _diffrn_detector.id detector.
+
+       Added _pd_meas.channel to explicitly refer to channel number
+       in a diffractogram, rather than allowing _pd_meas.detector_id
+       to fulfill two disparate duties.
+
+       Update description of _pd_meas.detector_id to delegate its use as
+       channel number to _pd_meas.channel. It is still possible to refer
+       to channel numbers here, but not prefered.
 ;
