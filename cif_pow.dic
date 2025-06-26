@@ -8112,7 +8112,7 @@ save_PD_MEAS_OVERALL
          angle during the collection time per step. Data collection was started
          on the 27^th^ of February, 2023 at 2245 h in a timezone +8 h from UTC.
          The specimen was rotated 180° during the collection of the data for
-         each measurement point
+         each measurement point.
 ;
 ;
           _pd_meas.rocking_angle   2.5
