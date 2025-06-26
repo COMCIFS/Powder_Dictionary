@@ -8051,13 +8051,17 @@ save_
 save_pd_instr_detector.id
 
     _definition.id                '_pd_instr_detector.id'
-    _definition.update            2023-06-09
+    _definition.update            2025-06-26
     _description.text
 ;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. Where a single detector is used, this may be omitted.
+    An arbitrary code which identifies the detector.
+
+    Although it is possible, it should not be used to describe a channel
+    number in a position-sensitive, energy-dispersive or other
+    multiple-detector instrument for which the individual instrument
+    geometry is being defined.
+
+    See also _pd_meas.detector_id and _pd_meas.channel.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               id
@@ -13671,6 +13675,9 @@ save_
        Added _pd_meas.channel to explicitly refer to channel number
        in a diffractogram, rather than allowing _pd_meas.detector_id
        to fulfill two disparate duties.
+
+       Update description of _pd_instr_detector.id to frown on its use as
+       a channel number descriptor. 
 
        Update description of _pd_meas.detector_id to delegate its use as
        channel number to _pd_meas.channel. It is still possible to refer
