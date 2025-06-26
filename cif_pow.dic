@@ -422,11 +422,13 @@ save_PD_BACKGROUND
     The data items list here allow for the recording of the various coefficients
     used, rather than a complete enumeration of the value of the background
     calculated at every data point; although doing so is still possible - see
-    _pd_proc.intensity_bkg_calc.
+    _pd_calc.intensity_bkg.
 
     The computed background values should include all normalization corrections,
-    and thus are specified on the same scale as the observed intensities
-    (_pd_meas.counts_* or _pd_meas.intensity_*, and _pd_calc.intensity_total).
+    and thus are specified on the same scale as the other calculated intensities
+    such as _pd_calc.intensity_total. Indeed the sum of
+    _pd_proc.intensity_bkg_calc and _pd_calc.intensity_net should be
+    _pd_calc.intensity_total.
 
     If more than one type of background is specified for a particular
     diffractogram, then it is assumed they are linearly additive.
@@ -4342,7 +4344,7 @@ save_PD_DATA
          _pd_meas.2theta_scan
          _pd_meas.intensity_total
          _pd_calc.intensity_total
-         _pd_proc.intensity_bkg_calc
+         _pd_calc.intensity_bkg
          1   5.001   43.364   25.994961   25.994961
          2   5.004   38.007   26.200290   26.200290
          3   5.007   38.318   26.404083   26.404083
@@ -4369,7 +4371,7 @@ save_PD_DATA
          _pd_proc.intensity_total
          _pd_proc.ls_weight
          _pd_calc.intensity_total
-         _pd_proc.intensity_bkg_calc
+         _pd_calc.intensity_bkg
          0   1110.30100   1.489225   0.60008   6528.86960   0.553025   0.504217
          1   1114.74220   1.495170   0.63531   6316.37917   0.571286   0.504020
          2   1119.20117   1.501138   0.64690   6107.85715   0.593895   0.503826
@@ -4611,6 +4613,36 @@ save_pd_calc.diffractogram_id
 
 save_
 
+save_pd_calc.intensity_bkg
+
+    _definition.id                '_pd_calc.intensity_bkg'
+    _definition.update            2025-06-21
+    _description.text
+;
+    Intensity values for the computed background of a
+    diffractogram at each data point. Values should be computed
+    at the same locations as the processed diffractogram, and
+    thus the numbers of points will be defined by
+    _pd_proc.number_of_points and point positions may
+    be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    If the background is calculated in such a way that
+    s.u. values are available, prefer _pd_proc.intensity_bkg_calc.
+
+    See also PD_BACKGROUND.
+;
+    _name.category_id             pd_calc
+    _name.object_id               intensity_bkg
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
 save_pd_calc.intensity_net
 
     _definition.id                '_pd_calc.intensity_net'
@@ -4689,9 +4721,9 @@ save_pd_calc.intensity_total
     _method.purpose               Evaluation
     _method.expression
 ;
-    t = pd_proc.intensity_bkg_calc
+    t = pd_calc.intensity_bkg
     loop pcc as pd_calc_component {
-        t += pcc.intensity_total - pd_proc.intensity_bkg_calc
+        t += pcc.intensity_total - pd_calc.intensity_bkg
     }
     pd_calc.intensity_total = t
 ;
@@ -4928,7 +4960,8 @@ save_pd_meas.counts_background
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -4965,7 +4998,8 @@ save_pd_meas.counts_container
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5001,7 +5035,8 @@ save_pd_meas.counts_monitor
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5038,7 +5073,8 @@ save_pd_meas.counts_total
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5124,6 +5160,11 @@ save_pd_meas.intensity_background
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
     corrections and record the result using
@@ -5177,6 +5218,11 @@ save_pd_meas.intensity_container
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
+
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
 
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
@@ -5233,6 +5279,11 @@ save_pd_meas.intensity_monitor
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
     corrections and record the result using
@@ -5286,6 +5337,11 @@ save_pd_meas.intensity_total
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
+
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
 
     Corrections for background, detector dead time etc.,
     should not have been made to these values. Instead use
@@ -5404,10 +5460,14 @@ save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-22
     _description.text
 ;
     The count time in seconds for each intensity measurement.
+
+    Use this item for measurements where the count time
+    varies for different points; where the step count time is
+    constant, prefer _pd_meas_overall.step_count_time.
 ;
     _name.category_id             pd_meas
     _name.object_id               step_count_time
@@ -5684,7 +5744,7 @@ save_pd_proc.intensity_bkg_calc
 
     _definition.id                '_pd_proc.intensity_bkg_calc'
     _alias.definition_id          '_pd_proc_intensity_bkg_calc'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
@@ -5692,7 +5752,10 @@ save_pd_proc.intensity_bkg_calc
     _pd_proc.intensity_bkg_calc is intended to contain the
     background intensity for every data point where the
     background function has been fitted or estimated (for example, in
-    all Rietveld and profile fits).
+    all Rietveld and profile fits) where the background
+    values have an asssociated s.u..
+
+    If there is no s.u. value, prefer _pd_calc.intensity_bkg.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_bkg_calc
@@ -5738,6 +5801,7 @@ save_pd_proc.intensity_bkg_fix
     of '.' for data points where a fixed background has not
     been defined. The extrapolated background at every point
     may be specified using _pd_proc.intensity_bkg_calc.
+    See also _pd_calc.intensity_bkg.
 
     Background values should be on the same scale as the
     _pd_proc.intensity_net values. Thus normalization and
@@ -5884,11 +5948,11 @@ save_pd_proc.intensity_norm
     Values in this data item are normalisation-corrected and contain
     a background component.
 
-    Background values (for example, given by _pd_proc.intensity_bkg_calc)
-    should be on the same scale as the _pd_proc.intensity_net values.
-    Thus normalization and correction factors should be applied before
-    background subtraction (or should be applied to the background values
-    equally).
+    Background values (for example, given by _pd_proc.intensity_bkg_calc,
+    or _pd_calc.intensity_bkg) should be on the same scale as the
+    _pd_proc.intensity_net values. Thus normalization and correction
+    factors should be applied before background subtraction (or should be
+    applied to the background values equally).
 
     Normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
@@ -6114,7 +6178,7 @@ save_PD_DIFFRACTOGRAM
     _definition.id                PD_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2022-10-11
+    _definition.update            2025-06-23
     _description.text
 ;
     This category includes data names relating to a diffractogram
@@ -6123,6 +6187,48 @@ save_PD_DIFFRACTOGRAM
     _name.category_id             PD_GROUP
     _name.object_id               PD_DIFFRACTOGRAM
     _category_key.name            '_pd_diffractogram.id'
+    _description_example.case
+;
+         _diffrn.id                    'high temperature iron ore'
+         _diffrn.ambient_temperature   1273
+         _diffrn.ambient_pressure      101.3
+
+         _pd_instr.id                       "Lab machine 1"
+         _pd_instr.geometry                 Bragg-Brentano
+         _pd_instr.detector_circle_radius   117.5
+
+         _pd_spec.id            ABC123_03
+         _pd_spec.prep_id       ABC123_main
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+
+         _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
+         _pd_diffractogram.diffrn_id   "high temperature iron ore"
+         _pd_diffractogram.instr_id    "Lab machine 1"
+         _pd_diffractogram.spec_id     ABC123_03
+
+         loop_
+            _pd_meas.2theta_scan
+            _pd_proc.intensity_total
+            _pd_proc.ls_weight
+            _pd_calc.intensity_total
+            _pd_proc.intensity_bkg_calc
+            5.01   43.364   0.0402   25.994961    25.994961
+            5.04   38.007   0.0505   26.200290    26.200290
+            5.07   38.318   0.0465   26.404083    26.404083
+            5.10   41.877   0.0452   26.606346    26.606346
+            #...
+;
+    _description_example.detail
+;
+         A set of diffraction conditions, instrument settings, and specimen
+         information, are detailed with their respective id values.
+         A diffractogram is defined with a UUID, and then linked to those
+         diffraction conditions, instrument settings, and specimen information
+         through the relevant _pd_diffractogram.* data names. This says that
+         the diffractogram was collected under those conditions, with that
+         instrument, and that specimen.
+;
 
 save_
 
@@ -8421,6 +8527,46 @@ save_pd_meas_overall.diffractogram_id
 
 save_
 
+save_pd_meas_overall.step_count_time
+
+    _definition.id                '_pd_meas_overall.step_count_time'
+    _definition.update            2025-06-22
+    _description.text
+;
+    The count time in seconds for each intensity measurement where
+    the count time is constant for each step in the diffractogram.
+
+    Where the step count time is not constant for each point, use
+    _pd_meas.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time
+    _type.purpose                 Measurand
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   seconds
+
+save_
+
+save_pd_meas_overall.step_count_time_su
+
+    _definition.id                '_pd_meas_overall.step_count_time_su'
+    _definition.update            2025-06-22
+    _description.text
+;
+    Standard uncertainty of _pd_meas_overall.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time_su
+    _name.linked_item_id          '_pd_meas_overall.step_count_time'
+    _units.code                   seconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_PD_PEAK
 
     _definition.id                PD_PEAK
@@ -8695,6 +8841,25 @@ save_pd_peak.intensity_su
 
 save_
 
+save_pd_peak.overall_id
+
+    _definition.id                '_pd_peak.overall_id'
+    _definition.update            2025-06-23
+    _description.text
+;
+    A code linking to general information about peak description and
+    determination for the  peaks.
+;
+    _name.category_id             pd_peak
+    _name.object_id               overall_id
+    _name.linked_item_id          '_pd_peak_overall.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
 save_pd_peak.pk_height
 
     _definition.id                '_pd_peak.pk_height'
@@ -8843,7 +9008,7 @@ save_PD_PEAK_OVERALL
     _definition.id                PD_PEAK_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This category describes general aspects of the peak extraction
@@ -8852,6 +9017,33 @@ save_PD_PEAK_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK_OVERALL
     _category_key.name            '_pd_peak_overall.id'
+    _description_example.case
+;
+         _pd_peak_overall.id        PEAK_GROUP_1
+         _pd_peak.special_details
+    ;
+          Peak positions allowed to refine freely. Peak widths
+          constrained to follow UVW relationship. Peak shape
+          constrained to be Lorentzian.
+    ;
+         loop_
+         _pd_peak.id
+         _pd_peak.2theta_centroid
+         _pd_peak.width_2theta
+         _pd_peak.intensity
+         _pd_peak.intensity_su
+         _pd_peak.overall_id
+         A   12.35   0.26   1023    7   PEAK_GROUP_1
+         B   24.74   0.56   2318   15   PEAK_GROUP_1
+         C   37.79   0.61    506    2   PEAK_GROUP_1
+;
+    _description_example.detail
+;
+         The position, width, and intensity of three peaks are given.
+         The details of how these values were determined are given by
+         _pd_peak.special_details. These details are linked to the
+         individual peaks by the _pd_pea_overall.id "PEAK_GROUP_1".
+;
 
 save_
 
@@ -10634,7 +10826,7 @@ save_pd_proc_ls.background_function
 
     _definition.id                '_pd_proc_ls.background_function'
     _alias.definition_id          '_pd_proc_ls_background_function'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Description of the background treatment mechanism used to
@@ -10650,7 +10842,8 @@ save_pd_proc_ls.background_function
     coefficients used in the background function with their
     s.u.'s. The background values for each data point
     computed from the function should be specified in
-    _pd_proc.intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc or _pd_calc.intensity_bkg,
+    depending on if s.u. values are calculated for the bkg values.
 
     If background correction is performed using extrapolation
     from a set of points at fixed locations, these points
@@ -10662,7 +10855,10 @@ save_pd_proc_ls.background_function
     etc.) and whether the values were refined to improve the
     agreement. The extrapolated background intensity value for
     each data point should be specified in
-    _pd_proc.intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc or _pd_calc.intensity_bkg,
+    depending on if s.u. values are calculated for the bkg values.
+
+    See also PD_BACKGROUND.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               background_function
@@ -11064,12 +11260,15 @@ save_pd_proc.info_excluded_regions
 
     _definition.id                '_pd_proc.info_excluded_regions'
     _alias.definition_id          '_pd_proc_info_excluded_regions'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Description of regions in the diffractogram excluded
     from processing along with a justification of why the
     data points were not used.
+
+    To indicate excluded regions in a machine-readble manner,
+    set the requisite values in _pd_proc.ls_weight to 0.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               info_excluded_regions
@@ -13151,12 +13350,21 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       _pd_diffractogram.id, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
+       PD_DIFFRACTOGRAM, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
        PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
+
+       Add _pd_peak.overall_id.
+
+       Created _pd_calc.intensity_bkg and updated description of
+       _pd_proc.intensity_bkg_calc.
+
+       Enhanced description of _pd_proc.info_excluded_region.
 
        PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
        and _diffrn_radiation_wavelength.diffractogram_id added to record
        the source of a refined wavelength value.
        _diffrn_radiation_wavelength.special_details added to record
        information about the wavelength.
+
+       Added _pd_meas_overall.step_count_time.
 ;
