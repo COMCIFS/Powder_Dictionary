@@ -8142,7 +8142,7 @@ save_PD_MEAS_OVERALL
           _pd_meas.2theta_fixed         5
           _pd_meas.angle_chi           45
           _pd_meas.units_of_intensity
-             'Proportional to current (Ampere) from Si(Li) detector.'
+             'Proportional to current (ampere) from Si(Li) detector.'
           _pd_meas.scan_method         disp
 
           loop_
