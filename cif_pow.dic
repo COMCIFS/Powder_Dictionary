@@ -6192,11 +6192,11 @@ save_PD_DIFFRACTOGRAM
       _description_example.case
       _description_example.detail
 ;
-         _diffrn.id                    'high temperature iron ore'
+         _diffrn.id                    highTemp
          _diffrn.ambient_temperature   1273
          _diffrn.ambient_pressure      101.3
 
-         _pd_instr.id                       "Lab machine 1"
+         _pd_instr.id                       Lab1
          _pd_instr.geometry                 Bragg-Brentano
          _pd_instr.detector_circle_radius   117.5
 
@@ -6206,8 +6206,8 @@ save_PD_DIFFRACTOGRAM
          _pd_spec.mount_mode    reflection
 
          _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
-         _pd_diffractogram.diffrn_id   "high temperature iron ore"
-         _pd_diffractogram.instr_id    "Lab machine 1"
+         _pd_diffractogram.diffrn_id   highTemp
+         _pd_diffractogram.instr_id    Lab1
          _pd_diffractogram.spec_id     ABC123_03
 
          loop_
@@ -6240,14 +6240,14 @@ save_PD_DIFFRACTOGRAM
          data_diffrn_info
             _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
 
-            _diffrn.id                    'high temperature iron ore'
+            _diffrn.id                    highTemp
             _diffrn.ambient_temperature   1273
             _diffrn.ambient_pressure      101.3
 
          data_instr_info
             _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
 
-            _pd_instr.id                       "Lab machine 1"
+            _pd_instr.id                       Lab1
             _pd_instr.geometry                 Bragg-Brentano
             _pd_instr.detector_circle_radius   117.5
 
@@ -6263,8 +6263,8 @@ save_PD_DIFFRACTOGRAM
             _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
 
             _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
-            _pd_diffractogram.diffrn_id   "high temperature iron ore"
-            _pd_diffractogram.instr_id    "Lab machine 1"
+            _pd_diffractogram.diffrn_id   highTemp
+            _pd_diffractogram.instr_id    Lab1
             _pd_diffractogram.spec_id     ABC123_03
 
             loop_
