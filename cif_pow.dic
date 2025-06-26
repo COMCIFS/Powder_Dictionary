@@ -13677,7 +13677,7 @@ save_
        to fulfill two disparate duties.
 
        Update description of _pd_instr_detector.id to frown on its use as
-       a channel number descriptor. 
+       a channel number descriptor.
 
        Update description of _pd_meas.detector_id to delegate its use as
        channel number to _pd_meas.channel. It is still possible to refer
