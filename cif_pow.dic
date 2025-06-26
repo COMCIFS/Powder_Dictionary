@@ -11912,7 +11912,7 @@ save_PD_QPA_INTERNAL_STD
          _pd_phase_mass.absolute for the standard is:
          25.000 * 0.9902 = 24.76 wt%.
 
-         The weight fractions derived from the ZMW algorithm were then scaled as
+         The weight fractions derived from the ZMV algorithm were then scaled as
 
             W~p~^absolute^ = W~p~^ZMV^ * (W~s~^known^ / W~s~^ZMV^)
 
