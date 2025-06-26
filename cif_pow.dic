@@ -4973,8 +4973,8 @@ save_pd_meas.channel
     function to convert channel numbers to Q, energy, wavelength,
     angle etc. should be described using PD_CALIB_XCOORD and/or
     PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
-    used, the detector IDs should be the number to be used in the
-    equation.
+    used, the value of _pd_meas.channel should be the number to be used
+    in the equation.
 ;
     _name.category_id             pd_meas
     _name.object_id               channel
@@ -4982,6 +4982,7 @@ save_pd_meas.channel
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Real
+    _units.code                   none
 
 save_
 
@@ -8040,7 +8041,7 @@ save_pd_instr_detector.diffrn_detector_id
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_detector_id
-    _name.linked_item_id          '_pd_instr.diffrn_detector_id'
+    _name.linked_item_id          '_diffrn_detector.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
