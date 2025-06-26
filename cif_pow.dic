@@ -8005,7 +8005,8 @@ save_pd_instr_detector.diffrn_detector_id
     _definition.update            2025-06-26
     _description.text
 ;
-    The diffrn detector (see _diffrn_detector.id) to which the pdCIF detector belongs.
+    The diffrn detector (see _diffrn_detector.id) to which the pdCIF
+    detector belongs.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_detector_id
