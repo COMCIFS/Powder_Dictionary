@@ -2621,7 +2621,7 @@ save_PD_CALIB_DETECTED_INTENSITY
     _definition.id                PD_CALIB_DETECTED_INTENSITY
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-01-21
+    _definition.update            2025-06-27
     _description.text
 ;
     This section defines the parameters used for the intensity calibration of
@@ -2646,11 +2646,7 @@ save_PD_CALIB_DETECTED_INTENSITY
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_DETECTED_INTENSITY
-
-    loop_
-      _category_key.name
-         '_pd_calib_detected_intensity.detector_id'
-         '_pd_calib_detected_intensity.id'
+    _category_key.name            '_pd_calib_detected_intensity.detector_id'
 
 save_
 
@@ -2741,24 +2737,6 @@ save_pd_calib_detected_intensity.diffractogram_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_calib_detected_intensity.id
-
-    _definition.id                '_pd_calib_detected_intensity.id'
-    _definition.update            2023-01-21
-    _description.text
-;
-    A code to uniquely identify each intensity calibration.
-;
-    _name.category_id             pd_calib_detected_intensity
-    _name.object_id               id
-    _type.purpose                 Key
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
 
 save_
 
@@ -13510,4 +13488,7 @@ save_
        information about the wavelength.
 
        Added _pd_meas_overall.step_count_time.
+
+       Removed _pd_calib_detected_intensity.id as data item and category key
+       of PD_CALIB_DETECTED_INTENSITY.
 ;
