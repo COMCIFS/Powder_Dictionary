@@ -3437,43 +3437,72 @@ save_PD_CALIB_XCOORD
       _description_example.case
       _description_example.detail
 ;
-         _pd_diffractogram.id                        CALIBRATION_DIFFRACTOGRAM
-         _pd_diffractogram.instr_id                  INSTRUMENT_1
-         _pd_calib_xcoord_overall.id                 main_calibration
-         _pd_calib_xcoord_overall.diffractogram_id   CALIBRATION_DIFFRACTOGRAM
+         data_calibrationinformation
+             _pd_diffractogram.id                        CALIBRATION_DIFFRACTOGRAM
+             _pd_diffractogram.instr_id                  INSTRUMENT_1
+             _pd_calib_xcoord_overall.id                 main_calibration
+             _pd_calib_xcoord_overall.diffractogram_id   CALIBRATION_DIFFRACTOGRAM
 
-         loop_
-         _pd_calib_xcoord.id
-         _pd_calib_xcoord.nominal_2theta
-         _pd_calib_xcoord.actual_2theta
-          a   10.01   10.011
-          b   10.03   10.031
-          c   10.05   10.051
-          d   10.07   10.071
-          ...
+             loop_
+             _pd_calib_xcoord.id
+             _pd_calib_xcoord.nominal_2theta
+             _pd_calib_xcoord.actual_2theta
+              a   10.01   10.011
+              b   10.03   10.032
+              c   10.05   10.053
+              d   10.07   10.074
+              # ...
 
-          loop_
-          _pd_data.point_id
-          _pd_meas.2theta_scan
-          _pd_proc.2theta_scan
-          _pd_meas.counts_total
-          _pd_calc.intensity_total
-          1   10.01   10.011  1234    1234.1
-          2   10.03   10.031  1235    1235.3
-          3   10.05   10.051  1352    1236.5
-          4   10.07   10.071  1324    1237.7
-          ...
+             loop_
+             _pd_data.point_id
+             _pd_meas.2theta_scan
+             _pd_proc.2theta_corrected
+             _pd_meas.counts_total
+             _pd_calc.intensity_total
+             1   10.01   10.011  1234    1234.1
+             2   10.03   10.033  1235    1235.3
+             3   10.05   10.055  1352    1236.5
+             4   10.07   10.077  1324    1237.7
+             # ...
+
+         data_unknownsample
+             _pd_diffractogram.id         UNKNOWN_DIFFRACTOGRAM
+             _pd_diffractogram.instr_id   INSTRUMENT_1
+
+             loop_
+             _pd_data.point_id
+             _pd_meas.2theta_scan
+             _pd_proc.2theta_corrected
+             _pd_meas.counts_total
+             A   10.02   10.022  3134
+             B   10.04   10.044  3335
+             C   10.06   10.066  3452
+             D   10.08   10.088  3324
+             # ...
 ;
 ;
-         A diffractogram identified as "CALIBRATION_DIFFRACTOGRAM", was
-         collected on the instrument identified as "INSTRUMENT_1", to act
-         as a calibration standard for the 2θ axis.
+         The the data block "calibrationinformation", A diffractogram
+         identified as "CALIBRATION_DIFFRACTOGRAM", was collected on
+         the instrument identified as "INSTRUMENT_1", to act as a
+         calibration standard for the 2θ axis.
+
          The measured and processed 2θ values from the resultant analysis
-         are taken as the nominal and actual values, respectively, for
-         the calibration.
+         were taken as the nominal and actual values, respectively, for
+         the calibration. These values can be used to calibrate the
+         2θ axis of other diffractograms collected on the same
+         instrument.
 
          The calibration is given the overall id of 'main_calibration', to
          link the source of the calibration to the individual loop values.
+
+         The data block "unknownsample" contains a diffractogram
+         identified as "UNKNOWN_DIFFRACTOGRAM", which was collected on the
+         same instrument, "INSTRUMENT_1". To check if any X-coordinate
+         calibration is available, the instrument id "INSTRUMENT_1" is compared
+         against any entries in _pd_calib_xcoord_overall.diffractogram_id
+         and if a match is found, the X-coordinate calibration could be used
+         to correct the _pd_meas.2theta_scan values in the loop by either direct
+         value replacement, or an interpolation.
 ;
 ;
          _pd_diffractogram.id                        TOF_STD
