@@ -4966,12 +4966,13 @@ save_pd_meas.channel
 ;
     A number which identifies the channel number, detector element, or
     other subsection of a position-sensitive, energy-dispersive or other
-    multiple-detector instrument for which there is an intensity we can
-    record separately.
+    multiple-one-dimensional-detector instrument for which there is an
+    intensity we can record separately. Typically used when raw counts or
+    intensity are recorded as a function of channel number, prior to
+    conversion to physical units.
 
-    Calibration information, such as angle offsets or a calibration
-    function to convert channel numbers to Q, energy, wavelength,
-    angle etc. should be described using PD_CALIB_XCOORD and/or
+    Calibration information to convert channel numbers to Q, energy,
+    wavelength, angle etc. should be described using PD_CALIB_XCOORD and/or
     PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
     used, the value of _pd_meas.channel should be the number to be used
     in the equation.
@@ -4981,7 +4982,7 @@ save_pd_meas.channel
     _type.purpose                 Number
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Real
+    _type.contents                Integer
     _units.code                   none
 
 save_
@@ -13674,7 +13675,7 @@ save_
        _diffrn_detector.id detector.
 
        Added _pd_meas.channel to explicitly refer to channel number
-       in a diffractogram, rather than allowing _pd_meas.detector_id
+       in a diffractogram, rather than requiring _pd_meas.detector_id
        to fulfill two disparate duties.
 
        Update description of _pd_instr_detector.id to frown on its use as
