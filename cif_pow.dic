@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-23
+    _dictionary.date              2025-06-28
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -3940,7 +3940,7 @@ save_PD_CALIBRATION
     _definition.id                PD_CALIBRATION
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-06
+    _definition.update            2025-06-28
     _description.text
 ;
     This category details the equations used to convert a channel number
@@ -3950,10 +3950,12 @@ save_PD_CALIBRATION
 
     This information is not designed to be machine-readable, but should be
     written in an explicit manner to enable reimplementation.
+
+    For a machine-readable implementation, please see PD_CALIB_XCOORD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIBRATION
-    _category_key.name            '_pd_calibration.diffractogram_id'
+    _category_key.name            '_pd_calibration.id'
     _description_example.case
 ;
          _pd_diffractogram.id   EDD_DP
@@ -4019,11 +4021,11 @@ save_
 save_pd_calibration.diffractogram_id
 
     _definition.id                '_pd_calibration.diffractogram_id'
-    _definition.update            2023-06-06
+    _definition.update            2025-06-28
     _description.text
 ;
-    A code which identifies the diffractogram to which this calibration equation
-    has been applied.
+    A code which identifies the diffractogram from which this
+    calibration equation was derived.
 ;
     _name.category_id             pd_calibration
     _name.object_id               diffractogram_id
@@ -4035,22 +4037,20 @@ save_pd_calibration.diffractogram_id
 
 save_
 
-save_pd_calibration.ref_diffractogram_id
+save_pd_calibration.id
 
-    _definition.id                '_pd_calibration.ref_diffractogram_id'
-    _definition.update            2023-06-06
+    _definition.id                '_pd_calibration.id'
+    _definition.update            2025-06-28
     _description.text
 ;
-    A code which identifies the reference diffractogram from which this
-    calibration equation was derived.
+    Arbitrary label identifying a calibration.
 ;
     _name.category_id             pd_calibration
-    _name.object_id               ref_diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
+    _name.object_id               id
+    _type.purpose                 Key
     _type.source                  Assigned
     _type.container               Single
-    _type.contents                Text
+    _type.contents                Word
 
 save_
 
@@ -13202,7 +13202,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-23
+         2.5.0                    2025-06-28
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13312,9 +13312,6 @@ save_
        Added child data names of _pd_peak_overall.id to PD_AMORPHOUS,
        PD_BACKGROUND, and REFLN.
 
-       Update PD_CALIBRATION with _pd_calibration.ref_diffractogram_id and new
-       category key _pd_calibration.diffractogram_id.
-
        Created category keys for PD_CHAR and PD_PREP. Added link keys to join
        PD_CHAR to PD_PREP, and PD_PREP to PD_SPEC.
 
@@ -13391,4 +13388,7 @@ save_
        information about the wavelength.
 
        Added _pd_meas_overall.step_count_time
+
+       Update PD_CALIBRATION with _pd_calibration.diffractogram_id and new
+       key, _pd_calibration.id.
 ;
