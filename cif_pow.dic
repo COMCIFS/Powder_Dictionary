@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-19
+    _dictionary.date              2025-06-23
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -257,6 +257,63 @@ save_chemical_formula.phase_id
 
 save_
 
+save_diffrn_radiation_wavelength.diffractogram_id
+
+    _definition.id
+        '_diffrn_radiation_wavelength.diffractogram_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    A code which identifies a diffractogram which was used in the calibration of
+    the wavelength.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.phase_id
+
+    _definition.id                '_diffrn_radiation_wavelength.phase_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    A code which identifies a phase whose cell parameters were used in the
+    calibration of the wavelength.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               phase_id
+    _name.linked_item_id          '_pd_phase.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_diffrn_radiation_wavelength.special_details
+
+    _definition.id                '_diffrn_radiation_wavelength.special_details'
+    _definition.update            2025-06-23
+    _description.text
+;
+    Description of wavelength calibration details that cannot otherwise be
+    recorded using other DIFFRN_RADIATION_WAVELENGTH data items.
+;
+    _name.category_id             diffrn_radiation_wavelength
+    _name.object_id               special_details
+    _type.purpose                 Describe
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
 save_PD_AMORPHOUS
 
     _definition.id                PD_AMORPHOUS
@@ -365,11 +422,13 @@ save_PD_BACKGROUND
     The data items list here allow for the recording of the various coefficients
     used, rather than a complete enumeration of the value of the background
     calculated at every data point; although doing so is still possible - see
-    _pd_proc.intensity_bkg_calc.
+    _pd_calc.intensity_bkg.
 
     The computed background values should include all normalization corrections,
-    and thus are specified on the same scale as the observed intensities
-    (_pd_meas.counts_* or _pd_meas.intensity_*, and _pd_calc.intensity_total).
+    and thus are specified on the same scale as the other calculated intensities
+    such as _pd_calc.intensity_total. Indeed the sum of
+    _pd_proc.intensity_bkg_calc and _pd_calc.intensity_net should be
+    _pd_calc.intensity_total.
 
     If more than one type of background is specified for a particular
     diffractogram, then it is assumed they are linearly additive.
@@ -2052,7 +2111,7 @@ save_PD_CALC_OVERALL
     _definition.id                PD_CALC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-18
+    _definition.update            2025-06-19
     _description.text
 ;
     Items in this category record overall features of the computed
@@ -2061,6 +2120,43 @@ save_PD_CALC_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALC_OVERALL
     _category_key.name            '_pd_calc_overall.diffractogram_id'
+    _description_example.case
+;
+         _pd_diffractogram.id   DIFFRACTOGRAM_NUMBER_7
+         _pd_calc.method        Rietveld
+
+         _pd_calc_overall.component_presentation_order
+             [ PHASE_A_ID PHASE_B_ID PHASE_C_ID ]
+
+         loop_
+         _pd_data.point_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_calc.intensity_total
+         _pd_calc.component_intensities_net
+         0   3.99875   1061.8   1076.653 [ 20.20 203.215 512.256 ]
+         1   4.03625   1053.9   1074.628 [ 21.34 204.535 513.156 ]
+         2   4.07375   1060.2   1072.667 [ 21.45 205.755 516.456 ]
+         3   4.11125   1017.3   1070.768 [ 21.55 206.975 513.256 ]
+         #...
+;
+    _description_example.detail
+;
+         Tabulation of diffraction data consisting of measured and
+         calculated data, where the calculated data also include intensities
+         ascribed to the different phases which make up the model. The phases to
+         which the intensities belong are given by the value of
+         _pd_calc_overall.component_presentation_order. These values correspond
+         to the _pd_phase.id values of the phases contributing to the current
+         diffractogram. As _pd_calc.component_intensities_net is used, the
+         intensities given do not include any background contribution.
+
+         The category key value associated with _pd_data.point_id is given
+         with every data point. The category key value associated with
+         _pd_calc_overall.diffractogram_id and _pd_data.diffractogram_id would
+         be taken as 'DIFFRACTOGRAM_NUMBER_7', the value of
+         _pd_diffractogram.id given in the data block.
+;
 
 save_
 
@@ -2708,7 +2804,7 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _definition.id                PD_CALIB_INCIDENT_INTENSITY
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This section defines the parameters used for the incident intensity
@@ -2726,6 +2822,58 @@ save_PD_CALIB_INCIDENT_INTENSITY
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_INCIDENT_INTENSITY
     _category_key.name            '_pd_calib_incident_intensity.instr_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _pd_calib_incident_intensity.instr_id           a3643812
+        _pd_calib_incident_intensity.incident_counts    4231
+        _pd_calib_incident_intensity.special_details    'From beam monitor.'
+;
+;
+        The number of counts incident on the specimen in the instrument
+        identified as a3643812 is 4231, as measured by a beam monitor. The
+        uncertainty on the incident counts is given as the square root of the
+        counts.
+;
+;
+        _pd_calib_incident_intensity.instr_id                9deaa4f1
+        _pd_calib_incident_intensity.incident_intensity      453.3
+        _pd_calib_incident_intensity.incident_intensity_su     1.6
+        _pd_calib_incident_intensity.diffractogram_id        STANDARD_30ffb964
+        _pd_calib_incident_intensity.phase_id                SRM1796_15341c3a
+;
+;
+        In the instrument identified as 9deaa4f1, the intensity incident on the
+        specimen is 453.3 ± 1.6. This was determined through an analysis of
+        the diffractogram, STANDARD_30ffb964, which contains the phase,
+        SRM1796_15341c3a.
+;
+;
+        _pd_instr.id           a3643812
+        _pd_diffractogram.id   WHITE_POWDER
+
+        loop_
+        _pd_data.point_id
+        _pd_meas.2theta_scan
+        _pd_meas.counts_total
+        _pd_proc.intensity_total
+        _pd_proc.intensity_total_su
+        1   10.02   2774   0.6556   0.0160
+        2   10.04   2923   0.6909   0.0166
+        3   10.06   3096   0.7317   0.0173
+        4   10.08   3159   0.7466   0.0176
+        # ...
+;
+;
+        The measured intensities for the diffractogram "WHITE_POWDER"
+        collected on the instrument "a3643812" have been processed to
+        give the normalised intensity at each point in the scan using
+        the incident intensity calibration linked to that instrument.
+        The SU values have also been calculated for the
+        _pd_proc.intensity_total values.
+;
 
 save_
 
@@ -3178,11 +3326,11 @@ save_pd_calib_std.external_block_id
       _definition_replaced.by
          1                      '_pd_calib_detected_intensity.diffractogram_id'
          2                      '_pd_calib_incident_intensity.diffractogram_id'
-         3                      '_pd_calib_wavelength.diffractogram_id'
+         3                      '_diffrn_radiation_wavelength.diffractogram_id'
          4                      '_pd_calib_xcoord_overall.diffractogram_id'
 
     _alias.definition_id          '_pd_calib_std_external_block_id'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-20
     _description.text
 ;
     This item is deprecated. Please see:
@@ -3232,150 +3380,6 @@ save_pd_calib_std.external_name
     _name.object_id               external_name
     _type.purpose                 Describe
     _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_PD_CALIB_WAVELENGTH
-
-    _definition.id                PD_CALIB_WAVELENGTH
-    _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-01-17
-    _description.text
-;
-    This category allows for linking to the diffractograms and phases used in
-    the calibration of the wavelength used directly or indirectly in the
-    interpretation of this data set.
-
-    Loops may be used when multiple phases and/or diffractograms are used for
-    calibration. In this case, the given wavelength is a best-fit to all phases
-    and diffractograms.
-
-    See also _diffrn_radiation_wavelength.determination.
-;
-    _name.category_id             PD_GROUP
-    _name.object_id               PD_CALIB_WAVELENGTH
-
-    loop_
-      _category_key.name
-         '_pd_calib_wavelength.diffractogram_id'
-         '_pd_calib_wavelength.diffrn_id'
-         '_pd_calib_wavelength.phase_id'
-
-    loop_
-      _description_example.case
-      _description_example.detail
-;
-       _audit.schema            Custom
-
-       loop_
-       _pd_calib_wavelength.diffrn_id
-       _pd_calib_wavelength.diffractogram_id
-       _pd_calib_wavelength.phase_id
-       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_SILICON
-       DIFFRN_EXP_1   DIFFRACTOGRAM_1   NIST_LAB6
-       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_SILICON
-       DIFFRN_EXP_1   DIFFRACTOGRAM_2   NIST_LAB6
-;
-;
-       The incident wavelength used in the measurement identified by the
-       _diffrn.id 'DIFFRN_EXP_1' was refined from two different
-       diffractograms with _pd_diffractogram.id values of 'DIFFRACTOGRAM_1'
-       and 'DIFFRACTOGRAM_2'. In these diffractograms, the same two phases
-       appeared, with _pd_phase.id values of 'NIST_SILICON' and 'NIST_LAB6',
-       As more than one diffractogram and phase was used, the wavelength
-       is a best-fit over all data. Because information relating to
-       more than one diffractogram and phase is collected in a single
-       data block, _audit.schema is set to "Custom".
-;
-;
-       _diffrn.id                              DIFFRN_EXP_A
-       _pd_calib_wavelength.diffractogram_id   DIFFRACTOGRAM_A
-       _pd_calib_wavelength.phase_id           ACME_CORUNDUM
-;
-;
-       The incident wavelength used in the measurement identified by the
-       _diffrn.id 'DIFFRN_EXP_A' was refined from a diffractogram with a
-       _pd_diffractogram.id value of 'DIFFRACTOGRAM_A'. In this
-       diffractogram, a phase with a _pd_phase.id value of 'ACME_CORUNDUM'
-       was used to calibrate the wavelength against known unit cell
-       parameters.
-;
-
-save_
-
-save_pd_calib_wavelength.diffractogram_id
-
-    _definition.id                '_pd_calib_wavelength.diffractogram_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies a diffractogram which was used in the calibration of
-    the wavelength.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calib_wavelength.diffrn_id
-
-    _definition.id                '_pd_calib_wavelength.diffrn_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies the diffraction experiment to which this calibration
-    belongs.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               diffrn_id
-    _name.linked_item_id          '_diffrn.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Word
-
-save_
-
-save_pd_calib_wavelength.phase_id
-
-    _definition.id                '_pd_calib_wavelength.phase_id'
-    _definition.update            2023-01-17
-    _description.text
-;
-    A code which identifies a phase whose cell parameters were used in the
-    calibration of the wavelength.
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               phase_id
-    _name.linked_item_id          '_pd_phase.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-
-save_
-
-save_pd_calib_wavelength.special_details
-
-    _definition.id                '_pd_calib_wavelength.special_details'
-    _definition.update            2023-01-17
-    _description.text
-;
-    Description of intensity calibration details that cannot otherwise be
-    recorded using other PD_CALIB_WAVELENGTH data items
-;
-    _name.category_id             pd_calib_wavelength
-    _name.object_id               special_details
-    _type.purpose                 Describe
-    _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
 
@@ -4368,7 +4372,7 @@ save_PD_CHAR
     _definition.id                PD_CHAR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-04
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains experimental (non-diffraction) information relevant to
@@ -4376,7 +4380,7 @@ save_PD_CHAR
     drawn.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -4389,6 +4393,15 @@ save_PD_CHAR
     _name.category_id             PD_GROUP
     _name.object_id               PD_CHAR
     _category_key.name            '_pd_char.id'
+    _description_example.case
+;
+         _pd_char.colour                   white
+         _pd_char.mass_atten_coef_mu_calc  4878
+         _pd_char.particle_morphology
+            'Large equiaxed chunks, approx. 3 mm  across.'
+         _pd_char.special_details
+            'Bottle labelled "corundum". MAC calculated from XRF.'
+;
 
 save_
 
@@ -4693,7 +4706,7 @@ save_PD_DATA
          _pd_meas.2theta_scan
          _pd_meas.intensity_total
          _pd_calc.intensity_total
-         _pd_proc.intensity_bkg_calc
+         _pd_calc.intensity_bkg
          1   5.001   43.364   25.994961   25.994961
          2   5.004   38.007   26.200290   26.200290
          3   5.007   38.318   26.404083   26.404083
@@ -4720,7 +4733,7 @@ save_PD_DATA
          _pd_proc.intensity_total
          _pd_proc.ls_weight
          _pd_calc.intensity_total
-         _pd_proc.intensity_bkg_calc
+         _pd_calc.intensity_bkg
          0   1110.30100   1.489225   0.60008   6528.86960   0.553025   0.504217
          1   1114.74220   1.495170   0.63531   6316.37917   0.571286   0.504020
          2   1119.20117   1.501138   0.64690   6107.85715   0.593895   0.503826
@@ -4821,15 +4834,16 @@ save_pd_data.point_id
 
     _definition.id                '_pd_data.point_id'
     _alias.definition_id          '_pd_data_point_id'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying an entry in the table of
-    diffractogram intensity values. This should be used in
-    preference to the pd_calc/pd_calc_component/pd_meas/pd_proc
-    point_id data items whenever data items from more than
-    one of the pd_calc/pd_calc_component/pd_proc/pd_meas
-    categories are looped together.
+    Arbitrary label identifying a specific entry in a loop of
+    values forming a diffractogram.
+
+    This should be used in preference to _pd_calc.point_id,
+    _pd_calc_component.point_id, _pd_meas.point_id, or
+    _pd_proc.point_id whenever data items from more than one of
+    those categories are looped together.
 ;
     _name.category_id             pd_data
     _name.object_id               point_id
@@ -4961,6 +4975,36 @@ save_pd_calc.diffractogram_id
 
 save_
 
+save_pd_calc.intensity_bkg
+
+    _definition.id                '_pd_calc.intensity_bkg'
+    _definition.update            2025-06-21
+    _description.text
+;
+    Intensity values for the computed background of a
+    diffractogram at each data point. Values should be computed
+    at the same locations as the processed diffractogram, and
+    thus the numbers of points will be defined by
+    _pd_proc.number_of_points and point positions may
+    be defined using _pd_proc.2theta_range_* or
+    _pd_proc.2theta_corrected.
+
+    If the background is calculated in such a way that
+    s.u. values are available, prefer _pd_proc.intensity_bkg_calc.
+
+    See also PD_BACKGROUND.
+;
+    _name.category_id             pd_calc
+    _name.object_id               intensity_bkg
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
 save_pd_calc.intensity_net
 
     _definition.id                '_pd_calc.intensity_net'
@@ -5039,9 +5083,9 @@ save_pd_calc.intensity_total
     _method.purpose               Evaluation
     _method.expression
 ;
-    t = pd_proc.intensity_bkg_calc
+    t = pd_calc.intensity_bkg
     loop pcc as pd_calc_component {
-        t += pcc.intensity_total - pd_proc.intensity_bkg_calc
+        t += pcc.intensity_total - pd_calc.intensity_bkg
     }
     pd_calc.intensity_total = t
 ;
@@ -5052,14 +5096,18 @@ save_pd_calc.point_id
 
     _definition.id                '_pd_calc.point_id'
     _alias.definition_id          '_pd_calc_point_id'
-    _definition.update            2022-12-04
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying a calculated data point. Used to
-    identify a specific entry in a list of values forming the
-    calculated diffractogram. The role of this identifier may
-    be adopted by _pd_data.point_id if measured, processed, and/or
-    calculated intensity values are combined in a single list.
+    Arbitrary label identifying a calculated data point.
+    Used to identify a specific entry in a loop of values forming the
+    calculated diffractogram.
+
+    Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
+    _pd_proc.point_id refer to the same point, and thus provide a way of
+    indicating that points in disparate loops are equivalent. The role of this
+    identifier should be adopted by _pd_data.point_id if measured, processed,
+    and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_calc
     _name.object_id               point_id
@@ -5202,7 +5250,7 @@ save_pd_meas.2theta_scan
          '_pd_meas_2theta_scan'
          '_pd_meas_angle_2theta'
 
-    _definition.update            2022-10-11
+    _definition.update            2025-06-20
     _description.text
 ;
     2θ diffraction angle (in degrees) for intensity
@@ -5220,7 +5268,7 @@ save_pd_meas.2theta_scan
 
     Note that for data sets collected with constant step size,
     _pd_meas.2theta_range_* (min, max and inc) may be used
-    instead of _pd_meas.2theta_scan. _pd_meas.2theta_angle was
+    instead of _pd_meas.2theta_scan. _pd_meas_angle_2theta was
     originally a distinct but cognate definition and should not be
     used in new files.
 ;
@@ -5274,7 +5322,8 @@ save_pd_meas.counts_background
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5311,7 +5360,8 @@ save_pd_meas.counts_container
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5347,7 +5397,8 @@ save_pd_meas.counts_monitor
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5384,7 +5435,8 @@ save_pd_meas.counts_total
     Note that counts-per-second values should be converted to
     total counts. If the counting time varies for different
     points, it may be included in the loop using
-    _pd_meas.step_count_time.
+    _pd_meas.step_count_time. A constant count time can be
+    recorded using _pd_meas_overall.step_count_time.
 
     Standard uncertainties should not be quoted for these values.
     If the standard uncertainties differ from the square root of
@@ -5470,6 +5522,11 @@ save_pd_meas.intensity_background
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
     corrections and record the result using
@@ -5523,6 +5580,11 @@ save_pd_meas.intensity_container
     values are not counts (use _pd_meas.counts_* for event-counting
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
+
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
 
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
@@ -5579,6 +5641,11 @@ save_pd_meas.intensity_monitor
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.
     should not have been made to these values. Instead, make the
     corrections and record the result using
@@ -5633,6 +5700,11 @@ save_pd_meas.intensity_total
     measurements where the standard uncertainty is
     estimated as the square root of the number of counts).
 
+    If the counting time varies for different points, it may
+    be included in the loop using _pd_meas.step_count_time.
+    A constant count time can be recorded using
+    _pd_meas_overall.step_count_time.
+
     Corrections for background, detector dead time etc.,
     should not have been made to these values. Instead use
     _pd_proc.intensity_* for corrected diffractograms.
@@ -5671,14 +5743,18 @@ save_pd_meas.point_id
 
     _definition.id                '_pd_meas.point_id'
     _alias.definition_id          '_pd_meas_point_id'
-    _definition.update            2022-12-04
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying a measured data point. Used to
-    identify a specific entry in a list of measured intensities.
-    The role of this identifier may be adopted by
-    _pd_data.point_id if measured, processed, and/or calculated
-    intensity values are combined in a single list.
+    Arbitrary label identifying a measured data point.
+    Used to identify a specific entry in a loop of values forming the
+    measured diffractogram.
+
+    Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
+    _pd_proc.point_id refer to the same point, and thus provide a way of
+    indicating that points in disparate loops are equivalent. The role of this
+    identifier should be adopted by _pd_data.point_id if measured, processed,
+    and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_meas
     _name.object_id               point_id
@@ -5746,10 +5822,14 @@ save_pd_meas.step_count_time
 
     _definition.id                '_pd_meas.step_count_time'
     _alias.definition_id          '_pd_meas_step_count_time'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-22
     _description.text
 ;
     The count time in seconds for each intensity measurement.
+
+    Use this item for measurements where the count time
+    varies for different points; where the step count time is
+    constant, prefer _pd_meas_overall.step_count_time.
 ;
     _name.category_id             pd_meas
     _name.object_id               step_count_time
@@ -6026,7 +6106,7 @@ save_pd_proc.intensity_bkg_calc
 
     _definition.id                '_pd_proc.intensity_bkg_calc'
     _alias.definition_id          '_pd_proc_intensity_bkg_calc'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Inclusion of s.u.'s for these values is strongly recommended.
@@ -6034,7 +6114,10 @@ save_pd_proc.intensity_bkg_calc
     _pd_proc.intensity_bkg_calc is intended to contain the
     background intensity for every data point where the
     background function has been fitted or estimated (for example, in
-    all Rietveld and profile fits).
+    all Rietveld and profile fits) where the background
+    values have an asssociated s.u..
+
+    If there is no s.u. value, prefer _pd_calc.intensity_bkg.
 ;
     _name.category_id             pd_proc
     _name.object_id               intensity_bkg_calc
@@ -6080,6 +6163,7 @@ save_pd_proc.intensity_bkg_fix
     of '.' for data points where a fixed background has not
     been defined. The extrapolated background at every point
     may be specified using _pd_proc.intensity_bkg_calc.
+    See also _pd_calc.intensity_bkg.
 
     Background values should be on the same scale as the
     _pd_proc.intensity_net values. Thus normalization and
@@ -6226,11 +6310,11 @@ save_pd_proc.intensity_norm
     Values in this data item are normalisation-corrected and contain
     a background component.
 
-    Background values (for example, given by _pd_proc.intensity_bkg_calc)
-    should be on the same scale as the _pd_proc.intensity_net values.
-    Thus normalization and correction factors should be applied before
-    background subtraction (or should be applied to the background values
-    equally).
+    Background values (for example, given by _pd_proc.intensity_bkg_calc,
+    or _pd_calc.intensity_bkg) should be on the same scale as the
+    _pd_proc.intensity_net values. Thus normalization and correction
+    factors should be applied before background subtraction (or should be
+    applied to the background values equally).
 
     Normalization factors applied to the data set (for
     example, Lp corrections, compensation for variation in
@@ -6343,16 +6427,18 @@ save_pd_proc.point_id
 
     _definition.id                '_pd_proc.point_id'
     _alias.definition_id          '_pd_proc_point_id'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-19
     _description.text
 ;
-    Arbitrary label identifying a processed data point. Used to
-    identify a specific entry in a list of processed intensities.
-    The role of this identifier may be adopted by
-    _pd_data.point_id if measured, processed and calculated
-    intensity values are combined in a single list, or by
-    _pd_meas.point_id if measured and processed lists are
-    combined.
+    Arbitrary label identifying a processed data point.
+    Used to identify a specific entry in a loop of values forming the
+    processed diffractogram.
+
+    Note that identical values of _pd_calc.point_id, _pd_meas.point_id, and
+    _pd_proc.point_id refer to the same point, and thus provide a way of
+    indicating that points in disparate loops are equivalent. The role of this
+    identifier should be adopted by _pd_data.point_id if measured, processed,
+    and/or calculated intensity values are combined in a single loop.
 ;
     _name.category_id             pd_proc
     _name.object_id               point_id
@@ -6454,7 +6540,7 @@ save_PD_DIFFRACTOGRAM
     _definition.id                PD_DIFFRACTOGRAM
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2022-10-11
+    _definition.update            2025-06-23
     _description.text
 ;
     This category includes data names relating to a diffractogram
@@ -6463,6 +6549,107 @@ save_PD_DIFFRACTOGRAM
     _name.category_id             PD_GROUP
     _name.object_id               PD_DIFFRACTOGRAM
     _category_key.name            '_pd_diffractogram.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _diffrn.id                    highTemp
+         _diffrn.ambient_temperature   1273
+         _diffrn.ambient_pressure      101.3
+
+         _pd_instr.id                       Lab1
+         _pd_instr.geometry                 Bragg-Brentano
+         _pd_instr.detector_circle_radius   117.5
+
+         _pd_spec.id            ABC123_03
+         _pd_spec.prep_id       ABC123_main
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+
+         _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
+         _pd_diffractogram.diffrn_id   highTemp
+         _pd_diffractogram.instr_id    Lab1
+         _pd_diffractogram.spec_id     ABC123_03
+
+         loop_
+            _pd_meas.2theta_scan
+            _pd_proc.intensity_total
+            _pd_proc.ls_weight
+            _pd_calc.intensity_total
+            _pd_proc.intensity_bkg_calc
+            5.01   43.364   0.0402   25.994961    25.994961
+            5.04   38.007   0.0505   26.200290    26.200290
+            5.07   38.318   0.0465   26.404083    26.404083
+            5.10   41.877   0.0452   26.606346    26.606346
+            #...
+;
+;
+         A set of diffraction conditions, instrument settings, and specimen
+         information, are detailed with their respective id values.
+         A diffractogram is defined with a UUID, and then linked to those
+         diffraction conditions, instrument settings, and specimen information
+         through the relevant _pd_diffractogram.* data names. This says that
+         the diffractogram was collected under those conditions, with that
+         instrument, and that specimen.
+
+         It is not sufficient, for machine-readability, that the _diffrn.id,
+         _pd_instr.id, and _pd_spec.id are given in the same block; they must
+         be explicitly set through _pd_diffractogram.diffrn_id,
+         _pd_diffractogram.instr_id, and _pd_diffractogram.spec_id.
+;
+;
+         data_diffrn_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _diffrn.id                    highTemp
+            _diffrn.ambient_temperature   1273
+            _diffrn.ambient_pressure      101.3
+
+         data_instr_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_instr.id                       Lab1
+            _pd_instr.geometry                 Bragg-Brentano
+            _pd_instr.detector_circle_radius   117.5
+
+         data_spec_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_spec.id            ABC123_03
+            _pd_spec.prep_id       ABC123_main
+            _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+            _pd_spec.mount_mode    reflection
+
+         data_diffract_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
+            _pd_diffractogram.diffrn_id   highTemp
+            _pd_diffractogram.instr_id    Lab1
+            _pd_diffractogram.spec_id     ABC123_03
+
+            loop_
+               _pd_meas.2theta_scan
+               _pd_proc.intensity_total
+               _pd_proc.ls_weight
+               _pd_calc.intensity_total
+               _pd_proc.intensity_bkg_calc
+               5.01   43.364   0.0402   25.994961    25.994961
+               5.04   38.007   0.0505   26.200290    26.200290
+               5.07   38.318   0.0465   26.404083    26.404083
+               5.10   41.877   0.0452   26.606346    26.606346
+               #...
+;
+;
+         A functionally identical data set as to the first example.
+         The _audit_dataset.id asserts that all data blocks are to
+         be interpreted as one entity. Within that scope, the use of
+         _pd_diffractogram.diffrn_id, _pd_diffractogram.instr_id, and
+         _pd_diffractogram.spec_id link those diffraction conditions,
+         instrument, and specimen details in the same manner as in the
+         first example.
+;
 
 save_
 
@@ -6497,6 +6684,34 @@ save_pd_diffractogram.id
     _name.object_id               id
     _type.purpose                 Key
     _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|SEPD7234|B.Toby|SEPD.IPNS.ANL.GOV'
+         '76d675f5-9f0b-4bd9-8be3-1266edf74908'
+         'DIFFRACTOGRAM Z2'
+         'Insitu_pattern_0123'
+         'Synthesis number 1'
+         'white_030e391f'
+
+save_
+
+save_pd_diffractogram.instr_id
+
+    _definition.id                '_pd_diffractogram.instr_id'
+    _definition.update            2025-06-20
+    _description.text
+;
+    The instrument (see _pd_instr.id) with which the diffractogram was
+    collected.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
     _type.container               Single
     _type.contents                Text
 
@@ -8270,7 +8485,7 @@ save_PD_MEAS_OVERALL
     _definition.id                PD_MEAS_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2025-04-18
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains information about the conditions used for
@@ -8283,6 +8498,90 @@ save_PD_MEAS_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_OVERALL
     _category_key.name            '_pd_meas_overall.diffractogram_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_37
+
+          _pd_meas.2theta_range_min   5.00
+          _pd_meas.2theta_range_max  95.00
+          _pd_meas.2theta_range_inc   0.02
+          _pd_meas.number_of_points  4501
+          _pd_meas.scan_method       cont
+
+          _pd_meas.datetime_initiated   2023-02-27T22:45:00+08:00
+
+          _pd_meas.rocking_angle   180
+          _pd_meas.rocking_axis    phi
+          _pd_instr.geometry       Bragg-Brentano
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.counts_total
+          1   1234
+          2   1256
+          #...
+;
+;
+         The measured diffractogram is in equally spaced 2θ points, starting
+         at 5.00° 2θ, going up in steps of 0.02°, with the last data point at
+         95.00° 2θ. In total, there are 4501 data points. The data were
+         collected in a continuous scan, such that the detector did not stop
+         moving, and the intensities were binned according to the goniometer
+         angle during the collection time per step. Data collection was started
+         on the 27^th^ of February, 2023 at 2245 h in a timezone +8 h from UTC.
+         The specimen was rotated 180° during the collection of the data for
+         each measurement point.
+;
+;
+          _pd_meas.rocking_angle   2.5
+          _pd_meas.rocking_axis    omega
+          _pd_meas.scan_method     step
+
+          _pd_instr.geometry       Bragg-Brentano
+
+          _pd_diffractogram.id     PATTERN_96
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          1   5.02   1234
+          2   5.04   1256
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_96'. For each measurement point, the specimen rotated ±2.5°
+         from its standard position about the omega axis.
+;
+;
+          _pd_diffractogram.id         EDD_123
+
+          _pd_meas.2theta_fixed         5
+          _pd_meas.angle_chi           45
+          _pd_meas.units_of_intensity
+             'Proportional to current (ampere) from Si(Li) detector.'
+          _pd_meas.scan_method         disp
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.energy_detection
+          _pd_meas.intensity_total
+          _pd_meas.intensity_total_su
+          1   50300   1234   23
+          2   50400   1256   24
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'EDD_123'. The detector was fixed at 5° 2θ and tilted at
+         45° χ. The data were collected in energy-dispersive mode, where
+         the intensity recorded was proportional to the current measured in
+         the Si(Li) detector.
+;
 
 save_
 
@@ -8733,12 +9032,52 @@ save_pd_meas_overall.diffractogram_id
 
 save_
 
+save_pd_meas_overall.step_count_time
+
+    _definition.id                '_pd_meas_overall.step_count_time'
+    _definition.update            2025-06-22
+    _description.text
+;
+    The count time in seconds for each intensity measurement where
+    the count time is constant for each step in the diffractogram.
+
+    Where the step count time is not constant for each point, use
+    _pd_meas.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time
+    _type.purpose                 Measurand
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   seconds
+
+save_
+
+save_pd_meas_overall.step_count_time_su
+
+    _definition.id                '_pd_meas_overall.step_count_time_su'
+    _definition.update            2025-06-22
+    _description.text
+;
+    Standard uncertainty of _pd_meas_overall.step_count_time.
+;
+    _name.category_id             pd_meas_overall
+    _name.object_id               step_count_time_su
+    _name.linked_item_id          '_pd_meas_overall.step_count_time'
+    _units.code                   seconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_PD_PEAK
 
     _definition.id                PD_PEAK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains peak information extracted from the
@@ -8758,6 +9097,58 @@ save_PD_PEAK
       _category_key.name
          '_pd_peak.diffractogram_id'
          '_pd_peak.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         loop_
+         _pd_peak.id
+         _pd_peak.2theta_centroid
+         _pd_peak.width_2theta
+         _pd_peak.intensity
+         _pd_peak.intensity_su
+         A   12.35   0.26   1023    7
+         B   24.74   0.56   2318   15
+         C   37.79   0.61    506    2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak centroid (eg 12.35° 2θ), and the
+         width is the full-width at half-maximum (eg 0.26° 2θ). The peak
+         intensity is given as the peak area with an associated standard
+         uncertainty (eg 1023 ± 7).
+;
+;
+         loop_
+         _diffrn_radiation_wavelength.id
+         _diffrn_radiation_wavelength.value
+         _diffrn_radiation_wavelength.wt
+         1   1.534753   0.0159
+         2   1.540596   0.5691
+         3   1.541058   0.0762
+         4   1.544410   0.2517
+         5   1.544721   0.0871
+
+         loop_
+         _pd_peak.id
+         _pd_peak.d_spacing
+         _pd_peak.pk_height
+         _pd_peak.pk_height_su
+         _pd_peak.wavelength_id
+         a   6.25   10432   132   2
+         b   3.17    8973    87   2
+         c   1.25   25632   167   2
+;
+;
+         The details of three peaks are given. Their peak position is given as
+         the position of the peak in angstroms (eg 6.25 Å). The peak intensity
+         is given as the peak height with an associated standard uncertainty
+         (eg 10432 ± 132). The particular wavelength used to calculate the
+         d-spacing from the data's original 2θ results is given in the final
+         column, which corresponds to 1.540596 Å, as given in the top-most
+         loop.
+;
 
 save_
 
@@ -8955,6 +9346,25 @@ save_pd_peak.intensity_su
 
 save_
 
+save_pd_peak.overall_id
+
+    _definition.id                '_pd_peak.overall_id'
+    _definition.update            2025-06-23
+    _description.text
+;
+    A code linking to general information about peak description and
+    determination for the  peaks.
+;
+    _name.category_id             pd_peak
+    _name.object_id               overall_id
+    _name.linked_item_id          '_pd_peak_overall.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+save_
+
 save_pd_peak.pk_height
 
     _definition.id                '_pd_peak.pk_height'
@@ -9103,7 +9513,7 @@ save_PD_PEAK_OVERALL
     _definition.id                PD_PEAK_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
     This category describes general aspects of the peak extraction
@@ -9112,6 +9522,33 @@ save_PD_PEAK_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_PEAK_OVERALL
     _category_key.name            '_pd_peak_overall.id'
+    _description_example.case
+;
+         _pd_peak_overall.id        PEAK_GROUP_1
+         _pd_peak.special_details
+    ;
+          Peak positions allowed to refine freely. Peak widths
+          constrained to follow UVW relationship. Peak shape
+          constrained to be Lorentzian.
+    ;
+         loop_
+         _pd_peak.id
+         _pd_peak.2theta_centroid
+         _pd_peak.width_2theta
+         _pd_peak.intensity
+         _pd_peak.intensity_su
+         _pd_peak.overall_id
+         A   12.35   0.26   1023    7   PEAK_GROUP_1
+         B   24.74   0.56   2318   15   PEAK_GROUP_1
+         C   37.79   0.61    506    2   PEAK_GROUP_1
+;
+    _description_example.detail
+;
+         The position, width, and intensity of three peaks are given.
+         The details of how these values were determined are given by
+         _pd_peak.special_details. These details are linked to the
+         individual peaks by the _pd_pea_overall.id "PEAK_GROUP_1".
+;
 
 save_
 
@@ -9185,6 +9622,13 @@ save_pd_phase.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+    loop_
+      _description_example.case
+         '1991-15-09T16:54:00Z|Si-std|B.Toby|D500#1234-987'
+         '9d0e3eef-614a-4127-aef5-8b859168fd13'
+         'PHASE A'
+         'Calcium sulphate hemihydrate. ACME Chemicals, batch #12090.'
 
 save_
 
@@ -9289,28 +9733,7 @@ save_PD_PHASE_MASS
       _description_example.detail
 ;
          _audit.schema         Custom
-
-         loop_
-         _pd_phase_mass.diffractogram_id
-         _pd_phase_mass.phase_id
-         _pd_phase_mass.percent
-         _pd_phase_mass.percent_su
-         A_DIFFRACTOGRAM   PHASE_1   45.45   0.42
-         A_DIFFRACTOGRAM   PHASE_2   37.42   0.63
-         A_DIFFRACTOGRAM   PHASE_3   17.13   0.53
-;
-;
-         Tabulation of quantitative phase analysis data. The phase masses,
-         expressed as percentages of the entire specimen are given, along with
-         their associated standard uncertainties. The values are associated with
-         one diffractogram and three phases.
-
-         Blocks containing information about more than one phase must set a
-         non-default value for _audit.schema.
-;
-
-;
-         _audit.schema            Custom
+         _pd_diffractogram.id  A_DIFFRACTOGRAM
 
          loop_
          _pd_phase_mass.phase_id
@@ -9321,18 +9744,44 @@ save_PD_PHASE_MASS
          PHASE_3   17.13   0.53
 ;
 ;
-         Tabulation of quantitative phase analysis data. The phase masses,
-         expressed as percentages of the entire specimen are given, along with
-         their associated standard uncertainties. The values are associated with
-         three phases.
+         Tabulation of quantitative phase analysis data. The relative phase
+         masses, expressed as percentages of the entire specimen, are given
+         along with their associated standard uncertainties. The values are
+         associated with one diffractogram and three phases.
 
-         The method of presentation given here would be associated with being
-         present in a block which already contains a _pd_diffractogram.id
-         data item; the value of _pd_phase_mass.diffractogram_id is linked to
-         that value.
+         Blocks containing information about more than one phase or
+         diffractogram must set a non-default value for _audit.schema.
+;
 
-         When information about more than one phase is contained in a single
-         data block, _audit.schema should have a non-default value.
+;
+         _audit.schema         Custom
+
+         _pd_diffractogram.id  ANOTHER_DIFFRACTOGRAM
+
+         _pd_qpa_internal_std.mass_percent    25.000
+         _pd_qpa_internal_std.phase_id        PHASE_2
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.percent
+         _pd_phase_mass.absolute
+         _pd_phase_mass.original
+         PHASE_1   45.45   30.36   40.49
+         PHASE_2   37.42   25.00    0
+         PHASE_3   17.13   11.44   15.26
+;
+;
+         Tabulation of quantitative phase analysis data.
+
+         The relative phase masses are given by _pd_phase_mass.percent, and as
+         we know that PHASE_2 is an internal standard, we can also
+         calculate the absolute mass percentages in the specimen, given by
+         _pd_phase_mass.absolute. We can then calculate the original mass
+         percentages, those present in the sample before adding the internal
+         standard, given by _pd_phase_mass.original.
+
+         Blocks containing information about more than one phase or
+         diffractogram must set a non-default value for _audit.schema.
 ;
 
 save_
@@ -10382,7 +10831,7 @@ save_PD_PREP
     _definition.id                PD_PREP
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-06-04
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains descriptive information about how the sample, from
@@ -10392,7 +10841,7 @@ save_PD_PREP
     from the 'sample'. Information about the sample is specified in PD_PREP.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -10403,11 +10852,23 @@ save_PD_PREP
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_PREP
-
-    loop_
-      _category_key.name
-         '_pd_prep.char_id'
-         '_pd_prep.id'
+    _category_key.name            '_pd_prep.id'
+    _description_example.case
+;
+         _pd_prep.char_id       'Acme anatase 1234'
+         _pd_prep.id           'rutile 1234'
+         _pd_prep.conditions
+      ;
+         1 kg of anatase from Acme, Lot#1234 was placed in several
+         platinum crucible in a furnace at atmospheric pressure.
+         The furnace was heated at 5 K/min to 1100 K, and held there
+         overnight. The furnace was then switched off and allowed to
+         cool naturally. The batch was combined, homogenised, and
+         riffle-split into 50 g packets.
+      ;
+         _pd_prep.pressure      101.3
+         _pd_prep.temperature  1100
+;
 
 save_
 
@@ -10509,12 +10970,12 @@ save_pd_prep.pressure
 
     _definition.id                '_pd_prep.pressure'
     _alias.definition_id          '_pd_prep_pressure'
-    _definition.update            2022-10-11
+    _definition.update            2025-06-20
     _description.text
 ;
     Preparation pressure of the sample in kilopascals. This
     is particularly important for materials which are metastable
-    at the measurement pressure, _diffrn_ambient_pressure.
+    at the measurement pressure, _diffrn.ambient_pressure.
 ;
     _name.category_id             pd_prep
     _name.object_id               pressure
@@ -10781,7 +11242,7 @@ save_PD_PROC_LS
     _definition.id                PD_PROC_LS
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2014-06-20
+    _definition.update            2025-06-19
     _description.text
 ;
     This section is used to define parameters relevant to a
@@ -10800,13 +11261,77 @@ save_PD_PROC_LS
     _name.object_id               PD_PROC_LS
     _category_key.name            '_pd_proc_ls.diffractogram_id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+         _pd_diffractogram.id   PATTERN_42
+
+         _pd_proc_ls.peak_cutoff        0.0001
+         _pd_proc_ls.prof_wr_expected   0.12324
+         _pd_proc_ls.prof_wr_factor     0.15432
+         _pd_proc_ls.profile_function   'Fundamental parameters'
+;
+;
+         The PD_PROC_LS information applies to the diffractogram with the id of
+         PATTERN_42. The peak intensities are calculated out to a point where
+         the intensity is 0.0001 times the intensity at the peak maximum, or
+         0.01%. The value of R~exp~ is 12.324% and R~wp~ is 15.432%. The peak
+         profiles were calculated using fundamental parameters
+;
+;
+         _pd_proc_ls.diffractogram_id   cae4f697-ae84-4e3f-a0c1-4569d60b6191
+         _pd_proc_ls.peak_cutoff        0.005
+         _pd_proc_ls.prof_wr_expected   0.0273
+         _pd_proc_ls.prof_wr_factor     0.0569
+         _pd_proc_ls.profile_function
+       ;
+         The profiles were calculated using the modified Thompson-Cox-Hastings
+         formulation, where:
+
+           tch_L =  X * tan(\q) + Y / cos(\q)
+           tch_G = (U * tan(\q)^2^ + V * tan(\q) + W + Z / cos(\q)^2^)^1/2^
+           tch_P = (   tch_G^5^ +
+             2.69269 * tch_G^4^ * tch_L +
+             2.42843 * tch_G^3^ * tch_L^2^ +
+             4.47163 * tch_G^2^ * tch_L^3^ +
+             0.07842 * tch_G    * tch_L^4^ +
+                                  tch_L^5^ )^1/5^
+           tch_Q = tch_L / tch_P
+           eta = 1.36603 * tch_Q - 0.47719 * tch_Q^2^ + 0.1116 * tch_Q^3^
+
+         The full-width half-maximum of the Lorentzian and Gaussian peaks are
+         given by tch_L and tch_G, respectively.
+
+         The mixing parameter between the amount of Lorentzian and Gaussian is
+         given by eta.
+
+         U, W, Y, and Z were fixed at zero.
+
+         The refined values of V and X were 0.059(2)\% and 0.037(1)\%,
+         respectively.
+
+         For further details, see J. Appl. Cryst. (1987). 20, 79-83
+         https://doi.org/10.1107/S0021889887087090
+       ;
+;
+;
+         The PD_PROC_LS information applies to the diffractogram identified
+         by the UUID given in _pd_proc_ls.diffractogram_id. The peak
+         intensities are calculated out to a point where the intensity is
+         0.005 times the intensity at the peak maximum, or 0.5%. The value
+         of R~exp~ is 2.73% and R~wp~ is 5.69%. The peak profiles were
+         calculated using the modified Thompson-Cox-Hastings algorithm, as
+         described, with final refined parameter values given.
+;
+
 save_
 
 save_pd_proc_ls.background_function
 
     _definition.id                '_pd_proc_ls.background_function'
     _alias.definition_id          '_pd_proc_ls_background_function'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Description of the background treatment mechanism used to
@@ -10822,7 +11347,8 @@ save_pd_proc_ls.background_function
     coefficients used in the background function with their
     s.u.'s. The background values for each data point
     computed from the function should be specified in
-    _pd_proc.intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc or _pd_calc.intensity_bkg,
+    depending on if s.u. values are calculated for the bkg values.
 
     If background correction is performed using extrapolation
     from a set of points at fixed locations, these points
@@ -10834,7 +11360,10 @@ save_pd_proc_ls.background_function
     etc.) and whether the values were refined to improve the
     agreement. The extrapolated background intensity value for
     each data point should be specified in
-    _pd_proc.intensity_bkg_calc.
+    _pd_proc.intensity_bkg_calc or _pd_calc.intensity_bkg,
+    depending on if s.u. values are calculated for the bkg values.
+
+    See also PD_BACKGROUND.
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               background_function
@@ -11236,12 +11765,15 @@ save_pd_proc.info_excluded_regions
 
     _definition.id                '_pd_proc.info_excluded_regions'
     _alias.definition_id          '_pd_proc_info_excluded_regions'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-21
     _description.text
 ;
     Description of regions in the diffractogram excluded
     from processing along with a justification of why the
     data points were not used.
+
+    To indicate excluded regions in a machine-readble manner,
+    set the requisite values in _pd_proc.ls_weight to 0.
 ;
     _name.category_id             pd_proc_overall
     _name.object_id               info_excluded_regions
@@ -11316,7 +11848,7 @@ save_PD_QPA_CALIB_FACTOR
     _definition.id                PD_QPA_CALIB_FACTOR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-15
+    _definition.update            2025-06-19
     _description.text
 ;
     This category gives the value of the calibration constant by which the
@@ -11331,6 +11863,61 @@ save_PD_QPA_CALIB_FACTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_CALIB_FACTOR
     _category_key.name            '_pd_qpa_calib_factor.phase_id'
+
+    _description_example.case
+;
+         data_phase_A
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_B
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_C
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _audit.schema          Custom
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_A, PHASE_B, and
+         PHASE_C) has been quantified using the I/Ic specialisation of the RIR
+         algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I/Ic algorithm detailed in
+         _pd_qpa_overall.method.
+
+         As there are loops containing data names linked to key data names of
+         Set categories (_pd_phase_mass.phase_id and
+         _pd_qpa_intensity_factor.phase_id), the _audit.schema value for the
+         last block must take the value 'Custom'
+;
 
 save_
 
@@ -11959,7 +12546,7 @@ save_PD_QPA_INTERNAL_STD
     _definition.id                PD_QPA_INTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-16
+    _definition.update            2025-06-19
     _description.text
 ;
     This category identifies the internal standard used for
@@ -11994,6 +12581,56 @@ save_PD_QPA_INTERNAL_STD
       _category_key.name
          '_pd_qpa_internal_std.diffractogram_id'
          '_pd_qpa_internal_std.phase_id'
+
+    _description_example.case
+;
+         _audit.schema          Custom
+         _pd_diffractogram.id   DIFFRACTOGRAM_1
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.absolute
+         _pd_phase_mass.absolute_su
+         PHASE_1             42.81   0.56
+         PHASE_2             14.73   0.24
+         NIST_ALUMINA_676A   24.76   0.28
+
+         _pd_qpa_internal_std.mass_percent              25.000
+         _pd_qpa_internal_std.mass_percent_su            0.002
+         _pd_qpa_internal_std.crystallinity_percent     99.02
+         _pd_qpa_internal_std.crystallinity_percent_su   1.11
+         _pd_qpa_internal_std.phase_id                  NIST_ALUMINA_676A
+
+         _pd_qpa_overall.method   ZMV
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM676a) has been quantified using the ZMV algorithm after
+         Rietveld refinement.
+
+         The diffraction pattern was collected from a specimen containing
+         25.000 ± 0.002 wt% internal standard (i.e. 1 g added to 3 g of unknown
+         to make a specimen with total weight of 4 g). The internal standard is
+         known to be 99.02 ± 1.11 % crystalline, and so the reported value of
+         _pd_phase_mass.absolute for the standard is:
+         25.000 * 0.9902 = 24.76 wt%.
+
+         The weight fractions derived from the ZMV algorithm were then scaled as
+
+            W~p~^absolute^ = W~p~^ZMV^ * (W~s~^known^ / W~s~^ZMV^)
+
+         where W is the weight percentage, p is the phase, s is the standard
+         'ZMV' is the weight fraction from the ZMV algorithm, and 'known' is the
+         known addition of standard (_pd_qpa_internal_std.mass_percent). These
+         are the values reported as _pd_phase_mass.absolute. Any difference
+         between the sum of the _pd_phase_mass.absolute values and 100 wt% can
+         be attributed to unanalysed or amorphous phases.
+
+         The crystal structure of the internal standard is described by the
+         information linked to the _pd_phase.id data item with the value
+         'NIST_ALUMINA_676A'.
+;
 
 save_
 
@@ -12476,14 +13113,14 @@ save_PD_SPEC
     _definition.id                PD_SPEC
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-03-25
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains information about the specimen used for measurement of
     the diffraction data set.
 
     'Specimen', 'sample', and 'material' have specific meanings, and sometimes
-    cannot be specifically deliniated. The 'specimen' is the artefact placed
+    cannot be specifically delineated. The 'specimen' is the artefact placed
     into the beam from which the diffraction measurement is taken, and is
     described in PD_SPEC. The specimen is made from the 'sample', which can have
     information specified in PD_PREP. The sample is drawn from a 'material',
@@ -12494,11 +13131,38 @@ save_PD_SPEC
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_SPEC
-
-    loop_
-      _category_key.name
-         '_pd_spec.id'
-         '_pd_spec.prep_id'
+    _category_key.name            '_pd_spec.id'
+    _description_example.case
+;
+         _pd_spec.prep_id       ABC123_main
+         _pd_spec.id            ABC123_03
+         _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+         _pd_spec.mount_mode    reflection
+         _pd_spec.mounting      'back-packed powder pellet'
+         _pd_spec.orientation   horizontal
+         _pd_spec.preparation
+      ;
+         50 g of received sample was homogenised and cone-and-quartered
+         to obtain a 3 g split. 1 g of ɑ-alumina was added as an internal
+         standard. The specimen was micronised for 15 min with 15 ml of
+         ethanol and dried at 45 °C. The resulting powder was backpressed
+         into a holder with a semi-automated press.
+      ;
+         _pd_spec.shape         flat_sheet
+         _pd_spec.size_axial    25.0
+         _pd_spec.size_equat    25.0
+         _pd_spec.size_thick     3.5
+;
+    _description_example.detail
+;
+         A specimen of iron ore, from FeOre Inc., with an added internal
+         standard was prepared for analysis. The sample from which the specimen
+         was prepared is identified by a _pd_prep.id value of "ABC123_main".
+         The data were collected in reflection on an instrument where the
+         incident and diffracted beams are vertical. The specimen flat, and is
+         25.0 x 25.0 mm, or it could be inferred to be 25 mm diameter.
+         The specimen was prepared as described.
+;
 
 save_
 
@@ -13022,7 +13686,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-19
+         2.5.0                    2025-06-23
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13045,7 +13709,7 @@ save_
        Made PD_BLOCK a Loop category.
 
        Created PD_PREF_ORIENT_MARCH_DOLLASE and
-       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orienation
+       PD_PREF_ORIENT_SPHERICAL_HARMONICS to record preferred orientation
        corrections.
 
        Updated intensity/count definitions in PD_CALC, PD_MEAS, and PD_PROC.
@@ -13185,4 +13849,27 @@ save_
        Added _pd_phase_mass.absolute and *.original to record absolute
        mass percentages of phases. Clarified that *.percent was for
        relative mass percentages only.
+
+       Updated descriptions of data items linked to _pd_data.point_id to
+       clarify that identical values refer to the same data point in each
+       disparate loop; they cannot be assigned values independently.
+
+       Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
+       PD_DIFFRACTOGRAM, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS,
+       PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
+
+       Add _pd_peak.overall_id.
+
+       Created _pd_calc.intensity_bkg and updated description of
+       _pd_proc.intensity_bkg_calc.
+
+       Enhanced description of _pd_proc.info_excluded_region.
+
+       PD_CALIB_WAVELENGTH removed. _diffrn_radiation_wavelength.phase_id
+       and _diffrn_radiation_wavelength.diffractogram_id added to record
+       the source of a refined wavelength value.
+       _diffrn_radiation_wavelength.special_details added to record
+       information about the wavelength.
+
+       Added _pd_meas_overall.step_count_time.
 ;
