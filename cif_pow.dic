@@ -3291,9 +3291,9 @@ save_pd_calib_std.detector_id
       _definition_replaced.id
       _definition_replaced.by
          1                        '_pd_calib_detected_intensity.detector_id'
-         2                        '_pd_calib_xcoord_overall.detector_id'
+         2                        '_pd_calib_xcoord.detector_id'
 
-    _definition.update            2023-06-09
+    _definition.update            2025-06-28
     _description.text
 ;
     This item is deprecated. Please see _pd_calib_detected_intensity.detector_id
@@ -3852,7 +3852,7 @@ save_pd_calib_xcoord.actual_time_of_flight_su
     Standard uncertainty of _pd_calib_xcoord.actual_time_of_flight.
 ;
     _name.category_id             pd_calib_xcoord
-    _name.object_id               actual_time_of_flight
+    _name.object_id               actual_time_of_flight_su
     _name.linked_item_id          '_pd_calib_xcoord.actual_time_of_flight'
     _units.code                   microseconds
 
