@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-23
+    _dictionary.date              2025-06-28
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -3121,13 +3121,13 @@ save_pd_calib.2theta_off_point
     _definition.id                '_pd_calib.2theta_off_point'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.2theta_nominal'
+    _definition_replaced.by       '_pd_calib_xcoord.nominal_2theta'
 
     _alias.definition_id          '_pd_calib_2theta_off_point'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord.2theta_nominal.
+    This item is deprecated. Please see _pd_calib_xcoord.nominal_2theta.
 
     The nominal 2θ value to which the offset given in
     _pd_calib.2theta_offset applies.
@@ -3148,13 +3148,13 @@ save_pd_calib.2theta_offset
     _definition.id                '_pd_calib.2theta_offset'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset'
+    _definition_replaced.by       .
 
     _alias.definition_id          '_pd_calib_2theta_offset'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset.
+    This item is deprecated. Please see _pd_calib_xcoord.actual_2theta.
 
     _pd_calib.2theta_offset defines an offset angle (in degrees)
     used to calibrate 2θ (as defined in _pd_meas.2theta_*).
@@ -3178,12 +3178,12 @@ save_pd_calib.2theta_offset_su
     _definition.id                '_pd_calib.2theta_offset_su'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset_su'
+    _definition_replaced.by       .
 
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset_su.
+    This item is deprecated. Please see _pd_calib_xcoord.actual_2theta_su.
 
     Standard uncertainty of _pd_calib.2theta_offset.
 ;
@@ -3201,12 +3201,12 @@ save_pd_calib_offset.detector_id
     _definition.id                '_pd_calib_offset.detector_id'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord_overall.detector_id'
+    _definition_replaced.by       '_pd_calib_xcoord.detector_id'
 
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord_overall.detector_id.
+    This item is deprecated. Please see _pd_calib_xcoord.detector_id.
 
     The detector to which the offset values relate.
     As a default value is defined, the detector id may be
@@ -3443,10 +3443,10 @@ save_PD_CALIB_XCOORD
       _description_example.detail
 ;
          data_calibrationinformation
-             _pd_diffractogram.id                        CALIBRATION_DIFFRACTOGRAM
-             _pd_diffractogram.instr_id                  INSTRUMENT_1
-             _pd_calib_xcoord_overall.id                 main_calibration
-             _pd_calib_xcoord_overall.diffractogram_id   CALIBRATION_DIFFRACTOGRAM
+             _pd_diffractogram.id                      CALIBRATION_DIFFRACTOGRAM
+             _pd_diffractogram.instr_id                INSTRUMENT_1
+             _pd_calib_xcoord_overall.id               main_calibration
+             _pd_calib_xcoord_overall.diffractogram_id CALIBRATION_DIFFRACTOGRAM
 
              loop_
              _pd_calib_xcoord.id
@@ -3970,7 +3970,7 @@ save_
 
 save_pd_calib_xcoord.nominal_channel
 
-    _definition.id                '_pd_calib_xcoord.nominal_energy_detection'
+    _definition.id                '_pd_calib_xcoord.nominal_channel'
     _definition.update            2025-06-28
     _description.text
 ;
@@ -13686,7 +13686,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-23
+         2.5.0                    2025-06-28
 ;
        ## Retain above version number and increment date until final
        ## release
