@@ -3402,7 +3402,8 @@ save_PD_CALIB_XCOORD
     - Q (momentum transfer)
     - time-of-flight
     - wavelength
-    - detector (usually as channel number)
+    - channel number
+    - detector (if used as channel number)
 
     This mapping would usually be used to correct for systematic errors in
     the X-coordinate axis, such as those caused by miscalibration of the
@@ -3960,6 +3961,28 @@ save_pd_calib_xcoord.nominal_2theta
     _type.contents                Real
     _enumeration.range            -180.0:180.0
     _units.code                   degrees
+
+save_
+
+save_pd_calib_xcoord.nominal_channel
+
+    _definition.id                '_pd_calib_xcoord.nominal_energy_detection'
+    _definition.update            2025-06-28
+    _description.text
+;
+    The nominal channel number to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_channel
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _units.code                   none
 
 save_
 
