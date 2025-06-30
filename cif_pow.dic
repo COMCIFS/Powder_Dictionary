@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-26
+    _dictionary.date              2025-06-30
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -13516,7 +13516,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-26
+         2.5.0                    2025-06-30
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13728,4 +13728,11 @@ save_
        Update description of _pd_meas.detector_id to delegate its use as
        channel number to _pd_meas.channel. It is still possible to refer
        to channel numbers here, but not prefered.
+
+       Add _pd_instr.diffrn_id and _pd_instr_detector.diffrn_id to maintain
+       compatibility with imgCIF for DIFFRN_DETECTOR and DIFFRN_RADIATION.
+       These values would not normally be used, as detailing them all would
+       entail repeating all instrument details for all _diffrn.id values.
+       In practice, the value associated with _pd_diffractogram.diffrn_id
+       would be used when looking up this information, where required.
 ;
