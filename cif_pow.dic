@@ -6648,6 +6648,28 @@ save_pd_instr.detector_circle_radius
 
 save_
 
+save_pd_instr.diffrn_id
+
+    _definition.id                '_pd_instr.diffrn_id'
+    _definition.update            2025-06-30
+    _description.text
+;
+    A diffrn id (see _diffrn.id) associated with the instrument.
+
+    Included to maintain compatibility with imgCIF. Do not use this value.
+    Use the value associated with _pd_diffractogram.diffrn_id in any
+    lookup associated with DIFFRN_RADIATION.
+;
+    _name.category_id             pd_instr
+    _name.object_id               diffrn_id
+    _name.linked_item_id          '_diffrn.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_instr.dist_mono_spec
 
     _definition.id                '_pd_instr.dist_mono_spec'
@@ -8056,7 +8078,7 @@ save_pd_instr_detector.diffrn_id
     _definition.update            2025-06-30
     _description.text
 ;
-    The diffrn id (see _diffrn.id) associated with the pdCIF detector.
+    A diffrn id (see _diffrn.id) associated with the pdCIF detector.
 
     Included to maintain compatibility with imgCIF. Do not use this value.
     Use the value associated with _pd_diffractogram.diffrn_id in any
