@@ -6258,13 +6258,16 @@ save_PD_DIFFRACTOGRAM
     _name.category_id             PD_GROUP
     _name.object_id               PD_DIFFRACTOGRAM
     _category_key.name            '_pd_diffractogram.id'
-    _description_example.case
+
+    loop_
+      _description_example.case
+      _description_example.detail
 ;
-         _diffrn.id                    'high temperature iron ore'
+         _diffrn.id                    highTemp
          _diffrn.ambient_temperature   1273
          _diffrn.ambient_pressure      101.3
 
-         _pd_instr.id                       "Lab machine 1"
+         _pd_instr.id                       Lab1
          _pd_instr.geometry                 Bragg-Brentano
          _pd_instr.detector_circle_radius   117.5
 
@@ -6274,8 +6277,8 @@ save_PD_DIFFRACTOGRAM
          _pd_spec.mount_mode    reflection
 
          _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
-         _pd_diffractogram.diffrn_id   "high temperature iron ore"
-         _pd_diffractogram.instr_id    "Lab machine 1"
+         _pd_diffractogram.diffrn_id   highTemp
+         _pd_diffractogram.instr_id    Lab1
          _pd_diffractogram.spec_id     ABC123_03
 
          loop_
@@ -6290,7 +6293,6 @@ save_PD_DIFFRACTOGRAM
             5.10   41.877   0.0452   26.606346    26.606346
             #...
 ;
-    _description_example.detail
 ;
          A set of diffraction conditions, instrument settings, and specimen
          information, are detailed with their respective id values.
@@ -6299,6 +6301,63 @@ save_PD_DIFFRACTOGRAM
          through the relevant _pd_diffractogram.* data names. This says that
          the diffractogram was collected under those conditions, with that
          instrument, and that specimen.
+
+         It is not sufficient, for machine-readability, that the _diffrn.id,
+         _pd_instr.id, and _pd_spec.id are given in the same block; they must
+         be explicitly set through _pd_diffractogram.diffrn_id,
+         _pd_diffractogram.instr_id, and _pd_diffractogram.spec_id.
+;
+;
+         data_diffrn_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _diffrn.id                    highTemp
+            _diffrn.ambient_temperature   1273
+            _diffrn.ambient_pressure      101.3
+
+         data_instr_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_instr.id                       Lab1
+            _pd_instr.geometry                 Bragg-Brentano
+            _pd_instr.detector_circle_radius   117.5
+
+         data_spec_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_spec.id            ABC123_03
+            _pd_spec.prep_id       ABC123_main
+            _pd_spec.description   'Iron ore from FeOre Inc. ID number ABC123'
+            _pd_spec.mount_mode    reflection
+
+         data_diffract_info
+            _audit_dataset.id   09248943-e359-49d2-8d9f-800d6eca3b6d
+
+            _pd_diffractogram.id          5d30dab0-3840-48e6-9dbd-3ea09c67217f
+            _pd_diffractogram.diffrn_id   highTemp
+            _pd_diffractogram.instr_id    Lab1
+            _pd_diffractogram.spec_id     ABC123_03
+
+            loop_
+               _pd_meas.2theta_scan
+               _pd_proc.intensity_total
+               _pd_proc.ls_weight
+               _pd_calc.intensity_total
+               _pd_proc.intensity_bkg_calc
+               5.01   43.364   0.0402   25.994961    25.994961
+               5.04   38.007   0.0505   26.200290    26.200290
+               5.07   38.318   0.0465   26.404083    26.404083
+               5.10   41.877   0.0452   26.606346    26.606346
+               #...
+;
+;
+         A functionally identical data set as to the first example.
+         The _audit_dataset.id asserts that all data blocks are to
+         be interpreted as one entity. Within that scope, the use of
+         _pd_diffractogram.diffrn_id, _pd_diffractogram.instr_id, and
+         _pd_diffractogram.spec_id link those diffraction conditions,
+         instrument, and specimen details in the same manner as in the
+         first example.
 ;
 
 save_
@@ -8135,7 +8194,7 @@ save_PD_MEAS_OVERALL
     _definition.id                PD_MEAS_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2025-04-18
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains information about the conditions used for
@@ -8148,6 +8207,90 @@ save_PD_MEAS_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_MEAS_OVERALL
     _category_key.name            '_pd_meas_overall.diffractogram_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_37
+
+          _pd_meas.2theta_range_min   5.00
+          _pd_meas.2theta_range_max  95.00
+          _pd_meas.2theta_range_inc   0.02
+          _pd_meas.number_of_points  4501
+          _pd_meas.scan_method       cont
+
+          _pd_meas.datetime_initiated   2023-02-27T22:45:00+08:00
+
+          _pd_meas.rocking_angle   180
+          _pd_meas.rocking_axis    phi
+          _pd_instr.geometry       Bragg-Brentano
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.counts_total
+          1   1234
+          2   1256
+          #...
+;
+;
+         The measured diffractogram is in equally spaced 2θ points, starting
+         at 5.00° 2θ, going up in steps of 0.02°, with the last data point at
+         95.00° 2θ. In total, there are 4501 data points. The data were
+         collected in a continuous scan, such that the detector did not stop
+         moving, and the intensities were binned according to the goniometer
+         angle during the collection time per step. Data collection was started
+         on the 27^th^ of February, 2023 at 2245 h in a timezone +8 h from UTC.
+         The specimen was rotated 180° during the collection of the data for
+         each measurement point.
+;
+;
+          _pd_meas.rocking_angle   2.5
+          _pd_meas.rocking_axis    omega
+          _pd_meas.scan_method     step
+
+          _pd_instr.geometry       Bragg-Brentano
+
+          _pd_diffractogram.id     PATTERN_96
+
+          loop_
+          _pd_data.point_id
+          _pd_meas.2theta_scan
+          _pd_meas.counts_total
+          1   5.02   1234
+          2   5.04   1256
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_96'. For each measurement point, the specimen rotated ±2.5°
+         from its standard position about the omega axis.
+;
+;
+          _pd_diffractogram.id         EDD_123
+
+          _pd_meas.2theta_fixed         5
+          _pd_meas.angle_chi           45
+          _pd_meas.units_of_intensity
+             'Proportional to current (ampere) from Si(Li) detector.'
+          _pd_meas.scan_method         disp
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.energy_detection
+          _pd_meas.intensity_total
+          _pd_meas.intensity_total_su
+          1   50300   1234   23
+          2   50400   1256   24
+          #...
+;
+;
+         The information here applies to the diffractogram with the id
+         'EDD_123'. The detector was fixed at 5° 2θ and tilted at
+         45° χ. The data were collected in energy-dispersive mode, where
+         the intensity recorded was proportional to the current measured in
+         the Si(Li) detector.
+;
 
 save_
 
@@ -12112,7 +12255,7 @@ save_PD_QPA_INTERNAL_STD
     _definition.id                PD_QPA_INTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-16
+    _definition.update            2025-06-19
     _description.text
 ;
     This category identifies the internal standard used for
@@ -12147,6 +12290,56 @@ save_PD_QPA_INTERNAL_STD
       _category_key.name
          '_pd_qpa_internal_std.diffractogram_id'
          '_pd_qpa_internal_std.phase_id'
+
+    _description_example.case
+;
+         _audit.schema          Custom
+         _pd_diffractogram.id   DIFFRACTOGRAM_1
+
+         loop_
+         _pd_phase_mass.phase_id
+         _pd_phase_mass.absolute
+         _pd_phase_mass.absolute_su
+         PHASE_1             42.81   0.56
+         PHASE_2             14.73   0.24
+         NIST_ALUMINA_676A   24.76   0.28
+
+         _pd_qpa_internal_std.mass_percent              25.000
+         _pd_qpa_internal_std.mass_percent_su            0.002
+         _pd_qpa_internal_std.crystallinity_percent     99.02
+         _pd_qpa_internal_std.crystallinity_percent_su   1.11
+         _pd_qpa_internal_std.phase_id                  NIST_ALUMINA_676A
+
+         _pd_qpa_overall.method   ZMV
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_1, PHASE_2, and
+         some NIST SRM676a) has been quantified using the ZMV algorithm after
+         Rietveld refinement.
+
+         The diffraction pattern was collected from a specimen containing
+         25.000 ± 0.002 wt% internal standard (i.e. 1 g added to 3 g of unknown
+         to make a specimen with total weight of 4 g). The internal standard is
+         known to be 99.02 ± 1.11 % crystalline, and so the reported value of
+         _pd_phase_mass.absolute for the standard is:
+         25.000 * 0.9902 = 24.76 wt%.
+
+         The weight fractions derived from the ZMV algorithm were then scaled as
+
+            W~p~^absolute^ = W~p~^ZMV^ * (W~s~^known^ / W~s~^ZMV^)
+
+         where W is the weight percentage, p is the phase, s is the standard
+         'ZMV' is the weight fraction from the ZMV algorithm, and 'known' is the
+         known addition of standard (_pd_qpa_internal_std.mass_percent). These
+         are the values reported as _pd_phase_mass.absolute. Any difference
+         between the sum of the _pd_phase_mass.absolute values and 100 wt% can
+         be attributed to unanalysed or amorphous phases.
+
+         The crystal structure of the internal standard is described by the
+         information linked to the _pd_phase.id data item with the value
+         'NIST_ALUMINA_676A'.
+;
 
 save_
 
@@ -13371,10 +13564,10 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS, PD_PREP,
-       PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_SPEC.
+       PD_DIFFRACTOGRAM, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS,
+       PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
 
-       Add _pd_peak.overall_id
+       Add _pd_peak.overall_id.
 
        Created _pd_calc.intensity_bkg and updated description of
        _pd_proc.intensity_bkg_calc.
