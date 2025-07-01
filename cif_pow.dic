@@ -46,7 +46,7 @@ save_PD_GROUP
           {
            'dupl':Ignore  'file':cif_img.dic  'mode':Full
            'save':HEAD
-          },
+          } 
           {
            'dupl':Ignore  'file':multi_block_core.dic  'mode':Full
            'save':MULTIBLOCK_CORE
