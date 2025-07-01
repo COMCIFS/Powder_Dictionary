@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-06-23
+    _dictionary.date              2025-07-01
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -6294,7 +6294,7 @@ save_
 save_pd_diffractogram.diffrn_frame_data_id
 
     _definition.id                '_pd_diffractogram.diffrn_frame_data_id'
-    _definition.update            2023-10-16
+    _definition.update            2025-07-01
     _description.text
 ;
     A code which identifies the imgCIF frame which was processed to form this
@@ -6334,7 +6334,7 @@ save_
 save_pd_diffractogram.diffrn_scan_id
 
     _definition.id                '_pd_diffractogram.diffrn_scan_id'
-    _definition.update            2025-06-30
+    _definition.update            2025-07-01
     _description.text
 ;
     A code which identifies the imgCIF scan which was processed to form this
@@ -13552,4 +13552,6 @@ save_
        information about the wavelength.
 
        Added _pd_meas_overall.step_count_time.
+
+       Update PD_DIFFRACTOGRAM to accomodate links to imgCIF scans and frames.
 ;
