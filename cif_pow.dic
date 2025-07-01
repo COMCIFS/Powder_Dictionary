@@ -44,9 +44,10 @@ save_PD_GROUP
     _import.get
         [
           {
-           'dupl':Ignore  'file':cif_img.dic  'mode':Full
-           'save':HEAD
-          } 
+           'dupl':Ignore
+'file':https://raw.githubusercontent.com/COMCIFS/imgCIF/refs/heads/master/cif_img.dic
+           'mode':Full 'save':HEAD
+          }
           {
            'dupl':Ignore  'file':multi_block_core.dic  'mode':Full
            'save':MULTIBLOCK_CORE
@@ -13370,7 +13371,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-06-23
+         2.5.0                    2025-07-01
 ;
        ## Retain above version number and increment date until final
        ## release
