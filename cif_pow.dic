@@ -6313,28 +6313,6 @@ save_pd_diffractogram.diffrn_id
 
 save_
 
-save_pd_diffractogram.scan_id
-
-    _definition.id                '_pd_diffractogram.scan_id'
-    _definition.update            2025-07-01
-    _description.text
-;
-    A code which identifies the imgCIF scan which was processed to form this
-    diffractogram.
-
-    The frames which constitute this scan can be determined from the relevant
-    imgCIF data.
-;
-    _name.category_id             pd_diffractogram
-    _name.object_id               scan_id
-    _name.linked_item_id          '_diffrn_scan.id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Word
-
-save_
-
 save_pd_diffractogram.id
 
     _definition.id                '_pd_diffractogram.id'
@@ -6375,6 +6353,28 @@ save_pd_diffractogram.instr_id
     _name.linked_item_id          '_pd_instr.id'
     _type.purpose                 Link
     _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_diffractogram.scan_id
+
+    _definition.id                '_pd_diffractogram.scan_id'
+    _definition.update            2025-07-01
+    _description.text
+;
+    A code which identifies the imgCIF scan which was processed to form this
+    diffractogram.
+
+    The frames which constitute this scan can be determined from the relevant
+    imgCIF data.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               scan_id
+    _name.linked_item_id          '_diffrn_scan.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
