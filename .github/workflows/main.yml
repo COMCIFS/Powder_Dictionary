@@ -14,7 +14,7 @@ on:
     branches: [ master ]
     paths-ignore:
             - '.github/**'
-  workflow_dispatch:   
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,7 +27,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - name: checkout
           uses: actions/checkout@v4
-          
+
       # Check syntax of all CIF files
         - name: check_syntax
           uses: COMCIFS/cif_syntax_check_action@master
@@ -43,7 +43,7 @@ jobs:
         with:
                  path: ~/.julia
                  key: ${{ runner.os }}-julia-v2
-                 
+
       - name: Install Julia
         uses: julia-actions/setup-julia@v1
         with:
@@ -77,13 +77,13 @@ jobs:
         run: |
                julia -e 'using Pkg; Pkg.status()'
                for file in main/*.dic
-               do      
+               do
                   echo "Checking $file"
                   julia -O0 ./julia_cif_tools/linter.jl -i $PWD/cif_core $file cif_core/ddl.dic
-                  if [ $? != 0 ] 
-                  then 
+                  if [ $? != 0 ]
+                  then
                     exit 1 ;
-                  fi 
+                  fi
                done
   ddlm:
     runs-on: ubuntu-latest
