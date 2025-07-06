@@ -8048,7 +8048,7 @@ save_pd_instr_detector.diffrn_detector_id
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Word
+    _type.contents                Text
 
 save_
 
