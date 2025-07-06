@@ -6648,28 +6648,6 @@ save_pd_instr.detector_circle_radius
 
 save_
 
-save_pd_instr.diffrn_id
-
-    _definition.id                '_pd_instr.diffrn_id'
-    _definition.update            2025-06-30
-    _description.text
-;
-    A diffrn id (see _diffrn.id) associated with the instrument.
-
-    Included to maintain compatibility with imgCIF. Do not use this value.
-    Use the value associated with _pd_diffractogram.diffrn_id in any
-    lookup associated with DIFFRN_RADIATION.
-;
-    _name.category_id             pd_instr
-    _name.object_id               diffrn_id
-    _name.linked_item_id          '_diffrn.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Word
-
-save_
-
 save_pd_instr.dist_mono_spec
 
     _definition.id                '_pd_instr.dist_mono_spec'
@@ -7525,7 +7503,7 @@ save_pd_instr.dist_spec_detc
     _description.text
 ;
     Specifies distance in millimetres from the centre of the
-    specimen to the detector. If the detector not a point detector,
+    specimen to the detector. If the detector is not a point detector,
     then the distance refers to the shortest distance from the
     specimen to the detector.
 
@@ -8080,9 +8058,9 @@ save_pd_instr_detector.diffrn_id
 ;
     A diffrn id (see _diffrn.id) associated with the pdCIF detector.
 
-    Included to maintain compatibility with imgCIF. Do not use this value.
-    Use the value associated with _pd_diffractogram.diffrn_id in any
-    lookup associated with DIFFRN_DETECTOR.
+    Included to maintain compatibility with the DIFFRN_DETECTOR and
+    imgCIF. Do not use this value. Use the value associated with
+    _pd_diffractogram.diffrn_id in any lookup associated with DIFFRN_DETECTOR.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_id
@@ -13729,10 +13707,10 @@ save_
        channel number to _pd_meas.channel. It is still possible to refer
        to channel numbers here, but not prefered.
 
-       Add _pd_instr.diffrn_id and _pd_instr_detector.diffrn_id to maintain
-       compatibility with imgCIF for DIFFRN_DETECTOR and DIFFRN_RADIATION.
-       These values would not normally be used, as detailing them all would
-       entail repeating all instrument details for all _diffrn.id values.
-       In practice, the value associated with _pd_diffractogram.diffrn_id
-       would be used when looking up this information, where required.
+       Add _pd_instr_detector.diffrn_id to maintain compatibility with
+       imgCIF for DIFFRN_DETECTOR. This value would not normally be used,
+       as detailing them all would entail repeating all instrument details
+       for all _diffrn.id values. In practice, the value associated with
+       _pd_diffractogram.diffrn_id would be used when looking up this
+       information, where required.
 ;
