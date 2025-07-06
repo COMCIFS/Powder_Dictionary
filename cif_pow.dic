@@ -7407,8 +7407,10 @@ save_PD_INSTR_DETECTOR
     may be prepared and included with each data set.
 
     Data items from this category must be combined with those from
-    PD_INSTR to form a description of the instrument. Both categories use
-    data names of the form _pd_instr.*.
+    PD_INSTR to form a description of the instrument. The instrument used
+    with the detector(s) defined here should be recorded using
+    _pd_instr_detector.instr_id. Both categories use data names of the form
+    _pd_instr.*.
 
     The term "analyser" refers to post-diffraction (post-specimen)
     monochromator. The analyser may be fixed for specific
@@ -8058,8 +8060,8 @@ save_pd_instr_detector.diffrn_id
 ;
     A diffrn id (see _diffrn.id) associated with the pdCIF detector.
 
-    Included to maintain compatibility with the DIFFRN_DETECTOR and
-    imgCIF. Do not use this value. Use the value associated with
+    Included to maintain compatibility with DIFFRN_DETECTOR and imgCIF.
+    Do not use this value. Use the value associated with the appropriate
     _pd_diffractogram.diffrn_id in any lookup associated with DIFFRN_DETECTOR.
 ;
     _name.category_id             pd_instr_detector
@@ -13694,7 +13696,7 @@ save_
        point of interest.
 
        Add _pd_instr_detector.diffrn_detector_id to link a pdCIF to a
-       _diffrn_detector.id detector.
+       _diffrn_detector.id detector, particularly for imgCIF.
 
        Added _pd_meas.channel to explicitly refer to channel number
        in a diffractogram, rather than requiring _pd_meas.detector_id
