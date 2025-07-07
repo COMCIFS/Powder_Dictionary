@@ -1731,13 +1731,13 @@ save_PD_BLOCK
     _description.text
 ;
     **DEPRECATED**
-    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code' as
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code as
     necessary.
 
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
     (see _pd_block_diffractogram.id, _pd_phase_block.id and
-    _pd_qpa_external_std.diffractogram_id).
+    _pd_calib_std.external_block_id).
 
     Note that a data block may contain only a single diffraction
     data set or information about a single crystalline phase.
