@@ -3258,7 +3258,8 @@ save_PD_CALIB_STD
     _description.text
 ;
     This category is deprecated. Please see PD_CALIB_DETECTED_INTENSITY,
-    PD_CALIB_INCIDENT_INTENSITY, and PD_CALIB_XCOORD_OVERALL.
+    PD_CALIB_INCIDENT_INTENSITY, PD_CALIB_XCOORD_OVERALL, and
+    DIFFRN_RADIATION_WAVELENGTH.
 
     This category identifies the external standards used for the calibration
     of the instrument that are used directly or indirectly in the
@@ -3369,6 +3370,7 @@ save_pd_calib_std.external_name
       - PD_CALIB_INCIDENT_INTENSITY
       - PD_CALIB_XCOORD
       - PD_CALIB_XCOORD_OVERALL
+      - DIFFRN_RADIATION_WAVELENGTH
     as necessary, for information on how to identify the external standard used.
 
     Identifies the name of the material used as an external standard for
