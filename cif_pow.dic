@@ -4332,7 +4332,7 @@ save_PD_DATA
     function of 2θ, d-spacing, time-of-flight, position, or other
     applicable diffraction-related coordinate as defined in PD_MEAS
     or PD_PROC. Higher dimensional data must first be reduced in some
-    manner before it can be assigned to data names in these categories.
+    manner before it can be assigned to data names in PD_PROC.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DATA
@@ -4515,8 +4515,8 @@ save_PD_CALC
     The intensities contained within PD_CALC represent one-dimensional
     datasets, that is, intensity as a function of _pd_calc.point_id.
     2θ, d-spacing, time-of-flight, position, or other applicable
-    diffraction-related coordinate can be assigned to each data point
-    through the equivalent *.point_id in PD_MEAS or PD_PROC.
+    diffraction-related coordinate. Intensities can be assigned to each
+    data point through the equivalent *.point_id in PD_MEAS or PD_PROC.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_CALC
@@ -5147,21 +5147,14 @@ save_pd_meas.detector_id
     _definition.update            2025-06-26
     _description.text
 ;
-    A code which identifies the detector for which the individual
-    instrument geometry is being defined. This code should match
-    the code name used for _pd_instr_detector.id.
+    A code which identifies the detector from which the data were
+    collected. This code should match the code name used for
+    _pd_instr_detector.id.
 
-    Although it is possible to use this data name to describe channel
+    This data name should not be used to describe channel
     number in a position-sensitive, energy-dispersive or other
-    multiple-detector instrument, _pd_meas.channel should alwayes
-    be used in lieu where possible.
-
-    Calibration information, such as angle offsets or a calibration
-    function to convert channel numbers to Q, energy, wavelength,
-    angle etc. should be described using PD_CALIB_XCOORD and/or
-    PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
-    used, the detector IDs should be the number to be used in the
-    equation.
+    multiple-detector instrument; see _pd_meas.channel for this
+    use-case.
 ;
     _name.category_id             pd_meas
     _name.object_id               detector_id
@@ -5604,8 +5597,8 @@ save_PD_PROC
     datasets, that is, intensity as some function of 2θ, d-spacing,
     time-of-flight, position, or other applicable diffraction-related
     coordinate as defined. Higher dimensional data must first be reduced
-    in some manner before it can be assigned to data names in these
-    categories.
+    in some manner before it can be assigned to data names in this
+    category.
 
 ;
     _name.category_id             PD_DATA
@@ -8039,8 +8032,8 @@ save_pd_instr_detector.diffrn_detector_id
     _definition.update            2025-06-26
     _description.text
 ;
-    The diffrn detector (see _diffrn_detector.id) to which the pdCIF
-    detector belongs.
+    Identifier of a 2D or higher-dimensional detector used for data
+    collection, described using data names in the imgCIF dictionary.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_detector_id
@@ -8060,9 +8053,10 @@ save_pd_instr_detector.diffrn_id
 ;
     A diffrn id (see _diffrn.id) associated with the pdCIF detector.
 
-    Included to maintain compatibility with DIFFRN_DETECTOR and imgCIF.
-    Do not use this value. Use the value associated with the appropriate
-    _pd_diffractogram.diffrn_id in any lookup associated with DIFFRN_DETECTOR.
+    This dataname holds a value for _diffrn_detector.diffrn_id used
+    only (in combination with the _pd_instr_detector.diffrn_detector_id
+    value) to locate a detector in the diffrn_detector list. Always use
+    _pd_diffractogram.diffrn_id to indicate diffraction conditions.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_id
@@ -8082,10 +8076,10 @@ save_pd_instr_detector.id
 ;
     An arbitrary code which identifies the detector.
 
-    Although it is possible, it should not be used to describe a channel
-    number in a position-sensitive, energy-dispersive or other
-    multiple-detector instrument for which the individual instrument
-    geometry is being defined.
+    It should not be used to describe a channel number in a
+    position-sensitive, energy-dispersive or other multiple-detector
+    instrument for which the individual instrument geometry is being
+    defined.
 
     See also _pd_meas.detector_id and _pd_meas.channel.
 ;
