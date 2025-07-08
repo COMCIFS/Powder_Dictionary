@@ -6417,11 +6417,9 @@ save_pd_diffractogram.scan_id
     _definition.update            2025-07-01
     _description.text
 ;
-    A code which identifies the imgCIF scan which was processed to form this
-    diffractogram.
-
-    The frames which constitute this scan can be determined from the relevant
-    imgCIF data.
+    The identifier for the group of imgCIF images used to produce the
+    diffractogram. Each group of images is known as a scan, and the images
+    belonging to each scan are described using imgCIF data names.
 ;
     _name.category_id             pd_diffractogram
     _name.object_id               scan_id
@@ -13704,7 +13702,7 @@ save_
 
        Update PD_DIFFRACTOGRAM to link to the imgCIF scan from which the
        diffractogram was created.
-       
+
        Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
 
        Added _pd_instr.radiation_id and _pd_instr_detector.instr_id.
