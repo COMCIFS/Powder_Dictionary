@@ -3407,7 +3407,6 @@ save_PD_CALIB_XCOORD
     - time-of-flight
     - wavelength
     - channel number
-    - detector (if used as channel number)
 
     This mapping would usually be used to correct for systematic errors in
     the X-coordinate axis, such as those caused by miscalibration of the
@@ -3908,10 +3907,8 @@ save_pd_calib_xcoord.detector_id
     _definition.update            2025-06-19
     _description.text
 ;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive, or other multiple-detector
-    instrument for which the associated nominal and/or actual values
-    apply. This code should match the code name used for
+    A code which identifies the detector for which the associated nominal
+    and/or actual values apply. This code should match the code name used for
     _pd_instr_detector.id.
 
     That is, this provides a mapping between the aforementioned detector
