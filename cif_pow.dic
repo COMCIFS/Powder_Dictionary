@@ -12307,6 +12307,9 @@ save_PD_QPA_INTENSITY_FACTOR
          The quantification values given by _pd_phase_mass.percent can now be
          confirmed by following the I/Ic algorithm detailed in
          _pd_qpa_overall.method.
+
+         As we are looping data names linked to _pd_phase.id, the _audit.schema
+         is set to Custom.
 ;
 
 save_
