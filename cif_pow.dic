@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-07-01
+    _dictionary.date              2025-07-07
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -1730,17 +1730,17 @@ save_PD_BLOCK
     _definition.id                PD_BLOCK
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2025-04-18
+    _definition.update            2025-07-07
     _description.text
 ;
     **DEPRECATED**
-    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code' as
+    Use _pd_phase.id, _pd_diffractogram.id, or _audit.block_code as
     necessary.
 
     _pd_block.id is used to assign a unique ID code to a data block.
     This code is then used for references between different blocks
     (see _pd_block_diffractogram.id, _pd_phase_block.id and
-    _pd_qpa_external_std.diffractogram_block_id).
+    _pd_calib_std.external_block_id).
 
     Note that a data block may contain only a single diffraction
     data set or information about a single crystalline phase.
@@ -3257,12 +3257,12 @@ save_PD_CALIB_STD
     _definition.id                PD_CALIB_STD
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-06-05
+    _definition.update            2025-07-07
     _description.text
 ;
     This category is deprecated. Please see PD_CALIB_DETECTED_INTENSITY,
-    PD_CALIB_INCIDENT_INTENSITY, PD_CALIB_WAVELENGTH, and
-    PD_CALIB_XCOORD_OVERALL.
+    PD_CALIB_INCIDENT_INTENSITY, PD_CALIB_XCOORD_OVERALL, and
+    DIFFRN_RADIATION_WAVELENGTH.
 
     This category identifies the external standards used for the calibration
     of the instrument that are used directly or indirectly in the
@@ -3339,8 +3339,8 @@ save_pd_calib_std.external_block_id
     This item is deprecated. Please see:
       - _pd_calib_detected_intensity.diffractogram_id
       - _pd_calib_incident_intensity.diffractogram_id
-      - _pd_calib_wavelength.diffractogram_id
       - _pd_calib_xcoord_overall.diffractogram_id
+      - _diffrn_radiation_wavelength.diffractogram_id
     as necessary.
 
     Identifies the _pd_block.id used as an external standard for the
@@ -3365,15 +3365,15 @@ save_pd_calib_std.external_name
     _definition_replaced.id       1
     _definition_replaced.by       .
     _alias.definition_id          '_pd_calib_std_external_name'
-    _definition.update            2023-06-05
+    _definition.update            2025-07-07
     _description.text
 ;
     This item is deprecated. Please see:
       - PD_CALIB_DETECTED_INTENSITY
       - PD_CALIB_INCIDENT_INTENSITY
-      - PD_CALIB_WAVELENGTH
       - PD_CALIB_XCOORD
       - PD_CALIB_XCOORD_OVERALL
+      - DIFFRN_RADIATION_WAVELENGTH
     as necessary, for information on how to identify the external standard used.
 
     Identifies the name of the material used as an external standard for
@@ -4320,7 +4320,7 @@ save_PD_DATA
     _definition.id                PD_DATA
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-11
+    _definition.update            2025-06-25
     _description.text
 ;
     The PD_DATA category is a "container" category that is defined
@@ -4329,6 +4329,13 @@ save_PD_DATA
     As PD_CALC, PD_MEAS, and PD_PROC are all subcategories of this
     category, the various items belonging to those categories may
     be looped together or separately, as desired.
+
+    The data contained within PD_DATA and its subcategories only
+    represent one-dimensional datasets, that is, intensity as some
+    function of 2θ, d-spacing, time-of-flight, position, or other
+    applicable diffraction-related coordinate as defined in PD_MEAS
+    or PD_PROC. Higher dimensional data must first be reduced in some
+    manner before it can be assigned to data names in PD_PROC.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_DATA
@@ -4500,13 +4507,19 @@ save_PD_CALC
     _definition.id                PD_CALC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2022-10-11
+    _definition.update            2025-06-25
     _description.text
 ;
     This section is used for storing a computed diffractogram trace.
     This may be a simulated powder pattern for a material from a
     program such as LAZY/PULVERIX or the computed intensities from a
     Rietveld refinement.
+
+    The intensities contained within PD_CALC represent one-dimensional
+    datasets, that is, intensity as a function of _pd_calc.point_id.
+    2θ, d-spacing, time-of-flight, position, or other applicable
+    diffraction-related coordinate. Intensities can be assigned to each
+    data point through the equivalent *.point_id in PD_MEAS or PD_PROC.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_CALC
@@ -4765,7 +4778,7 @@ save_PD_MEAS
     _definition.id                PD_MEAS
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2025-04-18
+    _definition.update            2025-06-25
     _description.text
 ;
     This section contains the measured diffractogram prior to
@@ -4785,6 +4798,13 @@ save_PD_MEAS
     as the square root of the number of counts recorded, should
     use the _pd_meas.counts_* fields. All other intensity values
     should be recorded using _pd_meas.intensity_*.
+
+    The data contained within PD_MEAS only represent one-dimensional
+    datasets, that is, intensity as some function of 2θ, d-spacing,
+    time-of-flight, position, or other applicable diffraction-related
+    coordinate as defined. Higher dimensional data must first be reduced
+    in some manner before it can be assigned to data names in these
+    categories.
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_MEAS
@@ -4938,6 +4958,35 @@ save_pd_meas.2theta_scan_su
     _units.code                   degrees
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_meas.channel
+
+    _definition.id                '_pd_meas.channel'
+    _definition.update            2025-06-26
+    _description.text
+;
+    A number which identifies the channel number, detector element, or
+    other subsection of a position-sensitive, energy-dispersive or other
+    multiple-one-dimensional-detector instrument for which there is an
+    intensity we can record separately. Typically used when raw counts or
+    intensity are recorded as a function of channel number, prior to
+    conversion to physical units.
+
+    Calibration information to convert channel numbers to Q, energy,
+    wavelength, angle etc. should be described using PD_CALIB_XCOORD and/or
+    PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
+    used, the value of _pd_meas.channel should be the number to be used
+    in the equation.
+;
+    _name.category_id             pd_meas
+    _name.object_id               channel
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _units.code                   none
 
 save_
 
@@ -5098,21 +5147,17 @@ save_pd_meas.detector_id
 
     _definition.id                '_pd_meas.detector_id'
     _alias.definition_id          '_pd_meas_detector_id'
-    _definition.update            2023-06-09
+    _definition.update            2025-06-26
     _description.text
 ;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. This code should match the code name used for
+    A code which identifies the detector from which the data were
+    collected. This code should match the code name used for
     _pd_instr_detector.id.
 
-    Calibration information, such as angle offsets or a calibration
-    function to convert channel numbers to Q, energy, wavelength,
-    angle etc. should be described using PD_CALIB_XCOORD and/or
-    PD_CALIBRATION data items. If _pd_calibration.conversion_eqn is
-    used, the detector IDs should be the number to be used in the
-    equation.
+    This data name should not be used to describe channel
+    number in a position-sensitive, energy-dispersive or other
+    multiple-detector instrument; see _pd_meas.channel for this
+    use-case.
 ;
     _name.category_id             pd_meas
     _name.object_id               detector_id
@@ -5544,12 +5589,20 @@ save_PD_PROC
     _definition.id                PD_PROC
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2025-04-18
+    _definition.update            2025-06-25
     _description.text
 ;
     This section contains the diffraction data set after processing
     and application of correction terms. If the data set is
     reprocessed, this section may be replaced.
+
+    The data contained within PD_PROC only represent one-dimensional
+    datasets, that is, intensity as some function of 2θ, d-spacing,
+    time-of-flight, position, or other applicable diffraction-related
+    coordinate as defined. Higher dimensional data must first be reduced
+    in some manner before it can be assigned to data names in this
+    category.
+
 ;
     _name.category_id             PD_DATA
     _name.object_id               PD_PROC
@@ -6403,39 +6456,50 @@ save_PD_INSTR
     _definition.id                PD_INSTR
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-12
+    _definition.update            2025-06-24
     _description.text
 ;
-    This section contains information relevant to the instrument
+    This category contains information relevant to the instrument
     used for the diffraction measurement. For most laboratories,
     very little of this information will change, so a standard file
     may be prepared and included with each data set.
 
+    Formally, PD_INSTR defines data names which record information from
+    the source to the specimen, whilst PD_INSTR_DETECTOR records
+    information about the instrument from the specimen to the
+    detector(s). Both categories use data names of the form _pd_instr.*.
+
     Note that several definitions in the core CIF dictionary
     are relevant here. For example, use:
+      _diffrn_radiation.id to identify to the source as a whole,
+      _diffrn_radiation_wavelength.id to identify the wavelength,
       _diffrn_radiation_wavelength.value for the source wavelength,
       _diffrn_radiation_wavelength.type for the X-ray wavelength type,
       _diffrn_source.device and _diffrn_source.details for the radiation source,
       _diffrn_radiation.polarisn_ratio for the source polarization,
       _diffrn_radiation.probe for the radiation type.
-    For data sets measured with partially monochromatized radiation,
+
+    For diffractograms measured with partially monochromatized radiation,
     for example, where both Kα~1~ and Kα~2~ are present, it is
     important that all wavelengths present are included in a
-    loop_ using _diffrn_radiation_wavelength.value to define the
-    wavelength and _diffrn_radiation_wavelength.wt to define the
-    relative intensity of that wavelength. It is required that
-    _diffrn_radiation_wavelength.id also be present in the
-    wavelength loop. It may also be useful to
-    create a "dummy" ID to use for labelling
+    loop:
+      _diffrn_radiation_wavelength.id to identify each individual wavelength,
+      _diffrn_radiation_wavelength.value for each wavelength,
+      _diffrn_radiation_wavelength.wt the relative intensity of that wavelength
+
+    _diffrn_radiation_wavelength.id is used to link wavelengths to peaks
+    (PD_PEAKS) and/or reflections (REFLN), allowing d-spacings to be calculated.
+
+    It may also be useful to create a "dummy" ID to use for labelling
     peaks/reflections where the Kα~1~ and Kα~2~ wavelengths are
     not resolved. Set _diffrn_radiation_wavelength.wt to be 0 for
     such a dummy ID.
 
-    In the PD_INSTR definitions, the term monochromator refers
-    to a primary beam (pre-specimen) monochromator and the term
-    analyser refers to post-diffraction (post-specimen)
-    monochromator. The analyser may be fixed for specific
-    wavelength or may be capable of being scanned.
+    In the PD_INSTR definitions, the term "monochromator" refers to a
+    primary beam (pre-specimen) monochromator and the term "analyser"
+    refers to post-diffraction (post-specimen) monochromator. The
+    analyser may be fixed for specific wavelength or may be capable
+    of being scanned.
 
     It is strongly recommended that the core dictionary term
     _diffrn_radiation.probe (specifying the nature of the radiation
@@ -6606,10 +6670,12 @@ save_pd_instr.dist_mono_spec
 
     _definition.id                '_pd_instr.dist_mono_spec'
     _alias.definition_id          '_pd_instr_dist_mono/spec'
-    _definition.update            2014-06-20
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies distances in millimetres from the monochromator to the specimen.
+    Specifies distances in millimetres from the monochromator to the centre
+    of the specimen along the mean beam path.
+
     Note that *_src_spec is used in place of *_src_mono and
     *_mono_spec if there is no monochromator in use.
 ;
@@ -6628,11 +6694,13 @@ save_pd_instr.dist_src_mono
 
     _definition.id                '_pd_instr.dist_src_mono'
     _alias.definition_id          '_pd_instr_dist_src/mono'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
     Specifies distance in millimetres from the radiation source to
-    the monochromator. Note that *_src_spec is used in place of
+    the monochromator along the mean beam path.
+
+    Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use.
 ;
     _name.category_id             pd_instr
@@ -6650,11 +6718,13 @@ save_pd_instr.dist_src_spec
 
     _definition.id                '_pd_instr.dist_src_spec'
     _alias.definition_id          '_pd_instr_dist_src/spec'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
     Specifies distances in millimetres from the radiation source to
-    the specimen. Note that *_src_spec is used in place of
+    the centre of the specimen along the mean beam path.
+
+    Note that *_src_spec is used in place of
     *_src_mono and *_mono_spec if there is no monochromator in use
 ;
     _name.category_id             pd_instr
@@ -6940,6 +7010,24 @@ save_pd_instr.monochr_pre_spec
          'none'
          'equatorial mounted graphite (0001)'
          'Si (111), antiparallel'
+
+save_
+
+save_pd_instr.radiation_id
+
+    _definition.id                '_pd_instr.radiation_id'
+    _definition.update            2025-06-24
+    _description.text
+;
+    The radiation source (see _diffrn_radiation.id) of the instrument.
+;
+    _name.category_id             pd_instr
+    _name.object_id               radiation_id
+    _name.linked_item_id          '_diffrn_radiation.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Word
 
 save_
 
@@ -7331,19 +7419,25 @@ save_PD_INSTR_DETECTOR
     _definition.update            2023-01-06
     _description.text
 ;
-    This section contains information relevant to the detector
+    This category contains information relevant to the detector
     geometry used for the diffraction measurement. For most laboratories,
     very little of this information will change, so a standard file
     may be prepared and included with each data set.
 
-    The term analyser refers to post-diffraction (post-specimen)
+    Data items from this category must be combined with those from
+    PD_INSTR to form a description of the instrument. The instrument used
+    with the detector(s) defined here should be recorded using
+    _pd_instr_detector.instr_id. Both categories use data names of the form
+    _pd_instr.*.
+
+    The term "analyser" refers to post-diffraction (post-specimen)
     monochromator. The analyser may be fixed for specific
     wavelength or may be capable of being scanned.
 
     For multiple-detector instruments it may be necessary to loop the
     *_anal_detc or *_spec_detc values (for  _pd_instr.dist_*,
     _pd_instr.divg_*, _pd_instr.slit_* and  _pd_instr.soller_*) with
-    the detector ID's (_pd_instr_detector.id).
+    the detector IDs (_pd_instr_detector.id).
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
@@ -7377,10 +7471,12 @@ save_pd_instr.dist_anal_detc
 
     _definition.id                '_pd_instr.dist_anal_detc'
     _alias.definition_id          '_pd_instr_dist_anal/detc'
-    _definition.update            2016-10-20
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies the distance in millimetres from the analyser to the detector.
+    Specifies the distance in millimetres from the analyser to the
+    detector along the mean beam path.
+
     Note that *_spec_detc is used in place of *_anal_detc
     if there is no analyser in use.
 ;
@@ -7399,11 +7495,13 @@ save_pd_instr.dist_spec_anal
 
     _definition.id                '_pd_instr.dist_spec_anal'
     _alias.definition_id          '_pd_instr_dist_spec/anal'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies distances in millimetres from the specimen to the
-    analyser. Note that *_spec_detc is used in place of *_spec_anal
+    Specifies distances in millimetres from the centre of the
+    specimen to the analyser along the mean beam path.
+
+    Note that *_spec_detc is used in place of *_spec_anal
     if there is no analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -7421,11 +7519,15 @@ save_pd_instr.dist_spec_detc
 
     _definition.id                '_pd_instr.dist_spec_detc'
     _alias.definition_id          '_pd_instr_dist_spec/detc'
-    _definition.update            2023-01-06
+    _definition.update            2025-06-25
     _description.text
 ;
-    Specifies distance in millimetres from the specimen to the
-    detector. Note that *_spec_anal and *_anal_detc are used
+    Specifies distance in millimetres from the centre of the
+    specimen to the detector. If the detector is not a point detector,
+    then the distance refers to the shortest distance from the
+    specimen to the detector.
+
+    Note that *_spec_anal and *_anal_detc are used
     instead of *_spec_detc if there is an analyser in use.
 ;
     _name.category_id             pd_instr_detector
@@ -7949,16 +8051,62 @@ save_pd_instr.soller_eq_spec_detc
 
 save_
 
+save_pd_instr_detector.diffrn_detector_id
+
+    _definition.id                '_pd_instr_detector.diffrn_detector_id'
+    _definition.update            2025-06-26
+    _description.text
+;
+    Identifier of a detector used for data collection described using data names
+    from the DIFFRN_DECTECTOR category in the imgCIF and core dictionaries.
+;
+    _name.category_id             pd_instr_detector
+    _name.object_id               diffrn_detector_id
+    _name.linked_item_id          '_diffrn_detector.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_instr_detector.diffrn_id
+
+    _definition.id                '_pd_instr_detector.diffrn_id'
+    _definition.update            2025-06-30
+    _description.text
+;
+    A diffrn id (see _diffrn.id) associated with the pdCIF detector.
+
+    This dataname holds a value for _diffrn_detector.diffrn_id used
+    only (in combination with the _pd_instr_detector.diffrn_detector_id
+    value) to locate a detector in the diffrn_detector list. Always use
+    _pd_diffractogram.diffrn_id to indicate diffraction conditions.
+;
+    _name.category_id             pd_instr_detector
+    _name.object_id               diffrn_id
+    _name.linked_item_id          '_diffrn.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_instr_detector.id
 
     _definition.id                '_pd_instr_detector.id'
-    _definition.update            2023-06-09
+    _definition.update            2025-06-26
     _description.text
 ;
-    A code which identifies the detector or channel number in a
+    An arbitrary code which identifies the detector.
+
+    It should not be used to describe a channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
     instrument for which the individual instrument geometry is being
-    defined. Where a single detector is used, this may be omitted.
+    defined.
+
+    See also _pd_meas.detector_id and _pd_meas.channel.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               id
@@ -7966,6 +8114,24 @@ save_pd_instr_detector.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Code
+
+save_
+
+save_pd_instr_detector.instr_id
+
+    _definition.id                '_pd_instr_detector.instr_id'
+    _definition.update            2025-06-24
+    _description.text
+;
+    The instrument (see _pd_instr.id) to which the detector belongs.
+;
+    _name.category_id             pd_instr_detector
+    _name.object_id               instr_id
+    _name.linked_item_id          '_pd_instr.id'
+    _type.purpose                 Link
+    _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
 
 save_
 
@@ -9176,7 +9342,7 @@ save_PD_PEAK_OVERALL
     _definition.id                PD_PEAK_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2025-06-19
+    _definition.update            2025-07-07
     _description.text
 ;
     This category describes general aspects of the peak extraction
@@ -9210,7 +9376,7 @@ save_PD_PEAK_OVERALL
          The position, width, and intensity of three peaks are given.
          The details of how these values were determined are given by
          _pd_peak.special_details. These details are linked to the
-         individual peaks by the _pd_pea_overall.id "PEAK_GROUP_1".
+         individual peaks by the _pd_peak_overall.id "PEAK_GROUP_1".
 ;
 
 save_
@@ -13349,7 +13515,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-07-01
+         2.5.0                    2025-07-07
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -13538,4 +13704,37 @@ save_
 
        Update PD_DIFFRACTOGRAM to link to the imgCIF scan from which the
        diffractogram was created.
+       
+       Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
+
+       Added _pd_instr.radiation_id and _pd_instr_detector.instr_id.
+
+       Descriptions of PD_DATA, PD_CALC, PD_MEAS, and PD_PROC updated
+       to make explicit that they can only represent one-dimensional
+       data.
+
+       Update descriptions of _pd_instr.dist* to define distance for
+       non-point detectors and to specify the specimen centre as the
+       point of interest.
+
+       Add _pd_instr_detector.diffrn_detector_id to link a pdCIF to a
+       _diffrn_detector.id detector, particularly for imgCIF.
+
+       Added _pd_meas.channel to explicitly refer to channel number
+       in a diffractogram, rather than requiring _pd_meas.detector_id
+       to fulfill two disparate duties.
+
+       Update description of _pd_instr_detector.id to frown on its use as
+       a channel number descriptor.
+
+       Update description of _pd_meas.detector_id to delegate its use as
+       channel number to _pd_meas.channel. It is still possible to refer
+       to channel numbers here, but not prefered.
+
+       Add _pd_instr_detector.diffrn_id to maintain compatibility with
+       imgCIF for DIFFRN_DETECTOR. This value would not normally be used,
+       as detailing them all would entail repeating all instrument details
+       for all _diffrn.id values. In practice, the value associated with
+       _pd_diffractogram.diffrn_id would be used when looking up this
+       information, where required.
 ;
