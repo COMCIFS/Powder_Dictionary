@@ -8032,8 +8032,8 @@ save_pd_instr_detector.diffrn_detector_id
     _definition.update            2025-06-26
     _description.text
 ;
-    Identifier of a 2D or higher-dimensional detector used for data
-    collection, described using data names in the imgCIF dictionary.
+    Identifier of a detector used for data collection described using data names
+    from the DIFFRN_DECTECTOR category in the imgCIF and core dictionaries.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_detector_id
