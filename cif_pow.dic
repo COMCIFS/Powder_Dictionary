@@ -2656,11 +2656,8 @@ save_pd_calib_detected_intensity.detector_id
     _definition.update            2023-06-09
     _description.text
 ;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. This code should match the code name used for
-    _pd_instr_detector.id.
+    A code which identifies the detector to which the response is being defined.
+    This code should match the code name used for _pd_instr_detector.id.
 ;
     _name.category_id             pd_calib_detected_intensity
     _name.object_id               detector_id
