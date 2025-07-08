@@ -6546,7 +6546,7 @@ save_PD_INSTR
         radiation with a wavelength of 1.540596 Å.
 ;
 ;
-        _diffrn_radiation.id  "Cobalt tube"
+        _diffrn_radiation.id   Cobalt_tube
         loop_
         _diffrn_radiation_wavelength.id
         _diffrn_radiation_wavelength.value
