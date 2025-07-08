@@ -11462,7 +11462,7 @@ save_PD_PROC_OVERALL
           #...
 ;
 ;
-         The processed diffractogram is in equally spaced 2θ points, starting
+         The processed diffractogram is in equally-spaced 2θ points, starting
          at 5.00° 2θ, going up in steps of 0.02°, with the last data point at
          95.00° 2θ. In total, there are 4501 data points.
 ;
