@@ -7422,15 +7422,14 @@ save_PD_INSTR_DETECTOR
       _description_example.case
       _description_example.detail
 ;
-        _pd_instr.id                          b4131be5
-
         loop_
         _pd_instr_detector.id
         _pd_instr.dist_spec_detc
         _pd_instr.slit_ax_spec_detc
         _pd_instr.slit_eq_spec_detc
-            fd343493   320   8.5   0.075
-            47540661   320   8.5   0.075
+        _pd_instr_detector.instr_id
+            fd343493   320   8.5   0.075   b4131be5
+            47540661   320   8.5   0.075   b4131be5
 ;
 ;
         These detectors are paired with the instrument identified by the
@@ -7441,11 +7440,11 @@ save_PD_INSTR_DETECTOR
         8.5 mm in the axial direction, and 0.075 mm in the equatorial direction.
         As the instrument description says that this instrument has 'Dual strip
         detectors', it can be assumed that the detector window is 8.5 mm wide,
-        and each strip, or pixel, in the dector is 75 μm high.
+        and each strip, or pixel, in the detector is 75 μm high.
 ;
 ;
-        _pd_instr.id                       58b6d83b
-
+        _pd_instr_detector.id             WhizzBang
+        _pd_instr_detector.instr_id       58b6d83b
         _pd_instr.2theta_monochr_post      31.0
         _pd_instr.dist_anal_detc           47
         _pd_instr.dist_spec_anal          135
@@ -7455,7 +7454,7 @@ save_PD_INSTR_DETECTOR
         _pd_instr.soller_eq_spec_anal       2.5
 ;
 ;
-        This detector is paired with the instrument identified by the
+        The 'WhizzBang' detector is paired with the instrument identified by the
         id 58b6d83b.
 
         The post-specimen, graphite, mosaic monochromator is set at 31.0° 2θ.
@@ -7468,8 +7467,8 @@ save_PD_INSTR_DETECTOR
         monochromator.
 ;
 ;
-        _pd_instr.id                       58b6d83b
-
+        _pd_instr_detector.instr_id       58b6d83b
+        _pd_instr_detector.id             A
         _pd_instr.dist_spec_detc          117.5
         _pd_instr.monochr_post_spec       'Fe filter'
         _pd_instr.slit_ax_spec_detc        12
@@ -7477,7 +7476,7 @@ save_PD_INSTR_DETECTOR
         _pd_instr.soller_ax_spec_detc       2.5
 ;
 ;
-        This detector is paired with the instrument identified by the
+        The 'A' detector is paired with the instrument identified by the
         id 58b6d83b.
 
         The distance from the specimen to the detector is 117.5 mm. The X-ray
