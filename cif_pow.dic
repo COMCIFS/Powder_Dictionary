@@ -7962,10 +7962,10 @@ save_PD_INSTR_DETECTOR
         _pd_instr.slit_eq_spec_anal         0.5
         _pd_instr.soller_eq_spec_anal       2.5
         _pd_instr.special_details
-      ;
+       ;
          The equatorial slit between the specimen and monochromator
          lies on the detector circle.
-      ;
+       ;
 ;
 ;
         The 'WhizzBang' detector is paired with the instrument identified by the
