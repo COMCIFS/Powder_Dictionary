@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-07-07
+    _dictionary.date              2025-07-09
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -3333,12 +3333,16 @@ save_pd_calib_std.detector_id
       _definition_replaced.by
          1                        '_pd_calib_detected_intensity.detector_id'
          2                        '_pd_calib_xcoord.detector_id'
+         3                        '_pd_calib_xcoord.nominal_channel'
 
-    _definition.update            2025-06-28
+    _definition.update            2025-07-09
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_detected_intensity.detector_id
-    or _pd_calib_xcoord_overall.detector_id, as necessary.
+    This item is deprecated.
+
+    Please see _pd_calib_detected_intensity.detector_id,
+    _pd_calib_xcoord.detector_id, or _pd_calib_xcoord.nominal_channel, as
+    necessary.
 
     A code which identifies the detector or channel number in a
     position-sensitive, energy-dispersive or other multiple-detector
@@ -3751,7 +3755,7 @@ save_pd_calib_xcoord.actual_energy_incident
     That is, this provides a mapping between the aforementioned actual
     value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
 
-    See _pd_proc.energy_energy_incident.
+    See _pd_proc.energy_incident.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               actual_energy_incident
@@ -4088,7 +4092,7 @@ save_pd_calib_xcoord.nominal_energy_incident
     That is, this provides a mapping between the aforementioned nominal
     value and another actual value of as given by _pd_calib_xcoord.actual_*.
 
-    See _pd_proc.energy_energy_incident.
+    See _pd_proc.energy_incident.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               nominal_energy_incident
@@ -14258,7 +14262,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-07-07
+         2.5.0                    2025-07-09
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -14487,4 +14491,6 @@ save_
        for all _diffrn.id values. In practice, the value associated with
        _pd_diffractogram.diffrn_id would be used when looking up this
        information, where required.
+
+       Update replacements of _pd_calib_std.detector_id.
 ;
