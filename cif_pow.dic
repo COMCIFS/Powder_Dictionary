@@ -2621,7 +2621,7 @@ save_PD_CALIB_DETECTED_INTENSITY
     _definition.id                PD_CALIB_DETECTED_INTENSITY
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-01-21
+    _definition.update            2025-06-27
     _description.text
 ;
     This section defines the parameters used for the intensity calibration of
@@ -2646,11 +2646,70 @@ save_PD_CALIB_DETECTED_INTENSITY
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_DETECTED_INTENSITY
+    _category_key.name            '_pd_calib_detected_intensity.detector_id'
 
     loop_
-      _category_key.name
-         '_pd_calib_detected_intensity.detector_id'
-         '_pd_calib_detected_intensity.id'
+      _description_example.case
+      _description_example.detail
+;
+         _audit_dataset.id   cb6a263b-c573-4ec3-848e-cfa7e44f3ec6
+
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.detector_response_su
+         _pd_calib_detected_intensity.diffractogram_id
+         _pd_calib_detected_intensity.phase_id
+         A   1        .        DIFFRACTOGRAM_A   676A
+         B   1.0350   0.0006   DIFFRACTOGRAM_B   676A
+;
+;
+         The two detectors, A and B, have responses of 1 and 1.035,
+         respectively, meaning that their measured intensities must be divided
+         by these values to retreive their true values. These response values
+         were derived from an analysis of the diffraction patterns
+         DIFFRACTOGRAM_A and DIFFRACTOGRAM_B, both of which contain the phase
+         676A.
+;
+;
+         loop_
+         _pd_calib_detected_intensity.detector_id
+         _pd_calib_detected_intensity.detector_response
+         _pd_calib_detected_intensity.special_details
+         1_4913c6ed   1       'Scanned through direct beam.'
+         2_4913c6ed   0.973   'Scanned through direct beam.'
+         3_4913c6ed   0.997   'Scanned through direct beam.'
+         4_4913c6ed   1.039   'Scanned through direct beam.'
+;
+;
+         A multi-detector system was scanned through the direct beam to
+         calibrate the response of each detector to a constant-intensity
+         source. The measured intensity derived from each detector must be
+         divided by the given response to obtain the actual value. No
+         diffraction pattern or phase was involved in the derivation of the
+         response values.
+;
+;
+        _audit_dataset.id   cb6a263b-c573-4ec3-848e-cfa7e44f3ec6
+        _pd_diffractogram.id   APATTERN
+
+         loop_
+         _pd_data.point_id
+         _pd_meas.detector_id
+         _pd_meas.2theta_scan
+         _pd_meas.intensity_total
+         _pd_proc.intensity_total
+         1   A   10.00   1243.42(47)   1243.42(47)
+         2   B   10.01   1364.36(57)   1318.22(94)
+         3   A   10.02   1324.35(87)   1324.35(87)
+         4   B   10.03   1298.36(74)   1254.45(102)
+         #...
+;
+;
+         The detector responses of 1 and 1.035 for detectors A and B given
+         in the first example have been applied to the raw measurements of
+         APATTERN to give processed intensities ready for analysis.
+;
 
 save_
 
@@ -2660,11 +2719,8 @@ save_pd_calib_detected_intensity.detector_id
     _definition.update            2023-06-09
     _description.text
 ;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. This code should match the code name used for
-    _pd_instr_detector.id.
+    A code which identifies the detector to which the response is being defined.
+    This code should match the code name used for _pd_instr_detector.id.
 ;
     _name.category_id             pd_calib_detected_intensity
     _name.object_id               detector_id
@@ -2741,24 +2797,6 @@ save_pd_calib_detected_intensity.diffractogram_id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_calib_detected_intensity.id
-
-    _definition.id                '_pd_calib_detected_intensity.id'
-    _definition.update            2023-01-21
-    _description.text
-;
-    A code to uniquely identify each intensity calibration.
-;
-    _name.category_id             pd_calib_detected_intensity
-    _name.object_id               id
-    _type.purpose                 Key
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
-    _enumeration.default          .
 
 save_
 
@@ -7909,8 +7947,8 @@ save_PD_INSTR_DETECTOR
         There are two detectors, fd343493 and 47540661. Both detectors are
         positioned 320 mm from the specimen, and are defined by two slits,
         8.5 mm in the axial direction, and 0.075 mm in the equatorial direction.
-        As the detector window is 8.5 mm wide, with 75 μm wide pixels, this is 
-        represented by _pd_instr.slit_eq_spec_detc as 0.075 and 
+        As the detector window is 8.5 mm wide, with 75 μm wide pixels, this is
+        represented by _pd_instr.slit_eq_spec_detc as 0.075 and
         _pd_instr.slit_ax_spec_detc as 8.5
 ;
 ;
@@ -11970,7 +12008,7 @@ save_PD_PROC_OVERALL
     _definition.id                PD_PROC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2025-04-18
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains overall information about the diffraction
@@ -11981,6 +12019,65 @@ save_PD_PROC_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_OVERALL
     _category_key.name            '_pd_proc_overall.diffractogram_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_42
+
+          _pd_proc.2theta_range_min   5.00
+          _pd_proc.2theta_range_max  95.00
+          _pd_proc.2theta_range_inc   0.02
+          _pd_proc.number_of_points  4501
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.intensity_total
+          _pd_proc.intensity_total_su
+          1   1234   23
+          2   1256   24
+          #...
+;
+;
+         The processed diffractogram is in equally-spaced 2θ points, starting
+         at 5.00° 2θ, going up in steps of 0.02°, with the last data point at
+         95.00° 2θ. In total, there are 4501 data points.
+;
+;
+          _pd_diffractogram.id                PATTERN_43
+          _pd_proc.info_datetime              2042-12-13T02:37:23Z
+          _pd_proc.info_data_reduction
+       ;
+          Background removed by spline fitting. Kɑ~2~ removed using
+          the built-in function. Pattern smoothed by Fourier methods.
+          Used AnalysisSoftware v15.
+       ;
+          _pd_proc.info_excluded_regions      '30-31° due to quartz impurity.'
+
+          loop_
+            _pd_data.point_id
+            _pd_meas.2theta_scan
+            _pd_meas.counts_total
+            _pd_proc.intensity_net
+            _pd_proc.ls_weight
+            1   10.02   1234   36.4  400
+            2   10.04   1354   35.1  403
+            # ...
+            999   29.98  2345  69.2  350
+            1000  30.00  2369  69.9    0
+            # ...
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_43'. The data were processed at 2:37 h GMT on the 13th of
+         December 2042. The data were modified as described. The data between
+         30 and 31° 2θ should be ignored, due to an impurity.
+         AnalysisSoftware v15 was used to carry out the processing.
+
+         The as-measured data are given along with the processed intensities.
+         The excluded region is also given using _pd_proc.ls_weight.
+;
 
 save_
 
@@ -14255,8 +14352,9 @@ save_
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
        PD_DIFFRACTOGRAM, PD_INSTR, PD_INSTR_DETECTOR, PD_MEAS_OVERALL, PD_PEAK,
-       _pd_phase.id, PD_PHASE_MASS, PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR,
-       PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
+       _pd_phase.id, PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_PROC_OVERALL,
+       PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD,
+       PD_SPEC.
 
        Add _pd_peak.overall_id.
 
@@ -14272,6 +14370,9 @@ save_
        information about the wavelength.
 
        Added _pd_meas_overall.step_count_time.
+
+       Removed _pd_calib_detected_intensity.id as data item and category key
+       of PD_CALIB_DETECTED_INTENSITY.
 
        Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
 
