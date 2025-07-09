@@ -7923,7 +7923,7 @@ save_PD_INSTR_DETECTOR
     _definition.id                PD_INSTR_DETECTOR
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-01-06
+    _definition.update            2025-06-19
     _description.text
 ;
     This category contains information relevant to the detector
@@ -7949,6 +7949,79 @@ save_PD_INSTR_DETECTOR
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR_DETECTOR
     _category_key.name            '_pd_instr_detector.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        loop_
+        _pd_instr_detector.id
+        _pd_instr.dist_spec_detc
+        _pd_instr.slit_ax_spec_detc
+        _pd_instr.slit_eq_spec_detc
+        _pd_instr_detector.instr_id
+            fd343493   320   8.5   0.075   b4131be5
+            47540661   320   8.5   0.075   b4131be5
+;
+;
+        These detectors are paired with the instrument identified by the
+        id b4131be5.
+
+        There are two detectors, fd343493 and 47540661. Both detectors are
+        positioned 320 mm from the specimen, and are defined by two slits,
+        8.5 mm in the axial direction, and 0.075 mm in the equatorial direction.
+        As the detector window is 8.5 mm wide, with 75 μm wide pixels, this is
+        represented by _pd_instr.slit_eq_spec_detc as 0.075 and
+        _pd_instr.slit_ax_spec_detc as 8.5
+;
+;
+        _pd_instr_detector.id             WhizzBang
+        _pd_instr_detector.instr_id       58b6d83b
+        _pd_instr.2theta_monochr_post      31.0
+        _pd_instr.dist_anal_detc           47
+        _pd_instr.dist_spec_anal          135
+        _pd_instr.monochr_post_spec       'Graphite mosaic monochromator'
+        _pd_instr.slit_ax_spec_anal         9.5
+        _pd_instr.slit_eq_spec_anal         0.5
+        _pd_instr.soller_eq_spec_anal       2.5
+        _pd_instr.special_details
+       ;
+         The equatorial slit between the specimen and monochromator
+         lies on the detector circle.
+       ;
+;
+;
+        The 'WhizzBang' detector is paired with the instrument identified by the
+        id 58b6d83b.
+
+        The post-specimen, graphite, mosaic monochromator is set at 31.0° 2θ.
+        The monochromator is situated 47 mm from the detector. The distance from
+        the specimen to the monochromator is 135 mm. The width of the beam is
+        defined at the monochromator by a 9.5 mm mask. There is a 0.5 mm
+        equatorial slit on the detector circle between the specimen and
+        monochromator, which acts as the virtual detector. There are 2.5° axial
+        Soller slits between the specimen and the monochromator.
+;
+;
+        _pd_instr_detector.instr_id       58b6d83b
+        _pd_instr_detector.id             A
+        _pd_instr.dist_spec_detc          117.5
+        _pd_instr.monochr_post_spec       'Fe filter'
+        _pd_instr.slit_ax_spec_detc        12
+        _pd_instr.slit_eq_spec_detc         0.075
+        _pd_instr.soller_ax_spec_detc       2.5
+;
+;
+        The 'A' detector is paired with the instrument identified by the
+        id 58b6d83b.
+
+        The distance from the specimen to the detector is 117.5 mm. The X-ray
+        beam is "monochromatised" by a metal Fe filter. The detector is defined
+        by a 12 mm axial and 0.075 mm equatorial slit. The small size of the
+        equatorial slit might lead the reader to assume a strip detector was
+        used. This should be documented using _pd_instr.special_details. There
+        are 2.5° axial Soller slits between the specimen and the detector.
+;
 
 save_
 
@@ -14353,9 +14426,11 @@ save_
        clarify that identical values refer to the same data point in each
        disparate loop; they cannot be assigned values independently.
 
+       Added _pd_instr_detector.instr_id
+
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_INSTR, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id,
-       PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_PROC_OVERALL,
+       PD_DIFFRACTOGRAM, PD_INSTR, PD_INSTR_DETECTOR, PD_MEAS_OVERALL, PD_PEAK,
+       _pd_phase.id, PD_PHASE_MASS, PD_PREP, PD_PROC_LS, PD_PROC_OVERALL,
        PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD,
        PD_SPEC.
 
