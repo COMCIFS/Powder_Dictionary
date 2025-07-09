@@ -6484,6 +6484,118 @@ save_PD_INSTR
     _name.object_id               PD_INSTR
     _category_key.name            '_pd_instr.id'
 
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _diffrn_radiation.id   Hires_tube
+
+        loop_
+        _diffrn_radiation_wavelength.id
+        _diffrn_radiation_wavelength.type
+        _diffrn_radiation_wavelength.value
+        1  'Cu K\a~1~'  1.540596
+
+        _pd_instr.id                          b4131be5
+        _pd_instr.geometry
+        ;
+         Bragg-Brentano, pre-specimen double-bounce monochromator.
+         Dual strip detectors covering ~20° each. Scanned to cover all angles.
+        ;
+        _pd_instr.2theta_monochr_pre           45.31
+        _pd_instr.monochr_pre_spec            'Ge 220'
+        _pd_instr.divg_eq_mono_spec             0.2
+        _pd_instr.cons_illum_flag             no
+        _pd_instr.detector_circle_radius      320
+        _pd_instr.dist_mono_spec              402
+        _pd_instr.dist_src_mono                39
+        _pd_instr.beam_size_ax                 10.5
+        _pd_instr.slit_ax_mono_spec            10.0
+        _pd_instr.slit_eq_mono_spec             0.5
+        _pd_instr.soller_ax_mono_spec           2.5
+        _pd_instr.source_size_ax               12
+        _pd_instr.source_size_eq                0.4
+        _pd_instr.location                    'Physics, Anytown University.'
+;
+;
+        This instrument is identified by the id b4131be5. The instrument is
+        described as a Bragg-Brentano diffractometer with a pre-specimen,
+        double-bounce Ge 220 monochromator. It has two detectors; these are not
+        described here, see PD_INSTR_DETECTOR. The monochromator is set at
+        45.31° 2θ. The equatorial divergence between the monochromator and
+        specimen is fixed at 0.2°; this instrument is not run in constant
+        illumination length mode.
+
+        The distance from the virtual source to the specimen for all
+        measurement points is 320 mm, whereas the distance from the
+        monochromator to the specimen is 402 mm. The monochromator is
+        situated 39 mm from the source. The width of the beam on the specimen,
+        in the axial direction, is 10.5 mm, and the width of the beam is
+        defined at the monochromator by a 10 mm mask. There is a 0.5 mm
+        equatorial slit between the monochromator and specimen, which can be
+        assumed to be on the detector circle, and acts as the virtual source.
+
+        There are 2.5° axial Soller slits between the monochromator and the
+        specimen. The size of the source in the X-ray tube is 12 x 0.4 mm.
+
+        The instrument is located in the Department of Physics in Anytown
+        University.
+
+        The radiation used in the instrument is defined by data names from the
+        DIFFRN_RADIATION_WAVELENGTH category. In this case, it is pure Cu K\a~1~
+        radiation with a wavelength of 1.540596 Å.
+;
+;
+        _diffrn_radiation.id   Cobalt_tube
+        loop_
+        _diffrn_radiation_wavelength.id
+        _diffrn_radiation_wavelength.value
+        _diffrn_radiation_wavelength.wt
+        _diffrn_radiation_wavelength.type
+        _diffrn_radiation_wavelength.details
+         1  1.7889847  0.378 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         2  1.7892524  0.144 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         3  1.7896946  0.127 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         4  1.7888515  0.088 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         5  1.7927905  0.197 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         6  1.7930637  0.095 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         7  1.7934738  0.050 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+
+        _pd_instr.id                       58b6d83b
+        _pd_instr.geometry                 Bragg-Brentano
+        _pd_instr.cons_illum_len            12.0
+        _pd_instr.detector_circle_radius   117.5
+        _pd_instr.dist_src_spec            117.5
+        _pd_instr.beam_size_ax               9.8
+        _pd_instr.slit_ax_src_spec           9.5
+        _pd_instr.soller_ax_src_spec         5.0
+        _pd_instr.source_size_ax             8.5
+        _pd_instr.source_size_eq             0.4
+        _pd_instr.location
+            'ACME Measurements, 123 Main St. Maintown.'
+;
+;
+        This instrument is identified by the id 58b6d83b. The instrument is
+        described as a Bragg-Brentano diffractometer. The instrument is run
+        with a constant illumination length of 12 mm.
+
+        The distance from the source to the specimen for all measurement points
+        is 117.5 mm, which is identical to the distance from the source to the
+        specimen, as the X-ray tube is mounted on the detector circle. The width
+        of the beam on the specimen, in the axial direction, is 9.8 mm, and the
+        width of the beam is defined at the source by a 9.5 mm mask.
+
+        There are 5.0° axial Soller slits between the source and the specimen.
+        The size of the source in the X-ray tube is 8.5 x 0.4 mm.
+
+        The instrument is located at ACME Measurements in Maintown.
+
+        The radiation used in the instrument is defined by data names from the
+        DIFFRN_RADIATION_WAVELENGTH category. In this case, it is Co K\a
+        radiation as described by the constituent seven wavelengths, as
+        described by G. Hölzer et al. Phys. Rev. A 56, 4554.
+;
+
 save_
 
 save_pd_instr.2theta_monochr_pre
@@ -13659,8 +13771,9 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS,
-       PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
+       PD_DIFFRACTOGRAM, PD_INSTR, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id,
+       PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR,
+       PD_QPA_INTERNAL_STD, PD_SPEC.
 
        Add _pd_peak.overall_id.
 
