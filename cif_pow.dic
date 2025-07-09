@@ -7909,9 +7909,9 @@ save_PD_INSTR_DETECTOR
         There are two detectors, fd343493 and 47540661. Both detectors are
         positioned 320 mm from the specimen, and are defined by two slits,
         8.5 mm in the axial direction, and 0.075 mm in the equatorial direction.
-        As the instrument description says that this instrument has 'Dual strip
-        detectors', it can be assumed that the detector window is 8.5 mm wide,
-        and each strip, or pixel, in the detector is 75 μm high.
+        As the detector window is 8.5 mm wide, with 75 μm wide pixels, this is 
+        represented by _pd_instr.slit_eq_spec_detc as 0.075 and 
+        _pd_instr.slit_ax_spec_detc as 8.5
 ;
 ;
         _pd_instr_detector.id             WhizzBang
