@@ -3121,13 +3121,13 @@ save_pd_calib.2theta_off_point
     _definition.id                '_pd_calib.2theta_off_point'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.2theta_nominal'
+    _definition_replaced.by       '_pd_calib_xcoord.nominal_2theta'
 
     _alias.definition_id          '_pd_calib_2theta_off_point'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord.2theta_nominal.
+    This item is deprecated. Please see _pd_calib_xcoord.nominal_2theta.
 
     The nominal 2θ value to which the offset given in
     _pd_calib.2theta_offset applies.
@@ -3148,13 +3148,13 @@ save_pd_calib.2theta_offset
     _definition.id                '_pd_calib.2theta_offset'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset'
+    _definition_replaced.by       .
 
     _alias.definition_id          '_pd_calib_2theta_offset'
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset.
+    This item is deprecated. Please see _pd_calib_xcoord.actual_2theta.
 
     _pd_calib.2theta_offset defines an offset angle (in degrees)
     used to calibrate 2θ (as defined in _pd_meas.2theta_*).
@@ -3178,12 +3178,12 @@ save_pd_calib.2theta_offset_su
     _definition.id                '_pd_calib.2theta_offset_su'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord.2theta_offset_su'
+    _definition_replaced.by       .
 
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord.2theta_offset_su.
+    This item is deprecated. Please see _pd_calib_xcoord.actual_2theta_su.
 
     Standard uncertainty of _pd_calib.2theta_offset.
 ;
@@ -3201,12 +3201,12 @@ save_pd_calib_offset.detector_id
     _definition.id                '_pd_calib_offset.detector_id'
 
     _definition_replaced.id       1
-    _definition_replaced.by       '_pd_calib_xcoord_overall.detector_id'
+    _definition_replaced.by       '_pd_calib_xcoord.detector_id'
 
-    _definition.update            2023-06-05
+    _definition.update            2025-06-28
     _description.text
 ;
-    This item is deprecated. Please see _pd_calib_xcoord_overall.detector_id.
+    This item is deprecated. Please see _pd_calib_xcoord.detector_id.
 
     The detector to which the offset values relate.
     As a default value is defined, the detector id may be
@@ -3291,9 +3291,9 @@ save_pd_calib_std.detector_id
       _definition_replaced.id
       _definition_replaced.by
          1                        '_pd_calib_detected_intensity.detector_id'
-         2                        '_pd_calib_xcoord_overall.detector_id'
+         2                        '_pd_calib_xcoord.detector_id'
 
-    _definition.update            2023-06-09
+    _definition.update            2025-06-28
     _description.text
 ;
     This item is deprecated. Please see _pd_calib_detected_intensity.detector_id
@@ -3390,159 +3390,206 @@ save_PD_CALIB_XCOORD
     _definition.id                PD_CALIB_XCOORD
     _definition.scope             Category
     _definition.class             Loop
-    _definition.update            2023-06-10
+    _definition.update            2025-06-19
     _description.text
 ;
-    This section defines the parameters used for the calibration of the
-    X-coordinate axis of the instrument used directly or indirectly in the
-    interpretation of this data set; that is, 2\q, time-of-flight, or
-    position.
+    This category allows for the calibration of various X-coordinate axes
+    used in powder diffraction data sets by mapping a nominal X-coordinate
+    value to an actual X-coordinate value.
 
-    Calibration is carried out be adding the offset value:
+    Supported X-coordinate axes include:
+    - 2theta
+    - d-spacing
+    - detected energy
+    - incident energy
+    - position
+    - Q (momentum transfer)
+    - time-of-flight
+    - wavelength
+    - channel number
 
-        X-coord~calibrated~ = X-coord~meas~ + X-coord~offset~
+    This mapping would usually be used to correct for systematic errors in
+    the X-coordinate axis, such as those caused by miscalibration of the
+    instrument, eg mapping measured 2\q values to corrected 2\q values, or to
+    provide a calibration for mapping a detector channel number to an actual
+    detected energy, d-spacing, or momentum transfer value.
 
-    For cases where the offset value is not a constant, but rather varies
-    with X-coordinate, a set of offset values is supplied in a loop. In this
-    case, the value where the offset has been determined can be specified as
-    _pd_calib_xcoord.*_nominal. These values may need to be interpolated to
-    be applied to their respective diffractograms.
+    In general, any number of nominal-to-actual calibrations dould be
+    provided. Each line in the loop fixes the mapping from a nominal
+    value to an actual value. In essence, this is a machine-readable table
+    of values that would otherwise be given in a human-readable equation
+    in _pd_calibration.equation.
 
-    Alternatively, if the offset has been determined at each measurement
-    point in the diffractogram, _pd_calib_xcoord.point_id may be used to
-    specify the offset on a per-point basis.
+    Every datapoint in a diffractogram to be calibrated may not have an
+    equivalent value in the calibration table. In this case, an
+    interpolation must be made to obtain a value for each data point.
+
+    This category is not designed to correct for misaligned specimens - see
+    _pd_proc.* for the related X-coordinate data names.
+
+    See also PD_CALIB_XCOORD_OVERALL.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_XCOORD
 
     loop_
       _category_key.name
-         '_pd_calib_xcoord.diffractogram_id'
          '_pd_calib_xcoord.id'
+         '_pd_calib_xcoord.overall_id'
 
     loop_
       _description_example.case
       _description_example.detail
 ;
-         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
+         data_calibrationinformation
+             _pd_diffractogram.id                      CALIBRATION_DIFFRACTOGRAM
+             _pd_diffractogram.instr_id                INSTRUMENT_1
+             _pd_calib_xcoord_overall.id               main_calibration
+             _pd_calib_xcoord_overall.diffractogram_id CALIBRATION_DIFFRACTOGRAM
+
+             loop_
+             _pd_calib_xcoord.id
+             _pd_calib_xcoord.nominal_2theta
+             _pd_calib_xcoord.actual_2theta
+              a   10.01   10.011
+              b   10.03   10.032
+              c   10.05   10.053
+              d   10.07   10.074
+              # ...
+
+             loop_
+             _pd_data.point_id
+             _pd_meas.2theta_scan
+             _pd_proc.2theta_corrected
+             _pd_meas.counts_total
+             _pd_calc.intensity_total
+             1   10.01   10.011  1234    1234.1
+             2   10.03   10.033  1235    1235.3
+             3   10.05   10.055  1352    1236.5
+             4   10.07   10.077  1324    1237.7
+             # ...
+
+         data_unknownsample
+             _pd_diffractogram.id         UNKNOWN_DIFFRACTOGRAM
+             _pd_diffractogram.instr_id   INSTRUMENT_1
+
+             loop_
+             _pd_data.point_id
+             _pd_meas.2theta_scan
+             _pd_proc.2theta_corrected
+             _pd_meas.counts_total
+             A   10.02   10.022  3134
+             B   10.04   10.044  3335
+             C   10.06   10.066  3452
+             D   10.08   10.088  3324
+             # ...
+;
+;
+         The the data block "calibrationinformation", A diffractogram
+         identified as "CALIBRATION_DIFFRACTOGRAM", was collected on
+         the instrument identified as "INSTRUMENT_1", to act as a
+         calibration standard for the 2θ axis.
+
+         The measured and processed 2θ values from the resultant analysis
+         were taken as the nominal and actual values, respectively, for
+         the calibration. These values can be used to calibrate the
+         2θ axis of other diffractograms collected on the same
+         instrument.
+
+         The calibration is given the overall id of 'main_calibration', to
+         link the source of the calibration to the individual loop values.
+
+         The data block "unknownsample" contains a diffractogram
+         identified as "UNKNOWN_DIFFRACTOGRAM", which was collected on the
+         same instrument, "INSTRUMENT_1". To check if any X-coordinate
+         calibration is available, the instrument id "INSTRUMENT_1" is compared
+         against any entries in _pd_calib_xcoord_overall.diffractogram_id
+         and if a match is found, the X-coordinate calibration could be used
+         to correct the _pd_meas.2theta_scan values in the loop by either direct
+         value replacement, or an interpolation.
+;
+;
+         _pd_diffractogram.id                        TOF_STD
+         _pd_diffractogram.instr_id                  tof-instrument-1
+         _pd_calib_xcoord_overall.id                 tof-calibration
+         _pd_calib_xcoord_overall.diffractogram_id   TOF_STD
+
          loop_
-          _pd_calib_xcoord.point_id
-          _pd_calib_xcoord.2theta_offset
-          1   0.01
-          2   0.01
-          3   0.02
-          4   0.02
+         _pd_calib_xcoord.id
+         _pd_calib_xcoord.detector_id
+         _pd_calib_xcoord.nominal_time_of_flight
+         _pd_calib_xcoord.actual_d_spacing
+          1   A  1110.301000     1.489225
+          2   A  1114.742200     1.495170
+          3   A  1119.201170     1.501138
+          4   A  1123.677980     1.507131
           ...
 
-          loop_
-          _pd_data.point_id
-          _pd_meas.2theta_scan
-          _pd_meas.counts_total
-          _pd_calc.intensity_total
-          1   10.01   1234    1234.1
-          2   10.03   1235    1235.3
-          3   10.05   1352    1236.5
-          4   10.07   1324    1237.7
-          ...
-;
-;
-         Calibration offset values are provided for each data point in the
-         diffractogram.
-;
-;
-         _pd_diffractogram.id   A_DIFFRACTION_PATTERN
          loop_
-          _pd_calib_xcoord.id
-          _pd_calib_xcoord.2theta_nominal
-          _pd_calib_xcoord.2theta_offset
-          a   10.00   0.01
-          b   12.00   0.02
-          c   14.00   0.03
-          d   16.00   0.04
-          ...
-
-          loop_
-          _pd_data.point_id
-          _pd_meas.2theta_scan
-          _pd_meas.counts_total
-          _pd_calc.intensity_total
-          1   10.01   1234    1234.1
-          2   10.03   1235    1235.3
-          3   10.05   1352    1236.5
-          4   10.07   1324    1237.7
+         _pd_data.id
+         _pd_meas.detector_id
+         _pd_meas.time_of_flight
+         _pd_proc.d_spacing
+         _pd_proc.intensity_total
+         _pd_calc.intensity_total
+          i   A  1110.301000     1.489225     0.600083   0.553025
+          ii  A  1114.742200     1.495170     0.635318   0.571286
+          iii A  1119.201170     1.501138     0.646909   0.593895
+          iv  A  1123.677980     1.507131     0.655807   0.620014
           ...
 ;
 ;
-         Calibration offsets and the nominal 2\q values to which they apply are
-         listed, along with the diffraction pattern to which they apply. With
-         the given calibration data, an interpolation must be made to obtain a
-         value for each data point.
-;
-;
-            loop_
-            _pd_calib_xcoord_overall.id
-            _pd_calib_xcoord_overall.detector_id
-            _pd_calib_xcoord_overall.diffractogram_id
-            _pd_calib_xcoord_overall.phase_id
-            _pd_calib_xcoord_overall.special_details
-            A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
-            B   det2   .   .   "Scanned through direct beam with fine slit."
+         A diffractogram identified as "TOF_STD" was collected on the
+         instrument identified as "tof-instrument-1" to act as a
+         calibration standard to allow the calculation of d-spacing from
+         time-of-flight. The measured TOF and processed d-spacing values
+         from the resultant analysis are taken as the nominal and actual
+         values, respectively, for the calibration.
 
-          loop_
-          _pd_calib_xcoord.id
-          _pd_calib_xcoord.position_nominal
-          _pd_calib_xcoord.position_offset
-          _pd_calib_xcoord.overall_id
-          a   10.00   0.01   A
-          b   10.00   0.02   B
-          c   12.00   0.03   A
-          d   12.00   0.03   B
+         The calibration is given the overall id of 'tof-calibration', to
+         allow other diffractograms to refer to it.
+;
+;
+         _pd_diffractogram.id          SAMPLE_1
+         _pd_diffractogram.instr_id    tof-instrument-1
+
+         loop_
+         _pd_data.id
+         _pd_meas.detector_id
+         _pd_meas.time_of_flight
+         _pd_proc.intensity_total
+          1   A  1137.216120     0.746836
+          2   A  1141.764990     0.728226
+          3   A  1146.332050     0.734770
+          4   A  1150.917370     0.767760
           ...
 ;
 ;
-         Calibration offsets and the nominal position values to which they apply
-         are listed. The given _pd_calib_xcoord.overall_id refers to the
-         PD_CALIB_XCOORD_OVERALL category items given above.
-
-         An interpolation must be made to obtain a value for each data point.
+         A diffractogram identified as "SAMPLE_1" was collected on the
+         instrument identified as "tof-instrument-1". Knowing the instrument
+         and detector id values, the correct calibration can be found
+         by looking up the _pd_instr.id value associated with the diffractogram
+         id recorded in _pd_calib_xcoord_overall.diffractogram_id, and then
+         the detector id value associated with the _pd_calib_xcoord_overall.id
+         value in the loop.
 ;
 
 save_
 
-save_pd_calib_xcoord.2theta_nominal
+save_pd_calib_xcoord.actual_2theta
 
-    _definition.id                '_pd_calib_xcoord.2theta_nominal'
-    _definition.update            2023-01-17
+    _definition.id                '_pd_calib_xcoord.actual_2theta'
+    _definition.update            2025-06-19
     _description.text
 ;
-    The nominal 2\q value to which the offset given in
-    _pd_calib_xcoord.2theta_offset applies.
+    The actual 2\q value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
 ;
     _name.category_id             pd_calib_xcoord
-    _name.object_id               2theta_nominal
-    _type.purpose                 Number
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            -180.0:180.0
-    _units.code                   degrees
-
-save_
-
-save_pd_calib_xcoord.2theta_offset
-
-    _definition.id                '_pd_calib_xcoord.2theta_offset'
-    _definition.update            2023-01-17
-    _description.text
-;
-    _pd_calib_xcoord.2theta_offset defines an offset angle (in degrees) used
-    to calibrate 2\q (as defined in _pd_meas.2theta_). Calibration is done
-    by adding the offset:
-
-         2\q~calibrated~ = 2\q~measured~ + 2\q~offset~
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               2theta_offset
+    _name.object_id               actual_2theta
     _type.purpose                 Measurand
     _type.source                  Derived
     _type.container               Single
@@ -3552,39 +3599,329 @@ save_pd_calib_xcoord.2theta_offset
 
 save_
 
-save_pd_calib_xcoord.2theta_offset_su
+save_pd_calib_xcoord.actual_2theta_su
 
-    _definition.id                '_pd_calib_xcoord.2theta_offset_su'
-    _definition.update            2023-01-17
+    _definition.id                '_pd_calib_xcoord.actual_2theta_su'
+    _definition.update            2025-06-19
     _description.text
 ;
-    Standard uncertainty of _pd_calib_xcoord.2theta_offset.
+    Standard uncertainty of _pd_calib_xcoord.actual_2theta.
 ;
     _name.category_id             pd_calib_xcoord
-    _name.object_id               2theta_offset_su
-    _name.linked_item_id          '_pd_calib_xcoord.2theta_offset'
+    _name.object_id               actual_2theta_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_2theta'
     _units.code                   degrees
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
-save_pd_calib_xcoord.diffractogram_id
+save_pd_calib_xcoord.actual_d_spacing
 
-    _definition.id                '_pd_calib_xcoord.diffractogram_id'
-    _definition.update            2023-06-10
+    _definition.id                '_pd_calib_xcoord.actual_d_spacing'
+    _definition.update            2025-06-19
     _description.text
 ;
-    The diffractogram (see _pd_diffractogram.id) to which the calibration
-    relates.
+    The actual d-spacing value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
 ;
     _name.category_id             pd_calib_xcoord
-    _name.object_id               diffractogram_id
-    _name.linked_item_id          '_pd_diffractogram.id'
+    _name.object_id               actual_d_spacing
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   angstroms
+
+save_
+
+save_pd_calib_xcoord.actual_d_spacing_su
+
+    _definition.id                '_pd_calib_xcoord.actual_d_spacing_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_d_spacing.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_d_spacing_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_d_spacing'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.actual_energy_detection
+
+    _definition.id                '_pd_calib_xcoord.actual_energy_detection'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The actual detected energy value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+
+    See _pd_proc.energy_detection.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_energy_detection
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   electron_volts
+
+save_
+
+save_pd_calib_xcoord.actual_energy_detection_su
+
+    _definition.id                '_pd_calib_xcoord.actual_energy_detection_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_energy_detection.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_energy_detection_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_energy_detection'
+    _units.code                   electron_volts
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.actual_energy_incident
+
+    _definition.id                '_pd_calib_xcoord.actual_energy_incident'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The actual incident energy value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+
+    See _pd_proc.energy_energy_incident.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_energy_incident
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   electron_volts
+
+save_
+
+save_pd_calib_xcoord.actual_energy_incident_su
+
+    _definition.id                '_pd_calib_xcoord.actual_energy_incident_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_energy_incident.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_energy_incident_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_energy_incident'
+    _units.code                   electron_volts
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.actual_position
+
+    _definition.id                '_pd_calib_xcoord.actual_position'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The actual position value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_position
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   millimetres
+
+save_
+
+save_pd_calib_xcoord.actual_position_su
+
+    _definition.id                '_pd_calib_xcoord.actual_position_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_position.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_position_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_position'
+    _units.code                   millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.actual_recip_len_q
+
+    _definition.id                '_pd_calib_xcoord.actual_recip_len_q'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The actual Q value (|Q|= 2π/d) to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_recip_len_q
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   reciprocal_angstroms
+
+save_
+
+save_pd_calib_xcoord.actual_recip_len_q_su
+
+    _definition.id                '_pd_calib_xcoord.actual_recip_len_q_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_recip_len_q.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_recip_len_q_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_recip_len_q'
+    _units.code                   reciprocal_angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.actual_time_of_flight
+
+    _definition.id                '_pd_calib_xcoord.actual_time_of_flight'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The actual time-of-flight value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_time_of_flight
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   microseconds
+
+save_
+
+save_pd_calib_xcoord.actual_time_of_flight_su
+
+    _definition.id                '_pd_calib_xcoord.actual_time_of_flight_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_time_of_flight.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_time_of_flight_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_time_of_flight'
+    _units.code                   microseconds
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.actual_wavelength
+
+    _definition.id                '_pd_calib_xcoord.actual_wavelength'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The actual wavelength value to which the equivalent looped nominal
+    value applies as given by _pd_calib_xcoord.nominal_*.
+
+    That is, this provides a mapping between the aforementioned actual
+    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+
+    See _pd_proc.wavelength.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_wavelength
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   angstroms
+
+save_
+
+save_pd_calib_xcoord.actual_wavelength_su
+
+    _definition.id                '_pd_calib_xcoord.actual_wavelength_su'
+    _definition.update            2025-06-19
+    _description.text
+;
+    Standard uncertainty of _pd_calib_xcoord.actual_wavelength.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               actual_wavelength_su
+    _name.linked_item_id          '_pd_calib_xcoord.actual_wavelength'
+    _units.code                   angstroms
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
+save_pd_calib_xcoord.detector_id
+
+    _definition.id                '_pd_calib_xcoord.detector_id'
+    _definition.update            2025-06-19
+    _description.text
+;
+    A code which identifies the detector for which the associated nominal
+    and/or actual values apply. This code should match the code name used for
+    _pd_instr_detector.id.
+
+    That is, this provides a mapping between the aforementioned detector
+    value and another nominal and/or actual value of as given by
+    _pd_calib_xcoord.nominal_* and/or _pd_calib_xcoord.actual_*..
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               detector_id
+    _name.linked_item_id          '_pd_instr_detector.id'
     _type.purpose                 Link
     _type.source                  Related
     _type.container               Single
-    _type.contents                Text
+    _type.contents                Code
 
 save_
 
@@ -3594,7 +3931,7 @@ save_pd_calib_xcoord.id
     _definition.update            2023-01-17
     _description.text
 ;
-    A code to uniquely identify each X-coordinate calibration.
+    A arbitrary code to uniquely identify each X-coordinate calibration.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               id
@@ -3602,6 +3939,217 @@ save_pd_calib_xcoord.id
     _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_calib_xcoord.nominal_2theta
+
+    _definition.id                '_pd_calib_xcoord.nominal_2theta'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal 2\q value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_2theta
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            -180.0:180.0
+    _units.code                   degrees
+
+save_
+
+save_pd_calib_xcoord.nominal_channel
+
+    _definition.id                '_pd_calib_xcoord.nominal_channel'
+    _definition.update            2025-06-28
+    _description.text
+;
+    The nominal channel number to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_channel
+    _type.purpose                 Number
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Integer
+    _units.code                   none
+
+save_
+
+save_pd_calib_xcoord.nominal_d_spacing
+
+    _definition.id                '_pd_calib_xcoord.nominal_d_spacing'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal d-spacing value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_d_spacing
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   angstroms
+
+save_
+
+save_pd_calib_xcoord.nominal_energy_detection
+
+    _definition.id                '_pd_calib_xcoord.nominal_energy_detection'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal detected energy value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+
+    See _pd_proc.energy_detection.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_energy_detection
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   electron_volts
+
+save_
+
+save_pd_calib_xcoord.nominal_energy_incident
+
+    _definition.id                '_pd_calib_xcoord.nominal_energy_incident'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal incident energy value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+
+    See _pd_proc.energy_energy_incident.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_energy_incident
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   electron_volts
+
+save_
+
+save_pd_calib_xcoord.nominal_position
+
+    _definition.id                '_pd_calib_xcoord.nominal_position'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal position value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_position
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _units.code                   millimetres
+
+save_
+
+save_pd_calib_xcoord.nominal_recip_len_q
+
+    _definition.id                '_pd_calib_xcoord.nominal_recip_len_q'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal Q value (|Q|= 2π/d) to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_recip_len_q
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   reciprocal_angstroms
+
+save_
+
+save_pd_calib_xcoord.nominal_time_of_flight
+
+    _definition.id                '_pd_calib_xcoord.nominal_time_of_flight'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal time-of-flight value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_time_of_flight
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   microseconds
+
+save_
+
+save_pd_calib_xcoord.nominal_wavelength
+
+    _definition.id                '_pd_calib_xcoord.nominal_wavelength'
+    _definition.update            2025-06-19
+    _description.text
+;
+    The nominal wavelength value to which the equivalent looped actual
+    value applies as given by _pd_calib_xcoord.actual_*.
+
+    That is, this provides a mapping between the aforementioned nominal
+    value and another actual value of as given by _pd_calib_xcoord.actual_*.
+
+    See _pd_proc.wavelength.
+;
+    _name.category_id             pd_calib_xcoord
+    _name.object_id               nominal_wavelength
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   angstroms
 
 save_
 
@@ -3624,239 +4172,50 @@ save_pd_calib_xcoord.overall_id
 
 save_
 
-save_pd_calib_xcoord.point_id
-
-    _definition.id                '_pd_calib_xcoord.point_id'
-    _definition.update            2025-06-19
-    _description.text
-;
-    Arbitrary label identifying a data point in a diffractogram. Used to
-    identify a specific entry in a list of values forming the diffractogram
-    to which the X-coordinate calibration applies.
-
-    The value of _pd_calib_xcoord.point_id must be the same as
-    the value of _pd_data.point_id given to the equivalent data point
-    in the measured/processed/calculated diffractogram to which
-    the X-coordinate calibration applies.
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               point_id
-    _name.linked_item_id          '_pd_data.point_id'
-    _type.purpose                 Link
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-save_
-
-save_pd_calib_xcoord.position_nominal
-
-    _definition.id                '_pd_calib_xcoord.position_nominal'
-    _definition.update            2023-01-17
-    _description.text
-;
-    The nominal position value to which the offset given in
-    _pd_calib_xcoord.position_offset applies.
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               position_nominal
-    _type.purpose                 Number
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   millimetres
-
-save_
-
-save_pd_calib_xcoord.position_offset
-
-    _definition.id                '_pd_calib_xcoord.position_offset'
-    _definition.update            2023-01-17
-    _description.text
-;
-    _pd_calib_xcoord.position_offset defines an offset position (in
-    millimetres) used to calibrate position (as defined in
-    _pd_meas.position). Calibration is done by adding the offset:
-
-         position~calibrated~ = position~measured~ + position~offset~
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               position_offset
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   millimetres
-
-save_
-
-save_pd_calib_xcoord.position_offset_su
-
-    _definition.id                '_pd_calib_xcoord.position_offset_su'
-    _definition.update            2023-01-17
-    _description.text
-;
-    Standard uncertainty of _pd_calib_xcoord.position_offset.
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               position_offset_su
-    _name.linked_item_id          '_pd_calib_xcoord.position_offset'
-    _units.code                   millimetres
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_calib_xcoord.time_of_flight_nominal
-
-    _definition.id                '_pd_calib_xcoord.time_of_flight_nominal'
-    _definition.update            2023-01-17
-    _description.text
-;
-    The nominal time-of-flight value to which the offset given in
-    _pd_calib_xcoord.time_of_flight_offset applies.
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               time_of_flight_nominal
-    _type.purpose                 Number
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   microseconds
-
-save_
-
-save_pd_calib_xcoord.time_of_flight_offset
-
-    _definition.id                '_pd_calib_xcoord.time_of_flight_offset'
-    _definition.update            2023-01-17
-    _description.text
-;
-    _pd_calib_xcoord.time_of_flight_offset defines an offset time (in
-    microseconds) used to calibrate time-of-flight (TOF) (as defined in
-    _pd_meas.time_of_flight). Calibration is done by adding the offset:
-
-    TOF~calibrated~ = TOF~measured~ + TOF~offset~
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               time_of_flight_offset
-    _type.purpose                 Measurand
-    _type.source                  Derived
-    _type.container               Single
-    _type.contents                Real
-    _units.code                   microseconds
-
-save_
-
-save_pd_calib_xcoord.time_of_flight_offset_su
-
-    _definition.id                '_pd_calib_xcoord.time_of_flight_offset_su'
-    _definition.update            2023-01-17
-    _description.text
-;
-    Standard uncertainty of _pd_calib_xcoord.time_of_flight_offset.
-;
-    _name.category_id             pd_calib_xcoord
-    _name.object_id               time_of_flight_offset_su
-    _name.linked_item_id          '_pd_calib_xcoord.time_of_flight_offset'
-    _units.code                   microseconds
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
 save_PD_CALIB_XCOORD_OVERALL
 
     _definition.id                PD_CALIB_XCOORD_OVERALL
     _definition.scope             Category
-    _definition.class             Loop
-    _definition.update            2023-05-06
+    _definition.class             Set
+    _definition.update            2025-06-19
     _description.text
 ;
     This category gives the overall information about the x-coordinate
     calibration applied to a given diffractogram.
+
+    See PD_CALIB_XCOORD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIB_XCOORD_OVERALL
-
-    loop_
-      _category_key.name
-         '_pd_calib_xcoord_overall.detector_id'
-         '_pd_calib_xcoord_overall.id'
+    _category_key.name            '_pd_calib_xcoord_overall.id'
 
     loop_
       _description_example.case
       _description_example.detail
-;
-         loop_
-         _pd_calib_xcoord_overall.id
-         _pd_calib_xcoord_overall.detector_id
-         d1   det1
-         d2   det2
-;
-;
-         Calibration offsets given using PD_CALIB_XCOORD category data items
-         will correspond to calibrations carried out on the given two detectors.
-;
-;
-         loop_
-         _pd_calib_xcoord_overall.id
-         _pd_calib_xcoord_overall.detector_id
-         _pd_calib_xcoord_overall.diffractogram_id
-         _pd_calib_xcoord_overall.phase_id
-         1   A   CALIBRATION_DIFFRACTOGRAM_A   NIST_SRM640E
-         2   B   CALIBRATION_DIFFRACTOGRAM_B   NIST_SRM640E
-         3   C   CALIBRATION_DIFFRACTOGRAM_C   NIST_SRM640E
-;
-;
-         Calibration offsets given using PD_CALIB_XCOORD category data items
-         will correspond to calibrations carried out on the given three
-         detectors derived from analysis of the given diffractograms and phase.
 
-         Calibration values will be given using PD_CALIB_XCOORD category data
-         items.
+;
+         _pd_calib_xcoord_overall.id       904bbf31-8eb5-44ee-92d0-3cf9d3f2e7f6
+         _pd_calib_xcoord_overall.diffractogram_id  CALIBRATION_DIFFRACTOGRAM_A
+         _pd_calib_xcoord_overall.phase_id          NIST_SRM640E
 ;
 ;
-         loop_
-         _pd_calib_xcoord_overall.id
-         _pd_calib_xcoord_overall.detector_id
-         _pd_calib_xcoord_overall.diffractogram_id
-         _pd_calib_xcoord_overall.phase_id
+         Calibration values given using PD_CALIB_XCOORD category data items
+         which refer to the overall calibration conditions identified by
+         the above UUID were derived from the diffractogram
+         identified by "CALIBRATION_DIFFRACTOGRAM_A" and the phase
+         identified by "NIST_SRM640E".
+;
+;
+         _pd_calib_xcoord_overall.id                 B
          _pd_calib_xcoord_overall.special_details
-         A   det1   CALIBRATION_DIFFRACTOGRAM   NIST_SRM640E   .
-         B   det2   .   .   "Scanned through direct beam with fine slit."
+                                  "Scanned through direct beam with fine slit."
 ;
 ;
-         Different detectors can be calibrated through different means. Here,
-         det1 was calibrated through the analysis of a diffractogram and a
-         known reference material, whereas det2 was calibrated by scanning the
-         detector through the direct beam.
-
-         Calibration values will be given using PD_CALIB_XCOORD category data
-         items.
+         Calibration values given using PD_CALIB_XCOORD category data items
+         which refer to the overall calibration conditions identified by
+         "B" were derived by scanning the detector through the
+         direct beam with a fine slit.
 ;
-
-save_
-
-save_pd_calib_xcoord_overall.detector_id
-
-    _definition.id                '_pd_calib_xcoord_overall.detector_id'
-    _definition.update            2023-06-09
-    _description.text
-;
-    A code which identifies the detector or channel number in a
-    position-sensitive, energy-dispersive or other multiple-detector
-    instrument for which the individual instrument geometry is being
-    defined. This code should match the code name used for
-    _pd_instr_detector.id.
-;
-    _name.category_id             pd_calib_xcoord_overall
-    _name.object_id               detector_id
-    _name.linked_item_id          '_pd_instr_detector.id'
-    _type.purpose                 Link
-    _type.source                  Related
-    _type.container               Single
-    _type.contents                Code
 
 save_
 
@@ -6483,6 +6842,118 @@ save_PD_INSTR
     _name.category_id             PD_GROUP
     _name.object_id               PD_INSTR
     _category_key.name            '_pd_instr.id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+        _diffrn_radiation.id   Hires_tube
+
+        loop_
+        _diffrn_radiation_wavelength.id
+        _diffrn_radiation_wavelength.type
+        _diffrn_radiation_wavelength.value
+        1  'Cu K\a~1~'  1.540596
+
+        _pd_instr.id                          b4131be5
+        _pd_instr.geometry
+        ;
+         Bragg-Brentano, pre-specimen double-bounce monochromator.
+         Dual strip detectors covering ~20° each. Scanned to cover all angles.
+        ;
+        _pd_instr.2theta_monochr_pre           45.31
+        _pd_instr.monochr_pre_spec            'Ge 220'
+        _pd_instr.divg_eq_mono_spec             0.2
+        _pd_instr.cons_illum_flag             no
+        _pd_instr.detector_circle_radius      320
+        _pd_instr.dist_mono_spec              402
+        _pd_instr.dist_src_mono                39
+        _pd_instr.beam_size_ax                 10.5
+        _pd_instr.slit_ax_mono_spec            10.0
+        _pd_instr.slit_eq_mono_spec             0.5
+        _pd_instr.soller_ax_mono_spec           2.5
+        _pd_instr.source_size_ax               12
+        _pd_instr.source_size_eq                0.4
+        _pd_instr.location                    'Physics, Anytown University.'
+;
+;
+        This instrument is identified by the id b4131be5. The instrument is
+        described as a Bragg-Brentano diffractometer with a pre-specimen,
+        double-bounce Ge 220 monochromator. It has two detectors; these are not
+        described here, see PD_INSTR_DETECTOR. The monochromator is set at
+        45.31° 2θ. The equatorial divergence between the monochromator and
+        specimen is fixed at 0.2°; this instrument is not run in constant
+        illumination length mode.
+
+        The distance from the virtual source to the specimen for all
+        measurement points is 320 mm, whereas the distance from the
+        monochromator to the specimen is 402 mm. The monochromator is
+        situated 39 mm from the source. The width of the beam on the specimen,
+        in the axial direction, is 10.5 mm, and the width of the beam is
+        defined at the monochromator by a 10 mm mask. There is a 0.5 mm
+        equatorial slit between the monochromator and specimen, which can be
+        assumed to be on the detector circle, and acts as the virtual source.
+
+        There are 2.5° axial Soller slits between the monochromator and the
+        specimen. The size of the source in the X-ray tube is 12 x 0.4 mm.
+
+        The instrument is located in the Department of Physics in Anytown
+        University.
+
+        The radiation used in the instrument is defined by data names from the
+        DIFFRN_RADIATION_WAVELENGTH category. In this case, it is pure Cu K\a~1~
+        radiation with a wavelength of 1.540596 Å.
+;
+;
+        _diffrn_radiation.id   Cobalt_tube
+        loop_
+        _diffrn_radiation_wavelength.id
+        _diffrn_radiation_wavelength.value
+        _diffrn_radiation_wavelength.wt
+        _diffrn_radiation_wavelength.type
+        _diffrn_radiation_wavelength.details
+         1  1.7889847  0.378 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         2  1.7892524  0.144 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         3  1.7896946  0.127 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         4  1.7888515  0.088 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         5  1.7927905  0.197 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         6  1.7930637  0.095 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+         7  1.7934738  0.050 'Co K\a' 'G. Hölzer et al. Phys. Rev. A 56, 4554'
+
+        _pd_instr.id                       58b6d83b
+        _pd_instr.geometry                 Bragg-Brentano
+        _pd_instr.cons_illum_len            12.0
+        _pd_instr.detector_circle_radius   117.5
+        _pd_instr.dist_src_spec            117.5
+        _pd_instr.beam_size_ax               9.8
+        _pd_instr.slit_ax_src_spec           9.5
+        _pd_instr.soller_ax_src_spec         5.0
+        _pd_instr.source_size_ax             8.5
+        _pd_instr.source_size_eq             0.4
+        _pd_instr.location
+            'ACME Measurements, 123 Main St. Maintown.'
+;
+;
+        This instrument is identified by the id 58b6d83b. The instrument is
+        described as a Bragg-Brentano diffractometer. The instrument is run
+        with a constant illumination length of 12 mm.
+
+        The distance from the source to the specimen for all measurement points
+        is 117.5 mm, which is identical to the distance from the source to the
+        specimen, as the X-ray tube is mounted on the detector circle. The width
+        of the beam on the specimen, in the axial direction, is 9.8 mm, and the
+        width of the beam is defined at the source by a 9.5 mm mask.
+
+        There are 5.0° axial Soller slits between the source and the specimen.
+        The size of the source in the X-ray tube is 8.5 x 0.4 mm.
+
+        The instrument is located at ACME Measurements in Maintown.
+
+        The radiation used in the instrument is defined by data names from the
+        DIFFRN_RADIATION_WAVELENGTH category. In this case, it is Co K\a
+        radiation as described by the constituent seven wavelengths, as
+        described by G. Hölzer et al. Phys. Rev. A 56, 4554.
+;
 
 save_
 
@@ -12328,6 +12799,59 @@ save_PD_QPA_INTENSITY_FACTOR
          '_pd_qpa_intensity_factor.diffractogram_id'
          '_pd_qpa_intensity_factor.phase_id'
 
+    _description_example.case
+;
+         data_phase_A
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_B
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_C
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _audit.schema          Custom
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_A, PHASE_B, and
+         some PHASE_C) has been quantified using the I_over_Ic
+         specialisation of the RIR algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I/Ic algorithm detailed in
+         _pd_qpa_overall.method.
+
+         As we are looping data names linked to _pd_phase.id, the _audit.schema
+         is set to Custom.
+;
+
 save_
 
 save_pd_qpa_intensity_factor.diffractogram_id
@@ -13730,9 +14254,9 @@ save_
        Added _pd_instr_detector.instr_id
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_INSTR_DETECTOR, PD_MEAS_OVERALL, PD_PEAK,
-       _pd_phase.id, PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR,
-       PD_QPA_INTERNAL_STD, PD_SPEC.
+       PD_DIFFRACTOGRAM, PD_INSTR, PD_INSTR_DETECTOR, PD_MEAS_OVERALL, PD_PEAK,
+       _pd_phase.id, PD_PHASE_MASS, PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR,
+       PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD, PD_SPEC.
 
        Add _pd_peak.overall_id.
 
