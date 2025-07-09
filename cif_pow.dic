@@ -14376,7 +14376,7 @@ save_
 
        Update PD_DIFFRACTOGRAM to link to the imgCIF scan from which the
        diffractogram was created.
-       
+
        Removed _pd_calib_detected_intensity.id as data item and category
        key of PD_CALIB_DETECTED_INTENSITY.
 
