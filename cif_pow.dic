@@ -2668,7 +2668,7 @@ save_PD_CALIB_DETECTED_INTENSITY
          respectively, meaning that their measured intensities must be divided
          by these values to retreive their true values. These response values
          were derived from an analysis of the diffraction patterns
-         DIFFRACTOGRAM_A and DIFFRACTOGRAM_A, both of which contain the phase
+         DIFFRACTOGRAM_A and DIFFRACTOGRAM_B, both of which contain the phase
          676A.
 ;
 ;
@@ -2709,7 +2709,7 @@ save_PD_CALIB_DETECTED_INTENSITY
 ;
          Given identical _audit_dataset.id values and detector IDs, the
          detector responses of 1 and 1.035 for detectors A and B can be
-         applied to this diffractogram to give the processed intensities
+         applied to diffractogram APATTERN to give the processed intensities
          ready for analysis.
 ;
 
