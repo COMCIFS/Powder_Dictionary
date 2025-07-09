@@ -3327,13 +3327,8 @@ save_
 save_pd_calib_std.detector_id
 
     _definition.id                '_pd_calib_std.detector_id'
-
-    loop_
-      _definition_replaced.id
-      _definition_replaced.by
-         1                        '_pd_calib_detected_intensity.detector_id'
-         2                        '_pd_calib_xcoord.detector_id'
-
+    _definition_replaced.id       1
+    _definition_replaced.by       '_pd_calib_detected_intensity.detector_id'
     _definition.update            2025-06-28
     _description.text
 ;
