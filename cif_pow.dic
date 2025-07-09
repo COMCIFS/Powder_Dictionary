@@ -2660,8 +2660,8 @@ save_PD_CALIB_DETECTED_INTENSITY
          _pd_calib_detected_intensity.detector_response_su
          _pd_calib_detected_intensity.diffractogram_id
          _pd_calib_detected_intensity.phase_id
-         A   1       .       DIFFRACTOGRAM_A   676A
-         B   1.035   0.013   DIFFRACTOGRAM_B   676A
+         A   1        .        DIFFRACTOGRAM_A   676A
+         B   1.0350   0.0006   DIFFRACTOGRAM_B   676A
 ;
 ;
          The two detectors, A and B, have responses of 1 and 1.035,
@@ -2700,17 +2700,17 @@ save_PD_CALIB_DETECTED_INTENSITY
          _pd_meas.detector_id
          _pd_meas.2theta_scan
          _pd_meas.intensity_total
-         1   A   10.00   1243.42(47)
-         2   B   10.01   1364.36(57)
-         3   A   10.02   1324.35(87)
-         4   B   10.03   1298.36(74)
+         _pd_proc.intensity_total
+         1   A   10.00   1243.42(47)   1243.42(47)
+         2   B   10.01   1364.36(57)   1318.22(94)
+         3   A   10.02   1324.35(87)   1324.35(87)
+         4   B   10.03   1298.36(74)   1254.45(102)
          #...
 ;
 ;
-         Given identical _audit_dataset.id values and detector IDs, the
-         detector responses of 1 and 1.035 for detectors A and B can be
-         applied to diffractogram APATTERN to give the processed intensities
-         ready for analysis.
+         The detector responses of 1 and 1.035 for detectors A and B given
+         in the first example have been applied to the raw measurements of
+         APATTERN to give processed intensities ready for analysis.
 ;
 
 save_
