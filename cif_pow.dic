@@ -12371,6 +12371,59 @@ save_PD_QPA_INTENSITY_FACTOR
          '_pd_qpa_intensity_factor.diffractogram_id'
          '_pd_qpa_intensity_factor.phase_id'
 
+    _description_example.case
+;
+         data_phase_A
+             _pd_phase.id   PHASE_A
+             _pd_qpa_calib_factor.I_over_Ic   3.26
+
+         data_phase_B
+             _pd_phase.id   PHASE_B
+             _pd_qpa_calib_factor.I_over_Ic   4.79
+
+         data_phase_C
+             _pd_phase.id   PHASE_C
+             _pd_qpa_calib_factor.I_over_Ic   1.00
+
+         data_diffractogram_block
+             _audit.schema          Custom
+             _pd_diffractogram.id   UNKNOWN_DIFFRACTOGRAM
+
+             loop_
+             _pd_phase_mass.phase_id
+             _pd_phase_mass.percent
+             PHASE_A   52.02(15)
+             PHASE_B   17.90(15)
+             PHASE_C   30.08(14)
+
+             _pd_qpa_overall.method   I/Ic
+
+             loop_
+             _pd_qpa_intensity_factor.phase_id
+             _pd_qpa_intensity_factor.value
+             PHASE_A   242.54(81)
+             PHASE_B   122.6(12)
+             PHASE_C    43.02(25)
+;
+    _description_example.detail
+;
+         A diffraction pattern containing three phases (PHASE_A, PHASE_B, and
+         some PHASE_C) has been quantified using the I_over_Ic
+         specialisation of the RIR algorithm.
+
+         The I/Ic value for each of the phases is specified by the values of
+         _pd_qpa_calib_factor.I_over_Ic. The intensity factors to which each
+         of the I/Ic values are applied are given by the values of
+         _pd_qpa_intensity_factor.value.
+
+         The quantification values given by _pd_phase_mass.percent can now be
+         confirmed by following the I/Ic algorithm detailed in
+         _pd_qpa_overall.method.
+
+         As we are looping data names linked to _pd_phase.id, the _audit.schema
+         is set to Custom.
+;
+
 save_
 
 save_pd_qpa_intensity_factor.diffractogram_id
@@ -13771,9 +13824,9 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_INSTR, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id,
-       PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR,
-       PD_QPA_INTERNAL_STD, PD_SPEC.
+       PD_DIFFRACTOGRAM, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS,
+       PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR,
+       PD_INSTR, PD_QPA_INTERNAL_STD, PD_SPEC.
 
        Add _pd_peak.overall_id.
 
