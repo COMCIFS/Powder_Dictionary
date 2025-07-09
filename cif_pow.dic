@@ -3751,7 +3751,7 @@ save_pd_calib_xcoord.actual_energy_incident
     That is, this provides a mapping between the aforementioned actual
     value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
 
-    See _pd_proc.energy_energy_incident.
+    See _pd_proc.energy_incident.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               actual_energy_incident
@@ -4088,7 +4088,7 @@ save_pd_calib_xcoord.nominal_energy_incident
     That is, this provides a mapping between the aforementioned nominal
     value and another actual value of as given by _pd_calib_xcoord.actual_*.
 
-    See _pd_proc.energy_energy_incident.
+    See _pd_proc.energy_incident.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               nominal_energy_incident
