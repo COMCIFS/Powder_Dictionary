@@ -44,6 +44,9 @@ save_PD_GROUP
     _import.get
         [
           {
+           'dupl':Ignore  'file':cif_img.dic  'mode':Full  'save':HEAD
+          }
+          {
            'dupl':Ignore  'file':multi_block_core.dic  'mode':Full
            'save':MULTIBLOCK_CORE
           }
@@ -6800,6 +6803,26 @@ save_pd_diffractogram.instr_id
     _name.linked_item_id          '_pd_instr.id'
     _type.purpose                 Link
     _type.source                  Related
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_diffractogram.scan_id
+
+    _definition.id                '_pd_diffractogram.scan_id'
+    _definition.update            2025-07-01
+    _description.text
+;
+    The identifier for the group of imgCIF images used to produce the
+    diffractogram. Each group of images is known as a scan, and the images
+    belonging to each scan are described using imgCIF data names.
+;
+    _name.category_id             pd_diffractogram
+    _name.object_id               scan_id
+    _name.linked_item_id          '_diffrn_scan.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
     _type.container               Single
     _type.contents                Text
 
@@ -14351,8 +14374,11 @@ save_
 
        Added _pd_meas_overall.step_count_time.
 
-       Removed _pd_calib_detected_intensity.id as data item and category key
-       of PD_CALIB_DETECTED_INTENSITY.
+       Update PD_DIFFRACTOGRAM to link to the imgCIF scan from which the
+       diffractogram was created.
+
+       Removed _pd_calib_detected_intensity.id as data item and category
+       key of PD_CALIB_DETECTED_INTENSITY.
 
        Update PD_INSTR and PD_INSTR_DETECTOR descriptions.
 
