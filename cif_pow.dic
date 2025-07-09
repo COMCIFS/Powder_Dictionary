@@ -11939,7 +11939,7 @@ save_PD_PROC_OVERALL
     _definition.id                PD_PROC_OVERALL
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2025-04-18
+    _definition.update            2025-06-19
     _description.text
 ;
     This section contains overall information about the diffraction
@@ -11950,6 +11950,65 @@ save_PD_PROC_OVERALL
     _name.category_id             PD_GROUP
     _name.object_id               PD_PROC_OVERALL
     _category_key.name            '_pd_proc_overall.diffractogram_id'
+
+    loop_
+      _description_example.case
+      _description_example.detail
+;
+          _pd_diffractogram.id   PATTERN_42
+
+          _pd_proc.2theta_range_min   5.00
+          _pd_proc.2theta_range_max  95.00
+          _pd_proc.2theta_range_inc   0.02
+          _pd_proc.number_of_points  4501
+
+          loop_
+          _pd_data.point_id
+          _pd_proc.intensity_total
+          _pd_proc.intensity_total_su
+          1   1234   23
+          2   1256   24
+          #...
+;
+;
+         The processed diffractogram is in equally-spaced 2θ points, starting
+         at 5.00° 2θ, going up in steps of 0.02°, with the last data point at
+         95.00° 2θ. In total, there are 4501 data points.
+;
+;
+          _pd_diffractogram.id                PATTERN_43
+          _pd_proc.info_datetime              2042-12-13T02:37:23Z
+          _pd_proc.info_data_reduction
+       ;
+          Background removed by spline fitting. Kɑ~2~ removed using
+          the built-in function. Pattern smoothed by Fourier methods.
+          Used AnalysisSoftware v15.
+       ;
+          _pd_proc.info_excluded_regions      '30-31° due to quartz impurity.'
+
+          loop_
+            _pd_data.point_id
+            _pd_meas.2theta_scan
+            _pd_meas.counts_total
+            _pd_proc.intensity_net
+            _pd_proc.ls_weight
+            1   10.02   1234   36.4  400
+            2   10.04   1354   35.1  403
+            # ...
+            999   29.98  2345  69.2  350
+            1000  30.00  2369  69.9    0
+            # ...
+;
+;
+         The information here applies to the diffractogram with the id
+         'PATTERN_43'. The data were processed at 2:37 h GMT on the 13th of
+         December 2042. The data were modified as described. The data between
+         30 and 31° 2θ should be ignored, due to an impurity.
+         AnalysisSoftware v15 was used to carry out the processing.
+
+         The as-measured data are given along with the processed intensities.
+         The excluded region is also given using _pd_proc.ls_weight.
+;
 
 save_
 
@@ -14221,9 +14280,10 @@ save_
        disparate loop; they cannot be assigned values independently.
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
-       PD_DIFFRACTOGRAM, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id, PD_PHASE_MASSS,
-       PD_PREP, PD_PROC_LS, PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR,
-       PD_INSTR, PD_QPA_INTERNAL_STD, PD_SPEC.
+       PD_DIFFRACTOGRAM, PD_INSTR, PD_MEAS_OVERALL, PD_PEAK, _pd_phase.id,
+       PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_PROC_OVERALL,
+       PD_QPA_CALIB_FACTOR, PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR,
+       PD_QPA_INTERNAL_STD, PD_SPEC.
 
        Add _pd_peak.overall_id.
 
