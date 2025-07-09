@@ -12747,7 +12747,7 @@ save_PD_QPA_EXTERNAL_STD
     _definition.id                PD_QPA_EXTERNAL_STD
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2023-01-15
+    _definition.update            2025-06-20
     _description.text
 ;
     This category identifies the external diffractogram used for
@@ -12766,6 +12766,57 @@ save_PD_QPA_EXTERNAL_STD
     _name.category_id             PD_GROUP
     _name.object_id               PD_QPA_EXTERNAL_STD
     _category_key.name            '_pd_qpa_external_std.diffractogram_id'
+
+    _description_example.case
+;
+         data_ext_std_diffractogram
+            _pd_diffractogram.id         THE_REFERENCE
+            _pd_diffractogram.instr_id   labmachine
+
+            loop_
+            _pd_phase_mass.phase_id
+            _pd_phase_mass.absolute
+            _pd_phase_mass.absolute_su
+            NIST_ALUMINA_676A   99.02   1.11
+
+            _pd_qpa_external_std.k_factor           293.36
+            _pd_char.mass_atten_coef_mu_calc        3159
+            _pd_qpa_overall.method                  external_standard
+
+         data_diffractogram_block
+            _audit.schema                Custom
+            _pd_diffractogram.id         DIFFRACTOGRAM_2
+            _pd_diffractogram.instr_id   labmachine
+
+            loop_
+            _pd_phase_mass.phase_id
+            _pd_phase_mass.original
+            _pd_phase_mass.original_su
+            PHASE_1   42.81   0.56
+            PHASE_2   14.73   0.24
+
+            _pd_char.mass_atten_coef_mu_calc        6940
+            _pd_qpa_overall.method                  external_standard
+;
+    _description_example.detail
+;
+         In the first block, the K factor, or diffractometer constant, is
+         calculated from a diffraction pattern of a previously characterised
+         standard, collected under set conditions; see the
+         _pd_qpa_overall.method enumeration external_standard.
+
+         In the second block, a diffraction pattern containing two phases
+         (PHASE_1 and PHASE_2) has been quantified using the external standard
+         algorithm after Rietveld refinement. Knowing the instrument id value
+         used to collect the diffractogram of the unknown, the
+         _pd_qpa_external_std.diffractogram_id values can be looked at to find
+         one that has the same instrument id value, and thus the
+         _pd_qpa_external_std.k_factor value can be used to calculate the
+         absolute mass percent of the phases present in the
+         diffractogram.
+
+         A Custom _audit.schema is required due to looping _pd_phase.id values.
+;
 
 save_
 
@@ -14356,7 +14407,7 @@ save_
 
        Added examples to PD_CALC_OVERALL, PD_CALIB_INCIDENT_INTENSITY, PD_CHAR,
        PD_DIFFRACTOGRAM, PD_INSTR, PD_INSTR_DETECTOR, PD_MEAS_OVERALL, PD_PEAK,
-       _pd_phase.id, PD_PHASE_MASSS, PD_PREP, PD_PROC_LS, PD_PROC_OVERALL,
+       _pd_phase.id, PD_PHASE_MASS, PD_PREP, PD_PROC_LS, PD_PROC_OVERALL,
        PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD,
        PD_SPEC.
 
