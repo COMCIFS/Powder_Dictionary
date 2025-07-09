@@ -3455,7 +3455,7 @@ save_PD_CALIB_XCOORD
     provide a calibration for mapping a detector channel number to an actual
     detected energy, d-spacing, or momentum transfer value.
 
-    In general, any number of nominal-to-actual calibrations dould be
+    In general, any number of nominal-to-actual calibrations could be
     provided. Each line in the loop fixes the mapping from a nominal
     value to an actual value. In essence, this is a machine-readable table
     of values that would otherwise be given in a human-readable equation
@@ -3526,8 +3526,8 @@ save_PD_CALIB_XCOORD
              # ...
 ;
 ;
-         The the data block "calibrationinformation", A diffractogram
-         identified as "CALIBRATION_DIFFRACTOGRAM", was collected on
+         The data block "calibrationinformation" contains a diffractogram
+         identified as "CALIBRATION_DIFFRACTOGRAM", which was collected on
          the instrument identified as "INSTRUMENT_1", to act as a
          calibration standard for the 2θ axis.
 
@@ -3627,7 +3627,7 @@ save_pd_calib_xcoord.actual_2theta
     value applies as given by _pd_calib_xcoord.nominal_*.
 
     That is, this provides a mapping between the aforementioned actual
-    value and another nominal value of as given by _pd_calib_xcoord.nominal_*.
+    value and another nominal value as given by _pd_calib_xcoord.nominal_*.
 ;
     _name.category_id             pd_calib_xcoord
     _name.object_id               actual_2theta
@@ -8638,7 +8638,7 @@ save_pd_instr_detector.diffrn_detector_id
     _description.text
 ;
     Identifier of a detector used for data collection described using data names
-    from the DIFFRN_DECTECTOR category in the imgCIF and core dictionaries.
+    from the DIFFRN_DETECTOR category in the imgCIF and core dictionaries.
 ;
     _name.category_id             pd_instr_detector
     _name.object_id               diffrn_detector_id
@@ -11269,7 +11269,7 @@ save_PD_PREP
          _pd_prep.conditions
       ;
          1 kg of anatase from Acme, Lot#1234 was placed in several
-         platinum crucible in a furnace at atmospheric pressure.
+         platinum crucibles in a furnace at atmospheric pressure.
          The furnace was heated at 5 K/min to 1100 K, and held there
          overnight. The furnace was then switched off and allowed to
          cool naturally. The batch was combined, homogenised, and
@@ -13731,8 +13731,8 @@ save_PD_SPEC
          standard was prepared for analysis. The sample from which the specimen
          was prepared is identified by a _pd_prep.id value of "ABC123_main".
          The data were collected in reflection on an instrument where the
-         incident and diffracted beams are vertical. The specimen flat, and is
-         25.0 x 25.0 mm, or it could be inferred to be 25 mm diameter.
+         incident and diffracted beams are vertical. The specimen is flat, and
+         is 25.0 x 25.0 mm, or it could be inferred to be 25 mm diameter.
          The specimen was prepared as described.
 ;
 
