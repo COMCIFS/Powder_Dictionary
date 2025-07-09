@@ -7961,6 +7961,11 @@ save_PD_INSTR_DETECTOR
         _pd_instr.slit_ax_spec_anal         9.5
         _pd_instr.slit_eq_spec_anal         0.5
         _pd_instr.soller_eq_spec_anal       2.5
+        _pd_instr.special_details
+      ;
+         The equatorial slit between the specimen and monochromator
+         lies on the detector circle.
+      ;
 ;
 ;
         The 'WhizzBang' detector is paired with the instrument identified by the
@@ -7970,10 +7975,9 @@ save_PD_INSTR_DETECTOR
         The monochromator is situated 47 mm from the detector. The distance from
         the specimen to the monochromator is 135 mm. The width of the beam is
         defined at the monochromator by a 9.5 mm mask. There is a 0.5 mm
-        equatorial slit between the specimen and monochromator, which can be
-        assumed to be on the detector circle, and acts as the virtual detector.
-        There are 2.5° axial Soller slits between the specimen and the
-        monochromator.
+        equatorial slit on the detector circle between the specimen and
+        monochromator, which acts as the virtual detector. There are 2.5° axial
+        Soller slits between the specimen and the monochromator.
 ;
 ;
         _pd_instr_detector.instr_id       58b6d83b
