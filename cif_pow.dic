@@ -14577,6 +14577,8 @@ save_
 
        Update replacements of _pd_calib_std.detector_id.
 
-       Replaced _pd_peak.overall_id with _pd_peak.peak_overall_id to avoid
-       name clash with _pd_peak_overall.id upon replacement of "." with "_".
+       Replaced _pd_peak.overall_id with _pd_peak.peak_overall_id and
+       _pd_calib_xcoord.overall_id with _pd_calib_xcoord.xcoord_overall_id
+       to avoid name clash with _pd_peak_overall.id and
+       _pd_calib_xcoord_overall.id upon replacement of "." with "_".
 ;
