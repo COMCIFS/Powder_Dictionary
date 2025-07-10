@@ -4344,14 +4344,64 @@ save_PD_CALIBRATION
     _definition.id                PD_CALIBRATION
     _definition.scope             Category
     _definition.class             Set
-    _definition.update            2016-10-17
+    _definition.update            2025-07-08
     _description.text
 ;
-    This section contains calibration information that is
-    not looped
+    This category details the equations used to convert a channel number
+    supplied in _pd_meas.channel for a position-sensitive or
+    energy-dispersive detector or the distance supplied in _pd_meas.position
+    to Q, energy, angle etc.
+
+    This information is not designed to be machine-readable, but should be
+    written in an explicit manner to enable reimplementation.
+
+    For a machine-readable implementation, please see PD_CALIB_XCOORD.
 ;
     _name.category_id             PD_GROUP
     _name.object_id               PD_CALIBRATION
+    _category_key.name            '_pd_calibration.id'
+    _description_example.case
+;
+         _pd_diffractogram.id   EDD_STANDARD
+
+         _pd_calibration.conversion_eqn
+       ;
+            E = A~0~ + A~1~ * channel + A~2~ * channel^2^
+
+            Values refined from the reference pattern and then kept fixed.
+            A~0~ = 19964(2)      eV
+            A~1~ =    87.51(4)   eV / channel
+            A~2~ =     0.0156(6) eV / channel^2^
+       ;
+         _pd_calibration.special_details
+       ;
+            Gain settings slight affected the detector linearity.
+            The gain was fixed at 4.2 as this produced the most
+            linear response. This value was fixed for all data
+            collection, including the standards.
+       ;
+         _pd_calibration.diffractogram_id   EDD_STANDARD
+
+         loop_
+         _pd_data.id
+         _pd_meas.channel
+         _pd_proc.energy_detection
+         _pd_proc.energy_detection_su
+         _pd_meas.counts_total
+         a   1    20051.5   4.1    1234
+         b   2    20139.1   4.2    1434
+         c   3    20226.7   4.3    1457
+         #...
+;
+    _description_example.detail
+;
+    The calibration equation is a human-readable method of determining the
+    conversion of, in this case, channel to energy. The channel number is
+    calibrated from the diffractogram EDD_STANDARD to give the energy of the
+    detected X-rays in electron volts. The quadratic formula given allows
+    the calibration to be applied to other diffractograms collected
+    on the same instrument.
+;
 
 save_
 
@@ -4359,17 +4409,13 @@ save_pd_calibration.conversion_eqn
 
     _definition.id                '_pd_calibration.conversion_eqn'
     _alias.definition_id          '_pd_calibration_conversion_eqn'
-    _definition.update            2023-01-21
+    _definition.update            2023-06-06
     _description.text
 ;
-    The calibration function for converting a channel number
+    The calibration equation for converting a channel number
     supplied in _pd_meas.detector_id for a position-sensitive
     or energy-dispersive detector or the distance supplied in
     _pd_meas.position to Q, energy, angle etc.
-
-    Use _pd_calib_std.external_block_id to define a pointer to
-    the data block containing the data used to determine the
-    parameter values in this function.
 ;
     _name.category_id             pd_calibration
     _name.object_id               conversion_eqn
@@ -4385,20 +4431,54 @@ save_pd_calibration.conversion_eqn
 
 save_
 
+save_pd_calibration.diffractogram_id
+
+    _definition.id                '_pd_calibration.diffractogram_id'
+    _definition.update            2025-06-28
+    _description.text
+;
+    A code which identifies the diffractogram from which this
+    calibration equation was derived.
+;
+    _name.category_id             pd_calibration
+    _name.object_id               diffractogram_id
+    _name.linked_item_id          '_pd_diffractogram.id'
+    _type.purpose                 Link
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+save_
+
+save_pd_calibration.id
+
+    _definition.id                '_pd_calibration.id'
+    _definition.update            2025-06-28
+    _description.text
+;
+    Arbitrary label identifying a calibration.
+;
+    _name.category_id             pd_calibration
+    _name.object_id               id
+    _type.purpose                 Key
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Word
+
+save_
+
 save_pd_calibration.special_details
 
     _definition.id                '_pd_calibration.special_details'
     _alias.definition_id          '_pd_calibration_special_details'
-    _definition.update            2016-10-17
+    _definition.update            2023-06-06
     _description.text
 ;
-    Description of how the instrument was
-    calibrated, particularly for instruments where
-    calibration information is used to make hardware
-    settings that would otherwise be invisible once data
-    collection is completed. Do not use this item to specify
-    information that can be specified using other
-    PD_CALIBRATION or PD_CALIB items.
+    Description of how the instrument was calibrated, particularly for
+    instruments where calibration information is used to make hardware
+    settings that would otherwise be invisible once data collection is
+    completed. Do not use this item to specify information that can be
+    specified using other PD_CALIBRATION items.
 ;
     _name.category_id             pd_calibration
     _name.object_id               special_details
@@ -14451,7 +14531,10 @@ save_
        _diffrn_radiation_wavelength.special_details added to record
        information about the wavelength.
 
-       Added _pd_meas_overall.step_count_time.
+       Added _pd_meas_overall.step_count_time
+
+       Update PD_CALIBRATION with _pd_calibration.diffractogram_id and new
+       key, _pd_calibration.id.
 
        Update PD_DIFFRACTOGRAM to link to the imgCIF scan from which the
        diffractogram was created.
