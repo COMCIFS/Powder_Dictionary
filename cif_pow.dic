@@ -3480,7 +3480,7 @@ save_PD_CALIB_XCOORD
     loop_
       _category_key.name
          '_pd_calib_xcoord.id'
-         '_pd_calib_xcoord.overall_id'
+         '_pd_calib_xcoord.xcoord_overall_id'
 
     loop_
       _description_example.case
@@ -4198,17 +4198,17 @@ save_pd_calib_xcoord.nominal_wavelength
 
 save_
 
-save_pd_calib_xcoord.overall_id
+save_pd_calib_xcoord.xcoord_overall_id
 
-    _definition.id                '_pd_calib_xcoord.overall_id'
-    _definition.update            2023-05-06
+    _definition.id                '_pd_calib_xcoord.xcoord_overall_id'
+    _definition.update            2023-07-10
     _description.text
 ;
     A code which identifies the particular set of overall calibration conditions
     under which the calibration was calculated.
 ;
     _name.category_id             pd_calib_xcoord
-    _name.object_id               overall_id
+    _name.object_id               xcoord_overall_id
     _name.linked_item_id          '_pd_calib_xcoord_overall.id'
     _type.purpose                 Link
     _type.source                  Assigned
