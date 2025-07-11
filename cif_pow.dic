@@ -11973,7 +11973,7 @@ save_pd_proc_ls.prof_r_factor
          p is the total number of refined parameters.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pd_proc_ls_prof_R_factor
+    _name.object_id               prof_R_factor
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
@@ -12018,7 +12018,7 @@ save_pd_proc_ls.prof_wr_expected
          p is the total number of refined parameters.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pd_proc_ls_prof_wR_expected
+    _name.object_id               prof_wR_expected
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
@@ -12061,7 +12061,7 @@ save_pd_proc_ls.prof_wr_factor
          p is the total number of refined parameters.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pd_proc_ls_prof_wR_factor
+    _name.object_id               prof_wR_factor
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
