@@ -14460,8 +14460,6 @@ save_
        Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
        AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
 
-       Add _pd_calib_xcoord.diffractogram_id.
-
        Add _pd_peak.diffractogram_id.
 
        Altered PD_CALIB_INCIDENT_INTENSITY to be a Set category.
@@ -14518,7 +14516,7 @@ save_
        PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD,
        PD_SPEC.
 
-       Add _pd_peak.overall_id.
+       Add _pd_peak.peak_overall_id.
 
        Created _pd_calc.intensity_bkg and updated description of
        _pd_proc.intensity_bkg_calc.
@@ -14576,9 +14574,4 @@ save_
        information, where required.
 
        Update replacements of _pd_calib_std.detector_id.
-
-       Replaced _pd_peak.overall_id with _pd_peak.peak_overall_id and
-       _pd_calib_xcoord.overall_id with _pd_calib_xcoord.xcoord_overall_id
-       to avoid name clash with _pd_peak_overall.id and
-       _pd_calib_xcoord_overall.id upon replacement of "." with "_".
 ;
