@@ -14,7 +14,7 @@ data_CIF_POW
     _dictionary.title             CIF_POW
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2025-07-09
+    _dictionary.date              2025-07-11
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/Powder_Dictionary/master/cif_pow.dic
     _dictionary.ddl_conformance   4.2.0
@@ -11943,6 +11943,53 @@ save_pd_proc_ls.pref_orient_corr
 
 save_
 
+save_pd_proc_ls.prof_gof_factor
+
+    _definition.id                '_pd_proc_ls.prof_gof_factor'
+    _definition.update            2025-07-11
+    _description.text
+;
+    Least-squares goodness-of-fit parameter, S, is a
+      weighted fitness metric for the agreement between the
+      observed and computed diffraction patterns.
+
+            S = SQRT {
+                 sum~i~ ( w(i) [ I~obs~(i) - I~calc~(i) ]^2^ )
+                 / (n - p)
+                }
+              = R~wp~ / R~exp~
+
+      Note that in the above equations,
+         w(i) is the weight for the ith data point (see
+              _pd_proc.ls_weight).
+         I~obs~(i) is the observed intensity for the ith data
+              point, sometimes referred to as y~i~(obs) or
+              y~oi~. (See _pd_meas.counts_total,
+              _pd_meas.intensity_total or _pd_proc.intensity_total.)
+         I~calc~(i) is the computed intensity for the ith data
+              point with background and other corrections
+              applied to match the scale of the observed data set,
+              sometimes referred to as y~i~(calc) or
+              y~ci~. (See _pd_calc.intensity_total.)
+         n is the total number of data points (see
+              _pd_proc.number_of_points) less the number of
+              data points excluded from the refinement.
+         p is the total number of refined parameters.
+
+       R~wp~ and R~exp~ are given by _pd_proc_ls.prof_wr_factor and
+       _pd_proc_ls.prof_wr_expected, respectively.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               prof_gof_factor
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
 save_pd_proc_ls.prof_r_factor
 
     _definition.id                '_pd_proc_ls.prof_R_factor'
@@ -14342,7 +14389,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2025-07-09
+         2.5.0                    2025-07-11
 ;
        ## Retain above version number and increment date until final
        ## release
@@ -14576,4 +14623,6 @@ save_
        information, where required.
 
        Update replacements of _pd_calib_std.detector_id.
+
+       Added _pd_proc_ls.prof_gof_factor.
 ;
