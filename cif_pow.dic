@@ -10516,6 +10516,44 @@ save_pd_pref_orient.diffractogram_id
 
 save_
 
+save_pd_pref_orient.geom
+
+    _definition.id                '_pd_pref_orient.geom'
+    _definition.update            2025-07-15
+    _description.text
+;
+    Code identifying the geometry of the preferred-orientation
+    correction, as distinct from the geometry of data collection.
+
+    The functional form of the March-Dollase or spherical harmonics
+    correction depends on whether the data were collected in symmetric
+    or asymmetric reflection or transmission, or capillary geometries.
+    See Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
+    50, 240-251, for further discussion.
+
+    In most Rietveld software, 'symmetric reflection' is the
+    default implementation.
+
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               geom
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
+    _enumeration.default          srefln
+
+save_
+
 save_pd_pref_orient.phase_id
 
     _definition.id                '_pd_pref_orient.phase_id'
@@ -10774,44 +10812,6 @@ save_pd_pref_orient_march_dollase.fract_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_pref_orient_march_dollase.geom
-
-    _definition.id                '_pd_pref_orient_March_Dollase.geom'
-    _definition.update            2023-01-06
-    _description.text
-;
-    Code identifying the geometry of the preferred-orientation
-    correction, as distinct from the geometry of data collection.
-
-    The functional form of the March-Dollase correction depends
-    on whether the data were collected in symmetric or asymmetric
-    reflection or transmission, or capillary geometries. See
-    Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
-    50, 240-251, for further discussion.
-
-    In most Rietveld software, 'symmetric reflection' is the
-    default implementation.
-
-;
-    _name.category_id             pd_pref_orient_March_Dollase
-    _name.object_id               geom
-    _type.purpose                 State
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-    loop_
-      _enumeration_set.state
-      _enumeration_set.detail
-         srefln                   'Symmetric reflection.'
-         arefln                   'Asymmetric reflection.'
-         strans                   'Symmetric transmission.'
-         atrans                   'Asymmetric transmission.'
-         cap                      'Capillary (Debye-Scherrer).'
-    _enumeration.default          srefln
 
 save_
 
@@ -11146,44 +11146,6 @@ save_pd_pref_orient_spherical_harmonics.diffractogram_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_pref_orient_spherical_harmonics.geom
-
-    _definition.id                '_pd_pref_orient_spherical_harmonics.geom'
-    _definition.update            2023-01-06
-    _description.text
-;
-    Code identifying the geometry of the preferred-orientation
-    correction, as distinct from the geometry of data collection.
-
-    The functional form of the spherical harmonics correction depends
-    on whether the data were collected in symmetric or asymmetric
-    reflection or transmission, or capillary geometries. See
-    Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
-    50, 240-251, for further discussion.
-
-    In most Rietveld software, 'symmetric reflection' is the
-    default implementation.
-
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               geom
-    _type.purpose                 State
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-    loop_
-      _enumeration_set.state
-      _enumeration_set.detail
-         srefln                   'Symmetric reflection.'
-         arefln                   'Asymmetric reflection.'
-         strans                   'Symmetric transmission.'
-         atrans                   'Asymmetric transmission.'
-         cap                      'Capillary (Debye-Scherrer).'
-    _enumeration.default          srefln
 
 save_
 
