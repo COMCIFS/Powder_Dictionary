@@ -10101,6 +10101,45 @@ save_PD_PHASE
 
 save_
 
+save_pd_phase.atten_coef_mu_calc
+
+    _definition.id                '_pd_phase.atten_coef_mu_calc'
+    _definition.update            2025-07-15
+    _description.text
+;
+    The calculated linear attenuation coefficient, μ, in units of inverse
+    millimetres, also known as the linear absorption coefficient. The value
+    is obtained from the atomic content of the phase, the crystallographic
+    density, and the radiation wavelength.
+;
+    _name.category_id             pd_phase
+    _name.object_id               atten_coef_mu_calc
+    _type.purpose                 Measurand
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   reciprocal_millimetres
+
+save_
+
+save_pd_phase.atten_coef_mu_calc_su
+
+    _definition.id                '_pd_charphase.atten_coef_mu_calc_su'
+    _definition.update            2025-07-15
+    _description.text
+;
+    Standard uncertainty of _pd_phase.atten_coef_mu_calc.
+;
+    _name.category_id             pd_phase
+    _name.object_id               atten_coef_mu_calc_su
+    _name.linked_item_id          '_pd_phase.atten_coef_mu_calc'
+    _units.code                   reciprocal_millimetres
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_pd_phase.density_diffrn
 
     _definition.id                '_pd_phase.density_diffrn'
@@ -14616,5 +14655,5 @@ save_
 
        Update replacements of _pd_calib_std.detector_id.
 
-       Add _pd_phase.density_diffrn
+       Added _pd_phase.density_diffrn, _pd_phase.atten_coef_mu_calc
 ;
