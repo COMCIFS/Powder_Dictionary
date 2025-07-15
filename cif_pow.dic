@@ -10125,7 +10125,7 @@ save_
 
 save_pd_phase.atten_coef_mu_calc_su
 
-    _definition.id                '_pd_charphase.atten_coef_mu_calc_su'
+    _definition.id                '_pd_phase.atten_coef_mu_calc_su'
     _definition.update            2025-07-15
     _description.text
 ;
