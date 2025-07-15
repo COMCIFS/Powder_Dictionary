@@ -3480,7 +3480,7 @@ save_PD_CALIB_XCOORD
     loop_
       _category_key.name
          '_pd_calib_xcoord.id'
-         '_pd_calib_xcoord.overall_id'
+         '_pd_calib_xcoord.xcoord_overall_id'
 
     loop_
       _description_example.case
@@ -4198,17 +4198,17 @@ save_pd_calib_xcoord.nominal_wavelength
 
 save_
 
-save_pd_calib_xcoord.overall_id
+save_pd_calib_xcoord.xcoord_overall_id
 
-    _definition.id                '_pd_calib_xcoord.overall_id'
-    _definition.update            2023-05-06
+    _definition.id                '_pd_calib_xcoord.xcoord_overall_id'
+    _definition.update            2023-07-10
     _description.text
 ;
     A code which identifies the particular set of overall calibration conditions
     under which the calibration was calculated.
 ;
     _name.category_id             pd_calib_xcoord
-    _name.object_id               overall_id
+    _name.object_id               xcoord_overall_id
     _name.linked_item_id          '_pd_calib_xcoord_overall.id'
     _type.purpose                 Link
     _type.source                  Assigned
@@ -9839,17 +9839,17 @@ save_pd_peak.intensity_su
 
 save_
 
-save_pd_peak.overall_id
+save_pd_peak.peak_overall_id
 
-    _definition.id                '_pd_peak.overall_id'
-    _definition.update            2025-06-23
+    _definition.id                '_pd_peak.peak_overall_id'
+    _definition.update            2025-07-10
     _description.text
 ;
     A code linking to general information about peak description and
     determination for the  peaks.
 ;
     _name.category_id             pd_peak
-    _name.object_id               overall_id
+    _name.object_id               peak_overall_id
     _name.linked_item_id          '_pd_peak_overall.id'
     _type.purpose                 Link
     _type.source                  Assigned
@@ -10030,7 +10030,7 @@ save_PD_PEAK_OVERALL
          _pd_peak.width_2theta
          _pd_peak.intensity
          _pd_peak.intensity_su
-         _pd_peak.overall_id
+         _pd_peak.peak_overall_id
          A   12.35   0.26   1023    7   PEAK_GROUP_1
          B   24.74   0.56   2318   15   PEAK_GROUP_1
          C   37.79   0.61    506    2   PEAK_GROUP_1
@@ -12020,7 +12020,7 @@ save_pd_proc_ls.prof_r_factor
          p is the total number of refined parameters.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pd_proc_ls_prof_R_factor
+    _name.object_id               prof_R_factor
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
@@ -12065,7 +12065,7 @@ save_pd_proc_ls.prof_wr_expected
          p is the total number of refined parameters.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pd_proc_ls_prof_wR_expected
+    _name.object_id               prof_wR_expected
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
@@ -12108,7 +12108,7 @@ save_pd_proc_ls.prof_wr_factor
          p is the total number of refined parameters.
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               pd_proc_ls_prof_wR_factor
+    _name.object_id               prof_wR_factor
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
@@ -14507,8 +14507,6 @@ save_
        Deprecated PD_MEAS_INFO_AUTHOR and PD_PROC_INFO_AUTHOR in favour of
        AUDIT_AUTHOR and AUDIT_AUTHOR_ROLE.
 
-       Add _pd_calib_xcoord.diffractogram_id.
-
        Add _pd_peak.diffractogram_id.
 
        Altered PD_CALIB_INCIDENT_INTENSITY to be a Set category.
@@ -14565,7 +14563,7 @@ save_
        PD_QPA_CALIB_FACTOR, PD_QPA_INTENSITY_FACTOR, PD_QPA_INTERNAL_STD,
        PD_SPEC.
 
-       Add _pd_peak.overall_id.
+       Add _pd_peak.peak_overall_id.
 
        Created _pd_calc.intensity_bkg and updated description of
        _pd_proc.intensity_bkg_calc.
