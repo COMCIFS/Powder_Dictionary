@@ -10550,7 +10550,6 @@ save_pd_pref_orient.geom
          strans                   'Symmetric transmission.'
          atrans                   'Asymmetric transmission.'
          cap                      'Capillary (Debye-Scherrer).'
-    _enumeration.default          srefln
 
 save_
 
