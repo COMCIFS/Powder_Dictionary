@@ -10146,7 +10146,7 @@ save_pd_phase.density_diffrn
     _definition.update            2025-07-15
     _description.text
 ;
-    Crystallographic density calculated from structure unit cell and atomic content.
+    Crystallographic density calculated from unit cell and atomic content.
 ;
     _name.category_id             pd_phase
     _name.object_id               density_diffrn
