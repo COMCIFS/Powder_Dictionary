@@ -10618,8 +10618,10 @@ save_pd_pref_orient.spherical_harmonics_texture_index
     _definition.update            2025-07-15
     _description.text
 ;
-    The texture index, as described by equation 4.212
-    in Bunge, as T = sum_{i,j} [c_{i,j}^2 / (2i+1)].
+    The texture index, derived from spherical harmonics coefficients
+    as described by equation 4.212 in Bunge, as
+
+    T = sum_{i,j} [c_{i,j}^2 / (2i+1)].
 
     It gives the value [1, ∞), where 1 is a random powder
     and ∞ is an ideal single crystal.
