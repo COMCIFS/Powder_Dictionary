@@ -10573,6 +10573,63 @@ save_pd_pref_orient.special_details
 
 save_
 
+save_pd_pref_orient.spherical_harmonics_texture_index
+
+    _definition.id
+        '_pd_pref_orient.spherical_harmonics_texture_index'
+    _definition.update            2025-07-15
+    _description.text
+;
+    The texture index, as described by equation 4.212
+    in Bunge, as T = sum_{i,j} [c_{i,j}^2 / (2i+1)].
+
+    It gives the value [1, ∞), where 1 is a random powder
+    and ∞ is an ideal single crystal.
+
+    Bunge, H.J., (2015) "Texture Analysis in Materials Science:
+    Mathematical Methods", Helga and Hans-Peter Bunge,
+    Wolfratshausen.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               spherical_harmonics_texture_index
+    _type.purpose                 Measurand
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            1.0:
+    _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    t = 0.0
+
+    Loop po as pd_pref_orient_spherical_harmonics  {
+        t += po.c_ij ** 2 / (2 * po.y_i + 1)
+    }
+    _pd_pref_orient.spherical_harmonics_texture_index = t
+;
+
+save_
+
+save_pd_pref_orient.spherical_harmonics_texture_index_su
+
+    _definition.id
+        '_pd_pref_orient.spherical_harmonics_texture_index_su'
+    _definition.update            2025-07-15
+    _description.text
+;
+    Standard uncertainty of _pd_pref_orient.spherical_harmonics_texture_index.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               spherical_harmonics_texture_index_su
+    _name.linked_item_id
+        '_pd_pref_orient.spherical_harmonics_texture_index'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
+
+save_
+
 save_PD_PREF_ORIENT_MARCH_DOLLASE
 
     _definition.id                PD_PREF_ORIENT_MARCH_DOLLASE
@@ -11165,64 +11222,6 @@ save_pd_pref_orient_spherical_harmonics.phase_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_pref_orient_spherical_harmonics.texture_index
-
-    _definition.id
-        '_pd_pref_orient_spherical_harmonics.texture_index'
-    _definition.update            2023-01-06
-    _description.text
-;
-    The texture index, as described by equation 4.212
-    in Bunge, as T = sum_{i,j} [c_{i,j}^2 / (2i+1)].
-
-    It gives the value [1, ∞), where 1 is a random powder
-    and ∞ is an ideal single crystal.
-
-    Bunge, H.J., (2015) "Texture Analysis in Materials Science:
-    Mathematical Methods", Helga and Hans-Peter Bunge,
-    Wolfratshausen.
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               texture_index
-    _type.purpose                 Measurand
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            1.0:
-    _units.code                   none
-    _method.purpose               Evaluation
-    _method.expression
-;
-    t = 0.0
-
-    Loop po as pd_pref_orient_spherical_harmonics  {
-        t += po.c_ij ** 2 / (2 * po.y_i + 1)
-    }
-    _pd_pref_orient_spherical_harmonics.texture_index = t
-
-;
-
-save_
-
-save_pd_pref_orient_spherical_harmonics.texture_index_su
-
-    _definition.id
-        '_pd_pref_orient_spherical_harmonics.texture_index_su'
-    _definition.update            2022-11-17
-    _description.text
-;
-    Standard uncertainty of _pd_pref_orient_spherical_harmonics.texture_index.
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               texture_index_su
-    _name.linked_item_id
-        '_pd_pref_orient_spherical_harmonics.texture_index'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
