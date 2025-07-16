@@ -3463,7 +3463,7 @@ save_PD_CALIB_XCOORD
     provided. Each line in the loop fixes the mapping from a nominal
     value to an actual value. In essence, this is a machine-readable table
     of values that would otherwise be given in a human-readable equation
-    in _pd_calibration.equation.
+    in _pd_calibration.conversion_eqn.
 
     Every datapoint in a diffractogram to be calibrated may not have an
     equivalent value in the calibration table. In this case, an
