@@ -10635,6 +10635,43 @@ save_pd_pref_orient.diffractogram_id
 
 save_
 
+save_pd_pref_orient.geom
+
+    _definition.id                '_pd_pref_orient.geom'
+    _definition.update            2025-07-15
+    _description.text
+;
+    Code identifying the geometry of the preferred-orientation
+    correction, as distinct from the geometry of data collection.
+
+    The functional form of the March-Dollase or spherical harmonics
+    correction depends on whether the data were collected in symmetric
+    or asymmetric reflection or transmission, or capillary geometries.
+    See Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
+    50, 240-251, for further discussion.
+
+    In most Rietveld software, 'symmetric reflection' is the
+    default implementation.
+
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               geom
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Code
+
+    loop_
+      _enumeration_set.state
+      _enumeration_set.detail
+         srefln                   'Symmetric reflection.'
+         arefln                   'Asymmetric reflection.'
+         strans                   'Symmetric transmission.'
+         atrans                   'Asymmetric transmission.'
+         cap                      'Capillary (Debye-Scherrer).'
+
+save_
+
 save_pd_pref_orient.phase_id
 
     _definition.id                '_pd_pref_orient.phase_id'
@@ -10689,6 +10726,65 @@ save_pd_pref_orient.special_details
     _type.source                  Recorded
     _type.container               Single
     _type.contents                Text
+
+save_
+
+save_pd_pref_orient.spherical_harmonics_texture_index
+
+    _definition.id
+        '_pd_pref_orient.spherical_harmonics_texture_index'
+    _definition.update            2025-07-15
+    _description.text
+;
+    The texture index, derived from spherical harmonics coefficients
+    as described by equation 4.212 in Bunge, as
+
+    T = sum_{i,j} [c_{i,j}^2 / (2i+1)].
+
+    It gives the value [1, ∞), where 1 is a random powder
+    and ∞ is an ideal single crystal.
+
+    Bunge, H.J., (2015) "Texture Analysis in Materials Science:
+    Mathematical Methods", Helga and Hans-Peter Bunge,
+    Wolfratshausen.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               spherical_harmonics_texture_index
+    _type.purpose                 Measurand
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            1.0:
+    _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    t = 0.0
+
+    Loop po as pd_pref_orient_spherical_harmonics  {
+        t += po.c_ij ** 2 / (2 * po.y_i + 1)
+    }
+    _pd_pref_orient.spherical_harmonics_texture_index = t
+;
+
+save_
+
+save_pd_pref_orient.spherical_harmonics_texture_index_su
+
+    _definition.id
+        '_pd_pref_orient.spherical_harmonics_texture_index_su'
+    _definition.update            2025-07-15
+    _description.text
+;
+    Standard uncertainty of _pd_pref_orient.spherical_harmonics_texture_index.
+;
+    _name.category_id             pd_pref_orient
+    _name.object_id               spherical_harmonics_texture_index_su
+    _name.linked_item_id
+        '_pd_pref_orient.spherical_harmonics_texture_index'
+    _units.code                   none
+
+    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -10836,44 +10932,6 @@ save_pd_pref_orient_march_dollase.fract_su
     _units.code                   none
 
     _import.get                   [{'file':templ_attr.cif  'save':general_su}]
-
-save_
-
-save_pd_pref_orient_march_dollase.geom
-
-    _definition.id                '_pd_pref_orient_March_Dollase.geom'
-    _definition.update            2023-01-06
-    _description.text
-;
-    Code identifying the geometry of the preferred-orientation
-    correction, as distinct from the geometry of data collection.
-
-    The functional form of the March-Dollase correction depends
-    on whether the data were collected in symmetric or asymmetric
-    reflection or transmission, or capillary geometries. See
-    Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
-    50, 240-251, for further discussion.
-
-    In most Rietveld software, 'symmetric reflection' is the
-    default implementation.
-
-;
-    _name.category_id             pd_pref_orient_March_Dollase
-    _name.object_id               geom
-    _type.purpose                 State
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-    loop_
-      _enumeration_set.state
-      _enumeration_set.detail
-         srefln                   'Symmetric reflection.'
-         arefln                   'Asymmetric reflection.'
-         strans                   'Symmetric transmission.'
-         atrans                   'Asymmetric transmission.'
-         cap                      'Capillary (Debye-Scherrer).'
-    _enumeration.default          srefln
 
 save_
 
@@ -11211,44 +11269,6 @@ save_pd_pref_orient_spherical_harmonics.diffractogram_id
 
 save_
 
-save_pd_pref_orient_spherical_harmonics.geom
-
-    _definition.id                '_pd_pref_orient_spherical_harmonics.geom'
-    _definition.update            2023-01-06
-    _description.text
-;
-    Code identifying the geometry of the preferred-orientation
-    correction, as distinct from the geometry of data collection.
-
-    The functional form of the spherical harmonics correction depends
-    on whether the data were collected in symmetric or asymmetric
-    reflection or transmission, or capillary geometries. See
-    Section 3, Rowles & Buckley (2017) J. Appl. Cryst. (2017).
-    50, 240-251, for further discussion.
-
-    In most Rietveld software, 'symmetric reflection' is the
-    default implementation.
-
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               geom
-    _type.purpose                 State
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Code
-
-    loop_
-      _enumeration_set.state
-      _enumeration_set.detail
-         srefln                   'Symmetric reflection.'
-         arefln                   'Asymmetric reflection.'
-         strans                   'Symmetric transmission.'
-         atrans                   'Asymmetric transmission.'
-         cap                      'Capillary (Debye-Scherrer).'
-    _enumeration.default          srefln
-
-save_
-
 save_pd_pref_orient_spherical_harmonics.id
 
     _definition.id                '_pd_pref_orient_spherical_harmonics.id'
@@ -11284,64 +11304,6 @@ save_pd_pref_orient_spherical_harmonics.phase_id
     _type.source                  Related
     _type.container               Single
     _type.contents                Text
-
-save_
-
-save_pd_pref_orient_spherical_harmonics.texture_index
-
-    _definition.id
-        '_pd_pref_orient_spherical_harmonics.texture_index'
-    _definition.update            2023-01-06
-    _description.text
-;
-    The texture index, as described by equation 4.212
-    in Bunge, as T = sum_{i,j} [c_{i,j}^2 / (2i+1)].
-
-    It gives the value [1, ∞), where 1 is a random powder
-    and ∞ is an ideal single crystal.
-
-    Bunge, H.J., (2015) "Texture Analysis in Materials Science:
-    Mathematical Methods", Helga and Hans-Peter Bunge,
-    Wolfratshausen.
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               texture_index
-    _type.purpose                 Measurand
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Real
-    _enumeration.range            1.0:
-    _units.code                   none
-    _method.purpose               Evaluation
-    _method.expression
-;
-    t = 0.0
-
-    Loop po as pd_pref_orient_spherical_harmonics  {
-        t += po.c_ij ** 2 / (2 * po.y_i + 1)
-    }
-    _pd_pref_orient_spherical_harmonics.texture_index = t
-
-;
-
-save_
-
-save_pd_pref_orient_spherical_harmonics.texture_index_su
-
-    _definition.id
-        '_pd_pref_orient_spherical_harmonics.texture_index_su'
-    _definition.update            2022-11-17
-    _description.text
-;
-    Standard uncertainty of _pd_pref_orient_spherical_harmonics.texture_index.
-;
-    _name.category_id             pd_pref_orient_spherical_harmonics
-    _name.object_id               texture_index_su
-    _name.linked_item_id
-        '_pd_pref_orient_spherical_harmonics.texture_index'
-    _units.code                   none
-
-    _import.get                   [{'file':templ_attr.cif  'save':general_su}]
 
 save_
 
@@ -14696,4 +14658,9 @@ save_
 
        Added _pd_phase.density_diffrn, _pd_phase.atten_coef_mu_calc, and
        _pd_phase.mass_atten_coef_mu_calc.
+
+       Moved _pd_pref_orient_spherical_harmonics.texture_index to
+       _pd_pref_orient.spherical_harmonics_texture_index as it isn't
+       required to loop. Consolidated _pd_pref_orient_march_dollase.geom
+       and _pd_pref_orient_spherical_harmonics.geom to _pd_pref_orient.geom.
 ;
