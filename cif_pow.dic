@@ -3571,7 +3571,7 @@ save_PD_CALIB_XCOORD
           ...
 
          loop_
-         _pd_data.id
+         _pd_data.point_id
          _pd_meas.detector_id
          _pd_meas.time_of_flight
          _pd_proc.d_spacing
@@ -3599,7 +3599,7 @@ save_PD_CALIB_XCOORD
          _pd_diffractogram.instr_id    tof-instrument-1
 
          loop_
-         _pd_data.id
+         _pd_data.point_id
          _pd_meas.detector_id
          _pd_meas.time_of_flight
          _pd_proc.intensity_total
@@ -4383,7 +4383,7 @@ save_PD_CALIBRATION
          _pd_calibration.diffractogram_id   EDD_STANDARD
 
          loop_
-         _pd_data.id
+         _pd_data.point_id
          _pd_meas.channel
          _pd_proc.energy_detection
          _pd_proc.energy_detection_su
