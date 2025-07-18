@@ -10827,10 +10827,10 @@ save_PD_PREF_ORIENT_MARCH_DOLLASE
          _pd_pref_orient_March_Dollase.diffractogram_id
          _pd_pref_orient_March_Dollase.phase_id
          _pd_pref_orient_March_Dollase.hkl
-         _pd_pref_orient_March_Dollase.fract
-         _pd_pref_orient_March_Dollase.fract_su
-         1   DIFFPAT_1   PHASE_1   [1 0 4]   0.79   0.12
-         2   DIFFPAT_1   PHASE_2   [0 0 1]   0.66   0.15
+         _pd_pref_orient_March_Dollase.r
+         _pd_pref_orient_March_Dollase.r_su
+         1   DIFFPAT_1   PHASE_1   [ 1 0 4 ]   0.79   0.12
+         2   DIFFPAT_1   PHASE_2   [ 0 0 1 ]   0.66   0.15
 ;
 ;
          Showing a fully qualified reporting of the preferred-orientation
