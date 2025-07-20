@@ -12333,6 +12333,63 @@ save_pd_proc_ls.profile_function
 
 save_
 
+save_pd_proc_ls.q_parameter
+
+    _definition.id                '_pd_proc_ls.Q_parameter'
+    _definition.update            2025-07-20
+    _description.text
+;
+    The Q parameter is a measure of the significance of the
+    weighted Durbin-Watson statistic at the 0.1% level.
+
+    If consecutive residuals are not significantly correlated,
+    d has a value nearer to 2 than Q. If d < Q < 2, then successive
+    values of the residuals tend to have the same sign and have
+    positive serial correlation, whereas for d > 4 - Q > 2, successive
+    residuals tend to have opposite sign and display negative serial
+    correlation.
+
+    That is, if there is no positive or negative serial correlation
+    at the 0.1% significance level, Q < d < 4 - Q. If d exists in
+    this range, then the Rietveld parameter estimated standard deviations
+    can be considered valid, otherwise, not.
+
+                  [  N - 1         3.09023    ]
+            Q = 2 [ -------  -  ------------- ]
+                  [  N - P       Sqrt(N + 2)  ]
+
+      Note that in the above equation,
+         M is the total number of data points (see
+              _pd_proc.number_of_points) less the number of
+              data points excluded from the refinement.
+         P is the total number of refined parameters (see
+              _pd_proc_ls.number_parameters).
+
+    See:
+    Hill & Flack (1987). 'The use of the Durbin-Watson d statistic
+    in Rietveld analysis', J. Appl. Cryst. 20, 356-361.
+    Theil, H. & Nagar, A. L. (1961). 'Testing the Independence of
+    Regression Disturbances', J. Am. Stat. Assoc. 56, 793-806.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               Q_parameter
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+    _method.purpose               Evaluation
+    _method.expression
+;
+    pd_proc_ls.q_parameter =
+     ((pd_proc.number_of_points - 1)/
+      (pd_proc.number_of_points - pd_proc_ls.number_parameters)) -
+     (3.09023 / Sqrt(pd_proc.number_of_points + 2))
+;
+
+save_
+
 save_pd_proc_ls.special_details
 
     _definition.id                '_pd_proc_ls.special_details'
@@ -14824,6 +14881,8 @@ save_
        required to loop. Consolidated _pd_pref_orient_march_dollase.geom
        and _pd_pref_orient_spherical_harmonics.geom to _pd_pref_orient.geom.
 
-       Added _pd_proc_ls.prof_DW_statistic, _pd_proc_ls.prof_wDW_statistic, and
-       _pd_proc_ls.number_parameters.
+       Added _pd_proc_ls.prof_DW_statistic, _pd_proc_ls.prof_wDW_statistic,
+       _pd_proc_ls.q_parameter, and _pd_proc_ls.number_parameters to allow
+       recording of the Durbin-Watson statistic, the weighted variant, and
+       to record its statistical significance.
 ;
