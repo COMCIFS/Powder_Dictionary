@@ -12154,11 +12154,11 @@ save_pd_proc_ls.prof_r_factor
     _pd_proc_ls.prof_R_factor, often called R~p~, is an
       unweighted fitness metric for the agreement between the
       observed and computed diffraction patterns.
-         R~p~ = sum~i~ | I~obs~(i) - I~calc~(i) |
+
+         R~p~ = sum~i~ ( | I~obs~(i) - I~calc~(i) | )
                 / sum~i~ ( I~obs~(i) )
+
       Note that in the above equations,
-         w(i) is the weight for the ith data point (see
-              _pd_proc.ls_weight).
          I~obs~(i) is the observed intensity for the ith data
               point, sometimes referred to as y~i~(obs) or
               y~oi~. (See _pd_meas.counts_total,
@@ -12168,11 +12168,6 @@ save_pd_proc_ls.prof_r_factor
               applied to match the scale of the observed data set,
               sometimes referred to as y~i~(calc) or
               y~ci~. (See _pd_calc.intensity_total.)
-         n is the total number of data points (see
-              _pd_proc.number_of_points) less the number of
-              data points excluded from the refinement.
-         p is the total number of refined parameters (see
-              _pd_proc_ls.number_parameters).
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               prof_R_factor
@@ -12212,7 +12207,8 @@ save_pd_proc_ls.prof_wdw_statistic
               applied to match the scale of the observed data set,
               sometimes referred to as y~i~(calc) or
               y~ci~. (See _pd_calc.intensity_total.)
-         M is the number of data points.
+         M is the number of data points (see
+              _pd_proc.number_of_points).
 
     See:
     Hill & Flack (1987). 'The use of the Durbin-Watson d statistic
@@ -12247,6 +12243,7 @@ save_pd_proc_ls.prof_wr_expected
       fluctuations, the observed R~wp~ should match the expected
       R factor. In reality, R~wp~ will always be higher than
       R~exp~.
+
         R~exp~ = SQRT { (n - p)  / sum~i~ ( w(i) [I~obs~(i)]^2^ ) }
 
       Note that in the above equations,
@@ -12256,11 +12253,6 @@ save_pd_proc_ls.prof_wr_expected
               point, sometimes referred to as y~i~(obs) or
               y~oi~. (See _pd_meas.counts_total,
               _pd_meas.intensity_total or _pd_proc.intensity_total.)
-         I~calc~(i) is the computed intensity for the ith data
-              point with background and other corrections
-              applied to match the scale of the observed data set,
-              sometimes referred to as y~i~(calc) or
-              y~ci~. (See _pd_calc.intensity_total.)
          n is the total number of data points (see
               _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
@@ -12288,6 +12280,7 @@ save_pd_proc_ls.prof_wr_factor
     _pd_proc_ls.prof_wR_factor, often called R~wp~, is a
       weighted fitness metric for the agreement between the
       observed and computed diffraction patterns.
+
         R~wp~ = SQRT {
                  sum~i~ ( w(i) [ I~obs~(i) - I~calc~(i) ]^2^ )
                  / sum~i~ ( w(i) [I~obs~(i)]^2^ )
@@ -12305,11 +12298,6 @@ save_pd_proc_ls.prof_wr_factor
               applied to match the scale of the observed data set,
               sometimes referred to as y~i~(calc) or
               y~ci~. (See _pd_calc.intensity_total.)
-         n is the total number of data points (see
-              _pd_proc.number_of_points) less the number of
-              data points excluded from the refinement.
-         p is the total number of refined parameters (see
-              _pd_proc_ls.number_parameters).
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               prof_wR_factor
