@@ -11967,6 +11967,32 @@ save_pd_proc_ls.diffractogram_id
 
 save_
 
+save_pd_proc_ls.number_parameters
+
+    _definition.id                '_pd_proc_ls.number_parameters'
+    _definition.update            2025-07-20
+    _description.text
+;
+    Number of parameters refined in the least-squares process. If
+    possible this number should include the restrained parameters.
+    The restrained parameters are distinct from the constrained
+    parameters (where one or more parameters are linearly dependent
+    on the refined value of another).  Least-squares restraints
+    often depend on geometry or energy considerations and this
+    makes their direct contribution to this number, and to the
+    goodness-of-fit calculation, difficult to assess.
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               number_parameters
+    _type.purpose                 Number
+    _type.source                  Recorded
+    _type.container               Single
+    _type.contents                Integer
+    _enumeration.range            0:
+    _units.code                   none
+
+save_
+
 save_pd_proc_ls.peak_cutoff
 
     _definition.id                '_pd_proc_ls.peak_cutoff'
@@ -12101,7 +12127,8 @@ save_pd_proc_ls.prof_gof_factor
          n is the total number of data points (see
               _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
-         p is the total number of refined parameters.
+         p is the total number of refined parameters (see
+              _pd_proc_ls.number_parameters).
 
        R~wp~ and R~exp~ are given by _pd_proc_ls.prof_wr_factor and
        _pd_proc_ls.prof_wr_expected, respectively.
@@ -12144,7 +12171,8 @@ save_pd_proc_ls.prof_r_factor
          n is the total number of data points (see
               _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
-         p is the total number of refined parameters.
+         p is the total number of refined parameters (see
+              _pd_proc_ls.number_parameters).
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               prof_R_factor
@@ -12236,7 +12264,8 @@ save_pd_proc_ls.prof_wr_expected
          n is the total number of data points (see
               _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
-         p is the total number of refined parameters.
+         p is the total number of refined parameters (see
+              _pd_proc_ls.number_parameters).
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               prof_wR_expected
@@ -12279,7 +12308,8 @@ save_pd_proc_ls.prof_wr_factor
          n is the total number of data points (see
               _pd_proc.number_of_points) less the number of
               data points excluded from the refinement.
-         p is the total number of refined parameters.
+         p is the total number of refined parameters (see
+              _pd_proc_ls.number_parameters).
 ;
     _name.category_id             pd_proc_ls
     _name.object_id               prof_wR_factor
@@ -14806,5 +14836,6 @@ save_
        required to loop. Consolidated _pd_pref_orient_march_dollase.geom
        and _pd_pref_orient_spherical_harmonics.geom to _pd_pref_orient.geom.
 
-       Added _pd_proc_ls.prof_DW_statistic and _pd_proc_ls.prof_wDW_statistic.
+       Added _pd_proc_ls.prof_DW_statistic, _pd_proc_ls.prof_wDW_statistic, and
+       _pd_proc_ls.number_parameters.
 ;
