@@ -12024,6 +12024,52 @@ save_pd_proc_ls.pref_orient_corr
 
 save_
 
+save_pd_proc_ls.prof_dw_statistic
+
+    _definition.id                '_pd_proc_ls.prof_DW_statistic'
+    _definition.update            2025-07-20
+    _description.text
+;
+    The Durbin-Watson statistic is a measure of serial
+    correlation in the study of least-squares regression. If
+    consecutive residuals are insignificantly correlated, d
+    should have a value of approximately 2.
+
+                 sum([D(i) - D(i-1)]^2, i=2..M)
+            d = --------------------------------
+                   sum([D(i)/s(i)]^2, i=1..M)
+
+      Note that in the above equations,
+         D(i) = I~obs~(i) - I~calc~(i).
+         I~obs~(i) is the observed intensity for the ith data
+              point, sometimes referred to as y~i~(obs) or
+              y~oi~. (See _pd_meas.counts_total,
+              _pd_meas.intensity_total or _pd_proc.intensity_total.)
+         I~calc~(i) is the computed intensity for the ith data
+              point with background and other corrections
+              applied to match the scale of the observed data set,
+              sometimes referred to as y~i~(calc) or
+              y~ci~. (See _pd_calc.intensity_total.)
+         M is the number of data points.
+
+    See:
+    Hill & Flack (1987). 'The use of the Durbin-Watson d statistic
+    in Rietveld analysis', J. Appl. Cryst. 20, 356-361.
+    Durbin & Watson (1971). 'Testing for serial correlation in least
+    squares regression.III', Biometrika, 58, 1-19.
+
+;
+    _name.category_id             pd_proc_ls
+    _name.object_id               prof_DW_statistic
+    _type.purpose                 Number
+    _type.source                  Derived
+    _type.container               Single
+    _type.contents                Real
+    _enumeration.range            0.0:
+    _units.code                   none
+
+save_
+
 save_pd_proc_ls.prof_gof_factor
 
     _definition.id                '_pd_proc_ls.prof_gof_factor'
@@ -12148,7 +12194,7 @@ save_pd_proc_ls.prof_wdw_statistic
 
 ;
     _name.category_id             pd_proc_ls
-    _name.object_id               prof_wdw_statistic
+    _name.object_id               prof_wDW_statistic
     _type.purpose                 Number
     _type.source                  Derived
     _type.container               Single
