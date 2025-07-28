@@ -2669,7 +2669,7 @@ save_PD_CALIB_DETECTED_INTENSITY
 ;
          The two detectors, A and B, have responses of 1 and 1.035,
          respectively, meaning that their measured intensities must be divided
-         by these values to retreive their true values. These response values
+         by these values to retrieve their true values. These response values
          were derived from an analysis of the diffraction patterns
          DIFFRACTOGRAM_A and DIFFRACTOGRAM_B, both of which contain the phase
          676A.
