@@ -1876,7 +1876,7 @@ save_PD_BLOCK_DIFFRACTOGRAM
 
     A number of diffractograms may contribute to the
     determination of the structure of a single phase.
-    The _pd_block.ids of those diffractograms should
+    The _pd_block.id values of those diffractograms should
     be listed here.
 ;
     _name.category_id             PD_GROUP
@@ -2201,7 +2201,7 @@ save_pd_calc_overall.component_presentation_order
     _definition.update            2023-06-13
     _description.text
 ;
-    List of _pd_phase.ids specifying the order in which
+    List of _pd_phase.id values specifying the order in which
     the individual phases' calculated components are given
     within _pd_calc.component_intensities_*.
 ;
@@ -2669,7 +2669,7 @@ save_PD_CALIB_DETECTED_INTENSITY
 ;
          The two detectors, A and B, have responses of 1 and 1.035,
          respectively, meaning that their measured intensities must be divided
-         by these values to retreive their true values. These response values
+         by these values to retrieve their true values. These response values
          were derived from an analysis of the diffraction patterns
          DIFFRACTOGRAM_A and DIFFRACTOGRAM_B, both of which contain the phase
          676A.
