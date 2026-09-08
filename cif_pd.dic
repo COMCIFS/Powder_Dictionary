@@ -15,7 +15,7 @@ data_CIF_PD
     _dictionary.title             CIF_PD
     _dictionary.class             Instance
     _dictionary.version           2.5.0
-    _dictionary.date              2026-07-20
+    _dictionary.date              2026-09-08
     _dictionary.uri
 https://raw.githubusercontent.com/COMCIFS/cif_pd/master/cif_pd.dic
     _dictionary.ddl_conformance   4.2.0
@@ -14854,7 +14854,7 @@ save_
 
        Deprecated _pd_refln.wavelength_id after consultation with PDDMG.
 ;
-         2.5.0                    2026-07-20
+         2.5.0                    2026-09-08
 ;
        New categories together with linked identifiers and examples:
        PD_DIFFRACTOGRAM, PD_CALC_COMPONENT, PD_PREF_ORIENT_MARCH_DOLLASE,
